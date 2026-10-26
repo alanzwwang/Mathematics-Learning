@@ -359,12 +359,12 @@ The condition x ≠ 0 matters: the original fraction has division by x, and divi
 
 The combination lemma (small now, huge in Lesson 5)
 
-One last idea, stated with letters and proved in four steps. Claim: if d divides a and d divides b, then d divides every combination m×a + n×b, for any whole numbers m and n.
+One last idea, stated with letters and proved in four steps. Claim: if d divides a and d divides b, then d divides every combination m×a + n×b, for any integers m and n (negatives allowed).
 
   1. d divides a means a = d × r for some whole number r. (Definition of "divides.")
   2. d divides b means b = d × s for some whole number s. (Same definition.)
   3. Substitute: m×a + n×b = m×(d×r) + n×(d×s) = d×(m×r + n×s). (Factor d out — distribution in reverse!)
-  4. The result is d times a whole number, so d divides it. ∎
+  4. The result is d times an integer, so d divides it. ∎
 
 In words: anything that divides two numbers also divides their sum, their difference, and any "mix" of the two. Hold onto this — it's the entire engine of the next lesson.
 
@@ -435,7 +435,7 @@ Now for the honors superpower. Read the Euclid lines for (84, 48) BACKWARDS to e
 
         Check: 2 × 48 − 84 = 96 − 84 = 12 ✅
 
-So 12 = 2×48 + (−1)×84 — the GCF is written as a whole-number COMBINATION of the two original numbers (negative coefficients allowed!). This fact is called Bézout's identity: GCF(a, b) can always be written as m×a + n×b for some integers m and n. It looks like a party trick, but it's the beating heart of internet security: the codes that protect messages start by finding exactly these combinations, with Euclid's algorithm, on gigantic numbers.
+So 12 = 2×48 + (−1)×84 — the GCF is written as an integer COMBINATION of the two original numbers (negative coefficients allowed!). This fact is called Bézout's identity: GCF(a, b) can always be written as m×a + n×b for some integers m and n. It looks like a party trick, but it's the beating heart of internet security: the codes that protect messages start by finding exactly these combinations, with Euclid's algorithm, on gigantic numbers.
 
 A word from history
 

@@ -1586,9 +1586,9 @@ Challenge
       the longest side is a DIAMETER (length 10 = 2 × radius ✅), and
       the triangle's right angle (at the origin — check: 6² + 8² =
       10² ✅) sits exactly on the circle. Thales' theorem: any triangle
-      whose longest side is a diameter has its right angle on the
-      circle. You just rediscovered a 2000-year-old theorem with
-      nothing but coordinates!
+      with all three corners on a circle and one side a diameter has a
+      right angle at the third corner. You just rediscovered a
+      2000-year-old theorem with nothing but coordinates!
 
   91. (a) Vertex of y = −(x − 2)² + 9 is (2, 9): since (x − 2)² ≥ 0,
       we get −(x − 2)² ≤ 0, so y ≤ 9 — with y = 9 exactly at x = 2.

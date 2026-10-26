@@ -585,7 +585,7 @@ Hint for every problem: first ask yourself, "Is this an OR, an AND, a NOT, the b
 
 🟢 EASY (Problems 1–48)
 
-Problems 1–10 — the basic formula, with real simplifying. Bag A holds 5 red, 3 blue, 4 green. (6–8 use Bag B; 9–10 use a spinner.)
+Problems 1–10 — the basic formula, with real simplifying. Bag A holds 5 red, 3 blue, 4 green. (6–8 use Bag B; 9 uses a spinner; 10 goes back to Bag A.)
 
   1. How many marbles are in Bag A?
   2. P(red) from Bag A
@@ -609,7 +609,7 @@ Problems 11–18 — which probability is bigger? Show the common denominators (
   17. Order: 2/5, 1/4, 3/10
   18. Game A: you win with P = 2/6 on a die. Game B: you win with P = 3/8 on a spinner. Which game treats you better?
 
-Problems 19–26 — the counting principle. (25–26 solve backward!)
+Problems 19–26 — the counting principle. (26 solves backward!)
 
   19. How many outcomes do two coin flips have?
   20. Three coin flips?

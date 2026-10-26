@@ -148,7 +148,7 @@ But what about log(400)? Four hundred isn't a clean power of 10. Here's the beau
 
         100  <  400  <  1,000
 
-Since log(100) = 2 and log(1,000) = 3, the answer must be sandwiched between 2 and 3. (A calculator says about 2.6 — and sure enough, 400 sits between 100 and 1,000, closer to 100.) You don't always need the exact answer. "Between 2 and 3" is often plenty — and it proves you understand what a log IS.
+Since log(100) = 2 and log(1,000) = 3, the answer must be sandwiched between 2 and 3. (A calculator says about 2.6 — and sure enough, that's between 2 and 3.) You don't always need the exact answer. "Between 2 and 3" is often plenty — and it proves you understand what a log IS.
 
         log₂(10) is between 3 and 4   (because 8 < 10 < 16)
         log₃(50) is between 3 and 4   (because 27 < 50 < 81)
@@ -536,7 +536,7 @@ Problems 88–90 — Logs in the wild! (Lesson 6)
   95. Pass the mark! Start with 1 and keep doubling: 2, 4, 8, ... How many
       doublings does it take to pass 100?
   96. A different Petri dish starts with 3 blobs and doubles every hour. After how
-      many WHOLE hours is it past 50 blobs? (List the hours out loud: 6, 12, ...)
+      many WHOLE hours is it past 50 blobs? (List the blobs hour by hour: 6, 12, ...)
   97. Earthquake deluxe! a) How many times stronger is a magnitude 6 quake than a
       magnitude 4? b) And magnitude 6 versus magnitude 2? Write part b as a power
       of 10.

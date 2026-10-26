@@ -150,7 +150,7 @@ Now switch to angle B, which faces side 4. The labels swap: opposite = 4, adjace
 
 Bonus discovery — look closely at those two rows: sin A = 3/5 and cos B = 3/5. They're EQUAL! That's not luck. The side opposite angle A is adjacent to angle B, so sine of one pointy angle always equals cosine of the other. And since every right triangle's two pointy angles add to 90° (they share the 90° left over from the right angle), the rule is: sin of an angle = cos of its partner, where partners add to 90°.
 
-One last pattern worth noticing: sin and cos both have the hypotenuse — the LONGEST side — on the bottom. So sin and cos are always smaller than 1. But tan divides leg by leg, and either leg can be longer — so tan can be bigger than 1 (like 4/3 up there!). Remember that; the answer key will test it.
+One last pattern worth noticing: sin and cos both have the hypotenuse — the LONGEST side — on the bottom. So sin and cos are always smaller than 1. But tan divides leg by leg, and either leg can be longer — so tan can be bigger than 1 (like 4/3 up there!). Remember that; the practice problems will test it.
 
 ✏️ Your Turn
 
@@ -208,7 +208,7 @@ Lesson 6: The Special Angles — 30°, 45°, 60°
 
 Every angle has its own sin, cos, and tan — its fingerprint, remember. Calculators know them all. But three angles are so famous and so useful that their values are worth memorizing: 30°, 45°, and 60°. That's the table above.
 
-First, a symbol: ≈ means "about equal to." The true values of cos 30° and friends are decimals that go on forever, but 0.87 is so close that your ruler will never know the difference. Two values in the table are EXACT — sin 30° = 0.5 and cos 60° = 0.5 and tan 45° = 1 — which is why problems adore them.
+First, a symbol: ≈ means "about equal to." The true values of cos 30° and friends are decimals that go on forever, but 0.87 is so close that your ruler will never know the difference. Three values in the table are EXACT — sin 30° = 0.5 and cos 60° = 0.5 and tan 45° = 1 — which is why problems adore them.
 
 Now hunt for the patterns hiding in the table (test-makers love these):
 
@@ -462,7 +462,7 @@ Problems 51–60 — Measure the world! (Lesson 7)
   56. A kite string is 20 m long and makes a 60° angle with the ground.
       About how high is the kite? (sin 60° ≈ 0.87)
   57. A slide is 10 m long along its slope and meets the ground at 30°.
-      How tall is the ladder end? (sin 30° = 0.5)
+      How tall is the high end? (sin 30° = 0.5)
   58. A roof rises 1 m for every 1 m across (that's tan 45° = 1).
       How much does it rise over 6 m across?
   59. A gentle ramp rises 0.58 m for every 1 m across (that's tan 30° ≈ 0.58).
@@ -695,8 +695,8 @@ Intermediate
 
   89. sin = opposite ÷ hypotenuse, and the hypotenuse is always the longest
       side — so sine can never reach 1, let alone 5/4. A sine bigger than 1
-      is like a fraction with a bigger top than bottom built from a longest
-      side. Impossible!
+      would need the opposite side to be longer than the longest side.
+      Impossible!
   90. They used the hypotenuse — but tangent never touches the hypotenuse!
       TOA: tan = opposite ÷ adjacent = 5/12.
 

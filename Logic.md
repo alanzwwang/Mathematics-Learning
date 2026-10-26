@@ -774,7 +774,7 @@ Lesson 9: Watch Out! Common Mistakes
         flip-and-deny = same promise · flip-only = maybe
         reversible step = two-way promise · squaring and zero-multiplying = one-way, so CHECK
 
-Mistake 1: flipping ALL to NONE. "All multiples of 6 are even" flips to "No multiple of 6 is even"? ❌ One odd multiple of 6 is all it takes to kill "all" — so the flip is "SOME multiple of 6 is not even." ✅ (The original happens true, so the flip is false — flipping doesn't care.)
+Mistake 1: flipping ALL to NONE. "All multiples of 6 are even" flips to "No multiple of 6 is even"? ❌ One odd multiple of 6 is all it takes to kill "all" — so the flip is "SOME multiple of 6 is not even." ✅ (The original happens to be true, so the flip is false — flipping doesn't care.)
 
 Mistake 2: negating > as <. The flip of "x > 5" is "x < 5"? ❌ Where did 5 go? "Not above 5" still allows exactly 5 — the flip is x ≤ 5. The boundary always switches teams. ✅
 
@@ -1165,7 +1165,7 @@ Easy
   55. x ≠ 6 MUST be true — if x were 6, x² would be 36; since x² ≠ 36, x can't be 6.
       (Denying the THEN — the contrapositive in action.)
   56. x = −3: IF holds, (−3)² = 9 > 4 ✓; THEN fails, −3 > 2 is false. Counterexample — claim dead.
-      (Any x ≤ −2 works: −2.5, −10...)
+      (Any x < −2 works: −2.5, −10...)
   57. x = −3: IF holds (−3 is negative ✓); THEN fails (−x = 3, which is POSITIVE).
       Negating a negative gives a positive — claim dead.
   58. TRUE. For real x, x² ≥ 0 always (positive² > 0, 0² = 0, negative² > 0), so the IF x² < 0

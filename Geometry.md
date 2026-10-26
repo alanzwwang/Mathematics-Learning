@@ -203,7 +203,7 @@ Watch the chase in action. A transversal cuts parallel lines, and one angle is 7
 
 Now the payoff: proving the golden rule of triangles
 
-You've believed for years that every triangle's angles add to 180°. Today we PROVE it, using nothing but parallel lines and the angle facts above. Take any triangle ABC. Draw the line through C that is parallel to side AB, and mark a point D on it so that A and D are on opposite sides of line BC.
+You've believed for years that every triangle's angles add to 180°. Today we PROVE it, using nothing but parallel lines and the angle facts above. Take any triangle ABC. Draw the line through C that is parallel to side AB, and mark a point D on it so that B and D are on opposite sides of line AC.
 
         1. ∠A = ∠ACD                  (alternate interior angles: AC is a transversal
                                          cutting the parallel lines AB and DC)
@@ -354,7 +354,7 @@ Using it sideways: find a missing leg
         b² = 625 − 49 = 576    (subtract 49 from both sides)
         b = √576 = 24          (positive square root)
 
-Triplets worth memorizing: 3-4-5, 5-12-13, 8-15-17, 7-24-25 — and every multiple of them (6-8-10 is 3-4-5 doubled). Spotting a triple turns a four-line calculation into one glance.
+Triples worth memorizing: 3-4-5, 5-12-13, 8-15-17, 7-24-25 — and every multiple of them (6-8-10 is 3-4-5 doubled). Spotting a triple turns a four-line calculation into one glance.
 
 Using it backwards: the CONVERSE classifies any triangle
 
@@ -1080,7 +1080,7 @@ Problems 45–52 — Area, forward and backward. (Lesson 7)
   51. Use Heron's formula to find the area of the triangle with sides 9, 10, 17.
   52. A parallelogram has area 84 cm² and base 12 cm. (a) Find the height.
       (b) A second parallelogram has the same base and DOUBLE the height — find
-      its area, and say which lesson's scaling idea explains the doubling.
+      its area, and say whether Lesson 8's k² scaling rule explains the doubling.
 
 Problems 53–58 — Similarity. (Lesson 8)
 
@@ -1140,7 +1140,7 @@ Problems 75–80 — Counting. (Lesson 11)
   82. Disguised system. A triangle's angles satisfy: ∠x = 2∠z, and ∠y is 20°
       less than ∠x. Find all three angles. (Set up x + y + z = 180°, substitute,
       and solve — every step shown.)
-  83. Complementary counting. How many rectangles in a 4 by 4 grid of squares do
+  83. Complementary counting. How many rectangles in a 5 by 5 grid of squares do
       NOT contain the center square? (Count all, then count the unwanted, then
       subtract. Each stage explained.)
   84. Sierpinski accounting. A Sierpinski triangle starts with area 256 cm².
@@ -1353,9 +1353,9 @@ Challenge
   82. x = 2z and y = x − 20 = 2z − 20 (substitute x). Into the sum:
       2z + (2z − 20) + z = 180 → 5z − 20 = 180 → 5z = 200 → z = 40°.
       Then x = 80°, y = 60°. Check: 80 + 60 + 40 = 180 ✅.
-  83. All rectangles: 5 lines each direction → (5 × 4 ÷ 2)² = 10 × 10 = 100.
-      Containing the center square: left edge 3 choices, right edge 2, top 3,
-      bottom 2 → 3 × 2 × 3 × 2 = 36. Answer: 100 − 36 = 64 rectangles.
+  83. All rectangles: 6 lines each direction → (6 × 5 ÷ 2)² = 15 × 15 = 225.
+      Containing the center square: left edge 3 choices, right edge 3, top 3,
+      bottom 3 → 3 × 3 × 3 × 3 = 81. Answer: 225 − 81 = 144 rectangles.
   84. (a) After 2 steps: 256 × (3/4)² = 256 × 9/16 = 144 cm². After 3:
       144 × 3/4 = 108 cm². (b) (3⁵ − 1) ÷ (3 − 1) = 242 ÷ 2 = 121 holes.
       Direct check: 1 + 3 + 9 + 27 + 81 = 121 ✅.

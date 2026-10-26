@@ -415,7 +415,7 @@ Factoring feels like a trick now, but it becomes a superpower in Lesson 7, when 
 
 Solve 20 − 4(x + 1) = 8. (Distribute the −4 very carefully!)
 
-Answer: 20 − 4x − 4 = 8 → 16 − 4x = 8 → −4x = −8 → x = 2. Check: 20 − 4 × 3 = 20 − 12 = 8 ✅
+Answer: 20 − 4x − 4 = 8 → 16 − 4x = 8 → −4x = −8 → x = 2. Check: 20 − 4 × (2 + 1) = 20 − 12 = 8 ✅
 
 ────────────────────────────────────────
 
@@ -563,7 +563,7 @@ What numbers, squared, give 49? Well, 7 × 7 = 49... but ALSO (−7) × (−7) =
 
       x = 7  or  x = −7,  which we write as  x = ±7
 
-Check both: 7² = 49 ✅ and (−7)² = 49 ✅. Most x² = (positive number) equations come with two answers. Never forget the negative one!
+Check both: 7² = 49 ✅ and (−7)² = 49 ✅. Every x² = (positive number) equation comes with two answers. Never forget the negative one!
 
 Worked Example 1: 3x² = 48
 
@@ -1148,7 +1148,7 @@ No peeking until you've tried! If you got one wrong, figure out WHICH step slipp
 60. No solution. Distribute: 5x − 5 = 5x − 3. Subtract 5x: −5 = −3 — never true.
 61. x = 6 or x = −6. Both 6² and (−6)² equal 36. ✅
 62. x = ±10. Both 10² and (−10)² equal 100. ✅
-63. x = 3. 3³ = 27, and only a positive cube gives a positive. ✅
+63. x = 3. 3³ = 27, and only a positive number cubes to a positive. ✅
 64. x = −2. (−2)³ = −8 — a cube keeps its sign, so only one answer. ✅
 65. x = ±3/4. (3/4)² = 9/16 and (−3/4)² = 9/16. ✅
 66. x = ±4. Divide by 2: x² = 16. Both 4² and (−4)² equal 16. Check: 2 × 16 = 32 ✅

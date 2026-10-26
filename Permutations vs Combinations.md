@@ -198,7 +198,7 @@ Same club, two questions. Seven members.
 
         C(7, 3) = 210 ÷ 6 = 35
 
-Same people, same club, same-size pick — and the answers are exactly 6 = 3! apart. The permutation counts every committee once per scramble; the combination counts it once, period.
+Same people, same club, same-size pick — and the permutation answer is exactly 6 = 3! times bigger. The permutation counts every committee once per scramble; the combination counts it once, period.
 
 Clue words to listen for:
 
@@ -438,7 +438,7 @@ Problems 87–90 — Explain yourself!
   91. The ratio mystery. A club of 8 picks 3 officers (president, VP, treasurer): that's P(8, 3). It also picks a plain 3-person committee: that's C(8, 3). Compute both, then divide the first by the second. Why is the ratio EXACTLY 6?
   92. Handshake pattern. Eight people shake hands: C(8, 2) = 28. Then a 9th person arrives and shakes everyone's hand. How many NEW handshakes happen? What's the new total? Bonus: explain why C(9, 2) = C(8, 2) + 8 must ALWAYS work.
   93. The tournament. Six teams each play each other once. How many games? Now make it home-and-away — each pair plays twice, once at each team's field. How many games now, and why did it secretly become a PERMUTATION problem?
-  94. The pizza ad (open-ended). A pizzeria brags: "Over 50 different 2-topping pizzas!" What is the SMALLEST number of toppings they must offer for the ad to be true? (Test C(10, 2), then go one bigger.)
+  94. The pizza ad. A pizzeria brags: "Over 50 different 2-topping pizzas!" What is the SMALLEST number of toppings they must offer for the ad to be true? (Test C(10, 2), then go one bigger.)
   95. Best friends forever. Five friends line up for a photo, but Ana and Ben INSIST on standing next to each other. How many arrangements? (Hint: glue Ana and Ben into one block — now you have 4 things to line up. But the block can flip!)
   96. Always, sometimes, or never? "C(n, 2) is exactly half of P(n, 2)." Prove your answer. Bonus: what fraction of P(n, 3) is C(n, 3)?
   97. Probability finale. Six books go on a shelf in a random order. What's the probability that your 2 favorites end up NEXT TO EACH OTHER? (Glue them like in #95: that's 2 × 5! favorable out of 6! total — then simplify the fraction!)

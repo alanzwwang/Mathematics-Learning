@@ -49,7 +49,7 @@ What is 3 ÷ 4? Split 3 pizzas among 4 people: each person gets 3/4 of a pizza. 
 
 The top number has a name — the numerator — and the bottom has a name — the denominator. (Memory trick: the denominator is down under, and it names the denomination — the size of the pieces.) Once you see the bar as division, a lot of mystery evaporates.
 
-Every integer is secretly a fraction. 5 = 5/1, because 5 ÷ 1 = 5. Same with negatives: −7 = −7/1. Any number that can be written as a/b — a whole number on top, a nonzero whole number on the bottom — is called a rational number. ("Rational" comes from "ratio"!) Integers, fractions, and negative fractions are all rational numbers.
+Every integer is secretly a fraction. 5 = 5/1, because 5 ÷ 1 = 5. Same with negatives: −7 = −7/1. Any number that can be written as a/b — an integer on top, a nonzero integer on the bottom — is called a rational number. ("Rational" comes from "ratio"!) Integers, fractions, and negative fractions are all rational numbers.
 
 The minus sign has three homes
 
@@ -127,7 +127,7 @@ The x simply rides along on top. And if x is on the bottom too, it can cancel �
 
         12x/(16x) = (12/16) × (x/x) = (3/4) × 1 = 3/4
 
-        (One condition: x ≠ 0, because then the bottom 16x would be 0 — forbidden!)
+        (One condition: x ≠ 0, because if x = 0 the bottom 16x would be 0 — forbidden!)
 
 Factoring: the move that simplifies the big ones
 

@@ -446,7 +446,7 @@ Now chain two facts you already own:
   Step 3: In radians, D < π ≈ 3. [Convert 180° = π ≈ 3 radians.]
   Step 4: Therefore area = D < π ≈ 3. [Saddle area formula.] ✅
 
-Read Step 4 again. On the curvature −1 saddle, NO triangle — not one the size of a city, not one the size of a galaxy — can ever reach area 3! The closer a triangle comes to that limit, the closer its angles come to 0°, with its three vertices flying off toward infinity. The ball lets triangles grow to 4πR²; the saddle ruffles so fast that area hits a hard ceiling. Two curved worlds, opposite personalities.
+Read Step 4 again. On the curvature −1 saddle, NO triangle — not one the size of a city, not one the size of a galaxy — can ever reach area 3! The closer a triangle comes to that limit, the closer its angles come to 0°, with its three vertices flying off toward infinity. The ball lets triangles grow toward 2πR² (half the whole ball); the saddle ruffles so fast that area hits a hard ceiling. Two curved worlds, opposite personalities.
 
 A peek at the map of the saddle: the Poincaré disk
 
@@ -621,7 +621,7 @@ You've now toured all three worlds. Line them up — including the new honors ro
         Triangle angle sum      = 180°          MORE (excess)     LESS (deficit)
         Triangle area           1/2 × base      R² × excess       deficit
                                 × height        (radians)         (radians, K = −1)
-        Biggest possible        unlimited       up to 4πR²        never reaches
+        Biggest possible        unlimited       up to 2πR²        never reaches
         triangle area                                             π ≈ 3 (K = −1)
         Rectangles exist?       YES             no                no
         Digons exist?           no              YES (lunes)       no
@@ -665,7 +665,7 @@ These seven mistakes catch students every single year. Learn them now, and they 
 
 Mistake 1: "Parallel lines NEVER meeting is just a fact of the universe"
 
-        "Lines that never meet are impossible, and parallels never fail." ❌
+        "Exactly one line through the point never meets, and parallels never fail." ❌
 
 Both halves are flat-world thinking! On a ball, EVERY two straight lines meet — parallels don't exist at all. On a saddle, MANY lines through a point never meet the first. "Exactly one parallel" is the flat rulebook, not a law of the universe. ✅
 
@@ -745,7 +745,7 @@ The magic sentence
         ball — no parallels, MORE, area = R² × excess.
         saddle — many parallels, LESS, area capped at π.
 
-Say it out loud three times. Seriously! That's the whole lesson in five lines.
+Say it out loud three times. Seriously! That's the whole lesson in four lines.
 
 Why this matters
 

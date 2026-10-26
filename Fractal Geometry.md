@@ -27,7 +27,7 @@ In this lesson, you will:
   6. Measure coastlines with math: why the answer depends on your ruler, and by exactly how much
   7. Explore the big paradoxes — now with proofs instead of promises
   8. Learn the common mistakes so you never make them
-  9. Practice with 100 problems at the end!
+  9. Review the big picture — then practice with 100 problems at the end!
 
 How to use this lesson: Read the sections in order — each one builds on the one before it, and every new term is defined the moment it appears. Take your time, and try every "Your Turn" box with a pencil and paper. Drawing the stages makes everything easier — fractals are meant to be doodled! Ready? Let's go!
 
@@ -47,7 +47,7 @@ Mathematicians call this SELF-SIMILARITY: the shape is similar to itself. Not ju
 
 Two flavors of self-similarity are worth naming now, because we'll use them all lesson:
 
-  · EXACT self-similarity: the small parts are perfect scaled-down copies of the whole — same shape, same angles, just shrunk. The Sierpinski triangle and Koch snowflake (coming in Lessons 3 and 4) are exactly self-similar, because they are built by precise rules.
+  · EXACT self-similarity: the small parts are perfect scaled-down copies of the whole — same shape, same angles, just shrunk. The Koch snowflake and Sierpinski triangle (coming in Lessons 3 and 4) are exactly self-similar, because they are built by precise rules.
 
   · APPROXIMATE (statistical) self-similarity: the small parts look ROUGHLY like the whole — same style of wiggliness, never identical. Ferns, coastlines, and lightning are like this. Nature never draws exactly; it doodles with a consistent style.
 
@@ -451,7 +451,7 @@ Once you know the zoom test, you start seeing fractals everywhere:
 
 Why does nature keep choosing fractal rules? Because fractal branching PACKS A LOT INTO A LITTLE — and now you can say that quantitatively. Splitting n rounds with ratio 2 produces 2ⁿ tips: after just 10 rounds you have 2¹⁰ = 1024 ends from ONE trunk. Exponential growth is nature's shortcut to huge numbers. A tree catches sunlight over a huge area while taking up a small patch of ground. Your lungs fold an enormous surface — about the size of a tennis court — inside your chest, so oxygen can pass into your blood quickly. One splitting rule, repeated, solves a giant packing problem.
 
-But remember the difference from Lesson 2: nature's fractals are APPROXIMATELY self-similar and they STOP. Twigs end in buds, airways end in tiny sacs. Real-world fractals zoom maybe four to six levels deep. Only in math does the zoom go on forever — and four levels of self-similarity is enough to pack a tennis court into your chest.
+But remember the difference from Lesson 2: nature's fractals are APPROXIMATELY self-similar and they STOP. Twigs end in buds, airways end in tiny sacs. Real-world fractals zoom only a limited number of levels deep — a handful for a fern, about 15–20 for your lungs. Only in math does the zoom go on forever — and about 20 levels of self-similarity is enough to pack a tennis court into your chest.
 
 Now the coastline, with real math. Measure a coast with a ruler of length ε: you count some number of steps N(ε), and your measured length is L(ε) = N(ε)·ε. For a fractal coast of dimension D, the copy-count law from Lesson 5 runs backwards: finer rulers reveal copies in proportion N(ε) ≈ C·ε⁻ᴰ for some constant C. Multiply by ε:
 
@@ -878,7 +878,7 @@ Problems 81–85 — Word problems with teeth!
   98. The boundary hunter. For a Sierpinski triangle, find the FIRST stage at which
       less than 0.1% of the original area remains. (a) Solve (3/4)ⁿ < 0.001 with
       logarithms. (b) The answer is a near thing — verify by checking the stage just
-      below and just above, using (3/4)²⁴ ≈ 0.001003 and (3/4)²⁵ ≈ 0.000752.
+      below and just above, using (3/4)²⁴ ≈ 0.001003 and (3/4)²⁵ ≈ 0.000753.
       (c) One sentence: what does this teach about trusting rounded logs near a boundary?
   99. The folding strip — a baby dragon fractal. Fold a strip in half: 1 crease.
       Fold in half again (doubling over): 3 creases. A third fold: 7 creases.
@@ -1069,7 +1069,7 @@ Challenge
       interior walls every stage — the surface area diverges to infinity.
       (e) It ends with infinite surface wrapped around no volume at all: all hole,
       no cube — the perfect sponge.
-  96. Worked sample: "every square becomes 5 squares at scale 1/3" (the corners and
+  96. (a) Worked sample: "every square becomes 5 squares at scale 1/3" (the corners and
       the center of a 3×3 grid).
       (b) Counts: 5, 25, 125 — multiplying by 5 (powers of 5).
       (c) d = log 5/log 3 ≈ 0.699/0.477 ≈ 1.465 — between 1 and 2.
@@ -1089,7 +1089,7 @@ Challenge
   98. (a) (3/4)ⁿ < 0.001 → n·log(3/4) < log(0.001) → divide by the NEGATIVE
       log(3/4) and flip: n > (−3)/(−0.12494) ≈ 24.01 → smallest whole stage n = 25.
       (b) Check: (3/4)²⁴ ≈ 0.001003 — still a whisker ABOVE 0.001; (3/4)²⁵ ≈
-      0.000752 — below. ✓ Stage 25.
+      0.000753 — below. ✓ Stage 25.
       (c) Rounded logs said "24.01" — dangerously close to 24. Near a boundary,
       verify the neighboring integers exactly; rounding can flip a borderline answer.
   99. (a) After k − 1 folds there are 2ᵏ⁻¹ layers stacked; fold k presses one new

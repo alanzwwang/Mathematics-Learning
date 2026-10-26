@@ -277,7 +277,7 @@ Now the shortcut that turns this into a factor. Watch the 40 get factored out:
 
 So "grows by 50%" is just "multiply by 3/2" wearing a costume. The general translation:
 
-        grows by p%   →  factor (1 + p/100)      shrink by p%   →  factor (1 − p/100)
+        grows by p%   →  factor (1 + p/100)      shrinks by p%  →  factor (1 − p/100)
 
         grows by 50%  →  × 3/2        shrinks by 25%  →  × 3/4
         doubles       →  × 2 (that's +100%!)     halves         →  × 1/2
@@ -489,7 +489,7 @@ Fraction powers, honestly computed. Raise the top AND the bottom separately:
 
 Three ways to write the same decay. All of these say "halve, x times":
 
-        (1/2)^x   =   1/2^x   =   2⁻^x
+        (1/2)^x   =   1/2^x   =   2^(−x)
         Check at x = 3:  (1/2)³ = 1/8,  and  1/2³ = 1/8,  and  2⁻³ = 1/8 ✅
 
 Pick whichever form makes the problem friendliest — they're one machine with three name tags.
@@ -952,7 +952,7 @@ Challenge
       (b) 1 + 2 + 4 + 8 + 16 + 32 + 64 = 127 (= 2⁷ − 1) ✅
       (c) Let S = 1 + 2 + 4 + ... + 2ⁿ.
           Then 2S =     2 + 4 + ... + 2ⁿ + 2^(n+1)      (multiply every term by 2)
-          Subtract: 2S − S = 2^(n+1) − 1                (every other term cancels:
+          Subtract: 2S − S = 2^(n+1) − 1                (all the middle terms cancel:
           the 2, 4, ..., 2ⁿ appear in both rows and vanish)
           Since 2S − S = S, we get S = 2^(n+1) − 1.  Proven — for ANY n! ✅
   90. After 10 weeks: A has 10 × $20 = $200. B has 2¹⁰ − 1 = 1,023¢ = $10.23 → A wins easily.

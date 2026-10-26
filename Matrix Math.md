@@ -341,7 +341,7 @@ Addition totals up rounds; multiplication applies weights. If a win in one event
 
 Photos: a picture made of numbers
 
-A gray-scale photo is a grid of brightness numbers — 0 is black, 9 is white, and the numbers between are grays. Multiply the photo by 2 and every pixel gets brighter; multiply by 1/2 and it darkens. Photo apps do exactly this, millions of squares at a time. (The practice problems include a tiny photo to brighten — watch out for a pixel that blasts past 9!)
+A grayscale photo is a grid of brightness numbers — 0 is black, 9 is white, and the numbers between are grays. Multiply the photo by 2 and every pixel gets brighter; multiply by 1/2 and it darkens. Photo apps do exactly this, millions of squares at a time. (The practice problems include a tiny photo to brighten — watch out for a pixel that blasts past 9!)
 
 Secret codes: scramble a message
 
@@ -771,7 +771,8 @@ Intermediate
 Challenge
 
   91:    (a) [ 5  5 ;  7  5 ]. (b) Team 1: 5 + 5 = 10; Team 2: 7 + 5 = 12 —
-         Team 2 scored more overall, even though Day 1 was closer.
+         Team 2 scored more overall. Day 2 was a 4-to-4 tie, so Day 1
+         (8 to 6) decided it.
   92:    (a) 2P = [ 2  6  4 ;  8  10  2 ;  4  0  6 ]. (b) The middle square,
          (row 2, column 2): 5 × 2 = 10, which is past 9 — it clips off the
          top of the scale (photo editors really fight this!).

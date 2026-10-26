@@ -79,7 +79,7 @@ Two more vocabulary words you'll meet everywhere:
         The DOMAIN of a function is the set of all allowed inputs.
         The RANGE is the set of all outputs it can actually produce.
 
-For f(x) = 2x + 1, any number can be doubled and incremented, so the domain is all real numbers. And any target y can actually be produced (we'll prove this in Lesson 6 by running the machine backwards), so the range is also all real numbers. Compare with the flat machine f(x) = 4: its range is just the single number 4, because it only ever says "4."
+For f(x) = 2x + 1, any number can be doubled and incremented, so the domain is all real numbers. And any target y can actually be produced (we'll prove this in Lesson 7 by running the machine backwards), so the range is also all real numbers. Compare with the flat machine f(x) = 4: its range is just the single number 4, because it only ever says "4."
 
 ✏️ Your Turn
 
@@ -133,7 +133,7 @@ Look carefully: f(g(x)) = 6x − 3 but g(f(x)) = 6x + 1. Different recipes! Comp
 
         Chain slope = (slope of f) × (slope of g)
 
-Why? If g multiplies every step by 3 and then f multiplies every result by 2, one step of x grows the final output by 3 × 2 = 6. (We'll prove it in the challenge problems — problem 78 turns this into a detective puzzle.)
+Why? If g multiplies every step by 3 and then f multiplies every result by 2, one step of x grows the final output by 3 × 2 = 6. (We'll meet it again in the challenge problems — problem 78 turns this into a detective puzzle.)
 
 ✏️ Your Turn
 
@@ -1256,7 +1256,7 @@ Challenge
      (b) Week 5: A 30, B 30, C 34 → C leads. Week 6: A 36, C 36, B 34 →
      A and C tied on top. Week 7: A 42, B 38, C 38 → A leads.
      (c) By the time B finally catches C (week 7), A — the steepest line
-     — has already blown past everyone at week 6. Winning one private
+     — has already caught everyone at week 6 and pulled ahead. Winning one private
      race isn't enough when a third runner is faster still: pairwise
      answers must be assembled into one timeline.
 

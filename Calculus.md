@@ -404,7 +404,7 @@ Lesson 6: The Rules Toolkit — Product, Quotient, Chain
 
 The product rule, derived
 
-Guess check: is the derivative of a product just the product of the derivatives? Test on x²·x³ = x⁵: the guess gives 2x × 3x² = 6x⁵, but the power rule gives 5x⁵. The guess FAILS — 6 ≠ 5. So products need their own rule. Here is where it comes from. Start the difference quotient for the product f·g:
+Guess check: is the derivative of a product just the product of the derivatives? Test on x²·x³ = x⁵: the guess gives 2x × 3x² = 6x³, but the power rule gives 5x⁴. The guess FAILS — 6x³ ≠ 5x⁴. So products need their own rule. Here is where it comes from. Start the difference quotient for the product f·g:
 
         [ f(x + h)·g(x + h) − f(x)·g(x) ] ÷ h
 
@@ -422,7 +422,7 @@ Read it as a story: the two factors take turns changing — first f changes whil
 
 Worked example — the lie detector passes. d/dx of (x²·x³):
 
-        = (2x)(x³) + (x²)(3x²) = 2x⁵ + 3x⁵ = 5x⁵ ✅  — matches the power rule on x⁵!
+        = (2x)(x³) + (x²)(3x²) = 2x⁴ + 3x⁴ = 5x⁴ ✅  — matches the power rule on x⁵!
 
 Worked example — f(x) = (3x + 1)(x² − 4):
 
@@ -621,7 +621,7 @@ Worked example 3 — the five-digit profit. A company sells gadgets. When the pr
 
 Redo the fence problem with only 800 m of fencing (still one stone wall).
 
-Answer: 2x + L = 800 → L = 800 − 2x; A(x) = 800x − 2x²; A'(x) = 800 − 4x = 0 → x = 200; A'' = −4 < 0 ✅ max; L = 800 − 400 = 400 m; A = 200 × 400 = 80,000 m². Quarter the fence, one-ninth the area — scaling is not linear!
+Answer: 2x + L = 800 → L = 800 − 2x; A(x) = 800x − 2x²; A'(x) = 800 − 4x = 0 → x = 200; A'' = −4 < 0 ✅ max; L = 800 − 400 = 400 m; A = 200 × 400 = 80,000 m². One-third the fence, one-ninth the area — scaling is not linear!
 
 
 ─────────────────────────────────────────────
@@ -783,9 +783,9 @@ The limit comes LAST. The whole point of Lessons 3 and 4 is that h ≠ 0 during 
 
 Mistake 3: "the derivative of a product is the product of the derivatives"
 
-        d/dx of (x²·x³) = 2x × 3x² = 6x⁵?   ❌
+        d/dx of (x²·x³) = 2x × 3x² = 6x³?   ❌
 
-Since x²·x³ = x⁵, the truth is 5x⁵ — and 6x⁵ ≠ 5x⁵. Products use the product rule: (fg)' = f'g + fg', each factor taking its turn. ✅ (Sibling trap: the derivative of a constant is 0, not the constant — d/dx of 7 is 0, because a flat graph has no slope.)
+Since x²·x³ = x⁵, the truth is 5x⁴ — and 6x³ ≠ 5x⁴. Products use the product rule: (fg)' = f'g + fg', each factor taking its turn. ✅ (Sibling trap: the derivative of a constant is 0, not the constant — d/dx of 7 is 0, because a flat graph has no slope.)
 
 Mistake 4: forgetting the inside's derivative in the chain rule
 

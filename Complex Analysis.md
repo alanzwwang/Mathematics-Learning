@@ -9,7 +9,7 @@ Welcome! Here's What You'll Learn
         (1 + i) × (1 + i) = 2i
         3 + 4i sits exactly 5 steps from zero
 
-Those three lines are complex analysis in action. The first line breaks the oldest rule in arithmetic — "nothing squares to a negative" — by inventing a new number that does exactly that. The second looks innocent, until you notice something spooky: multiplying spun the number a quarter turn. The third says a number built from 3 and 4 sits 5 steps from home — a clue that these new numbers have a length and a direction, like arrows. Right now those lines might look mysterious. That's okay! By the end of this lesson, you'll understand all three — and you'll know exactly why each one works.
+Those three lines are complex analysis in action. The first line breaks the oldest rule in arithmetic — "nothing squares to a negative" — by inventing a new number that does exactly that. The second looks innocent, until you notice something spooky: multiplying spun the number straight up, onto a whole new axis. The third says a number built from 3 and 4 sits 5 steps from home — a clue that these new numbers have a length and a direction, like arrows. Right now those lines might look mysterious. That's okay! By the end of this lesson, you'll understand all three — and you'll know exactly why each one works.
 
 Why do people care? Because complex numbers are the math of SPINNING and STRETCHING — and the world is full of things that spin, wave, and wiggle. The electricity in your walls, the signals inside your phone, the lift under an airplane wing, the quantum rules inside every atom — all of it is computed with these numbers. They were invented about 500 years ago by Italian mathematicians who kept hitting equations with no answer, and the grown-up subject that grew from them — complex analysis — is often called the most beautiful math ever discovered. The best news: the big ideas are built from things you already know — adding coordinates, small fractions, and one 2,500-year-old triangle trick.
 
@@ -718,7 +718,7 @@ Intermediate
 
   75–78: 5/4 (1/4 + 1)  ·  7/4 − i (real: 3/4 + 1; imaginary:
          −3/2 i + 1/2 i = −i)  ·  −1 + 2i (2i + i²)  ·
-         i/2 — the i-rooms give 1/4 i + 1/4 i, and the 1/4's cancel;
+         i/2 — the i-rooms give 1/4 i + 1/4 i, and the real 1/4 and −1/4 cancel;
          a half-size 45° arrow squares to straight-up, half as tall
 
   79–82: 13 (4 + 9)  ·  17 (1 + 16)  ·  26 (25 + 1)  ·

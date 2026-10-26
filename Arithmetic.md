@@ -132,7 +132,7 @@ Example 1: Evaluate 2x² − 3x + 4 when x = 3.
         = 9 + 4                 (+ and − tie, so left to right: 18 − 9 = 9)
         = 13
 
-Watch what the parentheses prevented: 2 · 9 is NOT "18² then something" — and 3x with x = 3 is 3 · 3 = 9, not 33!
+Watch what the parentheses prevented: 2(3)² is NOT (2 · 3)² = 36, because the power grabs only the 3 — and 3x with x = 3 is 3 · 3 = 9, not 33!
 
 Function notation: naming the rule
 

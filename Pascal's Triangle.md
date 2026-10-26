@@ -81,7 +81,7 @@ Now let's build row 10 from row 9 (1 9 36 84 126 126 84 36 9 1), step by step, w
         36 + 84 = 120                      (parents: 36 and 84)
         84 + 126 = 210                     (parents: 84 and 126)
         126 + 126 = 252                    (the twins meet — row 10's biggest entry)
-        Then mirror the first half: 210, 120, 45, 10, 1   (every row is symmetric — Lesson 4 makes this official)
+        Then mirror the first half: 210, 120, 45, 10, 1   (every row is symmetric — Lesson 2 makes this official)
 
         Row 10:  1   10   45   120   210   252   210   120   45   10   1
 
@@ -374,7 +374,7 @@ So T_n = 1 + 2 + ... + n. There's a famous closed formula, and here's its proof 
         2S = n × (n + 1)
         S = n(n + 1)/2                         (divide both sides by 2)  ∎
 
-Now the kicker: n(n + 1)/2 = (n + 1)n/2 = C(n + 1, 2). Check: T₉ = 9 × 10/2 = 45, and C(10, 2) = 45 ✅. So the n-th triangular number is exactly entry 2 of row n + 1. WHY the triangle's third diagonal stores running totals of the second diagonal — that's the hockey stick, proved below.
+Now the kicker: n(n + 1)/2 = (n + 1)n/2 = C(n + 1, 2). Check: T₉ = 9 × 10/2 = 45, and C(10, 2) = 45 ✅. So the n-th triangular number is exactly entry 2 of row n + 1. WHY the triangle's second diagonal stores running totals of the first diagonal — that's the hockey stick, proved below.
 
 The third diagonal: 1, 4, 10, 20, 35, 56, 84 — the tetrahedral numbers. Each is a stack of triangles: pile cannonballs into a triangular pyramid (10 balls on the bottom layer, 6 above, 3 above, 1 on top → 20 total). In symbols:
 
@@ -1166,10 +1166,10 @@ Intermediate
       → (n − 9)(n + 8) = 0 → n = 9 (reject −8). Check: C(9, 2) = 36 ✅
   42. n(n − 1)/2 = 45 → n² − n − 90 = 0 → (n − 10)(n + 9) = 0 → n = 10.
       Check: C(10, 2) = 45 ✅
-  43. Term: C(5, 3) · x³ · 2² = 10 · 4 · x³ = 40x³. Coefficient: 40.
+  43. Term: C(5, 2) · x³ · 2² = 10 · 4 · x³ = 40x³. Coefficient: 40.
       (Don't forget the 2 gets squared — it lives inside the parentheses.)
   44. Term: C(5, 2) · (2x)² · 1³ = 10 · 4x² = 40x². Coefficient: 40.
-  45. x⁴ needs k = 4: C(7, 4) · x⁴ · (−1)³ = 35 · (−1) = −35.
+  45. x⁴ needs k = 3: C(7, 3) · x⁴ · (−1)³ = 35 · (−1) = −35.
       Coefficient: −35. (Odd power of b = −1 gives the minus.)
   46. k=0: (2x)³ = 8x³; k=1: 3·(2x)²·(−1) = −12x²; k=2: 3·(2x)·1 = 6x;
       k=3: (−1)³ = −1.
@@ -1191,7 +1191,7 @@ Intermediate
   54. Bad committees have BOTH Ana and Bo: then the 3rd member is any 1 of
       the other 6 → C(6, 1) = 6 bad. Allowed: C(8, 3) − 6 = 56 − 6 = 50.
   55. Entries 0, 2, 4, 6, 8 of row 9 are 1, 36, 126, 84, 9 (entry 8 of row 9
-      is C(9, 8) = 9!). Sum: 1 + 36 + 126 + 84 + 9 = 256 = 2⁸.
+      is C(9, 8) = 9). Sum: 1 + 36 + 126 + 84 + 9 = 256 = 2⁸.
   56. Row 7 interior: 7 = 7×1, 21 = 7×3, 35 = 7×5 — all divisible by 7 ✅.
       Row 6 interior: 6, 15, 20 — but 15/6 = 2.5 ✗. 6 is composite
       (6 = 2×3), so the denominator CAN cancel its factors; the prime row
@@ -1380,7 +1380,7 @@ Challenge
   96. Words with three R's and three D's, valid if every prefix has
       R's ≥ D's. Checking all 20: the survivors are
       RRRDDD, RRDRDD, RRDDRD, RDRRDD, RDRDRD → 5 paths.
-      (E.g., RDDRRD breaks at prefix RDDR: 1 R vs 2 D's.) This is the
+      (E.g., RDDRRD breaks at prefix RDD: 1 R vs 2 D's.) This is the
       Catalan number C₃ = 5 — the triangle's famous cousin.
   97. n(n + 1)/2 = 91 → n² + n − 182 = 0. Quadratic formula:
       discriminant = 1 + 728 = 729 = 27², so n = (−1 + 27)/2 = 13
