@@ -6,7 +6,7 @@ title: Mathematics Learning
 
 A personal library of math notes — from arithmetic to complex analysis.
 
-**Version:** V.2.7
+**Version:** V.2.8
 
 ## Foundations
 
@@ -39,3 +39,7 @@ A personal library of math notes — from arithmetic to complex analysis.
 - [Combinatorics](Combinatorics.html)
 - [Permutations vs Combinations](Permutations%20vs%20Combinations.html)
 - [Probability](Probability.html)
+
+<!-- WHATS-NEW:START -->
+<script src="whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->

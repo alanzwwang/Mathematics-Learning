@@ -1,6 +1,18 @@
 # 📐 Mathematics Learning
 
-**Version:** V.2.7
+**Version:** V.2.8
+
+<!-- WHATS-NEW:README:START -->
+## 🆕 What's New in V.2.8
+
+- NEW!!! This What's New pop-up: every update now tells you what changed
+
+### Earlier updates
+
+- **V.2.7:** All 20 lessons proofread: math slips, wording and references fixed, Version number shown on the home page, New README
+
+_When you open it, a What's New pop-up shows this once per version. Add `?whatsnew` to the address to see it again._
+<!-- WHATS-NEW:README:END -->
 
 A personal library of math notes, from arithmetic all the way to complex analysis.
 
