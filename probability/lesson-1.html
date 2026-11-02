@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: What Is Probability? — Probability</title>
+<meta name="description" content="How likely is it? Complements, AND and OR rules, and expected value.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a> › Lesson 1</p>
+    <h1>🚀 What Is Probability?</h1>
+    <p class="kicker">📖 Lesson 1 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Every probability obeys the inequality  0 ≤ P(A) ≤ 1.
+The same probability can wear three outfits: fraction, decimal, percent.
+To compare two probabilities: common denominators — or cross-multiply.</pre></div>
+<p>Some things are impossible — like rolling a 9 on a regular die. Some things are certain — like rolling a number from 1 to 6. Probability gives every &quot;maybe&quot; in between a number. In the language of inequalities, EVERY probability P(A) obeys:</p>
+<pre class="math">0 ≤ P(A) ≤ 1</pre>
+<p>· P(A) = 0: impossible. It will never happen.</p>
+<p>· P(A) = 1: certain. It will definitely happen.</p>
+<p>· P(A) = ½: a perfect 50-50, like a fair coin flip.</p>
+<p>· Small fractions (like 1/6): unlikely, but possible.</p>
+<p>· Big fractions (like 5/6): likely, but not guaranteed.</p>
+<p>Read that inequality out loud: &quot;P of A is greater than or equal to 0 and less than or equal to 1.&quot; It's not just decoration — it's a built-in answer checker. If you ever finish a problem and get P = 5/3 or P = −0.2, the math is telling you to go back: no real probability escapes [0, 1]. That's Mistake 6 in Lesson 8.</p>
+<p>Three outfits — fraction, decimal, percent:</p>
+<pre class="math">1/2 = 0.5 = 50%        3/4 = 0.75 = 75%        1/6 ≈ 0.167 ≈ 16.7%</pre>
+<p>In this lesson we'll mostly use fractions, because they're exact — 1/6 is exact, while 16.7% is a rounded-off approximation (a small lie, but still). To turn a fraction into a percent, scale it to a denominator of 100 when that's friendly:</p>
+<pre class="math">3/4 = 75/100 = 75%         2/5 = 40/100 = 40%         7/10 = 70/100 = 70%</pre>
+<p>Comparing probabilities. Which is more likely, an event with P = 1/3 or one with P = 2/5? You can't tell by staring. Two methods — learn both.</p>
+<p>Method 1 — common denominators. The least common denominator of 3 and 5 is 15:</p>
+<pre class="math">1/3 = 5/15        2/5 = 6/15        5/15 &lt; 6/15, so 1/3 &lt; 2/5 ✅</pre>
+<p>Method 2 — cross-multiplication. To compare a/b with c/d (positive denominators), compare a × d with c × b:</p>
+<pre class="math">Compare 1/3 and 2/5:
+1 × 5 = 5         2 × 3 = 6         5 &lt; 6, so 1/3 &lt; 2/5 ✅</pre>
+<p>Why does cross-multiplication work? Starting from a/b ? c/d, multiply both sides by b × d — a POSITIVE number, so the inequality keeps its direction. The left side becomes a × d (the b cancels: a/b × b × d = a × d), and the right side becomes c × b. Same comparison, no fractions. Two methods, one answer — pick whichever is faster, but know both.</p>
+<p>Probabilities can also hide inside algebra. Suppose an experiment has only two outcomes, A and B, and A is twice as likely as B. What are the two probabilities? Nobody tells you a fraction — so name the unknown:</p>
+<pre class="math">P(B) = x                name the smaller probability
+P(A) = 2x               &quot;twice as likely&quot; means double
+P(A) + P(B) = 1         every trial is A or B — the chances must total 1
+2x + x = 1              substitute
+3x = 1                  combine like terms
+x = 1/3                 divide both sides by 3</pre>
+<p>So P(B) = 1/3 and P(A) = 2/3. CHECK: 2/3 + 1/3 = 1 ✓, and 2/3 really is twice 1/3 ✓. You just solved your first probability system — one equation from the story (&quot;twice as likely&quot;), one from the law (&quot;everything totals 1&quot;). That pattern solves half the backward problems in probability.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Order these probabilities from least to greatest: 1/4, 2/5, 1/3. (Hint: 60 is a friendly common denominator.)</div></li><li><span class="mk">(b)</span><div>An experiment has only outcomes X and Y, and X is three times as likely as Y. Find both probabilities.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 1/4 = 15/60, 1/3 = 20/60, 2/5 = 24/60, so 1/4 &lt; 1/3 &lt; 2/5. (b) P(Y) = x, P(X) = 3x; then 3x + x = 1 → 4x = 1 → x = 1/4. So P(Y) = 1/4 and P(X) = 3/4. CHECK: 3/4 + 1/4 = 1 ✓.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

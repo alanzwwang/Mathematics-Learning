@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Review — The Big Picture — Probability</title>
+<meta name="description" content="How likely is it? Complements, AND and OR rules, and expected value.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a> › Lesson 9</p>
+    <h1>🧠 Review — The Big Picture</h1>
+    <p class="kicker">📖 Lesson 9 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Everything, one last time</p><pre class="math">P(event) = favorable / total            (equally likely outcomes only)
+P(not A) = 1 − P(A)                     (complements total 1)
+P(A or B) = P(A) + P(B) − P(A and B)    (subtract the double-count)
+P(A and then B) = P(A) × P(B after A)   (independent: P(B after A) = P(B))
+P(at least one) = 1 − P(none)
+Expected count = n × p
+Expected value E = ∑ (prize × probability);  fair game: E = cost</pre></div>
+<p>The recap:</p>
+<p>· The formula: favorable ÷ total. All outcomes must be equally likely.</p>
+<p>· Comparing: common denominators or cross-multiplication. Never compare fractions with different bottoms.</p>
+<p>· Backward problems: probability questions are equations. Name the unknown, write the equation, solve it step by step.</p>
+<p>· Not: 1 − P(A). Write 1 as a matching fraction first — and remember the comparison flips when you subtract from 1.</p>
+<p>· Or: add. Overlap? Subtract the double-counted part. Missing piece? Solve for it — negatives may visit mid-solution.</p>
+<p>· And then: multiply. Independent events keep their probabilities; without replacement, the denominator drops by 1.</p>
+<p>· Powers: n independent tries → pⁿ. And (1/2)ⁿ = 1/2ⁿ — never n/2.</p>
+<p>· At least one: 1 − P(none), where P(none) is a multiplication.</p>
+<p>· Long run: expected count = n × p. Fair games: expected value = cost. &quot;Expected&quot; ≠ &quot;guaranteed.&quot;</p>
+<p>The magic sentence:</p>
+<pre class="math">Count what you want. Count everything. Divide. Then combine:
+OR means add (subtract the overlap), AND means multiply (ask about replacement),
+NOT means subtract from 1 — and every backward problem is just an equation.</pre>
+<p>Say it out loud three times. That sentence, plus honest counting, plus the algebra you already know, is 95% of all the probability you'll meet for years.</p>
+<p>Probability runs weather forecasts, medical studies, sports analytics, game design, insurance, and every &quot;what are the chances?&quot; question ever asked. And notice what powered this lesson: fraction arithmetic AND algebra side by side. Common denominators, simplifying, cross-multiplication, complements — and then equations, inequalities, powers, and functions riding on top. The skills you drilled are the engine under every one of these rules.</p>
+<p>But the biggest lesson isn't the formulas themselves. It's this: math has patterns. Once you learn the pattern, hard problems become easy. &quot;At least one six in four rolls&quot; sounds impossible until you see the pattern: multiply the misses, subtract from 1. &quot;Is this game fair?&quot; sounds like an opinion until you see the pattern: prizes times probabilities, added up, compared to the cost. Now those are ten-second problems. That's the whole lesson.</p>
+<h3>Time to prove it — 100 problems, including games for you to design. 💪</h3></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">⬅️ Lesson 8</a><a class="btn" href="practice.html">Practice Problems ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

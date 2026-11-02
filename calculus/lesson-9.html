@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 9</p>
+    <h1>🏗️ Area Under a Curve — Sigma Sums and the Rectangle Limit</h1>
+    <p class="kicker">📖 Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Slice the region into n rectangles of width Δx = (b − a) ÷ n.
+Area = lim (n → ∞) of  ∑ f(xₖ)·Δx  =  ∫ₐᵇ f(x) dx.</pre></div>
+<h3>The sigma notation</h3>
+<p>Adding many similar terms gets tiring to write, so mathematicians use the Greek capital sigma ∑ for &quot;sum&quot;:</p>
+<pre class="math">∑ k   for k = 1 to 4   = 1 + 2 + 3 + 4 = 10
+∑ k²  for k = 1 to 3   = 1 + 4 + 9 = 14</pre>
+<p>The counter (k) marches through the integers; the recipe after ∑ tells you what to add each time.</p>
+<h3>The rectangle machine</h3>
+<p>To find the area under a curve f from a to b: slice [a, b] into n equal strips of width Δx = (b − a)/n. Number the strips k = 1, 2, ..., n; the right edge of strip k sits at xₖ = a + k·Δx, and we use the height there, f(xₖ). Each strip is a rectangle of area f(xₖ)·Δx, and the total estimate is:</p>
+<pre class="math">∑ f(xₖ)·Δx   for k = 1 to n        ← called a Riemann sum</pre>
+<p>Skinnier rectangles hug the curve better, so the exact area is the limit as n → ∞. That limit has its own symbol, the definite integral — an elongated S for &quot;sum,&quot; Leibniz's idea:</p>
+<pre class="math">∫ₐᵇ f(x) dx  =  lim (n → ∞) of  ∑ f(xₖ)·Δx</pre>
+<p>The dx is the fossil of Δx after the slices got infinitely skinny.</p>
+<p>Warm-up we can check — the area under f(x) = x from 0 to 4. We need the sum formula 1 + 2 + ... + n = n(n + 1)/2 (from pairing first with last: 1 + n, 2 + (n − 1), ... — there are n/2 pairs, each worth n + 1):</p>
+<pre class="math">width: Δx = 4/n;  right edges: xₖ = 4k/n;  heights: f(xₖ) = 4k/n
+Step 1: rectangle areas: (4k/n)(4/n) = 16k/n²
+Step 2: total = (16/n²) × ∑ k = (16/n²) × n(n + 1)/2
+Step 3: = 8(n + 1)/n = 8(1 + 1/n)
+Step 4: limit as n → ∞: 8(1 + 0) = 8</pre>
+<p>Triangle check: the region IS a triangle, and 1/2 × 4 × 4 = 8 ✅. The rectangle machine works — now for a region no triangle formula can touch.</p>
+<p>The main event — the area under f(x) = x² from 0 to 3. We need the sum of squares formula:</p>
+<pre class="math">1² + 2² + ... + n² = n(n + 1)(2n + 1) ÷ 6</pre>
+<p>Verify it for n = 3: 3×4×7/6 = 84/6 = 14 = 1 + 4 + 9 ✅. (It is proved for all n in challenge problem 76.) Now run the machine:</p>
+<pre class="math">width: Δx = 3/n;  right edges: xₖ = 3k/n;  heights: (3k/n)² = 9k²/n²
+Step 1: rectangle k has area (9k²/n²)(3/n) = 27k²/n³
+Step 2: total = (27/n³) × ∑ k² = (27/n³) × n(n + 1)(2n + 1)/6
+Step 3: rewrite each n-factor as a fraction over n:
+        = (27/6) × (n + 1)/n × (2n + 1)/n
+        = (9/2) × (1 + 1/n) × (2 + 1/n)
+Step 4: limit as n → ∞: 1/n → 0, so
+        (9/2) × 1 × 2 = 9</pre>
+<pre class="math">The area under y = x² from 0 to 3 is EXACTLY 9.</pre>
+<p>No &quot;about,&quot; no &quot;close enough&quot; — the limit delivered an exact integer out of infinitely many rectangles. Archimedes computed areas this way 2,000 years before Newton. File the number 9 away: Lesson 10 will get it in three lines, and you will see the shortcut and the grunt work agree.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute ∑ k for k = 1 to 5 directly. (b) Compute ∑ k² for k = 1 to 4 two ways: by adding, and by the formula.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 1 + 2 + 3 + 4 + 5 = 15. (b) Adding: 1 + 4 + 9 + 16 = 30. Formula: 4×5×9/6 = 180/6 = 30 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">⬅️ Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: The Two Big Questions — Rate and Accumulation — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 1</p>
+    <h1>🚀 The Two Big Questions — Rate and Accumulation</h1>
+    <p class="kicker">📖 Lesson 1 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Every calculus question is one of two:
+the INSTANTANEOUS RATE — how fast is it changing right now?
+the ACCUMULATED TOTAL — how much has piled up so far?</pre></div>
+<h3>Two instruments in a car</h3>
+<p>Picture the dashboard of a car. Two instruments sit in front of the driver:</p>
+<pre class="math">speedometer  →  HOW FAST am I going right this second?
+odometer     →  HOW FAR have I gone in total?</pre>
+<p>They sound like the same question, but they are not — and telling them apart is the first step of calculus. The speedometer needle jumps around: 0 at a red light, 86 on the highway. The odometer never jumps and never goes down: it just slowly piles up the total distance. And the two are secretly connected: drive fast and the odometer spins quickly; stop and the odometer freezes. Each instrument knows what the other is doing.</p>
+<h3>The upgrade: functions and the Δ notation</h3>
+<p>Grown-up calculus talks about the dashboard with functions. Let:</p>
+<pre class="math">s(t) = the odometer reading at time t   (s for &quot;space&quot;, position)
+v(t) = the speedometer reading at time t (v for velocity)</pre>
+<p>Both are functions: put a time in, get exactly one number out. When a quantity changes, mathematicians write the change with the Greek letter Δ (capital delta), which always means &quot;the difference&quot;:</p>
+<pre class="math">Δs = s(t₂) − s(t₁)    (how much the position changed)
+Δt = t₂ − t₁          (how much time passed)</pre>
+<p><strong>Worked example</strong> — a real trip with real numbers. Your odometer reads 45,210 km at noon and 45,468 km at 3:00 PM. How far, and how fast on average?</p>
+<pre class="math">Step 1: Δs = 45,468 − 45,210 = 258 km   (subtract the readings)
+Step 2: Δt = 3 h                         (noon to 3 PM)
+Step 3: average rate = Δs ÷ Δt = 258 ÷ 3 = 86 km/h</pre>
+<p>But here is the question that starts all of calculus: what did the speedometer read at exactly 1:30 PM? The average cannot say — you could have cruised at 86 the whole time, or sped at 110 and then sat in traffic. The average squashes the adventure into one number and hides the drama. Catching the needle at one instant takes a shrinking window — that is Lesson 4's derivative.</p>
+<h3>Not just cars</h3>
+<p>The two questions hide everywhere:</p>
+<p>· A water tank: V(t) = how much water is inside (a total); R(t) = how fast it is filling, in liters per minute (a rate).</p>
+<p>· A factory: the total cost so far (accumulation); the cost per extra unit produced (a rate — economists call it the marginal cost).</p>
+<p>· You!: your height (a total that piled up over years); your growth speed in cm per year (a rate).</p>
+<h3>The fancy names</h3>
+<pre class="math">The answer to a HOW FAST question is called a derivative.
+The answer to a HOW MUCH question is called an integral.
+The tool that makes both possible is called a limit — Lesson 3.</pre>
+<p>Now you can honestly say at dinner: &quot;Today I learned what a derivative and an integral are.&quot;</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>A delivery van's odometer reads 12,040 km at 9:00 AM and 12,400 km at 1:00 PM. (a) Find Δs and Δt. (b) Find the average rate. (c) Name one question this data CANNOT answer.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Δs = 12,400 − 12,040 = 360 km; Δt = 4 h. (b) 360 ÷ 4 = 90 km/h. (c) Anything about one instant — for example, the exact speed at 10:00 AM. Averages hide the drama; only a shrinking window (the derivative) can catch it.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

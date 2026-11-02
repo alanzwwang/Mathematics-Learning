@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!) — Pascal's Triangle</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a> › Lesson 2</p>
+    <h1>🧩 The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)</h1>
+    <p class="kicker">📖 Lesson 2 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">C(n, k) = the number of ways to pick k things from n things
+when order does NOT matter. Read it &quot;n choose k.&quot;
+C(n, k) = n! / (k!(n − k)!)  — and we can DERIVE that formula.
+C(n, k) is exactly entry k of row n of the triangle.</pre></div>
+<h3>Warm-up: the pizza problem, counted two ways</h3>
+<p>Your pizza place offers 5 toppings. How many 2-topping pizzas are possible? Try it with order first: pick a first topping (5 choices), then a second (4 choices) — that's 5 × 4 = 20 ordered picks. But a mushroom-pepperoni pizza is the same pizza as a pepperoni-mushroom pizza! Every unordered pair was counted exactly 2 times (once in each order). So the real count is:</p>
+<pre class="math">20 ÷ 2 = 10 different pizzas</pre>
+<p>That 10 is C(5, 2). Now let's turn the same reasoning into a general formula.</p>
+<h3>Factorials — the counting engine</h3>
+<p>Definition: n! (read &quot;n factorial&quot;) = n × (n − 1) × ... × 2 × 1.</p>
+<pre class="math">3! = 3 × 2 × 1 = 6
+4! = 4 × 3 × 2 × 1 = 24
+5! = 120,  6! = 720,  7! = 5040</pre>
+<p>Why factorials count arrangements: to line up 4 people, you have 4 choices for the first spot, then 3 for the next, then 2, then 1 — and choices multiply: 4 × 3 × 2 × 1 = 4! = 24 lineups. In general, n things can be arranged in n! orders.</p>
+<p>One weird convention: 0! = 1. Justification: there is exactly one way to arrange zero things (do nothing!), and the formulas we're about to build only work if 0! = 1. Watch for it below.</p>
+<p><strong>Step 1</strong> — count ORDERED picks. How many ways to pick k things from n things where order MATTERS (first pick, second pick, ...)?</p>
+<pre class="math">n choices for the first, n − 1 for the second, ..., down to (n − k + 1) for the k-th:
+n × (n − 1) × ... × (n − k + 1)</pre>
+<p>That product is almost n! — it's n! with the tail (n − k) × (n − k − 1) × ... × 1 missing. The missing tail is exactly (n − k)!. So:</p>
+<pre class="math">ordered k-picks from n = n! / (n − k)!</pre>
+<p>Check with the pizza numbers: ordered pairs from 5 toppings = 5! / 3! = 120 / 6 = 20. ✅ Matches.</p>
+<p><strong>Step 2</strong> — erase the order. Every unordered group of k things was counted once for each way to arrange it — that's k! times. So divide:</p>
+<pre class="math">C(n, k) = (ordered picks) ÷ (arrangements of each group)
+        = [n! / (n − k)!] ÷ k!
+        = n! / (k!(n − k)!)          ← THE formula. Memorize its shape:
+        upstairs the full n!, downstairs k! and (n − k)! — and k + (n − k) = n.</pre>
+<p><strong>Worked example</strong> — compute C(8, 3), every step justified:</p>
+<pre class="math">C(8, 3) = 8! / (3! · 5!)                    (the formula with n = 8, k = 3; note 3 + 5 = 8)
+      = (8 × 7 × 6 × 5!) / (3! × 5!)        (peel the top of 8! off so a 5! is visible)
+      = (8 × 7 × 6) / (3 × 2 × 1)           (cancel 5! top and bottom — always cancel first!)
+      = 336 / 6                             (multiply out the top)
+      = 56                                  (divide)</pre>
+<pre class="math">Check on the triangle: row 8, entry 3 is 56. ✅</pre>
+<p>Sanity checks at the edges, using 0! = 1:</p>
+<pre class="math">C(n, 0) = n! / (0! · n!) = 1    (one way to choose nothing — and the edge entries are 1 ✅)
+C(n, n) = n! / (n! · 0!) = 1    (one way to choose everything ✅)
+C(n, 1) = n! / (1! · (n−1)!) = n    (n ways to choose one thing — entry 1 of row n is n ✅)</pre>
+<h3>The symmetry identity — with two proofs</h3>
+<p>Here's a fact we've used informally: C(n, k) = C(n, n − k). Now prove it twice.</p>
+<pre class="math">Algebra proof:
+C(n, n − k) = n! / ((n − k)! · (n − (n − k))!)    (formula with n − k in the k slot)
+            = n! / ((n − k)! · k!)                (because n − (n − k) = k)
+            = C(n, k)                             (same denominator, just swapped)  ∎</pre>
+<pre class="math">Story proof: choosing k toppings to PUT ON your pizza is the same act as
+choosing the n − k toppings to LEAVE OFF. Every &quot;take&quot; choice is secretly a
+&quot;leave&quot; choice, so the counts are equal.  ∎</pre>
+<p>Two proofs of one fact — the algebra is mechanical, the story explains WHY. You'll see this pair again in Lesson 3.</p>
+<p>Bonus tool — the ratio trick. Each entry is a predictable multiple of the one before it:</p>
+<pre class="math">C(n, k + 1) / C(n, k) = (n − k) / (k + 1)</pre>
+<pre class="math">Why: C(n, k + 1) = n! / ((k+1)! (n−k−1)!). Divide by C(n, k) = n! / (k! (n−k)!):
+the n! cancels, (n − k)! = (n − k) · (n − k − 1)! supplies an (n − k) on top,
+and (k + 1)! = (k + 1) · k! supplies a (k + 1) on the bottom. ∎</pre>
+<pre class="math">Example: C(10, 5) = C(10, 4) × (10 − 4)/5 = 210 × 6/5 = 252. ✅ (row 10 entry 5!)</pre>
+<p>The ratio trick explains why entries grow toward the middle: as long as (n − k) &gt; (k + 1), the next entry is BIGGER. That stops exactly at the middle of the row.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Compute C(9, 4) with the formula, showing the cancellation. Then find it on the triangle.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>:</p><pre class="math">C(9, 4) = 9! / (4! · 5!)                    (note 4 + 5 = 9 ✅)
+      = (9 × 8 × 7 × 6) / (4 × 3 × 2 × 1)   (cancel 5!)
+      = 3024 / 24
+      = 126
+Row 9, entry 4: 1 9 36 84 126 ... — there it is. ✅</pre></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 7</p>
+    <h1>🛠️ Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps</h1>
+    <p class="kicker">📖 Lesson 7 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">An argument is VALID when the conclusion is FORCED by the facts.
+Two shapes always work: affirm the IF, deny the THEN.
+Two famous shapes are fakes: affirm the THEN, deny the IF.
+Solving an equation chains two-way promises. Squaring, and multiplying by something
+that could be 0, are ONE-WAY promises — so they can create fake solutions.</pre></div>
+<p>An argument takes facts you already have and squeezes a new fact out of them. With one if-then promise on the table, exactly four shapes are possible. Two work, two don't. Promise for all four: &quot;If x = 4, then x² = 16.&quot;</p>
+<pre class="math">WORKS — affirm the IF:              WORKS — deny the THEN:
+x = 4. So x² = 16. Guaranteed.      x² ≠ 16. So x ≠ 4. Guaranteed.
+                                    (This is the contrapositive in action!)</pre>
+<pre class="math">FAKE 1 — affirm the THEN:           FAKE 2 — deny the IF:
+x² = 16. So x = 4??                 x ≠ 4. So x² ≠ 16??
+NO — x could be −4.                 NO — x could be −4 again!</pre>
+<p>The ancient names: the working moves are modus ponens (affirm the IF) and modus tollens (deny the THEN). Notice how the SAME witness, x = −4, exposes both fakes — the negative root is the sprinkler of algebra.</p>
+<p>The deepest point, worth reading twice: a fake argument can accidentally land on a TRUE conclusion. &quot;x ≠ 4, so x² ≠ 16&quot; — plug in x = 5 and the conclusion is true (25 ≠ 16)! But the argument is still fake, because the conclusion wasn't FORCED: x = −4 proves it can fail. Valid means no escape, not &quot;worked out this time.&quot;</p>
+<p>Now — the connection that explains half of Algebra II. Solving an equation is a CHAIN OF PROMISES, and whether you may trust the answer depends on whether those promises are one-way or two-way.</p>
+<pre class="math">Reversible (two-way, ↔):   add/subtract the same thing; multiply/divide by a NONZERO number.
+One-way (→ only):          squaring both sides; multiplying both sides by something that could be 0.</pre>
+<p>A one-way step can make the truth set GROW: if A = B then A² = B² is a valid promise (squaring equals gives equals), but its converse — if A² = B² then A = B — is a fake (A and B might be opposites!). So after a one-way step, every candidate solution must be CHECKED in the original equation. The check isn't politeness. It's the logic.</p>
+<p><strong>Worked example 1</strong> — solve √(3x + 4) = x, and meet an extraneous solution.</p>
+<pre class="math">√(3x + 4) = x
+3x + 4 = x²            square both sides — VALID one-way move... but the truth set may have grown
+0 = x² − 3x − 4        subtract 3x and 4 from both sides — reversible, collects everything on one side
+0 = (x − 4)(x + 1)     factor: find two numbers with product −4 and sum −3 → those are −4 and +1
+x = 4  OR  x = −1      zero-product property: if a product is 0, at least one factor is 0 (an OR!)</pre>
+<pre class="math">Factor check by distribution: (x − 4)(x + 1) = x² + x − 4x − 4 = x² − 3x − 4 ✓</pre>
+<pre class="math">Now the MANDATORY checks — we squared, so candidates are suspects, not solutions:
+x = 4:   √(3·4 + 4) = √16 = 4.  Equal to x? 4 = 4 ✓  KEEP.
+x = −1:  √(3·(−1) + 4) = √1 = 1.  Equal to x? 1 ≠ −1 ✗  EXTRANEOUS — reject.</pre>
+<pre class="math">Truth set: {4}.</pre>
+<p>Where did −1 come from? Squaring merged our equation with its evil twin √(3x + 4) = −x (both square to 3x + 4 = x²), and −1 solves the twin: √1 = 1 = −(−1) ✓. The squared equation's truth set is the UNION of both equations' truth sets — and the check filters out the twin's members. Using the squared equation to claim the original is affirming the consequent; the check is how you confess it.</p>
+<p><strong>Worked example 2</strong> — the zero-multiply trap, and a truth set that comes out EMPTY. Solve x/(x − 2) = 2/(x − 2).</p>
+<pre class="math">x/(x − 2) = 2/(x − 2)
+x = 2                       multiply both sides by (x − 2) — one-way!
+                            This step is reversible ONLY if x − 2 ≠ 0.</pre>
+<pre class="math">MANDATORY check — we multiplied by something that could be 0:
+x = 2:   left side 2/(2 − 2) = 2/0.  DIVISION BY ZERO — undefined.
+         The candidate doesn't just fail; it makes the original equation meaningless. REJECT.</pre>
+<pre class="math">Truth set: ∅.  &quot;No solution&quot; is the correct answer here.</pre>
+<p>Where did the fake candidate come from? When x = 2, the multiplier x − 2 equals 0 — and multiplying by 0 turns any equation into 0 = 0, which is true for free. The multiplied equation can't feel that the original was broken at exactly that value. Multiplying by zero erases information (Lesson 4's assassin 3!), and erased information is how fake solutions are born. The flip side of the same trap: DIVIDING by an expression that could be 0 can erase a real solution — that's practice problem 92.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Valid or fake? Promise: &quot;If x = −2, then x² = 4.&quot;</p><ul class="steps"><li><span class="mk">(a)</span><div>x = −2, so x² = 4.   (b) x² = 4, so x = −2.   (c) x² ≠ 4, so x ≠ −2.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) VALID — affirming the IF. (b) FAKE — affirming the THEN: x could be 2, since 2² = 4 too. (c) VALID — denying the THEN (the contrapositive speaking).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

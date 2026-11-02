@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Transformations — Moving the Plane with Functions — Geometry</title>
+<meta name="description" content="Angles, triangles, Pythagoras, circles and more, with real proofs you can follow.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📐 Geometry</a> › Lesson 10</p>
+    <h1>🧪 Transformations — Moving the Plane with Functions</h1>
+    <p class="kicker">📖 Lesson 10 of 14</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Points, Lines, Segments, Rays — and Where They Live">1</a><a href="lesson-2.html" title="Lesson 2: Angles — Measuring the Turn, Proving the Rules">2</a><a href="lesson-3.html" title="Lesson 3: Parallel Lines and a Transversal — and the Proof of 180°">3</a><a href="lesson-4.html" title="Lesson 4: Triangles — the Inequality, Isosceles Secrets, and Congruence">4</a><a href="lesson-5.html" title="Lesson 5: The Pythagorean Theorem — State It, Prove It, Reverse It">5</a><a href="lesson-6.html" title="Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals">6</a><a href="lesson-7.html" title="Lesson 7: Area — Formulas You Can Derive, Not Memorize">7</a><a href="lesson-8.html" title="Lesson 8: Similarity — Same Shape, Different Size, and the k² Surprise">8</a><a href="lesson-9.html" title="Lesson 9: Circles — π, Arcs, Sectors, and the Inscribed Angle Theorem">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Transformations — Moving the Plane with Functions">10</a><a href="lesson-11.html" title="Lesson 11: Counting Meets Geometry — Casework and Complementary Counting">11</a><a href="lesson-12.html" title="Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms">12</a><a href="lesson-13.html" title="Lesson 13: Watch Out! Common Mistakes (Honors Edition)">13</a><a href="lesson-14.html" title="Lesson 14: Recap — The Big Picture">14</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A transformation is a FUNCTION on points: point in, point out.
+Translations, rotations, reflections preserve size. Dilations scale by k (area by k²).</pre></div>
+<p>You already know function notation: f(x) = 2x + 1 eats a number and spits out a number. And composing functions — f(g(x)) — means &quot;do g first, then f,&quot; where ORDER MATTERS: if f(x) = x² and g(x) = 2x + 1, then</p>
+<pre class="math">f(g(2)) = f(5) = 25      (g first: 2 → 5, then f: 5 → 25)
+g(f(2)) = g(4) = 9       (f first: 2 → 4, then g: 4 → 9)  — different!</pre>
+<p>A TRANSFORMATION is the same idea with points: it eats a point P and spits out an image point P′. Meet the four greats, each as a function on coordinates:</p>
+<p>· TRANSLATION (slide): T(x, y) = (x + 4, y − 2) slides everything 4 right, 2 down.</p>
+<pre class="math">T(1, 5) = (1 + 4, 5 − 2) = (5, 3)</pre>
+<p>· REFLECTION (flip):</p>
+<pre class="math">over the x-axis: (x, y) → (x, −y)       — x stays, y flips sign
+over the y-axis: (x, y) → (−x, y)       — y stays, x flips sign
+over the line y = x: (x, y) → (y, x)    — coordinates trade places
+Reflect (3, −2): over x-axis (3, 2); over y-axis (−3, −2); over y = x: (−2, 3).</pre>
+<p>· ROTATION about the origin:</p>
+<pre class="math">90° counterclockwise: (x, y) → (−y, x)  — swap, then negate the new x
+180°: (x, y) → (−x, −y)                 — both signs flip
+Rotate (5, 2) by 90° CCW: (−2, 5). By 180°: (−5, −2).</pre>
+<p>· DILATION from the origin with scale factor k: D_k(x, y) = (kx, ky).</p>
+<pre class="math">D₃(2, 1) = (6, 3). A dilation with k = 3 triples every length — and multiplies
+every AREA by k² = 9 (Lesson 8!). Triangle (0,0), (2,0), (0,1) has area 1;
+after D₃ it's (0,0), (6,0), (0,3) with area (6 × 3) ÷ 2 = 9 ✅.</pre>
+<p>Translations, rotations, and reflections never change distances or angles — they're called ISOMETRIES (&quot;same measure&quot;), and their images are CONGRUENT to the original. Dilations give SIMILAR figures (Lesson 8). Same shape, guaranteed; same size only if k = 1.</p>
+<h3>Composing transformations: order matters here too</h3>
+<p>Let T(x, y) = (x + 4, y − 2) and let R be rotation 90° CCW about the origin. Apply both to P = (1, 0), in both orders:</p>
+<pre class="math">R after T:  T(1, 0) = (5, −2);  R(5, −2) = (2, 5)
+T after R:  R(1, 0) = (0, 1);   T(0, 1) = (4, −1)
+Final answers (2, 5) vs (4, −1) — NOT the same point! Order matters. ✅</pre>
+<p>And here's a gem: reflect over the x-axis, then over the y-axis:</p>
+<pre class="math">(a, b) → (a, −b) → (−a, −b)  — exactly the 180° rotation rule!
+Two reflections over PERPENDICULAR lines compose into a 180° rotation.</pre>
+<p>Symmetry counting: a square stays itself under 8 transformations (4 rotations: 0°, 90°, 180°, 270°; and 4 reflections). A regular hexagon: 6 rotations + 6 reflections = 12.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Apply T(x, y) = (x − 3, y + 5) to (7, 2). (b) Rotate (4, 3) by 90° CCW about the origin. (c) Reflect (a, b) over the x-axis, THEN rotate the result 180°. What single transformation does that equal?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) (7 − 3, 2 + 5) = (4, 7). (b) (−3, 4). (c) (a, b) → (a, −b) → (−a, b) — that's reflection over the y-axis!</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">⬅️ Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

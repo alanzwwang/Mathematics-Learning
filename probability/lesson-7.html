@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: What Probability Really Means — Expected Value — Probability</title>
+<meta name="description" content="How likely is it? Complements, AND and OR rules, and expected value.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a> › Lesson 7</p>
+    <h1>🛠️ What Probability Really Means — Expected Value</h1>
+    <p class="kicker">📖 Lesson 7 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Expected count = number of tries × probability
+Expected value E = add up (each prize × its probability)
+A game is FAIR when E = cost — and you can solve backward for the fair prize.</pre></div>
+<p>P(heads) = 1/2, but flip a coin 10 times and you might get 7 heads. Nothing is broken — probability never promised you exactly half of a small batch. It promises the long run. Ten flips could be anything; 100 flips will usually land pretty close to 50 heads. The more tries, the closer reality gets to the fraction. The next flip, though, is never promised — coins have no memory and no plans.</p>
+<p>Expected count. If you repeat an experiment n times, with probability p of success each time:</p>
+<pre class="math">expected count = n × p</pre>
+<p>· Roll a die 60 times: expect 60 × 1/6 = 10 sixes.</p>
+<p>· Spin a spinner with P(red) = 3/8 forty times: expect 40 × 3/8 = 15 reds.</p>
+<p>· Flip two coins 20 times: expect 20 × 1/4 = 5 double-heads.</p>
+<p>&quot;Expect&quot; doesn't mean &quot;guaranteed&quot; — it means &quot;the long-run average.&quot; Reality wiggles around it, and bigger batches wiggle less (as a fraction of the total).</p>
+<p>Expected value: the money version. Different outcomes often pay different prizes, so a plain count isn't enough. Weigh each prize by its probability and add the pieces. The result E is the average win per play in the long run:</p>
+<pre class="math">Game: roll a die; win 5 points on a 6, otherwise 0.
+E = 5 × P(6) + 0 × P(not 6)
+E = 5 × 1/6 + 0 × 5/6 = 5/6 ≈ 0.83 points per play</pre>
+<p>Now say the game costs 1 point to play. You pay 1 and collect 5/6 on average — a bad deal. Over 12 games: expect 12 × 1/6 = 2 wins → 2 × 5 = 10 points won, but 12 paid → about 2 points down in the long run. That's the math behind every carnival game, lottery, and casino on Earth.</p>
+<p>(Mathematicians write this recipe with the Greek letter ∑ — sigma — which just means &quot;add them all up&quot;: E = ∑ (prize × its probability). Same idea, fancier outfit.)</p>
+<p><strong>Worked example</strong> — when is a game FAIR? When E equals the cost. Same die game, but the prize is 12 points for a 6:</p>
+<pre class="math">E = 12 × 1/6 + 0 × 5/6 = 2 points per play</pre>
+<p>A cost of exactly 2 points is fair: in the long run nobody gains and nobody loses. Charge more than 2 and the house profits; charge less and YOU profit.</p>
+<p><strong>Worked example</strong> — two prizes at once. A spinner pays 4 points on red (P = 1/2), 10 points on blue (P = 1/4), and nothing on green (P = 1/4):</p>
+<pre class="math">E = 4 × 1/2 + 10 × 1/4 + 0 × 1/4        each prize × its probability, added
+E = 2 + 10/4 + 0                         multiply each piece
+E = 2 + 5/2                              simplify: 10/4 = 5/2
+E = 4/2 + 5/2 = 9/2 = 4.5 ✅              common denominator 2</pre>
+<p>A fair cost for this game is 4.5 points per play. (Note the check built into the recipe: 1/2 + 1/4 + 1/4 = 1 — the probabilities must total 1, or the spinner is missing a color.)</p>
+<p><strong>Worked example</strong> — BACKWARD: design the prize. A game has two outcomes, each with probability 1/2: win 2 points, or win p points. The cost is 3 points. What prize p makes the game perfectly fair?</p>
+<pre class="math">E = cost                     the fairness equation
+2 × 1/2 + p × 1/2 = 3        the expected value recipe, with unknown p
+1 + p/2 = 3                  simplify: 2 × 1/2 = 1
+p/2 = 2                      subtract 1 from both sides
+p = 4 ✅                      multiply both sides by 2</pre>
+<pre class="math">CHECK: E = 2 × 1/2 + 4 × 1/2 = 1 + 2 = 3 = cost ✓ — perfectly fair.</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>You roll a die 30 times.</p><ul class="steps"><li><span class="mk">(a)</span><div>About how many 5s do you expect?</div></li><li><span class="mk">(b)</span><div>A game pays 6 points for rolling a 6, and 3 points for rolling a 5, otherwise 0. Find E.</div></li><li><span class="mk">(c)</span><div>The game in (b) costs 1 point to play. Good deal or bad deal? Prove it.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 30 × 1/6 = 5 fives. (b) E = 6 × 1/6 + 3 × 1/6 + 0 × 4/6 = 1 + 1/2 + 0 = 3/2 = 1.5. (c) E = 3/2 &gt; 1 = cost — a GOOD deal: you expect to gain 1/2 point per play in the long run.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

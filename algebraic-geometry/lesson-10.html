@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Watch Out! Common Mistakes — Algebraic Geometry</title>
+<meta name="description" content="Give every point an address (x, y) and watch equations draw lines, circles and parabolas!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🗺️ Algebraic Geometry</a> › Lesson 10</p>
+    <h1>⚠️ Watch Out! Common Mistakes</h1>
+    <p class="kicker">📖 Lesson 10 of 11</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Two Number Lines, One Map">1</a><a href="lesson-2.html" title="Lesson 2: Plotting Points, Quadrants, and Mirror Tricks">2</a><a href="lesson-3.html" title="Lesson 3: Rules That Draw Shapes">3</a><a href="lesson-4.html" title="Lesson 4: The Membership Test — Forwards and Backwards">4</a><a href="lesson-5.html" title="Lesson 5: Slope — Measuring the Tilt">5</a><a href="lesson-6.html" title="Lesson 6: From Rule to Line — y = mx + b, Parallels, Perpendiculars">6</a><a href="lesson-7.html" title="Lesson 7: Where Lines Meet — Two Methods, Three Possibilities">7</a><a href="lesson-8.html" title="Lesson 8: Distance, Midpoints, and the Circle's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Parabolas, Transformations, and Where Lines Meet Curves">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Watch Out! Common Mistakes">10</a><a href="lesson-11.html" title="Lesson 11: Review — The Big Picture">11</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the big ideas in sight</p><pre class="math">(x, y): x first. Rise on top, WITH its sign. Zero ≠ none.
+Flip AND sign-flip for perpendiculars. Two yeses at meetings.
+Circles subtract their centers. Un-squaring gives ±.</pre></div>
+<p>These six traps catch students every single year — even strong ones. Learn them now, and they won't catch you!</p>
+<h3>Mistake 1: Flipping the slope fraction — or dropping the sign</h3>
+<pre class="math">Through (2, 6) and (4, 2): slope = 2 ÷ 4 = 1/2?   ❌</pre>
+<p>Two errors in one line! That's run ÷ rise — the fraction upside down — and it lost the sign. The RISE rides on top, WITH its sign: rise = 2 − 6 = −4, run = 4 − 2 = 2, slope = −4 ÷ 2 = −2. Sanity checks that catch this: the line slides downhill, so the slope must be NEGATIVE; and it falls 4 while running only 2, so it's steep — |slope| had better be bigger than 1, not 1/2. ✅</p>
+<h3>Mistake 2: Confusing &quot;slope 0&quot; with &quot;no slope&quot;</h3>
+<pre class="math">&quot;The line x = 4 has slope 0.&quot;   ❌</pre>
+<p>x = 4 is VERTICAL — straight up and down. Its run is 0, and slope = rise ÷ 0 is division by zero: not a number, no slope at all. Slope 0 belongs to HORIZONTAL lines like y = 4 (rise 0, so 0 ÷ run = 0). Flat lines have slope 0; standing lines have none. ✅</p>
+<h3>Mistake 3: Half-fixing the perpendicular slope</h3>
+<pre class="math">&quot;Perpendicular to slope 3? Easy: flip it — 1/3!&quot;   ❌</pre>
+<p>The perpendicular rule has TWO moves: flip the fraction AND flip the sign. Perpendicular to 3 is −1/3. The check is one multiplication: perpendicular slopes multiply to −1. Does 3 × (1/3) = −1? No, it gives 1. Does 3 × (−1/3) = −1? Yes ✅.</p>
+<h3>Mistake 4: Checking only ONE rule at a crossing</h3>
+<pre class="math">(4, 0) is where y = x − 4 meets y = 2x − 6?   ❌</pre>
+<p>It passes the first rule (4 − 4 = 0 ✅) but flunks the second (2 × 4 − 6 = 2 ≠ 0 ❌). A meeting point needs TWO yeses — one per rule. (The real crossing: x − 4 = 2x − 6 → add 6: x + 2 = 2x → subtract x: 2 = x → y = 2 − 4 = −2. Check (2, −2): 2 − 4 = −2 ✅ and 2 × 2 − 6 = −2 ✅. Double yes!)</p>
+<h3>Mistake 5: Reading the circle's center with the wrong signs</h3>
+<pre class="math">(x − 3)² + (y + 2)² = 9 has center (−3, 2)?   ❌</pre>
+<p>Backwards! The circle formula SUBTRACTS the center: (x − h)² + (y − k)². So x − 3 means h = 3, and y + 2 — which is really y − (−2) — means k = −2. Center (3, −2). Quick self-check: plug the center in — both parentheses must equal 0: (3 − 3)² + (−2 + 2)² = 0 ✅. If you'd picked (−3, 2), you'd get 36 + 16 = 52 — definitely not the center! ✅</p>
+<h3>Mistake 6: Forgetting the ± when un-squaring</h3>
+<pre class="math">On the circle x² + y² = 25, if x = 3 then y = 4.   ❌</pre>
+<p>Half the truth! 3² + y² = 25 gives y² = 16, and TWO numbers square to 16: y = 4 AND y = −4. Squaring erases signs — so un-squaring must restore both. The circle really contains both (3, 4) and (3, −4): one above the x-axis, one below — mirror twins, exactly as Lesson 2 promised. ✅</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">⬅️ Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

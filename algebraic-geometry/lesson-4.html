@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Membership Test — Forwards and Backwards — Algebraic Geometry</title>
+<meta name="description" content="Give every point an address (x, y) and watch equations draw lines, circles and parabolas!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🗺️ Algebraic Geometry</a> › Lesson 4</p>
+    <h1>🔍 The Membership Test — Forwards and Backwards</h1>
+    <p class="kicker">📖 Lesson 4 of 11</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Two Number Lines, One Map">1</a><a href="lesson-2.html" title="Lesson 2: Plotting Points, Quadrants, and Mirror Tricks">2</a><a href="lesson-3.html" title="Lesson 3: Rules That Draw Shapes">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The Membership Test — Forwards and Backwards">4</a><a href="lesson-5.html" title="Lesson 5: Slope — Measuring the Tilt">5</a><a href="lesson-6.html" title="Lesson 6: From Rule to Line — y = mx + b, Parallels, Perpendiculars">6</a><a href="lesson-7.html" title="Lesson 7: Where Lines Meet — Two Methods, Three Possibilities">7</a><a href="lesson-8.html" title="Lesson 8: Distance, Midpoints, and the Circle's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Parabolas, Transformations, and Where Lines Meet Curves">9</a><a href="lesson-10.html" title="Lesson 10: Watch Out! Common Mistakes">10</a><a href="lesson-11.html" title="Lesson 11: Review — The Big Picture">11</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Is a point ON the shape? Plug its x and y into the rule.
+True → ON. False → OFF. And run it BACKWARDS to solve
+for a missing coordinate.</pre></div>
+<p>You never have to guess whether a point lies on a shape. There's a test for it — the single most-used move in algebraic geometry — and it always tells the truth.</p>
+<p>THE MEMBERSHIP TEST: plug the point's coordinates into the rule. If the equation comes out true, the point is on the shape. If it comes out false, it's off. That's the whole test!</p>
+<p>Worked examples with the rule y = 2x + 1:</p>
+<pre class="math">Test (3, 7):   does 7 = 2 × 3 + 1?   7 = 7 ✅ ON!
+Test (3, 8):   does 8 = 2 × 3 + 1?   8 ≠ 7 ❌ OFF!
+Test (0, 1):   does 1 = 2 × 0 + 1?   1 = 1 ✅ ON!</pre>
+<p>Two lessons hide in that table. First: neighbors matter — (3, 7) and (3, 8) differ by one little step, yet one is on the line and the other is off. Second: don't fear the 0! Plugging in x = 0 is perfectly legal — and often the easiest test of all.</p>
+<p>The test works for ANY rule, including ones with both letters mixed:</p>
+<pre class="math">Rule 3x + 2y = 12.   Test (2, 3):  6 + 6 = 12 ✅ ON!
+                     Test (4, 1):  12 + 2 = 14 ≠ 12 ❌ OFF!</pre>
+<p>And it works when x gets squared — just remember that squaring a negative gives a positive:</p>
+<pre class="math">Rule y = x² − 3.   Test (2, 1):  2² − 3 = 4 − 3 = 1 ✅ ON!</pre>
+<p>Notice what you did NOT need: graph paper! The membership test is pure arithmetic — it answers a geometry question (&quot;is it on the shape?&quot;) with algebra. That's the dictionary at work.</p>
+<h3>The backwards trick: find the missing coordinate</h3>
+<p>Here's where the test turns into a detective tool. Suppose you KNOW a point is on a shape, but one coordinate is missing. Call the mystery number k, run the membership test — and the test becomes an equation that solves the mystery!</p>
+<p>Mystery 1: The point (5, k) sits on y = 3x − 4. Find k.</p>
+<pre class="math">Membership test:   k = 3 × 5 − 4      (plug in x = 5, y = k)
+                   k = 15 − 4 = 11
+The point is (5, 11). One step — the rule did all the work!</pre>
+<p>Mystery 2: The point (k, 7) sits on y = 2x + 1. Find k.</p>
+<pre class="math">Membership test:   7 = 2k + 1         (plug in x = k, y = 7)
+Subtract 1:        6 = 2k             (Golden Rule from the
+                                       Algebraic Equations lesson:
+                                       same thing to both sides!)
+Divide by 2:       k = 3
+Check (forwards!): 2 × 3 + 1 = 7 ✅   The point is (3, 7).</pre>
+<p>See the rhythm? Plugging in the KNOWN coordinate leaves an equation for the unknown one. Forwards or backwards, the membership test is the whole game.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>The point (3, k) sits on y = x² − 2x. Find k. (b) The point (k, 2) sits on 4x + y = 10. Find k.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) k = 3² − 2 × 3 = 9 − 6 = 3 — the point is (3, 3). Check: 9 − 6 = 3 ✅. (b) 4k + 2 = 10 → subtract 2: 4k = 8 → divide by 4: k = 2. Check: 4 × 2 + 2 = 10 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

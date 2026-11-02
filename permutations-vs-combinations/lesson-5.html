@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Big Decision — Permutation or Combination? — Permutations vs Combinations</title>
+<meta name="description" content="Does order matter? Learn the big decision that every counting problem asks.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔐 Permutations vs Combinations</a> › Lesson 5</p>
+    <h1>⚡ The Big Decision — Permutation or Combination?</h1>
+    <p class="kicker">📖 Lesson 5 of 7</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Counting Principle — The Multiplication Machine">1</a><a href="lesson-2.html" title="Lesson 2: Factorials — The Line-Up Machine">2</a><a href="lesson-3.html" title="Lesson 3: Permutations — When Order Matters">3</a><a href="lesson-4.html" title="Lesson 4: Combinations — When Order Doesn't Matter">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Big Decision — Permutation or Combination?">5</a><a href="lesson-6.html" title="Lesson 6: Watch Out! Common Mistakes">6</a><a href="lesson-7.html" title="Lesson 7: Review — The Big Picture">7</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 The one-question test</p><pre class="math">&quot;If I SWAP two of my picks, do I get a DIFFERENT result?&quot;
+YES → permutation.    NO (same thing) → combination.</pre></div>
+<p>Same club, two questions. Seven members.</p>
+<p>Question A: pick a president, a vice-president, and a treasurer.</p>
+<p>Swap two names and someone gets a new job — different result! Permutation:</p>
+<pre class="math">P(7, 3) = 7 × 6 × 5 = 210</pre>
+<p>Question B: pick a 3-person cleanup committee.</p>
+<p>Swap two names and it's the same committee — no new result. Combination:</p>
+<pre class="math">C(7, 3) = 210 ÷ 6 = 35</pre>
+<p>Same people, same club, same-size pick — and the permutation answer is exactly 6 = 3! times bigger. The permutation counts every committee once per scramble; the combination counts it once, period.</p>
+<p>Clue words to listen for:</p>
+<p>· Permutation clues: arrange, line up, order, rank, 1st/2nd/3rd place,</p>
+<pre class="math">  code, password, schedule, batting order
+· Combination clues: choose, pick, select, group, team, committee,
+  toppings, handshakes</pre>
+<p>But trust the swap test more than the clue words. &quot;Pick 3 winners&quot; is a combination — but &quot;pick 1st, 2nd, and 3rd&quot; is a permutation, even though both say &quot;pick&quot;!</p>
+<p>One last gem: a combination lock is misnamed! On a lock, 1-2-3 and 3-2-1 are very different — order matters. It should really be called a permutation lock. You now know more vocabulary than the lock company.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Decide first — P or C? Then solve.</p><ul class="steps"><li><span class="mk">(a)</span><div>Pick 3 of 6 friends for a study group.</div></li><li><span class="mk">(b)</span><div>Award gold, silver, and bronze to 3 of 6 skaters.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Combination — swap two friends, same group. C(6, 3) = (6 × 5 × 4) ÷ 6 = 20. (b) Permutation — swap two medals, different podium. P(6, 3) = 6 × 5 × 4 = 120.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

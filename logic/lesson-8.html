@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 8</p>
+    <h1>🎨 Knights and Knaves — When the Statements Use AND, OR, and IF–THEN</h1>
+    <p class="kicker">📖 Lesson 8 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Knights ALWAYS tell the truth. Knaves ALWAYS lie.
+A knave's compound statement is false as a WHOLE — and De Morgan (plus the promise
+table) tells you exactly what that falsehood means.
+Method: SUPPOSE, FOLLOW the consequences, hit a contradiction → switch, then CHECK.</pre></div>
+<p>Welcome back to Raymond Smullyan's island, where every islander is a knight (never lies) or a knave (never tells the truth). Last time the puzzles were warm-ups. Now the islanders fight back with compound statements — and everything you learned about ¬, ∧, ∨, → becomes a weapon. The key upgrade:</p>
+<pre class="math">If a knave says &quot;p AND q,&quot; the AND is false — De Morgan: ¬p OR ¬q (at least one part fails).
+If a knave says &quot;p OR q,&quot; the OR is false — De Morgan: ¬p AND ¬q (BOTH parts fail).
+If a knave says &quot;if p then q,&quot; the promise is false — the promise table: p true AND q false.</pre>
+<p>The method, in a box:</p>
+<pre class="math">1. SUPPOSE someone is a knight (or a knave).
+2. FOLLOW the consequences: knights' statements are true, knaves' are false.
+3. Hit a contradiction? That supposition is dead — try the other one.
+4. Found a consistent case? CHECK every statement before declaring victory.
+5. BOTH cases explode? The situation is impossible.
+6. BOTH cases survive? Then the answer is whatever is true in BOTH of them (see Puzzle 5).</pre>
+<p>Puzzle 1 — the impossible sentence (still impossible). One islander says: &quot;I am a knave.&quot;</p>
+<p>· SUPPOSE he's a knight → his statement is true → he IS a knave. Contradiction!</p>
+<p>· SUPPOSE he's a knave → his statement is false → he is NOT a knave → he's a knight. Contradiction!</p>
+<p>· Both cases explode. NO islander can ever say those words.</p>
+<p>Puzzle 2 — an OR statement, unpacked with De Morgan. Ava says: &quot;At least one of us is a knight.&quot; Bo says: &quot;Ava is a knave.&quot;</p>
+<p>· SUPPOSE Ava is a knave → her OR statement is FALSE → De Morgan: NOT(Ava knight) AND NOT(Bo knight)</p>
+<pre class="math">  → both are knaves → Bo is a knave → his statement &quot;Ava is a knave&quot; must be FALSE → Ava is a knight. Contradiction!
+· So Ava is a KNIGHT → her statement is true ✓ (she herself is a knight — the OR is satisfied).
+· Now Bo: SUPPOSE he's a knight → &quot;Ava is a knave&quot; would be true — but she's a knight. Contradiction.
+· So Bo is a KNAVE → his statement is false → Ava is NOT a knave ✓ consistent.
+· CHECK: Ava (knight) told the truth ✓. Bo (knave) lied ✓.
+  Solution: Ava knight, Bo knave.</pre>
+<p>Puzzle 3 — the no-solution shocker, three islanders. Ava says: &quot;Bo is a knight.&quot; Bo says: &quot;Cy is a knight.&quot; Cy says: &quot;Ava is a knave.&quot;</p>
+<p>· SUPPOSE Ava is a knight → Bo is a knight → Cy is a knight → &quot;Ava is a knave&quot; is TRUE → Ava is a knave. Contradiction!</p>
+<p>· SUPPOSE Ava is a knave → her statement is false → Bo is a knave → his statement is false → Cy is a knave</p>
+<pre class="math">  → his statement &quot;Ava is a knave&quot; is FALSE → Ava is a knight. Contradiction!
+· Both suppositions explode — this trio of statements can never exist. Sometimes the correct answer is: impossible.</pre>
+<p>Puzzle 4 — the islander who speaks in if-then. Ava says: &quot;If I am a knight, then Bo is a knave.&quot; Bo says nothing.</p>
+<p>· SUPPOSE Ava is a knave → her if-then must be FALSE → the promise table (Lesson 4) says a broken</p>
+<pre class="math">  promise needs IF true and THEN false → the IF part &quot;I am a knight&quot; would have to be TRUE → but she's
+  a knave → the IF is false → a false IF means the if-then is automatically TRUE (untested promise!)
+  → so her statement CANNOT be false → a knave can't say it. Contradiction!
+· So Ava is a KNIGHT → her statement is TRUE → and its IF part is true (she IS a knight)
+  → affirming the IF forces the THEN (modus ponens!): Bo is a knave.
+· CHECK: Ava knight, statement &quot;true → true&quot; = true ✓. Bo knave, silent — nothing to break ✓.
+  Solution: Ava knight, Bo knave.</pre>
+<p>Notice what happened: the promise table ITSELF solved the puzzle. A knave can never utter &quot;if I am a knight, then...&quot; — such a sentence can only come from a knight. The logic you learned in Lesson 4 is doing detective work now.</p>
+<p>Puzzle 5 — the puzzle with TWO surviving cases. Ava says: &quot;Bo and I are the same type.&quot; Bo says nothing.</p>
+<p>· SUPPOSE Ava is a knight → her statement is true → they ARE the same type → Bo is a knight.</p>
+<pre class="math">  Check this case: Ava knight told the truth ✓. Bo knight, silent ✓. CONSISTENT.
+· SUPPOSE Ava is a knave → her statement is false → they are DIFFERENT types → Bo ≠ Ava
+  → Bo is a knight. Check this case: Ava knave — her statement &quot;same type&quot; really is false
+  (knight vs knave) ✓ a knave lying. CONSISTENT.
+· BOTH cases survive?! Yes — this puzzle cannot decide Ava. But look at what stays fixed
+  across both surviving cases: Bo is a knight in every one of them.</pre>
+<pre class="math">Final answer: Bo is DEFINITELY a knight. Ava could be either type.</pre>
+<p>This is a real mathematical superpower: when every road survives, report what's true on all of them. Mathematicians do this constantly — &quot;we can't pin down the exact value, but in every possible case it's positive&quot; is a perfectly strong conclusion.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Ava says: &quot;Bo is a knave.&quot; Bo says: &quot;Ava and I are the same type.&quot; What are they?</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: SUPPOSE Ava is a knave → her statement is false → Bo is a KNIGHT → Bo's statement is true → they ARE the same type → Ava is a knight. Contradiction! So Ava is a KNIGHT → her statement is true → Bo is a knave → Bo's statement &quot;same type&quot; must be FALSE → they're different types ✓ (knight vs knave — indeed different). CHECK: Ava told the truth ✓, Bo lied ✓. Solution: Ava knight, Bo knave. (Notice Bo's statement here is the same sentence as Puzzle 5's — but Ava's different sentence pins everything down.)</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

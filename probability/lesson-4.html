@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality — Probability</title>
+<meta name="description" content="How likely is it? Complements, AND and OR rules, and expected value.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a> › Lesson 4</p>
+    <h1>🔍 The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality</h1>
+    <p class="kicker">📖 Lesson 4 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Formula of this section</p><pre class="math">P(not A) = 1 − P(A)</pre></div>
+<p>Remember Lesson 2's secret: all probabilities together add to 1. So an event either happens or it doesn't, and those two chances must total 1. The event &quot;not A&quot; has a name — the complement of A — and the rule is just the sum-to-1 law wearing a disguise:</p>
+<pre class="math">P(A) + P(not A) = 1        →        P(not A) = 1 − P(A)</pre>
+<p><strong>Worked example 1</strong> — the die.</p>
+<pre class="math">P(not a 6) = 1 − 1/6 = 6/6 − 1/6 = 5/6 ✅
+(Write 1 as a matching fraction first — 6/6 — then subtract the numerators.)</pre>
+<p><strong>Worked example 2</strong> — the weather.</p>
+<pre class="math">P(rain) = 30%, so P(no rain) = 100% − 30% = 70% ✅</pre>
+<p><strong>Worked example 3</strong> — a two-step chain. You flip one coin and roll one die. What's P(NOT getting &quot;heads and a 6&quot;)? First you need P(heads and a 6) — that's 1 of the 2 × 6 = 12 outcomes, so 1/12. Then:</p>
+<pre class="math">P(not) = 1 − 1/12 = 11/12 ✅</pre>
+<p>Counting &quot;everything except heads-and-a-6&quot; directly means listing 11 outcomes. The rule did it in one subtraction.</p>
+<p><strong>Worked example 4</strong> — the complement as an equation. An event A has P(A) = 3x, and its complement has P(not A) = 5x. Find P(A).</p>
+<pre class="math">3x + 5x = 1        the complement law: the two must total 1
+8x = 1             combine like terms
+x = 1/8            divide both sides by 8
+P(A) = 3x = 3 × 1/8 = 3/8 ✅</pre>
+<pre class="math">CHECK: P(A) + P(not A) = 3/8 + 5/8 = 8/8 = 1 ✓</pre>
+<p><strong>Worked example 5</strong> — an inequality. A forecast only promises P(rain) ≤ 1/3. What can you conclude about P(no rain)?</p>
+<pre class="math">P(no rain) = 1 − P(rain)        the complement rule
+P(rain) ≤ 1/3                    what we know
+1 − P(rain) ≥ 1 − 1/3            subtract from 1 — and the comparison FLIPS
+P(no rain) ≥ 2/3 ✅               simplify: 1 − 1/3 = 3/3 − 1/3 = 2/3</pre>
+<p>Why does the comparison flip? Subtracting a SMALLER number from 1 leaves MORE. Test it with numbers: if P(rain) = 1/3, then P(no rain) = 2/3. If P(rain) is smaller — say 1/4 — then P(no rain) = 3/4, which is bigger than 2/3. The less rain, the more no-rain: the comparison turns around. (This is the same flip you already know from algebra: multiplying an inequality by a negative reverses it — and &quot;subtract from 1&quot; secretly multiplies by −1 first.)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>If P(A) = 2/9, what is P(not A)?</div></li><li><span class="mk">(b)</span><div>P(win) = x and P(not win) = 4x. Find P(win).</div></li><li><span class="mk">(c)</span><div>P(A) = x/12 and P(not A) = 3/4. Find x. (Careful: x itself is a marble count, not a probability — so x CAN be bigger than 1.)</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 1 − 2/9 = 9/9 − 2/9 = 7/9. (b) x + 4x = 1 → 5x = 1 → x = 1/5, so P(win) = 1/5. CHECK: 1/5 + 4/5 = 1 ✓. (c) P(A) = 1 − 3/4 = 1/4, so x/12 = 1/4 → x = 12 × 1/4 = 3. CHECK: 3/12 = 1/4 ✓.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

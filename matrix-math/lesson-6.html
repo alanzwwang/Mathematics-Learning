@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Special Grids — The Zero Grid and the Identity Grid — Matrix Math</title>
+<meta name="description" content="Grids of numbers that power video games, photos and secret codes!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔢 Matrix Math</a> › Lesson 6</p>
+    <h1>🌟 Special Grids — The Zero Grid and the Identity Grid</h1>
+    <p class="kicker">📖 Lesson 6 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Matrix — Rows, Columns, Addresses">1</a><a href="lesson-2.html" title="Lesson 2: Adding and Subtracting — Square by Square">2</a><a href="lesson-3.html" title="Lesson 3: The Scalar — One Number Times a Whole Grid">3</a><a href="lesson-4.html" title="Lesson 4: The Real Matrix Multiplication — Row × Column">4</a><a href="lesson-5.html" title="Lesson 5: Order Matters! A × B ≠ B × A">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Special Grids — The Zero Grid and the Identity Grid">6</a><a href="lesson-7.html" title="Lesson 7: Matrices at Work — Scores, Photos, Codes, and Flips">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">The zero grid is the 0 of matrix world:  A + 0 = A.
+The identity grid I is the 1 of matrix world:  A × I = A.</pre></div>
+<h3>The grid that does nothing (to sums)</h3>
+<p>The zero grid is all zeros: [ 0  0 ;  0  0 ]. Add it to anything and nothing changes — just like adding 0 to a number. And subtracting a grid from itself always gives the zero grid: A − A = 0.</p>
+<h3>The grid that does nothing (to products)</h3>
+<p>Now the sneakier one. This grid is called the identity, written I:</p>
+<pre class="math">I = [ 1  0 ]            I = [ 1  0  0 ]
+    [ 0  1 ]                [ 0  1  0 ]
+                            [ 0  0  1 ]</pre>
+<p>Ones run down the main diagonal (the line of squares from the top-left corner to the bottom-right corner), and zeros fill the rest. Multiply any grid by I and it comes out untouched:</p>
+<pre class="math">I × [ 5  3 ] = [ 5  3 ]
+    [ 2  4 ]   [ 2  4 ]</pre>
+<pre class="math">top-left:      1×5 + 0×2 = 5      top-right:     1×3 + 0×4 = 3
+bottom-left:   0×5 + 1×2 = 2      bottom-right:  0×3 + 1×4 = 4</pre>
+<p>Why does it work? In every dot product, the single 1 grabs exactly one partner and the 0s ignore the rest. The identity is a perfect copy machine. (And it works on both sides: I × A = A and A × I = A. The identity commutes with everybody — it's one of the special pairs from Lesson 5!)</p>
+<h3>The undo grid (a peek)</h3>
+<p>Some grids have an undo partner called an inverse: multiply the two and you get I. Doubling then halving is doing nothing — so the doubling grid and the halving grid undo each other:</p>
+<pre class="math">[ 2  0 ] × [ 1/2   0  ] = [ 1  0 ] = I
+[ 0  2 ]   [  0   1/2 ]   [ 0  1 ]</pre>
+<pre class="math">top-left square:  2 × 1/2 + 0 × 0 = 1   (the other three work out the same way)</pre>
+<p>Not every grid has an undo partner — the zero grid never does, since every product with it is all zeros. But when an inverse exists, it undoes the original perfectly, the way dividing by 2 undoes multiplying by 2. The practice problems will let you verify a couple of undo pairs yourself.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute [ 6  1 ;  3  2 ] × I. (b) What grid added to [ 6  1 ;  3  2 ] gives the zero grid?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Unchanged: [ 6  1 ;  3  2 ] — the identity copies. (b) The negative of every square: [ −6  −1 ;  −3  −2 ].</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

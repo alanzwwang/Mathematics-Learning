@@ -6,7 +6,7 @@ title: Mathematics Learning
 
 A personal library of math notes — from arithmetic to complex analysis.
 
-**Version:** V.2.8
+**Version:** V.2.9
 
 ## Foundations
 

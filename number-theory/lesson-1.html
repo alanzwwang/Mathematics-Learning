@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Place-Value Algebra + Proving the Divisibility Rules — Number Theory</title>
+<meta name="description" content="Primes, divisibility rules, GCF, LCM and Euclid's amazing 2,300-year-old algorithm.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔍 Number Theory</a> › Lesson 1</p>
+    <h1>🚀 Place-Value Algebra + Proving the Divisibility Rules</h1>
+    <p class="kicker">📖 Lesson 1 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A number is a SUM of digit × place value:  253 = 2×100 + 5×10 + 3.
+Rewrite that sum with distribution, and the divisibility rules prove themselves.</pre></div>
+<p>Sixty-second refresher, as promised. A factor divides a number exactly: 7 is a factor of 84 because 84 = 7 × 12 with no leftovers. A multiple comes from multiplying: 84 is a multiple of 7 for the same reason. Factors fit inside; multiples grow outside. Done!</p>
+<p>Now the honors upgrade. In this course we never just USE a rule — we prove it. The master key to every divisibility proof is writing a number as a sum of its digits times place values:</p>
+<pre class="math">253 = 2×100 + 5×10 + 3</pre>
+<h3>The rule for 9, proven</h3>
+<p>Claim: a number is divisible by 9 exactly when its digit sum is divisible by 9. Watch 231 split apart:</p>
+<pre class="math">231 = 2×100 + 3×10 + 1                place-value expansion
+    = 2×(99 + 1) + 3×(9 + 1) + 1      because 100 = 99 + 1 and 10 = 9 + 1
+    = 2×99 + 2 + 3×9 + 3 + 1          distribute: a×(b + c) = a×b + a×c
+    = (2×99 + 3×9) + (2 + 3 + 1)      regroup: multiples of 9 in front
+    = 9×(2×11 + 3×1) + 6              factor 9 out of the first group</pre>
+<p>Read the last line carefully: 231 equals a multiple of 9, PLUS its own digit sum (6). The first chunk is divisible by 9 no matter what, so 231 is divisible by 9 EXACTLY when its digit sum is. Here 6 is not divisible by 9, so 231 isn't either — but it IS divisible by 3, because 99 and 9 are multiples of 3 too, so the very same proof gives the 3-rule for free. One proof, two rules!</p>
+<h3>The rules for 4 and 8, proven</h3>
+<p>Any number splits into &quot;whole hundreds&quot; plus its last two digits, and 100 = 4 × 25, so the hundreds part is always divisible by 4. Only the last two digits get a vote:</p>
+<pre class="math">316 = 3×100 + 16 = 4×(3×25) + 16 → 16 = 4×4 → YES ✅
+530 = 5×100 + 30 = 4×(5×25) + 30 → 30 ÷ 4 leaves 2 → NO ❌</pre>
+<p>For 8, go one digit deeper: 1000 = 8 × 125, so every whole thousand is divisible by 8, and only the last THREE digits vote:</p>
+<pre class="math">4,128 → look at 128 → 128 = 8 × 16 → YES ✅</pre>
+<h3>The rule for 11, proven (negative numbers enter the story)</h3>
+<p>This time rewrite the place values with 11 in mind — and notice that 10 is one LESS than 11, while 100 is one MORE than 99:</p>
+<pre class="math">253 = 2×100 + 5×10 + 3
+    = 2×(99 + 1) + 5×(11 − 1) + 3     100 = 99 + 1, but 10 = 11 − 1
+    = 2×99 + 2 + 5×11 − 5 + 3         distribute (watch the minus sign!)
+    = (2×99 + 5×11) + (2 − 5 + 3)     multiples of 11 in front
+    = (a multiple of 11) + 0</pre>
+<p>The leftover piece is exactly the zigzag sum: first digit MINUS second, PLUS third. (For four digits it alternates a − b + c − d, because 1000 = 11×91 − 1.) A number is divisible by 11 exactly when its zigzag sum is a multiple of 11 — and remember, the multiples of 11 include 0, 11, −11, 22, −22, ...</p>
+<pre class="math">319  → 3 − 1 + 9 = 11      → YES ✅   (319 = 11 × 29)
+1,903 → 1 − 9 + 0 − 3 = −11 → YES ✅   (1903 = 11 × 173)
+245  → 2 − 4 + 5 = 3       → NO  ❌</pre>
+<h3>Unknown digits: divisibility meets equations</h3>
+<p>Here is where honors algebra walks in. Problem: find every digit d that makes 4d2 divisible by 3.</p>
+<pre class="math">digit sum = 4 + d + 2 = d + 6
+need: d + 6 divisible by 3, where d is a digit (0 through 9)
+so d + 6 could be 6, 9, 12, or 15 — the multiples of 3 a digit can reach</pre>
+<pre class="math">d + 6 = 6   →  d = 0      subtract 6 from both sides
+d + 6 = 9   →  d = 3      same move
+d + 6 = 12  →  d = 6
+d + 6 = 15  →  d = 9</pre>
+<p>Four answers: d ∈ {0, 3, 6, 9}. Check one: 462 = 3 × 154 ✅. Notice what just happened — a divisibility question turned into a tiny EQUATION, solved the same way every time. The symbol ∈ means &quot;is a member of the set,&quot; by the way; you'll see it again.</p>
+<h3>The digit machine: 10a + b</h3>
+<p>Every two-digit number with tens digit a and ones digit b equals 10a + b. (Example: 54 = 10×5 + 4.) That tiny formula cracks a classic puzzle.</p>
+<p>Puzzle: a two-digit number is 6 times the sum of its digits. Find it.</p>
+<pre class="math">10a + b = 6(a + b)        translate the words into algebra
+10a + b = 6a + 6b         distribute on the right side
+10a − 6a = 6b − b         subtract 6a and subtract b from BOTH sides
+4a = 5b                   simplify each side</pre>
+<p>Now think like a number theorist. The equation 4a = 5b says 4a is a multiple of 5. Since 4 and 5 share no factor (their GCF is 1), the 5 has nowhere to hide: a itself must be a multiple of 5. But a is a digit from 1 to 9, so a = 5 — and then 4×5 = 5b gives b = 4.</p>
+<pre class="math">The number is 54.  Check: digit sum = 5 + 4 = 9, and 6 × 9 = 54 ✅</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">1.</span><div>Is 4,128 divisible by 8? By 11?</div></li><li><span class="mk">2.</span><div>Find every digit d that makes 4d4 divisible by 9.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: 1. Last three digits: 128 = 8 × 16 → YES for 8. Zigzag: 4 − 1 + 2 − 8 = −3, not a multiple of 11 → NO for 11. 2. Digit sum = 4 + d + 4 = d + 8. Need d + 8 divisible by 9: d + 8 = 9 gives d = 1; d + 8 = 18 gives d = 10, which is not a digit — rejected. So d = 1, the number is 414, and 414 = 9 × 46 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

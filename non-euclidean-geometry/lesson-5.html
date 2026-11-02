@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Geometry on a Saddle — Skinny Triangles — Non-Euclidean Geometry</title>
+<meta name="description" content="What if space is curved? Triangles on balls and saddles break the 180° rule!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🌐 Non-Euclidean Geometry</a> › Lesson 5</p>
+    <h1>⚡ Geometry on a Saddle — Skinny Triangles</h1>
+    <p class="kicker">📖 Lesson 5 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Five Postulates — and the Troublemaker">1</a><a href="lesson-2.html" title="Lesson 2: What Is a Straight Line, Anyway?">2</a><a href="lesson-3.html" title="Lesson 3: Geometry on a Ball — Fat Triangles">3</a><a href="lesson-4.html" title="Lesson 4: Girard's Theorem — On a Ball, Area IS Excess">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Geometry on a Saddle — Skinny Triangles">5</a><a href="lesson-6.html" title="Lesson 6: The Curvature Detective, Quantified">6</a><a href="lesson-7.html" title="Lesson 7: Maps Lie — Geometry in the Real World">7</a><a href="lesson-8.html" title="Lesson 8: The Three Worlds, Side by Side">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Seven Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">On a saddle, every triangle's angles add to LESS than 180°.
+The missing amount is the DEFICIT — and on the ideal saddle,
+area = deficit. No saddle triangle can ever reach area π!</pre></div>
+<h3>Meet the saddle</h3>
+<p>Picture a horse saddle — or a Pringles chip, or a high mountain pass. It curves UP in one direction (front to back) and DOWN in the other (side to side). A surface that curves both ways at once is the third world of our story. (Nature loves this shape: look at ruffled lettuce leaves, coral, and certain seashells — they flare like saddles!)</p>
+<p>On a saddle, something backwards happens to parallel lines. Take a straight line and a point off it. On flat paper, exactly ONE line through the point never meets the first. On a saddle, line after line through the point slips safely past — bending away, missing forever. A whole FAN of parallels: MANY, not one.</p>
+<h3>Skinny triangles and the deficit</h3>
+<p>Triangles on a saddle look pinched — their corners seem sharper, their sides cave slightly inward. Add up the angles:</p>
+<pre class="math">Saddle triangle: 70° + 60° + 40° = 170°</pre>
+<p>LESS than 180°! The amount UNDER 180° is called the DEFICIT:</p>
+<pre class="math">DEFICIT:  D = 180° − (angle sum)</pre>
+<p>The growth rule mirrors the ball's: the BIGGER the saddle triangle, the BIGGER its deficit — the farther its sum sinks below 180°.</p>
+<h3>The ideal saddle: area = deficit</h3>
+<p>The ball had a magical area formula, and the saddle has a mirror-image one. On the IDEAL saddle — the evenly ruffled world mathematicians call the hyperbolic plane, with curvature exactly −1 everywhere — the formula is stunningly simple:</p>
+<pre class="math">SADDLE AREA (curvature −1):  area = D   (D = deficit, in radians)</pre>
+<pre class="math">With π ≈ 3:  area ≈ D°/60</pre>
+<p>Worked example, every step shown:</p>
+<p>Problem: on the curvature −1 saddle, a triangle has angles 80°, 60°,</p>
+<p>and 30°. Find its deficit and its area.</p>
+<h3><strong>Step 1</strong>: Sum = 80° + 60° + 30° = 170°. [Add the angles.]</h3>
+<h3><strong>Step 2</strong>: D = 180° − 170° = 10°. [Definition of deficit.]</h3>
+<h3><strong>Step 3</strong>: Convert: D ≈ 10°/60 = 1/6 radian. [Degrees to radians.]</h3>
+<h3><strong>Step 4</strong>: Area = D ≈ 1/6. [Saddle area formula.]</h3>
+<h3>The shock: a speed limit on triangle size</h3>
+<p>Now chain two facts you already own:</p>
+<h3><strong>Step 1</strong>: Every angle is bigger than 0°, so every saddle triangle's</h3>
+<pre class="math">        angle sum is MORE than 0°. [Angles are positive.]
+Step 2: So the deficit D = 180° − sum is LESS than 180°. [Subtract.]
+Step 3: In radians, D &lt; π ≈ 3. [Convert 180° = π ≈ 3 radians.]
+Step 4: Therefore area = D &lt; π ≈ 3. [Saddle area formula.] ✅</pre>
+<p>Read Step 4 again. On the curvature −1 saddle, NO triangle — not one the size of a city, not one the size of a galaxy — can ever reach area 3! The closer a triangle comes to that limit, the closer its angles come to 0°, with its three vertices flying off toward infinity. The ball lets triangles grow toward 2πR² (half the whole ball); the saddle ruffles so fast that area hits a hard ceiling. Two curved worlds, opposite personalities.</p>
+<h3>A peek at the map of the saddle: the Poincaré disk</h3>
+<p>The saddle world is too ruffled to build in our 3D space, but mathematicians draw a MAP of it: the Poincaré disk (say &quot;pwan-ka-RAY&quot;). The whole infinite saddle world lives INSIDE one circle:</p>
+<p>· The boundary circle is NOT part of the world — it represents</p>
+<pre class="math">  points infinitely far away.
+· &quot;Straight lines&quot; (geodesics) appear as DIAMETERS, and as arcs of
+  circles that meet the boundary at RIGHT angles (90°).
+· This map measures ANGLES honestly — so skinny triangles really
+  look skinny when you draw them.</pre>
+<p>Through one point in the disk, you can draw arc after arc that never touches a given arc — the fan of many parallels, visible on one page!</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>A saddle triangle has angles 85°, 60°, and 30°. Find its sum, its deficit, and its area on the curvature −1 saddle. (b) Can a curvature −1 saddle triangle have area 2? If yes, find its deficit and its angle sum. (c) Why does the ball allow giant-area triangles while the saddle caps them? (One sentence, using sums.)</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Sum = 85° + 60° + 30° = 175°; D = 180° − 175° = 5°; area ≈ 5°/60 = 1/12. (b) Yes — area 2 means deficit 2 radians ≈ 120°, so the angle sum is 180° − 120° = 60°. (c) Ball sums climb toward 540°, so excesses (and areas) grow huge; saddle sums stay above 0°, so the deficit never reaches 180° and area never reaches π.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

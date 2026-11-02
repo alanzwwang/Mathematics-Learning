@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Statements and Open Sentences — The Raw Material of Logic — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 1</p>
+    <h1>🚀 Statements and Open Sentences — The Raw Material of Logic</h1>
+    <p class="kicker">📖 Lesson 1 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A statement is a sentence that is either TRUE or FALSE.
+An open sentence contains a variable: plug in values, get statements out.
+The truth set of an open sentence is every value that makes it true.
+SOLVING an equation or inequality IS finding its truth set.</pre></div>
+<p>Logic needs raw material, and its raw material is the statement — a sentence that can be checked as true or false. It doesn't have to be true! It just has to be checkable. Now that you work with negative numbers, fractions, and exponents, the statements get juicier:</p>
+<p>· &quot;−7 &lt; −4.&quot;                  A statement — TRUE. (−7 sits farther left on the number line.)</p>
+<p>· &quot;(−2)³ = 8.&quot;                A statement — FALSE, since (−2)³ = (−2)(−2)(−2) = −8. Still a statement!</p>
+<p>· &quot;|−9| = −9.&quot;                A statement — FALSE. (Absolute value is a distance; |−9| = 9.)</p>
+<p>· &quot;2³ × 2² = 2⁵.&quot;             A statement — TRUE. (8 × 4 = 32, and 2⁵ = 32 — exponents add when you multiply matching bases.)</p>
+<p>· &quot;(3²)³ = 3⁵.&quot;               A statement — FALSE. (3²)³ = 9³ = 729, but 3⁵ = 243. A power of a power MULTIPLIES exponents: (3²)³ = 3⁶.</p>
+<p>· &quot;5⁰ = 5.&quot;                   A statement — FALSE. Any nonzero number to the 0 power is 1, so 5⁰ = 1.</p>
+<p>· &quot;Chocolate is the best flavor.&quot;  NOT a statement — an opinion. No test can settle it.</p>
+<p>· &quot;What time is it?&quot;          NOT a statement — a question.</p>
+<p>· &quot;Solve for x.&quot;              NOT a statement — a command.</p>
+<p>· &quot;x + y.&quot;                    NOT a statement — it's not even a sentence! No verb, no claim, nothing to check. It's an expression: a recipe for a calculation, not a claim about the world.</p>
+<p>Now the idea that powers this whole course. Look at: &quot;x + 3 = 10.&quot; True or false? You can't answer — it depends on x! A sentence like that is called an open sentence: plug in a value and it BECOMES a statement. With x = 7 it's true; with x = 4 it's false. An open sentence is a statement-making machine, and the variable is the input slot.</p>
+<p>Every open sentence has a truth set: the collection of all inputs that make it come out true. A tiny bit of set language: we write sets with braces, like {7}; the symbol ∈ means &quot;is a member of&quot; (so 7 ∈ {7} is true, 4 ∈ {7} is false); and ∅ means the empty set — the set with nothing in it. You'll see why ∅ matters in a minute.</p>
+<p>And now the punchline: solving an equation means finding its truth set. Every &quot;solve&quot; problem you've ever done was secretly a logic problem: &quot;find every x that makes this sentence true.&quot; Let's do six, showing every step and its reason.</p>
+<p><strong>Worked example 1</strong> — a one-member truth set. Solve 3x − 7 = 11.</p>
+<pre class="math">3x − 7 = 11
+3x − 7 + 7 = 11 + 7      add 7 to both sides — equal plus equal stays equal, so the truth set can't change
+3x = 18                  simplify each side
+3x ÷ 3 = 18 ÷ 3          divide both sides by 3 — same reason: equal divided by equal stays equal
+x = 6                    simplify</pre>
+<pre class="math">Truth set: {6}.  CHECK: 3(6) − 7 = 18 − 7 = 11 ✓  (6 really makes it true)</pre>
+<p><strong>Worked example 2</strong> — variables on BOTH sides. Solve 5x − 7 = 3x + 9.</p>
+<pre class="math">5x − 7 = 3x + 9
+5x − 7 − 3x = 3x + 9 − 3x    subtract 3x from both sides — gathers every x on one side;
+                             legal because equal minus equal stays equal
+2x − 7 = 9                   simplify: 5x − 3x = 2x, and 3x − 3x = 0
+2x = 16                      add 7 to both sides
+x = 8                        divide both sides by 2</pre>
+<pre class="math">Truth set: {8}.  CHECK BOTH SIDES separately: 5(8) − 7 = 40 − 7 = 33, and 3(8) + 9 = 24 + 9 = 33. Same number ✓</pre>
+<p><strong>Worked example 3</strong> — a fraction coefficient. Solve (3/4)x + 2 = 14.</p>
+<pre class="math">(3/4)x + 2 = 14
+(3/4)x = 12                subtract 2 from both sides
+(4/3)(3/4)x = (4/3)(12)    multiply both sides by 4/3 — the reciprocal of 3/4.
+                             Why the reciprocal? Because (4/3)(3/4) = 12/12 = 1, and 1 · x = x stands alone.
+x = 16                     simplify: (4/3)(12) = 48/3 = 16</pre>
+<pre class="math">Truth set: {16}.  CHECK: (3/4)(16) + 2 = 12 + 2 = 14 ✓</pre>
+<p><strong>Worked example 4</strong> — the flip that catches everyone. Solve −2x + 3 &gt; 11.</p>
+<pre class="math">−2x + 3 &gt; 11
+−2x + 3 − 3 &gt; 11 − 3     subtract 3 from both sides — keeps the inequality true
+−2x &gt; 8                  simplify
+x &lt; −4                   divide both sides by −2 — AND FLIP the comparison!</pre>
+<p>Why the flip? Dividing by a negative number reverses the number line: bigger numbers become smaller (8 &gt; 2, but −8 &lt; −2). To keep the truth set identical, the sign must turn around. Always check with a test value: try x = −5 — is −2(−5) + 3 &gt; 11? 10 + 3 = 13 &gt; 11 ✓. And the boundary x = −4 gives 8 + 3 = 11, which is NOT greater than 11 — so −4 is correctly excluded.</p>
+<pre class="math">Truth set: all x with x &lt; −4. (Infinitely many members!)</pre>
+<p><strong>Worked example 5</strong> — a two-member truth set. Solve x² = 25.</p>
+<p>Squaring forgets the sign: both 5² = 25 and (−5)² = 25. So:</p>
+<pre class="math">Truth set: {5, −5}.  Two members — and both must be listed, or the truth set is wrong.</pre>
+<p><strong>Worked example 6</strong> — the two extreme sizes. Some open sentences are true for EVERY input; some for NONE.</p>
+<pre class="math">2(x + 3) = 2x + 6
+2x + 6 = 2x + 6          distribute the 2 on the left: 2·x + 2·3
+6 = 6                    subtract 2x from both sides</pre>
+<p>6 = 6 is always true, no matter what x was — so the ORIGINAL sentence is true for every x. Truth set: ALL numbers. (An equation like this is called an identity — a promise that never breaks. You'll prove one in Lesson 6.)</p>
+<pre class="math">x = x + 1
+0 = 1                    subtract x from both sides</pre>
+<p>0 = 1 is false no matter what x was — so the original sentence is NEVER true. Truth set: ∅, the empty set. &quot;No solution&quot; is a perfectly good answer: the statement-making machine produces only false statements.</p>
+<p>So a truth set has three possible sizes: some values (one, two, twenty), ALL values, or NO values.</p>
+<p>One last tool for this section — a naming machine you'll use for years. Function notation: f(x) = 4x − 3 names a rule &quot;f&quot; that turns an input into an output. Then:</p>
+<p>· &quot;f(2) = 5&quot; is a STATEMENT — and it's true, because f(2) = 4(2) − 3 = 8 − 3 = 5 ✓.</p>
+<p>· &quot;f(−2) = −11&quot; is a STATEMENT — also true: f(−2) = 4(−2) − 3 = −8 − 3 = −11 ✓. (Negative inputs are welcome — the rule just follows its recipe.)</p>
+<p>· &quot;f(x) = 9&quot; is an OPEN SENTENCE. Solve it:</p>
+<pre class="math">4x − 3 = 9               replace f(x) with what it means
+4x = 12                  add 3 to both sides
+x = 3                    divide both sides by 4</pre>
+<pre class="math">Truth set: {3}.  CHECK: f(3) = 4(3) − 3 = 12 − 3 = 9 ✓</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Which of these are statements? If it is one, say true or false.</p><ul class="steps"><li><span class="mk">(a)</span><div>&quot;−2 &gt; −5.&quot;   (b) &quot;3x = 12.&quot;   (c) &quot;½ + ½ = 1.&quot;   (d) &quot;x + y.&quot;   (e) &quot;(3²)³ = 3⁵.&quot;</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) A statement — TRUE (−2 is to the right of −5). (b) NOT a statement — an open sentence; its truth depends on x (the truth set happens to be {4}). (c) A statement — TRUE (½ + ½ = 2/2 = 1). (d) NOT a statement — it's an expression; it claims nothing, so there's nothing to check. (e) A statement — FALSE: a power of a power multiplies exponents, so (3²)³ = 3⁶ = 9³ = 729, while 3⁵ = 243.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

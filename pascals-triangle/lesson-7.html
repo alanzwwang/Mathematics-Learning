@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map — Pascal's Triangle</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a> › Lesson 7</p>
+    <h1>🛠️ Grid Paths and Vandermonde — the Triangle as a Map</h1>
+    <p class="kicker">📖 Lesson 7 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Shortest paths across an m-by-n grid: C(m + n, n).
+Paths THROUGH a marked corner: multiply (paths to it) × (paths from it).
+Paths AVOIDING a blocked corner: subtract the through-count from the total.
+Vandermonde's identity: C(m + n, k) = Σ C(m, i) · C(n, k − i).</pre></div>
+<h3>Paths are disguised choices</h3>
+<p>A city grid, m blocks wide and n blocks tall. You walk only RIGHT (R) or DOWN (D). Every shortest route from start to finish takes exactly m R-steps and n D-steps — m + n steps total. A route is just a WORD: some ordering of m R's and n D's. And a word is determined by WHICH of its m + n positions hold D's:</p>
+<pre class="math">number of paths = C(m + n, n)   (choose which steps are Down)</pre>
+<pre class="math">Example — 3 wide, 2 tall: C(5, 2) = 10 paths.
+(Equivalently C(5, 3) = 10 — choosing which steps are Right. Same answer by symmetry!)</pre>
+<p>This is why the triangle appeared on the grid map all along: paths to a corner = paths from above + paths from the left (you must arrive from one of those two), which is Pascal's rule. Same rule, same start (1s on the edges) — same numbers.</p>
+<h3>Paths through a marked corner — multiply</h3>
+<p>How many of those 3-by-2 routes pass through a specific corner, say the one 2 blocks right and 1 block down from the start?</p>
+<pre class="math">Start → corner:  2 R-steps and 1 D-step → C(3, 1) = 3 paths.
+Corner → finish: 1 more R and 1 more D  → C(2, 1) = 2 paths.
+The two stages are independent (any &quot;to&quot; pairs with any &quot;from&quot;), so multiply:
+Through-count = 3 × 2 = 6 paths.</pre>
+<h3>Paths around a blocked corner — subtract (complementary counting)</h3>
+<p>Sometimes it's easier to count what you DON'T want. A 4-by-4 grid has C(8, 4) = 70 shortest routes corner to corner. Suppose the very center corner (2 right, 2 down from the start) is closed for construction:</p>
+<pre class="math">Routes through the center: C(4, 2) × C(4, 2) = 6 × 6 = 36
+(2 R + 2 D to reach it; 2 R + 2 D to leave it)
+Open routes: 70 − 36 = 34 ✅</pre>
+<p>&quot;Total minus bad&quot; is complementary counting — one of the most-used moves in competition math.</p>
+<h3>Vandermonde's identity — committees with two clubs</h3>
+<p>A club has 4 girls and 5 boys. Choose a committee of 3. Count it two ways:</p>
+<pre class="math">Way 1 (ignore gender): C(9, 3) = 84.</pre>
+<pre class="math">Way 2 (split by how many girls are on it):
+0 girls:  C(4, 0) · C(5, 3) = 1 × 10 = 10
+1 girl:   C(4, 1) · C(5, 2) = 4 × 10 = 40
+2 girls:  C(4, 2) · C(5, 1) = 6 × 5  = 30
+3 girls:  C(4, 3) · C(5, 0) = 4 × 1  = 4
+Total: 10 + 40 + 30 + 4 = 84 ✅</pre>
+<p>Same committee count, computed two ways — so they're equal, and the reasoning never used the specific numbers. In general:</p>
+<pre class="math">Vandermonde's identity:  C(m + n, k) = Σ C(m, i) · C(n, k − i)
+(sum over all i; the cases are &quot;i members from the first group&quot;)</pre>
+<h3>The sum-of-squares jewel</h3>
+<p>Set m = n = k in Vandermonde: C(2n, n) = Σ C(n, i) · C(n, n − i). But C(n, n − i) = C(n, i) by symmetry (Lesson 2!), so each term is C(n, i)²:</p>
+<pre class="math">C(n, 0)² + C(n, 1)² + ... + C(n, n)² = C(2n, n)</pre>
+<p>The squares of any row add to the middle entry of the row twice as far down! Verify with row 4:</p>
+<pre class="math">1² + 4² + 6² + 4² + 1² = 1 + 16 + 36 + 16 + 1 = 70 = C(8, 4) ✅</pre>
+<p>That one identity combines symmetry, Vandermonde, and casework — three of our proof moves in a single line.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>How many shortest paths cross a 3-by-3 grid? (b) How many of them pass through the corner 1 right and 1 down from the start?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: (a) C(6, 3) = 20 (3 R's and 3 D's, choose where the D's go). (b) To the corner: 1 R + 1 D → C(2, 1) = 2. From the corner to the finish: 2 R + 2 D → C(4, 2) = 6. Multiply: 2 × 6 = 12 paths through. ✅</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

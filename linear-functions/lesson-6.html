@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Building Equations — The Three-Form Toolkit — Linear Functions</title>
+<meta name="description" content="Function machines, slope and straight-line graphs, from f(x) to systems of equations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📈 Linear Functions</a> › Lesson 6</p>
+    <h1>🌟 Building Equations — The Three-Form Toolkit</h1>
+    <p class="kicker">📖 Lesson 6 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Function? — Machines and f(x)">1</a><a href="lesson-2.html" title="Lesson 2: Chained Machines — Composition of Functions">2</a><a href="lesson-3.html" title="Lesson 3: Tables, Constant Steps, and Arithmetic Sequences">3</a><a href="lesson-4.html" title="Lesson 4: Graphs — Straight Lines, Intercepts, and the Vertical Line Test">4</a><a href="lesson-5.html" title="Lesson 5: Slope — The Deep Dive (with a Real Proof)">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Building Equations — The Three-Form Toolkit">6</a><a href="lesson-7.html" title="Lesson 7: Moving Lines Around — Transformations and Inverses">7</a><a href="lesson-8.html" title="Lesson 8: Lines at Work — Systems, Two Methods, and the Three Fates">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! The Eight Classic Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">slope-intercept form:  y = mx + b           (slope + y-intercept)
+point-slope form:      y − y₁ = m(x − x₁)   (slope + ANY one point)
+standard form:         Ax + By = C          (tidy; great for intercepts)
+All three describe the same line — learn to move between them.</pre></div>
+<h3>Form 1: slope-intercept, y = mx + b</h3>
+<p>You know this one: m is the slope, b is the y-intercept (the head start, the value when x = 0). A plant that starts at 5 cm and grows 2 cm per week is y = 2x + 5. Instant reading: how fast, and from where.</p>
+<h3>Form 2: point-slope, y − y₁ = m(x − x₁)</h3>
+<p>What if you know the slope and a point that is NOT the y-intercept — say slope 2 through (3, 8)? Here's the derivation, one step at a time:</p>
+<pre class="math">Step 1: the point (3, 8) and ANY other point (x, y) on the line
+        must have slope 2 between them:
+                (y − 8) ÷ (x − 3) = 2
+        (Reason: Lesson 5's proof — every pair of points on the
+        line gives the same slope.)
+Step 2: y − 8 = 2(x − 3)
+        (Reason: multiply both sides by (x − 3), the Golden Rule.)</pre>
+<p>That last line is point-slope form: y − y₁ = m(x − x₁), where (x₁, y₁) is the known point. It says &quot;the line through (x₁, y₁) with slope m&quot; in one move. To get slope-intercept form, just unwrap it:</p>
+<pre class="math">Step 3: y − 8 = 2x − 6      (distribute the 2: 2×x and 2×(−3))
+Step 4: y = 2x + 2          (add 8 to both sides: −6 + 8 = 2)
+Test drive: does (3, 8) fit? 2 × 3 + 2 = 8 ✅</pre>
+<p>Two points, no given slope? Find the slope first — you know how:</p>
+<pre class="math">Line through (1, 3) and (4, 9):
+Step 1: slope = (9 − 3) ÷ (4 − 1) = 6 ÷ 3 = 2.   (rise ÷ run)
+Step 2: point-slope with (1, 3): y − 3 = 2(x − 1).
+Step 3: y = 2x − 2 + 3 = 2x + 1.                  (distribute, add 3)
+Step 4: test BOTH points: 2×1+1 = 3 ✅  2×4+1 = 9 ✅
+(Using the OTHER point in step 2 — y − 9 = 2(x − 4) — simplifies
+to the very same y = 2x + 1. Either anchor works. Try it!)</pre>
+<h3>Form 3: standard form, Ax + By = C</h3>
+<p>Sometimes the tidiest way to write a line is with x and y on the same side, like 3x + 4y = 12. That's standard form. Converting from slope-intercept:</p>
+<pre class="math">y = 2x + 1
+−2x + y = 1        (subtract 2x from both sides)
+2x − y = −1        (multiply both sides by −1 — prettier with +2x)</pre>
+<p>Standard form has two superpowers. First, the cover-up method for intercepts — each intercept needs only one term:</p>
+<pre class="math">3x + 4y = 12
+x-intercept (set y = 0):  3x = 12 → x = 4.   Point (4, 0).
+y-intercept (set x = 0):  4y = 12 → y = 3.   Point (0, 3).</pre>
+<p>Second, a one-glance slope formula. Solve for y in general:</p>
+<pre class="math">Ax + By = C
+By = −Ax + C           (subtract Ax from both sides)
+y = (−A/B)x + C/B      (divide every term by B — needs B ≠ 0)</pre>
+<p>So a line in standard form has slope −A ÷ B. For 3x + 4y = 12: slope = −3/4. (And its y-intercept C/B = 3, matching the cover-up method ✅.)</p>
+<p>Which form when? Building an equation from a point and a slope: point-slope is fastest. Reading off how fast and from where: slope-intercept. Finding intercepts or feeding a system: standard form. Champions switch fluently.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Write the equation of the line through (2, 1) and (6, 9) in slope-intercept form, showing every step.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: slope = (9 − 1) ÷ (6 − 2) = 8 ÷ 4 = 2. Point-slope with (2, 1): y − 1 = 2(x − 2). Distribute: y − 1 = 2x − 4. Add 1: y = 2x − 3. Test the unused point: 2 × 6 − 3 = 9 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

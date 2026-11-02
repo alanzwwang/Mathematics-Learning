@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Girard's Theorem — On a Ball, Area IS Excess — Non-Euclidean Geometry</title>
+<meta name="description" content="What if space is curved? Triangles on balls and saddles break the 180° rule!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🌐 Non-Euclidean Geometry</a> › Lesson 4</p>
+    <h1>🔍 Girard's Theorem — On a Ball, Area IS Excess</h1>
+    <p class="kicker">📖 Lesson 4 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Five Postulates — and the Troublemaker">1</a><a href="lesson-2.html" title="Lesson 2: What Is a Straight Line, Anyway?">2</a><a href="lesson-3.html" title="Lesson 3: Geometry on a Ball — Fat Triangles">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Girard's Theorem — On a Ball, Area IS Excess">4</a><a href="lesson-5.html" title="Lesson 5: Geometry on a Saddle — Skinny Triangles">5</a><a href="lesson-6.html" title="Lesson 6: The Curvature Detective, Quantified">6</a><a href="lesson-7.html" title="Lesson 7: Maps Lie — Geometry in the Real World">7</a><a href="lesson-8.html" title="Lesson 8: The Three Worlds, Side by Side">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Seven Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">On a ball of radius R:
+    triangle area = R² × E   (E = excess, in radians)
+Angles alone decide the area. This is Girard's theorem —
+and you're going to prove it.</pre></div>
+<p>This is the lesson where non-Euclidean geometry turns from amazing to useful. The formula above is about 400 years old, and its proof fits in nine steps — each one a step you can justify.</p>
+<h3>Tool 1: radians, a second way to measure angles</h3>
+<p>Degrees chop a full turn into 360 pieces. RADIANS measure an angle by the length of the arc it cuts from a circle of radius 1. A full turn cuts the whole circumference, 2π, so:</p>
+<pre class="math">full turn:  360° = 2π radians
+half turn:  180° = π radians ≈ 3 radians   (using π ≈ 3)</pre>
+<pre class="math">conversion (π ≈ 3):  radians ≈ degrees ÷ 60
+because 180° ÷ π ≈ 180° ÷ 3 = 60.</pre>
+<pre class="math">Examples:  90° = π/2 ≈ 1.5 rad      60° = π/3 ≈ 1 rad
+           45° = π/4 ≈ 0.75 rad     30° = π/6 ≈ 0.5 rad</pre>
+<h3>Tool 2: the area of a digon (lune)</h3>
+<p>Remember the digon from Lesson 2: two meridians meeting at both poles, with pole angle θ. Spinning all the way around the pole is 360°, so a digon with angle θ covers the fraction θ/360° of the whole sphere. The sphere's area is 4πR², so:</p>
+<pre class="math">LUNE AREA:  lune area = (θ/360°) × 4πR²</pre>
+<p>Worked example, every step shown:</p>
+<h3>Problem: on a ball of radius R = 5, find the area of a lune with</h3>
+<p>angle θ = 72°.</p>
+<h3><strong>Step 1</strong>: Fraction of the sphere = 72°/360° = 1/5. [θ over a full turn.]</h3>
+<h3><strong>Step 2</strong>: Sphere area = 4πR² = 4π × 25 = 100π. [Sphere area formula.]</h3>
+<h3><strong>Step 3</strong>: Lune area = (1/5) × 100π = 20π. [Multiply Step 1 by Step 2.]</h3>
+<h3><strong>Step 4</strong>: Using π ≈ 3: 20π ≈ 60. [Estimate.]</h3>
+<p>Sanity check: a lune with θ = 180° should be half the sphere:</p>
+<p>(180°/360°) × 4πR² = 2πR². ✓ Half of 4πR². ✓</p>
+<h3>The proof of Girard's theorem (nine steps — follow with your pencil!)</h3>
+<p>Setup: take any triangle Δ on a ball of radius R, with angles A, B, C. Extend each of its three sides into a full great circle.</p>
+<p><strong>Step 1</strong>: The three great circles cut the sphere into 8 triangles.</p>
+<pre class="math">        [Each new great circle crosses the others twice; count the
+        regions: 8.]
+Step 2: The 8 triangles form 4 antipodal pairs, and antipodal
+        triangles have EQUAL areas. [Flipping through the ball's
+        center maps one onto the other without stretching.]
+Step 3: At vertex A, the two sides through A bound a lune of angle
+        A containing Δ. That lune is Δ plus exactly ONE far triangle
+        on the far side of the ball, and its area is
+        (A/360°) × 4πR². [Lune formula, Tool 2.]
+Step 4: Do the same at B and C, and add all three lunes. The
+        triangle Δ sits inside all three lunes, so it gets counted
+        3 times; the three far triangles get counted once each.
+        Call the far-triangle total area S:
+            3Δ + S = ((A + B + C)/360°) × 4πR²
+        [Adding Step 3's formula for A, B, C.]
+Step 5: The whole sphere counts Δ and the far triangles twice each
+        (once directly, once as antipodes — Step 2):
+            Δ + S = (1/2) × 4πR² = 2πR²
+        [Half of the 4 antipodal pairs.]
+Step 6: Subtract Step 5 from Step 4:
+            2Δ = ((A + B + C)/360°) × 4πR² − 2πR²
+        [3Δ − Δ = 2Δ and S − S = 0.]
+Step 7: Factor 2πR² out of the right side:
+            2Δ = 2πR² × ((A + B + C)/180° − 1)
+        [Because 4πR²/360° = 2πR²/180°, and 2πR² = 2πR² × 1.]
+Step 8: Divide both sides by 2:
+            Δ = πR² × (A + B + C − 180°)/180°
+        [Divide, and 1 = 180°/180°.]
+Step 9: The quantity (A + B + C − 180°) is the excess E in degrees,
+        and E° × π/180° is exactly E in radians. So:
+            area = R² × E   (E in radians)   ✅  PROVED!</pre>
+<p>With π ≈ 3, the degrees version is friendly:</p>
+<pre class="math">area ≈ R² × E°/60        (because E radians ≈ E°/60)</pre>
+<p><strong>Worked example A</strong> — forward:</p>
+<p>Problem: on a ball of radius R = 3, a triangle has angles 90°, 80°,</p>
+<p>70°. Find its area.</p>
+<h3><strong>Step 1</strong>: Sum = 90° + 80° + 70° = 240°. [Add.]</h3>
+<h3><strong>Step 2</strong>: E = 240° − 180° = 60°. [Excess.]</h3>
+<h3><strong>Step 3</strong>: Convert: E ≈ 60°/60 = 1 radian. [Degrees to radians.]</h3>
+<h3><strong>Step 4</strong>: Area = R² × E = 9 × 1 = 9. [Girard's theorem.]</h3>
+<p>(Exactly 3π, since E = π/3 precisely: 9 × π/3 = 3π.)</p>
+<p><strong>Worked example B</strong> — verify with the champion:</p>
+<h3>Problem: check Girard on the champion triangle (90°, 90°, 90°) with</h3>
+<p>R = 2, WITHOUT using Girard for the check.</p>
+<h3><strong>Step 1</strong>: Girard: E = 270° − 180° = 90° = π/2 ≈ 1.5 rad. [Excess.]</h3>
+<h3><strong>Step 2</strong>: Area = R² × E = 4 × π/2 = 2π ≈ 6. [Girard.]</h3>
+<h3><strong>Step 3</strong>: Independent check: the champion is exactly 1/8 of the</h3>
+<pre class="math">        sphere — three 90° angles at the pole cut the ball into
+        8 identical pieces. [Picture the 8 orange wedges.]
+Step 4: Sphere area = 4πR² = 16π. One eighth = 16π/8 = 2π ≈ 6.
+        [Divide by 8.]
+Step 5: 2π = 2π — the two methods AGREE. ✅ [Compare.]</pre>
+<p><strong>Worked example C</strong> — reverse direction:</p>
+<p>Problem: a triangle on a ball of radius R = 3 has area 12. Find its</p>
+<p>excess and its angle sum.</p>
+<h3><strong>Step 1</strong>: Girard says area = R² × E, so E = area/R². [Flip the</h3>
+<pre class="math">        formula — divide both sides by R².]
+Step 2: E = 12/9 = 4/3 radians. [Substitute area = 12, R² = 9.]
+Step 3: Convert: E° ≈ (4/3) × 60° = 80°. [Radians to degrees.]
+Step 4: Sum = 180° + E° ≈ 180° + 80° = 260°. [Excess definition,
+        rearranged.]</pre>
+<h3>The similarity collapse — the fifth domino falls</h3>
+<p>Read Girard's formula once more: area = R² × E. The area depends ONLY on the angles (through E) and the ball's radius. So on a FIXED ball:</p>
+<pre class="math">Same three angles  →  same excess  →  same area.</pre>
+<p>Two ball triangles with the same angles must have the same area — they can't be different sizes! AAA on a ball forces congruence, not mere similarity. The flat world's zoom button — make a bigger copy with the same angles — simply doesn't exist on a ball. That's domino 5 from Lesson 1, fallen. (On a saddle it falls too, for the mirror-image reason, as you'll see next.)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>On a ball of radius R = 1, a triangle has excess 90°. Find its area. (b) On a ball of radius R = 6, find the area of a lune with angle 30°. (c) Two triangles on the same ball both have angles 70°, 80°, 90°. What can you say about their areas — and which step of the lesson tells you?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) E = 90° ≈ 1.5 rad; area = R² × E = 1 × 1.5 = 1.5 (exactly π/2). (b) Lune = (30°/360°) × 4πR² = (1/12) × 4π × 36 = (1/12) × 144π = 12π ≈ 36. (c) Their areas must be EQUAL: same angles → same excess (60°) → same area (R² × π/3 on that ball). Same angles on a fixed ball means same size — AAA forces congruence.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

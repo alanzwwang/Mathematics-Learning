@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Growth Factor — and the Percent Connection — Exponential Growth</title>
+<meta name="description" content="Doubling machines! See how numbers explode (and shrink) with f(x) = a × bˣ.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🦠 Exponential Growth</a> › Lesson 4</p>
+    <h1>🔍 The Growth Factor — and the Percent Connection</h1>
+    <p class="kicker">📖 Lesson 4 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Exponent Power-Ups — Zero, Negatives, and the Three Laws">1</a><a href="lesson-2.html" title="Lesson 2: The Doubling Machine Gets a Name — f(x) = a × 2^x">2</a><a href="lesson-3.html" title="Lesson 3: Three Families — Linear, Exponential, and (Peek!) Quadratic">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The Growth Factor — and the Percent Connection">4</a><a href="lesson-5.html" title="Lesson 5: The Formula f(x) = a × b^x — Predict, Then SOLVE">5</a><a href="lesson-6.html" title="Lesson 6: Time Travel — Dividing Backwards, and Why f(−2) Makes Sense">6</a><a href="lesson-7.html" title="Lesson 7: The Halving Machine — Exponential Decay with Honest Fractions">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Six Classic Mistakes (Honors Edition)">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">growth factor  b = next ÷ now
+&quot;grows by 50%&quot;  →  factor 3/2      &quot;shrinks by 25%&quot;  →  factor 3/4</pre></div>
+<p>Every exponential pattern has one motor inside: the number every step multiplies by. Find it with a single division — pick any two neighbors and compute next ÷ now:</p>
+<pre class="math">4, 20, 100    →  20 ÷ 4 = 5      →  factor ×5
+96, 48, 24    →  48 ÷ 96 = 1/2   →  factor ×1/2  (a shrinker!)</pre>
+<h3>The percent connection</h3>
+<p>Word problems at this level speak in percents, so let's translate. &quot;Grows by 50%&quot; sounds mysterious until you do it once, slowly:</p>
+<pre class="math">A colony of 40 grows by 50%. What is the new size?</pre>
+<pre class="math">Step 1:  the increase is 50% of 40 = 1/2 × 40 = 20     (&quot;of&quot; means multiply)
+Step 2:  add the increase on:  40 + 20 = 60</pre>
+<p>Now the shortcut that turns this into a factor. Watch the 40 get factored out:</p>
+<pre class="math">40 + (1/2 × 40) = 40 × (1 + 1/2) = 40 × 3/2 = 60</pre>
+<p>So &quot;grows by 50%&quot; is just &quot;multiply by 3/2&quot; wearing a costume. The general translation:</p>
+<pre class="math">grows by p%   →  factor (1 + p/100)      shrinks by p%  →  factor (1 − p/100)</pre>
+<pre class="math">grows by 50%  →  × 3/2        shrinks by 25%  →  × 3/4
+doubles       →  × 2 (that's +100%!)     halves         →  × 1/2
+grows by 10%  →  × 11/10      shrinks by 10%  →  × 9/10</pre>
+<h3>Finding the factor from two snapshots that AREN'T neighbors</h3>
+<p>Here is the honors upgrade. You don't always get neighboring values. Suppose you only know:</p>
+<pre class="math">f(1) = 8  and  f(3) = 72.  Find the hourly growth factor b.</pre>
+<pre class="math">Step 1:  two steps happened between hour 1 and hour 3, so  8 × b × b = 72,
+         which is  8b² = 72
+Step 2:  divide both sides by 8:  b² = 9          (undo the ×8)
+Step 3:  undo the square:  b = 3                  (growth factors are positive,
+                                                  so we take the positive root)
+Check:  8 → 24 → 72  ✅  (8 × 3 = 24, then 24 × 3 = 72)</pre>
+<p>Notice what just happened: you solved b² = 9 — a tiny quadratic equation — by undoing the square. Quadratics are peeking in, exactly as promised.</p>
+<h3>Building a table with a fraction factor</h3>
+<p>Multiply by 3/2 the smart way: divide by 2 FIRST, then multiply by 3. Start 16, factor 3/2:</p>
+<pre class="math">16 → 24 → 36 → 54
+(16 ÷ 2 = 8, 8 × 3 = 24;  then 24 ÷ 2 = 12, 12 × 3 = 36;  then 36 ÷ 2 = 18, 18 × 3 = 54)</pre>
+<p>Dividing first keeps every number whole and friendly.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the growth factor of 80, 40, 20.</div></li><li><span class="mk">(b)</span><div>Start 8, factor ×3/2 — write the next two values.</div></li><li><span class="mk">(c)</span><div>f(2) = 12 and f(4) = 108. Find b.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 40 ÷ 80 = 1/2, so ×1/2. (b) 8 → 12 → 18 (8 ÷ 2 = 4, 4 × 3 = 12; then 12 ÷ 2 = 6, 6 × 3 = 18).</p><ul class="steps"><li><span class="mk">(c)</span><div>Two steps: 12b² = 108 → b² = 9 → b = 3. Check: 12 → 36 → 108 ✅.</div></li></ul></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

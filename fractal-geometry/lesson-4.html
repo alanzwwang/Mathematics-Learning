@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!) — Fractal Geometry</title>
+<meta name="description" content="Shapes made of smaller copies of themselves, from snowflakes to broccoli!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">❄️ Fractal Geometry</a> › Lesson 4</p>
+    <h1>🔍 The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)</h1>
+    <p class="kicker">📖 Lesson 4 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Sierpinski rule: every solid triangle becomes 3 solid triangles, each 1/2 the size.
+The COUNT multiplies by 3. Each triangle's AREA multiplies by 1/4.
+Total area ×3/4 → 0. Total perimeter ×3/2 → ∞. Both at once!</pre></div>
+<p>Draw a triangle and connect the midpoints of its three sides. That splits it into 4 equal smaller triangles (each with half the side length). Now remove the middle one — it becomes a hole — and keep the 3 corner triangles. That's one iteration. Then do the same thing inside every solid triangle that's left, forever.</p>
+<p>Every quantity here gets an explicit formula, just like in Lesson 3:</p>
+<pre class="math">Triangle count:   1 → 3 → 9 → 27 → 81       count(n) = 3ⁿ          (×3 each stage)
+Side length:      s → s/2 → s/4 → s/8       side(n) = s·(1/2)ⁿ     (×1/2 each stage)</pre>
+<p>Why does each small triangle have 1/4 the AREA (not 1/2)? Area scales with the SQUARE of the length scale:</p>
+<pre class="math">area of one small triangle = A₀ · (1/2)² = A₀/4     (side halved → area quartered)</pre>
+<p>Now the total solid area is count × area-each:</p>
+<pre class="math">A(n) = 3ⁿ · A₀/4ⁿ = A₀·(3/4)ⁿ             (combine: 3ⁿ/4ⁿ = (3/4)ⁿ)</pre>
+<p>Since 3/4 &lt; 1, the powers (3/4)ⁿ shrink toward 0: 3/4, 9/16, 27/64, 81/256... The area shrinks forever — toward zero, though no stage ever lands exactly on zero, because 3/4 of SOMETHING is never nothing. In the language of Lesson 2: the sequence converges to 0 in the limit.</p>
+<p>Here's the function-composition view (Lesson 2). The area rule is f(x) = (3/4)x. Iterating is composing:</p>
+<pre class="math">f(f(x)) = (3/4)·(3/4)x = (9/16)x          (two iterations)
+fⁿ(x) = (3/4)ⁿ · x                        (n iterations — the n-th composition)</pre>
+<p>A beautiful detail, kept from the classic lesson: start with area exactly 64. Then stage 3 leaves 64·(3/4)³ = 64·27/64 = 27. The fraction left is 27/64, and exactly 27 out of 64 remains — the fraction and the count match perfectly!</p>
+<p>Now the HOLES — a geometric series in disguise. Stage 1 cuts 1 hole. Stage 2 cuts 3 new holes (one inside each solid triangle). Stage 3 cuts 9 new holes. So after stage n:</p>
+<pre class="math">H(n) = 1 + 3 + 9 + ... + 3ⁿ⁻¹             (n terms, a = 1, r = 3)
+     = (3ⁿ − 1)/(3 − 1)                   (geometric series formula from Lesson 2)
+     = (3ⁿ − 1)/2                         (simplify)</pre>
+<p>Check at n = 3: (27 − 1)/2 = 13, and 1 + 3 + 9 = 13. ✓</p>
+<p>Next, something the gentle version of this lesson never mentions: the PERIMETER of the Sierpinski triangle. Sum the perimeters of all the solid triangles:</p>
+<pre class="math">perimeter of one small triangle = 3 · s·(1/2)ⁿ = 3s/2ⁿ   (3 sides of length s/2ⁿ)
+total perimeter P(n) = 3ⁿ · 3s/2ⁿ = 3s·(3/2)ⁿ            (count × perimeter each)</pre>
+<p>Since 3/2 &gt; 1, this DIVERGES: the Sierpinski triangle's total edge length grows forever! (These edges are exactly the borders between solid and hole, so this really is the boundary length of the shape.) Compare:</p>
+<pre class="math">Koch snowflake:    perimeter → ∞,   area → 8A₀/5 (finite!)
+Sierpinski:        perimeter → ∞,   area → 0</pre>
+<p>Same infinite-edge trick — but one keeps a finite inside while the other loses its inside completely.</p>
+<p>Last question: how much area is REMOVED in total, if the rule runs forever? Stage k removes 3ᵏ⁻¹ triangles (one per solid triangle present), each of area A₀/4ᵏ:</p>
+<pre class="math">removed(k) = 3ᵏ⁻¹ · A₀/4ᵏ = (A₀/4)·(3/4)ᵏ⁻¹      (count × area each, then factor)
+total removed = (A₀/4)/(1 − 3/4)                  (infinite series, a = A₀/4, r = 3/4)
+              = (A₀/4)/(1/4) = A₀                 (divide)</pre>
+<p>The total removed equals the ENTIRE original area — a second, independent proof that the remaining area must vanish. (Consistent with A(n) = A₀·(3/4)ⁿ → 0. Two roads, same destination.)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Which stage has 27 solid triangles — answer from the formula 3ⁿ, not by listing. (b) Start with an area of 16. What remains after 2 iterations? (c) How many holes in total after stage 3 — once by adding, once by the formula.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 3ⁿ = 27 = 3³, so n = 3. (b) 16·(3/4)² = 16·9/16 = 9. (c) Adding: 1 + 3 + 9 = 13. Formula: (3³ − 1)/2 = 26/2 = 13 ✓.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

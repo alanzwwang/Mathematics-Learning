@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: What Is a Function? — Machines and f(x) — Linear Functions</title>
+<meta name="description" content="Function machines, slope and straight-line graphs, from f(x) to systems of equations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📈 Linear Functions</a> › Lesson 1</p>
+    <h1>🚀 What Is a Function? — Machines and f(x)</h1>
+    <p class="kicker">📖 Lesson 1 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: What Is a Function? — Machines and f(x)">1</a><a href="lesson-2.html" title="Lesson 2: Chained Machines — Composition of Functions">2</a><a href="lesson-3.html" title="Lesson 3: Tables, Constant Steps, and Arithmetic Sequences">3</a><a href="lesson-4.html" title="Lesson 4: Graphs — Straight Lines, Intercepts, and the Vertical Line Test">4</a><a href="lesson-5.html" title="Lesson 5: Slope — The Deep Dive (with a Real Proof)">5</a><a href="lesson-6.html" title="Lesson 6: Building Equations — The Three-Form Toolkit">6</a><a href="lesson-7.html" title="Lesson 7: Moving Lines Around — Transformations and Inverses">7</a><a href="lesson-8.html" title="Lesson 8: Lines at Work — Systems, Two Methods, and the Three Fates">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! The Eight Classic Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A function is a rule: put a number in, get exactly ONE number out.
+We name the machine f and write f(x) for &quot;the output when x goes in.&quot;</pre></div>
+<p>Imagine a machine with a hopper on top and a chute on the bottom. You drop a number in the top, the machine follows its recipe, and out comes an answer. That machine is a function.</p>
+<p>Here's a machine with the recipe &quot;double it, then add 1&quot;:</p>
+<pre class="math">drop in 0 → out comes 1
+drop in 1 → out comes 3
+drop in 2 → out comes 5
+drop in 3 → out comes 7</pre>
+<p>The golden property of every function: each input gets exactly ONE output. Drop in 3 a hundred times, and you get 7 a hundred times. The machine never changes its mind.</p>
+<h3>The vending machine test</h3>
+<p>A good vending machine is a function: press D4, get the pretzels — every time. A broken machine that sometimes gives pretzels and sometimes cookies for the same button is NOT a function, because one input gives different outputs. One input, one output — that's the law.</p>
+<h3>The official notation: f(x)</h3>
+<p>Writing &quot;drop in 3, out comes 7&quot; gets tiring, so mathematicians name the machine (usually f, sometimes g or h) and write:</p>
+<pre class="math">f(x) = 2x + 1</pre>
+<p>Read it &quot;f of x equals 2x + 1.&quot; It means: the machine f runs the recipe &quot;double the input, then add 1.&quot; Then f(4) means &quot;the output when 4 goes in.&quot; Watch every step:</p>
+<pre class="math">Step 1: f(4) = 2 × 4 + 1      (replace every x in the recipe with 4)
+Step 2: f(4) = 8 + 1          (multiply first — order of operations)
+Step 3: f(4) = 9              (add)</pre>
+<p>Negative inputs are welcome too. Find f(−1):</p>
+<pre class="math">Step 1: f(−1) = 2 × (−1) + 1  (replace x with −1 — use parentheses!)
+Step 2: f(−1) = −2 + 1        (2 × (−1) = −2)
+Step 3: f(−1) = −1            (climb from −2 up by 1)</pre>
+<p>Two more vocabulary words you'll meet everywhere:</p>
+<pre class="math">The DOMAIN of a function is the set of all allowed inputs.
+The RANGE is the set of all outputs it can actually produce.</pre>
+<p>For f(x) = 2x + 1, any number can be doubled and incremented, so the domain is all real numbers. And any target y can actually be produced (we'll prove this in Lesson 7 by running the machine backwards), so the range is also all real numbers. Compare with the flat machine f(x) = 4: its range is just the single number 4, because it only ever says &quot;4.&quot;</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Let f(x) = 3x − 2. Find f(4) and f(−1), showing each step.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: f(4) = 3 × 4 − 2 = 12 − 2 = 10. And f(−1) = 3 × (−1) − 2 = −3 − 2 = −5 (from −3, subtract 2 more). The machine always triples the input, then subtracts 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Order Matters! A × B ≠ B × A — Matrix Math</title>
+<meta name="description" content="Grids of numbers that power video games, photos and secret codes!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔢 Matrix Math</a> › Lesson 5</p>
+    <h1>⚡ Order Matters! A × B ≠ B × A</h1>
+    <p class="kicker">📖 Lesson 5 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Matrix — Rows, Columns, Addresses">1</a><a href="lesson-2.html" title="Lesson 2: Adding and Subtracting — Square by Square">2</a><a href="lesson-3.html" title="Lesson 3: The Scalar — One Number Times a Whole Grid">3</a><a href="lesson-4.html" title="Lesson 4: The Real Matrix Multiplication — Row × Column">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Order Matters! A × B ≠ B × A">5</a><a href="lesson-6.html" title="Lesson 6: Special Grids — The Zero Grid and the Identity Grid">6</a><a href="lesson-7.html" title="Lesson 7: Matrices at Work — Scores, Photos, Codes, and Flips">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">A × B is usually NOT the same as B × A.
+The handshake: (2 × 3) × (3 × 2) works — the INNER numbers match.
+The answer takes the OUTER numbers: 2 × 2.</pre></div>
+<h3>Socks and shoes</h3>
+<p>With ordinary numbers, 2 × 3 = 3 × 2 — order never matters. (Grown-up word: multiplication commutes.) Grid addition works that way too: A + B = B + A, since matching squares meet either way. But matrix multiplication is like getting dressed: socks first, then shoes, is NOT the same as shoes first, then socks.</p>
+<p>Watch the same two grids multiply in both orders:</p>
+<pre class="math">A = [ 1  2 ]        B = [ 0  1 ]
+    [ 3  4 ]            [ 1  0 ]</pre>
+<pre class="math">A × B = [ 2  1 ]        B × A = [ 3  4 ]
+        [ 4  3 ]                [ 1  2 ]</pre>
+<p>Check one square of each: in A × B, the top-left square is 1×0 + 2×1 = 2. In B × A, it's 0×1 + 1×3 = 3. Different from the very first square! (Sharp eyes: A × B swapped A's columns, and B × A swapped A's rows. B is the swapper grid — you'll meet it again in Lesson 7.)</p>
+<p>Usually different — not always. Once in a while a special pair of grids multiplies to the same answer in both orders (the intermediate problems sneak one in). But you can never count on it: with matrices, order matters.</p>
+<h3>The size handshake</h3>
+<p>Which grids can even meet? Write their sizes side by side and check the INNER numbers:</p>
+<pre class="math">(2 × 3) × (3 × 2)   →   inner 3 and 3: MATCH ✅   answer size: 2 × 2
+(2 × 3) × (2 × 3)   →   inner 3 and 2: NO MATCH ❌   impossible!</pre>
+<p>Why? Every row of A must pair with a column of B, number by number. A row of a 2 × 3 grid holds 3 numbers, so it can only pair with a column that also holds 3 — and the columns of a (3 × anything) grid always do. Inner numbers match = every pairing is complete.</p>
+<p>The answer takes the OUTER numbers: rows of A by columns of B. And the extreme case is wild:</p>
+<pre class="math">(1 × 4) × (4 × 1)  →  1 × 1   (one number — a single giant dot product!)
+(4 × 1) × (1 × 4)  →  4 × 4   (sixteen squares from the same two skinny grids!)</pre>
+<p>Same grids, flipped order — even the SIZES disagree. Order really, really matters.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>A is 2 × 3 and B is 3 × 1. (a) Does A × B exist? If so, what size? (b) Does B × A exist?</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Yes — the inner 3s match; the answer is 2 × 1 (a column!). (b) No — the inner numbers would be 1 and 2, and 1 ≠ 2: no handshake, no product.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Area — Formulas You Can Derive, Not Memorize — Geometry</title>
+<meta name="description" content="Angles, triangles, Pythagoras, circles and more, with real proofs you can follow.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📐 Geometry</a> › Lesson 7</p>
+    <h1>🛠️ Area — Formulas You Can Derive, Not Memorize</h1>
+    <p class="kicker">📖 Lesson 7 of 14</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Points, Lines, Segments, Rays — and Where They Live">1</a><a href="lesson-2.html" title="Lesson 2: Angles — Measuring the Turn, Proving the Rules">2</a><a href="lesson-3.html" title="Lesson 3: Parallel Lines and a Transversal — and the Proof of 180°">3</a><a href="lesson-4.html" title="Lesson 4: Triangles — the Inequality, Isosceles Secrets, and Congruence">4</a><a href="lesson-5.html" title="Lesson 5: The Pythagorean Theorem — State It, Prove It, Reverse It">5</a><a href="lesson-6.html" title="Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Area — Formulas You Can Derive, Not Memorize">7</a><a href="lesson-8.html" title="Lesson 8: Similarity — Same Shape, Different Size, and the k² Surprise">8</a><a href="lesson-9.html" title="Lesson 9: Circles — π, Arcs, Sectors, and the Inscribed Angle Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Transformations — Moving the Plane with Functions">10</a><a href="lesson-11.html" title="Lesson 11: Counting Meets Geometry — Casework and Complementary Counting">11</a><a href="lesson-12.html" title="Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms">12</a><a href="lesson-13.html" title="Lesson 13: Watch Out! Common Mistakes (Honors Edition)">13</a><a href="lesson-14.html" title="Lesson 14: Recap — The Big Picture">14</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Triangle: A = (b × h) ÷ 2     Parallelogram: A = b × h
+Trapezoid: A = (b₁ + b₂) × h ÷ 2
+Every one of these is a rectangle or parallelogram in disguise.</pre></div>
+<p>AREA measures how many unit squares cover a shape; we write square units like cm². The rectangle is the root of everything: A = length × width, because you count rows × columns of unit squares. Every other area formula is a rectangle or parallelogram wearing a disguise — and seeing the disguise means you never have to memorize.</p>
+<h3>Triangle: two copies make a parallelogram</h3>
+<p>Take ANY triangle, spin a copy 180°, and join the copies along a matching side: you get a parallelogram with the same base and height. So one triangle is exactly half:</p>
+<pre class="math">A = (b × h) ÷ 2</pre>
+<p>The HEIGHT is always the PERPENDICULAR distance from base to far vertex — never the slanted side. Why is the slant side always too big? Because the slant side is the HYPOTENUSE of a right triangle whose leg is the true height, and the hypotenuse is always the longest side (Lesson 5!). Slant &gt; height, always.</p>
+<h3>Parallelogram: snip and slide</h3>
+<p>Snip a right triangle off the left end of a parallelogram and slide it to the right end: the shape becomes a rectangle with the same base and height. So A = b × h — no half! Same words as the triangle, different recipe.</p>
+<h3>Trapezoid: two copies make a parallelogram (again!)</h3>
+<p>Spin a copy of any trapezoid 180° and join it along a leg: you get a parallelogram whose base is b₁ + b₂ (the two trapezoid bases end to end) and whose height is still h. One trapezoid is half of that:</p>
+<pre class="math">A = (b₁ + b₂) × h ÷ 2</pre>
+<pre class="math">Bases 5 and 9, height 6:
+A = (5 + 9) × 6 ÷ 2     (the formula)
+A = 14 × 6 ÷ 2          (add inside the parentheses first)
+A = 84 ÷ 2 = 42 cm²     (multiply, then halve)</pre>
+<h3>Running area backwards with algebra</h3>
+<pre class="math">A triangle has area 30 cm² and height 6 cm. Find the base.
+(b × 6) ÷ 2 = 30         (the triangle formula with b unknown)
+b × 6 = 60               (multiply both sides by 2 — undo the half!)
+b = 10 cm                (divide both sides by 6)</pre>
+<p>The most common slip in that problem: dividing by 2 when you should MULTIPLY. The area was already halved — to un-halve it, double.</p>
+<h3>Composite shapes: add the pieces, or subtract the holes</h3>
+<p>Shaded-region problems are the heart of competition geometry, and they have exactly two strategies: BUILD UP (split into pieces you know, add) or CARVE OUT (big shape minus hole). Example: a 10 by 10 square with a 3 by 4 rectangle cut from one corner:</p>
+<pre class="math">Big square: 10 × 10 = 100 cm²
+Missing corner: 3 × 4 = 12 cm²
+Remaining: 100 − 12 = 88 cm²</pre>
+<p>And a beautiful fact: any triangle whose base is one side of a rectangle and whose apex touches the opposite side has area exactly HALF the rectangle — (b × h) ÷ 2 with the full base and full height, no matter where the apex slides along that opposite side. A 9 by 6 rectangle hides a 27 cm² triangle this way, leaving 27 cm² shaded. Sliding the apex changes nothing!</p>
+<h3>Bonus formula (competition gold): HERON'S FORMULA</h3>
+<p>What if you know all three SIDES of a triangle but no height? Heron's formula finds the area anyway. First compute the SEMIPERIMETER (half the perimeter) s = (a + b + c) ÷ 2. Then:</p>
+<pre class="math">A = √(s(s − a)(s − b)(s − c))</pre>
+<pre class="math">Triangle with sides 5, 5, 6:
+s = (5 + 5 + 6) ÷ 2 = 8
+A = √(8 × 3 × 3 × 2) = √144 = 12 cm²
+Check: the triangle splits into two 3-4-5 right triangles, so the height is 4
+and (6 × 4) ÷ 2 = 12 ✅ — two completely different roads, same destination.</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Trapezoid with bases 4 and 8, height 5: area? (b) A parallelogram has area 56 cm² and base 8 cm: height? (c) In the 9 by 6 rectangle above, why doesn't the apex position matter?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) (4 + 8) × 5 ÷ 2 = 60 ÷ 2 = 30 cm². (b) 56 ÷ 8 = 7 cm. (c) Because base AND perpendicular height both stay fixed as the apex slides along the opposite side — and area depends only on those two.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

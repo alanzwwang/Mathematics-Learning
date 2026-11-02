@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Watch Out! Common Mistakes — Logarithms</title>
+<meta name="description" content="The backwards question: what power do I need? Logs turn multiplying into adding!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🪵 Logarithms</a> › Lesson 7</p>
+    <h1>⚠️ Watch Out! Common Mistakes</h1>
+    <p class="kicker">📖 Lesson 7 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Backwards Question — What a Logarithm Really Is">1</a><a href="lesson-2.html" title="Lesson 2: The Two Languages — Translating Logs and Powers">2</a><a href="lesson-3.html" title="Lesson 3: Base 10 — The Log That Counts Zeros">3</a><a href="lesson-4.html" title="Lesson 4: The Superpower — Multiplication Becomes Addition">4</a><a href="lesson-5.html" title="Lesson 5: The Landmarks — 0, 1, and the Questions You Can't Ask">5</a><a href="lesson-6.html" title="Lesson 6: Logs in the Wild — Doubling and the Earthquake Scale">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Watch Out! Common Mistakes">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the question in sight</p><pre class="math">A logarithm asks &quot;WHAT POWER?&quot; — nothing else.</pre></div>
+<h3>Mistake 1: Dividing instead of finding the power</h3>
+<p>Asked for log₂(8), the most common wrong answer on Earth is 4 — because &quot;8 divided by 2 is 4!&quot; But logs don't divide. They ask &quot;what power?&quot; Since 2³ = 8, the answer is 3. When you catch yourself dividing, stop and chant: WHAT POWER?</p>
+<h3>Mistake 2: Scrambling the three parts</h3>
+<p>log₂(8) = 3 means 2³ = 8 — NOT 8³ = 2, and NOT 3² = 8. The base sits low, the power is the answer, and the target waits inside the parentheses. Chant the translation: &quot;BASE to the POWER equals TARGET.&quot;</p>
+<h3>Mistake 3: Thinking log(1) = 1</h3>
+<p>It feels like 1 should map to 1, but log(1) = 0 — always, in every base. (How many zeros does 1 have? None!) It's log of the BASE that equals 1: log₅(5) = 1.</p>
+<h3>Mistake 4: Adding logs when the numbers add</h3>
+<p>The rule turns multiplication into addition — not addition into addition! log(2 + 3) is log(5), which has nothing to do with log(2) + log(3). The rule only works one way: numbers multiply → logs add. If the numbers add, the rule stays in its toolbox.</p>
+<h3>Mistake 5: Expecting every log to be a whole number</h3>
+<p>log₂(10) isn't 5 — it isn't any whole number. It sits between 3 and 4 (since 8 &lt; 10 &lt; 16). Whole-number answers only happen at exact powers: 8, 16, 32... In between, logs are decimals. Being able to sandwich them (Lesson 3) is what proves you understand!</p>
+<h3>Mistake 6: Forgetting the invisible base 10</h3>
+<p>log(1,000) with nothing sitting low means base 10 — answer 3. Don't let the missing base fool you into thinking the question is broken. It's the most common log of all, working incognito.</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

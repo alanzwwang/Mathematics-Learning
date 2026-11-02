@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Distance, Midpoints, and the Circle's Equation — Algebraic Geometry</title>
+<meta name="description" content="Give every point an address (x, y) and watch equations draw lines, circles and parabolas!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🗺️ Algebraic Geometry</a> › Lesson 8</p>
+    <h1>🎨 Distance, Midpoints, and the Circle's Equation</h1>
+    <p class="kicker">📖 Lesson 8 of 11</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Two Number Lines, One Map">1</a><a href="lesson-2.html" title="Lesson 2: Plotting Points, Quadrants, and Mirror Tricks">2</a><a href="lesson-3.html" title="Lesson 3: Rules That Draw Shapes">3</a><a href="lesson-4.html" title="Lesson 4: The Membership Test — Forwards and Backwards">4</a><a href="lesson-5.html" title="Lesson 5: Slope — Measuring the Tilt">5</a><a href="lesson-6.html" title="Lesson 6: From Rule to Line — y = mx + b, Parallels, Perpendiculars">6</a><a href="lesson-7.html" title="Lesson 7: Where Lines Meet — Two Methods, Three Possibilities">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Distance, Midpoints, and the Circle's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Parabolas, Transformations, and Where Lines Meet Curves">9</a><a href="lesson-10.html" title="Lesson 10: Watch Out! Common Mistakes">10</a><a href="lesson-11.html" title="Lesson 11: Review — The Big Picture">11</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Pythagorean theorem: a² + b² = c² for right triangles.
+Distance = √((x₂ − x₁)² + (y₂ − y₁)²).
+Midpoint = average the coordinates.
+Circle: (x − h)² + (y − k)² = r².</pre></div>
+<p>Lines measure tilt. Now let's measure LENGTH — and earn the most famous equation in all of geometry along the way.</p>
+<h3>The Pythagorean theorem — and why it's true</h3>
+<p>A RIGHT TRIANGLE has one 90° corner. The two short sides (the LEGS) have lengths a and b; the long side opposite the right angle (the HYPOTENUSE) has length c. The theorem says:</p>
+<pre class="math">a² + b² = c²</pre>
+<p>Here's a proof you can hold in your head. Take a big square whose sides have length a + b. Into its four corners, pack four copies of your right triangle, hypotenuses facing inward. Two facts:</p>
+<pre class="math">Fact 1: the four hypotenuses outline a tilted SQUARE in the
+middle. Why a square? All four of its sides equal c. And each of
+its corners is 90°: the triangle's two small angles (call them
+α and β) add to 90° — the triangle's three angles total 180° and
+the right corner uses 90° of that. Along the big square's
+straight edge, α + β + (middle corner) = 180°, so the middle
+corner is 180° − 90° = 90°. Four equal sides and four right
+angles: a square — with area c².</pre>
+<pre class="math">Fact 2: areas add up. Big square = 4 triangles + middle square.</pre>
+<pre class="math">Big square area:    (a + b)²
+Four triangles:     4 × (ab/2) = 2ab
+Middle square:      c²</pre>
+<pre class="math">So:  (a + b)² = 2ab + c²
+Expand the left side:  (a + b)(a + b) = a² + ab + ab + b²
+                     = a² + 2ab + b²
+So:  a² + 2ab + b² = 2ab + c²
+Subtract 2ab from both sides:  a² + b² = c².  ∎</pre>
+<p>That's a real proof — every step justified. Twenty-five centuries old and still rock solid.</p>
+<h3>The distance formula</h3>
+<p>How far is it from (1, 2) to (4, 6)? Draw the right triangle: walk 3 east and 4 north to make the legs; the direct path is the hypotenuse.</p>
+<pre class="math">d² = 3² + 4² = 9 + 16 = 25
+d = √25 = 5</pre>
+<p>In general, from (x₁, y₁) to (x₂, y₂), the legs are exactly the coordinate differences. (Mathematicians write &quot;the change in x&quot; as Δx — delta x.) So:</p>
+<pre class="math">DISTANCE FORMULA:  d = √((x₂ − x₁)² + (y₂ − y₁)²)
+                   = √((Δx)² + (Δy)²)</pre>
+<p>Squaring erases signs, so order never matters: (4 − 1)² = (1 − 4)² = 9. One more: from (−1, 2) to (2, −2):</p>
+<pre class="math">d² = (2 − (−1))² + (−2 − 2)² = 3² + (−4)² = 9 + 16 = 25
+d = 5</pre>
+<h3>The midpoint formula</h3>
+<p>The MIDPOINT of two points is the spot exactly halfway between them — halfway in x and halfway in y. And &quot;halfway between two numbers&quot; is just their average:</p>
+<pre class="math">MIDPOINT FORMULA:  M = ((x₁ + x₂)/2, (y₁ + y₂)/2)</pre>
+<p>Try it: midpoint of (−2, 3) and (4, 7):</p>
+<pre class="math">M = ((−2 + 4)/2, (3 + 7)/2) = (1, 5)</pre>
+<p>Prove it's really halfway — compute both distances:</p>
+<pre class="math">to (−2, 3):  (1 − (−2))² + (5 − 3)² = 9 + 4 = 13 → d = √13
+to (4, 7):   (4 − 1)² + (7 − 5)² = 9 + 4 = 13 → d = √13</pre>
+<p>Equal distances ✅. The midpoint earns its name.</p>
+<h3>The circle: distance frozen at r</h3>
+<p>A CIRCLE is the club of all points at one fixed distance from a center. That fixed distance is called the RADIUS r. Translate that sentence into algebra with the distance formula — the distance from (x, y) to the center (h, k) must equal r:</p>
+<pre class="math">√((x − h)² + (y − k)²) = r</pre>
+<p>Square both sides (both sides are positive, so squaring keeps the equation honest):</p>
+<pre class="math">THE CIRCLE EQUATION:  (x − h)² + (y − k)² = r²</pre>
+<p>Read it backwards: x² + y² = 25 has center (0, 0) — nothing was subtracted — and since 25 = 5², the radius is 5. Members: (3, 4): 9 + 16 = 25 ✅; (5, 0): 25 + 0 = 25 ✅. The rule x² + y² = 25 is secretly saying &quot;all points exactly 5 units from the origin&quot; — and yes, the 3-4-5 triangle family is hiding inside the circle!</p>
+<p>Shifted circle: (x − 2)² + (y + 1)² = 9. Center (2, −1) — watch the signs! The formula SUBTRACTS the center's coordinates, so y + 1 means the center's y is −1. Radius: √9 = 3. Membership tests:</p>
+<pre class="math">(5, −1):   (5 − 2)² + (−1 + 1)² = 9 + 0 = 9 ✅ ON!
+(2, 2):    (2 − 2)² + (2 + 1)² = 0 + 9 = 9 ✅ ON!
+(0, 0):    (0 − 2)² + (0 + 1)² = 4 + 1 = 5 ≠ 9 ❌ OFF!</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the distance from (0, 0) to (6, 8). (b) Find the midpoint of (1, 1) and (7, 5). (c) Name the center and radius of (x + 3)² + (y − 1)² = 16.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) √(6² + 8²) = √(36 + 64) = √100 = 10. (b) ((1 + 7)/2, (1 + 5)/2) = (4, 3). (c) Center (−3, 1) — x + 3 means the center's x is −3! — radius √16 = 4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

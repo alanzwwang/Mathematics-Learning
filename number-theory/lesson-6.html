@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick — Number Theory</title>
+<meta name="description" content="Primes, divisibility rules, GCF, LCM and Euclid's amazing 2,300-year-old algorithm.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔍 Number Theory</a> › Lesson 6</p>
+    <h1>🌟 LCM — Variables, Fraction-Clearing, and the Multiplication Trick</h1>
+    <p class="kicker">📖 Lesson 6 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">LCM = ALL primes, with the BIGGER supply of each.   LCM(12, 18) = 2² × 3² = 36
+The trick: GCF(a, b) × LCM(a, b) = a × b  —  and we can PROVE it.</pre></div>
+<p>The least common multiple of two numbers is the smallest number both divide into. The fingerprint recipe is the opposite of the GCF one: take every prime that appears in EITHER number, with the bigger supply:</p>
+<pre class="math">12 = 2² × 3         18 = 2 × 3²
+LCM(12, 18) = 2² × 3² = 36 ✅</pre>
+<p>GCF takes shared-and-small; LCM takes all-and-big. Say it until it's automatic. Three numbers at once — &quot;all primes&quot; now means from any of the three:</p>
+<pre class="math">4 = 2²        6 = 2 × 3        10 = 2 × 5
+LCM(4, 6, 10) = 2² × 3 × 5 = 60 ✅</pre>
+<p><strong>Check</strong>: 60 ÷ 4 = 15, 60 ÷ 6 = 10, 60 ÷ 10 = 6 — all clean, and nothing smaller works.</p>
+<h3>LCM with variables</h3>
+<p>Same recipe, variables included — take the bigger supply of every prime AND every variable:</p>
+<pre class="math">12x² = 2² × 3 × x²         18x = 2 × 3² × x
+LCM(12x², 18x) = 2² × 3² × x² = 36x² ✅</pre>
+<p>That answer is the least common DENOMINATOR when you add fractions like these:</p>
+<pre class="math">1/(6x) + 1/(8x) = ?</pre>
+<pre class="math">LCM of the denominators:  6x = 2×3×x, 8x = 2³×x  →  2³×3×x = 24x
+rebuild each fraction:    1/(6x) = 4/(24x)        (multiply top and bottom by 4)
+                          1/(8x) = 3/(24x)        (multiply top and bottom by 3)
+add the tops:             4/(24x) + 3/(24x) = 7/(24x) ✅</pre>
+<h3>The multiplication trick — with a real proof this time</h3>
+<p>Take 12 and 18: GCF = 6, LCM = 36. Now:</p>
+<pre class="math">GCF × LCM = 6 × 36 = 216         12 × 18 = 216</pre>
+<p>Equal! And here's WHY it always works, prime by prime. Suppose the prime 2 appears in a with exponent m and in b with exponent n. Then:</p>
+<p>· in the GCF, prime 2 gets exponent min(m, n)  — the smaller supply</p>
+<p>· in the LCM, prime 2 gets exponent max(m, n)  — the bigger supply</p>
+<p>· in the product GCF × LCM, prime 2 gets exponent min(m, n) + max(m, n)  — by the exponent-addition law</p>
+<p>· in the product a × b, prime 2 gets exponent m + n  — same law</p>
+<p>And min(m, n) + max(m, n) = m + n, because the smaller one plus the bigger one is just both of them added. Every prime in sight gets the same exponent on both sides, so:</p>
+<pre class="math">GCF(a, b) × LCM(a, b) = a × b   ∎</pre>
+<p>So if you know any three of GCF, LCM, a, b, you can find the fourth with one multiplication and one division. Warning, though: this trick is for TWO numbers only — Lesson 7 shows it exploding on three.</p>
+<h3>LCM clears fractions from equations</h3>
+<p>Here's a power move you'll use for years. When an equation has fractions, multiply BOTH sides by the LCM of the denominators — every denominator divides into it, so every fraction vanishes.</p>
+<h3>Solve:  x/2 + x/3 = 10</h3>
+<pre class="math">LCM(2, 3) = 6, so multiply both sides by 6:
+6 × (x/2 + x/3) = 6 × 10        same move on both sides keeps it balanced
+6 × x/2 + 6 × x/3 = 60          distribute on the left
+3x + 2x = 60                    each denominator divides into 6 and cancels
+5x = 60                         combine like terms
+x = 12                          divide both sides by 5</pre>
+<pre class="math">Check: 12/2 + 12/3 = 6 + 4 = 10 ✅</pre>
+<p>And one with variables on BOTH sides — the full honors workout:</p>
+<h3>Solve:  (2/3)x + 4 = (1/2)x + 7</h3>
+<pre class="math">LCM(3, 2) = 6, multiply both sides by 6:
+6 × (2/3)x + 6 × 4 = 6 × (1/2)x + 6 × 7     distribute on BOTH sides
+4x + 24 = 3x + 42                            fractions cleared
+4x − 3x = 42 − 24                            subtract 3x and 24 from both sides
+x = 18                                       simplify</pre>
+<pre class="math">Check: (2/3)×18 + 4 = 12 + 4 = 16, and (1/2)×18 + 7 = 9 + 7 = 16 ✅</pre>
+<h3>GCF-LCM systems: two facts, two unknowns</h3>
+<p>A SYSTEM of equations is two (or more) facts about unknown numbers, solved together. Number theory serves up beautiful ones. Problem: two numbers have GCF 6 and LCM 36. Find ALL possible pairs.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>The GCF is 6, so both numbers are multiples of 6. Write a = 6m and b = 6n, where m and n share NO factor (any factor they shared would inflate the GCF past 6). So GCF(m, n) = 1.</div></li><li><span class="mk">2.</span><div>Use the multiplication trick: a × b = GCF × LCM = 6 × 36 = 216.</div></li><li><span class="mk">3.</span><div>Substitute: (6m)(6n) = 216 → 36mn = 216 → mn = 6. (Divide both sides by 36.)</div></li><li><span class="mk">4.</span><div>Factor pairs of 6: (1, 6) and (2, 3). Both pairs are relatively prime ✅.</div></li><li><span class="mk">5.</span><div>Translate back: (a, b) = (6×1, 6×6) = (6, 36), or (6×2, 6×3) = (12, 18).</div></li></ul>
+<pre class="math">Check (6, 36):  GCF = 6, LCM = 36 ✅
+Check (12, 18): GCF = 6, LCM = 36 ✅   (from the start of this very lesson!)</pre>
+<p>Two answers, both correct — and the relatively-prime condition in step 1 is what keeps impostors out.</p>
+<h3>The leftover twist, upgraded to a formula</h3>
+<p>Classic puzzle: a pile of cookies leaves 3 left over whether counted in groups of 8 or groups of 12. What are ALL the possibilities?</p>
+<pre class="math">If the count is n, then n − 3 divides evenly by both 8 and 12
+so n − 3 is a common multiple of 8 and 12
+LCM(8, 12) = 24, so n − 3 = 24 × k for some whole number k</pre>
+<pre class="math">n = 24k + 3     ←  EVERY answer, in one formula</pre>
+<pre class="math">k = 0 → 3      k = 1 → 27      k = 2 → 51      k = 3 → 75      k = 4 → 99</pre>
+<p>The answers form an arithmetic sequence — same gap of 24 every time — and the gap is exactly the LCM. The two-digit answers are 27, 51, 75, 99.</p>
+<h3>Sanity-check inequalities</h3>
+<p>Finally, some inequalities that catch wrong answers instantly. For any positive a and b:</p>
+<pre class="math">GCF(a, b) ≤ the smaller of a, b ≤ the bigger of a, b ≤ LCM(a, b) ≤ a × b</pre>
+<p>The GCF can't top the smaller number (it has to FIT inside it); the LCM can't sit under the bigger one (the bigger one has to fit inside IT); and the last ≤ comes from the multiplication trick: LCM = (a × b) ÷ GCF, and dividing by the GCF only shrinks a × b — with equality exactly when GCF = 1, i.e., when a and b are relatively prime.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">1.</span><div>Find LCM(15, 20) with fingerprints.</div></li><li><span class="mk">2.</span><div>Solve with fraction-clearing:  x/4 + x/6 = 5.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: 1. 15 = 3 × 5 and 20 = 2² × 5 → LCM = 2² × 3 × 5 = 60. 2. LCM(4, 6) = 12; multiply both sides by 12: 12 × x/4 + 12 × x/6 = 60 → 3x + 2x = 60 → 5x = 60 → x = 12. Check: 12/4 + 12/6 = 3 + 2 = 5 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Review — The Big Picture — Fractal Geometry</title>
+<meta name="description" content="Shapes made of smaller copies of themselves, from snowflakes to broccoli!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">❄️ Fractal Geometry</a> › Lesson 9</p>
+    <h1>🧠 Review — The Big Picture</h1>
+    <p class="kicker">📖 Lesson 9 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Everything, one last time</p><pre class="math">Zoom test: small parts = smaller copies of the whole
+Geometric sequence: aₙ = a·rⁿ · series: a + ar + ... + arⁿ⁻¹ = a(rⁿ − 1)/(r − 1)
+Infinite series: a/(1 − r), convergent exactly when |r| &lt; 1
+Koch:      pieces 3·4ⁿ · length (1/3)ⁿ · perimeter 3(4/3)ⁿ → ∞ · area → 8A₀/5
+Sierpinski: triangles 3ⁿ · sides (1/2)ⁿ · area (3/4)ⁿA₀ → 0 · perimeter 3s(3/2)ⁿ → ∞
+Cantor:    pieces 2ⁿ · length (2/3)ⁿ → 0 · dimension log 2/log 3 ≈ 0.631
+Tree:      tips 2ⁿ · total 2ⁿ⁺¹ − 1
+Dimension: d = log N / log(1/r) — Sierpinski ≈ 1.585, Koch ≈ 1.262
+Coastline: L(ε) = C·ε^(1−D) — smaller ruler, longer answer, by law</pre></div>
+<h3>The recap list</h3>
+<p>· A fractal passes the zoom test: its small parts look like smaller copies of the whole — exactly (math) or approximately (nature).</p>
+<p>· Fractals are built by ONE rule repeated; each round is an iteration (stage), and the start is stage 0.</p>
+<p>· Iterating a rule is composing a function with itself: f applied n times multiplies by rⁿ.</p>
+<p>· Geometric sequences have explicit formulas aₙ = a·rⁿ; geometric series sum to a(rⁿ − 1)/(r − 1), and to a/(1 − r) forever when |r| &lt; 1.</p>
+<p>· Koch snowflake: every segment becomes 4 segments, each 1/3 as long. Perimeter 3·(4/3)ⁿ diverges; area converges to exactly 8A₀/5 — proven by summing the bumps.</p>
+<p>· Sierpinski triangle: keep 3 corner triangles, remove the middle. Triangles 3ⁿ; area (3/4)ⁿA₀ → 0; holes (3ⁿ − 1)/2; perimeter 3s(3/2)ⁿ → ∞.</p>
+<p>· Doubling tree: tips 2ⁿ; totals 2ⁿ⁺¹ − 1 — proven by the multiply-and-subtract trick.</p>
+<p>· Dimension formula d = log N/log(1/r): line 1, square 2, cube 3 — and fractals land BETWEEN: Sierpinski ≈ 1.585, Koch ≈ 1.262, Cantor ≈ 0.631. THAT's why they're called fractals!</p>
+<p>· Nature uses fractal rules to pack a lot into a little — lungs, trees, rivers, lightning — but zooms only a few levels deep.</p>
+<p>· Coastlines obey L(ε) = C·ε^(1−D): the smaller your ruler, the longer the measured coast, by a precise law.</p>
+<h3>The magic sentence</h3>
+<pre class="math">Small parts echo the whole —
+one rule, repeated, builds the infinite —
+edges grow while areas shrink —
+geometric series decide what's finite —
+logarithms count the copies —
+and dimensions come in fractions.</pre>
+<p>Say it out loud three times. Seriously! That's the whole lesson in six lines.</p>
+<h3>Why this matters</h3>
+<p>For two thousand years, geometry was the math of smooth things — circles, triangles, perfect solids. But the real world is rough: crinkly coasts, branching trees, ragged clouds, forked lightning. Fractal geometry is the math of THAT world, and you now own its core machinery: the zoom test, the repeating rule as a geometric sequence, series that decide infinite-versus-finite, and logarithms that measure dimensions between the whole numbers. The next time you see a fern or a fork of lightning, look closer: smaller copies, all the way down — the math you just learned, growing wild.</p>
+<h3>Now it's time to prove it — with 100 practice problems! 💪</h3></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">⬅️ Lesson 8</a><a class="btn" href="practice.html">Practice Problems ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

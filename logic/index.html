@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logic — Mathematics Learning</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a></p>
+    <h1>🧠 Logic</h1>
+    <p class="kicker">🧱 Foundations · A Complete Lesson (Honors Edition)</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <div class="welcome"><pre class="math">The flip of &quot;x &gt; 5&quot; is NOT &quot;x &lt; 5&quot; — it's x ≤ 5. One single number (5 itself) is the whole difference.
+&quot;x² = 25, so x = 5&quot; sounds airtight — until x = −5 walks into the room.
+Solve x/(x − 2) = 2/(x − 2) and algebra cheerfully hands you x = 2 — an answer that makes the original equation EXPLODE.
+A knight always tells the truth. A knave always lies. One if-then sentence can expose them both.</pre>
+<p>Those four lines are logic in action — the study of what MUST be true. The first is a trap that fools most high schoolers. The second is the real reason your algebra teacher keeps saying &quot;check your solutions!&quot; — by the end of this lesson you'll know exactly which algebra moves are safe two-way doors and which are one-way traps. The third shows what happens when you multiply by something that could be zero: a one-way move that manufactures a fake solution out of thin air. The fourth is the key to a family of puzzles that feel like magic until you know the method.</p>
+<p>Why do people care? Because logic is the operating system underneath ALL of math. Every proof ever written is built from AND, OR, NOT, and IF–THEN. So is every line of code ever written. And here's the part that matters now that you work with variables: solving an equation IS logic. An equation like 2x + 3 = 15 is really a question — &quot;for which x is this true?&quot; — and every step you take to solve it is a promise about what must be true. Get the logic right, and algebra stops being a bag of tricks and becomes a machine you understand.</p>
+<p>A fair warning: this lesson goes further than most logic courses. You'll meet ideas many students don't see until a college proofs class — the symbols ∀ and ∃, contrapositives (not just as a trick but as a PROOF TOOL), De Morgan's laws, two-way promises, and the true reason squaring both sides — or canceling x — can manufacture fake solutions. Take your time. Hard just means &quot;takes more than one step&quot; — and we will take every single step together, with the reason for each.</p>
+<p>In this lesson, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Learn what a statement is — and why an equation is a statement-MAKER with a truth set</div></li><li><span class="mk">2.</span><div>Learn to flip anything with NOT — comparisons like x &gt; 5, and the ALL/SOME flip in symbols</div></li><li><span class="mk">3.</span><div>Learn AND and OR — compound inequalities, absolute value, De Morgan's laws, and systems of equations</div></li><li><span class="mk">4.</span><div>Learn the one and only way an IF–THEN promise can break — and hunt counterexamples with negatives, fractions, and zero</div></li><li><span class="mk">5.</span><div>Learn the family of four relatives of a promise — and the two-way promise &quot;if and only if&quot;</div></li><li><span class="mk">6.</span><div>Learn ALL/SOME/NONE circle logic — and prove &quot;for ALL x&quot; claims with letters, including one proof by contrapositive</div></li><li><span class="mk">7.</span><div>Learn the two argument moves that always work, the two fakes — and why squaring, or multiplying by zero, demands a final check</div></li><li><span class="mk">8.</span><div>Learn to crack knight-and-knave puzzles where the statements use AND, OR, and IF–THEN — including one puzzle with TWO surviving cases</div></li><li><span class="mk">9.</span><div>Learn the common mistakes so you never make them</div></li><li><span class="mk">10.</span><div>Practice with 100 problems at the end — including puzzles for you to design!</div></li></ul>
+<p>How to use this lesson: Read the sections in order. Each section starts with the key idea you'll learn in it. Try every &quot;Your Turn&quot; box with a pencil and paper — in logic, the answer often feels obvious until you check it carefully. Ready? Let's go!</p></div><h2>📸 Pictures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../img/logic-1.jpg" alt="A marble bust of a bearded man from ancient Greece" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 1</span><br>A marble bust of Aristotle (384–322 BC), the ancient Greek thinker who wrote down some of the very first rules of logic. <a href="#sources">See source ↓</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../img/logic-2.jpg" alt="A black-and-white portrait photo of a man in a jacket" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 2</span><br>George Boole (1815–1864) turned logic into algebra with just TRUE and FALSE. Every computer today runs on his &quot;Boolean logic&quot;! <a href="#sources">See source ↓</a></figcaption>
+    </figure></div><h2>🗺️ Your lesson map</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span class="lc-emoji">🚀</span><span><span class="lc-num">Lesson 1</span><br><strong>Statements and Open Sentences — The Raw Material of Logic</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span class="lc-emoji">🧩</span><span><span class="lc-num">Lesson 2</span><br><strong>NOT — The Art of Flipping Anything</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span class="lc-emoji">🎯</span><span><span class="lc-num">Lesson 3</span><br><strong>AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span class="lc-emoji">🔍</span><span><span class="lc-num">Lesson 4</span><br><strong>IF–THEN — The Promise Machine (with Counterexample Hunting)</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span class="lc-emoji">⚡</span><span><span class="lc-num">Lesson 5</span><br><strong>The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span class="lc-emoji">🌟</span><span><span class="lc-num">Lesson 6</span><br><strong>ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span class="lc-emoji">🛠️</span><span><span class="lc-num">Lesson 7</span><br><strong>Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span class="lc-emoji">🎨</span><span><span class="lc-num">Lesson 8</span><br><strong>Knights and Knaves — When the Statements Use AND, OR, and IF–THEN</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span class="lc-emoji">⚠️</span><span><span class="lc-num">Lesson 9</span><br><strong>Watch Out! Common Mistakes</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span class="lc-emoji">🧠</span><span><span class="lc-num">Lesson 10</span><br><strong>Review — The Big Picture</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span class="lc-emoji">🏋️</span><span><span class="lc-num">Practice Problems</span><br><strong>100 problems to try</strong></span></a>
+    <a class="lesson-card" href="answers.html"><span class="lc-emoji">✅</span><span><span class="lc-num">Answer Key</span><br><strong>Check your work</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Aristotle Altemps Inv8575. By After Lysippos. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg">https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg</a></li><li><strong>Picture 2</strong> · George Boole color. By Unknown photographer. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg">https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">🏠 All topics</a><a class="btn" href="lesson-1.html">Lesson 1 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

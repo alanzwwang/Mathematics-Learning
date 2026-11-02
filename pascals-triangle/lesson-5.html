@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick — Pascal's Triangle</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a> › Lesson 5</p>
+    <h1>⚡ Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick</h1>
+    <p class="kicker">📖 Lesson 5 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Diagonal 1:  1, 2, 3, 4, ...  →  C(n, 1) = n, the counting numbers
+Diagonal 2:  1, 3, 6, 10, ... →  C(n + 1, 2) = n(n + 1)/2, the triangular numbers
+Diagonal 3:  1, 4, 10, 20, ...→  C(n + 2, 3), the tetrahedral numbers
+Hockey stick: C(r, r) + C(r + 1, r) + ... + C(n, r) = C(n + 1, r + 1) — with proof!</pre></div>
+<h3>The first three diagonals</h3>
+<p>Slice the triangle slantwise. The outer edge is all 1s: C(n, 0) = 1. One step in: 1, 2, 3, 4, 5, ... — the counting numbers, because C(n, 1) = n (choosing 1 thing from n: n ways). That's why entry 1 of row n is n — now it's a theorem, not a coincidence.</p>
+<p>One more step in: 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 — the triangular numbers. The n-th one, T_n, counts dots in a triangle with n rows:</p>
+<pre class="math">•
+•  •
+•  •  •
+•  •  •  •        T₄ = 1 + 2 + 3 + 4 = 10 dots</pre>
+<p>So T_n = 1 + 2 + ... + n. There's a famous closed formula, and here's its proof — Gauss's pairing trick, with every step shown:</p>
+<pre class="math">S = 1 + 2 + ... + (n − 1) + n          (the sum, forwards)
+S = n + (n − 1) + ... + 2 + 1          (the same sum, backwards — addition doesn't care)
+Add the two rows COLUMN by column: each column totals (n + 1)
+— 1 + n, 2 + (n − 1), 3 + (n − 2), ... — and there are n columns:
+2S = n × (n + 1)
+S = n(n + 1)/2                         (divide both sides by 2)  ∎</pre>
+<p>Now the kicker: n(n + 1)/2 = (n + 1)n/2 = C(n + 1, 2). Check: T₉ = 9 × 10/2 = 45, and C(10, 2) = 45 ✅. So the n-th triangular number is exactly entry 2 of row n + 1. WHY the triangle's second diagonal stores running totals of the first diagonal — that's the hockey stick, proved below.</p>
+<p>The third diagonal: 1, 4, 10, 20, 35, 56, 84 — the tetrahedral numbers. Each is a stack of triangles: pile cannonballs into a triangular pyramid (10 balls on the bottom layer, 6 above, 3 above, 1 on top → 20 total). In symbols:</p>
+<pre class="math">Te_n = T₁ + T₂ + ... + T_n = C(n + 2, 3)</pre>
+<pre class="math">Check: Te₄ = 1 + 3 + 6 + 10 = 20 = C(6, 3) ✅ (row 6, entry 3)</pre>
+<h3>The hockey stick identity — statement and proof</h3>
+<p>Slide down any diagonal adding as you go; stop anywhere. The sum waits one row below your last number, one step to the side — the blade of the hockey stick:</p>
+<pre class="math">C(2, 2) + C(3, 2) + C(4, 2) + C(5, 2) = C(6, 3)
+(in numbers: 1 + 3 + 6 + 10 = 20 ✅)</pre>
+<p>Proof by telescoping (peeling), using Pascal's rule over and over:</p>
+<pre class="math">C(6, 3) = C(5, 2) + C(5, 3)      (Pascal's rule: 20 = 10 + 10)
+C(5, 3) = C(4, 2) + C(4, 3)      (peel the blade again: 10 = 6 + 4)
+C(4, 3) = C(3, 2) + C(3, 3)      (peel once more: 4 = 3 + 1)
+C(3, 3) = 1 = C(2, 2)            (the tiniest blade is just a 1)</pre>
+<pre class="math">Substitute each line into the one above:
+C(6, 3) = C(5, 2) + C(4, 2) + C(3, 2) + C(2, 2) = 10 + 6 + 3 + 1 = 20  ∎</pre>
+<p>Each peel trades the blade for one diagonal entry plus a smaller blade, until the blade shrinks to C(r, r) = 1 and vanishes. The general statement:</p>
+<pre class="math">C(r, r) + C(r + 1, r) + ... + C(n, r) = C(n + 1, r + 1)</pre>
+<p>And now the triangular numbers' address is explained: T_n = 1 + 2 + ... + n = C(1, 1) + C(2, 1) + ... + C(n, 1) = C(n + 1, 2) by the hockey stick with r = 1. Running totals of one diagonal land on the next diagonal — proved, not just noticed. The same argument with r = 2 says sums of triangulars land on the tetrahedral diagonal. The pattern has no bottom.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Compute C(3, 3) + C(4, 3) + C(5, 3) + C(6, 3) using the triangle, then find the answer as a single entry (the blade) and verify.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: 1 + 4 + 10 + 20 = 35. The blade sits at C(7, 4) = row 7, entry 4 = 35. ✅ (Also note C(7, 4) = C(7, 3) — same 35 by symmetry.)</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

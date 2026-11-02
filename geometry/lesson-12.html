@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms — Geometry</title>
+<meta name="description" content="Angles, triangles, Pythagoras, circles and more, with real proofs you can follow.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📐 Geometry</a> › Lesson 12</p>
+    <h1>🎢 Sequences, Series, and Exponential Growth — Tamed by Logarithms</h1>
+    <p class="kicker">📖 Lesson 12 of 14</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Points, Lines, Segments, Rays — and Where They Live">1</a><a href="lesson-2.html" title="Lesson 2: Angles — Measuring the Turn, Proving the Rules">2</a><a href="lesson-3.html" title="Lesson 3: Parallel Lines and a Transversal — and the Proof of 180°">3</a><a href="lesson-4.html" title="Lesson 4: Triangles — the Inequality, Isosceles Secrets, and Congruence">4</a><a href="lesson-5.html" title="Lesson 5: The Pythagorean Theorem — State It, Prove It, Reverse It">5</a><a href="lesson-6.html" title="Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals">6</a><a href="lesson-7.html" title="Lesson 7: Area — Formulas You Can Derive, Not Memorize">7</a><a href="lesson-8.html" title="Lesson 8: Similarity — Same Shape, Different Size, and the k² Surprise">8</a><a href="lesson-9.html" title="Lesson 9: Circles — π, Arcs, Sectors, and the Inscribed Angle Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Transformations — Moving the Plane with Functions">10</a><a href="lesson-11.html" title="Lesson 11: Counting Meets Geometry — Casework and Complementary Counting">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms">12</a><a href="lesson-13.html" title="Lesson 13: Watch Out! Common Mistakes (Honors Edition)">13</a><a href="lesson-14.html" title="Lesson 14: Recap — The Big Picture">14</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Arithmetic sequence: add the same step. Geometric sequence: multiply by the same ratio.
+A LOGARITHM answers: &quot;the base to WHAT power gives this number?&quot;</pre></div>
+<p>A SEQUENCE is an ordered list of numbers following a rule. Two royal families:</p>
+<p>· ARITHMETIC: same STEP added each time. 5, 10, 15, 20, ... has step 5.</p>
+<pre class="math">nth term = first + (n − 1) × step
+(n − 1 steps get you from term 1 to term n — the fencepost count!)</pre>
+<p>· GEOMETRIC: same RATIO multiplied each time. 3, 6, 12, 24, ... has ratio 2.</p>
+<pre class="math">nth term = first × ratio^(n−1)</pre>
+<p>A SERIES is a sequence ADDED UP. Arithmetic series bow to Gauss (Lesson 11): sum = (number of terms) × (first + last) ÷ 2.</p>
+<pre class="math">5 + 10 + 15 + ... + 100:
+number of terms: 100 ÷ 5 = 20
+sum = 20 × (5 + 100) ÷ 2 = 20 × 105 ÷ 2 = 1050</pre>
+<p>Geometric series have their own trick — multiply and subtract. S = 1 + 3 + 9 + 27:</p>
+<pre class="math">S = 1 + 3 + 9 + 27
+3S =     3 + 9 + 27 + 81      (multiply every term by the ratio 3)
+3S − S = 81 − 1               (subtract: every middle term cancels!)
+2S = 80  →  S = 40            (check directly: 1 + 3 + 9 + 27 = 40 ✅)</pre>
+<pre class="math">In general: 1 + r + r² + ... + r^(n−1) = (rⁿ − 1)/(r − 1)</pre>
+<h3>Fractals: geometry growing geometrically</h3>
+<p>The SIERPINSKI TRIANGLE starts as one solid triangle; each step, every solid triangle gets its middle quarter removed, leaving 3 solid triangles where there was 1. Let the original area be 256 cm².</p>
+<pre class="math">Holes punched: step 1: 1 hole; step 2: 3 new; step 3: 9 new; ... ratio 3.
+Total holes after 4 steps: 1 + 3 + 9 + 27 = (3⁴ − 1)/(3 − 1) = 80/2 = 40
+Solid area after each step multiplies by 3/4 (each triangle keeps 3 of 4 quarters):
+after 2 steps: 256 × (3/4)² = 256 × 9/16 = 144 cm²
+after 3 steps: 144 × 3/4 = 108 cm²</pre>
+<p>The KOCH SNOWFLAKE does the opposite to perimeter: each step replaces every segment with 4 segments each 1/3 as long, so perimeter multiplies by 4/3 forever:</p>
+<pre class="math">Start 81 cm:  after 1 step 81 × 4/3 = 108 cm;  after 2 steps 108 × 4/3 = 144 cm;
+after 3 steps 144 × 4/3 = 192 cm. It never stops growing — off toward ∞!</pre>
+<h3>Logarithms: the undo-button for exponents</h3>
+<p>You know 2⁵ = 32. A LOGARITHM asks the reverse question: &quot;2 to WHAT power gives 32?&quot; The answer is 5, written log₂(32) = 5. Read it as &quot;log base 2 of 32.&quot; That's the entire definition — a logarithm is an exponent in disguise.</p>
+<pre class="math">log₂(32) = 5     because 2⁵ = 32
+log₃(81) = 4     because 3⁴ = 81
+log₁₀(1000) = 3  because 10³ = 1000</pre>
+<p>Solving an exponential equation means finding that hidden exponent:</p>
+<pre class="math">2ⁿ = 2048
+n = log₂(2048)        (definition of logarithm)
+n = 11                (because 2¹⁰ = 1024 and 2¹¹ = 2048 — count the doublings)</pre>
+<p>A growth race: a shape's area starts at 3 cm² and quadruples each hour (a dilation by k = 2 each hour, and k² = 4 for area). After how many whole hours does the area top 3000 cm²?</p>
+<pre class="math">3 × 4ⁿ &gt; 3000               (start × ratioⁿ)
+4ⁿ &gt; 1000                   (divide both sides by 3)
+n &gt; log₄(1000)              (take log base 4 of both sides — logs preserve order)
+log₄(1000) ≈ 4.98           (since 4⁴ = 256 &lt; 1000 but 4⁵ = 1024 &gt; 1000)
+smallest whole hour: n = 5  (the area must EXCEED 3000, and 4 hours isn't enough)
+Check: 3 × 1024 = 3072 &gt; 3000 ✅; at n = 4: 3 × 256 = 768 &lt; 3000 ✅</pre>
+<p>That last check — testing the integers on both sides — is how you turn &quot;approximately 4.98&quot; into a confident whole-number answer.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Evaluate log₂(64). (b) Solve 5ⁿ = 625. (c) Find 2 + 4 + 6 + ... + 40.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 6, because 2⁶ = 64. (b) n = 4, because 5⁴ = 625 (5² = 25, 5³ = 125, 5⁴ = 625). (c) 20 terms, sum = 20 × (2 + 40) ÷ 2 = 20 × 21 = 420.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">⬅️ Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

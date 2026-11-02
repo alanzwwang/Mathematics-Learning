@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work — Probability</title>
+<meta name="description" content="How likely is it? Complements, AND and OR rules, and expected value.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a> › Lesson 5</p>
+    <h1>⚡ The &quot;Or&quot; Rule — Overlaps and Backward Detective Work</h1>
+    <p class="kicker">📖 Lesson 5 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Formulas of this section</p><pre class="math">P(A or B) = P(A) + P(B)                   when A and B CAN'T happen together
+P(A or B) = P(A) + P(B) − P(A and B)      when they CAN</pre></div>
+<p>What's P(rolling a 1 or a 2) on a die? You can't roll both at once, so the favorable outcomes just pile up:</p>
+<pre class="math">P(1 or 2) = 1/6 + 1/6 = 2/6 = 1/3 ✅</pre>
+<p>Events that can't happen together are called mutually exclusive — a fancy name for &quot;no overlap.&quot; For those, or means add:</p>
+<pre class="math">P(heart or club) = 13/52 + 13/52 = 26/52 = 1/2 ✅
+P(jack or queen) = 4/52 + 4/52 = 8/52 = 2/13 ✅</pre>
+<h3>Now the dangerous one: what's P(heart or ace)?</h3>
+<pre class="math">Careless answer: 13/52 + 4/52 = 17/52 ❌</pre>
+<p>Here's why that's wrong: the ace of hearts is both a heart and an ace. You counted it twice — once in the 13 hearts, once in the 4 aces. Fix it by subtracting the overlap:</p>
+<pre class="math">P(heart or ace) = 13/52 + 4/52 − 1/52 = 16/52 = 4/13 ✅</pre>
+<p>The test: before you add, always ask — can these two things happen at the same time? If yes, find the overlap and subtract it once (it was counted twice). If no, add away.</p>
+<p>One more: P(red card or king)? Red cards: 26. Kings: 4. Overlap: the king of hearts and king of diamonds — 2 cards.</p>
+<pre class="math">P(red or king) = 26/52 + 4/52 − 2/52 = 28/52 = 7/13 ✅</pre>
+<p>Now the honors upgrade — backward detective work. Suppose you know P(A) = 1/3, P(B) = 1/4, and P(A or B) = 1/2. What is the overlap P(A and B)? Name it x and solve.</p>
+<pre class="math">P(A or B) = P(A) + P(B) − x        the overlap formula
+1/2 = 1/3 + 1/4 − x                substitute the knowns
+1/2 = 7/12 − x                     add the fractions: 1/3 + 1/4 = 4/12 + 3/12 = 7/12
+1/2 − 7/12 = −x                    subtract 7/12 from both sides
+6/12 − 7/12 = −x                   common denominator 12
+−1/12 = −x                         subtract numerators: 6 − 7 = −1
+x = 1/12 ✅                         multiply both sides by −1: negative × negative = positive</pre>
+<pre class="math">CHECK: 1/3 + 1/4 − 1/12 = 4/12 + 3/12 − 1/12 = 6/12 = 1/2 ✓</pre>
+<p>Look what happened halfway through: −x = −1/12 — a negative number, inside a probability problem! Nothing is broken. The negative was just bookkeeping on the way to the true overlap. The FINAL probability must still obey 0 ≤ P ≤ 1 — and 1/12 does.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find P(diamond or jack). Watch the overlap!</div></li><li><span class="mk">(b)</span><div>Detective work: P(A) = 1/2, P(A and B) = 1/10, and P(A or B) = 4/5. Find P(B).</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 13/52 + 4/52 − 1/52 = 16/52 = 4/13. (The jack of diamonds was double-counted.) (b) 4/5 = 1/2 + P(B) − 1/10 → P(B) = 4/5 − 1/2 + 1/10 (subtract 1/2 and add 1/10 on both sides) → P(B) = 8/10 − 5/10 + 1/10 = 4/10 = 2/5. CHECK: 1/2 + 2/5 − 1/10 = 5/10 + 4/10 − 1/10 = 8/10 = 4/5 ✓.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

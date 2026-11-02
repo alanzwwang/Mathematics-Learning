@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Base 10 — The Log That Counts Zeros — Logarithms</title>
+<meta name="description" content="The backwards question: what power do I need? Logs turn multiplying into adding!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🪵 Logarithms</a> › Lesson 3</p>
+    <h1>🎯 Base 10 — The Log That Counts Zeros</h1>
+    <p class="kicker">📖 Lesson 3 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Backwards Question — What a Logarithm Really Is">1</a><a href="lesson-2.html" title="Lesson 2: The Two Languages — Translating Logs and Powers">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Base 10 — The Log That Counts Zeros">3</a><a href="lesson-4.html" title="Lesson 4: The Superpower — Multiplication Becomes Addition">4</a><a href="lesson-5.html" title="Lesson 5: The Landmarks — 0, 1, and the Questions You Can't Ask">5</a><a href="lesson-6.html" title="Lesson 6: Logs in the Wild — Doubling and the Earthquake Scale">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">When no base is written, the base is 10.
+log(1,000) = 3  —  the answer is just the number of zeros!</pre></div>
+<h3>The invisible base</h3>
+<p>Look at this log: log(100). Something's missing — the little base! When a mathematician writes &quot;log&quot; with no base, the base is secretly 10. It's like a nickname so popular that nobody uses the full name. (Why 10? Because our whole number system is built on 10s: ten ones make a ten, ten tens make a hundred...)</p>
+<p>So log(100) really means log₁₀(100). And here is why base 10 is the friendliest base of all — its powers are just a 1 followed by zeros:</p>
+<pre class="math">10¹ = 10           log(10) = 1
+10² = 100          log(100) = 2
+10³ = 1,000        log(1,000) = 3
+10⁴ = 10,000       log(10,000) = 4</pre>
+<p>See the pattern? In base 10, the log just counts the zeros. A million has 6 zeros, so log(1,000,000) = 6. No multiplying required!</p>
+<h3>The sandwich trick</h3>
+<p>But what about log(400)? Four hundred isn't a clean power of 10. Here's the beautiful part — you can still say a lot:</p>
+<pre class="math">100  &lt;  400  &lt;  1,000</pre>
+<p>Since log(100) = 2 and log(1,000) = 3, the answer must be sandwiched between 2 and 3. (A calculator says about 2.6 — and sure enough, that's between 2 and 3.) You don't always need the exact answer. &quot;Between 2 and 3&quot; is often plenty — and it proves you understand what a log IS.</p>
+<pre class="math">log₂(10) is between 3 and 4   (because 8 &lt; 10 &lt; 16)
+log₃(50) is between 3 and 4   (because 27 &lt; 50 &lt; 81)</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">a)</span><div>log(100,000) = ?   b) log(1) = ?  (How many zeros does 1 have?)</div></li><li><span class="mk">c)</span><div>Between which two whole numbers does log(7,500) sit?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: a) 5 — count the zeros! b) 0 — a plain 1 has no zeros at all (and 10⁰ = 1, which Lesson 5 explains). c) Between 3 and 4, because 1,000 &lt; 7,500 &lt; 10,000.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

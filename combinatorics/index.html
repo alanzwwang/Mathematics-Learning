@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combinatorics — Mathematics Learning</title>
+<meta name="description" content="The art of counting without listing: outfits, line-ups, teams and grid paths!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧩 Combinatorics</a></p>
+    <h1>🧩 Combinatorics</h1>
+    <p class="kicker">🚀 Advanced · A Complete Lesson</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Counting Principle — AND Means Multiply">1</a><a href="lesson-2.html" title="Lesson 2: Factorials — Everyone, Get in Line!">2</a><a href="lesson-3.html" title="Lesson 3: Permutations — Some of Them, In Order">3</a><a href="lesson-4.html" title="Lesson 4: Combinations — Order Doesn't Matter">4</a><a href="lesson-5.html" title="Lesson 5: The Big Question — Order or Not?">5</a><a href="lesson-6.html" title="Lesson 6: Picky Slots First">6</a><a href="lesson-7.html" title="Lesson 7: Sneaky Shortcuts — Complements, Cases, and Grids">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <div class="welcome"><pre class="math">3 shirts × 4 pants = 12 outfits
+5! = 5 × 4 × 3 × 2 × 1 = 120
+C(8, 3) = 56 possible teams</pre>
+<p>Those three lines are the heart of combinatorics — the art of counting WITHOUT listing. The first line counts outfits without drawing a single stick figure. The second counts ways to line up five dogs without writing down all 120 orders (you'll soon see why that's lucky). The third counts three-person teams — and it's the trickiest idea in the lesson, because a team doesn't care about order, but counting naturally does. Taming that mismatch is the real skill here.</p>
+<p>Why do people care? Because counting is everywhere, and listing is hopeless. A 6/49 lottery ticket has C(49, 6) = 13,983,816 possible combinations — that's why jackpots are so rare. Passwords, video game loadouts, sports schedules, phone numbers, and every probability question you'll ever meet all start with counting. (Already finished the Probability lesson? This is the counting engine that makes it even stronger.)</p>
+<p>In this lesson, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Learn the counting principle — why AND means multiply</div></li><li><span class="mk">2.</span><div>Meet the factorial — the &quot;everyone in a line&quot; machine</div></li><li><span class="mk">3.</span><div>Count permutations — SOME of the people, in order</div></li><li><span class="mk">4.</span><div>Count combinations — some of the people, order forgotten</div></li><li><span class="mk">5.</span><div>Master the big question: does order matter? (The swap test!)</div></li><li><span class="mk">6.</span><div>Handle restrictions — picky slots first</div></li><li><span class="mk">7.</span><div>Learn two sneaky shortcuts: complements and cases</div></li><li><span class="mk">8.</span><div>Learn the common mistakes so you never make them</div></li><li><span class="mk">9.</span><div>Practice with 100 problems at the end — including puzzles with more than one right answer!</div></li></ul>
+<p>How to use this lesson: read the sections in order. Each section starts with the key idea you'll learn in it. Take your time, and try every &quot;Your Turn&quot; box with a pencil and paper. For most of these problems, listing every possibility would take all day — the whole point is to count smart. Ready? Let's go!</p></div><h2>📸 Pictures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../img/combinatorics-1.png" alt="A drawing of a Rubik's Cube with coloured squares" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 1</span><br>A Rubik's Cube can be mixed up in 43,252,003,274,489,856,000 different ways. Counting that is combinatorics! <a href="#sources">See source ↓</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../img/combinatorics-2.jpg" alt="Six colourful dice with 4, 6, 8, 10, 12 and 20 sides" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 2</span><br>Dice with 4, 6, 8, 10, 12 and 20 sides. If you roll them all at once there are 4 × 6 × 8 × 10 × 12 × 20 = 460,800 possible results. AND means multiply! <a href="#sources">See source ↓</a></figcaption>
+    </figure></div><h2>🗺️ Your lesson map</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span class="lc-emoji">🚀</span><span><span class="lc-num">Lesson 1</span><br><strong>The Counting Principle — AND Means Multiply</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span class="lc-emoji">🧩</span><span><span class="lc-num">Lesson 2</span><br><strong>Factorials — Everyone, Get in Line!</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span class="lc-emoji">🎯</span><span><span class="lc-num">Lesson 3</span><br><strong>Permutations — Some of Them, In Order</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span class="lc-emoji">🔍</span><span><span class="lc-num">Lesson 4</span><br><strong>Combinations — Order Doesn't Matter</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span class="lc-emoji">⚡</span><span><span class="lc-num">Lesson 5</span><br><strong>The Big Question — Order or Not?</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span class="lc-emoji">🌟</span><span><span class="lc-num">Lesson 6</span><br><strong>Picky Slots First</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span class="lc-emoji">🛠️</span><span><span class="lc-num">Lesson 7</span><br><strong>Sneaky Shortcuts — Complements, Cases, and Grids</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span class="lc-emoji">⚠️</span><span><span class="lc-num">Lesson 8</span><br><strong>Watch Out! Common Mistakes</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span class="lc-emoji">🧠</span><span><span class="lc-num">Lesson 9</span><br><strong>Review — The Big Picture</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span class="lc-emoji">🏋️</span><span><span class="lc-num">Practice Problems</span><br><strong>100 problems to try</strong></span></a>
+    <a class="lesson-card" href="answers.html"><span class="lc-emoji">✅</span><span><span class="lc-num">Answer Key</span><br><strong>Check your work</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Rubik's cube. By Booyabazooka. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Rubik%27s_cube.svg">https://commons.wikimedia.org/wiki/File:Rubik's_cube.svg</a></li><li><strong>Picture 2</strong> · Dice (typical role playing game dice). By Diacritica. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Dice_(typical_role_playing_game_dice).jpg">https://commons.wikimedia.org/wiki/File:Dice_(typical_role_playing_game_dice).jpg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">🏠 All topics</a><a class="btn" href="lesson-1.html">Lesson 1 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

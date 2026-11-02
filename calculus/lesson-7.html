@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: The Derivative's Diary — Reading f' and f'' — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 7</p>
+    <h1>🛠️ The Derivative's Diary — Reading f' and f''</h1>
+    <p class="kicker">📖 Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">f' &gt; 0: the curve is climbing.   f' &lt; 0: falling.
+f' = 0: level ground — a critical point (maybe a peak or valley).
+f'' &gt; 0: concave up (a cup ∪).   f'' &lt; 0: concave down (a cap ∩).</pre></div>
+<h3>Critical points</h3>
+<p>A derivative is a slope-meter, so its sign is the curve's diary: positive means climbing, negative means falling. The interesting moments are the level ones:</p>
+<pre class="math">A CRITICAL POINT of f is an x where f'(x) = 0 or f'(x) does not exist.</pre>
+<p>Peaks (local maxima) and valleys (local minima) can only happen at critical points — a hilltop has to be level (or pointed, like |x|). But careful: not every critical point is a peak or valley. We will meet the exception soon.</p>
+<p><strong>Worked example</strong> — a full analysis of f(x) = x³ − 12x + 5:</p>
+<pre class="math">Step 1: f'(x) = 3x² − 12. Solve f'(x) = 0:
+        3x² − 12 = 0  →  3(x² − 4) = 0  →  x² = 4  →  x = −2 or x = 2.
+Step 2: sign test — sample one x in each region:
+        x = −3:  f'(−3) = 3×9 − 12 = 15 &gt; 0   → climbing
+        x = 0:   f'(0) = −12 &lt; 0              → falling
+        x = 3:   f'(3) = 15 &gt; 0               → climbing
+Step 3: read the diary: climbing, then falling, then climbing.
+        So x = −2 is a peak (climb → fall) and x = 2 is a valley (fall → climb).
+Step 4: find the heights: f(−2) = −8 + 24 + 5 = 21  (peak at (−2, 21))
+                        f(2) = 8 − 24 + 5 = −11     (valley at (2, −11))</pre>
+<h3>The second derivative</h3>
+<p>The derivative of the derivative, f''(x) (read &quot;f double prime&quot;), measures how the SLOPE is changing — the curve's concavity, which way it bends:</p>
+<pre class="math">f'' &gt; 0: slopes are increasing — the curve bends up like a cup ∪
+f'' &lt; 0: slopes are decreasing — the curve bends down like a cap ∩</pre>
+<p>That gives a one-step classifier, the second derivative test: at a critical point, f'' &gt; 0 means a valley (cup) and f'' &lt; 0 means a peak (cap). Watch it confirm our example:</p>
+<pre class="math">f''(x) = 6x
+f''(−2) = −12 &lt; 0  →  cap  →  peak ✅
+f''(2)  =  12 &gt; 0  →  cup  →  valley ✅</pre>
+<p>The exception that keeps you honest: f(x) = x³ has f'(0) = 0 — level ground! — but f' = 3x² ≥ 0 on BOTH sides, so the curve climbs, pauses level for an instant, and climbs on. No peak, no valley. Its f'' = 6x changes sign at x = 0: the bend switches from cap to cup. A point where the concavity flips is called an inflection point — and f'(a) = 0 with a sign flip of f'' is a level inflection point, not a max or min. (Mistake 6 in Lesson 11!)</p>
+<p>Physics footnote: if s(t) is position, then s'(t) = v(t) is velocity and s''(t) = v'(t) = a(t) is acceleration — the rate of change of the rate of change. You feel acceleration in your stomach on a roller coaster; you are feeling s''.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Find the critical points of f(x) = x³ − 3x² and classify each with the second derivative test.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: f'(x) = 3x² − 6x = 3x(x − 2), so x = 0 and x = 2. f''(x) = 6x − 6. f''(0) = −6 &lt; 0 → peak, f(0) = 0. f''(2) = 12 − 6 = 6 &gt; 0 → valley, f(2) = 8 − 12 = −4. Peak at (0, 0), valley at (2, −4).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

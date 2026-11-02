@@ -1,3 +1,27 @@
+# Only the website is published. The .md lesson files stay in the repository
+# (they're the source the website is built from) but are not put on the site.
 title: Mathematics Learning
-description: A personal library of math notes — from arithmetic to complex analysis.
-theme: jekyll-theme-cayman
+exclude:
+  - "Algebraic Equations.md"
+  - "Algebraic Geometry.md"
+  - "Arithmetic.md"
+  - "Calculus.md"
+  - "Combinatorics.md"
+  - "Complex Analysis.md"
+  - "Exponential Growth.md"
+  - "Fractal Geometry.md"
+  - "Fractions.md"
+  - "Geometry.md"
+  - "index.md"
+  - "Linear Functions.md"
+  - "Logarithms.md"
+  - "Logic.md"
+  - "Matrix Math.md"
+  - "Non-Euclidean Geometry.md"
+  - "Number Theory.md"
+  - "Pascal's Triangle.md"
+  - "Permutations vs Combinations.md"
+  - "Probability.md"
+  - "README.md"
+  - "Trigonometry.md"
+  - tools

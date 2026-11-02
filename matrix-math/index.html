@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Math — Mathematics Learning</title>
+<meta name="description" content="Grids of numbers that power video games, photos and secret codes!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔢 Matrix Math</a></p>
+    <h1>🔢 Matrix Math</h1>
+    <p class="kicker">🚀 Advanced · A Complete Lesson</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Matrix — Rows, Columns, Addresses">1</a><a href="lesson-2.html" title="Lesson 2: Adding and Subtracting — Square by Square">2</a><a href="lesson-3.html" title="Lesson 3: The Scalar — One Number Times a Whole Grid">3</a><a href="lesson-4.html" title="Lesson 4: The Real Matrix Multiplication — Row × Column">4</a><a href="lesson-5.html" title="Lesson 5: Order Matters! A × B ≠ B × A">5</a><a href="lesson-6.html" title="Lesson 6: Special Grids — The Zero Grid and the Identity Grid">6</a><a href="lesson-7.html" title="Lesson 7: Matrices at Work — Scores, Photos, Codes, and Flips">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <div class="welcome"><pre class="math">[ 2  3 ] + [ 5  1 ] = [ 7  4 ]
+[ 1  4 ]   [ 0  2 ]   [ 1  6 ]</pre>
+<pre class="math">row [ 1  2 ] meets column [ 3 ; 1 ]:  1×3 + 2×1 = 5</pre>
+<p>Those two lines are matrix math in action. A matrix (say it: MAY-tricks) is just a grid of numbers — rows across, columns down — like a scoreboard or a spreadsheet. The first line adds two grids square by square. The second shows the heartbeat of matrix multiplication: a row pairs with a column, you multiply the partners, then add. The plural of matrix is matrices (MAY-tri-sees) — and once you can handle two or three of them at once, you can do things that feel like magic.</p>
+<p>Why do people care? Because the world runs on grids of numbers! Every photo on your phone is a grid of pixel numbers. Every 3D video game spins and flips its world by multiplying matrices — millions of times per second. Music recommendations, weather forecasts, search engines, and the giant AI models that write poems all run on enormous versions of the little 2 × 2 grids you'll master today. Matrices are how computers think about tables of numbers — and tables of numbers are everywhere.</p>
+<p>You already know how to add and multiply single numbers — so we'll spend zero time relearning that and go straight to grids.</p>
+<p>In this lesson, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Meet the matrix — rows, columns, sizes, and every square's address</div></li><li><span class="mk">2.</span><div>Add and subtract grids square by square (and learn the same-size rule)</div></li><li><span class="mk">3.</span><div>Scale a whole grid with one number — even a fraction like 1/2</div></li><li><span class="mk">4.</span><div>Learn real matrix multiplication: row × column, pair them up and add</div></li><li><span class="mk">5.</span><div>Discover that order matters — A × B is usually NOT B × A</div></li><li><span class="mk">6.</span><div>Meet the zero grid and the identity grid — the 0 and 1 of matrix world</div></li><li><span class="mk">7.</span><div>Use matrices for real: scoreboards, brightened photos, secret codes, flipped points</div></li><li><span class="mk">8.</span><div>Learn the common mistakes so you never make them</div></li><li><span class="mk">9.</span><div>Practice with 100 problems at the end!</div></li></ul>
+<p>How to use this lesson: Read the sections in order. Each section starts with the key idea you'll learn in it. Take your time, and try every &quot;Your Turn&quot; box with a pencil and paper. Ready? Let's go!</p></div><h2>📸 Pictures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../img/matrix-math-1.png" alt="A diagram showing a row of one matrix meeting a column of another" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 1</span><br>How matrix multiplication works: each row of matrix A meets a column of matrix B to make one square in the answer. <a href="#sources">See source ↓</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../img/matrix-math-2.png" alt="A drawing of a computer, with a zoomed-in square showing tiny coloured blocks" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 2</span><br>Zoom in on any computer picture and you'll see it's really a grid of tiny squares called pixels: a giant matrix of numbers! <a href="#sources">See source ↓</a></figcaption>
+    </figure></div><h2>🗺️ Your lesson map</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span class="lc-emoji">🚀</span><span><span class="lc-num">Lesson 1</span><br><strong>Meet the Matrix — Rows, Columns, Addresses</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span class="lc-emoji">🧩</span><span><span class="lc-num">Lesson 2</span><br><strong>Adding and Subtracting — Square by Square</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span class="lc-emoji">🎯</span><span><span class="lc-num">Lesson 3</span><br><strong>The Scalar — One Number Times a Whole Grid</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span class="lc-emoji">🔍</span><span><span class="lc-num">Lesson 4</span><br><strong>The Real Matrix Multiplication — Row × Column</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span class="lc-emoji">⚡</span><span><span class="lc-num">Lesson 5</span><br><strong>Order Matters! A × B ≠ B × A</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span class="lc-emoji">🌟</span><span><span class="lc-num">Lesson 6</span><br><strong>Special Grids — The Zero Grid and the Identity Grid</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span class="lc-emoji">🛠️</span><span><span class="lc-num">Lesson 7</span><br><strong>Matrices at Work — Scores, Photos, Codes, and Flips</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span class="lc-emoji">⚠️</span><span><span class="lc-num">Lesson 8</span><br><strong>Watch Out! Common Mistakes</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span class="lc-emoji">🧠</span><span><span class="lc-num">Lesson 9</span><br><strong>Review — The Big Picture</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span class="lc-emoji">🏋️</span><span><span class="lc-num">Practice Problems</span><br><strong>100 problems to try</strong></span></a>
+    <a class="lesson-card" href="answers.html"><span class="lc-emoji">✅</span><span><span class="lc-num">Answer Key</span><br><strong>Check your work</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Matrix multiplication diagram 2. By Lakeworks. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram_2.svg">https://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram_2.svg</a></li><li><strong>Picture 2</strong> · Pixel-example. By ed g2s. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Pixel-example.png">https://commons.wikimedia.org/wiki/File:Pixel-example.png</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">🏠 All topics</a><a class="btn" href="lesson-1.html">Lesson 1 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes — Pascal's Triangle</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a> › Lesson 6</p>
+    <h1>🌟 The Binomial Theorem — the Triangle in Algebraic Clothes</h1>
+    <p class="kicker">📖 Lesson 6 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">(a + b)ⁿ = C(n,0)aⁿ + C(n,1)aⁿ⁻¹b + C(n,2)aⁿ⁻²b² + ... + C(n,n)bⁿ
+The coefficients of the expansion are exactly row n.
+Coefficient hunting: each term carries C(n, k) AND powers of both parts.
+11ⁿ = (10 + 1)ⁿ explains the digit trick, and (1 − 1)ⁿ = 0
+proves the alternating sums from Lesson 4.</pre></div>
+<h3>Where the coefficients come from</h3>
+<p>Multiply out (a + b)² by pure distribution, keeping track of every choice:</p>
+<pre class="math">(a + b)(a + b) = aa + ab + ba + bb</pre>
+<p>From each factor you picked either a or b — 2 factors, 2 choices each, 4 picks total. The picks ab and ba both give one a and one b, so they merge: a² + 2ab + b². The coefficient 2 is a COUNT: the number of ways to choose which 1 of the 2 factors contributes the b. That's C(2, 1) = 2.</p>
+<p>Same story for (a + b)³: 2³ = 8 ordered picks. The term a²b needs exactly one factor to give b — which one? 3 choices (first, second, or third factor). So a²b appears C(3, 1) = 3 times:</p>
+<pre class="math">(a + b)³ = a³ + 3a²b + 3ab² + b³</pre>
+<p>The Binomial Theorem (official statement): expanding (a + b)ⁿ means choosing a or b from each of n factors. The term aⁿ⁻ᵏbᵏ needs exactly k of the n factors to contribute b — and choosing which k factors is C(n, k). Therefore:</p>
+<pre class="math">(a + b)ⁿ = Σ C(n, k) aⁿ⁻ᵏbᵏ   (k runs from 0 to n)
+The coefficients are row n of Pascal's triangle.  ∎</pre>
+<p><strong>Worked example 1</strong> — expand (a + b)⁴, term by term:</p>
+<pre class="math">k = 0:  C(4, 0) a⁴b⁰ = 1 · a⁴ · 1 = a⁴
+k = 1:  C(4, 1) a³b¹ = 4a³b
+k = 2:  C(4, 2) a²b² = 6a²b²
+k = 3:  C(4, 3) ab³  = 4ab³
+k = 4:  C(4, 4) a⁰b⁴ = b⁴</pre>
+<pre class="math">(a + b)⁴ = a⁴ + 4a³b + 6a²b² + 4ab³ + b⁴     (coefficients: row 4 ✅)</pre>
+<p><strong>Worked example 2</strong> — expand (x + 2)⁵. Now a = x and b = 2, so each term is C(5, k) · x⁵⁻ᵏ · 2ᵏ. The 2 gets raised to a power too — it lives inside the parentheses!</p>
+<pre class="math">k = 0:  C(5, 0) x⁵ · 2⁰ = 1 · x⁵ · 1   = x⁵
+k = 1:  C(5, 1) x⁴ · 2¹ = 5 · x⁴ · 2   = 10x⁴
+k = 2:  C(5, 2) x³ · 2² = 10 · x³ · 4  = 40x³
+k = 3:  C(5, 3) x² · 2³ = 10 · x² · 8  = 80x²
+k = 4:  C(5, 4) x¹ · 2⁴ = 5 · x · 16   = 80x
+k = 5:  C(5, 5) x⁰ · 2⁵ = 1 · 1 · 32   = 32</pre>
+<pre class="math">(x + 2)⁵ = x⁵ + 10x⁴ + 40x³ + 80x² + 80x + 32</pre>
+<pre class="math">Sanity check — plug in x = 1: left side is 3⁵ = 243;
+right side is 1 + 10 + 40 + 80 + 80 + 32 = 243. ✅
+(Always do this check. It catches coefficient slips instantly.)</pre>
+<p><strong>Worked example 3</strong> — expand (2x − 1)⁴. Here a = 2x, b = −1. Odd powers of (−1) bring minus signs:</p>
+<pre class="math">k = 0:  C(4, 0)(2x)⁴(−1)⁰ = 1 · 16x⁴ · 1    = 16x⁴
+k = 1:  C(4, 1)(2x)³(−1)¹ = 4 · 8x³ · (−1)  = −32x³
+k = 2:  C(4, 2)(2x)²(−1)² = 6 · 4x² · 1     = 24x²
+k = 3:  C(4, 3)(2x)¹(−1)³ = 4 · 2x · (−1)   = −8x
+k = 4:  C(4, 4)(2x)⁰(−1)⁴ = 1 · 1 · 1       = 1</pre>
+<pre class="math">(2x − 1)⁴ = 16x⁴ − 32x³ + 24x² − 8x + 1</pre>
+<pre class="math">Check x = 1: (2 − 1)⁴ = 1, and 16 − 32 + 24 − 8 + 1 = 1. ✅</pre>
+<h3>Coefficient hunting — the competition skill</h3>
+<p>You rarely need the whole expansion. Question: what's the coefficient of x³ in (x + 3)⁶?</p>
+<pre class="math">The general term is C(6, k) · x⁶⁻ᵏ · 3ᵏ.
+We need x³, so 6 − k = 3, meaning k = 3.
+The term is C(6, 3) · x³ · 3³ = 20 · 27 · x³ = 540x³.
+Answer: 540.  (Notice BOTH parts contributed: the 20 from row 6 AND the 27 = 3³.)</pre>
+<h3>The mystery of 11ⁿ — finally solved for real</h3>
+<p>Remember how rows of the triangle read as digits of 11ⁿ (1, 11, 121, 1331, 14641), with carrying when entries hit two digits? The Binomial Theorem explains everything in one line: 11 = 10 + 1, so</p>
+<pre class="math">11ⁿ = (10 + 1)ⁿ = C(n,0)10ⁿ + C(n,1)10ⁿ⁻¹ + C(n,2)10ⁿ⁻² + ... + C(n,n)</pre>
+<p>Each entry of row n sits in its own place-value column (powers of 10!), with the biggest place first. While entries stay single-digit, the columns never collide and the digits just spell the row. Row 5 has 10s, so the columns overlap and carrying happens:</p>
+<pre class="math">11⁵ = 1·10⁵ + 5·10⁴ + 10·10³ + 10·10² + 5·10 + 1
+    = 100000 + 50000 + 10000 + 1000 + 50 + 1
+    = 161051 ✅</pre>
+<p>The old &quot;carrying surprise&quot; was just place values overlapping. No mystery survives algebra.</p>
+<h3>Two debts repaid</h3>
+<pre class="math">Debt 1 — alternating sums (Lesson 4): set a = 1, b = −1 in the theorem:
+(1 + (−1))ⁿ = C(n,0) − C(n,1) + C(n,2) − ... ± C(n,n)
+The left side is 0ⁿ = 0 (for n ≥ 1). That's the entire proof.  ∎</pre>
+<pre class="math">Debt 2 — row sums: set a = b = 1: (1 + 1)ⁿ = C(n,0) + C(n,1) + ... + C(n,n),
+so the row sum is 2ⁿ — a THIRD proof of Lesson 4's headline fact.  ∎</pre>
+<h3>Bonus skill — lightning approximation</h3>
+<p>(1.02)⁴ = (1 + 0.02)⁴. Expand with row 4:</p>
+<pre class="math">= 1 + 4(0.02) + 6(0.02)² + 4(0.02)³ + (0.02)⁴
+= 1 + 0.08 + 6(0.0004) + 4(0.000008) + 0.00000016
+= 1 + 0.08 + 0.0024 + 0.000032 + 0.00000016
+= 1.08243216 ≈ 1.0824</pre>
+<p>The terms shrink so fast that the first two or three do almost all the work — that's why engineers and scientists lean on this move.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Expand (x − 1)⁴ (watch the signs!), then check your answer at x = 2.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: a = x, b = −1; each term is C(4, k) x⁴⁻ᵏ (−1)ᵏ:</p><pre class="math">k = 0: x⁴   ·   k = 1: −4x³   ·   k = 2: 6x²   ·   k = 3: −4x   ·   k = 4: 1
+(x − 1)⁴ = x⁴ − 4x³ + 6x² − 4x + 1
+Check x = 2: (2 − 1)⁴ = 1, and 16 − 32 + 24 − 8 + 1 = 1. ✅</pre></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

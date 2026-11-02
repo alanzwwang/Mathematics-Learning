@@ -18,14 +18,26 @@
   "name": "Mathematics Learning",
   "emoji": "📐",
   "accent": "#4fd1a5",
-  "version": "V.2.8",
-  "previous": "V.2.7",
+  "version": "V.2.9",
+  "previous": "V.2.8",
   "date": "2 November 2026",
-  "lead": "New update for your math library!",
+  "lead": "Your math library is now a whole new website!",
   "changes": [
-    "NEW!!! This What's New pop-up: every update now tells you what changed"
+    "NEW!!! A brand-new Mathematics website: all 20 topics are now colourful, kid-friendly web pages",
+    "A new home page with every topic in four groups: Foundations, Algebra, Geometry and Advanced",
+    "Every lesson has its own page, with lesson buttons and Next / Back buttons",
+    "✏️ Your Turn answers now hide behind a 👀 button, so no accidental peeking!",
+    "2 pictures for every topic (40 in all), with their sources",
+    "100 practice problems and an answer key for every topic",
+    "Works on phones and tablets too"
   ],
   "earlier": [
+    {
+      "version": "V.2.8",
+      "items": [
+        "NEW!!! This What's New pop-up: every update now tells you what changed"
+      ]
+    },
     {
       "version": "V.2.7",
       "items": [
@@ -36,12 +48,12 @@
     }
   ],
   "fun": [
-    "20 topics, from Arithmetic all the way to Complex Analysis",
-    "Four groups: Foundations, Algebra, Geometry and Advanced",
-    "Try Pascal's Triangle, Fractal Geometry or Non-Euclidean Geometry for something mind-bending"
+    "195 lessons and 2,000 practice problems in total",
+    "The pictures go from a 20,000-year-old counting bone to the Mandelbrot set",
+    "A \"combination\" lock should really be called a permutation lock. Find out why in Permutations vs Combinations!"
   ],
-  "funTitle": "What's inside",
-  "tip": "Start with Foundations if you're new, or jump straight to any topic from the home page.",
+  "funTitle": "Fun facts",
+  "tip": "Try every ✏️ Your Turn box with a pencil first, then tap 👀 to check your answers.",
   "button": "Start learning! ▶"
 };
   try {

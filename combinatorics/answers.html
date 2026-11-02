@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Answer Key — Combinatorics</title>
+<meta name="description" content="The art of counting without listing: outfits, line-ups, teams and grid paths!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧩 Combinatorics</a> › Answer Key</p>
+    <h1>✅ Answer Key</h1>
+    <p class="kicker">🏁 The finish line!</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Counting Principle — AND Means Multiply">1</a><a href="lesson-2.html" title="Lesson 2: Factorials — Everyone, Get in Line!">2</a><a href="lesson-3.html" title="Lesson 3: Permutations — Some of Them, In Order">3</a><a href="lesson-4.html" title="Lesson 4: Combinations — Order Doesn't Matter">4</a><a href="lesson-5.html" title="Lesson 5: The Big Question — Order or Not?">5</a><a href="lesson-6.html" title="Lesson 6: Picky Slots First">6</a><a href="lesson-7.html" title="Lesson 7: Sneaky Shortcuts — Complements, Cases, and Grids">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" class="here" aria-current="page" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><p>No peeking until you've tried! If you got one wrong, figure out which idea slipped — the swap test, the clone division, the decay, or picky-slots-first. For open-ended problems, your answer may look different and still be right.</p>
+<h3>Easy</h3>
+<p>1–10:  6  ·  8  ·  24  ·  15  ·  6,760 (26×26×10)  ·  8  ·  36</p>
+<pre class="math">10,000 (every code from 0000 to 9999!)  ·  12
+Every option of one kind pairs with EVERY option of the other —
+nothing shared, nothing skipped — so the counts multiply.</pre>
+<p>11–20: 24  ·  120  ·  720  ·  5,040  ·  6  ·  120  ·  720  ·  24</p>
+<pre class="math">False — 3! + 2! = 6 + 2 = 8, but 5! = 120  ·  1! = 1 and 0! = 1</pre>
+<p>21–30: 20 (5×4)  ·  120 (6×5×4)  ·  42 (7×6)  ·  56 (8×7)  ·  120 (6×5×4)</p>
+<pre class="math">72 (9×8)  ·  90 (10×9)  ·  210 (7×6×5)  ·  720 (10×9×8)
+n — one slot, n choices, no decay needed</pre>
+<p>31–42: 6  ·  10  ·  15  ·  10  ·  20  ·  21  ·  28  ·  35  ·  10  ·  28  ·  15</p>
+<pre class="math">1 — there's exactly one way to take all 6 (and one way to take none)</pre>
+<p>43–52: C: C(5,2) = 10  ·  P: 5×4 = 20  ·  order matters: 10×9×8 = 720</p>
+<pre class="math">C: C(8,3) = 56  ·  P: 9×8 = 72  ·  C: C(8,3) = 56
+P: 6×5×4×3 = 360  ·  C: C(10,4) = 210  ·  C: C(9,2) = 36
+P: 12×11×10 = 1,320</pre>
+<p>53–60: 12 (4×3)  ·  24 (4×3×2)  ·  64 (4×4×4)  ·  900 (9×10×10)</p>
+<pre class="math">6 (1×3×2×1)  ·  48 (2 ends × 4! = 2×24)  ·  12 (4×3)
+6 (picky ones slot: 2 choices — 2 or 4 — then 3 left for the tens)</pre>
+<p>61–70: 12 (6 × 2 — NOT 6! = 720)  ·  120 (P(5,5) = 5!)  ·  1 (take all 5 — one way)</p>
+<pre class="math">Equal! Both are 21 — choosing 2 to come is the same as choosing 5 to stay
+6 (3×2×1)  ·  12 (2×6)  ·  45 (C(10,2))  ·  24 (3×4×2)
+False — P(6,2) = 30 counts the order; C(6,2) = 15 doesn't
+When order doesn't matter — each group was counted once per arrangement,
+and a group of r has r! arrangements</pre>
+<h3>Intermediate</h3>
+<p>71–76: 120 (10×9×8 / 3!)  ·  210 (10×9×8×7 / 4!)  ·  84 (9×8×7 / 3!)</p>
+<pre class="math">66 (12×11 / 2!)  ·  504 (9×8×7)  ·  70 (8×7×6×5 / 4!)</pre>
+<ul class="steps"><li><span class="mk">77.</span><div>31 — total C(7,3) = 35, all-boys C(4,3) = 4, so 35 − 4 = 31</div></li><li><span class="mk">78.</span><div>54 — total 5×4×3 = 60; all-odd uses only 1, 3, 5: 3×2×1 = 6; 60 − 6 = 54</div></li><li><span class="mk">79.</span><div>15 — total 2⁴ = 16, no-heads is just 1 (TTTT), so 16 − 1 = 15</div></li><li><span class="mk">80.</span><div>18 — total C(8,2) = 28, both-red C(5,2) = 10, so 28 − 10 = 18</div></li><li><span class="mk">81.</span><div>24 — picky slot first: the hundreds digit must be 4 or 5 (2 choices), <br>then 4 × 3 for the rest: 2×4×3 = 24</div></li><li><span class="mk">82.</span><div>24 — picky ones slot: must be 2 or 4 (2 choices), then 4 × 3: 2×4×3 = 24. <br>Casework check: ending in 2 → 12, ending in 4 → 12, and 12 + 12 = 24 ✅</div></li><li><span class="mk">83.</span><div>10 — with pepperoni: pick 1 more from 4 → C(4,1) = 4; without: C(4,2) = 6; <br>and 4 + 6 = 10 = C(5,2) ✅</div></li><li><span class="mk">84.</span><div>6 — n(n−1) = 30, and 30 = 6 × 5</div></li><li><span class="mk">85.</span><div>9 — n(n−1)/2 = 36, so n(n−1) = 72, and 72 = 9 × 8</div></li><li><span class="mk">86.</span><div>6 — n(n−1) = 30 = 6 × 5</div></li></ul>
+<ul class="steps"><li><span class="mk">87.</span><div>Any numbers multiplying to 24! E.g., 2 appetizers × 3 mains × 4 desserts; <br>or 3 mains × 8 desserts; or 4 × 6; or 2 × 2 × 6. The pattern: the category <br>counts must be FACTORS that multiply to 24.</div></li><li><span class="mk">88.</span><div>Sample C(6,2): &quot;how many 2-topping pizzas from 6 toppings?&quot; (15 — same <br>pizza either order). Sample P(6,2): &quot;gold and silver from 6 runners?&quot; <br>(30 — swapping medals changes everything). Yours will differ — the swap <br>test is the judge.</div></li></ul>
+<ul class="steps"><li><span class="mk">89.</span><div>True! Choosing who comes IS choosing who stays — every time you pick r <br>people to include, you've also picked n−r people to leave out. One choice <br>creates both groups, so the counts are equal: C(n,r) = C(n,n−r).</div></li><li><span class="mk">90.</span><div>Line up ALL n people (n! ways). The r chosen ones stand in the first r <br>slots; every arrangement of the leftover n−r people behind them is a <br>clone of the same ordered-r result. Divide out the (n−r)! clones: <br>P(n,r) = n! / (n−r)!.</div></li></ul>
+<h3>Challenge</h3>
+<ul class="steps"><li><span class="mk">91.</span><div>60 — 5!/2! = 120/2. Every arrangement has an identical twin made by <br>swapping the two P's.</div></li><li><span class="mk">92.</span><div>180 — 6!/(2! × 2!) = 720/4. The two T's clone everything by 2, and the <br>two O's clone everything by 2 again.</div></li><li><span class="mk">93.</span><div>10 — the corner numbers: <pre class="math">1────3────6────10
+1────2────3────4
+1────1────1────1</pre> <br>Clone-trick check: arrangements of R,R,R,U,U = 5!/(3! × 2!) = 120/12 = 10 ✅</div></li><li><span class="mk">94.</span><div>12 — glue Ana+Ben into one unit: 3 units line up in 3! = 6 ways, and the <br>glued pair has 2 inside orders (Ana-Ben or Ben-Ana): 6 × 2 = 12 ✅</div></li><li><span class="mk">95.</span><div>15 — every game is just a pair of teams: C(6,2) = 15. Twice: 2 × 15 = 30 ✅</div></li><li><span class="mk">96.</span><div>14 — complement: C(6,4) = 15 total, no-captain committees C(4,4) = 1, <br>so 15 − 1 = 14. Casework: exactly one captain = 2 × C(4,3) = 8, both <br>captains = C(4,2) = 6, and 8 + 6 = 14. Agreement ✅</div></li><li><span class="mk">97.</span><div>7 — each topping is IN or OUT: 2 × 2 × 2 = 8, minus the plain-ice-cream <br>case: 8 − 1 = 7. With 4 toppings: 2⁴ − 1 = 16 − 1 = 15 ✅</div></li><li><span class="mk">98.</span><div>58,500 — letters 26 × 25 = 650, digits 10 × 9 = 90, and letters AND digits <br>multiply: 650 × 90 = 58,500 ✅</div></li><li><span class="mk">99.</span><div>10 — C(6,3) = 20 counts each split twice, because picking one team and <br>picking the OTHER team describe the same split: 20/2 = 10 ✅</div></li><li><span class="mk">100.</span><div>Sample P(5,3): &quot;gold, silver, bronze from 5 runners&quot; = 5×4×3 = 60. <br>Sample C(6,4): &quot;choose 4 of 6 books to take on a trip&quot; = 6!/(4!×2!) = 15. <br>Yours will differ — if the swap test says &quot;different result&quot; for the <br>first and &quot;same thing&quot; for the second, you're right.</div></li></ul>
+<p class="celebrate">🎉 You finished the whole lesson! If you can solve these 100 problems — especially the design challenges — you can count things that would take a lifetime to list. That's not a small skill: it's the engine under probability, passwords, schedules, and every &quot;how many ways?&quot; question ever asked. The next time someone says &quot;there are so many possibilities!&quot;, you won't just nod. You'll multiply the slots, divide out the clones, and tell them exactly how many. Great work!</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="practice.html">⬅️ Practice Problems</a><a class="btn" href="../index.html">🎉 Pick a new topic!</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Geometry on a Ball — Fat Triangles — Non-Euclidean Geometry</title>
+<meta name="description" content="What if space is curved? Triangles on balls and saddles break the 180° rule!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🌐 Non-Euclidean Geometry</a> › Lesson 3</p>
+    <h1>🎯 Geometry on a Ball — Fat Triangles</h1>
+    <p class="kicker">📖 Lesson 3 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Five Postulates — and the Troublemaker">1</a><a href="lesson-2.html" title="Lesson 2: What Is a Straight Line, Anyway?">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Geometry on a Ball — Fat Triangles">3</a><a href="lesson-4.html" title="Lesson 4: Girard's Theorem — On a Ball, Area IS Excess">4</a><a href="lesson-5.html" title="Lesson 5: Geometry on a Saddle — Skinny Triangles">5</a><a href="lesson-6.html" title="Lesson 6: The Curvature Detective, Quantified">6</a><a href="lesson-7.html" title="Lesson 7: Maps Lie — Geometry in the Real World">7</a><a href="lesson-8.html" title="Lesson 8: The Three Worlds, Side by Side">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Seven Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">On a ball, every triangle's angles add to MORE than 180°.
+The extra amount is the EXCESS — and the bigger the
+triangle, the bigger the excess.</pre></div>
+<h3>The champion triangle</h3>
+<p>Let's build the wildest triangle you've ever seen. Hold a globe (or any ball) in your imagination:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Start at the North Pole. Walk straight SOUTH along a meridian, all the way to the equator.</div></li><li><span class="mk">2.</span><div>Turn 90°. Walk along the equator — remember, it's a great circle, so this side is straight too!</div></li><li><span class="mk">3.</span><div>Turn 90° again. Walk straight NORTH along another meridian. You'll arrive right back at the North Pole.</div></li></ul>
+<p>Three straight sides. Three corners. A genuine triangle — drawn on a ball. Now count its angles. The two corners at the equator are both 90° (meridians always cross the equator at perfect right angles). And if your two meridians meet at the pole at 90°:</p>
+<pre class="math">90° + 90° + 90° = 270°</pre>
+<p>A triangle with THREE right angles! On flat paper that's impossible — two 90° corners would already spend the whole 180° budget. On a ball, it's a Tuesday.</p>
+<p>How long are the champion's sides? Each side is a quarter of a great circle — pole to equator, equator to pole. From Lesson 2's worked example, each side has length πR/2. On a ball of radius R = 10, that's 10π/2 = 5π ≈ 15 units per side. All three sides equal: the champion is the ball's EQUILATERAL triangle — with three right angles!</p>
+<h3>Fat triangles and the excess</h3>
+<p>EVERY triangle on a ball has angles adding to MORE than 180°. The sides of ball triangles bulge outward compared with flat ones, and that bulge is where the extra degrees hide. The amount OVER 180° has a name: the EXCESS.</p>
+<pre class="math">EXCESS:  E = (angle sum) − 180°</pre>
+<p>Worked example, every step shown:</p>
+<p>Problem: a ball triangle has angles 95°, 85°, and 60°. Find its excess.</p>
+<h3><strong>Step 1</strong>: Sum = 95° + 85° + 60° = 240°. [Add the three angles.]</h3>
+<h3><strong>Step 2</strong>: E = 240° − 180° = 60°. [Definition of excess.]</h3>
+<p>The rule to remember: the BIGGER the triangle (compared with the ball), the BIGGER its excess. A triangle the size of a continent has a chunky excess. And the sums can get huge — all the way up toward 540° (each angle can approach 180°, though never quite reach it).</p>
+<h3>No rectangles on a ball — a three-line proof</h3>
+<p>Here's your first payoff from the excess rule:</p>
+<h3><strong>Step 1</strong>: A rectangle would need angle sum 4 × 90° = 360°. [Four</h3>
+<pre class="math">        right angles.]
+Step 2: But cut any ball quadrilateral along a diagonal and you get
+        two ball triangles, each summing to MORE than 180° — so every
+        ball quadrilateral sums to MORE than 360°. [Excess, applied
+        to both triangles.]
+Step 3: 360° cannot equal &quot;more than 360°&quot; — so rectangles are
+        impossible on a ball. [Contradiction.] ✅</pre>
+<h3>Why everyone believed Euclid for 2,000 years</h3>
+<p>Here's the twist that explains history. Flip the growth rule around: the SMALLER the triangle, the SMALLER its excess. A triangle drawn in your schoolyard is microscopic compared with Earth — its excess is so tiny that no protractor on Earth could catch it. Its angles LOOK like they add to exactly 180°!</p>
+<p>In Lesson 4 you'll learn WHY small triangles have small excess — it's a theorem, not a coincidence: the excess is proportional to the triangle's AREA.</p>
+<p>Everyone was drawing tiny triangles on a giant ball. No wonder the flat rule FELT like the only rule.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>A ball triangle has angles 100°, 70°, and 55°. Find its sum and its excess. (b) On a ball of radius R = 4, how long is each side of the champion (90°, 90°, 90°) triangle? (Use π ≈ 3.) (c) Two angles of a ball triangle are 92° and 84°. The third angle must be MORE than what number? Show the inequality you used.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Sum = 100° + 70° + 55° = 225°; E = 225° − 180° = 45°. (b) Each side = πR/2 = 4π/2 = 2π ≈ 6. (c) Sum must exceed 180°, so third angle &gt; 180° − 92° − 84° = 4°.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Watch Out! Common Mistakes — Fractal Geometry</title>
+<meta name="description" content="Shapes made of smaller copies of themselves, from snowflakes to broccoli!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">❄️ Fractal Geometry</a> › Lesson 8</p>
+    <h1>⚠️ Watch Out! Common Mistakes</h1>
+    <p class="kicker">📖 Lesson 8 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the big ideas in sight</p><pre class="math">Zoom test: copies must SHRINK. Count and size move in OPPOSITE directions.
+Series with |r| &lt; 1 converge; sequences with r &gt; 1 diverge. Don't mix the races!
+d = log N / log(1/r) — copies on top, scale factor INVERTED on the bottom.</pre></div>
+<p>These six mistakes catch students every time. Learn them now, and they won't catch you!</p>
+<h3>Mistake 1: &quot;It repeats, so it's a fractal&quot;</h3>
+<pre class="math">A checkerboard repeats squares forever — fractal?   ❌</pre>
+<p>No — every square is the SAME size. The zoom test demands SMALLER copies of the whole at every level. Repetition without shrinking is just a pattern. Fractals repeat AND shrink. ✅</p>
+<h3>Mistake 2: Multiplying when you should shrink</h3>
+<pre class="math">Koch stage n: the pieces get 4 times LONGER?   ❌</pre>
+<p>Backwards! The COUNT multiplies by 4 while each piece's LENGTH divides by 3: count(n) = 3·4ⁿ but length(n) = (1/3)ⁿ. Count and size always move in opposite directions — that's the whole drama of fractals. Quick check that saves you every time: count × length must give the perimeter, and 3·4ⁿ·(1/3)ⁿ = 3·(4/3)ⁿ — growing, as it should. ✅</p>
+<h3>Mistake 3: &quot;Infinite edge means infinite area&quot;</h3>
+<pre class="math">The snowflake's edge is infinite, so its area must be too?   ❌</pre>
+<p>The perimeter diverges (×4/3 per stage), but the added areas form a convergent series (ratio 4/9 &lt; 1) summing to 3A₀/5. Total area: exactly 8A₀/5 — it never even doubles. Infinite fence, finite yard — and now you can prove both halves. ✅</p>
+<h3>Mistake 4: Off-by-one in the stage number</h3>
+<pre class="math">Sierpinski stage 3 has 81 triangles?   ❌</pre>
+<p>Stage n means n iterations AFTER stage 0. count(n) = 3ⁿ, so stage 3 has 3³ = 27 triangles — 81 is stage 4. The exponent IS the stage number; count your stages starting from 0. ✅</p>
+<h3>Mistake 5: Flipping the dimension formula</h3>
+<pre class="math">Sierpinski dimension = log(1/2) / log 3?   ❌</pre>
+<p>It's d = log N / log(1/r): copy count on top, and the scale factor INVERTED (1/r, not r) on the bottom. Get it wrong and the signs betray you: log(1/2)/log 3 is NEGATIVE, and a dimension can never be negative. Sanity check every answer: Sierpinski should land between 1 and 2 (≈ 1.585), and if your answer is 0.631 you accidentally computed log 2/log 3 — that's the Cantor set! ✅</p>
+<h3>Mistake 6: &quot;An infinite sum must be infinite&quot;</h3>
+<pre class="math">1 + 1/2 + 1/4 + 1/8 + ... grows past every number?   ❌</pre>
+<p>No — when |r| &lt; 1 the terms shrink so fast that the sum converges to a/(1 − r): here 1/(1 − 1/2) = 2. The trap is mixing up the two races: a geometric SEQUENCE with r &gt; 1 diverges (Koch perimeter), while a geometric SERIES with |r| &lt; 1 converges (Koch area additions). Ask two questions, always: &quot;Is this a sequence of stages, or a sum of additions? And is the ratio above or below 1?&quot; ✅</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Rules That Draw Shapes — Algebraic Geometry</title>
+<meta name="description" content="Give every point an address (x, y) and watch equations draw lines, circles and parabolas!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🗺️ Algebraic Geometry</a> › Lesson 3</p>
+    <h1>🎯 Rules That Draw Shapes</h1>
+    <p class="kicker">📖 Lesson 3 of 11</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Two Number Lines, One Map">1</a><a href="lesson-2.html" title="Lesson 2: Plotting Points, Quadrants, and Mirror Tricks">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Rules That Draw Shapes">3</a><a href="lesson-4.html" title="Lesson 4: The Membership Test — Forwards and Backwards">4</a><a href="lesson-5.html" title="Lesson 5: Slope — Measuring the Tilt">5</a><a href="lesson-6.html" title="Lesson 6: From Rule to Line — y = mx + b, Parallels, Perpendiculars">6</a><a href="lesson-7.html" title="Lesson 7: Where Lines Meet — Two Methods, Three Possibilities">7</a><a href="lesson-8.html" title="Lesson 8: Distance, Midpoints, and the Circle's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Parabolas, Transformations, and Where Lines Meet Curves">9</a><a href="lesson-10.html" title="Lesson 10: Watch Out! Common Mistakes">10</a><a href="lesson-11.html" title="Lesson 11: Review — The Big Picture">11</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">An equation is a RULE for points; its solutions form a SET.
+All the points that obey it, plotted together, draw a SHAPE.</pre></div>
+<p>Here comes the idea this whole subject is named after.</p>
+<p>Think of an equation with x and y in it as a strict CLUB RULE for points. A point gets into the club only if its two coordinates make the equation true. Let's watch some rules work.</p>
+<p>Rule y = 3. Which points get in? (0, 3) ✅ (−2, 3) ✅ (7, 3) ✅ — any point whose y-coordinate is 3, and x can be anything at all! Plot a bunch of members: they line up in a perfectly flat HORIZONTAL line, floating 3 above the x-axis. The rule drew a line!</p>
+<p>Rule x = −2. Now (−2, 0) ✅ (−2, 5) ✅ (−2, −9) ✅ — the club of points exactly 2 west of the y-axis, at any height. Plot them: a VERTICAL line.</p>
+<p>Rule y = x. This one links the coordinates: the two numbers must MATCH. (1, 1) ✅ (4, 4) ✅ (−2, −2) ✅ (0, 0) ✅ — but (2, 5) ❌. Plot the members: a perfect DIAGONAL slicing through the origin at exactly 45 degrees!</p>
+<p>Rule 2x + y = 6. Both letters at once! Members: (0, 6) ✅ (1, 4) ✅ (2, 2) ✅ (3, 0) ✅ — check the first one: 2 × 0 + 6 = 6 ✅. Plot them: another straight line, but this one slides DOWNHILL. And look at the rhythm hiding in the member list: every time x grows by 1, y drops by exactly 2. Hold that rhythm in your memory — it becomes the star of Lesson 5.</p>
+<pre class="math">Rule y = 3        →   flat horizontal line
+Rule x = −2       →   straight vertical line
+Rule y = x        →   perfect diagonal
+Rule 2x + y = 6   →   downhill line with a hidden rhythm</pre>
+<h3>The grand secret</h3>
+<p>Look at what just happened: an equation (pure algebra!) turned into a shape (pure geometry!). And it works both ways — every point ON the shape obeys the rule, and every point that obeys the rule sits ON the shape. The equation and the shape are two descriptions of the very same thing.</p>
+<p>The collection of ALL points that obey a rule has an official name: the GRAPH of the equation. And the collection of all (x, y) pairs that make the equation true is called its SOLUTION SET. Same club, two names — one from geometry, one from algebra.</p>
+<p>That dictionary between algebra and geometry has a name too: ALGEBRAIC GEOMETRY. Really! The subject of this whole lesson — and, honestly, one of the biggest fields in all of mathematics — is built on this one discovery: shapes are equations in disguise.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Does (4, −2) obey the rule 2x + y = 6? (b) Find the member of that club whose x-coordinate is 5. (c) In the member list (0, 6), (1, 4), (2, 2), (3, 0) — what does y do each time x grows by 1?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Yes: 2 × 4 + (−2) = 8 − 2 = 6 ✅. (b) Plug in x = 5: 10 + y = 6, so y = −4 — the member is (5, −4). (c) y drops by exactly 2 each time. That steady rhythm is about to get a name: slope.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

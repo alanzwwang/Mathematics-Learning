@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Derivative — Defined and Derived — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 4</p>
+    <h1>🔍 The Derivative — Defined and Derived</h1>
+    <p class="kicker">📖 Lesson 4 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">f'(x) = lim (h → 0) of  [ f(x + h) − f(x) ] ÷ h</pre><pre class="math">The derivative is the slope of the tangent line —
+the secant slope after the window shrinks to nothing.</pre></div>
+<h3>The definition</h3>
+<p>Here is the machine the whole course runs on. To find the slope of a curve at the point x, look at a nearby point x + h (h is the window width — a small step forward). The slope of the secant line between them is:</p>
+<pre class="math">[ f(x + h) − f(x) ] ÷ h        ← the difference quotient (rise ÷ run)</pre>
+<p>Now shrink the window: let h → 0. The secants pivot toward the tangent line, and the quotient creeps toward one exact number — the derivative of f at x, written f'(x) (read &quot;f prime of x&quot;):</p>
+<pre class="math">f'(x) = lim (h → 0) of  [ f(x + h) − f(x) ] ÷ h</pre>
+<p>That one line is three ideas fused: Lesson 2's average rate, Lesson 3's limit, and the tangent slope. Now let's run the machine — slowly, with every step.</p>
+<p>Derivation 1 — the derivative of x². Let f(x) = x²:</p>
+<pre class="math">Step 1: f(x + h) = (x + h)² = x² + 2xh + h²     (expand the square)
+Step 2: f(x + h) − f(x) = 2xh + h²              (subtract x² — it cancels!)
+Step 3: divide by h: (2xh + h²) ÷ h = 2x + h    (every term has an h to give)
+Step 4: take the limit as h → 0: 2x + h → 2x    (the lone h dies)</pre>
+<pre class="math">So the derivative of x² is 2x.  f'(x) = 2x.</pre>
+<p>Read what this says: the slope of y = x² at any point x is exactly 2x. At x = 1 the slope is 2; at x = 3 the slope is 6; at x = 0 the slope is 0 — the curve is perfectly level at the bottom of its bowl. All from four lines of algebra.</p>
+<p>Derivation 2 — the derivative of x³. Let f(x) = x³. We need (x + h)³, which Pascal's Triangle row &quot;1 3 3 1&quot; hands us:</p>
+<pre class="math">Step 1: (x + h)³ = x³ + 3x²h + 3xh² + h³
+Step 2: f(x + h) − f(x) = 3x²h + 3xh² + h³      (the x³ cancels)
+Step 3: divide by h: 3x² + 3xh + h²             (each term gives up one h)
+Step 4: limit as h → 0: the terms 3xh and h² die → 3x²</pre>
+<pre class="math">So the derivative of x³ is 3x².  f'(x) = 3x².</pre>
+<h3>The pattern — and why it always works</h3>
+<p>Look at the trophies: x² → 2x and x³ → 3x². The exponent hops down in front, and the power drops by one. This is the power rule:</p>
+<pre class="math">d/dx of xⁿ = n·xⁿ⁻¹</pre>
+<p>Why does it hold for EVERY n? Run the same four steps on xⁿ. The binomial expansion (Pascal's Triangle again — row n starts 1, n, ...) says:</p>
+<pre class="math">(x + h)ⁿ = xⁿ + n·xⁿ⁻¹h + (terms with h², h³, ..., hⁿ)</pre>
+<pre class="math">Step 2: subtract xⁿ:   n·xⁿ⁻¹h + (terms with h² or higher)
+Step 3: divide by h:   n·xⁿ⁻¹ + (terms that still contain h)
+Step 4: limit as h → 0: every leftover term has an h, so they ALL die → n·xⁿ⁻¹</pre>
+<p>That is the whole secret: the xⁿ cancels, the second term survives the division, and everything from h² upward is washed away by the limit. The rule is not a coincidence — it is the shape of the binomial expansion.</p>
+<h3>Three more rules, all derivable in one breath</h3>
+<pre class="math">Constant rule: if f(x) = c (a flat line), then
+f(x + h) − f(x) = c − c = 0, so f'(x) = 0. Flat graph, zero slope. ✅</pre>
+<pre class="math">Constant multiple rule: (c·f)' = c·f'. The difference quotient for c·f is
+c·[f(x + h) − f(x)] ÷ h — the c just rides along and out the limit.</pre>
+<pre class="math">Sum rule: (f + g)' = f' + g'. Split the difference quotient into two
+fractions, one for f and one for g, and each becomes its own derivative.</pre>
+<p><strong>Worked example</strong> — a full polynomial. Differentiate f(x) = 4x³ − 5x² + 7x − 2, term by term:</p>
+<pre class="math">4x³  →  4 × 3x²  = 12x²     (power rule, then the 4 rides along)
+−5x² →  −5 × 2x  = −10x     (same idea)
+7x   →  7 × 1    = 7        (x is x¹, and 1 × x⁰ = 1)
+−2   →  0                   (a constant has no slope)</pre>
+<pre class="math">f'(x) = 12x² − 10x + 7</pre>
+<p>And we can evaluate the slope anywhere. At x = 2: f'(2) = 12×4 − 10×2 + 7 = 48 − 20 + 7 = 35. The curve is climbing 35 units of height per unit of forward at that spot — steep!</p>
+<p>A second notation worth knowing: Leibniz wrote the derivative as dy/dx — a fossil of Δy/Δx after the window shrank to nothing. When you see d/dx in front of a function (like d/dx of xⁿ above), read it as &quot;take the derivative of what comes next.&quot;</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Differentiate f(x) = 2x³ + 5x² − 4x + 9, then find f'(1).</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: 2x³ → 6x²; 5x² → 10x; −4x → −4; 9 → 0. So f'(x) = 6x² + 10x − 4. Then f'(1) = 6 + 10 − 4 = 12.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

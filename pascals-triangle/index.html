@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pascal's Triangle — Mathematics Learning</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a></p>
+    <h1>🔺 Pascal's Triangle</h1>
+    <p class="kicker">🔣 Algebra · A Complete Lesson (Honors Edition)</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <div class="welcome"><pre class="math">          1
+        1   1
+      1   2   1
+    1   3   3   1
+  1   4   6   4   1
+1   5   10  10  5   1</pre>
+<pre class="math">Row 5's sum:  1 + 5 + 10 + 10 + 5 + 1 = 32 = 2⁵
+Ways to pick 2 captains from 9 players:  36  (it's entry 2 of row 9)
+Coefficient of x³ in (x + 2)⁵:  40  (row 5 is hiding inside the algebra!)</pre>
+<p>This little pyramid is Pascal's triangle, built by one baby-simple rule: every number is the sum of the two numbers above it. A rule a 1st grader could follow — yet out of it tumble powers of 2, triangular numbers, the Binomial Theorem, and the answers to half the counting questions in competition math. One simple machine, a dozen deep theorems.</p>
+<p>In this lesson we don't just NOTICE the patterns — we PROVE them. That word is the difference between this edition and everything easier. A proof is an argument that shows a pattern must continue forever, not just for the rows you checked. You'll learn the three great proof moves of combinatorics: counting the same thing two different ways, splitting into cases that cover everything, and telescoping (peeling a big sum down to a small one). These moves are the real treasure; the triangle is just the playground.</p>
+<p>In this lesson, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Build the triangle and master its secret indexing system (row 0, entry 0)</div></li><li><span class="mk">2.</span><div>Derive the factorial formula C(n, k) = n! / (k!(n − k)!) from scratch</div></li><li><span class="mk">3.</span><div>Prove Pascal's rule two completely different ways — a story proof and an algebra proof</div></li><li><span class="mk">4.</span><div>Prove row n sums to 2ⁿ twice, and split every row in half with alternating sums</div></li><li><span class="mk">5.</span><div>Unpack the diagonals: triangular numbers, tetrahedral numbers, and the hockey stick identity</div></li><li><span class="mk">6.</span><div>Wield the Binomial Theorem — expansions, coefficient hunting, and the truth about 11ⁿ</div></li><li><span class="mk">7.</span><div>Count grid paths (through corners, around barriers) and prove Vandermonde's identity</div></li><li><span class="mk">8.</span><div>Chase probability, odd-entry patterns, and a prime-divisibility theorem</div></li><li><span class="mk">9.</span><div>Dodge the classic mistakes — including the algebraic traps that catch honors students</div></li><li><span class="mk">10.</span><div>Practice with 100 problems, every single answer explained step by step!</div></li></ul>
+<p>How to use this lesson: Read the sections in order — each one builds on the last. Keep a written copy of rows 0–10 next to you (you'll build row 10 yourself in Lesson 1). Every proof is spelled out line by line; read each line and ask &quot;do I believe this line follows from the one before?&quot; Try every &quot;Your Turn&quot; box with pencil and paper before peeking. Ready? Let's go!</p></div><h2>📸 Pictures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../img/pascals-triangle-1.jpg" alt="An old painted portrait of a man with long hair" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 1</span><br>Blaise Pascal (1623–1662), the French mathematician the triangle is named after. As a teenager he also built one of the first mechanical calculators! <a href="#sources">See source ↓</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../img/pascals-triangle-2.gif" alt="An old Chinese drawing of a triangle of numbers made of circles" loading="lazy">
+      <figcaption><span class="photo-badge">📷 Picture 2</span><br>The same triangle in a Chinese book from 1303. Chinese mathematicians like Yang Hui knew about it hundreds of years before Pascal was born! <a href="#sources">See source ↓</a></figcaption>
+    </figure></div><h2>🗺️ Your lesson map</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span class="lc-emoji">🚀</span><span><span class="lc-num">Lesson 1</span><br><strong>Meet the Triangle — and Its Secret Indexing System</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span class="lc-emoji">🧩</span><span><span class="lc-num">Lesson 2</span><br><strong>The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span class="lc-emoji">🎯</span><span><span class="lc-num">Lesson 3</span><br><strong>Pascal's Rule — One Identity, Two Proofs</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span class="lc-emoji">🔍</span><span><span class="lc-num">Lesson 4</span><br><strong>Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span class="lc-emoji">⚡</span><span><span class="lc-num">Lesson 5</span><br><strong>Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span class="lc-emoji">🌟</span><span><span class="lc-num">Lesson 6</span><br><strong>The Binomial Theorem — the Triangle in Algebraic Clothes</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span class="lc-emoji">🛠️</span><span><span class="lc-num">Lesson 7</span><br><strong>Grid Paths and Vandermonde — the Triangle as a Map</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span class="lc-emoji">🎨</span><span><span class="lc-num">Lesson 8</span><br><strong>Probability, Parity, and Primes — Patterns Worth Proving</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span class="lc-emoji">⚠️</span><span><span class="lc-num">Lesson 9</span><br><strong>Watch Out! Common Mistakes (Honors Edition)</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span class="lc-emoji">🧠</span><span><span class="lc-num">Lesson 10</span><br><strong>Review — The Big Picture</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span class="lc-emoji">🏋️</span><span><span class="lc-num">Practice Problems</span><br><strong>100 problems to try</strong></span></a>
+    <a class="lesson-card" href="answers.html"><span class="lc-emoji">✅</span><span><span class="lc-num">Answer Key</span><br><strong>Check your work</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Blaise Pascal Versailles. By Unknown artist, copying a painting by François II Quesnel. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Blaise_Pascal_Versailles.JPG">https://commons.wikimedia.org/wiki/File:Blaise_Pascal_Versailles.JPG</a></li><li><strong>Picture 2</strong> · Yanghui triangle. By From Zhu Shijie's book &quot;Jade Mirror of the Four Unknowns&quot; (1303). Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Yanghui_triangle.gif">https://commons.wikimedia.org/wiki/File:Yanghui_triangle.gif</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">🏠 All topics</a><a class="btn" href="lesson-1.html">Lesson 1 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

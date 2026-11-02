@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse — Number Theory</title>
+<meta name="description" content="Primes, divisibility rules, GCF, LCM and Euclid's amazing 2,300-year-old algorithm.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔍 Number Theory</a> › Lesson 5</p>
+    <h1>⚡ Euclid's Algorithm — Proven, and Run in Reverse</h1>
+    <p class="kicker">📖 Lesson 5 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">GCF(big, small) = GCF(small, remainder). Repeat until the remainder is 0.
+Then run the steps BACKWARDS to write the GCF as a combination of the two numbers.</pre></div>
+<p>The fingerprint method has one weakness: you have to factor both numbers first. What if the numbers are big and stubborn? Enter one of the oldest algorithms on Earth — and this time, we prove it before we use it.</p>
+<h3>Why it works (the proof)</h3>
+<h3>Setup: divide a by b and write the result in the standard form</h3>
+<pre class="math">a = b × q + r        (q is the quotient, r is the remainder, 0 ≤ r &lt; b)</pre>
+<p>Example to keep in view: 84 = 48 × 1 + 36. Now the claim: GCF(a, b) = GCF(b, r). The proof uses the combination lemma from Lesson 4, in both directions:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Any common factor of b and r also divides b × q + r (a combination of b and r).</div></li><li><span class="mk">2.</span><div>But b × q + r IS a. So every common factor of b and r divides a as well — meaning every common factor of (b, r) is a common factor of (a, b).</div></li><li><span class="mk">3.</span><div>Now the other direction. Solve the setup equation for r:  r = a − b × q.</div></li><li><span class="mk">4.</span><div>Any common factor of a and b also divides a − b × q (again a combination!), and that combination IS r. So every common factor of (a, b) is a common factor of (b, r).</div></li><li><span class="mk">5.</span><div>Steps 2 and 4 say the two pairs have EXACTLY THE SAME common factors. If the lists are identical, their greatest members must match: GCF(a, b) = GCF(b, r). ∎</div></li></ul>
+<p>And that's the whole algorithm: swap (big, small) for (small, remainder), repeat until the remainder hits 0, and the last nonzero remainder is the GCF.</p>
+<h3>The algorithm, flowing</h3>
+<pre class="math">84 = 48 × 1 + 36
+48 = 36 × 1 + 12
+36 = 12 × 3 + 0    →    GCF(84, 48) = 12 ✅</pre>
+<p>Three divisions, zero factoring. Fingerprint check: 84 = 2² × 3 × 7 and 48 = 2⁴ × 3 → shared 2² × 3 = 12. Euclid agrees. ✅</p>
+<p>One more, bigger: GCF(252, 198).</p>
+<pre class="math">252 = 198 × 1 + 54
+198 = 54 × 3 + 36
+ 54 = 36 × 1 + 18
+ 36 = 18 × 2 + 0    →    GCF = 18 ✅</pre>
+<p>Fingerprint check: 252 = 2² × 3² × 7 and 198 = 2 × 3² × 11 → shared 2 × 3² = 18. Two methods, one answer — always reassuring.</p>
+<h3>The reverse gear: Bézout's identity</h3>
+<p>Now for the honors superpower. Read the Euclid lines for (84, 48) BACKWARDS to express the GCF as a combination of 84 and 48:</p>
+<pre class="math">12 = 48 − 36 × 1             from the middle line, solved for 12
+   = 48 − (84 − 48 × 1)      substitute 36 = 84 − 48 × 1 (top line)
+   = 48 − 84 + 48            distribute the minus sign
+   = 2 × 48 − 1 × 84         collect like terms</pre>
+<pre class="math">Check: 2 × 48 − 84 = 96 − 84 = 12 ✅</pre>
+<p>So 12 = 2×48 + (−1)×84 — the GCF is written as an integer COMBINATION of the two original numbers (negative coefficients allowed!). This fact is called Bézout's identity: GCF(a, b) can always be written as m×a + n×b for some integers m and n. It looks like a party trick, but it's the beating heart of internet security: the codes that protect messages start by finding exactly these combinations, with Euclid's algorithm, on gigantic numbers.</p>
+<h3>A word from history</h3>
+<p>This procedure appeared in Euclid's book Elements around 300 BC — over 2,300 years ago — making it possibly the oldest algorithm still in daily use. Every secure connection your computer makes today re-runs it thousands of times. Not bad for a geometry teacher from ancient Alexandria.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">1.</span><div>Use Euclid's algorithm to find GCF(90, 126). Show every line.</div></li><li><span class="mk">2.</span><div>Now reverse it: write your answer as a combination m × 90 + n × 126.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>:</p><ul class="steps"><li><span class="mk">1.</span><div>126 = 90 × 1 + 36;  90 = 36 × 2 + 18;  36 = 18 × 2 + 0  →  GCF = 18.</div></li><li><span class="mk">2.</span><div>From the middle line: 18 = 90 − 36 × 2. From the top line: 36 = 126 − 90 × 1. <br>Substitute: 18 = 90 − (126 − 90) × 2 = 90 − 2×126 + 2×90 = 3×90 − 2×126. <br><strong>Check</strong>: 3×90 − 2×126 = 270 − 252 = 18 ✅ <br>(Fingerprint confirmation: 90 = 2 × 3² × 5 and 126 = 2 × 3² × 7 → shared 2 × 3² = 18.)</div></li></ul></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

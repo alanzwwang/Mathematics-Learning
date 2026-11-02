@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Watch Out! Common Mistakes — Combinatorics</title>
+<meta name="description" content="The art of counting without listing: outfits, line-ups, teams and grid paths!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧩 Combinatorics</a> › Lesson 8</p>
+    <h1>⚠️ Watch Out! Common Mistakes</h1>
+    <p class="kicker">📖 Lesson 8 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Counting Principle — AND Means Multiply">1</a><a href="lesson-2.html" title="Lesson 2: Factorials — Everyone, Get in Line!">2</a><a href="lesson-3.html" title="Lesson 3: Permutations — Some of Them, In Order">3</a><a href="lesson-4.html" title="Lesson 4: Combinations — Order Doesn't Matter">4</a><a href="lesson-5.html" title="Lesson 5: The Big Question — Order or Not?">5</a><a href="lesson-6.html" title="Lesson 6: Picky Slots First">6</a><a href="lesson-7.html" title="Lesson 7: Sneaky Shortcuts — Complements, Cases, and Grids">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the rules in sight</p><pre class="math">AND (different categories) → multiply
+OR (either case) → add
+Order matters → P   ·   order doesn't → C = P ÷ r!</pre></div>
+<p>Mistake 1: adding when you should multiply. 3 shirts and 4 pants = 7 outfits? ❌ Addition is for OR — and you're wearing a shirt AND pants, from different categories: 12 ✅.</p>
+<p>Mistake 2: multiplying when you should add. How many ways to pick 1 topping from 3 veggies OR 2 meats? 3 × 2 = 6? ❌ You're picking ONE topping, either kind — alternatives: 3 + 2 = 5 ✅.</p>
+<p>Mistake 3: forgetting the clones. 2-topping pizzas from 6 toppings: 6 × 5 = 30? ❌ That counted pepperoni-mushroom and mushroom-pepperoni separately. Order doesn't matter — divide by 2!: C(6, 2) = 15 ✅.</p>
+<p>Mistake 4: dividing when order DOES matter. Medals from 8 runners: C(8, 3) = 56? ❌ You divided out arrangements that were genuinely different — gold-silver-bronze and bronze-gold-silver are NOT the same podium! P(8, 3) = 336 ✅. When in doubt, run the swap test.</p>
+<p>Mistake 5: forgetting the decay. 3-letter codes from A–E with no repeats: 5 × 5 × 5 = 125? ❌ No repeats means the menu shrinks: 5 × 4 × 3 = 60 ✅. (125 is right only when repeats ARE allowed — read the problem!)</p>
+<p>Mistake 6: trusting names. A &quot;combination lock&quot; cares about order — it's a permutation in a trench coat. Never let the wording choose your formula; run the swap test instead.</p>
+<p>Mistake 7: mixing factorials. 3! + 2! = 5!? ❌ 6 + 2 = 8, and 5! = 120. Factorials don't add. They don't multiply like that either: 3! × 2! = 12, not 720. Slow down and compute each one.</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

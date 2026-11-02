@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: The Big Paradoxes — Now Proven — Fractal Geometry</title>
+<meta name="description" content="Shapes made of smaller copies of themselves, from snowflakes to broccoli!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">❄️ Fractal Geometry</a> › Lesson 7</p>
+    <h1>🛠️ The Big Paradoxes — Now Proven</h1>
+    <p class="kicker">📖 Lesson 7 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A fractal edge can be infinitely long while the area inside stays finite — proven.
+The smaller your ruler, the LONGER a fractal edge measures — quantified.
+A set can have infinitely many points yet zero total length — meet the Cantor set.</pre></div>
+<h3>Paradox 1: the infinite edge around a small inside — RESOLVED</h3>
+<p>In the gentle version of this lesson, you had to take it on faith. Not anymore. Lesson 3 proved both halves with geometric series:</p>
+<pre class="math">Perimeter:  P(n) = 3·(4/3)ⁿ  diverges — ratio 4/3 &gt; 1, powers grow past every bound
+Area:       A₀ + (A₀/3)/(1 − 4/9) = 8A₀/5   converges — ratio 4/9 &lt; 1</pre>
+<p>Infinite fence, finite yard — not a mystery, a theorem.</p>
+<h3>Paradox 2: how long is a coastline, really? — QUANTIFIED</h3>
+<p>Measure a coastline on a big map with a 100 km ruler, and you skip every bay and peninsula. Use a 1 km ruler and you follow more wiggles — the answer grows. Walk it with a meter stick, chasing every pebble, and the coast becomes enormous. Lesson 6 turned this into a formula: L(ε) = C·ε^(1−D). A fractal-ish coastline doesn't HAVE one true length — the answer depends on your ruler, in exactly the way that formula describes.</p>
+<p>This puzzle bothered scientists for years, until the mathematician Benoit Mandelbrot built fractal geometry around it in the 1960s and 70s and gave these shapes their name. His famous observation: &quot;Clouds are not spheres, mountains are not cones, coastlines are not circles, and bark is not smooth, nor does lightning travel in a straight line.&quot; The rough world needed a new geometry — and this is it.</p>
+<h3>Paradox 3: the Cantor set — infinity in a speck of dust</h3>
+<p>The simplest fractal of all, and maybe the strangest. Start with a segment of length 1. The rule: remove the middle third of every solid segment, leaving the two ends.</p>
+<pre class="math">Stage 0:  1 piece,  total length 1
+Stage 1:  2 pieces, total length 2/3
+Stage 2:  4 pieces, total length 4/9
+Stage n:  2ⁿ pieces, total length (2/3)ⁿ</pre>
+<p>The piece count doubles forever (ratio 2 &gt; 1: diverges), while the total length multiplies by 2/3 forever (ratio &lt; 1: converges to 0). In the limit: INFINITELY many pieces with ZERO total length. Is anything left at all? Yes! The endpoints of every removed interval never get removed: 0, 1, 1/3, 2/3, 1/9, 2/9, 7/9, 8/9, ... Infinitely many points survive — a &quot;dust&quot; of points with no length. And its dimension (Lesson 5): d = log 2/log 3 ≈ 0.631, between 0 and 1. More than a sprinkle of points, less than a line — exactly what the math said it would be.</p>
+<h3>Paradox 4: infinity from one sentence</h3>
+<p>Maybe the strangest part of all: every fractal in this lesson came from ONE rule short enough to say in a single breath — &quot;split every branch in two,&quot; &quot;bump every segment,&quot; &quot;remove the middle.&quot; Yet repeating that breath forever creates infinite detail. The recipe is tiny; the result is endless. And now you own the machinery — geometric sequences, series, and logarithms — that tames that endlessness into exact numbers like 8/5 and 1.585.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>After 20 stages, the snowflake's perimeter is enormous. Could you still draw the whole snowflake on one sheet of paper? (b) You measure a coast with a big ruler; your friend uses a tiny one. Who gets the longer coastline? (c) What fraction of the Cantor set's original length remains after stage 5? Give the exact fraction and a decimal approximation.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Yes! The snowflake never grows beyond its original circle — only its edge gets longer and more crinkled. (b) Your friend — the tiny ruler follows thousands of wiggles your big ruler skipped: L(ε) = C·ε^(1−D) grows as ε shrinks. (c) (2/3)⁵ = 32/243 ≈ 0.132 — about 13% remains, and 2⁵ = 32 pieces carry it.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

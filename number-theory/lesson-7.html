@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Watch Out! Common Mistakes — Honors Edition — Number Theory</title>
+<meta name="description" content="Primes, divisibility rules, GCF, LCM and Euclid's amazing 2,300-year-old algorithm.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔍 Number Theory</a> › Lesson 7</p>
+    <h1>⚠️ Watch Out! Common Mistakes — Honors Edition</h1>
+    <p class="kicker">📖 Lesson 7 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the recipes in sight</p><pre class="math">GCF = shared-and-small. LCM = all-and-big. f(n) = (exponent + 1)s multiplied.
+GCF × LCM = a × b  —  for TWO numbers only!</pre></div>
+<h3>Mistake 1: Trusting a number's innocent face</h3>
+<p>91, 119, 133, 143, 161, 187, 221 — every one looks prime, and every one is composite (91 = 7 × 13, 221 = 13 × 17, and so on). Guessing is not a test. Estimate √n, check the primes up to it, and let the proof decide.</p>
+<h3>Mistake 2: Forgetting the +1 in the factor machine</h3>
+<p>24 = 2³ × 3 has (3+1)(1+1) = 8 factors — not 3 × 1 = 3. Each exponent gets its +1 BEFORE the multiplication, because &quot;use zero copies of this prime&quot; is a real choice on the menu. Skip it and every count collapses.</p>
+<h3>Mistake 3: Crossing the two recipes</h3>
+<p>GCF takes only the SHARED primes with the smaller supply; LCM takes ALL primes with the bigger supply. Cross them and you'll announce something like GCF(12, 18) = 36 — and the sanity chain should scream, because a GCF can never top the smaller number:</p>
+<pre class="math">GCF(a, b) ≤ smaller of a, b ≤ bigger of a, b ≤ LCM(a, b)</pre>
+<h3>Mistake 4: &quot;The LCM is just the product&quot;</h3>
+<p>Only when the numbers are relatively prime! LCM(3, 5) = 15, sure — but LCM(4, 6) = 12, not 24. The full truth lives in the trick: LCM = (a × b) ÷ GCF. The shared factor gets counted twice if you just multiply.</p>
+<h3>Mistake 5: The three-number trap</h3>
+<p>This one fools even strong students. The multiplication trick GCF × LCM = a × b is a TWO-number theorem — and it EXPLODES on three:</p>
+<pre class="math">GCF(4, 6, 10) = 2        LCM(4, 6, 10) = 60
+GCF × LCM = 2 × 60 = 120        4 × 6 × 10 = 240   ✗ NOT equal!</pre>
+<p>Why does it break? Look at prime 2: its exponents in 4, 6, 10 are 2, 1, 1. The Lesson 6 proof used min(m, n) + max(m, n) = m + n — but with three exponents, min + max = 2 + 1 = 3, while the full sum is 2 + 1 + 1 = 4. The middle exponent falls out of the proof, and the trick falls with it. Two numbers: min and max capture everything. Three numbers: they don't. For three or more, use the fingerprint recipes directly.</p>
+<h3>Mistake 6: Dividing by a variable that might be zero</h3>
+<p>The algebra cousin of Lesson 4's &quot;x ≠ 0&quot; note. Solve x² = 3x. Tempting move: divide both sides by x, get x = 3, done. But x = 0 also works — 0² = 0 and 3 × 0 = 0 — and dividing by x threw that answer away, because division by zero is banned and x might BE zero. The safe move keeps every solution:</p>
+<pre class="math">x² = 3x
+x² − 3x = 0            subtract 3x from both sides
+x(x − 3) = 0           factor out the GCF, which is x
+x = 0  or  x − 3 = 0   a product is zero only when one factor is zero
+x = 0  or  x = 3       two answers, both kept ✅</pre>
+<h3>Whenever you reach for &quot;divide by the variable,&quot; ask first: could it be zero?</h3>
+<h3>Mistake 7: Sign slips in the Bézout reverse</h3>
+<p>When you substitute backwards, a minus sign distributes over EVERYTHING in the parentheses. From Lesson 5's Your Turn: 18 = 90 − (126 − 90) × 2 means 90 − 2×126 + 2×90 — note the PLUS 2×90. Write that distribution step out in full; it's one extra line and it saves the whole computation. Then always CHECK the final combo: 3×90 − 2×126 = 270 − 252 = 18 ✅.</p>
+<h3>Mistake 8: &quot;Relatively prime means prime&quot;</h3>
+<p>GCF(8, 9) = 1, so 8 and 9 are relatively prime — and neither is prime! The phrase describes the RELATIONSHIP (they share no prime), not the numbers themselves. Two different primes are always relatively prime; two relatively prime numbers don't have to be prime at all.</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

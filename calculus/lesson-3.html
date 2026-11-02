@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Limits — The Tolerance Game — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 3</p>
+    <h1>🎯 Limits — The Tolerance Game</h1>
+    <p class="kicker">📖 Lesson 3 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">lim (x → a) f(x) = L  means:
+f(x) gets within ANY tolerance of L
+whenever x is close enough to a (with x ≠ a).</pre></div>
+<h3>The notation and the idea</h3>
+<p>Mathematicians write lim (x → a) f(x) = L and say &quot;the limit of f(x), as x approaches a, is L.&quot; The arrow means &quot;gets closer and closer to.&quot; For example:</p>
+<pre class="math">lim (x → 2) of 3x = 6</pre>
+<p>because as x slides toward 2, 3x slides toward 6. Nothing surprising yet — but watch what &quot;slides toward&quot; really means, because that is the rigorous heart of calculus.</p>
+<h3>The tolerance game</h3>
+<p>Here is the precise test, played as a game between you and me. You challenge me with any error tolerance you like — say 0.1. To win, I must keep 3x within 0.1 of 6 by keeping x close enough to 2. Watch:</p>
+<pre class="math">Step 1: I need |3x − 6| &lt; 0.1        (your tolerance demand)
+Step 2: 3x − 6 = 3(x − 2), so I need 3|x − 2| &lt; 0.1   (factor out the 3)
+Step 3: dividing by 3: |x − 2| &lt; 1/30  (my winning strategy!)</pre>
+<p>So if x stays within 1/30 of 2, the output stays within 0.1 of 6. Now you get tougher: tolerance 0.001. Same algebra gives |x − 2| &lt; 1/3000 — I still win. No matter how tiny your tolerance, I have a comeback. THAT is what makes the limit exactly 6 — not approximately, exactly.</p>
+<p>Mathematicians call your tolerance ε (the Greek letter epsilon) and my comeback distance δ (delta). You have just learned the famous ε-δ game in disguise — the rigorous floor underneath all of calculus, usually not met until college.</p>
+<h3>The limit is about the approach, not the landing</h3>
+<p>Notice the fine print: x ≠ a. A limit asks what happens as x gets CLOSE to a — it does not care what happens AT a, or whether f(a) even exists. That freedom is exactly what we need, because the most interesting limits happen where the formula itself breaks.</p>
+<p><strong>Worked example</strong> — the 0/0 rescue. Find lim (x → 3) of (x² − 9)/(x − 3):</p>
+<pre class="math">Step 1: try plugging in x = 3: top is 9 − 9 = 0, bottom is 3 − 3 = 0.
+        We get 0/0 — undefined as a VALUE. But the limit question is still alive!
+Step 2: factor the top (difference of squares): x² − 9 = (x − 3)(x + 3)
+Step 3: cancel (x − 3) top and bottom. Legal! On the approach x ≠ 3,
+        so we are never dividing by zero: we are left with x + 3.
+Step 4: now let x → 3: the limit is 3 + 3 = 6.</pre>
+<p>A ratio that comes out 0/0 is called an indeterminate form — not an answer, just a signal: simplify first, then decide. Factoring is the master key.</p>
+<p><strong>Worked example</strong> — the derivative machine, previewed. Find lim (h → 0) of ((2 + h)² − 4)/h:</p>
+<pre class="math">Step 1: expand the square: (2 + h)² = 4 + 4h + h²
+Step 2: the numerator is 4 + 4h + h² − 4 = 4h + h²   (the 4's cancel)
+Step 3: factor out h: h(4 + h) ÷ h = 4 + h           (h ≠ 0 on the approach)
+Step 4: let h → 0: the limit is 4.</pre>
+<p>Remember this shape — in Lesson 4 you will meet it wearing a name tag: &quot;derivative of x² at x = 2.&quot;</p>
+<h3>One-sided limits — and when a limit does not exist</h3>
+<p>Sometimes the approach from the left and from the right disagree. We write x → 5⁻ for &quot;approaches 5 from below&quot; and x → 5⁺ for &quot;from above.&quot; A shipping company charges 4x dollars for a package of x kg up to and including 5 kg — and slaps on a $10 heavy surcharge above 5 kg, so the price is 4x + 10 for x &gt; 5:</p>
+<pre class="math">lim (x → 5⁻) of the price = 4 × 5 = 20        (approaching from the light side)
+lim (x → 5⁺) of the price = 4 × 5 + 10 = 30   (approaching from the heavy side)</pre>
+<p>Left says 20, right says 30. When the two one-sided limits disagree, the two-sided limit DOES NOT EXIST (write DNE). The graph has a jump at 5 — and a limit cannot settle on two numbers at once.</p>
+<h3>Limit laws — limits love arithmetic</h3>
+<p>If the pieces have limits, you can combine them the way you expect:</p>
+<pre class="math">sum:        lim (f + g) = lim f + lim g
+difference: lim (f − g) = lim f − lim g
+product:    lim (f × g) = (lim f) × (lim g)
+quotient:   lim (f ÷ g) = (lim f) ÷ (lim g)   — only if lim g ≠ 0!</pre>
+<p>Each one says the same thing: limits commute with arithmetic, as long as you never divide by zero. That is why plugging in works for nice functions like polynomials — their limits are exactly their values.</p>
+<h3>Limits at infinity</h3>
+<p>One more flavor: x → ∞ asks what happens as x grows without bound. Find lim (x → ∞) of (5x² + 3x)/(2x² + 1):</p>
+<pre class="math">Step 1: divide top and bottom by x², the highest power in sight:
+        (5x² + 3x)/(2x² + 1) = (5 + 3/x)/(2 + 1/x²)
+Step 2: as x → ∞, the pieces 3/x and 1/x² shrink to 0
+Step 3: the limit is (5 + 0)/(2 + 0) = 5/2</pre>
+<p>The graph of this function creeps toward the horizontal line y = 5/2 — a horizontal asymptote: a wall the curve approaches forever but is not required to touch.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find lim (x → 4) of (x² − 16)/(x − 4). (b) Find lim (x → ∞) of (3x² + x)/(6x² + 1).</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Plugging in gives 0/0, so factor: x² − 16 = (x − 4)(x + 4); cancel (x − 4); left with x + 4 → 4 + 4 = 8. (b) Divide top and bottom by x²: (3 + 1/x)/(6 + 1/x²) → 3/6 = 1/2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It) — Fractal Geometry</title>
+<meta name="description" content="Shapes made of smaller copies of themselves, from snowflakes to broccoli!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">❄️ Fractal Geometry</a> › Lesson 2</p>
+    <h1>🧩 The Recipe — One Rule, Repeated (and the Formula That Captures It)</h1>
+    <p class="kicker">📖 Lesson 2 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A fractal is built by ONE rule, applied over and over.
+Each round is called an ITERATION (or stage). The start is stage 0.
+Counting through the stages produces a GEOMETRIC SEQUENCE —
+and geometric sequences have exact formulas.</pre></div>
+<p>Nobody draws a fractal one tiny piece at a time — that would take forever. Instead, you write down ONE rule and let it repeat. Watch how it works with the simplest fractal of all: the fractal tree.</p>
+<p>The rule: every branch splits into 2 smaller branches.</p>
+<pre class="math">Stage 0:  1 trunk
+Stage 1:  the trunk splits — 2 new branches
+Stage 2:  both branches split — 4 new branches
+Stage 3:  all four split — 8 new branches</pre>
+<p>The new branches go 1, 2, 4, 8, 16... doubling every stage. The rule never changes; only the SIZE changes — each new generation is smaller than the last.</p>
+<p>A list where every term is the previous term times the same fixed number is called a GEOMETRIC SEQUENCE, and that fixed multiplier is called the RATIO (usually written r). The tree's tip counts are geometric with ratio 2.</p>
+<p>Two ways to write the same pattern:</p>
+<p>· RECURSIVE formula (each term from the one before):</p>
+<pre class="math">B₀ = 1                        (stage 0: the trunk alone)
+Bₙ = 2 · Bₙ₋₁                 (each stage doubles the tips)</pre>
+<p>· EXPLICIT formula (any term directly, no climbing needed):</p>
+<pre class="math">Bₙ = 2ⁿ</pre>
+<p>Why are they the same? Unroll the recursive rule: Bₙ = 2·Bₙ₋₁ = 2·2·Bₙ₋₂ = ... after n doublings you reach B₀ = 1, so Bₙ = 2ⁿ · 1 = 2ⁿ. Each formula has a superpower: recursive is natural to write down from the rule; explicit lets you jump straight to stage 50.</p>
+<p>Here's a third viewpoint that will matter in Lessons 3 and 4. Iterating a rule is COMPOSING A FUNCTION with itself. Define f(x) = 2x (&quot;double it&quot;). Then:</p>
+<pre class="math">f(x) = 2x                     (one iteration)
+f(f(x)) = f(2x) = 4x          (two iterations: substitute 2x into f)
+f(f(f(x))) = 8x               (three iterations)
+f applied n times = 2ⁿ · x    (n iterations)</pre>
+<p>Same math, new outfit: the n-th stage is the n-th composition of the rule-function.</p>
+<p>Now count the TOTAL branches: 1, then 1 + 2 = 3, then 1 + 2 + 4 = 7, then 1 + 2 + 4 + 8 = 15. Look closely: 1, 3, 7, 15 — each total is exactly 1 less than the next power of 2 (2, 4, 8, 16). Let's PROVE that pattern instead of trusting it.</p>
+<p>Theorem: 1 + 2 + 4 + ... + 2ⁿ = 2ⁿ⁺¹ − 1.</p>
+<p>Proof (every step justified):</p>
+<pre class="math">Let S = 1 + 2 + 4 + ... + 2ⁿ        (name the sum so we can work with it)
+   2S =     2 + 4 + ... + 2ⁿ + 2ⁿ⁺¹  (multiply BOTH sides by 2; every term shifts one place right)
+2S − S = 2ⁿ⁺¹ − 1                    (subtract the equations: 2 cancels 2, 4 cancels 4, ..., 2ⁿ cancels 2ⁿ)
+     S = 2ⁿ⁺¹ − 1                    (2S − S is just S)</pre>
+<p>Check at n = 4: 2⁵ − 1 = 31, and 1 + 2 + 4 + 8 + 16 = 31. ✓</p>
+<p>The same trick works for ANY ratio. A sum of a geometric sequence is called a GEOMETRIC SERIES, and here is its formula, derived the same way:</p>
+<pre class="math">      S = a + ar + ar² + ... + arⁿ⁻¹       (n terms, first term a, ratio r)
+     rS =    ar + ar² + ... + arⁿ⁻¹ + arⁿ  (multiply both sides by r)
+  S − rS = a − arⁿ                          (subtract: the middle terms cancel in pairs)
+S(1 − r) = a(1 − rⁿ)                        (factor out S on the left, a on the right)
+       S = a(rⁿ − 1)/(r − 1)                (divide by (1 − r), then flip both signs to taste)</pre>
+<p><strong>Worked example</strong>: the tripling tree (rule: every branch splits into 3). Total branches through stage 4 = 1 + 3 + 9 + 27 + 81. Here a = 1, r = 3, n = 5:</p>
+<pre class="math">S = 1·(3⁵ − 1)/(3 − 1)                (substitute into the formula)
+  = (243 − 1)/2                       (3⁵ = 243)
+  = 242/2 = 121                       (simplify)</pre>
+<p>Check by adding: 1 + 3 + 9 + 27 + 81 = 121. ✓</p>
+<p>One more case — the one that powers everything in Lesson 3. What if the series never ends, but the ratio is BETWEEN −1 and 1? Then the powers rⁿ shrink toward 0 (halve forever and you approach nothing), so in the formula S = a(1 − rⁿ)/(1 − r), the rⁿ term vanishes in the limit:</p>
+<pre class="math">a + ar + ar² + ... (forever) = a/(1 − r),   valid when |r| &lt; 1</pre>
+<p>We say this series CONVERGES — it settles on one finite number. When |r| ≥ 1 the terms don't shrink and the sum DIVERGES (grows past every bound). Example:</p>
+<pre class="math">1 + 1/2 + 1/4 + 1/8 + ... = 1/(1 − 1/2) = 2   (a = 1, r = 1/2)</pre>
+<p>An infinite list of positive numbers adding up to a finite total — that's not a paradox, it's a convergent series, and it's the engine behind Lesson 3's big theorem.</p>
+<p>Last worked example — deriving the tree's total formula by SOLVING EQUATIONS. The totals satisfy the recurrence Tₙ = 2Tₙ₋₁ + 1 (check: 2·3 + 1 = 7 ✓, 2·7 + 1 = 15 ✓). Guess a solution of the form Tₙ = a·2ⁿ + c, with unknown numbers a and c, and force it to work:</p>
+<pre class="math">Substitute the guess into the recurrence:
+a·2ⁿ + c = 2(a·2ⁿ⁻¹ + c) + 1          (Tₙ must equal 2Tₙ₋₁ + 1)
+a·2ⁿ + c = a·2ⁿ + 2c + 1              (distribute: 2·2ⁿ⁻¹ = 2ⁿ)
+      c = 2c + 1                      (subtract a·2ⁿ from both sides)
+      0 = c + 1                       (subtract c from both sides)
+      c = −1                          (subtract 1 from both sides)
+Now use stage 0: T₀ = 1:
+a·2⁰ + (−1) = 1                       (T₀ = a·1 + c, and c = −1)
+a = 2                                 (add 1 to both sides)
+Formula: Tₙ = 2·2ⁿ − 1 = 2ⁿ⁺¹ − 1     (combine: 2·2ⁿ = 2ⁿ⁺¹)</pre>
+<p>Matches the theorem. Two methods, one answer — that's how you know you're right.</p>
+<p>In math, the iterations never stop. A true fractal has infinitely many stages — zoom in forever, and there's always more detail. Nature's fractals stop after a few rounds (a real tree splits maybe five or six times before the twigs end). But the RULE — and the formulas — are exactly the same.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>A rule says: every square becomes 4 smaller squares. Start with 1 square. Write the recursive and explicit formulas for the count, and find the count at stage 2. (b) A tree's rule is: every branch splits into 3. Write the explicit formula for new tips at stage n, and list stages 1–3. (c) Use the series formula to find the total branches of a doubling tree through stage 5 — then check by adding.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Recursive: S₀ = 1, Sₙ = 4·Sₙ₋₁. Explicit: Sₙ = 4ⁿ. Stage 2: 16. (b) Tₙ = 3ⁿ: 3, 9, 27. (c) a = 1, r = 2, n = 6 terms (stages 0 through 5): S = (2⁶ − 1)/(2 − 1) = 63. Check: 1 + 2 + 4 + 8 + 16 + 32 = 63 ✓.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

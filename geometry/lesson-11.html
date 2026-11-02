@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Counting Meets Geometry — Casework and Complementary Counting — Geometry</title>
+<meta name="description" content="Angles, triangles, Pythagoras, circles and more, with real proofs you can follow.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📐 Geometry</a> › Lesson 11</p>
+    <h1>🪄 Counting Meets Geometry — Casework and Complementary Counting</h1>
+    <p class="kicker">📖 Lesson 11 of 14</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Points, Lines, Segments, Rays — and Where They Live">1</a><a href="lesson-2.html" title="Lesson 2: Angles — Measuring the Turn, Proving the Rules">2</a><a href="lesson-3.html" title="Lesson 3: Parallel Lines and a Transversal — and the Proof of 180°">3</a><a href="lesson-4.html" title="Lesson 4: Triangles — the Inequality, Isosceles Secrets, and Congruence">4</a><a href="lesson-5.html" title="Lesson 5: The Pythagorean Theorem — State It, Prove It, Reverse It">5</a><a href="lesson-6.html" title="Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals">6</a><a href="lesson-7.html" title="Lesson 7: Area — Formulas You Can Derive, Not Memorize">7</a><a href="lesson-8.html" title="Lesson 8: Similarity — Same Shape, Different Size, and the k² Surprise">8</a><a href="lesson-9.html" title="Lesson 9: Circles — π, Arcs, Sectors, and the Inscribed Angle Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Transformations — Moving the Plane with Functions">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Counting Meets Geometry — Casework and Complementary Counting">11</a><a href="lesson-12.html" title="Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms">12</a><a href="lesson-13.html" title="Lesson 13: Watch Out! Common Mistakes (Honors Edition)">13</a><a href="lesson-14.html" title="Lesson 14: Recap — The Big Picture">14</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Count systematically: by cases, by choosing, or by SUBTRACTING the unwanted.
+Choosing 2 of n lines: n(n−1)/2. Rectangles in a grid: choose, then multiply.</pre></div>
+<p>Back in Lesson 1, n points on a line gave n(n−1)/2 segments. Now we prove that sum formula and then weaponize the idea. The trick is young Gauss's: pair the first and last terms.</p>
+<pre class="math">S = 1 + 2 + 3 + ... + 50
+Pair ends: 1 + 50 = 51, 2 + 49 = 51, 3 + 48 = 51, ...
+How many pairs? 50 ÷ 2 = 25 pairs, each summing to 51.
+S = 25 × 51 = 1275</pre>
+<pre class="math">General rule: 1 + 2 + ... + m = m(m + 1)/2
+(m/2 pairs, each summing to m + 1)
+Check with m = 50: 50 × 51 ÷ 2 = 1275 ✅
+Segments from n points: m = n − 1 → (n − 1)n/2 ✅ — matches Lesson 1!</pre>
+<h3>Choosing: the multiplication principle</h3>
+<p>If a choice happens in two INDEPENDENT stages, multiply the counts. A rectangle in a grid is completely determined by choosing 2 vertical lines AND 2 horizontal lines:</p>
+<pre class="math">4 × 3 grid of squares: 5 vertical lines, 4 horizontal lines
+vertical choices: 5 × 4 ÷ 2 = 10      (choose 2 of 5 lines — order doesn't matter,
+                                       so divide by 2 like the segment count)
+horizontal choices: 4 × 3 ÷ 2 = 6     (choose 2 of 4)
+rectangles: 10 × 6 = 60               (each vertical pair pairs with each
+                                       horizontal pair — multiply!)</pre>
+<h3>Counting triangles in a striped triangle</h3>
+<p>Draw a triangle, split its base into 5 segments (6 rays from the apex), and add 1 line parallel to the base. Count by cases — where does the triangle's base lie?</p>
+<pre class="math">Any triangle needs 2 of the 6 apex rays: 6 × 5 ÷ 2 = 15 pairs.
+Its base can lie on the bottom line OR the parallel line: 2 choices.
+Total: 15 × 2 = 30 triangles.</pre>
+<h3>Counting squares by SIZE (classic casework)</h3>
+<p>A 3 × 3 grid contains more squares than the 9 little ones — hunt by case:</p>
+<pre class="math">Case 1×1: 9 squares      Case 2×2: 4 squares      Case 3×3: 1 square
+Total: 9 + 4 + 1 = 14 squares.  (A 4 × 4 grid: 16 + 9 + 4 + 1 = 30.)</pre>
+<h3>Complementary counting: subtract the unwanted</h3>
+<p>Sometimes the count you DON'T want is easier. How many rectangles in a 3 × 3 grid do NOT contain the center square?</p>
+<pre class="math">All rectangles: (4 × 3 ÷ 2)² = 6 × 6 = 36   (4 lines each direction, choose 2)
+Rectangles CONTAINING the center square:
+  left edge: 2 choices (either line left of center)
+  right edge: 2 choices;  top edge: 2;  bottom edge: 2
+  2 × 2 × 2 × 2 = 16
+Answer: 36 − 16 = 20   (total minus the unwanted — complementary counting!)</pre>
+<h3>The handshake connection</h3>
+<p>Ten people each shake hands once with everyone else: how many handshakes? Each of the 10 people shakes 9 hands, but that counts every handshake twice:</p>
+<pre class="math">10 × 9 ÷ 2 = 45 handshakes</pre>
+<p>Same formula as segments and the same as diagonals-plus-sides of a polygon: a decagon has 10 × 9 ÷ 2 = 45 segments joining vertex pairs, of which 10 are sides — so 45 − 10 = 35 diagonals, exactly matching n(n − 3)/2 = 10 × 7 ÷ 2 = 35 ✅. One counting idea, three disguises.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute 1 + 2 + ... + 40. (b) How many rectangles in a 2 × 2 grid? (c) How many squares in a 2 × 2 grid?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 40 × 41 ÷ 2 = 820. (b) 3 lines each direction: (3 × 2 ÷ 2)² = 3 × 3 = 9. (c) 4 little + 1 big = 5.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">⬅️ Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

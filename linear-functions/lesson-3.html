@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Tables, Constant Steps, and Arithmetic Sequences — Linear Functions</title>
+<meta name="description" content="Function machines, slope and straight-line graphs, from f(x) to systems of equations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📈 Linear Functions</a> › Lesson 3</p>
+    <h1>🎯 Tables, Constant Steps, and Arithmetic Sequences</h1>
+    <p class="kicker">📖 Lesson 3 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Function? — Machines and f(x)">1</a><a href="lesson-2.html" title="Lesson 2: Chained Machines — Composition of Functions">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Tables, Constant Steps, and Arithmetic Sequences">3</a><a href="lesson-4.html" title="Lesson 4: Graphs — Straight Lines, Intercepts, and the Vertical Line Test">4</a><a href="lesson-5.html" title="Lesson 5: Slope — The Deep Dive (with a Real Proof)">5</a><a href="lesson-6.html" title="Lesson 6: Building Equations — The Three-Form Toolkit">6</a><a href="lesson-7.html" title="Lesson 7: Moving Lines Around — Transformations and Inverses">7</a><a href="lesson-8.html" title="Lesson 8: Lines at Work — Systems, Two Methods, and the Three Fates">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! The Eight Classic Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">LINEAR means equal steps: whenever x grows by the same amount,
+y grows by the same amount. That constant ratio Δy ÷ Δx IS the slope.
+(Δ is the Greek letter delta — mathematicians write Δy for &quot;change in y.&quot;)</pre></div>
+<p>A function machine keeps a diary called an input-output table. Here's the diary of y = 2x + 3, with the y-steps written in:</p>
+<pre class="math">x:   0   1   2   3   4
+y:   3   5   7   9  11
+Δy:     +2  +2  +2  +2</pre>
+<p>Equal x-steps (each +1) produce equal y-steps (each +2). That constant-step pattern is the fingerprint of a linear function, and the step size 2 is the slope.</p>
+<h3>The detective game, upgraded</h3>
+<p>The fun version is the reverse: you see the diary but NOT the recipe. Here's a table with a twist — the x's do NOT step by 1:</p>
+<pre class="math">x: 1   5   9   13
+y: 2   8  14   20</pre>
+<pre class="math">Step 1: measure both step sizes. Δy = 8 − 2 = 6 each time, and
+        Δx = 5 − 1 = 4 each time. Constant steps on both sides: linear!
+Step 2: slope = Δy ÷ Δx = 6 ÷ 4 = 3/2.
+        (Not 6! Always divide the y-change by the x-change.)
+Step 3: so the rule is y = (3/2)x + b, with b unknown. Use ANY row
+        to find b — pick x = 1, y = 2:
+            2 = (3/2) × 1 + b     (the row must fit the rule)
+            2 = 3/2 + b
+            b = 2 − 3/2 = 1/2     (subtract 3/2 from both sides)
+Step 4: the rule is y = (3/2)x + 1/2.
+Step 5: test drive on a row you DIDN'T use: x = 9 gives
+        (3/2) × 9 + 1/2 = 27/2 + 1/2 = 28/2 = 14 ✅
+        A rule that fails even one row is a wrong rule — send it back!</pre>
+<h3>Arithmetic sequences: linear functions in disguise</h3>
+<p>Look at this list, where each term is the previous one plus 4:</p>
+<pre class="math">7, 11, 15, 19, ...</pre>
+<p>A list with a constant jump is called an arithmetic sequence, and the jump is called the common difference. Here's the secret: an arithmetic sequence IS a linear function, where the input is the position number n:</p>
+<pre class="math">position n:   1   2   3   4
+term a(n):    7  11  15  19</pre>
+<p>The y-steps are 4 per n-step of 1, so the slope is 4 — the common difference IS the slope. Walk the table back to n = 0: a(0) = 7 − 4 = 3. So:</p>
+<pre class="math">a(n) = 4n + 3</pre>
+<p>You may also meet the classic form a(n) = a₁ + (n − 1)d, where a₁ is the first term and d is the common difference. Both forms are the same machine:</p>
+<pre class="math">a(n) = 7 + (n − 1) × 4
+     = 7 + 4n − 4        (distribute the 4: 4×n and 4×(−1))
+     = 4n + 3            (combine: 7 − 4 = 3) — same rule!</pre>
+<p>Predict far ahead: a(10) = 4 × 10 + 3 = 43, and a(100) = 403. No counting on fingers needed — that's the power of having the rule.</p>
+<h3>The not-linear alarm</h3>
+<p>Check this table: x: 0, 1, 2, 3 and y: 1, 3, 7, 13. The y-steps are 2, 4, 6 — GROWING steps. No constant slope exists, so no linear rule fits. (The hidden rule is y = x² + x + 1 — a squared term always bends the steps. That's a story for another lesson.)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Write the rule for the arithmetic sequence 9, 13, 17, 21, ... as a function of n, then find a(10).</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: common difference d = 4, so slope 4. Walk back: a(0) = 9 − 4 = 5, so a(n) = 4n + 5. Then a(10) = 4 × 10 + 5 = 45. Test drive: a(1) = 9 ✅, a(4) = 21 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

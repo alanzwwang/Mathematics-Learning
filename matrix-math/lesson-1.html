@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Meet the Matrix — Rows, Columns, Addresses — Matrix Math</title>
+<meta name="description" content="Grids of numbers that power video games, photos and secret codes!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔢 Matrix Math</a> › Lesson 1</p>
+    <h1>🚀 Meet the Matrix — Rows, Columns, Addresses</h1>
+    <p class="kicker">📖 Lesson 1 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Meet the Matrix — Rows, Columns, Addresses">1</a><a href="lesson-2.html" title="Lesson 2: Adding and Subtracting — Square by Square">2</a><a href="lesson-3.html" title="Lesson 3: The Scalar — One Number Times a Whole Grid">3</a><a href="lesson-4.html" title="Lesson 4: The Real Matrix Multiplication — Row × Column">4</a><a href="lesson-5.html" title="Lesson 5: Order Matters! A × B ≠ B × A">5</a><a href="lesson-6.html" title="Lesson 6: Special Grids — The Zero Grid and the Identity Grid">6</a><a href="lesson-7.html" title="Lesson 7: Matrices at Work — Scores, Photos, Codes, and Flips">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Rows go ACROSS. Columns go DOWN.
+Size = (rows) × (columns).  Address = (row, column) — row first!</pre></div>
+<h3>The scoreboard grid</h3>
+<p>You and a friend play three rounds of a game. Your scores are 3, 7, 1; your friend's are 8, 2, 6. A table holds the whole story:</p>
+<pre class="math">[ 3  7  1 ]
+[ 8  2  6 ]</pre>
+<p>That grid of numbers is a matrix. The sideways lines are rows (like rows of seats in a theater — across!). The up-and-down lines are columns (like the stone columns that hold up a roof — up and down!). Here, row 1 is you, row 2 is your friend, and each column is one round.</p>
+<h3>Size: rows first, always</h3>
+<p>Count the rows, then the columns: this grid is 2 by 3, written 2 × 3. Not 3 × 2! Rows always get named first — a 3 × 2 grid has THREE rows and two columns, a completely different shape:</p>
+<pre class="math">[ 3  8 ]
+[ 7  2 ]
+[ 1  6 ]</pre>
+<h3>Addresses: every square has a seat number</h3>
+<p>Every square in a grid has an address made of two numbers: (row, column). In the scoreboard, the 6 sits at (row 2, column 3). Row first, always. (Grown-ups squeeze the address into a tiny corner: a₂₃ means &quot;row 2, column 3.&quot; Same idea, smaller costume.)</p>
+<h3>The flat way to write a grid</h3>
+<p>Drawing a grid takes several lines, so there's a squished one-line notation too: a semicolon means &quot;drop down to the next row.&quot;</p>
+<pre class="math">[ 3  7  1 ;  8  2  6 ]   is the very same scoreboard grid</pre>
+<p>You'll see both styles in the practice problems — they're the same grids in different outfits.</p>
+<h3>Two special shapes</h3>
+<p>A grid with ONE row, like [ 4  0  6  1 ], is called a row grid (size 1 × 4). A grid with ONE column is a column grid (size 3 × 1):</p>
+<pre class="math">[ 5 ]
+[ 2 ]
+[ 9 ]</pre>
+<p>Even a single number like 7 is secretly a 1 × 1 grid. Once you see it, you see grids everywhere: a spreadsheet is a giant matrix, and a photo is a giant matrix of pixel numbers.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Here is a grid: T = [ 5  9  2 ;  4  0  8 ]. (a) What is its size? (b) What number sits at (row 1, column 3)? (c) What is the address of the 9?</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 2 × 3 — two rows, three columns. (b) 2. (c) (row 1, column 2) — the 9 is in the first row, second column.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

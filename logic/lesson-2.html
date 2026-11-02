@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: NOT — The Art of Flipping Anything — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 2</p>
+    <h1>🧩 NOT — The Art of Flipping Anything</h1>
+    <p class="kicker">📖 Lesson 2 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">The flip of a statement reverses its truth: true becomes false, false becomes true.
+The flip of &quot;x &gt; 5&quot; is x ≤ 5 — the boundary switches teams.
+The flip of &quot;ALL are&quot; is &quot;SOME are NOT&quot; — written in symbols: ¬(∀x: P) = ∃x: ¬P.</pre></div>
+<p>Flipping a statement is called negating it, and logicians write it with the symbol ¬ (read &quot;not&quot;). If p is a statement, then ¬p is its flip, and exactly one of p, ¬p is true. Flip twice and you're home: ¬¬p is just p.</p>
+<p>Plain statements are easy to flip: &quot;7 is prime&quot; (true) flips to &quot;7 is not prime&quot; (false). The fun starts with comparisons. What is the flip of &quot;x &gt; 5&quot;? Most people say &quot;x &lt; 5.&quot; WRONG — and you can see the mistake in one question: where did 5 itself go? The number line has no gaps. Every number is either greater than 5, equal to 5, or less than 5. If x is NOT greater than 5, then it's either equal or less. So:</p>
+<pre class="math">Statement:        x &gt; 5
+Flip (¬):         x ≤ 5          (&quot;not above 5&quot; still allows exactly 5)</pre>
+<p>Here is the complete flip machine for comparisons — the boundary always switches teams:</p>
+<pre class="math">Statement              Flip
+───────────────        ───────────────────
+x &gt; 7            ↔     x ≤ 7
+x &lt; −2           ↔     x ≥ −2
+x = 4            ↔     x ≠ 4
+x ≥ 3            ↔     x &lt; 3
+x ≤ 0            ↔     x &gt; 0</pre>
+<p>One more comparison shape, as a coming attraction: the chain &quot;2 &lt; x ≤ 9&quot; is secretly an AND — it means &quot;x &gt; 2 AND x ≤ 9.&quot; So its flip is not a single comparison at all. The flip is x ≤ 2 OR x &gt; 9. Lesson 3's De Morgan laws will show exactly why.</p>
+<p>Now for the ALL/SOME flip — the one that fools adults — upgraded with the two symbols mathematicians actually use:</p>
+<pre class="math">∀  means &quot;for ALL&quot;         (the universal claim: zero exceptions)
+∃  means &quot;there EXISTS at least one&quot;   (some, possibly all!)</pre>
+<p>With those, a claim like &quot;every multiple of 6 is even&quot; becomes ∀x(multiple of 6): x is even — and its flip is built by two swaps:</p>
+<pre class="math">Statement                    Flip (the negation)
+───────────────              ───────────────────
+∀x: P is true        ↔     ∃x: P is NOT true
+∃x: P is true        ↔     ∀x: P is NOT true   (i.e., NO x works)</pre>
+<p>Why &quot;some-not&quot; and not &quot;none&quot;? Same reason as ever: ALL is a zero-exceptions claim, and ONE exception kills it. You don't need every dog on Earth silent to destroy &quot;all dogs bark&quot; — one quiet dog does it.</p>
+<p><strong>Worked example 1</strong> — flip it, then settle which side is true. Claim: &quot;For all x, x² &gt; x.&quot;</p>
+<pre class="math">Flip:  &quot;There exists x with x² ≤ x.&quot;        (∀ becomes ∃, and &gt; becomes ≤)</pre>
+<p>Which one is actually TRUE? Test the flip with x = ½:</p>
+<pre class="math">x² = (½)² = ½ × ½ = ¼        square the fraction
+Is ¼ ≤ ½?  YES ✓             ¼ = 0.25 and ½ = 0.5</pre>
+<p>So x = ½ makes &quot;x² ≤ x&quot; TRUE — the ∃ flip is true, and the original ∀ claim is FALSE. Fractions between 0 and 1 shrink when you square them. That one fraction just assassinated a &quot;for all&quot; claim — remember this move; it's the counterexample, and Lesson 4 is all about it.</p>
+<p><strong>Worked example 2</strong> — flipping an ∃ claim. Claim: &quot;There is a number bigger than 100.&quot;</p>
+<pre class="math">Flip:  &quot;NO number is bigger than 100.&quot;      (∃ becomes ∀...¬: every number is ≤ 100)</pre>
+<p>The original is true (101 exists!), so the flip is false. Flipping doesn't care which side is true — it just produces the exact opposite.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Flip each statement. Boundaries and quantifiers — careful!</p><ul class="steps"><li><span class="mk">(a)</span><div>x &lt; 10   (b) &quot;All squares have four equal sides.&quot;   (c) &quot;There is a number bigger than 1000.&quot;   (d) x ≠ 4   (e) ∀x: x + 0 = x</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) x ≥ 10 (the boundary 10 joins the flip). (b) SOME square does not have four equal sides — the flip is false, since the original is true by definition of square; that's fine, a flip just has to be the exact opposite. (c) NO number is bigger than 1000 — false again. (d) x = 4. (The flip of ≠ is = — the two trades go both ways.) (e) ∃x: x + 0 ≠ x. The original is true (adding 0 never changes a number), so this flip is false — zero exceptions exist.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

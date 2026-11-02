@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Watch Out! Common Mistakes — Permutations vs Combinations</title>
+<meta name="description" content="Does order matter? Learn the big decision that every counting problem asks.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔐 Permutations vs Combinations</a> › Lesson 6</p>
+    <h1>⚠️ Watch Out! Common Mistakes</h1>
+    <p class="kicker">📖 Lesson 6 of 7</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Counting Principle — The Multiplication Machine">1</a><a href="lesson-2.html" title="Lesson 2: Factorials — The Line-Up Machine">2</a><a href="lesson-3.html" title="Lesson 3: Permutations — When Order Matters">3</a><a href="lesson-4.html" title="Lesson 4: Combinations — When Order Doesn't Matter">4</a><a href="lesson-5.html" title="Lesson 5: The Big Decision — Permutation or Combination?">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Watch Out! Common Mistakes">6</a><a href="lesson-7.html" title="Lesson 7: Review — The Big Picture">7</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the test in sight</p><pre class="math">Swap two picks. Different result? P. Same thing? C — and divide by k!</pre></div>
+<h3>Mistake 1: Forgetting to un-scramble</h3>
+<p>&quot;Two toppings from 5 — that's 5 × 4 = 20.&quot; ❌ You counted pepperoni-mushroom and mushroom-pepperoni as two pizzas. Order doesn't matter here: 20 ÷ 2 = 10. ✅</p>
+<h3>Mistake 2: Un-scrambling an ordered problem</h3>
+<p>&quot;Gold and silver from 6 runners — divide by 2, so 15.&quot; ❌ Swap the two medals and it's a DIFFERENT podium — keep all 6 × 5 = 30. ✅ The two mistakes above are twins: both come from skipping the swap test.</p>
+<h3>Mistake 3: Multiplying out giant factorials</h3>
+<p>8! / 5! by computing 40,320 ÷ 120? ❌ That's pain you volunteered for. Cancel first: 8 × 7 × 6 = 336. ✅ Never multiply what you're about to cancel.</p>
+<h3>Mistake 4: Mixing up &quot;repeats allowed&quot; and &quot;no repeats&quot;</h3>
+<p>A 3-letter code from 5 letters, repeats allowed: 5 × 5 × 5 = 125 (A-A-B is legal). But lining up 3 of 5 people: 5 × 4 × 3 = 60 (nobody stands in two spots). Always ask: can the same thing be picked twice?</p>
+<h3>Mistake 5: Adding when you should multiply</h3>
+<p>&quot;3 shirts and 4 pants — 7 outfits!&quot; ❌ That would be true only if you wore a shirt OR pants (yikes). Each shirt pairs with all 4 pants: 3 × 4 = 12. ✅</p>
+<h3>Mistake 6: Computing the big side of a combination</h3>
+<p>C(10, 8) by writing 10 × 9 × 8 × 7 × 6 × 5 × 4 × 3 ÷ 8!? ❌ Flip it with choosing = leaving: C(10, 8) = C(10, 2) = 45. ✅ Work lazy — it's legal!</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

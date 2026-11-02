@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Problems — Matrix Math</title>
+<meta name="description" content="Grids of numbers that power video games, photos and secret codes!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔢 Matrix Math</a> › Practice Problems</p>
+    <h1>🏋️ Practice Problems</h1>
+    <p class="kicker">💪 100 problems to try</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Matrix — Rows, Columns, Addresses">1</a><a href="lesson-2.html" title="Lesson 2: Adding and Subtracting — Square by Square">2</a><a href="lesson-3.html" title="Lesson 3: The Scalar — One Number Times a Whole Grid">3</a><a href="lesson-4.html" title="Lesson 4: The Real Matrix Multiplication — Row × Column">4</a><a href="lesson-5.html" title="Lesson 5: Order Matters! A × B ≠ B × A">5</a><a href="lesson-6.html" title="Lesson 6: Special Grids — The Zero Grid and the Identity Grid">6</a><a href="lesson-7.html" title="Lesson 7: Matrices at Work — Scores, Photos, Codes, and Flips">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" class="here" aria-current="page" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep these next to you while you work</p><pre class="math">address = (row, column) — row first!
+add/subtract: matching squares, same size only
+scalar: every square × k        combos: scale first, then add
+A × B square = row of A × column of B: pair, multiply, add
+handshake: (2 × 3) × (3 × 2) → 2 × 2 — inner match, outer answer
+A × B ≠ B × A (usually)     I copies every grid     0 adds nothing</pre></div>
+<p>Grab a pencil and paper. Start with the easy ones — they use the exact same patterns from the lessons. Grid answers can be drawn out or written in the flat style, like [ 5  3 ;  6  8 ] — remember, the semicolon means &quot;next row.&quot; A few problems are open-ended: they have more than one right answer. Don't peek at the answer key until you've tried!</p>
+<p>Hint for every problem: first ask yourself, &quot;What kind of move is this — reading, adding, scaling, or row-times-column? And do the sizes match?&quot;</p>
+<h3 class="level">🟢 EASY (Problems 1–70)</h3>
+<h4 class="group">Problems 1–10 — Read the grid! Use grid M for problems 1–7. (Lesson 1)</h4>
+<pre class="math">M = [ 3  7  1 ]
+    [ 8  2  6 ]</pre>
+<ul class="steps"><li><span class="mk">1.</span><div>How many rows does M have?</div></li><li><span class="mk">2.</span><div>How many columns does M have?</div></li><li><span class="mk">3.</span><div>What is the size of M? (rows × columns)</div></li><li><span class="mk">4.</span><div>What number sits at (row 1, column 2)?</div></li><li><span class="mk">5.</span><div>What number sits at (row 2, column 3)?</div></li><li><span class="mk">6.</span><div>What is the address of the 8?</div></li><li><span class="mk">7.</span><div>What is the address of the 1?</div></li><li><span class="mk">8.</span><div>What is the size of this tall grid? <br>[ 5 ] <br>[ 2 ] <br>[ 9 ]</div></li><li><span class="mk">9.</span><div>What is the size of [ 4  0  6  1 ]?</div></li><li><span class="mk">10.</span><div>What is the size of [ 1  2 ;  3  4 ;  5  6 ]? (Careful — count rows first!)</div></li></ul>
+<h4 class="group">Problems 11–20 — Add the grids: matching squares! (Lesson 2)</h4>
+<ul class="steps"><li><span class="mk">11.</span><div>[ 1  2 ;  3  4 ] + [ 5  1 ;  0  2 ]</div></li><li><span class="mk">12.</span><div>[ 2  0 ;  1  5 ] + [ 3  4 ;  2  1 ]</div></li><li><span class="mk">13.</span><div>[ 4  3 ;  2  2 ] + [ 1  1 ;  3  0 ]</div></li><li><span class="mk">14.</span><div>[ 6  1 ;  0  3 ] + [ 2  2 ;  4  1 ]</div></li><li><span class="mk">15.</span><div>[ 1  3 ;  5  2 ] + [ 4  0 ;  1  6 ]</div></li><li><span class="mk">16.</span><div>[ 2  2 ;  2  2 ] + [ 3  1 ;  0  4 ]</div></li><li><span class="mk">17.</span><div>[ 1  2  3 ] + [ 4  1  2 ]</div></li><li><span class="mk">18.</span><div>[ 3  1 ;  0  2 ;  4  5 ] + [ 1  2 ;  3  3 ;  0  1 ]</div></li><li><span class="mk">19.</span><div>[ 1  4  2 ;  3  0  5 ] + [ 2  1  3 ;  4  2  1 ]</div></li><li><span class="mk">20.</span><div>Can you add [ 1  2 ;  3  4 ] + [ 1  2  3 ]? Why or why not?</div></li></ul>
+<h4 class="group">Problems 21–28 — Subtract the grids: same addresses, minus. (Lesson 2)</h4>
+<ul class="steps"><li><span class="mk">21.</span><div>[ 5  3 ;  4  6 ] − [ 1  2 ;  3  1 ]</div></li><li><span class="mk">22.</span><div>[ 7  2 ;  5  5 ] − [ 2  1 ;  4  3 ]</div></li><li><span class="mk">23.</span><div>[ 9  4 ;  8  7 ] − [ 3  4 ;  5  2 ]</div></li><li><span class="mk">24.</span><div>[ 6  8 ;  2  9 ] − [ 4  3 ;  2  5 ]</div></li><li><span class="mk">25.</span><div>[ 4  7 ;  6  3 ] − [ 1  5 ;  6  2 ]</div></li><li><span class="mk">26.</span><div>[ 8  6  5 ] − [ 3  2  4 ]</div></li><li><span class="mk">27.</span><div>[ 9  3 ;  7  8 ] − [ 9  3 ;  7  8 ] — what do you notice?</div></li><li><span class="mk">28.</span><div>[ 2  9 ;  4  1 ] − [ 2  7 ;  0  1 ]</div></li></ul>
+<h4 class="group">Problems 29–36 — Scale the grid: every square × k. (Lesson 3)</h4>
+<ul class="steps"><li><span class="mk">29.</span><div>2 × [ 1  3 ;  2  0 ]</div></li><li><span class="mk">30.</span><div>3 × [ 2  1 ;  0  4 ]</div></li><li><span class="mk">31.</span><div>4 × [ 1  2 ;  3  1 ]</div></li><li><span class="mk">32.</span><div>5 × [ 2  0 ;  1  1 ]</div></li><li><span class="mk">33.</span><div>10 × [ 0  1 ;  1  0 ]</div></li><li><span class="mk">34.</span><div>1/2 × [ 4  6 ;  2  8 ]</div></li><li><span class="mk">35.</span><div>1/2 × [ 6  2 ;  10  4 ]</div></li><li><span class="mk">36.</span><div>1/3 × [ 3  6 ;  9  0 ]</div></li></ul>
+<h4 class="group">Problems 37–44 — Scale first, then combine! Use A = [ 1  2 ;  0  3 ] and B = [ 2  1 ;  4  0 ]. (Lesson 3)</h4>
+<ul class="steps"><li><span class="mk">37.</span><div>2A</div></li><li><span class="mk">38.</span><div>3B</div></li><li><span class="mk">39.</span><div>A + B</div></li><li><span class="mk">40.</span><div>2A + B</div></li><li><span class="mk">41.</span><div>A + 2B</div></li><li><span class="mk">42.</span><div>2A + 2B — check it against 2(A + B)!</div></li><li><span class="mk">43.</span><div>New grids: C = [ 3  5 ;  6  4 ] and D = [ 1  2 ;  2  1 ]. Find C − 2D.</div></li><li><span class="mk">44.</span><div>With the same C and D, find 2C − D.</div></li></ul>
+<h4 class="group">Problems 45–52 — The real multiplication: row × column. (Lesson 4)</h4>
+<ul class="steps"><li><span class="mk">45.</span><div>Row meets column: [ 1  2 ] × [ 3 ; 1 ] = 1×3 + 2×1 = ?</div></li><li><span class="mk">46.</span><div>[ 2  3 ] × [ 4 ; 2 ] = ?</div></li><li><span class="mk">47.</span><div>[ 1  0 ;  0  1 ] × [ 5  3 ;  2  4 ] — the answer might surprise you!</div></li><li><span class="mk">48.</span><div>[ 1  2 ;  0  1 ] × [ 3  1 ;  2  4 ]</div></li><li><span class="mk">49.</span><div>[ 2  1 ;  1  2 ] × [ 1  3 ;  0  2 ]</div></li><li><span class="mk">50.</span><div>[ 3  0 ;  1  2 ] × [ 2  1 ;  1  1 ]</div></li><li><span class="mk">51.</span><div>[ 1  1 ;  2  1 ] × [ 2  2 ;  1  3 ]</div></li><li><span class="mk">52.</span><div>[ 2  2 ;  0  3 ] × [ 1  0 ;  2  1 ]</div></li></ul>
+<h4 class="group">Problems 53–58 — Grid × column: dot products down the line. (Lessons 4 and 7)</h4>
+<ul class="steps"><li><span class="mk">53.</span><div>[ 1  2 ;  0  1 ] × [ 3 ; 4 ]</div></li><li><span class="mk">54.</span><div>[ 2  0 ;  1  1 ] × [ 3 ; 2 ]</div></li><li><span class="mk">55.</span><div>[ 1  1 ;  1  2 ] × [ 5 ; 3 ]</div></li><li><span class="mk">56.</span><div>[ 3  1 ;  0  2 ] × [ 2 ; 4 ]</div></li><li><span class="mk">57.</span><div>The bakery returns! Items (rows = days): [ 3  1 ;  2  4 ]. <br>Prices column: [ 2 ; 3 ] (muffin = 2, juice = 3). <br>Multiply to find each day's total.</div></li><li><span class="mk">58.</span><div>[ 0  1 ;  1  0 ] × [ 5 ; 7 ] — what did this grid DO to the column?</div></li></ul>
+<h4 class="group">Problems 59–66 — Backwards puzzles! Fill in the missing pieces. (Lessons 2 and 3)</h4>
+<ul class="steps"><li><span class="mk">59.</span><div>[ 0  0 ;  0  0 ] + [ 4  2 ;  1  3 ] = ?</div></li><li><span class="mk">60.</span><div>[ 4  2 ;  1  3 ] − [ 4  2 ;  1  3 ] = ?</div></li><li><span class="mk">61.</span><div>0 × [ 5  9 ;  8  7 ] = ?</div></li><li><span class="mk">62.</span><div>1 × [ 5  9 ;  8  7 ] = ?</div></li><li><span class="mk">63.</span><div>[ 2  ? ;  1  4 ] + [ 1  5 ;  ?  2 ] = [ 3  8 ;  6  6 ]. Find both missing numbers.</div></li><li><span class="mk">64.</span><div>[ 6  ? ;  0  9 ] − [ 4  1 ;  0  ? ] = [ 2  3 ;  0  5 ]. Find both missing numbers.</div></li><li><span class="mk">65.</span><div>k × [ 1  2 ;  3  1 ] = [ 4  8 ;  12  4 ]. What is k?</div></li><li><span class="mk">66.</span><div>k × [ 2  1 ;  0  3 ] = [ 6  3 ;  0  9 ]. What is k?</div></li></ul>
+<h4 class="group">Problems 67–70 — Quick think! Explain your answer in one sentence.</h4>
+<ul class="steps"><li><span class="mk">67.</span><div>True or false: two grids can be added only if they are the same size.</div></li><li><span class="mk">68.</span><div>True or false: to multiply two grids, you multiply the matching squares.</div></li><li><span class="mk">69.</span><div>A grid has 3 rows and 5 columns. How many squares does it have in total?</div></li><li><span class="mk">70.</span><div>In an address, which number comes first — the row or the column? <br>And what's your way of remembering?</div></li></ul>
+<h3 class="level">🟡 INTERMEDIATE (Problems 71–90)</h3>
+<h4 class="group">Problems 71–74 — The size handshake: will the product exist? If yes, what size is the answer? (Lesson 5)</h4>
+<ul class="steps"><li><span class="mk">71.</span><div>A is 2 × 3, B is 3 × 2. Does A × B exist? What size?</div></li><li><span class="mk">72.</span><div>A is 2 × 3, B is 2 × 3. Does A × B exist?</div></li><li><span class="mk">73.</span><div>A is 1 × 4, B is 4 × 1. Does A × B exist? What size?</div></li><li><span class="mk">74.</span><div>A is 3 × 1, B is 1 × 3. What size is A × B — and what size is B × A? <br>(Same two grids, two orders, two different answer shapes!)</div></li></ul>
+<h4 class="group">Problems 75–78 — Bigger grids multiply: 2 × 3 meets 3 × 2. Each answer square is a THREE-pair dot product. (Lesson 5)</h4>
+<ul class="steps"><li><span class="mk">75.</span><div>[ 1  2  0 ;  0  1  3 ] × [ 2  1 ;  1  0 ;  0  2 ]</div></li><li><span class="mk">76.</span><div>[ 2  1  1 ;  1  0  2 ] × [ 1  0 ;  2  1 ;  0  1 ]</div></li><li><span class="mk">77.</span><div>[ 3  0  1 ;  2  2  0 ] × [ 0  2 ;  1  1 ;  3  0 ]</div></li><li><span class="mk">78.</span><div>[ 1  1  2 ;  2  0  1 ] × [ 2  0 ;  0  2 ;  1  1 ]</div></li></ul>
+<h4 class="group">Problems 79–82 — Order matters! Compute A × B and B × A, then compare. (Lesson 5)</h4>
+<ul class="steps"><li><span class="mk">79.</span><div>A = [ 1  2 ;  3  4 ], B = [ 0  1 ;  1  0 ]</div></li><li><span class="mk">80.</span><div>A = [ 2  0 ;  1  3 ], B = [ 1  1 ;  0  2 ]</div></li><li><span class="mk">81.</span><div>A = [ 1  0 ;  0  2 ], B = [ 3  0 ;  0  1 ] — surprise ahead! Compute both orders.</div></li><li><span class="mk">82.</span><div>Fill in the blank, and explain: matrix multiplication usually does not ______.</div></li></ul>
+<h4 class="group">Problems 83–88 — Zero grids, identity grids, and undo pairs. (Lesson 6)</h4>
+<ul class="steps"><li><span class="mk">83.</span><div>[ 1  0 ;  0  1 ] × [ 7  2 ;  5  3 ]</div></li><li><span class="mk">84.</span><div>[ 4  1 ;  2  6 ] × [ 1  0 ;  0  1 ]</div></li><li><span class="mk">85.</span><div>Write out the 3 × 3 identity grid.</div></li><li><span class="mk">86.</span><div>What grid, added to [ 5  3 ;  1  4 ], gives the zero grid?</div></li><li><span class="mk">87.</span><div>Verify an undo pair: compute [ 2  0 ;  0  2 ] × [ 1/2  0 ;  0  1/2 ]. <br>What grid do you get?</div></li><li><span class="mk">88.</span><div>Find the grid that undoes [ 3  0 ;  0  3 ]: what grid times it gives I? <br>(Hint: what undoes tripling?)</div></li></ul>
+<h4 class="group">Problems 89–90 — Explain yourself!</h4>
+<ul class="steps"><li><span class="mk">89.</span><div>True or false — and why: &quot;Since A + B = B + A for grids, it must also <br>be true that A × B = B × A.&quot;</div></li><li><span class="mk">90.</span><div>Your friend computed [ 1  2 ;  3  4 ] × [ 5  6 ;  7  8 ] by multiplying <br>the matching squares and got [ 5  12 ;  21  32 ]. In one or two <br>sentences, explain the mistake — and what the correct recipe is.</div></li></ul>
+<h3 class="level">🔴 CHALLENGE (Problems 91–100)</h3>
+<ul class="steps"><li><span class="mk">91.</span><div>The tournament scoreboard. Two teams compete in two events across two <br>days. Day 1 scores: [ 4  2 ;  3  5 ] (rows = teams, columns = events). <br>Day 2 scores: [ 1  3 ;  4  0 ]. <br>(a) Find the totals grid. (b) Add up each ROW of the totals grid — <br>which team scored more overall?</div></li><li><span class="mk">92.</span><div>The brightened photo. This tiny photo has brightness numbers from <br>0 (black) to 9 (white):  P = [ 1  3  2 ;  4  5  1 ;  2  0  3 ]. <br>(a) Compute 2P to brighten it. (b) Which square blasts past 9 — <br>too bright for the scale?</div></li><li><span class="mk">93.</span><div>The secret code. Letters become numbers: A = 1, B = 2, ..., Z = 26. <br>The message &quot;GO&quot; is the column [ 7 ; 15 ]. Scramble it with <br>S = [ 1  1 ;  0  1 ]:  compute S × [ 7 ; 15 ]. <br>(a) What two numbers come out? (b) What letters are those? <br>(c) Decode: subtract the second number from the first (and keep the <br>second) — do you get &quot;GO&quot; back?</div></li><li><span class="mk">94.</span><div>The mirror flip. Multiply the swapper F = [ 0  1 ;  1  0 ] by each point: <br>(a) [ 2 ; 5 ]   (b) [ 1 ; 3 ]   (c) [ 4 ; 0 ]. <br>(d) In one sentence: what does F do to every point? <br>(e) Compute F × F. Flipping twice should undo the flip — does it?</div></li><li><span class="mk">95.</span><div>Powers of a grid. A = [ 1  1 ;  0  2 ]. <br>(a) Compute A² — that means A × A. (b) Compute A³ = A² × A. <br>(c) Look at the top-right squares of A, A², A³: 1, 3, 7... guess the <br>next one!</div></li><li><span class="mk">96.</span><div>The missing entry. [ 2  x ;  1  3 ] × [ 1  1 ;  0  2 ] = [ 2  6 ;  1  7 ]. <br>Find x. (Hint: which answer square contains x? Pair up row 1 with <br>column 2:  2×1 + x×2 = 6.)</div></li><li><span class="mk">97.</span><div>Design it — order matters! Invent your OWN pair of 2 × 2 grids <br>(use only the numbers 0, 1, 2, 3) where A × B ≠ B × A. <br>Compute both products to prove they're different.</div></li><li><span class="mk">98.</span><div>The weighted championship. Two players, three events. Wins grid <br>(rows = players):  Amy [ 2  1  0 ], Bo [ 1  2  1 ]. Points per event: <br>race = 5, chess = 3, puzzle = 4 — the column [ 5 ; 3 ; 4 ]. <br>Multiply the wins grid by the points column to find each player's <br>total score. Who wins the championship?</div></li><li><span class="mk">99.</span><div>The sum-and-difference puzzle. Find two grids A and B so that BOTH of <br>these are true at the same time: <br>A + B = [ 4  4 ;  4  4 ]   and   A − B = [ 2  0 ;  0  2 ]. <br>(Hint: add the two equations — the Bs cancel! 2A = [ 6  4 ;  4  6 ].)</div></li><li><span class="mk">100.</span><div>The grand finale — design it! Invent a word problem whose answer is a <br>matrix SUM (like problem 91), AND another whose answer is a <br>grid × column (like problem 57 or 98). Then solve both to make sure <br>they work!</div></li></ul></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">⬅️ Lesson 9</a><a class="btn" href="answers.html">Answer Key ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

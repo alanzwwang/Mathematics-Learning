@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Chained Machines — Composition of Functions — Linear Functions</title>
+<meta name="description" content="Function machines, slope and straight-line graphs, from f(x) to systems of equations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📈 Linear Functions</a> › Lesson 2</p>
+    <h1>🧩 Chained Machines — Composition of Functions</h1>
+    <p class="kicker">📖 Lesson 2 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Function? — Machines and f(x)">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Chained Machines — Composition of Functions">2</a><a href="lesson-3.html" title="Lesson 3: Tables, Constant Steps, and Arithmetic Sequences">3</a><a href="lesson-4.html" title="Lesson 4: Graphs — Straight Lines, Intercepts, and the Vertical Line Test">4</a><a href="lesson-5.html" title="Lesson 5: Slope — The Deep Dive (with a Real Proof)">5</a><a href="lesson-6.html" title="Lesson 6: Building Equations — The Three-Form Toolkit">6</a><a href="lesson-7.html" title="Lesson 7: Moving Lines Around — Transformations and Inverses">7</a><a href="lesson-8.html" title="Lesson 8: Lines at Work — Systems, Two Methods, and the Three Fates">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! The Eight Classic Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">f(g(x)) means: run g FIRST, then feed its output into f.
+Read it inside-out. When linear machines chain, their slopes MULTIPLY.</pre></div>
+<p>What happens if you connect two machines in a row — the chute of g pouring into the hopper of f? That chained machine is called the composition of f and g, written f(g(x)) or (f ∘ g)(x). The one rule you must remember: the inside machine runs first.</p>
+<p>Let's set up two machines and watch closely:</p>
+<pre class="math">f(x) = 2x + 1        (double, add 1)
+g(x) = 3x − 2        (triple, subtract 2)</pre>
+<p><strong>Worked example 1</strong> — a number through the chain. Find f(g(2)):</p>
+<pre class="math">Step 1: g(2) = 3 × 2 − 2        (inside machine g runs first)
+Step 2: g(2) = 6 − 2 = 4        (multiply, then subtract)
+Step 3: f(g(2)) = f(4)          (feed g's output into f)
+Step 4: f(4) = 2 × 4 + 1 = 9    (run f's recipe on 4)</pre>
+<p>So f(g(2)) = 9. The number 2 went into g, came out as 4, went into f, came out as 9.</p>
+<p><strong>Worked example 2</strong> — the chain's own formula. What recipe does the chained machine f(g(x)) follow?</p>
+<pre class="math">Step 1: f(g(x)) = 2 × g(x) + 1      (f doubles ITS input, whatever it is)
+Step 2: f(g(x)) = 2(3x − 2) + 1     (g(x) IS 3x − 2 — substitute it in)
+Step 3: f(g(x)) = 6x − 4 + 1        (distribute: 2×3x = 6x, 2×(−2) = −4)
+Step 4: f(g(x)) = 6x − 3            (combine: −4 + 1 = −3)</pre>
+<p>Test drive with x = 2: 6 × 2 − 3 = 12 − 3 = 9 ✅ — matches example 1, as it must.</p>
+<p><strong>Worked example 3</strong> — the OTHER order. Find g(f(x)):</p>
+<pre class="math">Step 1: g(f(x)) = 3 × f(x) − 2      (g triples ITS input, then takes 2)
+Step 2: g(f(x)) = 3(2x + 1) − 2     (substitute f(x) = 2x + 1)
+Step 3: g(f(x)) = 6x + 3 − 2        (distribute: 3×2x = 6x, 3×1 = 3)
+Step 4: g(f(x)) = 6x + 1            (combine: 3 − 2 = 1)</pre>
+<p>Look carefully: f(g(x)) = 6x − 3 but g(f(x)) = 6x + 1. Different recipes! Composition order matters. But notice something beautiful: both chains have slope 6, and 6 = 2 × 3 — the two slopes multiplied. That always happens:</p>
+<pre class="math">Chain slope = (slope of f) × (slope of g)</pre>
+<p>Why? If g multiplies every step by 3 and then f multiplies every result by 2, one step of x grows the final output by 3 × 2 = 6. (We'll meet it again in the challenge problems — problem 78 turns this into a detective puzzle.)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>With f(x) = 4x − 3 and g(x) = x + 5, find f(g(2)). Then find the formula for f(g(x)) and check your number with it.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: g(2) = 2 + 5 = 7; f(7) = 4 × 7 − 3 = 28 − 3 = 25. Formula: f(g(x)) = 4(x + 5) − 3 = 4x + 20 − 3 = 4x + 17. Check: 4 × 2 + 17 = 25 ✅. Note the chain slope is 4 × 1 = 4 — g's slope is the hidden 1 in front of x.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

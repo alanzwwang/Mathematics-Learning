@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Problems — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Practice Problems</p>
+    <h1>🏋️ Practice Problems</h1>
+    <p class="kicker">💪 100 problems to try</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" class="here" aria-current="page" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep these next to you while you work</p><pre class="math">Flips: &gt; ↔ ≤, &lt; ↔ ≥, = ↔ ≠ · ALL ↔ SOME-NOT · NONE ↔ SOME
+AND: both (overlap) · OR: at least one (union — both counts!)
+De Morgan: NOT-AND → OR · NOT-OR → AND
+Promise breaks only one way: true IF + false THEN
+Contrapositive: always safe · Converse: never guaranteed
+Valid: affirm IF, deny THEN · Fakes: affirm THEN, deny IF
+∀ proof: letters · ∃ proof: one witness · one-way steps: CHECK candidates
+Knights truth, knaves lie — suppose, follow, check</pre></div>
+<p>Grab a pencil and paper. The easy problems train the exact patterns from the lessons; the intermediate ones chain them together; the challenge ones are puzzles — some have more than one right answer. Don't peek at the answer key until you've tried!</p>
+<p>Hint for every problem: first ask yourself, &quot;What KIND of statement is this — and which rule governs it?&quot;</p>
+<h3 class="level">🟢 EASY (Problems 1–60)</h3>
+<h4 class="group">Problems 1–8 — Statement or not? If it IS a statement, also say true or false. (Lesson 1)</h4>
+<ul class="steps"><li><span class="mk">1.</span><div>&quot;−7 &lt; −4.&quot;</div></li><li><span class="mk">2.</span><div>&quot;x + 5 = 13.&quot;</div></li><li><span class="mk">3.</span><div>&quot;(−2)³ = 8.&quot;</div></li><li><span class="mk">4.</span><div>&quot;Is 15 prime?&quot;</div></li><li><span class="mk">5.</span><div>&quot;|−9| = −9.&quot;</div></li><li><span class="mk">6.</span><div>&quot;¾ + ¼ = 1.&quot;</div></li><li><span class="mk">7.</span><div>&quot;Solve for x.&quot;</div></li><li><span class="mk">8.</span><div>&quot;If f(x) = 2x + 1, then f(4) = 9.&quot;</div></li></ul>
+<h4 class="group">Problems 9–14 — Write the flip (negation) of each comparison. Watch the boundaries! (Lesson 2)</h4>
+<ul class="steps"><li><span class="mk">9.</span><div>x &gt; 9</div></li><li><span class="mk">10.</span><div>x ≤ −2</div></li><li><span class="mk">11.</span><div>x = 7</div></li><li><span class="mk">12.</span><div>2x + 1 &lt; 15</div></li><li><span class="mk">13.</span><div>x ≥ 0</div></li><li><span class="mk">14.</span><div>|x| &gt; 3</div></li></ul>
+<h4 class="group">Problems 15–20 — The ALL/SOME flip, now in symbols too. Negate each one. (Lesson 2)</h4>
+<ul class="steps"><li><span class="mk">15.</span><div>&quot;All multiples of 8 are even.&quot;</div></li><li><span class="mk">16.</span><div>&quot;No prime is divisible by 4.&quot;</div></li><li><span class="mk">17.</span><div>&quot;Some integer is its own square.&quot;</div></li><li><span class="mk">18.</span><div>∀x: x² ≥ 0</div></li><li><span class="mk">19.</span><div>∃x: x + 1 = x</div></li><li><span class="mk">20.</span><div>&quot;Every negative number is less than every positive number.&quot;</div></li></ul>
+<h4 class="group">Problems 21–28 — Solve: give the truth set. Every step, every reason. (Lesson 1)</h4>
+<ul class="steps"><li><span class="mk">21.</span><div>2x + 3 = 15</div></li><li><span class="mk">22.</span><div>5x − 7 = 3x + 9</div></li><li><span class="mk">23.</span><div>x/3 + 2 = 7</div></li><li><span class="mk">24.</span><div>4(x + 1) = 28</div></li><li><span class="mk">25.</span><div>−3x + 2 = 20</div></li><li><span class="mk">26.</span><div>x² = 64</div></li><li><span class="mk">27.</span><div>Let g(x) = x² − 3. Solve g(x) = 6.</div></li><li><span class="mk">28.</span><div>|x − 2| = 6</div></li></ul>
+<h4 class="group">Problems 29–34 — Inequalities: give the truth set as a comparison. (Lessons 1–2)</h4>
+<ul class="steps"><li><span class="mk">29.</span><div>3x − 2 &gt; 10</div></li><li><span class="mk">30.</span><div>2x + 5 ≤ 17</div></li><li><span class="mk">31.</span><div>−2x + 3 &gt; 11</div></li><li><span class="mk">32.</span><div>5 − x ≥ 8</div></li><li><span class="mk">33.</span><div>x/4 + 1 &lt; 6</div></li><li><span class="mk">34.</span><div>7x − 4 ≥ 9x</div></li></ul>
+<h4 class="group">Problems 35–40 — True or false? Remember: AND needs both; OR needs one. (Lesson 3)</h4>
+<ul class="steps"><li><span class="mk">35.</span><div>&quot;−4 &lt; 0 AND (−4)² = 16.&quot;</div></li><li><span class="mk">36.</span><div>&quot;½ &lt; 1 AND (½)² &gt; ½.&quot;</div></li><li><span class="mk">37.</span><div>&quot;9 is prime OR 9 is odd.&quot;</div></li><li><span class="mk">38.</span><div>&quot;2³ = 6 OR 2³ = 8.&quot;</div></li><li><span class="mk">39.</span><div>&quot;x = 3 makes x² = 9 AND 2x = 9.&quot;</div></li><li><span class="mk">40.</span><div>&quot;x = −5 satisfies |x| = 5 OR x &gt; 0.&quot;</div></li></ul>
+<h4 class="group">Problems 41–46 — Compound inequalities and absolute value. (Lesson 3)</h4>
+<ul class="steps"><li><span class="mk">41.</span><div>Write as one chain: x &gt; 1 AND x ≤ 9.</div></li><li><span class="mk">42.</span><div>Solve: 2x + 1 ≤ 13 AND x + 2 &gt; 5.</div></li><li><span class="mk">43.</span><div>Solve: x − 3 &gt; 2 AND 3x ≤ 24.</div></li><li><span class="mk">44.</span><div>Rewrite without absolute value: |x| ≤ 5.</div></li><li><span class="mk">45.</span><div>Rewrite without absolute value: |x| &gt; 5.</div></li><li><span class="mk">46.</span><div>Solve: |x − 3| &lt; 4.</div></li></ul>
+<h4 class="group">Problems 47–52 — De Morgan: rewrite without the leading NOT. (Lesson 3)</h4>
+<ul class="steps"><li><span class="mk">47.</span><div>NOT (x &gt; 2 AND x ≤ 10)</div></li><li><span class="mk">48.</span><div>NOT (x &lt; −3 OR x ≥ 4)</div></li><li><span class="mk">49.</span><div>NOT (p AND q AND r)</div></li><li><span class="mk">50.</span><div>&quot;It is not true that 8 is even and prime.&quot; (Also: is the rewritten version true?)</div></li><li><span class="mk">51.</span><div>NOT (x ≤ 6 AND x ≥ 1)</div></li><li><span class="mk">52.</span><div>&quot;The shop is not open on Saturday or Sunday.&quot;</div></li></ul>
+<h4 class="group">Problems 53–58 — IF–THEN anatomy and promise-breaking. (Lesson 4)</h4>
+<ul class="steps"><li><span class="mk">53.</span><div>&quot;If x = 6, then x² = 36.&quot; Name the hypothesis and the conclusion. Is the promise true?</div></li><li><span class="mk">54.</span><div>Same promise. You're told x = 6. What must be true?</div></li><li><span class="mk">55.</span><div>Same promise. You're told x² ≠ 36. What must be true?</div></li><li><span class="mk">56.</span><div>Kill with a counterexample: &quot;If x² &gt; 4, then x &gt; 2.&quot;</div></li><li><span class="mk">57.</span><div>Kill with a counterexample: &quot;If x is negative, then −x is also negative.&quot;</div></li><li><span class="mk">58.</span><div>True or false — and why: &quot;If x² &lt; 0, then x = 50.&quot;</div></li></ul>
+<h4 class="group">Problems 59–60 — Quick think! (Lessons 1 and 3)</h4>
+<ul class="steps"><li><span class="mk">59.</span><div>The truth set of &quot;2x = 10&quot; is {5}. Is 7 in the truth set of &quot;2x = 10 OR x = 7&quot;? Why?</div></li><li><span class="mk">60.</span><div>What is the truth set of x = x + 2? Show the step that proves it.</div></li></ul>
+<h3 class="level">🟡 INTERMEDIATE (Problems 61–85)</h3>
+<h4 class="group">Problems 61–66 — The family of four and the two-way promise. (Lesson 5)</h4>
+<ul class="steps"><li><span class="mk">61.</span><div>Write the converse, inverse, and contrapositive of &quot;If x = 3, then 2x = 6.&quot; <br>Which of the three are true?</div></li><li><span class="mk">62.</span><div>Same job for &quot;If x = 5, then x² = 25.&quot; Which relatives are true this time — and why the difference?</div></li><li><span class="mk">63.</span><div>Backwards detective: a promise's contrapositive is &quot;If x² ≠ 100, then x ≠ 10.&quot; <br>What was the ORIGINAL promise?</div></li><li><span class="mk">64.</span><div>True biconditional or not? &quot;x = 8 ↔ 3x = 24.&quot; Check both directions.</div></li><li><span class="mk">65.</span><div>True biconditional or not? &quot;x² = 16 ↔ x = 4.&quot; If it fails, repair it into a true one.</div></li><li><span class="mk">66.</span><div>Fill in the blank to make a true biconditional: &quot;x is divisible by 10 ↔ x ends in ___.&quot;</div></li></ul>
+<h4 class="group">Problems 67–70 — &quot;Only if,&quot; necessary, and sufficient. (Lesson 5)</h4>
+<ul class="steps"><li><span class="mk">67.</span><div>&quot;You may ride the coaster only if you are at least 48 inches tall.&quot; <br>(a) Rewrite as an if-then. (b) You ARE 50 inches tall. Is a ride guaranteed?</div></li><li><span class="mk">68.</span><div>&quot;Passing this course requires a score of at least 60.&quot; <br>(a) Rewrite as an if-then. (b) You scored 62. Did you necessarily pass?</div></li><li><span class="mk">69.</span><div>True promise: &quot;If x is divisible by 12, then x is divisible by 3.&quot; <br>Which condition is sufficient for which? Which is necessary for which?</div></li><li><span class="mk">70.</span><div>True or false: &quot;x² = y² only if x = y.&quot; (Translate first — then decide.)</div></li></ul>
+<h4 class="group">Problems 71–74 — Circle logic and quantifiers. (Lesson 6)</h4>
+<ul class="steps"><li><span class="mk">71.</span><div>All multiples of 20 are multiples of 10. All multiples of 10 are multiples of 5. <br>Conclusion: all multiples of 20 are multiples of 5. Valid?</div></li><li><span class="mk">72.</span><div>All multiples of 6 are even. All multiples of 10 are even. <br>Conclusion: some multiple of 6 is a multiple of 10. Does it FOLLOW?</div></li><li><span class="mk">73.</span><div>Some even numbers are prime. Some prime numbers are odd. <br>Conclusion: some even number is odd. Valid?</div></li><li><span class="mk">74.</span><div>All multiples of 8 are even. 27 is not even. <br>Conclusion: 27 is not a multiple of 8. Valid?</div></li></ul>
+<h4 class="group">Problems 75–78 — Valid or fake? Name the move or the trap. (Lesson 7)</h4>
+<h3>The promise for 75–78: &quot;If x = 8, then x² = 64.&quot;</h3>
+<ul class="steps"><li><span class="mk">75.</span><div>x = 8, so x² = 64.</div></li><li><span class="mk">76.</span><div>x² = 64, so x = 8.</div></li><li><span class="mk">77.</span><div>x² ≠ 64, so x ≠ 8.</div></li><li><span class="mk">78.</span><div>x ≠ 8, so x² ≠ 64.</div></li></ul>
+<h4 class="group">Problems 79–82 — ∀ and ∃ in action: prove or kill. (Lesson 6)</h4>
+<ul class="steps"><li><span class="mk">79.</span><div>Prove ∃: &quot;There exists x with 5x + 1 = 21.&quot;</div></li><li><span class="mk">80.</span><div>True or false — and defend your answer: ∀x: x² ≥ 0 (x a real number).</div></li><li><span class="mk">81.</span><div>True or false — and defend: ∀x: x² &gt; x.</div></li><li><span class="mk">82.</span><div>Find BOTH witnesses for ∃x: x² = x. (Hint: x² = x means x² − x = 0 — factor it.)</div></li></ul>
+<h4 class="group">Problems 83–85 — A system is an AND: find the pair (x, y) that makes BOTH true. (Lesson 3)</h4>
+<ul class="steps"><li><span class="mk">83.</span><div>x + y = 14 AND x − y = 6.</div></li><li><span class="mk">84.</span><div>y = 2x AND x + y = 12.</div></li><li><span class="mk">85.</span><div>2x + 3y = 24 AND x = y + 2.</div></li></ul>
+<h3 class="level">🔴 CHALLENGE (Problems 86–100)</h3>
+<ul class="steps"><li><span class="mk">86.</span><div>The extraneous hunter. Solve √(x + 12) = x with full steps — square, factor, and then <br>CHECK every candidate in the original equation. One of your candidates is a fake; <br>explain exactly where it came from.</div></li></ul>
+<ul class="steps"><li><span class="mk">87.</span><div>The if-then islander. Ava says: &quot;If I am a knight, then Bo is a knight.&quot; Bo says nothing. <br>What are they? (Lesson 8's Puzzle 4 is your model — the promise table is the key.)</div></li></ul>
+<ul class="steps"><li><span class="mk">88.</span><div>Three islanders. Ava says: &quot;At least one of us is a knave.&quot; Bo says: &quot;Cy is a knight.&quot; <br>Cy says: &quot;We are all knaves.&quot; Find all three types, with suppose-and-check.</div></li></ul>
+<ul class="steps"><li><span class="mk">89.</span><div>Design and destroy. Invent a FALSE &quot;for all x&quot; claim about squares that a classmate <br>would find believable — then assassinate it with ONE counterexample that uses a <br>fraction between 0 and 1, or a negative number, or zero.</div></li></ul>
+<ul class="steps"><li><span class="mk">90.</span><div>Backwards truth sets. (a) My equation's truth set is {6, −6} and it involves squaring. <br>What could my equation be? (b) Now write an equation whose truth set is {6} ONLY.</div></li></ul>
+<ul class="steps"><li><span class="mk">91.</span><div>Mini-proof. Prove: the sum of an even number and an odd number is odd. <br>(Arm your letters: even = 2m, odd = 2n + 1. Every step needs a reason.)</div></li></ul>
+<ul class="steps"><li><span class="mk">92.</span><div>The vanishing solution. A student solves x² = 5x by dividing both sides by x and <br>announces &quot;x = 5.&quot; (a) Find the solution they lost. (b) Explain the logical flaw: <br>why is &quot;divide by x&quot; not an innocent reversible step here? (c) Solve it correctly <br>by factoring.</div></li></ul>
+<ul class="steps"><li><span class="mk">93.</span><div>Design it! Invent your own two-islander puzzle whose ONLY solution is <br>&quot;Ava is a knight, Bo is a knave.&quot; Then solve it with suppose-and-check to prove <br>the other cases explode.</div></li></ul>
+<ul class="steps"><li><span class="mk">94.</span><div>The untestable promise. Write a TRUE if-then statement about numbers whose <br>hypothesis can never happen — and explain, using the promise table, why it <br>counts as true.</div></li></ul>
+<ul class="steps"><li><span class="mk">95.</span><div>Backwards conditions. The answer is &quot;divisible by 6.&quot; <br>(a) What condition is SUFFICIENT for being divisible by 6 (but not necessary)? <br>(b) Being divisible by 6 is NECESSARY for what condition?</div></li></ul>
+<ul class="steps"><li><span class="mk">96.</span><div>Design it, island edition! Invent a three-islander puzzle in which EXACTLY one <br>islander is a knight — and prove your puzzle works by testing every case. <br>(Hint: build each statement around the solution you want, then check that every <br>other case explodes.)</div></li></ul>
+<ul class="steps"><li><span class="mk">97.</span><div>The backwards promise machine. Here is a contrapositive: &quot;If x is not even, then <br>x is not divisible by 6.&quot; (a) What was the original promise? (b) Write its converse. <br>(c) Is the converse true? Prove your answer.</div></li></ul>
+<ul class="steps"><li><span class="mk">98.</span><div>The OR truth set. A classmate reports: &quot;x² = 7x − 12, so x = 3.&quot; <br>(a) Show x = 3 really works. (b) Explain what logic error &quot;so x = 3&quot; commits. <br>(c) Find the COMPLETE truth set by factoring — and write it as an OR.</div></li></ul>
+<ul class="steps"><li><span class="mk">99.</span><div>Two-way design. Write an if-then promise about x that is TRUE and whose converse <br>is also TRUE — then prove both directions step by step, and write the final <br>biconditional with ↔.</div></li></ul>
+<ul class="steps"><li><span class="mk">100.</span><div>The grand finale — the island census. You meet Ava, Bo, and Cy. <br>Ava says: &quot;Bo is a knave.&quot; Bo says: &quot;Ava and Cy are the same type.&quot; <br>Cy says: &quot;Ava is a knight.&quot; Determine all three types, proving your answer is the <br>ONLY possibility.</div></li></ul></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">⬅️ Lesson 10</a><a class="btn" href="answers.html">Answer Key ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

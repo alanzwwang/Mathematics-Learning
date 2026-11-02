@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Watch Out! Common Mistakes (Honors Edition) — Pascal's Triangle</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a> › Lesson 9</p>
+    <h1>⚠️ Watch Out! Common Mistakes (Honors Edition)</h1>
+    <p class="kicker">📖 Lesson 9 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the big ideas in sight</p><pre class="math">C(n, k) = n! / (k!(n − k)!) = entry k of row n (numbering starts at 0!)
+Pascal's rule · symmetry · row sum 2ⁿ · binomial theorem · hockey stick</pre></div>
+<p>These traps catch honors students every year. Learn them here, not on a test.</p>
+<h3>Mistake 1: Off-by-one indexing</h3>
+<pre class="math">C(6, 2) is the third entry of row 6? That can't be right... ❌ (it IS right!)</pre>
+<p>Entries start at 0, so entry 2 is the THIRD thing you see in row 6: 1, 6, [15], 20, ... The trap runs the other way too: hunting for C(6, 2) and grabbing the 2nd visible entry (the 6). Self-check that catches it every time: entry 1 of row n must be n. In row 6, entry 1 is 6 ✅, so entry 2 is the 15.</p>
+<p>Mistake 2: Forgetting to divide by k! (order vs. no order)</p>
+<pre class="math">Choosing 2 captains from 9 players: 9 × 8 = 72?  ❌</pre>
+<p>That 72 counts (Ana first, Bo second) and (Bo first, Ana second) as DIFFERENT — but captain pairs don't have an order. Every pair was counted 2! = 2 times, so divide: 72 ÷ 2 = 36 = C(9, 2). Rule of thumb: if your &quot;choose&quot; answer feels too big, ask &quot;did I count each group in several orders?&quot;</p>
+<h3>Mistake 3: Dropping the (n − k)! downstairs</h3>
+<pre class="math">C(7, 3) = 7! / 3! = 840?  ❌</pre>
+<p>The denominator needs BOTH factorials: C(7, 3) = 7! / (3! · 4!) = 5040 / (6 · 24) = 5040 / 144 = 35. Memory hook: the two downstairs numbers must ADD to the upstairs number — 3 + 4 = 7. If they don't, something's missing.</p>
+<h3>Mistake 4: Forgetting the inside coefficient's power</h3>
+<pre class="math">Coefficient of x³ in (2x + 1)⁵ is C(5, 3) = 10?  ❌</pre>
+<p>The 2 lives INSIDE the parentheses, so it gets raised to the third power along with the x. The full term is C(5, 3) · (2x)³ · 1² = 10 · 8x³ = 80x³. Coefficient: 80. Every factor inside the binomial participates in every power.</p>
+<h3>Mistake 5: Sign slips in (a − b)ⁿ</h3>
+<pre class="math">(x − 1)⁴ = x⁴ + 4x³ + 6x² + 4x + 1?  ❌</pre>
+<p>With b = −1, the odd powers of b are negative, so the signs ALTERNATE: x⁴ − 4x³ + 6x² − 4x + 1. The habit that catches this: plug in x = 1 (or 2) and compare both sides. (2 − 1)⁴ = 1, and the wrong expansion gives 16 + 32 + 24 + 8 + 1 = 81 = 3⁴ ≠ 1 — busted instantly.</p>
+<h3>Mistake 6: Assuming divisibility by the row number</h3>
+<pre class="math">Every interior entry of row 8 is divisible by 8?  ❌</pre>
+<p>Row 8's interior: 8, 28, 56, 70 — and 70 is not divisible by 8. The prime row theorem has a hypothesis: p must be PRIME. Row 7 works (7, 21, 35 all divisible by 7); row 8 doesn't. A theorem's conditions are part of the theorem.</p>
+<h3>Mistake 7: Doubling the entries instead of the sums</h3>
+<pre class="math">Row 4's middle is 6, so row 5's middle must be 12?  ❌</pre>
+<p>Only the SUMS double. Entries come from adding parents: row 5's middles are 4 + 6 = 10 and 6 + 4 = 10. The doubling machine works on totals (16 → 32), not on the entries inside.</p>
+<h3>Mistake 8: Gluing digits for 11⁵</h3>
+<pre class="math">Row 5 is 1 5 10 10 5 1, so 11⁵ = 15101051?  ❌</pre>
+<p>Digit-gluing works only while every entry is one digit. Lesson 6 showed the truth: 11ⁿ = (10 + 1)ⁿ puts each entry in its own place-value column, and two-digit entries overflow into the next column — 11⁵ = 161051 after carrying. The &quot;trick&quot; was the binomial theorem all along.</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">⬅️ Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

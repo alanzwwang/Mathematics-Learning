@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Slope — The Deep Dive (with a Real Proof) — Linear Functions</title>
+<meta name="description" content="Function machines, slope and straight-line graphs, from f(x) to systems of equations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📈 Linear Functions</a> › Lesson 5</p>
+    <h1>⚡ Slope — The Deep Dive (with a Real Proof)</h1>
+    <p class="kicker">📖 Lesson 5 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Function? — Machines and f(x)">1</a><a href="lesson-2.html" title="Lesson 2: Chained Machines — Composition of Functions">2</a><a href="lesson-3.html" title="Lesson 3: Tables, Constant Steps, and Arithmetic Sequences">3</a><a href="lesson-4.html" title="Lesson 4: Graphs — Straight Lines, Intercepts, and the Vertical Line Test">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Slope — The Deep Dive (with a Real Proof)">5</a><a href="lesson-6.html" title="Lesson 6: Building Equations — The Three-Form Toolkit">6</a><a href="lesson-7.html" title="Lesson 7: Moving Lines Around — Transformations and Inverses">7</a><a href="lesson-8.html" title="Lesson 8: Lines at Work — Systems, Two Methods, and the Three Fates">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! The Eight Classic Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">slope = rise ÷ run = Δy ÷ Δx
+Through (x₁, y₁) and (x₂, y₂):  slope = (y₂ − y₁) ÷ (x₂ − x₁)
+Sign: + climbs, − falls, 0 flat. Steepness = |m| (size, ignoring sign).</pre></div>
+<p>You know slope as &quot;how much y grows per step of x.&quot; Now let's go one level deeper: why can we talk about THE slope of a line, when a line has infinitely many pairs of points to choose from? Time for your first real proof in this course — with every step justified.</p>
+<h3>Proof: every pair of points on y = mx + b gives slope m</h3>
+<pre class="math">Claim. Pick any two different x-values x₁ and x₂ on the line
+y = mx + b. The slope between the two points is always m.</pre>
+<pre class="math">Step 1: the two points are (x₁, mx₁ + b) and (x₂, mx₂ + b).
+        (Reason: &quot;on the line&quot; means their y equals mx + b.)
+Step 2: rise = (mx₂ + b) − (mx₁ + b)
+        (Reason: rise is the change in y, second minus first.)
+Step 3: rise = mx₂ − mx₁
+        (Reason: +b − b = 0 — the b's cancel.)
+Step 4: rise = m(x₂ − x₁)
+        (Reason: factor out the shared m — distributive rule backwards.)
+Step 5: run = x₂ − x₁
+        (Reason: run is the change in x.)
+Step 6: slope = m(x₂ − x₁) ÷ (x₂ − x₁) = m
+        (Reason: rise ÷ run, then cancel — legal because x₂ ≠ x₁,
+        so we're never dividing by zero.)  ■</pre>
+<p>That little square ■ means &quot;proof complete.&quot; What we just proved: the slope doesn't depend on which window you look through. Zoom in, zoom out — same steepness. That's what makes the line straight, and it's the reason &quot;the slope of the line&quot; is a legal phrase at all.</p>
+<h3>Parallel lines</h3>
+<pre class="math">Two DIFFERENT lines are parallel (never meet) exactly when
+their slopes are equal.</pre>
+<pre class="math">Why equal slopes never meet: try to find a meeting point of
+y = mx + b₁ and y = mx + b₂ by setting them equal:
+        mx + b₁ = mx + b₂
+        b₁ = b₂        (subtract mx from both sides — the slopes cancel!)
+If b₁ ≠ b₂, that's impossible → no x works → the lines never meet.
+If b₁ = b₂, it was the same line twice — they &quot;meet&quot; everywhere.</pre>
+<h3>Perpendicular lines</h3>
+<pre class="math">Two lines are perpendicular (meet at 90°) exactly when their slopes
+are negative reciprocals: m and −1/m. Equivalently: the slopes
+multiply to −1.</pre>
+<pre class="math">Why the negative reciprocal: a slope-m line marches &quot;over 1, up m&quot; —
+picture that as an arrow. Rotate the arrow a quarter-turn (90°):
+the rotation rule is (over, up) → (−up, over), so &quot;over 1, up m&quot;
+becomes &quot;over −m, up 1.&quot; The rotated line's slope is
+rise ÷ run = 1 ÷ (−m) = −1/m.
+Check the product: m × (−1/m) = −1 ✅.</pre>
+<pre class="math">Example: perpendicular to slope 3 is slope −1/3.
+Perpendicular to slope −2/5 is slope 5/2 (flip AND change sign —
+two negatives make it positive). Check: (−2/5) × (5/2) = −1 ✅.</pre>
+<h3><strong>Worked example</strong> — one line, three questions</h3>
+<p>The line through (1, 2) and (5, 8):</p>
+<pre class="math">Its slope:  rise = 8 − 2 = 6, run = 5 − 1 = 4, slope = 6/4 = 3/2.
+Any PARALLEL line has slope 3/2 (same climb rate, never meets it).
+Any PERPENDICULAR line has slope −2/3 (negative reciprocal).
+Check: (3/2) × (−2/3) = −6/6 = −1 ✅.</pre>
+<p>One more refinement: steepness is |m|, the size of the slope ignoring its sign. Slopes 5 and −5 are equally steep — one climbs, one dives. And fraction slopes are gentle: slope 1/2 means &quot;up 1 for every 2 over,&quot; a wheelchair ramp next to slope 5's staircase.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>For the line through (0, 1) and (4, 5): find its slope, the slope of any parallel line, and the slope of any perpendicular line.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: rise = 5 − 1 = 4, run = 4 − 0 = 4, slope = 4/4 = 1. Parallel slope: 1. Perpendicular slope: −1 (the negative reciprocal of 1 is −1/1 = −1). Check: 1 × (−1) = −1 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 3</p>
+    <h1>🎯 AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems</h1>
+    <p class="kicker">📖 Lesson 3 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">AND is strict: BOTH parts must be true. AND shrinks a truth set to the overlap.
+OR is generous: AT LEAST ONE part must be true — both is fine! OR glues truth sets together.
+Negating swaps them: ¬(p ∧ q) = ¬p ∨ ¬q, and ¬(p ∨ q) = ¬p ∧ ¬q.</pre></div>
+<p>Glue two statements with AND or OR and the truth of the combo follows iron rules. Logicians write p ∧ q for &quot;p AND q&quot; and p ∨ q for &quot;p OR q&quot;. The whole machine in one table:</p>
+<pre class="math">p        q        p ∧ q      p ∨ q
+──────   ──────   ────────   ───────
+true     true     true       true
+true     false    false      true
+false    true     false      true
+false    false    false      false</pre>
+<p>AND is only happy in the first row; OR is happy everywhere except the last. Warning about OR: in math, &quot;p or q&quot; means p, or q, or BOTH. So &quot;2 is even OR 2 is prime&quot; is TRUE — both halves true, and that's allowed.</p>
+<p>Now watch what AND and OR do to open sentences — this is where it gets useful. Since an open sentence has a truth set, combining two of them combines their truth sets:</p>
+<pre class="math">AND  =  the OVERLAP:  only the x's that make BOTH true
+OR   =  the UNION:    every x that makes at least one true</pre>
+<p><strong>Worked example 1</strong> — an AND of two inequalities. Find the truth set of &quot;2x + 3 ≤ 15 AND x − 1 &gt; 2&quot;.</p>
+<p>Solve each half separately, every step with its reason:</p>
+<pre class="math">2x + 3 ≤ 15                        x − 1 &gt; 2
+2x ≤ 12          subtract 3        x &gt; 3           add 1
+x ≤ 6            divide by 2</pre>
+<p>AND means the overlap — the x's that satisfy BOTH: x ≤ 6 and x &gt; 3. On a number line, the first ray covers everything left of 6 (including 6), the second covers everything right of 3 (excluding 3). Where they overlap:</p>
+<pre class="math">Truth set:  3 &lt; x ≤ 6
+CHECK the boundary x = 6:  2(6) + 3 = 15 ≤ 15 ✓  and  6 − 1 = 5 &gt; 2 ✓  — in!
+CHECK x = 3:  3 − 1 = 2, and 2 &gt; 2 is FALSE — out, as it should be.</pre>
+<p><strong>Worked example 2</strong> — an OR that can't be one chain. Find the truth set of &quot;x + 4 &lt; 2 OR 3x ≥ 21&quot;.</p>
+<pre class="math">x + 4 &lt; 2                          3x ≥ 21
+x &lt; −2           subtract 4        x ≥ 7           divide by 3</pre>
+<p>OR means the union — anything in EITHER piece counts:</p>
+<pre class="math">Truth set:  x &lt; −2 OR x ≥ 7.  (Two separate rays — no single chain can write this.)</pre>
+<p>Absolute value is AND and OR in disguise. Remember: |x| is the distance from x to 0, and distance is never negative.</p>
+<pre class="math">|x| ≤ 4   means   &quot;distance to 0 is at most 4&quot;   →   −4 ≤ x ≤ 4      (an AND: x ≥ −4 AND x ≤ 4 — near 0)
+|x| &gt; 4   means   &quot;distance to 0 is more than 4&quot; →   x &gt; 4 OR x &lt; −4 (an OR: two far-away rays)</pre>
+<p>Memory hook: &quot;less than&quot; clusters close (AND, one piece); &quot;greater than&quot; splits far (OR, two pieces).</p>
+<p><strong>Worked example 3</strong> — unlock an absolute value, AND style. Solve |x − 3| ≤ 5.</p>
+<pre class="math">−5 ≤ x − 3 ≤ 5            &quot;distance&quot; reading: x − 3 sits between −5 and 5
+−5 + 3 ≤ x ≤ 5 + 3        add 3 to ALL THREE parts — keeps both inequalities true
+−2 ≤ x ≤ 8                simplify</pre>
+<pre class="math">Truth set: −2 ≤ x ≤ 8.  CHECK x = −2: |−2 − 3| = |−5| = 5 ≤ 5 ✓.  CHECK x = 9: |9 − 3| = 6 &gt; 5 — out ✓.</pre>
+<p><strong>Worked example 4</strong> — unlock an absolute value, OR style. Solve |x + 1| &gt; 4.</p>
+<pre class="math">x + 1 &gt; 4  OR  x + 1 &lt; −4     greater-than splits into two far rays
+x &gt; 3      OR  x &lt; −5         subtract 1 from both sides of each piece</pre>
+<pre class="math">Truth set: x &gt; 3 OR x &lt; −5.
+CHECK x = 4:  |4 + 1| = 5 &gt; 4 ✓ in.   CHECK x = −6: |−6 + 1| = |−5| = 5 &gt; 4 ✓ in.
+CHECK x = 0:  |0 + 1| = 1, not &gt; 4 — out ✓.   CHECK the boundary x = −5: |−4| = 4, NOT &gt; 4 — correctly excluded ✓.</pre>
+<p>And now the gem — De Morgan's laws, for flipping a statement with AND or OR inside:</p>
+<pre class="math">¬(p ∧ q)  =  ¬p ∨ ¬q
+¬(p ∨ q)  =  ¬p ∧ ¬q</pre>
+<p>The NOT slips inside, and AND/OR SWAP. Why the swap? Think about failing each test: to fail an AND test you only blow ONE part (&quot;you can't have cake AND ice cream&quot; means no cake OR no ice cream — you're missing at least one, maybe just one). To fail an OR test you must blow BOTH (&quot;not open Saturday OR Sunday&quot; means closed Saturday AND closed Sunday). The law works for three parts too: ¬(p ∧ q ∧ r) = ¬p ∨ ¬q ∨ ¬r.</p>
+<p><strong>Worked example 5</strong> — De Morgan with comparisons. Rewrite NOT (x &gt; 2 AND x ≤ 9) without the leading NOT.</p>
+<pre class="math">¬(x &gt; 2  AND  x ≤ 9)
+= ¬(x &gt; 2)  OR  ¬(x ≤ 9)     De Morgan: NOT slips in, AND → OR
+= x ≤ 2  OR  x &gt; 9           flip each comparison — boundaries switch teams (Lesson 2)</pre>
+<pre class="math">Sanity check: the original AND was true only on 2 &lt; x ≤ 9; the flip should cover everything
+OUTSIDE that — and x ≤ 2 OR x &gt; 9 is exactly everything outside ✓.
+(Look back at Lesson 2's coming attraction: this is why the flip of the chain 2 &lt; x ≤ 9
+is x ≤ 2 OR x &gt; 9. A chain is an AND, and De Morgan flips it into an OR.)</pre>
+<p><strong>Worked example 6</strong> — the other direction. Rewrite NOT (x &lt; −1 OR x ≥ 6).</p>
+<pre class="math">¬(x &lt; −1  OR  x ≥ 6)
+= ¬(x &lt; −1)  AND  ¬(x ≥ 6)   De Morgan: NOT slips in, OR → AND
+= x ≥ −1  AND  x &lt; 6         flip each comparison
+= −1 ≤ x &lt; 6                 AND = overlap, written as one chain</pre>
+<p>One last powerhouse for this section. A system of two equations is just an AND of two open sentences with two variables — and &quot;solve the system&quot; means find the overlap of the two truth sets: the pairs (x, y) that make BOTH true.</p>
+<p><strong>Worked example 7</strong> — a system is an AND, by elimination. Solve: x + y = 12 AND x − y = 4.</p>
+<pre class="math">x + y = 12
+x − y = 4</pre>
+<pre class="math">2x = 16          add the two equations — equal plus equal stays equal;
+                 the +y and −y cancel, which is the whole point
+x = 8            divide both sides by 2
+8 + y = 12       substitute x = 8 into the first equation — the value must work THERE too
+y = 4            subtract 8 from both sides</pre>
+<pre class="math">CHECK BOTH — AND demands both!  First: 8 + 4 = 12 ✓.  Second: 8 − 4 = 4 ✓.
+Truth set: the single pair (8, 4).</pre>
+<p><strong>Worked example 8</strong> — a system by substitution. Solve: 2x + 3y = 24 AND x = y + 2.</p>
+<p>The second equation hands you x ready-made — so plug it into the first:</p>
+<pre class="math">2(y + 2) + 3y = 24      substitute x = y + 2 into 2x + 3y = 24 — replacing x with
+                        an equal expression keeps the truth set unchanged
+2y + 4 + 3y = 24        distribute the 2: 2·y + 2·2
+5y + 4 = 24             combine like terms: 2y + 3y = 5y
+5y = 20                 subtract 4 from both sides
+y = 4                   divide both sides by 5
+x = 4 + 2 = 6           substitute y = 4 back into x = y + 2</pre>
+<pre class="math">CHECK BOTH:  2(6) + 3(4) = 12 + 12 = 24 ✓.  6 = 4 + 2 ✓.
+Truth set: the single pair (6, 4).</pre>
+<p>(If you ever graph these: each equation's truth set is a line, and the AND-overlap is exactly where the lines cross.)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the truth set: 3x − 2 ≤ 13 AND x &gt; 2.   (b) Rewrite |x| ≥ 2 without absolute value.   (c) Rewrite NOT (x ≥ 4 AND x &lt; 12) without the leading NOT.   (d) Solve |x + 2| ≤ 3.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 3x ≤ 15 → x ≤ 5; overlap with x &gt; 2 gives 2 &lt; x ≤ 5. (b) x ≥ 2 OR x ≤ −2 (greater-than splits into two far rays). (c) De Morgan: x &lt; 4 OR x ≥ 12 — the flip covers everything outside the original chain ✓. (d) −3 ≤ x + 2 ≤ 3 → subtract 2 from all three parts → −5 ≤ x ≤ 1. CHECK x = −5: |−5 + 2| = |−3| = 3 ≤ 3 ✓. CHECK x = 2: |2 + 2| = 4 &gt; 3 — out ✓.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Counting Every Outcome — Probability</title>
+<meta name="description" content="How likely is it? Complements, AND and OR rules, and expected value.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a> › Lesson 3</p>
+    <h1>🎯 Counting Every Outcome</h1>
+    <p class="kicker">📖 Lesson 3 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">The bottom of the fraction is ALL that can happen — so first you must count.
+Counting principle: multiply the number of choices at each step.
+n! = n × (n − 1) × … × 2 × 1 counts the ways to line up n different things.</pre></div>
+<p>The formula is easy. The tricky part is making sure you've counted every outcome. The full list of outcomes has a fancy name — the sample space — but it's just &quot;the list of everything that can happen.&quot;</p>
+<p>Two coins, counted honestly. Flip two coins. Many people say there are three outcomes: two heads, two tails, or one of each. Wrong! The real sample space:</p>
+<pre class="math">Coin 1    Coin 2
+H         H
+H         T
+T         H
+T         T</pre>
+<p>HT and TH are different — &quot;penny heads, dime tails&quot; is a different result from &quot;penny tails, dime heads.&quot; So &quot;one of each&quot; happens 2 ways out of 4:</p>
+<pre class="math">P(exactly one head) = 2/4 = 1/2
+P(two heads) = 1/4</pre>
+<p>Mixed is twice as likely as double heads. That's the kind of thing you can only see once you count honestly.</p>
+<p>The counting principle. Listing 36 outcomes by hand is misery, so use the shortcut: multiply the number of choices at each step.</p>
+<pre class="math">Two coins: 2 × 2 = 4
+Three coins: 2 × 2 × 2 = 2³ = 8
+n coins: 2ⁿ
+A coin and a die: 2 × 6 = 12
+Two dice: 6 × 6 = 36
+Outfits from 3 shirts, 4 pants, 2 pairs of shoes: 3 × 4 × 2 = 24</pre>
+<p>Why multiply? Each choice at step 1 can be paired with EACH choice at step 2 — so the step-2 options get copied once for every step-1 option. Repeated copying is multiplication.</p>
+<p>Notice the exponent hiding in the coin row: every extra coin doubles the count, so n coins have 2ⁿ outcomes. That lets you solve BACKWARD. How many coins produce 32 outcomes?</p>
+<pre class="math">2ⁿ = 32
+2ⁿ = 2 × 2 × 2 × 2 × 2      count the doublings: 2, 4, 8, 16, 32
+2ⁿ = 2⁵
+n = 5 ✅</pre>
+<p>Factorials: the line-up machine. How many ways can 3 different books line up on a shelf? 3 choices for the first slot; once it's filled, 2 books remain for the second slot; then 1 for the last:</p>
+<pre class="math">3 × 2 × 1 = 6 ways</pre>
+<p>That shrinking product has a name and a symbol — the factorial, written with an exclamation mark:</p>
+<pre class="math">3! = 3 × 2 × 1 = 6
+4! = 4 × 3 × 2 × 1 = 24
+5! = 5 × 4 × 3 × 2 × 1 = 120</pre>
+<p>Factorials grow FAST — 5! is already 120 — because every new item multiplies the count by a bigger number.</p>
+<p>A quadratic peeks in. Two fair dice-like objects each have n sides, and together they produce 36 outcomes. How many sides does each have?</p>
+<pre class="math">n × n = 36          counting principle: n choices paired with n choices
+n² = 36
+n = 6 or n = −6     BOTH square to 36: 6² = 36 and (−6)² = 36
+n = 6 ✅             a side count must be positive — reject −6</pre>
+<p>That's your first quadratic equation in the wild: algebra hands you two solutions, and the story keeps only the positive one. Remember that move — the challenge problems use it again.</p>
+<p>Two dice: the sum map. Two dice have 36 outcomes, and what usually matters is the sum. Here's the whole map — how many ways each sum can happen:</p>
+<pre class="math">Sum:    2   3   4   5   6   7   8   9   10  11  12
+Ways:   1   2   3   4   5   6   5   4   3   2   1</pre>
+<pre class="math">Check: 1 + 2 + 3 + 4 + 5 + 6 + 5 + 4 + 3 + 2 + 1 = 36 ✅</pre>
+<p>See the pyramid shape? Seven sits on top with 6 ways, so it's the most likely sum: P(7) = 6/36 = 1/6. Learn to REBUILD this map, not memorize it: for each sum s from 2 up to 7, the number of ways is s − 1; from 7 up to 12 it mirrors back down. Sums like 6 and 8 tie at 5 ways each. This map is your best friend for the practice problems.</p>
+<p>The deck of cards. One more counting machine: a standard deck has 52 cards — 4 suits (hearts ♥ and diamonds ♦ in red, spades ♠ and clubs ♣ in black), with 13 cards in each suit (ace, 2, 3, …, 10, jack, queen, king). Jacks, queens, and kings are called face cards — 3 per suit, 12 total. The counting principle again: 4 × 13 = 52. Now you can count anything:</p>
+<pre class="math">P(heart) = 13/52 = 1/4
+P(ace) = 4/52 = 1/13
+P(face card) = 12/52 = 3/13
+P(ace of spades) = 1/52</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>How many ways can two dice make a sum of 5? List them, then write P(sum of 5) as a simplified fraction.</div></li><li><span class="mk">(b)</span><div>How many ways can 4 different trophies line up on a shelf?</div></li><li><span class="mk">(c)</span><div>Two fair objects each have n sides, and rolling both gives 64 outcomes. Find n.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) (1,4), (2,3), (3,2), (4,1) — 4 ways. P = 4/36 = 1/9. (b) 4! = 4 × 3 × 2 × 1 = 24. (c) n² = 64 → n = 8 (reject −8, since a side count must be positive).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

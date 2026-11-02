@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Optimization — Finding the Best Possible Answer — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 8</p>
+    <h1>🎨 Optimization — Finding the Best Possible Answer</h1>
+    <p class="kicker">📖 Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">To maximize or minimize: build ONE formula for the quantity,
+solve its derivative = 0, and VERIFY — check the second
+derivative and the endpoints.</pre></div>
+<h3>The game plan</h3>
+<p>Optimization is calculus earning its paycheck. Four steps, every time:</p>
+<pre class="math">Step 1: name variables and write the quantity you want to max/min.
+Step 2: use the constraint (the fixed budget, fence, volume...) to
+        reduce to ONE variable — and note the allowed interval.
+Step 3: differentiate and solve derivative = 0.
+Step 4: verify it is really the best: second derivative test,
+        and compare with the endpoints.</pre>
+<p><strong>Worked example 1</strong> — the fence against the wall. A farmer has 2,400 m of fencing for a rectangular pen, and a long stone wall forms one whole side (no fence needed there). What is the largest area she can enclose?</p>
+<pre class="math">Step 1: let x = each of the two sides perpendicular to the wall,
+        and L = the side parallel to the wall. Maximize A = x·L.
+Step 2: the fence budget: 2x + L = 2,400, so L = 2,400 − 2x.
+        Then A(x) = x(2,400 − 2x) = 2,400x − 2x².
+        Allowed interval: 0 ≤ x ≤ 1,200 (at x = 1,200 the fence is all
+        used by the two x-sides, leaving L = 0).
+Step 3: A'(x) = 2,400 − 4x = 0  →  4x = 2,400  →  x = 600.
+Step 4: verify: A''(x) = −4 &lt; 0 → a cap → a MAX ✅.
+        Endpoints: A(0) = 0 and A(1,200) = 0 — both worse. ✅
+Harvest: L = 2,400 − 2×600 = 1,200 m, and
+        A = 600 × 1,200 = 720,000 m²</pre>
+<pre class="math">That is 72 hectares of pen from 2,400 m of fence — and the proof
+that no other shape beats it is the derivative, not a guess.</pre>
+<p><strong>Worked example 2</strong> — the open box. From a 36 cm square sheet of cardboard, cut equal squares of side x from the four corners and fold up the flaps to make an open-top box. Which x gives the biggest volume?</p>
+<pre class="math">Step 1: the base becomes (36 − 2x) by (36 − 2x), the height is x.
+        Maximize V(x) = x(36 − 2x)² on 0 ≤ x ≤ 18.
+Step 2: expand: (36 − 2x)² = 1,296 − 144x + 4x², so
+        V(x) = 4x³ − 144x² + 1,296x.
+Step 3: V'(x) = 12x² − 288x + 1,296 = 12(x² − 24x + 108).
+        Factor: x² − 24x + 108 = (x − 6)(x − 18)
+        (6 × 18 = 108 and 6 + 18 = 24 ✅), so V'(x) = 0 at x = 6, x = 18.
+Step 4: x = 18 makes the base 36 − 36 = 0 — volume 0, a MINIMUM.
+        Check x = 6: V''(x) = 24x − 288, so V''(6) = 144 − 288 = −144 &lt; 0
+        → cap → MAX ✅. Endpoints give V = 0. ✅
+Harvest: V(6) = 6 × 24² = 6 × 576 = 3,456 cm³.</pre>
+<pre class="math">Intuition check: x = 6 is exactly 1/6 of the sheet's side — small enough
+to leave a generous base, tall enough to matter. Calculus found the
+sweet spot; geometry alone could only guess.</pre>
+<p><strong>Worked example 3</strong> — the five-digit profit. A company sells gadgets. When the price is p dollars per gadget, customers buy x of them, where p(x) = 1,000 − 2x (charge less, sell more). Each gadget costs $200 to make, plus fixed costs of $45,000. How many gadgets maximize profit?</p>
+<pre class="math">Step 1: revenue R(x) = x·p(x) = 1,000x − 2x²   (units × price).
+        Cost C(x) = 200x + 45,000.
+Step 2: profit P(x) = R − C = 1,000x − 2x² − 200x − 45,000
+                          = −2x² + 800x − 45,000.
+Step 3: P'(x) = −4x + 800 = 0  →  x = 200 gadgets.
+Step 4: P''(x) = −4 &lt; 0 → cap → MAX ✅.
+Harvest: price p(200) = 1,000 − 400 = $600;
+        revenue = 200 × 600 = $120,000;
+        cost = 200 × 200 + 45,000 = $85,000;
+        profit = $120,000 − $85,000 = $35,000.
+Neighbor check: P(190) = −2×36,100 + 152,000 − 45,000 = $34,800 &lt; $35,000 ✅
+        (moving 10 units either way costs the company $200 of profit).</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Redo the fence problem with only 800 m of fencing (still one stone wall).</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: 2x + L = 800 → L = 800 − 2x; A(x) = 800x − 2x²; A'(x) = 800 − 4x = 0 → x = 200; A'' = −4 &lt; 0 ✅ max; L = 800 − 400 = 400 m; A = 200 × 400 = 80,000 m². One-third the fence, one-ninth the area — scaling is not linear!</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

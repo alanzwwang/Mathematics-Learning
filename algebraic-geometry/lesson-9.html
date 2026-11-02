@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Parabolas, Transformations, and Where Lines Meet Curves — Algebraic Geometry</title>
+<meta name="description" content="Give every point an address (x, y) and watch equations draw lines, circles and parabolas!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🗺️ Algebraic Geometry</a> › Lesson 9</p>
+    <h1>🏗️ Parabolas, Transformations, and Where Lines Meet Curves</h1>
+    <p class="kicker">📖 Lesson 9 of 11</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Two Number Lines, One Map">1</a><a href="lesson-2.html" title="Lesson 2: Plotting Points, Quadrants, and Mirror Tricks">2</a><a href="lesson-3.html" title="Lesson 3: Rules That Draw Shapes">3</a><a href="lesson-4.html" title="Lesson 4: The Membership Test — Forwards and Backwards">4</a><a href="lesson-5.html" title="Lesson 5: Slope — Measuring the Tilt">5</a><a href="lesson-6.html" title="Lesson 6: From Rule to Line — y = mx + b, Parallels, Perpendiculars">6</a><a href="lesson-7.html" title="Lesson 7: Where Lines Meet — Two Methods, Three Possibilities">7</a><a href="lesson-8.html" title="Lesson 8: Distance, Midpoints, and the Circle's Equation">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Parabolas, Transformations, and Where Lines Meet Curves">9</a><a href="lesson-10.html" title="Lesson 10: Watch Out! Common Mistakes">10</a><a href="lesson-11.html" title="Lesson 11: Review — The Big Picture">11</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">y = x² draws a parabola. Tinkering with the rule SLIDES it:
+y = (x − h)² + k has its vertex at (h, k).
+A line meets a parabola where x² equals the line's rule —
+and that puzzle has 2, 1, or 0 answers.</pre></div>
+<p>Straight lines are just the beginning. Let x get squared, and the shapes start to bend!</p>
+<h3>The parabola: y = x²</h3>
+<p>Table it with small x's — including negatives:</p>
+<pre class="math">x = −3 → y = 9         x = 1 → y = 1
+x = −2 → y = 4         x = 2 → y = 4
+x = −1 → y = 1         x = 3 → y = 9
+x =  0 → y = 0</pre>
+<p>Plot those seven points. They do NOT line up — they curve into a perfect U, a smile shape called a PARABOLA. Notice the mirror symmetry: x = −3 and x = 3 give the same y, because (−3)² = 9 = 3². Squaring erases the minus sign, so the left and right halves are mirror twins across the y-axis. (In Lesson 2's language: the parabola is its own reflection across the y-axis!)</p>
+<p>Also notice: y is never negative, because a square can't be negative. The parabola bottoms out at (0, 0). That lowest point — the tip of the U — is called the VERTEX.</p>
+<p>Basketballs fly in parabolas, fountain water arcs in parabolas, and satellite dishes ARE parabolas made of metal!</p>
+<h3>Transformations: sliding the parabola</h3>
+<p>Here's a question worth asking about ANY rule: what happens if we tinker with it? Two tiny tinkerings:</p>
+<pre class="math">y = x² + 2:    every y-value grows by 2. Every point of the U
+               lifts 2 units — the whole parabola slides UP 2.
+               New vertex: (0, 2).</pre>
+<pre class="math">y = (x − 3)²:  trickier! At x = 3, the parenthesis equals 0 —
+               so this rule gives, at x = 3, the SAME y the old
+               rule gave at x = 0. Every y-value happens 3 units
+               LATER. The parabola slides RIGHT 3.
+               New vertex: (3, 0).</pre>
+<p>Inside the parentheses, the shift goes the opposite way from what your gut says: x − 3 slides RIGHT, and x + 3 would slide LEFT. The cure for gut feelings is one membership test: where is the bottom? Getting y = 0 needs (x − 3)² = 0, which forces x = 3. Bottom at (3, 0) — right it is.</p>
+<p>Combine both moves and you get the VIP of this lesson:</p>
+<pre class="math">VERTEX FORM:  y = (x − h)² + k    →    vertex at (h, k)</pre>
+<p>And here's the proof that the vertex really is the bottom — no graph needed:</p>
+<pre class="math">Squares are never negative: (x − h)² ≥ 0 for every x
+(positive² &gt; 0, negative² &gt; 0, and 0² = 0).
+So y = (x − h)² + k ≥ 0 + k = k, always.
+The only way to hit y = k is (x − h)² = 0 — forcing x = h.
+Lowest point: (h, k). Proven! ∎</pre>
+<p>One more transformation: y = −x² negates every y-value, flipping the U upside down — a frown instead of a smile, with a MAXIMUM at the vertex.</p>
+<h3>Where lines meet curves</h3>
+<p>Where does the line y = x + 2 meet the parabola y = x²? Same strategy as Lesson 7 — the meeting points obey BOTH rules, so set them equal:</p>
+<pre class="math">x² = x + 2
+subtract x and 2 from both sides:   x² − x − 2 = 0</pre>
+<p>Now a new solving trick: FACTORING. Hunt for two numbers that multiply to −2 and add to −1. Candidates: −2 and 1. Product: (−2) × 1 = −2 ✅. Sum: (−2) + 1 = −1 ✅. So:</p>
+<pre class="math">(x − 2)(x + 1) = 0</pre>
+<p>(Check by expanding: x² + x − 2x − 2 = x² − x − 2 ✅.) Now the ZERO-PRODUCT PROPERTY: if a product of two numbers is 0, at least one of them must be 0 — two nonzero numbers never multiply to zero. So:</p>
+<pre class="math">x − 2 = 0 → x = 2       or       x + 1 = 0 → x = −1</pre>
+<p>Two x's! Find the y's from the line's rule (easier than squaring):</p>
+<pre class="math">x = 2:   y = 2 + 2 = 4  →  (2, 4)
+x = −1:  y = −1 + 2 = 1 →  (−1, 1)</pre>
+<p>Check BOTH points in BOTH rules:</p>
+<pre class="math">(2, 4):    x² = 4 ✅    x + 2 = 4 ✅
+(−1, 1):   (−1)² = 1 ✅  −1 + 2 = 1 ✅</pre>
+<p>Four yeses — a straight line really can visit a curvy parabola TWICE. Can it visit three times? No: setting x² equal to a line's rule always rearranges into an equation whose highest power is x² — a QUADRATIC equation — and a quadratic has at most two solutions. The possibilities:</p>
+<pre class="math">2 meetings (the line pierces through),
+1 meeting  (the line just grazes — that's called TANGENT),
+0 meetings (the line misses completely).</pre>
+<p>For 0: try y = x² and y = −1. Setting equal: x² = −1. But squares are never negative — no real number x works. The algebra announces &quot;they never meet&quot; without a single doodle.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Name the vertex of y = (x + 4)² − 1 — careful with the signs!</div></li><li><span class="mk">(b)</span><div>Where do y = x² and y = 3x meet?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Vertex (−4, −1): the parenthesis is x − (−4), so h = −4, and k = −1. (b) Set equal: x² = 3x → subtract 3x: x² − 3x = 0 → factor out x: x(x − 3) = 0 → x = 0 or x = 3. Points: (0, 0) and (3, 9). Check (3, 9): 3² = 9 ✅ and 3 × 3 = 9 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">⬅️ Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

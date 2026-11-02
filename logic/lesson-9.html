@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Watch Out! Common Mistakes — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 9</p>
+    <h1>⚠️ Watch Out! Common Mistakes</h1>
+    <p class="kicker">📖 Lesson 9 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the rules in sight while you read these</p><pre class="math">¬ flips the boundary: &gt; ↔ ≤, &lt; ↔ ≥, = ↔ ≠
+ALL ↔ SOME-NOT · AND needs both · OR needs one (both is fine)
+NOT swaps AND/OR · a promise breaks only one way
+flip-and-deny = same promise · flip-only = maybe
+reversible step = two-way promise · squaring and zero-multiplying = one-way, so CHECK</pre></div>
+<p>Mistake 1: flipping ALL to NONE. &quot;All multiples of 6 are even&quot; flips to &quot;No multiple of 6 is even&quot;? ❌ One odd multiple of 6 is all it takes to kill &quot;all&quot; — so the flip is &quot;SOME multiple of 6 is not even.&quot; ✅ (The original happens to be true, so the flip is false — flipping doesn't care.)</p>
+<p>Mistake 2: negating &gt; as &lt;. The flip of &quot;x &gt; 5&quot; is &quot;x &lt; 5&quot;? ❌ Where did 5 go? &quot;Not above 5&quot; still allows exactly 5 — the flip is x ≤ 5. The boundary always switches teams. ✅</p>
+<p>Mistake 3: trusting the converse in algebra. &quot;x² = 25, so x = 5&quot;? ❌ x = −5 satisfies the equation too. Squaring is a one-way door: the converse is a maybe, never a must. The guaranteed relative is the contrapositive — flip AND deny. ✅</p>
+<p>Mistake 4: forgetting that OR includes BOTH — and that truth sets can too. &quot;The solution of x² = 7x − 12 is x = 3&quot;? ❌ x = 4 works too (16 = 28 − 12 ✓). A quadratic's truth set is an OR: x = 3 OR x = 4. Reporting half of it is a wrong answer. ✅</p>
+<p>Mistake 5: negating an AND and keeping the AND. &quot;NOT (x &gt; 2 AND x ≤ 9)&quot; means &quot;x ≤ 2 AND x &gt; 9&quot;? ❌ Nothing can be both ≤ 2 and &gt; 9 — that flip claims the original was ALWAYS true! De Morgan swaps the connective: x ≤ 2 OR x &gt; 9. ✅</p>
+<p>Mistake 6: thinking &quot;some&quot; means &quot;some aren't.&quot; &quot;Some even numbers are prime, so some even numbers aren't prime&quot;? ❌ In logic, SOME means at least one — possibly all. It promises nothing about the rest. (The conclusion happens to be true here, but it never FOLLOWS from &quot;some are.&quot;) ✅</p>
+<p>Mistake 7: calling a promise broken when the IF never happened. &quot;If x² &lt; 0, then x = 99&quot; is a lie? ❌ No real number has a negative square, so the IF never triggers — and an untested promise counts as kept. A promise dies ONLY at true-IF plus false-THEN. ✅</p>
+<p>Mistake 8: canceling x without checking it isn't 0. &quot;x² = 5x, divide both sides by x, so x = 5, done&quot;? ❌ Dividing by x is reversible only when x ≠ 0 — and x = 0 IS a solution (0² = 0 = 5·0 ✓), silently thrown away. Never divide by something that could be zero; instead collect on one side and factor: x² − 5x = 0 → x(x − 5) = 0 → x = 0 OR x = 5. ✅</p>
+<p>Mistake 9: squaring both sides and skipping the check. &quot;√(3x + 4) = x → 3x + 4 = x² → x = 4 or x = −1, done&quot;? ❌ Squaring is one-way; its truth set is the union with the evil twin √(3x + 4) = −x. Check each candidate in the ORIGINAL: −1 fails (√1 = 1 ≠ −1). Only 4 survives. ✅</p>
+<p>Mistake 10: thinking √25 = ±5. &quot;x² = 25, so x = √25 = ±5&quot;? ❌ The reasoning is muddled even though the answer list is right. The symbol √ means the POSITIVE root, one value: √25 = 5, period. The equation x² = 25 has two solutions for a different reason — squaring is one-way (Lesson 7), so you must write x = 5 OR x = −5 as a separate step with its own justification. The two answers come from the logic of squaring, not from the √ symbol. ✅</p>
+<p>Mistake 11: solving a knights-and-knaves puzzle without the final check. Found a consistent case? ✅ — but did you re-test EVERY islander's statement, including the silent ones and the compound ones (De Morgan for AND/OR, the promise table for IF–THEN)? And did you check the OTHER supposition too? Puzzle 5 showed both cases can survive — if you stop at the first consistent case, you might miss that Ava was never pinned down. One unchecked statement is how wrong answers sneak in.</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">⬅️ Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

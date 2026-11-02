@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Landmarks — 0, 1, and the Questions You Can't Ask — Logarithms</title>
+<meta name="description" content="The backwards question: what power do I need? Logs turn multiplying into adding!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🪵 Logarithms</a> › Lesson 5</p>
+    <h1>⚡ The Landmarks — 0, 1, and the Questions You Can't Ask</h1>
+    <p class="kicker">📖 Lesson 5 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Backwards Question — What a Logarithm Really Is">1</a><a href="lesson-2.html" title="Lesson 2: The Two Languages — Translating Logs and Powers">2</a><a href="lesson-3.html" title="Lesson 3: Base 10 — The Log That Counts Zeros">3</a><a href="lesson-4.html" title="Lesson 4: The Superpower — Multiplication Becomes Addition">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Landmarks — 0, 1, and the Questions You Can't Ask">5</a><a href="lesson-6.html" title="Lesson 6: Logs in the Wild — Doubling and the Earthquake Scale">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">log of 1 is ALWAYS 0 (in every base).        log₂(1) = 0
+log of the base is ALWAYS 1.                 log₅(5) = 1
+log of 0 (or a negative) does not exist.</pre></div>
+<h3>Landmark 1: log(1) = 0</h3>
+<p>What power of 2 gives you 1? Multiply zero 2s! An &quot;empty multiplication&quot; leaves just 1 — that's why mathematicians say 2⁰ = 1. So:</p>
+<pre class="math">log₂(1) = 0        log₁₀(1) = 0        log₇(1) = 0</pre>
+<p>Every base, same answer. Remember Lesson 3's zero-counting: the number 1 has no zeros — and its log is 0. Two routes, same landmark.</p>
+<h3>Landmark 2: log of the base = 1</h3>
+<p>What power of 5 gives 5? Just one: 5¹ = 5. So log₅(5) = 1. Always:</p>
+<pre class="math">log₂(2) = 1        log₁₀(10) = 1        log₃(3) = 1</pre>
+<h3>The forbidden questions</h3>
+<p>Can you find log₂(0)? That asks: &quot;what power of 2 equals 0?&quot; Try some: 2¹ = 2, 2² = 4, 2³ = 8... multiplying 2s only makes things bigger — never 0. And 2⁰ = 1, not 0. There is NO answer, so log(0) does not exist. (Calculators say &quot;Error.&quot; Now you know why!)</p>
+<p>Negative targets are just as impossible: powers of 2 are always positive, so log₂(−8) can't be found either. You can only take logs of numbers bigger than 0.</p>
+<h3>The bonus ladder: going below zero</h3>
+<p>Here's a peek at next year's math. The powers of 2 form a ladder — and each step down divides by 2:</p>
+<pre class="math">8   = 2³        log₂(8) = 3
+4   = 2²        log₂(4) = 2
+2   = 2¹        log₂(2) = 1
+1   = 2⁰        log₂(1) = 0
+½   = 2⁻¹       log₂(½) = −1
+¼   = 2⁻²       log₂(¼) = −2</pre>
+<p>The ladder doesn't stop at 1 — it keeps going into fractions, and the logs keep counting: past 0 into the negatives. So log₂(½) = −1. Don't worry if this feels weird — it's a challenge-problem bonus. The ladder is all you need: each step down, divide by 2 and subtract 1 from the log.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">a)</span><div>log₉(1)      b) log₉(9)      c) log(1,000) − log(1)      d) (ladder bonus) log₂(⅛)</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: a) 0 — always! b) 1 — always! c) 3 − 0 = 3. d) −3: three steps down from 1 (½, ¼, ⅛), each dividing by 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

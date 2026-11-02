@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Watch Out! Six Classic Calculus Mistakes — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 11</p>
+    <h1>⚠️ Watch Out! Six Classic Calculus Mistakes</h1>
+    <p class="kicker">📖 Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the big ideas in sight</p><pre class="math">Simplify FIRST, take the limit LAST.
+Products and chains have their own rules — the obvious guess is wrong.
+f' = 0 is a candidate, not a verdict. Endpoints count.</pre></div>
+<p>These six mistakes catch students every single year — including college students. Learn them now and they will never catch you.</p>
+<h3>Mistake 1: &quot;0/0 means the limit does not exist&quot;</h3>
+<pre class="math">(x² − 4)/(x − 2) at x = 2 gives 0/0, so there is no limit?   ❌</pre>
+<p>0/0 is an indeterminate form — a signal to simplify, not a verdict. Factor: (x − 2)(x + 2)/(x − 2) = x + 2 (legal because on the approach x ≠ 2), and the limit is 4. ✅ Never surrender at 0/0; reach for factoring, expanding, or the conjugate trick first.</p>
+<h3>Mistake 2: plugging h = 0 into the difference quotient before simplifying</h3>
+<pre class="math">[ (x + h)² − x² ] ÷ h with h = 0 gives 0/0... so x² has no derivative?   ❌</pre>
+<p>The limit comes LAST. The whole point of Lessons 3 and 4 is that h ≠ 0 during the approach: expand, cancel the x², divide out an h, and ONLY THEN let h → 0. The difference quotient with h = 0 is meaningless; the difference quotient simplified and then limited is 2x. ✅ Order of operations: simplify first, limit last.</p>
+<h3>Mistake 3: &quot;the derivative of a product is the product of the derivatives&quot;</h3>
+<pre class="math">d/dx of (x²·x³) = 2x × 3x² = 6x³?   ❌</pre>
+<p>Since x²·x³ = x⁵, the truth is 5x⁴ — and 6x³ ≠ 5x⁴. Products use the product rule: (fg)' = f'g + fg', each factor taking its turn. ✅ (Sibling trap: the derivative of a constant is 0, not the constant — d/dx of 7 is 0, because a flat graph has no slope.)</p>
+<h3>Mistake 4: forgetting the inside's derivative in the chain rule</h3>
+<pre class="math">d/dx of (5x + 2)² = 2(5x + 2)?   ❌</pre>
+<p>That peels the outside but forgets the gear inside. The inside 5x + 2 has derivative 5, and the chain rule says multiply by it: 2(5x + 2) × 5 = 50x + 20. ✅ Check by expanding: (5x + 2)² = 25x² + 20x + 4, whose derivative is 50x + 20 ✅. When in doubt, expand a small case and compare.</p>
+<h3>Mistake 5: forgetting the +C</h3>
+<pre class="math">&quot;THE antiderivative of 3x² is x³.&quot;   ❌ (half wrong!)</pre>
+<p>x³ is ONE antiderivative; the family is x³ + C, because the derivative erases every constant. Forgetting +C loses infinitely many correct answers — and in problems with an extra clue (like &quot;the curve passes through (1, 3)&quot;), the whole point is to FIND C. ✅ Flip side: in a definite integral the C's cancel, so there you may pick C = 0 and relax.</p>
+<h3>Mistake 6: &quot;f'(a) = 0 guarantees a max or a min&quot;</h3>
+<pre class="math">f'(0) = 0 for f(x) = x³, so x = 0 is a peak or a valley?   ❌</pre>
+<p>It is neither: f' = 3x² ≥ 0 on both sides, so the curve climbs, pauses level, and climbs on — a level inflection point. f' = 0 only nominates candidates; the second derivative test (or a sign test of f') gives the verdict. ✅ And in optimization, do not forget the endpoints: the best answer on a closed interval can live at a boundary, where f' is not 0 at all (challenge problem 94 is exactly this trap).</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">⬅️ Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

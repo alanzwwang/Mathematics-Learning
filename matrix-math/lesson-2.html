@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Adding and Subtracting — Square by Square — Matrix Math</title>
+<meta name="description" content="Grids of numbers that power video games, photos and secret codes!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔢 Matrix Math</a> › Lesson 2</p>
+    <h1>🧩 Adding and Subtracting — Square by Square</h1>
+    <p class="kicker">📖 Lesson 2 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Matrix — Rows, Columns, Addresses">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Adding and Subtracting — Square by Square">2</a><a href="lesson-3.html" title="Lesson 3: The Scalar — One Number Times a Whole Grid">3</a><a href="lesson-4.html" title="Lesson 4: The Real Matrix Multiplication — Row × Column">4</a><a href="lesson-5.html" title="Lesson 5: Order Matters! A × B ≠ B × A">5</a><a href="lesson-6.html" title="Lesson 6: Special Grids — The Zero Grid and the Identity Grid">6</a><a href="lesson-7.html" title="Lesson 7: Matrices at Work — Scores, Photos, Codes, and Flips">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Add (or subtract) MATCHING squares — same address to same address.
+The grids must be the SAME size, or some squares have no partner.</pre></div>
+<h3>The two-weekend scoreboard</h3>
+<p>Suppose you played the same three rounds on two weekends. Here's how to find your totals — weekend 1 plus weekend 2, matching square to matching square:</p>
+<pre class="math">[ 3  7  1 ] + [ 2  0  4 ] = [ 5  7  5 ]
+[ 8  2  6 ]   [ 1  3  0 ]   [ 9  5  6 ]</pre>
+<p>Each square of the answer lives at the same address as its two partners: the 9 in the corner came from 8 + 1, both at (row 2, column 1). No square ever mixes with a different address. Square by square — that's the whole rule.</p>
+<h3>The same-size rule</h3>
+<p>Can you add a 2 × 2 grid to a 2 × 3 grid? Line them up and watch:</p>
+<pre class="math">[ 1  2 ] + [ 1  2  3 ] = ???
+[ 3  4 ]   [ 4  5  6 ]</pre>
+<p>The 4 has a partner... but the 3 and the 6 at the ends have none. The grids are different shapes, so adding them is impossible. Same size, or no sum. ✅ (Same rule for subtraction.)</p>
+<h3>Subtraction: the improvement detector</h3>
+<p>Subtracting works the same way, and it answers a great question: how much did you improve? Subtract last month's scores from this month's:</p>
+<pre class="math">[ 3  7  1 ] − [ 1  2  1 ] = [ 2  5  0 ]
+[ 8  2  6 ]   [ 3  2  2 ]   [ 5  0  4 ]</pre>
+<p>You improved by 5 in round 2! (If a score ever drops, the answer grid just tells the truth with a negative number.)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Add: [ 2  4 ;  1  3 ] + [ 3  1 ;  2  2 ]. (b) Subtract: [ 6  5 ;  4  7 ] − [ 2  3 ;  4  1 ].</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) [ 5  5 ;  3  5 ]. (b) [ 4  2 ;  0  6 ] — square by square, matching addresses.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

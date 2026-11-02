@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does) — Fractal Geometry</title>
+<meta name="description" content="Shapes made of smaller copies of themselves, from snowflakes to broccoli!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">❄️ Fractal Geometry</a> › Lesson 3</p>
+    <h1>🎯 The Koch Snowflake — The Edge That Never Stops (and the Area That Does)</h1>
+    <p class="kicker">📖 Lesson 3 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Koch rule: every segment becomes 4 segments, each 1/3 as long.
+Every iteration multiplies the PERIMETER by 4/3 — forever.
+But the added AREA forms a convergent series — total area: exactly 8/5 of the original.</pre></div>
+<p>Meet the most famous fractal of all. Start with an equilateral triangle (stage 0). Now the rule: take every segment, divide it into thirds, and replace the middle third with two sides of a smaller equilateral triangle pointing outward — a little bump.</p>
+<p>Follow one straight segment through the rule. It becomes: a third, then up the bump, then down the bump, then the last third. That's 4 segments — and each one is exactly 1/3 as long as the original.</p>
+<p>All three quantities now have explicit formulas (Lesson 2's superpower). Start with side length 1:</p>
+<pre class="math">Piece count:    3 → 12 → 48 → 192       count(n) = 3·4ⁿ        (×4 each stage)
+Piece length:   1 → 1/3 → 1/9 → 1/27    length(n) = (1/3)ⁿ     (÷3 each stage)
+Perimeter:      3 → 4 → 16/3 → 64/9     P(n) = 3·(4/3)ⁿ        (×4/3 each stage)</pre>
+<p>The perimeter formula isn't a third thing to memorize — it's the other two MULTIPLIED:</p>
+<pre class="math">P(n) = count(n) × length(n) = 3·4ⁿ · (1/3)ⁿ = 3·(4/3)ⁿ
+(why: 4ⁿ · (1/3)ⁿ = (4 · 1/3)ⁿ = (4/3)ⁿ — same exponent, so combine the bases)</pre>
+<p><strong>Worked example</strong> — find the stage-4 perimeter TWO ways, then compare.</p>
+<pre class="math">Method A (recursive, step by step):
+3 → 4 → 16/3 → 64/9 → 256/27          (multiply by 4/3 four times)
+P(4) = 256/27 ≈ 9.48 cm</pre>
+<pre class="math">Method B (explicit formula):
+P(4) = 3·(4/3)⁴                       (substitute n = 4)
+     = 3 · 256/81                     (4⁴ = 256, 3⁴ = 81)
+     = 768/81 = 256/27 ≈ 9.48 cm      (simplify: divide by 3)</pre>
+<p>Same answer — it had better be! Method B wins when n is large (imagine computing stage 40 recursively), while Method A is safer when you're unsure of the formula. Strong solvers pick the method to fit the problem — and use the other as a check.</p>
+<p>Since 4/3 &gt; 1, the powers (4/3)ⁿ grow past every number: the perimeter DIVERGES to infinity. (Feel it: (4/3)¹⁰ ≈ 17.8, (4/3)²⁰ ≈ 315.) Yet the snowflake never grows beyond its original circle on the page. So what happens to the area? Time for the theorem the old lesson could only state — now we can prove it.</p>
+<p>Theorem: the Koch snowflake's total area is exactly 8/5 of the original triangle's area.</p>
+<p>Setup — the area of an equilateral triangle with side s is A₀ = (√3/4)·s². Where does that come from? Split the triangle down the middle and use the Pythagorean theorem on the right triangle with hypotenuse s and base s/2:</p>
+<pre class="math">h² + (s/2)² = s²                      (Pythagorean theorem)
+h² = s² − s²/4 = 3s²/4                (subtract (s/2)² = s²/4 from both sides)
+h = (√3/2)·s                          (take the positive square root)
+A₀ = ½ · base · height = ½ · s · (√3/2)s = (√3/4)s²   (area formula)</pre>
+<p>Proof — add up the bumps, stage by stage.</p>
+<pre class="math">Step 1: At stage n (for n ≥ 1), one new bump is planted on EVERY segment
+that existed at stage n − 1. Segments at stage n − 1: 3·4ⁿ⁻¹.   (count formula)
+Step 2: Each stage-n bump has side s/3ⁿ.                          (length formula)
+Step 3: Each stage-n bump has area A₀/9ⁿ.
+(why: area scales by the SQUARE of the length scale: (s/3ⁿ)² = s²/9ⁿ,
+ so the bump's area is A₀ · (1/3ⁿ)² = A₀/9ⁿ)
+Step 4: Total area added at stage n:
+added(n) = 3·4ⁿ⁻¹ · A₀/9ⁿ               (count × area each)
+         = (A₀/3) · (4/9)ⁿ⁻¹            (simplify: 3·4ⁿ⁻¹/9ⁿ = (3/9)·(4ⁿ⁻¹/9ⁿ⁻¹) = (1/3)(4/9)ⁿ⁻¹)
+Step 5: Sum over all stages — a geometric series with a = A₀/3, r = 4/9:
+total added = (A₀/3)/(1 − 4/9)          (infinite series formula, valid since |4/9| &lt; 1)
+            = (A₀/3)/(5/9)              (1 − 4/9 = 5/9)
+            = (A₀/3)·(9/5) = 3A₀/5      (dividing by 5/9 = multiplying by 9/5)
+Step 6: Add the original triangle:
+total area = A₀ + 3A₀/5 = 8A₀/5         (common denominator: 5A₀/5 + 3A₀/5)</pre>
+<p>The snowflake's area is exactly 8/5 of the original — it never even doubles. Let's sanity-check with numbers. Take A₀ = 81:</p>
+<pre class="math">Stage 1 adds:  (81/3) = 27
+Stage 2 adds:  27 · 4/9 = 12
+Stage 3 adds:  12 · 4/9 = 16/3 ≈ 5.33
+All additions: 27/(1 − 4/9) = 27 · 9/5 = 243/5 = 48.6
+Total: 81 + 48.6 = 129.6 = (8/5)·81 ✓</pre>
+<p>Why does the edge explode while the area naps? Two different races with two different ratios. The perimeter race pits count (×4) against length (×1/3): net ×4/3 &gt; 1 — growth wins. The area race pits bump count (×4) against bump area (×1/9): net ×4/9 &lt; 1 — shrinkage wins, and the additions form a convergent series. One shape, two races, two opposite outcomes. That's the whole paradox, resolved by a single inequality each way.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Start with a triangle of perimeter 9 cm. What is the perimeter after 1 iteration? After 2? (b) How many pieces does the snowflake have after 2 iterations — use the explicit formula. (c) If the starting triangle has area A₀ = 36, how much area is ADDED at stage 1?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 9 × 4/3 = 12 cm; then 12 × 4/3 = 16 cm (or 9·(4/3)² = 9·16/9 = 16 ✓). (b) count(2) = 3·4² = 48. (c) added(1) = A₀/3 = 12 — three bumps, each of area 36/9 = 4, and 3·4 = 12 ✓.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Lines at Work — Systems, Two Methods, and the Three Fates — Linear Functions</title>
+<meta name="description" content="Function machines, slope and straight-line graphs, from f(x) to systems of equations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📈 Linear Functions</a> › Lesson 8</p>
+    <h1>🎨 Lines at Work — Systems, Two Methods, and the Three Fates</h1>
+    <p class="kicker">📖 Lesson 8 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Function? — Machines and f(x)">1</a><a href="lesson-2.html" title="Lesson 2: Chained Machines — Composition of Functions">2</a><a href="lesson-3.html" title="Lesson 3: Tables, Constant Steps, and Arithmetic Sequences">3</a><a href="lesson-4.html" title="Lesson 4: Graphs — Straight Lines, Intercepts, and the Vertical Line Test">4</a><a href="lesson-5.html" title="Lesson 5: Slope — The Deep Dive (with a Real Proof)">5</a><a href="lesson-6.html" title="Lesson 6: Building Equations — The Three-Form Toolkit">6</a><a href="lesson-7.html" title="Lesson 7: Moving Lines Around — Transformations and Inverses">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Lines at Work — Systems, Two Methods, and the Three Fates">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! The Eight Classic Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Forward: plug in x, get y.   Backward: set the y, solve for x.
+Two lines meet where their y's are EQUAL — that's a SYSTEM of equations.
+A system has one solution, no solutions, or infinitely many.</pre></div>
+<p>Move 1: Predict. The plant y = 2x + 5 at week 10: y = 2 × 10 + 5 = 25 cm. Run the machine forward.</p>
+<p>Move 2: Reverse. WHEN is the plant 25 cm tall? Set y = 25 and solve:</p>
+<pre class="math">2x + 5 = 25
+2x = 20        (subtract 5 from both sides)
+x = 10         (divide both sides by 2)</pre>
+<p>Reversing a linear function and solving an equation are the same move in two costumes — and the inverse function from Lesson 7 is this move bottled into a formula.</p>
+<h3>Move 3: Compare — with TWO methods you should both master</h3>
+<p>Two savings plans:</p>
+<pre class="math">Plan A: start $7, save $3 per week  →  y = 3x + 7
+Plan B: start $2, save $4 per week  →  y = 4x + 2</pre>
+<h3>When does B catch A, and with how much?</h3>
+<pre class="math">Method 1 — set the y's equal (the algebra method):
+        4x + 2 = 3x + 7          (catch-up means EQUAL amounts)
+        x + 2 = 7                (subtract 3x from both sides)
+        x = 5                    (subtract 2 from both sides)
+        y = 4 × 5 + 2 = 22       (run either rule forward)
+Tie at week 5, with $22 in each plan.</pre>
+<pre class="math">Method 2 — gap ÷ closing rate (the racing method):
+        Starting gap: 7 − 2 = $5 (A is ahead).
+        Weekly closing: 4 − 3 = $1 per week (B's slope beats A's by 1).
+        Time to catch up: 5 ÷ 1 = 5 weeks.
+        Tied amount: 3 × 5 + 7 = $22 (run a rule forward).
+Same answer — because Method 2 is Method 1 in disguise:
+the gap is B − A = (4x + 2) − (3x + 7) = x − 5, which hits 0 at x = 5.</pre>
+<p>Compare the methods: Method 2 is lightning-fast for &quot;when&quot; and great for estimating, but you must build the &quot;gap shrinks by the slope difference&quot; picture. Method 1 is one size fits all, needs no picture, and hands you the tied amount automatically. Competition problems often reward Method 2; algebra class runs on Method 1. Champions own both.</p>
+<h3>The three fates of a system</h3>
+<p>Finding where two lines meet = solving a SYSTEM of equations. Two lines have exactly three possible fates:</p>
+<pre class="math">· Different slopes → they meet ONCE (one solution).
+· Same slope, different b → parallel, NEVER meet (no solution).
+· Same slope, same b → the same line twice (infinitely many solutions).</pre>
+<p>Watch the algebra report each fate. No solution:</p>
+<pre class="math">y = 2x + 1  and  y = 2x + 5
+2x + 1 = 2x + 5        (set equal)
+1 = 5                  (subtract 2x from both sides)
+IMPOSSIBLE — the algebra itself reports &quot;no meeting.&quot; ■</pre>
+<p>Infinitely many:</p>
+<pre class="math">y = 2x + 2  and  y = 2(x + 1)
+2x + 2 = 2x + 2        (distribute the right side)
+2 = 2                  (subtract 2x)
+ALWAYS true — every x works, because it's one line wearing two costumes. ■</pre>
+<h3>Concurrency: three lines, one point</h3>
+<p>Do y = 2x + 1, y = −x + 7, and y = 3x − 1 all pass through one point? (Lines that do are called concurrent.)</p>
+<pre class="math">Step 1: meet of the first two:
+        2x + 1 = −x + 7
+        3x = 6         (add x to both sides)
+        x = 2          (divide by 3),  so y = 2 × 2 + 1 = 5.
+Step 2: test the third line at x = 2: 3 × 2 − 1 = 5 ✅.
+Yes — all three pass through (2, 5). Three lines concurrent.</pre>
+<h3>Break-even analysis</h3>
+<p>A maker space buys a printer for $60; each print costs $2 in materials and sells for $5. Cost line C(x) = 2x + 60, revenue line R(x) = 5x. Breaking even means the lines meet:</p>
+<pre class="math">5x = 2x + 60           (revenue equals cost)
+3x = 60                (subtract 2x)
+x = 20 prints          (divide by 3) — and the money is 5 × 20 = $100.</pre>
+<p>Slicker view: the profit is P(x) = R(x) − C(x) = 5x − (2x + 60) = 3x − 60. Its x-intercept: 3x − 60 = 0 → x = 20. The break-even point IS the x-intercept of the profit line — negative before 20 (a loss), positive after.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Where do y = x + 2 and y = 3x − 6 meet? Then: is y = x − 1 concurrent with them, parallel to one of them, or neither? Explain.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: x + 2 = 3x − 6 → 8 = 2x (subtract x, add 6) → x = 4 → y = 4 + 2 = 6. Meeting point (4, 6). Test y = x − 1 at x = 4: gives 3 ≠ 6, so NOT concurrent. Its slope 1 equals the slope of y = x + 2 with a different b, so it's PARALLEL to the first line — fate number two.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

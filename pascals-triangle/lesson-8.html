@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving — Pascal's Triangle</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a> › Lesson 8</p>
+    <h1>🎨 Probability, Parity, and Primes — Patterns Worth Proving</h1>
+    <p class="kicker">📖 Lesson 8 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">P(exactly k heads in n flips) = C(n, k) / 2ⁿ.
+&quot;At least one&quot; problems: count the complement.
+Odd entries in row n: 2 raised to (number of 1s in n's binary).
+If p is PRIME, every interior entry of row p is divisible by p — proved below.</pre></div>
+<h3>Binomial probability</h3>
+<p>Flip n coins. There are 2ⁿ total outcomes (row sum!), and exactly k heads happens in C(n, k) of them. So:</p>
+<pre class="math">P(k heads in n flips) = C(n, k) / 2ⁿ</pre>
+<pre class="math">Example: P(exactly 2 heads in 4 flips) = C(4, 2) / 16 = 6/16 = 3/8.</pre>
+<p>Complementary counting strikes again: what's the probability of AT LEAST ONE head in 6 flips? Counting head-counts 1 through 6 directly means six terms. Instead:</p>
+<pre class="math">P(at least one) = 1 − P(zero heads) = 1 − C(6, 0)/2⁶ = 1 − 1/64 = 63/64 ✅</pre>
+<p>One subtraction beats six additions — remember this shape.</p>
+<p>The middle is the most likely. An exact heads-tails split in 6 flips: C(6, 3)/64 = 20/64 = 5/16 ≈ 0.31. In 8 flips: C(8, 4)/256 = 70/256 = 35/128 ≈ 0.27. More flips make a perfect split LESS likely — the row sums grow faster than the middles.</p>
+<h3>Parity — the odd-entry census</h3>
+<p>Count the ODD entries in each row:</p>
+<pre class="math">Row:    0   1   2   3   4   5   6   7
+Odds:   1   2   2   4   2   4   4   8</pre>
+<p>All powers of 2! And the exponent has a secret source: the binary form of the row number. Row 6 in binary is 110, which has two 1s → 2² = 4 odd entries ✅. Row 7 is 111, three 1s → 2³ = 8 — every entry of row 7 is odd! The all-odd rows are exactly 0, 1, 3, 7, 15, ... = 2ᵐ − 1, whose binary forms are all 1s. (The full proof is a college-level gem called Lucas's theorem; here we collect the evidence and conjecture like real mathematicians.) Color the odd entries black on a huge triangle and the Sierpinski fractal appears — the same pattern, at every scale, forever.</p>
+<h3>The prime row theorem — with proof</h3>
+<p>Theorem: if p is prime and 0 &lt; k &lt; p, then p divides C(p, k).</p>
+<pre class="math">Proof: C(p, k) = p! / (k!(p − k)!) is a whole number — it counts committees,
+and committee counts are integers.
+The top p! = p × (p − 1) × ... × 1 contains the factor p.
+The bottom k!(p − k)! is a product of numbers all STRICTLY SMALLER than p.
+Since p is prime, no product of smaller numbers contains p as a factor
+(that &quot;no smaller factors&quot; property is exactly what primeness means),
+so nothing downstairs can cancel the p upstairs.
+The quotient is an integer still carrying the factor p — so p divides C(p, k).  ∎</pre>
+<pre class="math">Verify row 7: 7, 21, 35 = 7×1, 7×3, 7×5. ✅
+Verify row 11: 11, 55, 165, 330, 462 = 11×1, 11×5, 11×15, 11×30, 11×42. ✅</pre>
+<pre class="math">Composite rows FAIL: row 6's entry 15 is not divisible by 6. The proof tells
+you why: 6 = 2 × 3 can be built from smaller factors, so the denominator
+CAN cancel pieces of it. The hypothesis &quot;p is prime&quot; was load-bearing!</pre>
+<h3>Fibonacci encore — now with the reason</h3>
+<p>The shallow diagonals (slicing up-right) sum to 1, 1, 2, 3, 5, 8, 13, 21 — the Fibonacci sequence, where each number is the sum of the two before it. Why must that continue? Watch the diagonal summing to 13 get built from its parents:</p>
+<pre class="math">13-diagonal:  C(6,0) + C(5,1) + C(4,2) + C(3,3) = 1 + 5 + 6 + 1
+Parents:      C(6,0) matches C(5,0) of the 8-diagonal (edge);
+              C(5,1) = C(4,0) + C(4,1)  →  one parent from the 5-diagonal, one from the 8;
+              C(4,2) = C(3,1) + C(3,2)  →  same split;
+              C(3,3) matches C(2,2) of the 5-diagonal (edge).
+Every entry of the 8-diagonal and the 5-diagonal is used exactly once, so
+13-diagonal sum = 8 + 5. ✅</pre>
+<p>Each new shallow diagonal sums to the previous diagonal plus the one before it — Fibonacci's rule itself, starting from 1 and 1. The triangle didn't just contain the Fibonacci numbers; it GENERATES them.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Verify the prime row theorem for row 11's entry 462 by dividing.</div></li><li><span class="mk">(b)</span><div>Row 9 in binary is 1001 — two 1s, so the census predicts 2² = 4 odd entries. Check row 9.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: (a) 462 ÷ 11 = 42 exactly ✅. (b) Row 9: 1 9 36 84 126 126 84 36 9 1 — the odd entries are 1, 9, 9, 1: exactly 4, as predicted ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

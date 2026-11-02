@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Meet the Triangle — and Its Secret Indexing System — Pascal's Triangle</title>
+<meta name="description" content="A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra" class="active">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔺 Pascal's Triangle</a> › Lesson 1</p>
+    <h1>🚀 Meet the Triangle — and Its Secret Indexing System</h1>
+    <p class="kicker">📖 Lesson 1 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Every entry is the SUM of the two entries above it (Pascal's rule).
+Edge entries have only one parent, so they are always 1.
+Rows AND entries are numbered starting from 0 — and that tiny
+choice makes every formula in this lesson come out clean.</pre></div>
+<p>Here is the machine, rows 0 through 7:</p>
+<pre class="math">              1
+            1   1
+          1   2   1
+        1   3   3   1
+      1   4   6   4   1
+    1   5   10  10  5   1
+  1   6   15  20  15  6   1
+1   7   21  35  35  21  7   1</pre>
+<p>First, the indexing system, because we will use it a thousand times. The lone 1 on top is ROW 0. Under it is row 1, then row 2, and so on. Within a row, we also count entries starting from 0: row 5 is</p>
+<pre class="math">entry:   0   1   2    3    4   5
+value:   1   5   10   10   5   1</pre>
+<p>So row n has n + 1 entries, numbered 0 through n. The left edge is always entry 0 and the right edge is always entry n. Why start at 0 instead of 1? Because then the labels MEAN things: the second entry (entry 1) of row n is always n itself, row n always sums to 2ⁿ, and (Lesson 2) entry k of row n counts the ways to choose k things from n things. Number from 0 and the numbers become information.</p>
+<p>Second, the build rule. Every inside entry has two parents — the entries just above-left and above-right — and it is their sum:</p>
+<pre class="math">5 + 10 = 15   →   the 15 in row 6 sits below the 5 and 10 of row 5
+10 + 10 = 20  →   the 20 sits below the two 10s
+84 + 126 = 210  →   the 210 in row 10 sits below them (watch it happen below!)</pre>
+<p>Edge entries have only one parent, so they never change: every row starts and ends with 1, forever. (Imagine invisible 0s beyond the edges if you like: 0 + 1 = 1. The edges take care of themselves.)</p>
+<p>Now let's build row 10 from row 9 (1 9 36 84 126 126 84 36 9 1), step by step, with a reason for each move:</p>
+<pre class="math">Start with 1                       (left edge: one parent only)
+1 + 9 = 10                         (parents: the edge 1 and the 9)
+9 + 36 = 45                        (parents: 9 and 36)
+36 + 84 = 120                      (parents: 36 and 84)
+84 + 126 = 210                     (parents: 84 and 126)
+126 + 126 = 252                    (the twins meet — row 10's biggest entry)
+Then mirror the first half: 210, 120, 45, 10, 1   (every row is symmetric — Lesson 2 makes this official)</pre>
+<pre class="math">Row 10:  1   10   45   120   210   252   210   120   45   10   1</pre>
+<p>Count them: 11 entries for row 10 — the indexing rule (n + 1 entries) holds. ✅</p>
+<h3>A word from history</h3>
+<p>Blaise Pascal wrote a famous treatise on this triangle in France in 1653 — and used it to settle questions about gambling and probability, basically inventing probability theory with it. But he was late to the party! In China, Yang Hui published the triangle in 1261, crediting Jia Xian (around the year 1000). Persian mathematicians like al-Karaji knew it earlier still, and in India, scholars used it over 2,000 years ago to count the rhythms of poetry (how many ways can you mix long and short beats?). In China it is still called Yang Hui's triangle. Pascal got the fame — but the triangle belongs to the whole world.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Build row 11 from row 10. Use the mirror to save yourself half the work, and write out every sum.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: Start with the edge 1. Then 1 + 10 = 11, 10 + 45 = 55, 45 + 120 = 165, 120 + 210 = 330, 210 + 252 = 462. That's the halfway point, so mirror it: 462, 330, 165, 55, 11, 1.</p><pre class="math">Row 11:  1   11   55   165   330   462   462   330   165   55   11   1 ✅</pre></div></details></div>
+<p>(12 entries for row 11 — and notice the second entry is 11, exactly as promised.)</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

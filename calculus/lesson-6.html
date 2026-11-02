@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: The Rules Toolkit — Product, Quotient, Chain — Calculus</title>
+<meta name="description" content="The math of change: limits, derivatives, areas and the Fundamental Theorem.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a> › Lesson 6</p>
+    <h1>🌟 The Rules Toolkit — Product, Quotient, Chain</h1>
+    <p class="kicker">📖 Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">product rule:  (f·g)' = f'·g + f·g'
+quotient rule: (f/g)' = (f'·g − f·g') ÷ g²
+chain rule:    dy/dx = (dy/du) × (du/dx)   — rates multiply</pre><pre class="math">None of these is &quot;the obvious guess&quot; — each has a derivation.</pre></div>
+<h3>The product rule, derived</h3>
+<p>Guess check: is the derivative of a product just the product of the derivatives? Test on x²·x³ = x⁵: the guess gives 2x × 3x² = 6x³, but the power rule gives 5x⁴. The guess FAILS — 6x³ ≠ 5x⁴. So products need their own rule. Here is where it comes from. Start the difference quotient for the product f·g:</p>
+<pre class="math">[ f(x + h)·g(x + h) − f(x)·g(x) ] ÷ h</pre>
+<p>Now the classic trick: add and subtract f(x)·g(x + h) in the numerator (adding zero — legal, and it lets us factor):</p>
+<pre class="math">Step 1: numerator = f(x + h)g(x + h) − f(x)g(x + h) + f(x)g(x + h) − f(x)g(x)
+Step 2: factor in pairs:
+        = g(x + h)·[ f(x + h) − f(x) ]  +  f(x)·[ g(x + h) − g(x) ]
+Step 3: divide by h and let h → 0: the first bracket becomes f'(x)
+        (with g(x + h) → g(x)); the second becomes g'(x).</pre>
+<pre class="math">Result:  (f·g)' = f'·g + f·g'</pre>
+<p>Read it as a story: the two factors take turns changing — first f changes while g holds still, then g changes while f holds still.</p>
+<p><strong>Worked example</strong> — the lie detector passes. d/dx of (x²·x³):</p>
+<pre class="math">= (2x)(x³) + (x²)(3x²) = 2x⁴ + 3x⁴ = 5x⁴ ✅  — matches the power rule on x⁵!</pre>
+<p><strong>Worked example</strong> — f(x) = (3x + 1)(x² − 4):</p>
+<pre class="math">Step 1: f' = 3·(x² − 4) + (3x + 1)·(2x)      (first derivative×second + first×second derivative)
+Step 2: = 3x² − 12 + 6x² + 2x                 (expand both products)
+Step 3: = 9x² + 2x − 12                       (collect like terms)
+Check by expanding first: (3x + 1)(x² − 4) = 3x³ + x² − 12x − 4,
+and its derivative is 9x² + 2x − 12 ✅. Two roads, same city.</pre>
+<p>The reciprocal, from scratch — d/dx of 1/x:</p>
+<pre class="math">Step 1: difference quotient: [ 1/(x + h) − 1/x ] ÷ h
+Step 2: common denominator on top: [ x − (x + h) ] ÷ [ x(x + h) ] ÷ h
+Step 3: the top is −h: [ −h ÷ (x(x + h)) ] ÷ h = −1 ÷ [ x(x + h) ]
+Step 4: limit as h → 0: −1 ÷ x²</pre>
+<p>So d/dx of x⁻¹ is −x⁻² — the power rule works for the negative exponent n = −1 too! (It works for ALL real n, in fact.)</p>
+<h3>The quotient rule</h3>
+<p>Division is multiplication by a reciprocal, so the product rule plus the reciprocal rule gives (the full derivation is challenge problem 80):</p>
+<pre class="math">(f/g)' = (f'·g − f·g') ÷ g²      (&quot;low dee-high minus high dee-low, over low squared&quot;)</pre>
+<p><strong>Worked example</strong> — d/dx of x²/(x + 1):</p>
+<pre class="math">Step 1: = [ 2x·(x + 1) − x²·1 ] ÷ (x + 1)²     (f'g − fg', over g²)
+Step 2: top = 2x² + 2x − x² = x² + 2x          (expand, then collect)
+Step 3: answer: (x² + 2x) ÷ (x + 1)²</pre>
+<h3>The chain rule — rates multiply</h3>
+<p>Suppose y depends on u, and u depends on x. If y changes 3 times as fast as u (dy/du = 3), and u changes 2 times as fast as x (du/dx = 2), then y changes 3 × 2 = 6 times as fast as x. A gear train! That is the chain rule:</p>
+<pre class="math">dy/dx = (dy/du) × (du/dx)</pre>
+<p>In practice: differentiate the OUTSIDE, leaving the inside untouched, then multiply by the derivative of the INSIDE.</p>
+<p><strong>Worked example</strong> — two ways, same answer. h(x) = (2x + 3)²:</p>
+<pre class="math">Chain rule way: outside is (something)², derivative 2×(something);
+inside is 2x + 3, derivative 2.
+        h'(x) = 2(2x + 3) × 2 = 4(2x + 3) = 8x + 12
+Expand-first way: (2x + 3)² = 4x² + 12x + 9 → h'(x) = 8x + 12 ✅</pre>
+<p><strong>Worked example</strong> — where expanding would be a nightmare. h(x) = (5x² − 2x + 1)³:</p>
+<pre class="math">Step 1: outside: (stuff)³ → 3(stuff)²
+Step 2: inside: 5x² − 2x + 1 → 10x − 2
+Step 3: h'(x) = 3(5x² − 2x + 1)²(10x − 2)     (one line — the chain rule's power)</pre>
+<p>Bonus derivation — d/dx of √x (the conjugate trick):</p>
+<pre class="math">Step 1: difference quotient: [ √(x + h) − √x ] ÷ h
+Step 2: multiply top and bottom by √(x + h) + √x (the conjugate):
+        top becomes (x + h) − x = h   [since (A − B)(A + B) = A² − B²]
+Step 3: = h ÷ [ h·(√(x + h) + √x) ] = 1 ÷ (√(x + h) + √x)
+Step 4: limit as h → 0: 1 ÷ (2√x)</pre>
+<p>And the power rule with n = 1/2 predicts exactly that: (1/2)x⁻¹ᐟ² = 1/(2√x) ✅. The pattern survives even fractional exponents.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Differentiate f(x) = (x² + 1)(x − 2) by the product rule, then check by expanding.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: product rule: 2x(x − 2) + (x² + 1)(1) = 2x² − 4x + x² + 1 = 3x² − 4x + 1. Expanding: (x² + 1)(x − 2) = x³ − 2x² + x − 2, whose derivative is 3x² − 4x + 1 ✅.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

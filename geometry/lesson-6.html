@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals — Geometry</title>
+<meta name="description" content="Angles, triangles, Pythagoras, circles and more, with real proofs you can follow.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📐 Geometry</a> › Lesson 6</p>
+    <h1>🌟 Polygons — Angle Sums, Exterior Angles, and Diagonals</h1>
+    <p class="kicker">📖 Lesson 6 of 14</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Points, Lines, Segments, Rays — and Where They Live">1</a><a href="lesson-2.html" title="Lesson 2: Angles — Measuring the Turn, Proving the Rules">2</a><a href="lesson-3.html" title="Lesson 3: Parallel Lines and a Transversal — and the Proof of 180°">3</a><a href="lesson-4.html" title="Lesson 4: Triangles — the Inequality, Isosceles Secrets, and Congruence">4</a><a href="lesson-5.html" title="Lesson 5: The Pythagorean Theorem — State It, Prove It, Reverse It">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals">6</a><a href="lesson-7.html" title="Lesson 7: Area — Formulas You Can Derive, Not Memorize">7</a><a href="lesson-8.html" title="Lesson 8: Similarity — Same Shape, Different Size, and the k² Surprise">8</a><a href="lesson-9.html" title="Lesson 9: Circles — π, Arcs, Sectors, and the Inscribed Angle Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Transformations — Moving the Plane with Functions">10</a><a href="lesson-11.html" title="Lesson 11: Counting Meets Geometry — Casework and Complementary Counting">11</a><a href="lesson-12.html" title="Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms">12</a><a href="lesson-13.html" title="Lesson 13: Watch Out! Common Mistakes (Honors Edition)">13</a><a href="lesson-14.html" title="Lesson 14: Recap — The Big Picture">14</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">An n-sided polygon hides (n−2) triangles, so its angles sum to (n−2) × 180°.
+Its exterior angles, one per vertex, always sum to exactly 360°.</pre></div>
+<p>A POLYGON is any closed flat shape made of segments: triangle (3 sides), quadrilateral (4), pentagon (5), hexagon (6), heptagon (7), octagon (8), nonagon (9), decagon (10), dodecagon (12). A REGULAR polygon has all sides equal AND all angles equal.</p>
+<p>Where do angle sums come from? Triangles!</p>
+<p>Pick one vertex of a hexagon and draw all the diagonals from it. A DIAGONAL is a segment joining two vertices that aren't already neighbors. From one vertex of a hexagon you can draw 3 diagonals, and they slice the hexagon into 4 triangles. Each triangle carries 180°:</p>
+<pre class="math">hexagon angle sum = 4 × 180° = 720°</pre>
+<p>In general, from one vertex of an n-gon you draw n − 3 diagonals (to everyone except yourself and your two neighbors), making n − 2 triangles:</p>
+<pre class="math">ANGLE SUM OF ANY n-GON: (n − 2) × 180°</pre>
+<pre class="math">Pentagon:  (5 − 2) × 180° = 540°
+Octagon:   (8 − 2) × 180° = 1080°</pre>
+<p>Working backwards: a polygon's angles sum to 1800°. How many sides?</p>
+<pre class="math">(n − 2) × 180° = 1800°       (the formula)
+n − 2 = 1800 ÷ 180 = 10      (divide both sides by 180)
+n = 12                       (add 2 to both sides) — a dodecagon!</pre>
+<h3>Regular polygons: equal shares</h3>
+<p>In a REGULAR n-gon the total is split n equal ways, and there's a lovely shortcut through the back door. At each vertex, the interior angle and the EXTERIOR ANGLE (the turn you'd make walking around the outside) form a linear pair — they add to 180°. Walk all the way around any polygon and you make exactly one full turn:</p>
+<pre class="math">exterior angles, one per vertex:  always 360°, for EVERY polygon
+regular n-gon, each exterior angle: 360° ÷ n
+regular n-gon, each interior angle: 180° − 360°/n</pre>
+<pre class="math">Regular hexagon:  exterior 360 ÷ 6 = 60°, interior 180 − 60 = 120° ✅
+Regular nonagon:  exterior 360 ÷ 9 = 40°, interior 180 − 40 = 140° ✅</pre>
+<p>Competition favorite: each interior angle of a regular polygon is 156°. How many sides?</p>
+<pre class="math">exterior = 180° − 156° = 24°   (linear pair at each vertex)
+n = 360 ÷ 24 = 15              (exteriors must tile the full 360° turn)</pre>
+<h3>Counting diagonals</h3>
+<p>Each of the n vertices connects by a diagonal to n − 3 others (not itself, not its two neighbors). That counts every diagonal twice (once from each end), so:</p>
+<pre class="math">DIAGONALS IN AN n-GON: n(n − 3)/2</pre>
+<pre class="math">Pentagon:  5 × 2 ÷ 2 = 5 ✅   Hexagon: 6 × 3 ÷ 2 = 9 ✅   Octagon: 8 × 5 ÷ 2 = 20 ✅</pre>
+<h3>The quadrilateral family, with proof-level properties</h3>
+<p>· PARALLELOGRAM: both pairs of opposite sides parallel. Properties: opposite sides equal, opposite angles equal, consecutive angles supplementary (why? each side is a transversal cutting parallel sides — co-interior angles!), and the diagonals BISECT each other (cut each other in half).</p>
+<p>· RECTANGLE: a parallelogram with four right angles. Extra superpower: diagonals are EQUAL in length.</p>
+<p>· RHOMBUS: a parallelogram with four equal sides — a diamond. Extra: diagonals are PERPENDICULAR.</p>
+<p>· SQUARE: rectangle AND rhombus at once — every superpower: equal diagonals that bisect each other at 90°. A square is a rectangle the way a poodle is a dog: it has everything required, plus extras.</p>
+<p>· TRAPEZOID: exactly one pair of parallel sides (the two BASES).</p>
+<p>Example: one angle of a parallelogram is 65°. Find the other three.</p>
+<pre class="math">Consecutive angle: 180° − 65° = 115°   (co-interior angles, parallel sides)
+Opposite angles equal the given one:   65°
+All four: 65°, 115°, 65°, 115°.  Check: 65 + 115 + 65 + 115 = 360 ✅</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the angle sum of a pentagon, then each interior angle of a regular pentagon. (b) How many diagonals does a pentagon have? (c) A regular polygon has exterior angle 30°. How many sides?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) (5 − 2) × 180° = 540°; each interior 540 ÷ 5 = 108°. (b) 5 × 2 ÷ 2 = 5. (c) n = 360 ÷ 30 = 12 — a dodecagon.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

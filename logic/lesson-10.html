@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Review — The Big Picture — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 10</p>
+    <h1>🧠 Review — The Big Picture</h1>
+    <p class="kicker">📖 Lesson 10 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Everything, one last time.</p></div>
+<p>The symbol dictionary:</p>
+<pre class="math">¬p    NOT p                    p ∧ q   p AND q (both)         p ∨ q   p OR q (at least one)
+p → q if p then q              p ↔ q   p if and only if q (both directions)
+∀x    for all x                ∃x      there exists an x
+∈     is a member of           ∅       the empty set          ∎       proof finished</pre>
+<p>The rules:</p>
+<pre class="math">Statement: TRUE or FALSE, checkable. Open sentence: statement-maker with a truth set.
+Solving = finding the truth set (one, several, ALL, or ∅).
+Flips: &gt; ↔ ≤, &lt; ↔ ≥, = ↔ ≠ · ALL ↔ SOME...NOT · NONE ↔ SOME · a chain flips to an OR
+AND: both true (overlap) · OR: at least one (union)
+Absolute value: ≤ clusters close (AND) · &gt; splits far (OR)
+De Morgan: ¬(p ∧ q) = ¬p ∨ ¬q · ¬(p ∨ q) = ¬p ∧ ¬q
+p → q breaks ONLY at p true + q false — one counterexample kills it
+Three assassins: negatives (squaring erases sign), fractions in (0,1) (squaring shrinks), zero (multiplying erases)
+Contrapositive (flip AND deny): always matches · Converse (flip only): not guaranteed
+Biconditional p ↔ q = two promises — check BOTH directions
+&quot;p only if q&quot; means p → q · necessary = required · sufficient = enough by itself
+Valid moves: affirm the IF, deny the THEN · Fakes: affirm the THEN, deny the IF
+Prove ∀ with letters covering every case (the contrapositive is a legal shortcut) · prove ∃ with one witness
+Reversible step = two-way promise · squaring and multiplying by maybe-zero = one-way → CHECK every candidate
+Knights truth, knaves lie: SUPPOSE, FOLLOW, CHECK — and if both cases survive, report what's true in both</pre>
+<p>The magic sentence:</p>
+<pre class="math">NOT flips the boundary and swaps ALL with SOME-NOT. AND needs both; OR needs one. A promise breaks only one way. Flip-and-deny keeps it true; flip-only is a trap. For-all wants letters; there-exists wants one witness. Squaring and zero-multiplying are one-way — suppose, follow, CHECK.</pre>
+<p>Say it out loud three times. That sentence is 95% of the logic you'll meet for years.</p>
+<h3>Why this matters</h3>
+<p>You can now do things most students twice your age can't: negate any comparison or ALL-claim correctly, kill a bad promise with one well-aimed fraction, negative number, or zero, prove a &quot;for all&quot; claim with letters — even through the contrapositive door — tell a real proof from a pile of examples, explain exactly why &quot;check your solutions&quot; is a logical requirement and not a teacher's superstition, and solve island puzzles whose sentences are themselves built from AND, OR, and IF–THEN. And here's the secret you just unlocked: every proof in mathematics is built from these exact moves. Geometry proofs, the quadratic formula, computer programs, courtroom arguments — they're all AND, OR, NOT, and IF–THEN, chained together. You learned the atoms of reasoning itself.</p>
+<h3>Now it's time to prove it — with 100 practice problems! 💪</h3></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">⬅️ Lesson 9</a><a class="btn" href="practice.html">Practice Problems ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

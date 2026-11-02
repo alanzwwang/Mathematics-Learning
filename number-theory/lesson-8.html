@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Review — The Big Picture — Number Theory</title>
+<meta name="description" content="Primes, divisibility rules, GCF, LCM and Euclid's amazing 2,300-year-old algorithm.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔍 Number Theory</a> › Lesson 8</p>
+    <h1>🧠 Review — The Big Picture</h1>
+    <p class="kicker">📖 Lesson 8 of 8</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Everything, one last time</p><pre class="math">Divisibility: place-value algebra proves the rules —
+              digit sum → 3, 9 · last two digits → 4 · last three → 8
+              zigzag sum → 11
+Prime test:   no prime ≤ √n divides n  →  n is prime. Proof, not guessing.
+f(n):         add 1 to each exponent, multiply. Odd count ⇔ perfect square.
+g(n):         multiply the prime-power sums. Perfect numbers have g(n) = 2n.
+GCF:          shared primes, smaller supply — numbers AND variables.
+LCM:          all primes, bigger supply — clears fractions from equations.
+Euclid:       GCF(big, small) = GCF(small, remainder), proven by the
+              combination lemma — and run BACKWARDS for Bézout.
+Trick:        GCF × LCM = a × b, two numbers only. Proof: min + max = sum.</pre></div>
+<h3>The recap list</h3>
+<p>· Every divisibility rule is place-value algebra in disguise: split the number into digit × place value, rewrite each place value as (multiple + leftover), distribute, regroup, and read off the remainder.</p>
+<p>· An unknown digit hides an equation: making 4d2 divisible by 3 became d + 6 ∈ {6, 9, 12, 15}. Divisibility questions become algebra questions.</p>
+<p>· Every composite has a prime factor at or below √n — so prime tests end where p² &gt; n. And Euclid proved the primes themselves never end.</p>
+<p>· Fingerprints are unique (the Fundamental Theorem of Arithmetic), and they power everything: f(n), g(n), GCF, LCM, factoring polynomials, simplifying algebraic fractions.</p>
+<p>· Backwards problems have a two-step rhythm: factor the COUNT, then race the shapes with the smallest primes.</p>
+<p>· f(n) is odd exactly for perfect squares — because factors pair up, and only a square has a factor paired with itself.</p>
+<p>· Euclid's algorithm needs no factoring at all, its proof is the combination lemma, and its reverse gear writes the GCF as m×a + n×b — Bézout's identity, the trick at the heart of internet security.</p>
+<p>· Systems thinking: if GCF = g and LCM = L, write a = g×m, b = g×n with GCF(m, n) = 1 and mn = L ÷ g. The relatively-prime condition keeps impostors out.</p>
+<p>· Leftover puzzles end in a formula: n = (LCM) × k + leftover — every answer at once, in one line.</p>
+<h3>The magic sentence (honors remix)</h3>
+<pre class="math">Primes are the atoms, fingerprints do the work:
+shared-and-small for the GCF, all-and-big for the LCM;
+prove the rules with place value, test primes to the root —
+and when factoring fails, Euclid remains.</pre>
+<p>Say it out loud three times. Seriously!</p>
+<h3>Why this matters</h3>
+<p>You can now PROVE every shortcut you use, count and sum a number's factors without listing them, factor polynomials with the GCF, clear fractions from equations, and run a 2,300-year-old algorithm forwards AND backwards — the same algorithm guarding every secure message on Earth. Number theory also still hides mysteries anyone can state but nobody can solve: is every even number greater than 2 the sum of two primes? (84 = 37 + 47 works... but does it always?) Does an ODD perfect number exist? Nobody knows. The door is open.</p>
+<h3>Now it's time to prove it — with 100 practice problems! 💪</h3></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="practice.html">Practice Problems ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

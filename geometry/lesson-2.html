@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Angles — Measuring the Turn, Proving the Rules — Geometry</title>
+<meta name="description" content="Angles, triangles, Pythagoras, circles and more, with real proofs you can follow.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">📐 Geometry</a> › Lesson 2</p>
+    <h1>🧩 Angles — Measuring the Turn, Proving the Rules</h1>
+    <p class="kicker">📖 Lesson 2 of 14</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Points, Lines, Segments, Rays — and Where They Live">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Angles — Measuring the Turn, Proving the Rules">2</a><a href="lesson-3.html" title="Lesson 3: Parallel Lines and a Transversal — and the Proof of 180°">3</a><a href="lesson-4.html" title="Lesson 4: Triangles — the Inequality, Isosceles Secrets, and Congruence">4</a><a href="lesson-5.html" title="Lesson 5: The Pythagorean Theorem — State It, Prove It, Reverse It">5</a><a href="lesson-6.html" title="Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals">6</a><a href="lesson-7.html" title="Lesson 7: Area — Formulas You Can Derive, Not Memorize">7</a><a href="lesson-8.html" title="Lesson 8: Similarity — Same Shape, Different Size, and the k² Surprise">8</a><a href="lesson-9.html" title="Lesson 9: Circles — π, Arcs, Sectors, and the Inscribed Angle Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Transformations — Moving the Plane with Functions">10</a><a href="lesson-11.html" title="Lesson 11: Counting Meets Geometry — Casework and Complementary Counting">11</a><a href="lesson-12.html" title="Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms">12</a><a href="lesson-13.html" title="Lesson 13: Watch Out! Common Mistakes (Honors Edition)">13</a><a href="lesson-14.html" title="Lesson 14: Recap — The Big Picture">14</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">An angle measures a TURN, not a length.
+Complementary → 90°. Supplementary → 180°. Around a point → 360°.
+Vertical angles are always equal — and we can prove it.</pre></div>
+<p>An angle is what you get when two rays share one endpoint — like the hands of a clock. The shared endpoint is the VERTEX. The angle measures HOW MUCH you turn from one ray to the other, in DEGREES (°). A full spin is 360° — a gift from the ancient Babylonians, who loved 60s and 360s (that's also why clocks have 60 minutes!).</p>
+<p>Here's what surprises everyone: an angle has nothing to do with how LONG the rays are. Tiny rays, giant rays — same turn, same angle. Length doesn't matter; turning does.</p>
+<p>The five famous sizes:</p>
+<pre class="math">Acute angle:    less than 90°           (a sharp little turn)
+Right angle:    exactly 90°             (the perfect square corner)
+Obtuse angle:   between 90° and 180°    (a wide, lazy opening)
+Straight angle: exactly 180°            (the rays point opposite ways)
+Reflex angle:   between 180° and 360°   (the long way around — new!)</pre>
+<p>So 30° is acute, 90° is right, 120° is obtuse, 180° is straight, 270° is reflex. Sneaky tests love the borderline cases: 89° is acute (barely!) and 91° is obtuse (barely!).</p>
+<h3>The two angle teams, and two new crews</h3>
+<p>· COMPLEMENTARY angles add to 90°:    30° + 60° = 90° ✅</p>
+<p>· SUPPLEMENTARY angles add to 180°:   110° + 70° = 180° ✅</p>
+<p>Memory trick: in the alphabet, C comes before S — and 90 comes before 180.</p>
+<p>Two more crews you'll meet constantly:</p>
+<p>· A LINEAR PAIR is two adjacent angles that together form a straight line — so a linear pair is always supplementary.</p>
+<p>· VERTICAL ANGLES are the two angles directly ACROSS from each other when two lines cross — like the top and bottom angles in an X.</p>
+<p>Here comes our first real proof. Claim: vertical angles are always EQUAL. When two lines cross, label the top angle a, the left angle b, and the bottom angle c. Watch every step carry its reason:</p>
+<pre class="math">1. a + b = 180°      (a and b are a linear pair: together they form a straight line)
+2. b + c = 180°      (b and c are a linear pair on the other line)
+3. a + b = b + c     (both sums equal 180°, so they equal each other)
+4. a = c             (subtract b from both sides — equals minus equals are equal)</pre>
+<p>No measuring, no &quot;it looks like it&quot; — pure logic. That's the honors way.</p>
+<p>Now the algebra begins. In honors geometry, angles wear disguises like 2x + 15, and your job is to unwrap them. Every step gets a reason:</p>
+<p>Example A: The angles x and 2x + 15 are complementary. Find both.</p>
+<pre class="math">x + (2x + 15) = 90       (complementary means the sum is 90°)
+3x + 15 = 90             (combine like terms: x + 2x = 3x)
+3x = 75                  (subtract 15 from both sides)
+x = 25                   (divide both sides by 3)
+The angles are 25° and 2(25) + 15 = 65°.
+Check: 25° + 65° = 90° ✅</pre>
+<p>Example B: Two lines cross. One pair of vertical angles is 3x + 20 and 5x − 40. Find all four angles.</p>
+<pre class="math">3x + 20 = 5x − 40        (vertical angles are equal — we PROVED it!)
+20 + 40 = 5x − 3x        (add 40 to both sides; subtract 3x from both sides)
+60 = 2x                  (simplify both sides)
+x = 30                   (divide both sides by 2)
+Each vertical angle: 3(30) + 20 = 110°. Check the other: 5(30) − 40 = 110° ✅
+Each angle of the linear pair: 180° − 110° = 70° (supplementary).
+All four angles: 110°, 70°, 110°, 70°.</pre>
+<p>Example C: Four angles wrap all the way around a single point: 80°, 100°, x, and 2x.</p>
+<pre class="math">80 + 100 + x + 2x = 360  (a full turn around a point is 360°)
+180 + 3x = 360           (combine like terms)
+3x = 180                 (subtract 180 from both sides)
+x = 60                   (divide by 3)
+The missing angles are 60° and 120°. Check: 80 + 100 + 60 + 120 = 360 ✅</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Classify 88°, 90°, 200°. (b) Find the complement and the supplement of 63°. (c) A vertical angle is 35°. What is its linear pair — and how do you know without measuring?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) acute, right, reflex. (b) 90° − 63° = 27°; 180° − 63° = 117°. (c) 180° − 35° = 145°, because a linear pair forms a straight line, so it must be supplementary.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Dimension Secret — Now With Logarithms — Fractal Geometry</title>
+<meta name="description" content="Shapes made of smaller copies of themselves, from snowflakes to broccoli!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry" class="active">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">❄️ Fractal Geometry</a> › Lesson 5</p>
+    <h1>⚡ The Dimension Secret — Now With Logarithms</h1>
+    <p class="kicker">📖 Lesson 5 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">If a shape is made of N copies of itself, each shrunk by a factor of r,
+then N = (1/r)ᵈ — and solving for d gives the DIMENSION:
+d = log N / log (1/r). For fractals, d comes out as a fraction!</pre></div>
+<p>Here's a strange little experiment. Take a shape and ask: how many HALF-SIZE copies of itself does it take to build it?</p>
+<p>· A line segment: 2 half-size copies, end to end.</p>
+<p>· A square: 4 half-size copies (slice it in half both ways).</p>
+<p>· A cube: 8 half-size copies (slice it in half all three ways).</p>
+<p>Now repeat with THIRD-SIZE copies (scale factor r = 1/3):</p>
+<p>· Line: 3 copies. Square: 9 copies. Cube: 27 copies.</p>
+<p>Organize everything into one table and hunt for the pattern:</p>
+<pre class="math">Shape   r = 1/2   r = 1/3   ...and the dimension we know it has
+line    2         3         1
+square  4         9         2
+cube    8         27        3</pre>
+<pre class="math">Line:   2 = 2¹ and 3 = 3¹     → dimension 1
+Square: 4 = 2² and 9 = 3²     → dimension 2
+Cube:   8 = 2³ and 27 = 3³    → dimension 3</pre>
+<p>The pattern: N = (1/r)ᵈ. The copy count equals the inverse scale factor raised to the dimension!</p>
+<p>Why should that be true? When you shrink a shape by a factor r, its &quot;bulk&quot; shrinks by rᵈ — length for d = 1, area for d = 2, volume for d = 3. So each small copy holds rᵈ of the whole, and it takes exactly N = 1/rᵈ = (1/r)ᵈ copies to rebuild the whole. Check the square at r = 1/2: each copy has (1/2)² = 1/4 the area, and indeed 4 copies rebuild it. ✓</p>
+<p>Now flip it around — this is the big move. For a self-similar shape, DEFINE the dimension by that equation:</p>
+<pre class="math">N = (1/r)ᵈ        where N = number of self-copies, r = their scale factor</pre>
+<p>For ordinary shapes this reproduces 1, 2, 3. For fractals it produces something new — IF we can solve for d. That requires a tool you may not have met yet, so here it is, properly defined.</p>
+<p>LOGARITHMS, from scratch. The logarithm of a number x to base b is the EXPONENT you must put on b to get x:</p>
+<pre class="math">log_b(x) = y    means exactly    bʸ = x</pre>
+<pre class="math">log₂(8) = 3        because 2³ = 8
+log₃(81) = 4       because 3⁴ = 81
+log₁₀(1000) = 3    because 10³ = 1000</pre>
+<p>Two laws make logarithms do real work. Each gets a one-line proof.</p>
+<pre class="math">Law 1: log_b(M·N) = log_b(M) + log_b(N)
+Proof: write M = bˣ and N = bʸ (that's what the logs ARE: x = log_b M, y = log_b N).
+Then M·N = bˣ·bʸ = bˣ⁺ʸ (adding exponents), so log_b(M·N) = x + y = log_b M + log_b N. ✓</pre>
+<pre class="math">Law 2: log_b(Mᵏ) = k · log_b(M)
+Proof: M = bˣ, so Mᵏ = (bˣ)ᵏ = bᵏˣ (power of a power multiplies exponents),
+so log_b(Mᵏ) = kx = k·log_b(M). ✓</pre>
+<pre class="math">Change-of-base: log_b(x) = log(x) / log(b)   — using ANY log your calculator has.
+Proof: x = bʸ means y = log_b(x). Take log₁₀ of both sides of x = bʸ:
+log(x) = log(bʸ) = y·log(b) (Law 2). Divide by log(b): y = log(x)/log(b). ✓</pre>
+<p>One more fact we lean on: equal numbers have equal logarithms, so you may &quot;take log of both sides&quot; of any equation. (Logs are one-to-one: different inputs never give the same output.)</p>
+<p>Now solve the dimension equation, every step shown:</p>
+<pre class="math">N = (1/r)ᵈ                        (the dimension equation)
+log N = log((1/r)ᵈ)               (take log of both sides — any base)
+log N = d · log(1/r)              (Law 2 brings the exponent down in front)
+d = log N / log(1/r)              (divide both sides by log(1/r))</pre>
+<p>THE DIMENSION FORMULA. Let's fire it up:</p>
+<pre class="math">Line:       d = log 2 / log 2 = 1                                  (exact)
+Square:     d = log 4 / log 2 = log(2²)/log 2 = 2·log 2/log 2 = 2  (exact, using Law 2)
+Cube:       d = log 8 / log 2 = log(2³)/log 2 = 3                  (exact)
+Sierpinski: N = 3 copies at r = 1/2:
+            d = log 3 / log 2 ≈ 0.4771/0.3010 ≈ 1.585
+Koch edge:  N = 4 copies at r = 1/3 (zoom into any bump: the whole edge
+            is 4 copies of itself, each 1/3 the size):
+            d = log 4 / log 3 ≈ 0.6021/0.4771 ≈ 1.262
+Cantor set  (Lesson 7): N = 2 copies at r = 1/3:
+            d = log 2 / log 3 ≈ 0.3010/0.4771 ≈ 0.631</pre>
+<p>Read those answers slowly — they're the payoff of the entire lesson:</p>
+<p>· The Sierpinski triangle has dimension ≈ 1.585: MORE than a line (1), LESS than a surface (2). Of course it does — it's so full of holes it's not quite a surface anymore, yet it's far more than a curve.</p>
+<p>· The Koch edge has dimension ≈ 1.262: too crinkly to be a mere line, too skinny to cover any area.</p>
+<p>· The Cantor set has dimension ≈ 0.631: between a scattering of points (0) and a line (1). Dust with structure.</p>
+<p>Shapes whose dimension lands between whole numbers are called FRACTALS — from &quot;fractional dimension.&quot; That's where the name comes from! And notice the square from Lesson 1: exactly self-similar, but its dimension computes to exactly 2 — self-similar yet not fractional, so not a true fractal. The mystery from Lesson 1, resolved.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Which has more dimensions: a shape made of 4 half-size copies, or one made of 8? (b) A mystery fractal is built from 5 half-size copies of itself. Compute its dimension and place it between two whole numbers. (c) A fractal is made of 4 copies at scale 1/3. Compute its dimension — do you recognize the shape?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 8 copies: d = log 8/log 2 = 3 beats 4 copies: d = log 4/log 2 = 2. (b) d = log 5/log 2 ≈ 0.6990/0.3010 ≈ 2.32 — between 2 and 3 dimensions. (c) d = log 4/log 3 ≈ 1.262 — that's exactly the Koch snowflake's edge!</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

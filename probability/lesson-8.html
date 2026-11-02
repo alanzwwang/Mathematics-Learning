@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Watch Out! Common Mistakes — Probability</title>
+<meta name="description" content="How likely is it? Complements, AND and OR rules, and expected value.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced" class="active">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a> › Lesson 8</p>
+    <h1>⚠️ Watch Out! Common Mistakes</h1>
+    <p class="kicker">📖 Lesson 8 of 9</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Keep the rules in sight</p><pre class="math">OR means add (subtract the overlap!) · AND means multiply (check replacement!) ·
+NOT means 1 − P(A) · every probability obeys 0 ≤ P ≤ 1</pre></div>
+<p>Mistake 1: counting only part of the bottom. A bag has 3 red, 2 blue, 5 green. P(red) = 3/5? ❌ — someone forgot the green marbles! The bottom is everything: 3/10 ✅.</p>
+<p>Mistake 2: &quot;two options means 50-50.&quot; My lottery ticket either wins or loses, so it's 50%! ❌ Two options are 50-50 only when they're equally likely. The formula demands it — that's the golden rule.</p>
+<p>Mistake 3: thinking the coin has a memory. Five tails in a row, so heads is &quot;due&quot;? ❌ Every flip is a fresh 1/2. Flips are independent — the coin doesn't remember, doesn't plan, and doesn't owe you anything.</p>
+<p>Mistake 4: adding when you should subtract the overlap. P(heart or ace) = 17/52? ❌ You double-counted the ace of hearts. Always ask: can these happen together? If yes, subtract the overlap: 16/52 = 4/13 ✅.</p>
+<p>Mistake 5: adding when you should multiply. P(two heads in a row) = 1/2 + 1/2 = 1? ❌ That would mean it always happens! &quot;And then&quot; chains get multiplied: 1/2 × 1/2 = 1/4 ✅. Adding is for &quot;or&quot; (one experiment, either result). Multiplying is for &quot;and then&quot; (chained experiments, all results needed).</p>
+<p>Mistake 6: impossible answers. P(red) = 5/3? P(win) = 120%? P(A) = −1/6? ❌ Every probability obeys 0 ≤ P ≤ 1. If your answer escapes that range, something went wrong in the counting — go back and find it. (A negative number mid-solution, like in Lesson 5's detective work, is fine. A negative FINAL probability is not.)</p>
+<p>Mistake 7: forgetting the bag changes. Two draws without replacement from 3 red, 2 blue: P(red, then red) = 3/5 × 3/5 = 9/25? ❌ The second draw has one fewer marble AND one fewer red: 3/5 × 2/4 = 3/10 ✅. First question of every draw problem: did it go back in?</p>
+<p>Mistake 8: (1/2)ⁿ ≠ n/2. P(three heads in a row) = 3/2? ❌ — and 3/2 &gt; 1 should set off the Mistake 6 alarm! Powers mean multiply the fraction by ITSELF: (1/2)³ = 1/2 × 1/2 × 1/2 = 1/8 ✅. Each extra event multiplies the probability; it never just adds another 1/2.</p>
+<p>Mistake 9: &quot;expected&quot; means &quot;guaranteed.&quot; You expected 10 sixes in 60 rolls and got 8 — is the die rigged? ❌ Expected count is a long-run average. Any single batch of 60 rolls will wiggle around 10 — that's normal, not suspicious.</p></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

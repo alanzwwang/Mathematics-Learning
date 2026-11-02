@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 5</p>
+    <h1>⚡ The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise</h1>
+    <p class="kicker">📖 Lesson 5 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Flipping an if-then usually BREAKS it.
+Flipping AND negating both parts — the contrapositive — always keeps it true.
+When BOTH directions are true, you have a two-way promise: &quot;if and only if.&quot;</pre></div>
+<p>Every if-then has not two but THREE relatives. Never mix them up:</p>
+<pre class="math">Original:        If p, then q.              p → q
+Converse:        If q, then p.              q → p     ← the flip — NOT guaranteed!
+Inverse:         If NOT p, then NOT q.      ¬p → ¬q   ← the deny — NOT guaranteed!
+Contrapositive:  If NOT q, then NOT p.      ¬q → ¬p   ← flip AND deny — ALWAYS matches!</pre>
+<p>One true promise, three relatives, and only ONE relative you can trust. Watch it on an algebra promise: &quot;If x = 5, then x² = 25.&quot;</p>
+<pre class="math">Converse:        &quot;If x² = 25, then x = 5.&quot;           FALSE — x = −5 satisfies x² = 25 and isn't 5.
+Inverse:         &quot;If x ≠ 5, then x² ≠ 25.&quot;           FALSE — x = −5 again: ≠ 5, yet x² = 25.
+Contrapositive:  &quot;If x² ≠ 25, then x ≠ 5.&quot;           TRUE — if the square isn't 25, x can't be 5.</pre>
+<p>Why does the contrapositive always work? The promise says: whenever p happens, q must follow. So if q DIDN'T happen, could p have happened? No way — p would have forced q. No q means no p. That IS the contrapositive, so it stands or falls with the original. They're the same promise in two outfits. (Bonus fact: the converse and inverse are contrapositives of EACH OTHER — so they also stand or fall together. Two matched pairs!)</p>
+<p>Why are the other two unreliable? One word: sprinkler. &quot;If it rains, the ground gets wet&quot; does not mean wet ground proves rain — a sprinkler is an alternate cause. In algebra, the alternate cause is the negative root: x² = 25 has two ways to happen, and the converse only believes in one.</p>
+<p>Now the twist that makes this section honors-level. Sometimes the converse IS true — and noticing WHEN is a superpower.</p>
+<p><strong>Worked example 1</strong> — a reversible step. Promise: &quot;If x = 7, then 2x = 14.&quot;</p>
+<pre class="math">Converse: &quot;If 2x = 14, then x = 7.&quot;
+Is it true?  2x = 14 → x = 7   divide both sides by 2 — the truth set of 2x = 14 is exactly {7}.
+YES — true this time!</pre>
+<p>What's different? Doubling is REVERSIBLE: you can always un-double by dividing by 2. Squaring is NOT reversible: two different inputs (5 and −5) give the same output, so you can't tell which one went in. That is the whole secret:</p>
+<pre class="math">A step gives a two-way promise when it's REVERSIBLE.
+Adding, subtracting, multiplying or dividing by a nonzero number: reversible.
+Squaring: one-way. (Hold that thought for Lesson 7.)</pre>
+<p>When BOTH directions hold, logicians smash them into one statement with the two-way arrow:</p>
+<pre class="math">p ↔ q    means    (p → q) AND (q → p)    — read &quot;p if and only if q,&quot; or &quot;p iff q.&quot;</pre>
+<p>A biconditional is an AND of two promises, so proving one takes TWO separate checks — one per direction.</p>
+<p><strong>Worked example 2</strong> — test a biconditional, both directions. Claim: &quot;x² = 49 ↔ x = 7.&quot;</p>
+<pre class="math">Direction 1 (→):  if x = 7, then x² = 49.  Check: 7² = 49 ✓ TRUE.
+Direction 2 (←):  if x² = 49, then x = 7.  Check: x = −7 gives (−7)² = 49, but −7 ≠ 7. FALSE.
+AND needs both → the biconditional is FALSE.</pre>
+<pre class="math">The repair: &quot;x² = 49 ↔ (x = 7 OR x = −7).&quot;
+Direction 1: 7² = 49 ✓ and (−7)² = 49 ✓ — both listed values work. TRUE.
+Direction 2: if x² = 49, is x surely 7 or −7? Yes — a square comes from exactly one
+positive root and one negative root. TRUE. AND is satisfied → TRUE biconditional ✓.</pre>
+<p>Definitions are always biconditionals, even when nobody says &quot;iff&quot;: &quot;x is even&quot; MEANS &quot;x is divisible by 2&quot; — the arrow runs both ways, no exceptions, forever.</p>
+<p>Last vocabulary for this section — two little words with giant meaning. &quot;ONLY IF&quot; is not &quot;IF&quot;:</p>
+<pre class="math">&quot;You may ride the coaster ONLY IF you are at least 48 inches tall.&quot;
+= &quot;If you ride, then you are at least 48 inches tall.&quot;   (p only if q  means  p → q)</pre>
+<p>Being 48 inches is NECESSARY — required, no ride without it — but not SUFFICIENT — not enough by itself to guarantee a ride (you also need a ticket, a working coaster...). In math: &quot;divisible by 12&quot; is sufficient for &quot;divisible by 3&quot; (it guarantees it), and &quot;divisible by 3&quot; is necessary for &quot;divisible by 12&quot; (you can't have the first without the second — but having it isn't enough: 9 is divisible by 3, not by 12).</p>
+<p><strong>Worked example 3</strong> — necessary vs sufficient with inequalities. Claim: &quot;x &gt; 3 only if x &gt; 1.&quot;</p>
+<pre class="math">Translate:  &quot;p only if q&quot; means p → q, so this says:  if x &gt; 3, then x &gt; 1.
+Is it true?  x &gt; 3 and 3 &gt; 1, so x &gt; 1 — a bigger-than chain forces it. TRUE.
+Converse: &quot;if x &gt; 1, then x &gt; 3.&quot;  Try x = 2: 2 &gt; 1 ✓ but 2 &gt; 3 ✗. FALSE.</pre>
+<pre class="math">So &quot;x &gt; 1&quot; is NECESSARY for &quot;x &gt; 3&quot; (no number above 3 escapes being above 1)
+but NOT SUFFICIENT (2 proves being above 1 isn't enough to be above 3).</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Write the converse and contrapositive of &quot;If 3x = 12, then x = 4.&quot; This time BOTH are true — explain why in one sentence.   (b) True biconditional or not: &quot;x = 8 ↔ 3x = 24&quot;? Check both directions.   (c) True biconditional or not: &quot;x² &gt; 9 ↔ x &gt; 3&quot;? If it fails, repair it.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Converse: &quot;If x = 4, then 3x = 12.&quot; Contrapositive: &quot;If x ≠ 4, then 3x ≠ 12.&quot; Both true — dividing by 3 is reversible, so the promise runs both ways. (b) Direction 1: 3(8) = 24 ✓. Direction 2: 3x = 24 → x = 8 (divide by 3) ✓. Both true → YES, a true biconditional. (c) Direction 1: x &gt; 3 → multiply both sides by x (positive, direction kept): x² &gt; 3x; and 3x &gt; 9 (multiply x &gt; 3 by 3); chain them: x² &gt; 9 ✓ TRUE. Direction 2: x = −4 gives (−4)² = 16 &gt; 9, but −4 &lt; 3 → FALSE. Repair with Lesson 3's absolute value: x² &gt; 9 ↔ |x| &gt; 3 ↔ (x &gt; 3 OR x &lt; −3).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

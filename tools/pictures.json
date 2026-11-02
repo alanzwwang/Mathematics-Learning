@@ -1,0 +1,322 @@
+{
+ "arithmetic": [
+  {
+   "img": "img/arithmetic-1.jpg",
+   "title": "Abacus actually in use at kimono shop in Otaru.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Abacus_actually_in_use_at_kimono_shop_in_Otaru.jpg",
+   "license": "CC0",
+   "artist": "Syced"
+  },
+  {
+   "img": "img/arithmetic-2.jpg",
+   "title": "Ishango bone (cropped).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Ishango_bone_(cropped).jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "Joeykentin"
+  }
+ ],
+ "fractions": [
+  {
+   "img": "img/fractions-1.jpg",
+   "title": "Pizza quattro stagioni.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Pizza_quattro_stagioni.jpg",
+   "license": "CC BY-SA 3.0",
+   "artist": "Rkolarsky"
+  },
+  {
+   "img": "img/fractions-2.png",
+   "title": "Fraction Circles Shaded.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Fraction_Circles_Shaded.png",
+   "license": "CC0",
+   "artist": "Zapotz"
+  }
+ ],
+ "logic": [
+  {
+   "img": "img/logic-1.jpg",
+   "title": "Aristotle Altemps Inv8575.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg",
+   "license": "Public domain",
+   "artist": "After Lysippos"
+  },
+  {
+   "img": "img/logic-2.jpg",
+   "title": "George Boole color.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg",
+   "license": "Public domain",
+   "artist": "Unknown authorUnknown author"
+  }
+ ],
+ "algebraic-equations": [
+  {
+   "img": "img/algebraic-equations-1.jpg",
+   "title": "Balance scale IMGP9755.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Balance_scale_IMGP9755.jpg",
+   "license": "CC BY-SA 3.0",
+   "artist": "Nikodem Nijaki"
+  },
+  {
+   "img": "img/algebraic-equations-2.png",
+   "title": "The Algebra of Mohammed ben Musa (Arabic).png",
+   "page": "https://commons.wikimedia.org/wiki/File:The_Algebra_of_Mohammed_ben_Musa_(Arabic).png",
+   "license": "Public domain",
+   "artist": "Muḥammad ibn Musa al-Khwarizmi"
+  }
+ ],
+ "linear-functions": [
+  {
+   "img": "img/linear-functions-1.png",
+   "title": "Linear Function Graph.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Linear_Function_Graph.svg",
+   "license": "Public domain",
+   "artist": "Jim.belk"
+  },
+  {
+   "img": "img/linear-functions-2.png",
+   "title": "Wiki slope in 2d.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Wiki_slope_in_2d.svg",
+   "license": "CC BY-SA 3.0",
+   "artist": "Maschen"
+  }
+ ],
+ "logarithms": [
+  {
+   "img": "img/logarithms-1.jpg",
+   "title": "John Napier.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:John_Napier.jpg",
+   "license": "Public domain",
+   "artist": "Unknown authorUnknown author"
+  },
+  {
+   "img": "img/logarithms-2.png",
+   "title": "Sliderule 2005.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Sliderule_2005.png",
+   "license": "CC BY-SA 3.0",
+   "artist": "Sliderule_2005.jpg: Roger McLassus derivative work: Beao"
+  }
+ ],
+ "exponential-growth": [
+  {
+   "img": "img/exponential-growth-1.jpg",
+   "title": "Wheat and chessboard problem.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Wheat_and_chessboard_problem.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "McGeddon"
+  },
+  {
+   "img": "img/exponential-growth-2.jpg",
+   "title": "E. coli Bacteria (7316101966).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:E._coli_Bacteria_(7316101966).jpg",
+   "license": "Public domain",
+   "artist": "NIAID"
+  }
+ ],
+ "pascals-triangle": [
+  {
+   "img": "img/pascals-triangle-1.jpg",
+   "title": "Blaise Pascal Versailles.JPG",
+   "page": "https://commons.wikimedia.org/wiki/File:Blaise_Pascal_Versailles.JPG",
+   "license": "Public domain",
+   "artist": "unknown; a copy of the painting of François II Quesnel, which was made for Gérard Edelinck en 1691[réf. nécessaire]."
+  },
+  {
+   "img": "img/pascals-triangle-2.gif",
+   "title": "Yanghui triangle.gif",
+   "page": "https://commons.wikimedia.org/wiki/File:Yanghui_triangle.gif",
+   "license": "Public domain",
+   "artist": "Yáng Huī (楊輝), ca. 1238–1298)"
+  }
+ ],
+ "geometry": [
+  {
+   "img": "img/geometry-1.jpg",
+   "title": "P. Oxy. I 29.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:P._Oxy._I_29.jpg",
+   "license": "Public domain",
+   "artist": "Euclid"
+  },
+  {
+   "img": "img/geometry-2.jpg",
+   "title": "All Gizah Pyramids.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:All_Gizah_Pyramids.jpg",
+   "license": "CC BY-SA 2.0",
+   "artist": "Ricardo Liberato"
+  }
+ ],
+ "algebraic-geometry": [
+  {
+   "img": "img/algebraic-geometry-1.jpg",
+   "title": "Frans Hals - Portret van René Descartes.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Frans_Hals_-_Portret_van_Ren%C3%A9_Descartes.jpg",
+   "license": "Public domain",
+   "artist": "After Frans Hals"
+  },
+  {
+   "img": "img/algebraic-geometry-2.png",
+   "title": "Cartesian-coordinate-system.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Cartesian-coordinate-system.svg",
+   "license": "Public domain",
+   "artist": "K. Bolino"
+  }
+ ],
+ "non-euclidean-geometry": [
+  {
+   "img": "img/non-euclidean-geometry-1.jpg",
+   "title": "Triangles (spherical geometry).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Triangles_(spherical_geometry).jpg",
+   "license": "CC BY-SA 3.0",
+   "artist": "Lars H. Rohwedder, Sarregouset"
+  },
+  {
+   "img": "img/non-euclidean-geometry-2.png",
+   "title": "Uniform tiling 73-t2 colored.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Uniform_tiling_73-t2_colored.png",
+   "license": "CC BY-SA 3.0",
+   "artist": "Jakob.scholbach (talk)"
+  }
+ ],
+ "fractal-geometry": [
+  {
+   "img": "img/fractal-geometry-1.jpg",
+   "title": "Romanesco broccoli (Brassica oleracea).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Romanesco_broccoli_(Brassica_oleracea).jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "Ivar Leidus"
+  },
+  {
+   "img": "img/fractal-geometry-2.jpg",
+   "title": "Mandel zoom 00 mandelbrot set.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Mandel_zoom_00_mandelbrot_set.jpg",
+   "license": "CC BY-SA 3.0",
+   "artist": "Created by Wolfgang Beyer with the program Ultra Fractal 3."
+  }
+ ],
+ "calculus": [
+  {
+   "img": "img/calculus-1.jpg",
+   "title": "Portrait of Sir Isaac Newton, 1689.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Portrait_of_Sir_Isaac_Newton,_1689.jpg",
+   "license": "Public domain",
+   "artist": "Godfrey Kneller"
+  },
+  {
+   "img": "img/calculus-2.jpg",
+   "title": "Christoph Bernhard Francke - Bildnis des Philosophen Leibniz (ca. 1695).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Christoph_Bernhard_Francke_-_Bildnis_des_Philosophen_Leibniz_(ca._1695).jpg",
+   "license": "Public domain",
+   "artist": "Christoph Bernhard Francke"
+  }
+ ],
+ "complex-analysis": [
+  {
+   "img": "img/complex-analysis-1.jpg",
+   "title": "Leonhard Euler.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Leonhard_Euler.jpg",
+   "license": "Public domain",
+   "artist": "Jakob Emanuel Handmann"
+  },
+  {
+   "img": "img/complex-analysis-2.jpg",
+   "title": "Color complex plot.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Color_complex_plot.jpg",
+   "license": "CC BY 2.5",
+   "artist": "Claudio Rocchini"
+  }
+ ],
+ "matrix-math": [
+  {
+   "img": "img/matrix-math-1.png",
+   "title": "Matrix multiplication diagram 2.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Matrix_multiplication_diagram_2.svg",
+   "license": "CC BY-SA 3.0",
+   "artist": "Lakeworks"
+  },
+  {
+   "img": "img/matrix-math-2.png",
+   "title": "Pixel-example.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Pixel-example.png",
+   "license": "CC BY-SA 3.0",
+   "artist": "ed g2s • talk"
+  }
+ ],
+ "number-theory": [
+  {
+   "img": "img/number-theory-1.gif",
+   "title": "Sieve of Eratosthenes animation.gif",
+   "page": "https://commons.wikimedia.org/wiki/File:Sieve_of_Eratosthenes_animation.gif",
+   "license": "CC BY-SA 3.0",
+   "artist": "SKopp at German Wikipedia"
+  },
+  {
+   "img": "img/number-theory-2.jpg",
+   "title": "Carl Friedrich Gauss 1840 by Jensen.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Carl_Friedrich_Gauss_1840_by_Jensen.jpg",
+   "license": "Public domain",
+   "artist": "Christian Albrecht Jensen"
+  }
+ ],
+ "trigonometry": [
+  {
+   "img": "img/trigonometry-1.png",
+   "title": "Marine sextant.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Marine_sextant.svg",
+   "license": "CC BY 2.5",
+   "artist": "Joaquim Alves Gaspar"
+  },
+  {
+   "img": "img/trigonometry-2.png",
+   "title": "Unit circle angles color.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Unit_circle_angles_color.svg",
+   "license": "Public domain",
+   "artist": "Jim.belk"
+  }
+ ],
+ "combinatorics": [
+  {
+   "img": "img/combinatorics-1.png",
+   "title": "Rubik's cube.svg",
+   "page": "https://commons.wikimedia.org/wiki/File:Rubik%27s_cube.svg",
+   "license": "CC BY-SA 3.0",
+   "artist": "This image was created by me, Booyabazooka"
+  },
+  {
+   "img": "img/combinatorics-2.jpg",
+   "title": "Dice (typical role playing game dice).jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Dice_(typical_role_playing_game_dice).jpg",
+   "license": "CC BY-SA 3.0",
+   "artist": "Diacritica"
+  }
+ ],
+ "permutations-vs-combinations": [
+  {
+   "img": "img/permutations-vs-combinations-1.jpg",
+   "title": "Dudley combination lock.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Dudley_combination_lock.jpg",
+   "license": "CC0",
+   "artist": "Raysonho @ Open Grid Scheduler / Grid Engine"
+  },
+  {
+   "img": "img/permutations-vs-combinations-2.jpg",
+   "title": "Sweet Scoops - June 2025 - Sarah Stierch.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Sweet_Scoops_-_June_2025_-_Sarah_Stierch.jpg",
+   "license": "CC0",
+   "artist": "Missvain"
+  }
+ ],
+ "probability": [
+  {
+   "img": "img/probability-1.jpg",
+   "title": "Galton box.jpg",
+   "page": "https://commons.wikimedia.org/wiki/File:Galton_box.jpg",
+   "license": "CC BY-SA 4.0",
+   "artist": "Exhibit made by Estes Objethos Atelier, photo by Rodrigo.Argenton"
+  },
+  {
+   "img": "img/probability-2.png",
+   "title": "Quincunx (Galton Box) - Galton 1889 diagram.png",
+   "page": "https://commons.wikimedia.org/wiki/File:Quincunx_(Galton_Box)_-_Galton_1889_diagram.png",
+   "license": "Public domain",
+   "artist": "w: Francis Galton"
+  }
+ ]
+}

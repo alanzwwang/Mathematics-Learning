@@ -1,0 +1,186 @@
+{
+  "groups": [
+    { "id": "foundations", "name": "Foundations", "emoji": "🧱", "blurb": "Start here! The building blocks every mathematician needs." },
+    { "id": "algebra", "name": "Algebra", "emoji": "🔣", "blurb": "Letters that stand for numbers, and the puzzles they solve." },
+    { "id": "geometry", "name": "Geometry", "emoji": "📐", "blurb": "Shapes, maps, curved worlds and never-ending patterns." },
+    { "id": "advanced", "name": "Advanced", "emoji": "🚀", "blurb": "Ready for a challenge? Big ideas from real mathematicians." }
+  ],
+  "topics": [
+    {
+      "slug": "arithmetic", "file": "Arithmetic.md", "name": "Arithmetic", "emoji": "➕", "group": "foundations", "color": "#f97316",
+      "blurb": "Undo operations, master exponents and negative numbers, and solve your first equations!",
+      "pics": [
+        { "alt": "A wooden abacus with beads being used on a shop counter", "caption": "A real abacus at a kimono shop in Otaru, Japan. Shopkeepers there have used the soroban abacus for hundreds of years, sliding beads to add and subtract super fast!" },
+        { "alt": "An old brown bone with rows of scratched tally marks", "caption": "The Ishango bone, found in what is now the Democratic Republic of the Congo. It's about 20,000 years old, and its scratched tally marks may be one of the oldest records of counting!" }
+      ]
+    },
+    {
+      "slug": "fractions", "file": "Fractions.md", "name": "Fractions", "emoji": "🍕", "group": "foundations", "color": "#ef4444",
+      "blurb": "Fractions are just division in disguise. Add, multiply, divide and solve with them!",
+      "pics": [
+        { "alt": "A round pizza split into four parts, each with different toppings", "caption": "A \"four seasons\" pizza has 4 parts with different toppings, so each part is 1/4 of the pizza. Two parts together make 2/4, which is the same as 1/2!" },
+        { "alt": "Eleven circles, each cut into equal slices with one slice shaded green", "caption": "Fraction circles from 1/2 all the way to 1/12. Notice that the more slices you cut, the smaller each slice gets!" }
+      ]
+    },
+    {
+      "slug": "logic", "file": "Logic.md", "name": "Logic", "emoji": "🧠", "group": "foundations", "color": "#eab308",
+      "blurb": "AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!",
+      "pics": [
+        { "alt": "A marble bust of a bearded man from ancient Greece", "caption": "A marble bust of Aristotle (384–322 BC), the ancient Greek thinker who wrote down some of the very first rules of logic." },
+        { "alt": "A black-and-white portrait photo of a man in a jacket", "caption": "George Boole (1815–1864) turned logic into algebra with just TRUE and FALSE. Every computer today runs on his \"Boolean logic\"!" }
+      ]
+    },
+    {
+      "slug": "algebraic-equations", "file": "Algebraic Equations.md", "name": "Algebraic Equations", "emoji": "⚖️", "group": "algebra", "color": "#8b5cf6",
+      "blurb": "Keep the balance! Crack equations with fractions, negatives, x on both sides and more.",
+      "pics": [
+        { "alt": "A metal balance scale with two pans", "caption": "A balance scale stays level only when both sides weigh the same, just like the two sides of an equation. That's the Golden Rule of algebra!" },
+        { "alt": "A page of old Arabic handwriting", "caption": "A page from al-Khwarizmi's famous book about solving equations, written in Baghdad around 820 AD. The word \"algebra\" comes from \"al-jabr\" in its title!" }
+      ]
+    },
+    {
+      "slug": "linear-functions", "file": "Linear Functions.md", "name": "Linear Functions", "emoji": "📈", "group": "algebra", "color": "#6366f1",
+      "blurb": "Function machines, slope and straight-line graphs, from f(x) to systems of equations.",
+      "pics": [
+        { "alt": "A grid graph with a red line and a blue line crossing", "caption": "Two linear functions, y = ½x + 2 and y = −x + 5. Every linear function draws a perfectly straight line, and these two meet at the point (2, 3)!" },
+        { "alt": "A diagram of a tilted line with its rise and run marked", "caption": "Slope is rise ÷ run: how far a line goes up (Δy) for each step it goes across (Δx)." }
+      ]
+    },
+    {
+      "slug": "logarithms", "file": "Logarithms.md", "name": "Logarithms", "emoji": "🪵", "group": "algebra", "color": "#a855f7",
+      "blurb": "The backwards question: what power do I need? Logs turn multiplying into adding!",
+      "pics": [
+        { "alt": "An old painted portrait of a man with a beard and a ruff collar", "caption": "John Napier (1550–1617) of Scotland invented logarithms and published them in 1614 to make huge multiplications much easier." },
+        { "alt": "A long slide rule covered in number scales", "caption": "A slide rule. Before calculators, scientists and engineers multiplied numbers by sliding logarithm scales against each other!" }
+      ]
+    },
+    {
+      "slug": "exponential-growth", "file": "Exponential Growth.md", "name": "Exponential Growth", "emoji": "🦠", "group": "algebra", "color": "#d946ef",
+      "blurb": "Doubling machines! See how numbers explode (and shrink) with f(x) = a × bˣ.",
+      "pics": [
+        { "alt": "A wooden chessboard with 1, 2, 4 and 8 grains of rice on the first squares", "caption": "The wheat and chessboard puzzle: put 1 grain on the first square, 2 on the next, then 4, 8, 16... By the last square you'd need more than 18 quintillion grains in total!" },
+        { "alt": "Rod-shaped bacteria seen up close through a microscope", "caption": "E. coli bacteria seen through a microscope. With plenty of food, each one can split in two about every 20 minutes. That's exponential growth!" }
+      ]
+    },
+    {
+      "slug": "pascals-triangle", "file": "Pascal's Triangle.md", "name": "Pascal's Triangle", "emoji": "🔺", "group": "algebra", "color": "#ec4899",
+      "blurb": "A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!",
+      "pics": [
+        { "alt": "An old painted portrait of a man with long hair", "caption": "Blaise Pascal (1623–1662), the French mathematician the triangle is named after. As a teenager he also built one of the first mechanical calculators!" },
+        { "alt": "An old Chinese drawing of a triangle of numbers made of circles", "caption": "The same triangle in a Chinese book from 1303. Chinese mathematicians like Yang Hui knew about it hundreds of years before Pascal was born!" }
+      ]
+    },
+    {
+      "slug": "geometry", "file": "Geometry.md", "name": "Geometry", "emoji": "📐", "group": "geometry", "color": "#14b8a6",
+      "blurb": "Angles, triangles, Pythagoras, circles and more, with real proofs you can follow.",
+      "pics": [
+        { "alt": "A small, torn piece of ancient papyrus with Greek writing and a diagram", "caption": "A scrap of papyrus from Oxyrhynchus, Egypt, written around 100 AD. It has a diagram from Euclid's Elements and is one of the oldest pieces of Euclid ever found!" },
+        { "alt": "The great pyramids of Giza in the desert", "caption": "The pyramids of Giza in Egypt, built about 4,500 years ago. Their builders needed geometry to make the sides and corners so precise!" }
+      ]
+    },
+    {
+      "slug": "algebraic-geometry", "file": "Algebraic Geometry.md", "name": "Algebraic Geometry", "emoji": "🗺️", "group": "geometry", "color": "#06b6d4",
+      "blurb": "Give every point an address (x, y) and watch equations draw lines, circles and parabolas!",
+      "pics": [
+        { "alt": "An old painted portrait of a man with long dark hair and a moustache", "caption": "René Descartes (1596–1650) had the idea of giving every point an address (x, y). That's why it's called the Cartesian plane!" },
+        { "alt": "A coordinate plane with x and y axes and four coloured points", "caption": "The coordinate plane: two number lines that cross at zero. Every point has its own (x, y) address, like (2, 3) or (−3, 1)!" }
+      ]
+    },
+    {
+      "slug": "non-euclidean-geometry", "file": "Non-Euclidean Geometry.md", "name": "Non-Euclidean Geometry", "emoji": "🌐", "group": "geometry", "color": "#0ea5e9",
+      "blurb": "What if space is curved? Triangles on balls and saddles break the 180° rule!",
+      "pics": [
+        { "alt": "A globe with a giant triangle drawn on it, with angles of 90, 90 and 50 degrees", "caption": "A giant triangle drawn on the Earth. Its angles are 90° + 90° + 50° = 230°, way more than 180°! But a small triangle on the ground is almost flat, so its angles add up to about 180°." },
+        { "alt": "A circle filled with colourful triangle tiles that get tinier near the edge", "caption": "A tiling of the hyperbolic plane. The tiles near the edge look tiny to us, but in their own curved world they're all exactly the same size!" }
+      ]
+    },
+    {
+      "slug": "fractal-geometry", "file": "Fractal Geometry.md", "name": "Fractal Geometry", "emoji": "❄️", "group": "geometry", "color": "#10b981",
+      "blurb": "Shapes made of smaller copies of themselves, from snowflakes to broccoli!",
+      "pics": [
+        { "alt": "A bright green Romanesco broccoli with spiky spiral bumps", "caption": "Romanesco broccoli: each bump is made of smaller bumps that look like the whole thing. It's a fractal you can eat!" },
+        { "alt": "A black shape with swirling coloured edges", "caption": "The Mandelbrot set, the most famous fractal of all. You can zoom into its edge forever and keep finding new swirls!" }
+      ]
+    },
+    {
+      "slug": "calculus", "file": "Calculus.md", "name": "Calculus", "emoji": "♾️", "group": "advanced", "color": "#3b82f6",
+      "blurb": "The math of change: limits, derivatives, areas and the Fundamental Theorem.",
+      "pics": [
+        { "alt": "An old painted portrait of a man with long grey hair", "caption": "Isaac Newton (1643–1727), painted in 1689. He invented calculus to explain how planets and falling apples move." },
+        { "alt": "An old painted portrait of a man in a huge curly wig", "caption": "Gottfried Wilhelm Leibniz (1646–1716) invented calculus too, at about the same time. We still use his dy/dx and ∫ symbols today!" }
+      ]
+    },
+    {
+      "slug": "complex-analysis", "file": "Complex Analysis.md", "name": "Complex Analysis", "emoji": "🌀", "group": "advanced", "color": "#7c3aed",
+      "blurb": "Meet i, the number whose square is −1, and see how multiplying can spin and stretch!",
+      "pics": [
+        { "alt": "An old painted portrait of a man wearing a cloth cap", "caption": "Leonhard Euler (1707–1783), one of the greatest mathematicians ever. He was the first to use the letter i for √−1!" },
+        { "alt": "A square picture full of rainbow colours swirling around several points", "caption": "A picture of a complex function. Each colour shows the direction of a complex number, so the rainbow swirls show where the function spins around!" }
+      ]
+    },
+    {
+      "slug": "matrix-math", "file": "Matrix Math.md", "name": "Matrix Math", "emoji": "🔢", "group": "advanced", "color": "#2563eb",
+      "blurb": "Grids of numbers that power video games, photos and secret codes!",
+      "pics": [
+        { "alt": "A diagram showing a row of one matrix meeting a column of another", "caption": "How matrix multiplication works: each row of matrix A meets a column of matrix B to make one square in the answer." },
+        { "alt": "A drawing of a computer, with a zoomed-in square showing tiny coloured blocks", "caption": "Zoom in on any computer picture and you'll see it's really a grid of tiny squares called pixels: a giant matrix of numbers!" }
+      ]
+    },
+    {
+      "slug": "number-theory", "file": "Number Theory.md", "name": "Number Theory", "emoji": "🔍", "group": "advanced", "color": "#0891b2",
+      "blurb": "Primes, divisibility rules, GCF, LCM and Euclid's amazing 2,300-year-old algorithm.",
+      "pics": [
+        { "alt": "An animated grid of numbers where multiples get crossed out and the primes stay", "caption": "The Sieve of Eratosthenes: cross out the multiples of 2, 3, 5 and 7, and the numbers left over are the primes!" },
+        { "alt": "An old painted portrait of a man in a black velvet cap", "caption": "Carl Friedrich Gauss (1777–1855) called number theory \"the queen of mathematics\"." }
+      ]
+    },
+    {
+      "slug": "trigonometry", "file": "Trigonometry.md", "name": "Trigonometry", "emoji": "📏", "group": "advanced", "color": "#059669",
+      "blurb": "SOH CAH TOA! Use triangles to measure kites, ladders, shadows and the world.",
+      "pics": [
+        { "alt": "A drawing of a brass navigation tool shaped like a slice of pie", "caption": "A sextant measures the angle between the Sun or a star and the horizon. Sailors used it with trigonometry to work out where they were at sea!" },
+        { "alt": "A circle with lines for many special angles in degrees and radians", "caption": "The unit circle with the special angles. The cosine and sine of each angle are just the x and y coordinates of its point on the circle!" }
+      ]
+    },
+    {
+      "slug": "combinatorics", "file": "Combinatorics.md", "name": "Combinatorics", "emoji": "🧩", "group": "advanced", "color": "#db2777",
+      "blurb": "The art of counting without listing: outfits, line-ups, teams and grid paths!",
+      "pics": [
+        { "alt": "A drawing of a Rubik's Cube with coloured squares", "caption": "A Rubik's Cube can be mixed up in 43,252,003,274,489,856,000 different ways. Counting that is combinatorics!" },
+        { "alt": "Six colourful dice with 4, 6, 8, 10, 12 and 20 sides", "caption": "Dice with 4, 6, 8, 10, 12 and 20 sides. If you roll them all at once there are 4 × 6 × 8 × 10 × 12 × 20 = 460,800 possible results. AND means multiply!" }
+      ]
+    },
+    {
+      "slug": "permutations-vs-combinations", "file": "Permutations vs Combinations.md", "name": "Permutations vs Combinations", "emoji": "🔐", "group": "advanced", "color": "#e11d48",
+      "blurb": "Does order matter? Learn the big decision that every counting problem asks.",
+      "pics": [
+        { "alt": "A black padlock with a number dial", "caption": "Fun fact: a \"combination\" lock should really be called a PERMUTATION lock, because the order of the numbers matters!" },
+        { "alt": "A hand holding an ice-cream cone with two different scoops stacked on top", "caption": "Picking 2 flavours for a cup is a combination, but on a cone, which flavour goes on top matters. That's a permutation!" }
+      ]
+    },
+    {
+      "slug": "probability", "file": "Probability.md", "name": "Probability", "emoji": "🎲", "group": "advanced", "color": "#f59e0b",
+      "blurb": "How likely is it? Complements, AND and OR rules, and expected value.",
+      "pics": [
+        { "alt": "A tall board with pegs and small balls that have piled up at the bottom", "caption": "A Galton board: each ball bounces left or right at random, yet together they pile up in a bell-shaped hill every time!" },
+        { "alt": "An old black-and-white drawing of a board with pegs and a funnel", "caption": "Francis Galton's own 1889 drawing of his board, which he called a \"quincunx\"." }
+      ]
+    }
+  ],
+  "artists": {
+    "img/logic-2.jpg": "Unknown photographer",
+    "img/logarithms-1.jpg": "Unknown artist",
+    "img/logarithms-2.png": "Roger McLassus (derivative work by Beao)",
+    "img/pascals-triangle-1.jpg": "Unknown artist, copying a painting by François II Quesnel",
+    "img/pascals-triangle-2.gif": "From Zhu Shijie's book \"Jade Mirror of the Four Unknowns\" (1303)",
+    "img/geometry-1.jpg": "Unknown scribe, copying Euclid",
+    "img/algebraic-equations-2.png": "From al-Khwarizmi's book on algebra",
+    "img/fractal-geometry-2.jpg": "Wolfgang Beyer (made with Ultra Fractal 3)",
+    "img/non-euclidean-geometry-2.png": "Jakob.scholbach",
+    "img/matrix-math-2.png": "ed g2s",
+    "img/combinatorics-1.png": "Booyabazooka",
+    "img/permutations-vs-combinations-1.jpg": "Raysonho",
+    "img/probability-1.jpg": "Exhibit by Estes Objethos Atelier, photo by Rodrigo.Argenton",
+    "img/probability-2.png": "Francis Galton"
+  }
+}

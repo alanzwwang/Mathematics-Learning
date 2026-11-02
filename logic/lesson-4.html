@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting) — Logic</title>
+<meta name="description" content="AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">📐 Mathematics Learning</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">🏠 Home</a>
+      <a href="../index.html#foundations" class="active">🧱 Foundations</a>
+      <a href="../index.html#algebra">🔣 Algebra</a>
+      <a href="../index.html#geometry">📐 Geometry</a>
+      <a href="../index.html#advanced">🚀 Advanced</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a> › Lesson 4</p>
+    <h1>🔍 IF–THEN — The Promise Machine (with Counterexample Hunting)</h1>
+    <p class="kicker">📖 Lesson 4 of 10</p>
+  </div>
+</section>
+
+<main class="container" id="top">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">&quot;If p then q&quot; — written p → q — is a promise: whenever p happens, q must follow.
+It breaks in exactly ONE way: p is true and q is false.
+A case like that is a counterexample — and ONE counterexample kills a promise forever.</pre></div>
+<p>An if-then statement has two parts: the IF part (the hypothesis) and the THEN part (the conclusion).</p>
+<pre class="math">&quot;If x = 6, then x² = 36.&quot;
+     ↑ hypothesis   ↑ conclusion</pre>
+<p>Think of p → q as a vending-machine promise: put the IF in, and the THEN must come out. When is the promise BROKEN? Only one way — you put the IF in and the THEN didn't come out. The full table:</p>
+<pre class="math">p        q        p → q
+──────   ──────   ──────────────────────────
+true     true     TRUE   (promise kept)
+true     false    FALSE  (promise BROKEN — the only way!)
+false    true     TRUE   (promise never triggered)
+false    false    TRUE   (nothing was owed)</pre>
+<p>The bottom two rows surprise people. If the IF never happens, the promise never gets tested — and an untested promise is not a broken one. Try this wild one: &quot;If x² &lt; 0, then x = 50.&quot; For real numbers, x² ≥ 0 always (positive² = positive, 0² = 0, negative² = positive — a negative times a negative is a positive). So the IF can never happen, the promise can never be tested, and logicians count it as TRUE. (Weird, but consistent — see Mistake 7 in Lesson 9.)</p>
+<p>The most powerful weapon in this lesson: the counterexample — a case where the IF is true and the THEN is false. ONE counterexample kills an if-then claim forever, no matter how many examples support it. And now that you own negative numbers, fractions, and zero, your counterexample arsenal is three times as strong. The three deadliest assassins:</p>
+<pre class="math">ASSASSIN 1 — the negative number: squaring erases the sign.
+ASSASSIN 2 — the fraction between 0 and 1: squaring makes it SMALLER, not bigger.
+ASSASSIN 3 — zero itself: multiplying by 0 erases ALL information.</pre>
+<p><strong>Worked example 1</strong> — assassin 1. Claim: &quot;If x² &gt; 9, then x &gt; 3.&quot; Kill it.</p>
+<pre class="math">Try x = −4.
+Check the IF:  x² = (−4)² = (−4)(−4) = 16.  Is 16 &gt; 9? YES — the IF is satisfied.
+Check the THEN:  is −4 &gt; 3? NO.
+IF true + THEN false = COUNTEREXAMPLE. Claim dead. −4 did it.</pre>
+<p><strong>Worked example 2</strong> — assassin 2. Claim: &quot;If x &gt; 0, then x² &gt; x.&quot; Kill it.</p>
+<pre class="math">Positives feel safe... x = 2 gives 4 &gt; 2 ✓, x = 10 gives 100 &gt; 10 ✓. A hundred checks agree!
+Try x = ½.
+Check the IF:  ½ &gt; 0 ✓.
+Check the THEN:  (½)² = ¼.  Is ¼ &gt; ½?  NO — ¼ &lt; ½.
+COUNTEREXAMPLE. Claim dead. The fraction did it.</pre>
+<p>Assassin 2 has range. Same weapon, new target — claim: &quot;If x &gt; 0, then x³ &gt; x².&quot; Test x = ½: (½)³ = ⅛ and (½)² = ¼. Is ⅛ &gt; ¼? NO — cubing shrinks the fraction even harder. Claim dead.</p>
+<p><strong>Worked example 3</strong> — a claim that SURVIVES. Claim: &quot;If x &gt; 1, then x² &gt; x.&quot; True or false?</p>
+<p>No amount of testing proves it — but reasoning can. Suppose x &gt; 1. Multiply both sides by x (x is positive, so the inequality keeps its direction):</p>
+<pre class="math">x &gt; 1
+x · x &gt; x · 1     multiply both sides by x — allowed, since x &gt; 0
+x² &gt; x            simplify</pre>
+<p>Every x with x &gt; 1 is forced to satisfy x² &gt; x — no counterexample can exist. The claim is TRUE. Notice the difference from example 2: there the IF allowed fractions; here the IF starts above 1, and the escape route is sealed. THAT is what proof feels like — and Lesson 6 gives you the full tool.</p>
+<p><strong>Worked example 4</strong> — assassin 3, the zero trap. Claim: &quot;If xy = xz, then y = z.&quot; Kill it.</p>
+<pre class="math">This claim is the silent engine behind &quot;just cancel the x.&quot; Watch it die.
+Try x = 0, y = 3, z = 5.
+Check the IF:  xy = 0 · 3 = 0, and xz = 0 · 5 = 0.  Is 0 = 0? YES — the IF is satisfied.
+Check the THEN:  is 3 = 5? NO.
+COUNTEREXAMPLE. Claim dead.</pre>
+<p>Why does zero kill it? Because multiplying by 0 erases everything: 0 · 3 and 0 · 5 are identical even though 3 and 5 are not. &quot;Canceling x&quot; means dividing by x — and dividing by x is reversible ONLY when x ≠ 0. Hold that thought: in Lesson 7 this exact trap will eat a solution alive, and in Lesson 9 it's Mistake 8.</p>
+<p><strong>Worked example 5</strong> — reading the promise table. Promise: &quot;If x = 6, then x² = 36.&quot;</p>
+<pre class="math">You're told x = 6.        → x² = 36 MUST be true (the promise was triggered). ✓
+You're told x² ≠ 36.      → x ≠ 6 MUST be true (if x were 6, x² would be 36 — contradiction).
+You're told x = −6.       → the IF wasn't triggered... but x² = 36 anyway! Fine: the promise
+                            never claimed that 6 is the ONLY way to get 36.</pre>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Kill with one counterexample: &quot;If x² = y², then x = y.&quot;   (b) Does x = ½ break the promise &quot;If x &gt; 1, then x² &gt; x&quot;?   (c) True or false: &quot;If x² &lt; 0, then x = 99.&quot;   (d) Kill with one counterexample: &quot;If x &gt; 0, then 1/x &lt; 1.&quot;</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) x = 3, y = −3: the IF holds (9 = 9) but the THEN fails (3 ≠ −3). (b) NO — ½ doesn't satisfy the IF (½ &gt; 1 is false), so it never even triggers the promise. A counterexample must satisfy the IF. (c) TRUE — x² &lt; 0 never happens for real x, so the promise is untestable, and an untestable promise counts as kept. (d) x = ½: the IF holds (½ &gt; 0 ✓), but 1/(½) = 2, and 2 &lt; 1 is FALSE. The smaller the positive fraction, the BIGGER its reciprocal — claim dead.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>📐 Mathematics Learning · 20 topics · 2000 practice problems · Keep exploring! 🌟</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<!-- WHATS-NEW:START -->
+<script src="../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>
