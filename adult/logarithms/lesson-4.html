@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Inequalities, Growth Rates and Stirling's Estimate — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 4</p>
+    <h1>Inequalities, Growth Rates and Stirling's Estimate</h1>
+    <p class="kicker">Lesson 4 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ln x = o(xᵋ) as x → ∞ for every ε &gt; 0;   ln x = o(x<sup>−ε</sup>) as x → 0⁺
+ln n! = n ln n − n + ½ ln(2πn) + O(1/n)</pre></div>
+<h3>The logarithm grows slower than any power</h3>
+<p><strong>Theorem 4.1</strong>. For every ε &gt; 0 and x &gt; 1, 0 &lt; ln x &lt; xᵋ/ε. Consequently ln x / xᵋ → 0 as x → ∞, and xᵋ ln x → 0 as x → 0⁺.</p>
+<p><strong>Proof</strong>. Apply ln y ≤ y − 1 &lt; y with y = xᵋ: ε ln x = ln(xᵋ) &lt; xᵋ. For the second limit put x = 1/y: xᵋ ln x = −ln y / yᵋ → 0 as y → ∞. ∎</p>
+<p>Equivalently, eˣ grows faster than any polynomial: xᵏ/eˣ → 0 for every k. In complexity theory this gives the familiar hierarchy 1 ≺ log log n ≺ log n ≺ nᵋ ≺ n ≺ n log n ≺ n² ≺ 2ⁿ, where f ≺ g means f = o(g).</p>
+<h3>Concavity and the AM–GM inequality</h3>
+<p>Because ln is strictly concave, Jensen's inequality gives, for positive x₁, …, xₙ and weights wᵢ ≥ 0 with ∑ wᵢ = 1,</p>
+<pre class="math">∑ wᵢ ln xᵢ ≤ ln(∑ wᵢ xᵢ),</pre>
+<p>with equality if and only if all xᵢ with wᵢ &gt; 0 coincide. Exponentiating gives the weighted AM–GM inequality ∏ xᵢ<sup>wᵢ</sup> ≤ ∑ wᵢ xᵢ. Here is a self-contained proof using only Proposition 1.6. Let A = ∑ wᵢxᵢ. Then ln(xᵢ/A) ≤ xᵢ/A − 1, and multiplying by wᵢ and summing gives ∑ wᵢ ln(xᵢ/A) ≤ A/A − 1 = 0, which is the claim. Equality forces xᵢ/A = 1 whenever wᵢ &gt; 0.</p>
+<p>The same technique proves Young's inequality ab ≤ aᵖ/p + b<sup>q</sup>/q for conjugate exponents 1/p + 1/q = 1, and from it Hölder's inequality. In each case the logarithm converts a product inequality into a statement about a concave function.</p>
+<h3>Logarithmic mean</h3>
+<p>For distinct positive a, b, the logarithmic mean is L(a, b) = (a − b)/(ln a − ln b). It satisfies</p>
+<pre class="math">√(ab) &lt; L(a, b) &lt; (a + b)/2.</pre>
+<p><strong>Proof</strong>. Assume a &gt; b and put s = a/b &gt; 1. The left inequality √(ab) &lt; (a − b)/ln(a/b) is equivalent to ln s &lt; (s − 1)/√s, that is, with t = √s &gt; 1, to 2 ln t &lt; t − 1/t. Both sides vanish at t = 1, and the derivative of (t − 1/t) − 2 ln t is 1 + 1/t² − 2/t = (1 − 1/t)² &gt; 0. The right inequality is equivalent to ln s &gt; 2(s − 1)/(s + 1). Both sides vanish at s = 1, and the derivative of the difference is 1/s − 4/(s + 1)² = (s − 1)²/(s(s + 1)²) &gt; 0. ∎</p>
+<p>The logarithmic mean appears in heat-exchanger design (the log-mean temperature difference) and is the value of ∫₀¹ aᵗ b¹⁻ᵗ dt.</p>
+<h3>Comparing sums with integrals</h3>
+<p>For a monotone function f on [1, n], the sum ∑ f(k) is squeezed between integrals. Applied to f = ln, which is increasing,</p>
+<pre class="math">∫₁ⁿ ln t dt ≤ ∑ₖ₌₂ⁿ ln k ≤ ∫₁ⁿ⁺¹ ln t dt.</pre>
+<p>Since ∫ ln t dt = t ln t − t, this gives n ln n − n + 1 ≤ ln n! ≤ (n + 1) ln(n + 1) − n. Hence ln n! = n ln n − n + O(ln n), and in particular ln n! ~ n ln n. Dividing by ln 2, log₂ n! ~ n log₂ n. This is the information-theoretic lower bound for comparison sorting: a decision tree that distinguishes n! orderings has depth at least ⌈log₂ n!⌉.</p>
+<h3>Stirling's formula</h3>
+<p><strong>Theorem 4.2 (de Moivre, Stirling, 1730)</strong>. ln n! = n ln n − n + ½ ln(2πn) + εₙ, where 0 &lt; εₙ &lt; 1/(12n).</p>
+<p><strong>Proof of the first part (the constant is postponed)</strong>. Let dₙ = ln n! − (n + ½) ln n + n. Then</p>
+<pre class="math">dₙ − dₙ₊₁ = (n + ½) ln((n + 1)/n) − 1.</pre>
+<p>Put x = 1/(2n + 1), so that (n + 1)/n = (1 + x)/(1 − x) and n + ½ = 1/(2x). Using the series of Lesson 5, ln((1 + x)/(1 − x)) = 2(x + x³/3 + x⁵/5 + …), so</p>
+<pre class="math">dₙ − dₙ₊₁ = x²/3 + x⁴/5 + x⁶/7 + … .</pre>
+<p>This is positive, so dₙ is decreasing, and it is at most (x²/3)(1 + x² + x⁴ + …) = x²/(3(1 − x²)) = 1/(12n(n + 1)) = 1/(12n) − 1/(12(n + 1)). Hence dₙ − 1/(12n) is increasing. So dₙ converges to a limit C with C &lt; dₙ &lt; C + 1/(12n). The value C = ½ ln(2π) follows from Wallis' product π/2 = ∏ (2k)²/((2k − 1)(2k + 1)): writing the partial products in terms of factorials and substituting n! ≈ e<sup>C</sup> n<sup>n+1/2</sup> e⁻ⁿ gives e<sup>2C</sup> = 2π. ∎</p>
+<p>For n = 10, ln 10! = ln 3628800 = 15.104413, while 10 ln 10 − 10 = 13.025851 and adding ½ ln(20π) = 2.070231 gives 15.096082. The remaining error 0.008331 is just under 1/120 = 0.008333, as the theorem predicts.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that ln(1 + x) ≥ x/(1 + x) for x &gt; −1, and deduce that ∑ₖ₌₁ⁿ 1/k ≥ ln(n + 1).</div></li><li><span class="mk">(b)</span><div>Determine lim<sub>x→0⁺</sub> xˣ and lim<sub>x→∞</sub> x<sup>1/x</sup>.</div></li><li><span class="mk">(c)</span><div>Use Stirling's formula to show that the central binomial coefficient satisfies ln C(2n, n) = 2n ln 2 − ½ ln(πn) + O(1/n).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Proposition 1.6 with x replaced by 1 + x gives ln(1 + x) ≥ 1 − 1/(1 + x) = x/(1 + x). For the sum, ln(1 + 1/k) ≤ 1/k by the upper bound, so ∑ₖ₌₁ⁿ 1/k ≥ ∑ ln((k + 1)/k) = ln(n + 1). (b) xˣ = exp(x ln x) → e⁰ = 1 by Theorem 4.1, and x<sup>1/x</sup> = exp(ln x / x) → 1. (c) ln C(2n, n) = ln (2n)! − 2 ln n!. Stirling gives 2n ln 2n − 2n + ½ ln(4πn) − 2(n ln n − n + ½ ln(2πn)) + O(1/n) = 2n ln 2 + ½ ln(4πn) − ln(2πn) + O(1/n) = 2n ln 2 − ½ ln(πn) + O(1/n).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

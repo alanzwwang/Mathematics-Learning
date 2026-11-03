@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 5</p>
+    <h1>Eigenvalues and the Cayley–Hamilton Theorem</h1>
+    <p class="kicker">Lesson 5 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Av = λv, v ≠ 0   ⇔   det(λI − A) = 0
+p<sub>A</sub>(A) = 0   for   p<sub>A</sub>(λ) = det(λI − A)</pre></div>
+<h3>Eigenvalues and the characteristic polynomial</h3>
+<p>A scalar λ is an eigenvalue of A ∈ 𝔽<sup>n×n</sup> if Av = λv for some nonzero vector v, an eigenvector. Equivalently A − λI is singular, that is, λ is a root of the characteristic polynomial p<sub>A</sub>(λ) = det(λI − A). By the Leibniz formula p<sub>A</sub> is monic of degree n, and expanding gives</p>
+<pre class="math">p<sub>A</sub>(λ) = λⁿ − (tr A) λ<sup>n−1</sup> + E₂(A) λ<sup>n−2</sup> − ⋯ + (−1)ⁿ det A</pre>
+<p>where E<sub>k</sub>(A) is the sum of all k × k principal minors. Over ℂ the fundamental theorem of algebra factors p<sub>A</sub>(λ) = ∏ (λ − λ<sub>i</sub>), so tr A = ∑ λ<sub>i</sub>, det A = ∏ λ<sub>i</sub>, and in general E<sub>k</sub>(A) is the k-th elementary symmetric function of the eigenvalues. Similar matrices have the same characteristic polynomial, since det(λI − P⁻¹AP) = det(P⁻¹(λI − A)P) = det(λI − A). The converse fails: I and [ 1 1 ; 0 1 ] share the polynomial (λ − 1)² but are not similar, since only I is similar to I.</p>
+<p>Over ℝ a matrix need not have any eigenvalue: the rotation [ 0 −1 ; 1 0 ] has p(λ) = λ² + 1. This is why most of spectral theory is done over ℂ, or over an algebraically closed field.</p>
+<h3>Multiplicities</h3>
+<p>The algebraic multiplicity of λ is its multiplicity as a root of p<sub>A</sub>; the geometric multiplicity is dim ker(A − λI).</p>
+<p><strong>Proposition 5.1</strong>. The geometric multiplicity never exceeds the algebraic multiplicity.</p>
+<p><strong>Proof</strong>. Let v₁, …, v<sub>g</sub> be a basis of ker(A − λI) and extend it to a basis of 𝔽ⁿ. In this basis A has block form [ λI<sub>g</sub> X ; 0 Y ], so p<sub>A</sub>(t) = (t − λ)<sup>g</sup> p<sub>Y</sub>(t), and (t − λ)<sup>g</sup> divides p<sub>A</sub>. ∎</p>
+<p><strong>Proposition 5.2</strong>. Eigenvectors belonging to distinct eigenvalues are linearly independent.</p>
+<p><strong>Proof</strong>. Suppose not, and take a shortest nontrivial relation c₁v₁ + ⋯ + c<sub>kv</sub><sub>k</sub> = 0 among eigenvectors with distinct eigenvalues λ₁, …, λ<sub>k</sub>; all c<sub>i</sub> ≠ 0 and k ≥ 2. Applying A − λ<sub>k</sub> I gives ∑<sub>i&lt;k</sub> c<sub>i</sub>(λ<sub>i</sub> − λ<sub>k</sub>)v<sub>i</sub> = 0, a shorter nontrivial relation, a contradiction. ∎</p>
+<p><strong>Worked example</strong>: A = [ 4 1 ; 2 3 ] has tr A = 7 and det A = 10, so p<sub>A</sub>(λ) = λ² − 7λ + 10 = (λ − 5)(λ − 2). For λ = 5, A − 5I = [ −1 1 ; 2 −2 ] has kernel spanned by (1, 1); for λ = 2, A − 2I = [ 2 1 ; 2 1 ] has kernel spanned by (1, −2). By Proposition 5.2 these two eigenvectors form a basis of 𝔽².</p>
+<h3>The Cayley–Hamilton theorem</h3>
+<p>For a polynomial q(t) = c₀ + c₁t + ⋯ + c<sub>k</sub> t<sup>k</sup> define q(A) = c₀I + c₁A + ⋯ + c<sub>kA</sub><sup>k</sup>. The map q ↦ q(A) is a ring homomorphism from 𝔽[t] to the commutative subalgebra 𝔽[A] of matrices.</p>
+<p><strong>Theorem 5.3 (Cayley–Hamilton)</strong>. Every square matrix satisfies its own characteristic polynomial: p<sub>A</sub>(A) = 0.</p>
+<p><strong>Proof</strong>. The tempting argument &quot;substitute λ = A into det(λI − A)&quot; is not valid, because det(AI − A) is the scalar det 0, whereas p<sub>A</sub>(A) is a matrix. Instead, apply Theorem 4.1 to λI − A over the polynomial ring: (λI − A) adj(λI − A) = p<sub>A</sub>(λ) I. The entries of adj(λI − A) are polynomials in λ of degree at most n − 1, so adj(λI − A) = B₀ + B₁λ + ⋯ + B<sub>n−1</sub>λ<sup>n−1</sup> with constant matrices B<sub>k</sub>. Write p<sub>A</sub>(λ) = c₀ + c₁λ + ⋯ + λⁿ and compare coefficients of λ<sup>k</sup>:</p>
+<pre class="math">−A B₀ = c₀ I,     B<sub>k−1</sub> − A B<sub>k</sub> = c<sub>k</sub> I  (1 ≤ k ≤ n − 1),     B<sub>n−1</sub> = I</pre>
+<p>Multiply the equation for λ<sup>k</sup> on the left by A<sup>k</sup> and add all of them. The left sides telescope: −AB₀ + (AB₀ − A²B₁) + ⋯ + (A<sup>n−1</sup>B<sub>n−2</sub> − AⁿB<sub>n−1</sub>) + AⁿB<sub>n−1</sub> = 0. The right sides add up to c₀I + c₁A + ⋯ + Aⁿ = p<sub>A</sub>(A). ∎</p>
+<p>Cayley stated the theorem in 1858, verified it for 2 × 2 matrices and reported checking the 3 × 3 case; Hamilton had met a special case in his work on quaternions. The first general proof is due to Frobenius (1878). The theorem holds over every commutative ring, and the proof above works verbatim in that generality.</p>
+<p>For the matrix A = [ 4 1 ; 2 3 ] above, Cayley–Hamilton says A² = 7A − 10I. Consequently every power of A is a combination of A and I, and A⁻¹ = (7I − A)/10 = (1/10)[ 3 −1 ; −2 4 ]. More generally, if det A ≠ 0 then A⁻¹ is a polynomial in A of degree at most n − 1.</p>
+<h3>The minimal polynomial</h3>
+<p>The set of polynomials q with q(A) = 0 is a nonzero ideal of 𝔽[t] (it contains p<sub>A</sub>), so it is generated by a unique monic polynomial m<sub>A</sub>, the minimal polynomial. By Cayley–Hamilton m<sub>A</sub> divides p<sub>A</sub>. Conversely every eigenvalue is a root of m<sub>A</sub>: if Av = λv then 0 = m<sub>A</sub>(A)v = m<sub>A</sub>(λ)v. Hence m<sub>A</sub> and p<sub>A</sub> have the same roots, possibly with smaller multiplicities in m<sub>A</sub>. The minimal polynomial is the right object for deciding diagonalizability, as Lesson 6 shows.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the eigenvalues of A = [ 2 0 0 ; 1 3 0 ; 4 5 6 ].</div></li><li><span class="mk">(b)</span><div>With A = [ 4 1 ; 2 3 ], use Cayley–Hamilton to express A³ as αA + βI.</div></li><li><span class="mk">(c)</span><div>Give a 3 × 3 matrix with characteristic polynomial (λ − 2)³ and minimal polynomial (λ − 2)².</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The matrix is lower triangular, so det(λI − A) = (λ − 2)(λ − 3)(λ − 6) and the eigenvalues are 2, 3, 6. (b) A³ = A · A² = A(7A − 10I) = 7A² − 10A = 7(7A − 10I) − 10A = 39A − 70I; one checks A³ = [ 86 39 ; 78 47 ] = 39A − 70I. (c) For example [ 2 1 0 ; 0 2 0 ; 0 0 2 ]: with N = A − 2I we have N ≠ 0 but N² = 0, so the minimal polynomial is (λ − 2)².</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Generating Functions and Characteristic Functions — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 5</p>
+    <h1>Generating Functions and Characteristic Functions</h1>
+    <p class="kicker">Lesson 5 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">G(s) = E sˣ,   M(t) = E e<sup>tX</sup>,   φ(t) = E e<sup>itX</sup>;   for independent X, Y:  φ<sub>X+Y</sub> = φ<sub>X</sub> · φ<sub>Y</sub>,
+and φ determines the law uniquely.</pre></div>
+<h3>Probability generating functions</h3>
+<p>For X with values in {0, 1, 2, …}, the probability generating function G(s) = E sˣ = ∑ₖ P(X = k) sᵏ is a power series with radius of convergence at least 1. It determines the law, since P(X = k) = G⁽ᵏ⁾(0)/k!, and its derivatives at 1 (taken as left limits) give the factorial moments: G′(1) = E X and G″(1) = E X(X − 1), so Var X = G″(1) + G′(1) − G′(1)². For independent X and Y, G<sub>X+Y</sub> = G<sub>X</sub> G<sub>Y</sub>.</p>
+<p>A celebrated application is the Galton–Watson branching process. Each individual independently has a random number of children with law (pₖ) and generating function G. Let Zₙ be the size of generation n, starting from Z₀ = 1. Conditioning on Z₁ shows that Zₙ has generating function Gₙ = G ∘ G ∘ ⋯ ∘ G (n-fold composition).</p>
+<p><strong>Theorem 5.1 (extinction)</strong>. Let m = G′(1) be the mean offspring number and exclude the trivial case p₁ = 1. The extinction probability q = P(Zₙ = 0 for some n) is the smallest root of G(s) = s in [0, 1]. Consequently q = 1 if m ≤ 1, and q &lt; 1 if m &gt; 1.</p>
+<p><strong>Proof</strong>. P(Zₙ = 0) = Gₙ(0) increases to q by continuity of measure, and Gₙ₊₁(0) = G(Gₙ(0)), so continuity of G gives q = G(q). If r ∈ [0, 1] is any root, then 0 ≤ r implies Gₙ(0) ≤ Gₙ(r) = r for all n, so q ≤ r. Finally G is convex on [0, 1] with G(1) = 1; the graph crosses the diagonal below 1 exactly when the slope at 1 exceeds 1. ∎</p>
+<p>For example, if p₀ = 1/4, p₁ = 1/4, p₂ = 1/2, then m = 5/4 and G(s) = s becomes 2s² − 3s + 1 = 0, with roots 1/2 and 1. The extinction probability is 1/2.</p>
+<h3>Moment generating functions</h3>
+<p>The moment generating function M(t) = E e<sup>tX</sup> takes values in (0, ∞]. If it is finite on an open interval around 0, then M is analytic there, all moments exist, and E Xᵏ = M⁽ᵏ⁾(0). Moreover, two such laws with equal M on a neighbourhood of 0 coincide. Standard examples are:</p>
+<pre class="math">Poisson(λ):      M(t) = exp(λ(eᵗ − 1))
+Exponential(λ):  M(t) = λ/(λ − t),   t &lt; λ
+Normal(μ, σ²):   M(t) = exp(μt + σ²t²/2)
+Gamma(α, λ):     M(t) = (λ/(λ − t))<sup>α</sup>,   t &lt; λ</pre>
+<p>Multiplying generating functions proves closure properties at once. The sum of independent Poisson(λ) and Poisson(μ) variables is Poisson(λ + μ); a sum of n independent Exponential(λ) variables is Gamma(n, λ); and independent normals add to a normal with added means and variances.</p>
+<p>Moments alone need not determine a law. The log-normal density f(x) = (2π)<sup>−1/2</sup> x⁻¹ exp(−(log x)²/2) and its perturbation f(x)(1 + sin(2π log x)) have identical moments E Xᵏ = e<sup>k²/2</sup> for every k (Heyde, 1963). The log-normal MGF is infinite for every t &gt; 0, which is why the uniqueness theorem does not apply. Carleman's condition, ∑ₖ (E X²ᵏ)<sup>−1/(2k)</sup> = ∞, is a sufficient condition for a law on ℝ to be determined by its moments.</p>
+<h3>Characteristic functions</h3>
+<p>The characteristic function φ<sub>X</sub>(t) = E e<sup>itX</sup> = E cos(tX) + i E sin(tX) exists for every random variable, because |e<sup>itX</sup>| = 1. Its basic properties:</p>
+<pre class="math">φ(0) = 1,   |φ(t)| ≤ 1,   φ(−t) = conj φ(t),   φ<sub>aX+b</sub>(t) = e<sup>ibt</sup> φ<sub>X</sub>(at)
+φ is uniformly continuous on ℝ, and φ<sub>X+Y</sub> = φ<sub>X</sub> φ<sub>Y</sub> when X and Y are independent</pre>
+<p>Uniform continuity follows from |φ(t + h) − φ(t)| ≤ E|e<sup>ihX</sup> − 1|, which tends to 0 as h → 0 uniformly in t by dominated convergence. The following are the central facts.</p>
+<p><strong>Theorem 5.2 (inversion and uniqueness)</strong>. For a &lt; b,</p>
+<pre class="math">lim<sub>T→∞</sub> (1/2π) ∫<sub>−T</sub><sup>T</sup> (e<sup>−ita</sup> − e<sup>−itb</sup>)/(it) · φ(t) dt = μ((a, b)) + ½ μ({a}) + ½ μ({b})</pre>
+<p>Hence φ determines μ. If ∫ |φ(t)| dt &lt; ∞, then X has a bounded continuous density f(x) = (1/2π) ∫ e<sup>−itx</sup> φ(t) dt.</p>
+<p><strong>Theorem 5.3 (moments)</strong>. If E|X|ⁿ &lt; ∞, then φ is n times continuously differentiable and φ⁽ᵏ⁾(0) = iᵏ E Xᵏ for k ≤ n. In particular, if E X = 0 and E X² = σ², then φ(t) = 1 − σ²t²/2 + o(t²) as t → 0.</p>
+<p>Two standard computations: the standard normal has φ(t) = e<sup>−t²/2</sup> (complete the square in the integral, or verify that φ′(t) = −tφ(t)); the standard Cauchy law has φ(t) = e<sup>−|t|</sup>, which is not differentiable at 0, reflecting the absence of a mean. Consequently the average of n i.i.d. standard Cauchy variables has characteristic function (e<sup>−|t|/n</sup>)ⁿ = e<sup>−|t|</sup>, so it is again standard Cauchy: averaging does not concentrate it at all. Bochner's theorem characterises characteristic functions as exactly the continuous positive-definite functions with φ(0) = 1.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>From M(t) = λ/(λ − t), compute E X and Var X for X ~ Exponential(λ).</div></li><li><span class="mk">(b)</span><div>Find the extinction probability of a branching process with p₀ = 1/4 and p₂ = 3/4.</div></li><li><span class="mk">(c)</span><div>Compute the characteristic function of a uniform variable on (−1, 1).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) M′(t) = λ/(λ − t)², M″(t) = 2λ/(λ − t)³, so E X = 1/λ, E X² = 2/λ² and Var X = 1/λ². (b) G(s) = 1/4 + 3s²/4 = s gives 3s² − 4s + 1 = 0, with roots 1/3 and 1; since m = 3/2 &gt; 1, q = 1/3. (c) φ(t) = (1/2)∫<sub>−1</sub><sup>1</sup> e<sup>itx</sup> dx = sin(t)/t for t ≠ 0, and φ(0) = 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

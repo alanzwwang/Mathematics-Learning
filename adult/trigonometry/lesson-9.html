@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Fourier Series and Pointwise Convergence — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 9</p>
+    <h1>Fourier Series and Pointwise Convergence</h1>
+    <p class="kicker">Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">f(x) ∼ a₀/2 + ∑ₙ₌₁<sup>∞</sup> (aₙ cos nx + bₙ sin nx),   aₙ = (1/π)∫₋π<sup>π</sup> f(x) cos nx dx,   bₙ = (1/π)∫₋π<sup>π</sup> f(x) sin nx dx
+If f is piecewise C¹, the series converges at every x to (f(x⁺) + f(x⁻))/2.</pre></div>
+<h3>Orthogonality</h3>
+<p>For integers m, n ≥ 0, the product-to-sum formulas give:</p>
+<pre class="math">∫₋π<sup>π</sup> cos mx cos nx dx = π δₘₙ (m, n ≥ 1),   ∫₋π<sup>π</sup> sin mx sin nx dx = π δₘₙ,   ∫₋π<sup>π</sup> sin mx cos nx dx = 0,</pre>
+<p>and ∫₋π<sup>π</sup> 1 dx = 2π. Equivalently, the exponentials eₙ(x) = e<sup>inx</sup>, n ∈ ℤ, are orthonormal in L²(−π, π) with the inner product ⟨f, g⟩ = (1/(2π)) ∫ f ḡ. If a trigonometric polynomial f = a₀/2 + ∑ (aₙ cos nx + bₙ sin nx) is given, its coefficients are recovered by the formulas in the key idea box; for a general integrable 2π-periodic f those formulas define the Fourier coefficients, and the partial sums are Sₙf(x) = a₀/2 + ∑ₖ₌₁ⁿ (aₖ cos kx + bₖ sin kx).</p>
+<h3>Two basic lemmas</h3>
+<p><strong>Lemma 9.1 (Bessel)</strong>. For f ∈ L²(−π, π), a₀²/2 + ∑ (aₙ² + bₙ²) ≤ (1/π)∫ f². In particular aₙ, bₙ → 0.</p>
+<p><strong>Proof</strong>. Sₙf is the orthogonal projection of f onto the span of 1, cos kx, sin kx (k ≤ n), so ‖Sₙf‖² ≤ ‖f‖². ∎</p>
+<p><strong>Lemma 9.2 (Riemann–Lebesgue)</strong>. For f ∈ L¹(a, b), ∫ₐᵇ f(x) e<sup>iλx</sup> dx → 0 as λ → ±∞.</p>
+<p><strong>Proof</strong>. For a step function this is a direct computation (each step contributes O(1/|λ|)). Step functions are dense in L¹, and the integral is a bounded linear functional with norm at most 1 for each λ. ∎</p>
+<h3>The Dirichlet kernel representation</h3>
+<p>Substituting the coefficients into the partial sum and using the identity of Lesson 8,</p>
+<pre class="math">Sₙf(x) = (1/π) ∫₋π<sup>π</sup> f(x + t) Dₙ(t) dt,        Dₙ(t) = sin((n + ½)t)/(2 sin(t/2)),</pre>
+<p>with (1/π)∫₋π<sup>π</sup> Dₙ = 1 (integrate the cosine sum term by term), and (1/π)∫₀<sup>π</sup> Dₙ = 1/2.</p>
+<p><strong>Theorem 9.3 (Dirichlet, 1829)</strong>. Let f be 2π-periodic and piecewise C¹ (finitely many points where f or f′ jumps, with one-sided limits of f and f′ everywhere). Then for every x,</p>
+<pre class="math">Sₙf(x) → (f(x⁺) + f(x⁻))/2.</pre>
+<p><strong>Proof</strong>. Write Sₙf(x) − f(x⁺)/2 − f(x⁻)/2 = (1/π)∫₀<sup>π</sup> (f(x+t) − f(x⁺)) Dₙ(t) dt + (1/π)∫₋π<sup>0</sup> (f(x+t) − f(x⁻)) Dₙ(t) dt. In the first integral the function g(t) = (f(x+t) − f(x⁺))/(2 sin(t/2)) is integrable on (0, π), because the numerator is O(t) by the one-sided derivative and 2 sin(t/2) ≥ 2t/π there. The integral equals (1/π)∫₀<sup>π</sup> g(t) sin((n + ½)t) dt, which tends to 0 by Riemann–Lebesgue. The second integral is treated the same way. ∎</p>
+<p>If moreover f is continuous and piecewise C¹, the convergence is uniform, since then ∑ (|aₙ| + |bₙ|) &lt; ∞ (by Cauchy–Schwarz and Bessel applied to f′, whose coefficients are naₙ and nbₙ up to sign and order).</p>
+<h3>Two fundamental examples</h3>
+<p>The sawtooth. Let f(x) = x on (−π, π), extended 2π-periodically. f is odd, so aₙ = 0, and integration by parts gives bₙ = (2/π)∫₀<sup>π</sup> x sin nx dx = 2(−1)ⁿ⁺¹/n. Hence</p>
+<pre class="math">x = 2 (sin x − sin 2x/2 + sin 3x/3 − ⋯)        (−π &lt; x &lt; π),</pre>
+<p>with the series summing to 0 = (π + (−π))/2 at x = ±π. At x = π/2 this is the Leibniz series π/4 = 1 − 1/3 + 1/5 − ⋯. Replacing x by π − x yields (π − x)/2 = ∑ₙ₌₁<sup>∞</sup> sin nx/n for 0 &lt; x &lt; 2π; at x = 1 we get the curious evaluation ∑ sin n/n = (π − 1)/2.</p>
+<p>The parabola. Let f(x) = x² on [−π, π]. It is even and continuous with f(π) = f(−π), so the series converges uniformly. Here a₀ = 2π²/3 and aₙ = 4(−1)ⁿ/n², so</p>
+<pre class="math">x² = π²/3 + 4 ∑ₙ₌₁<sup>∞</sup> (−1)ⁿ cos nx/n²        (−π ≤ x ≤ π).</pre>
+<p>At x = π: π² = π²/3 + 4∑ 1/n², giving ∑ 1/n² = π²/6. At x = 0: ∑ (−1)ⁿ⁺¹/n² = π²/12.</p>
+<h3>Divergence and deeper theorems</h3>
+<p>Continuity alone does not ensure convergence: du Bois-Reymond (1873) constructed a continuous function whose Fourier series diverges at a point, and Kolmogorov (1926) an L¹ function whose Fourier series diverges everywhere. On the positive side, Carleson's theorem (1966) asserts that the Fourier series of every f ∈ L²(−π, π) converges almost everywhere, extended to Lᵖ, p &gt; 1, by Hunt (1968). Fejér's theorem (1900) gives a robust remedy: the Cesàro means σₙ = (S₀f + ⋯ + Sₙf)/(n + 1) converge uniformly to f for every continuous periodic f, because they are convolutions with the Fejér kernel Fₙ(t) = sin²((n+1)t/2)/(2(n+1) sin²(t/2)), which, unlike Dₙ, is non-negative. As a corollary, trigonometric polynomials are uniformly dense in C(𝕋), a trigonometric form of the Weierstrass approximation theorem.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the Fourier series of f(x) = |x| on [−π, π] and deduce ∑ₖ₌₁<sup>∞</sup> 1/(2k − 1)².</div></li><li><span class="mk">(b)</span><div>Let f be the odd 2π-periodic function equal to x(π − x) on [0, π]. Show that bₙ = 8/(πn³) for odd n and 0 for even n.</div></li><li><span class="mk">(c)</span><div>Deduce from</div></li><li><span class="mk">(b)</span><div>that 1 − 1/3³ + 1/5³ − 1/7³ + ⋯ = π³/32.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) a₀ = π, aₙ = 2((−1)ⁿ − 1)/(πn²), so |x| = π/2 − (4/π) ∑ₖ cos((2k−1)x)/(2k−1)². At x = 0, π/2 = (4/π)∑ 1/(2k−1)², so the sum is π²/8. (b) bₙ = (2/π)∫₀<sup>π</sup> x(π − x) sin nx dx; integrating by parts twice gives ∫₀<sup>π</sup> x(π − x) sin nx dx = 2(1 − (−1)ⁿ)/n³, hence bₙ = 4(1 − (−1)ⁿ)/(πn³). (c) f is continuous and piecewise C¹, so at x = π/2, π²/4 = (8/π) ∑ over odd n of sin(nπ/2)/n³ = (8/π)(1 − 1/3³ + 1/5³ − ⋯); multiply by π/8.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

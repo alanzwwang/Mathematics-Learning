@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Power Series and Analytic Functions — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 4</p>
+    <h1>Power Series and Analytic Functions</h1>
+    <p class="kicker">Lesson 4 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∑ aₙ (z − a)ⁿ converges absolutely on D(a, R) and diverges for |z − a| &gt; R,
+where 1/R = limsup |aₙ|<sup>1/n</sup>   (Cauchy–Hadamard).
+Inside the disc of convergence the sum is holomorphic,
+may be differentiated term by term, and aₙ = f⁽ⁿ⁾(a)/n!.</pre></div>
+<h3>The radius of convergence</h3>
+<p><strong>Theorem 4.1 (Cauchy–Hadamard)</strong>. Given complex coefficients aₙ, let 1/R = limsup |aₙ|<sup>1/n</sup>, with the conventions 1/0 = ∞ and 1/∞ = 0. Then ∑ aₙ zⁿ converges absolutely for |z| &lt; R, uniformly on every closed disc |z| ≤ ρ &lt; R, and diverges for |z| &gt; R.</p>
+<p><strong>Proof</strong>. Let ρ &lt; r &lt; R. By the definition of limsup, |aₙ|<sup>1/n</sup> &lt; 1/r for all large n, so |aₙ zⁿ| ≤ (ρ/r)ⁿ for |z| ≤ ρ and n large. The Weierstrass M-test against the convergent geometric series ∑ (ρ/r)ⁿ gives absolute and uniform convergence on |z| ≤ ρ. If |z| &gt; R, then |aₙ|<sup>1/n</sup> &gt; 1/|z| for infinitely many n, so |aₙ zⁿ| &gt; 1 infinitely often, the terms do not tend to 0, and the series diverges.</p>
+<p>On the circle |z| = R anything can happen: ∑ zⁿ diverges at every point of |z| = 1, ∑ zⁿ/n² converges at every point, and ∑ zⁿ/n converges at every point except z = 1 (by Dirichlet's test). When the ratio |aₙ₊₁/aₙ| has a limit L, that limit equals 1/R, but the root form is the general one; for ∑ z<sup>n²</sup> only the root test applies, and R = 1.</p>
+<p><strong>Example</strong>. For ∑ (2ⁿ + 3ⁿ) zⁿ, |aₙ|<sup>1/n</sup> = 3 (1 + (2/3)ⁿ)<sup>1/n</sup> → 3, so R = 1/3.</p>
+<h3>Term-by-term differentiation</h3>
+<p><strong>Theorem 4.2</strong>. If f(z) = ∑ aₙ zⁿ has radius R &gt; 0, then f is holomorphic on D(0, R) and f′(z) = ∑ n aₙ z<sup>n−1</sup>, a series with the same radius R.</p>
+<p><strong>Proof</strong>. Since n<sup>1/n</sup> → 1, limsup |n aₙ|<sup>1/n</sup> = limsup |aₙ|<sup>1/n</sup>, so g(z) = ∑ n aₙ z<sup>n−1</sup> has radius R. Fix z₀ with |z₀| &lt; ρ &lt; R and let 0 &lt; |h| &lt; ρ − |z₀|. For each N write f = S<sub>N</sub> + E<sub>N</sub>, the partial sum up to degree N and the tail. Then</p>
+<pre class="math">(f(z₀ + h) − f(z₀))/h − g(z₀) = [(S<sub>N</sub>(z₀ + h) − S<sub>N</sub>(z₀))/h − S<sub>N</sub>′(z₀)] + [S<sub>N</sub>′(z₀) − g(z₀)] + (E<sub>N</sub>(z₀ + h) − E<sub>N</sub>(z₀))/h.</pre>
+<p>Using aⁿ − bⁿ = (a − b)(a<sup>n−1</sup> + a<sup>n−2</sup> b + … + b<sup>n−1</sup>), the last term is at most ∑ over n &gt; N of |aₙ| n ρ<sup>n−1</sup>, the tail of a convergent series; given ε &gt; 0 choose N so large that it and the middle term are each below ε. For this fixed N the first bracket tends to 0 as h → 0, because S<sub>N</sub> is a polynomial. Hence the whole expression is below 3ε for small |h|.</p>
+<p>Iterating, f has derivatives of all orders on D(0, R), and evaluating the k-th derivative at 0 gives a<sub>k</sub> = f⁽ᵏ⁾(0)/k!. Consequently the power series representing a function about a point is unique. A function on an open set U is called analytic if around every point of U it is given by a convergent power series. Theorem 4.2 shows that analytic functions are holomorphic; the deep converse, proved in Lesson 7, is that holomorphic functions are analytic.</p>
+<h3>The elementary transcendental functions</h3>
+<p>The series e<sup>z</sup> = ∑ zⁿ/n!, cos z = ∑ (−1)ⁿ z<sup>2n</sup>/(2n)! and sin z = ∑ (−1)ⁿ z<sup>2n+1</sup>/(2n+1)! have infinite radius and define entire functions. Term-by-term differentiation gives (e<sup>z</sup>)′ = e<sup>z</sup>; the Cauchy product of two absolutely convergent series together with the binomial theorem gives e<sup>z+w</sup> = e<sup>z</sup> e<sup>w</sup>, and so ∑ zⁿ/n! agrees with the definition e<sup>x</sup> (cos y + i sin y) of Lesson 2. The identities</p>
+<pre class="math">cos z = (e<sup>iz</sup> + e<sup>−iz</sup>)/2,   sin z = (e<sup>iz</sup> − e<sup>−iz</sup>)/(2i)</pre>
+<p>hold for all complex z, and show that the complex sine is unbounded: sin(iy) = i sinh y. This is not an accident; by Liouville's theorem (Lesson 7) every bounded entire function is constant.</p>
+<h3>Why real calculus cannot see radii of convergence</h3>
+<p>The function 1/(1 + x²) is real analytic on all of ℝ, yet its Maclaurin series 1 − x² + x⁴ − … converges only for |x| &lt; 1. Real analysis offers no explanation. Complex analysis does: 1/(1 + z²) has poles at ±i, at distance 1 from the origin, and we shall prove that the Taylor series of a holomorphic function at a converges on the largest disc about a on which the function is holomorphic. The radius of convergence is therefore the distance to the nearest singularity in the complex plane.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the radius of convergence of ∑ n³ zⁿ/5ⁿ.</div></li><li><span class="mk">(b)</span><div>Find the radius of convergence of ∑ z<sup>n!</sup>, whose coefficient aₖ is 1 if k is a factorial and 0 otherwise.</div></li><li><span class="mk">(c)</span><div>Assuming the distance-to-the-nearest-singularity principle, find the radius of convergence of the Taylor series of 1/(z² − 2z + 5) about 0.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) |aₙ|<sup>1/n</sup> = n<sup>3/n</sup>/5 → 1/5, so R = 5. (b) The nonzero coefficients all equal 1, so limsup |aₖ|<sup>1/k</sup> = 1 and R = 1. (c) The poles are the roots 1 ± 2i of z² − 2z + 5, at distance √5 from 0, so R = √5.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 8</p>
+    <h1>Best Approximation, Quadratic Irrationals and Pell's Equation</h1>
+    <p class="kicker">Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Convergents are best approximations; |x − p/q| &lt; 1/(2q²) forces p/q to be a convergent;
+the expansion of x is eventually periodic iff x is a quadratic irrational.</pre></div>
+<h3>Best approximations</h3>
+<p><strong>Theorem 8.1 (Lagrange)</strong>. Let x be irrational and n ≥ 0. If p, q are integers with 0 &lt; q &lt; q<sub>n+1</sub>, then |qx − p| ≥ |q<sub>n</sub> x − p<sub>n</sub>|, with equality only for (p, q) = (p<sub>n</sub>, q<sub>n</sub>).</p>
+<p><strong>Proof</strong>. Because p<sub>n</sub> q<sub>n+1</sub> − p<sub>n+1</sub> q<sub>n</sub> = ±1, there are integers u, v with p = u p<sub>n</sub> + v p<sub>n+1</sub> and q = u q<sub>n</sub> + v q<sub>n+1</sub>. If v = 0, then (p, q) = u(p<sub>n</sub>, q<sub>n</sub>) with u ≥ 1 and the claim is clear. If u = 0, then q = v q<sub>n+1</sub> ≥ q<sub>n+1</sub>, which is excluded. Otherwise u and v have opposite signs: if v &gt; 0 then u q<sub>n</sub> = q − v q<sub>n+1</sub> &lt; 0, and if v &lt; 0 then u q<sub>n</sub> &gt; 0. By Theorem 7.2 the numbers q<sub>n</sub> x − p<sub>n</sub> and q<sub>n+1</sub>x − p<sub>n+1</sub> also have opposite signs. Hence u(q<sub>n</sub> x − p<sub>n</sub>) and v(q<sub>n+1</sub>x − p<sub>n+1</sub>) have the same sign, and</p>
+<pre class="math">|qx − p| = |u|·|q<sub>n</sub> x − p<sub>n</sub>| + |v|·|q<sub>n+1</sub> x − p<sub>n+1</sub>|  &gt;  |q<sub>n</sub> x − p<sub>n</sub>|. ∎</pre>
+<p><strong>Corollary 8.2</strong>. If |x − p/q| &lt; |x − p<sub>n</sub>/q<sub>n</sub>| then q &gt; q<sub>n</sub>. Indeed, if q ≤ q<sub>n</sub> then q &lt; q<sub>n+1</sub>, so |x − p/q| = |qx − p|/q ≥ |q<sub>n</sub> x − p<sub>n</sub>|/q<sub>n</sub> = |x − p<sub>n</sub>/q<sub>n</sub>|.</p>
+<p>So no fraction with denominator at most q<sub>n</sub> is closer to x than p<sub>n</sub>/q<sub>n</sub>. Not every best approximation is a convergent: the best approximations in the sense of Corollary 8.2 also include certain intermediate fractions (p<sub>n−1</sub> + k p<sub>n</sub>)/(q<sub>n−1</sub> + k q<sub>n</sub>). For π, the next fraction closer than 355/113 is the intermediate fraction 52163/16604, and no fraction with denominator between 114 and 16603 does better than 355/113.</p>
+<h3>Legendre's criterion</h3>
+<p><strong>Theorem 8.3 (Legendre)</strong>. If x is irrational and |x − p/q| &lt; 1/(2q²) with q ≥ 1, then p/q is a convergent of x.</p>
+<p><strong>Proof</strong>. Choose n with q<sub>n</sub> ≤ q &lt; q<sub>n+1</sub>. By Theorem 8.1, |q<sub>n</sub> x − p<sub>n</sub>| ≤ |qx − p| &lt; 1/(2q), so |x − p<sub>n</sub>/q<sub>n</sub>| &lt; 1/(2q q<sub>n</sub>). If p/q ≠ p<sub>n</sub>/q<sub>n</sub>, then</p>
+<pre class="math">1/(q q<sub>n</sub>) ≤ |p/q − p<sub>n</sub>/q<sub>n</sub>| ≤ |x − p/q| + |x − p<sub>n</sub>/q<sub>n</sub>| &lt; 1/(2q²) + 1/(2q q<sub>n</sub>),</pre>
+<p>so 1/(2q q<sub>n</sub>) &lt; 1/(2q²), i.e. q &lt; q<sub>n</sub>, a contradiction. ∎</p>
+<p>Conversely, Vahlen showed that of any two consecutive convergents at least one satisfies |x − p/q| &lt; 1/(2q²), which recovers Theorem 6.2. Borel (1903) proved that of any three consecutive convergents at least one satisfies |x − p/q| &lt; 1/(√5 q²); in particular (Hurwitz, 1891) every irrational x has infinitely many approximations of this quality.</p>
+<p><strong>Proposition 8.4</strong>. The constant √5 is optimal: for c &gt; √5 the golden ratio φ has only finitely many approximations with |φ − p/q| &lt; 1/(c q²).</p>
+<p><strong>Proof</strong>. Since c &gt; 2, by Legendre's theorem such p/q must be convergents, i.e. F<sub>n+2</sub>/F<sub>n+1</sub>. Let ψ = (1 − √5)/2 = −1/φ. Binet's formula gives F<sub>k+1</sub> − φF<sub>k</sub> = ψ<sup>k</sup>, so q(qφ − p) = −F<sub>n+1</sub>ψ<sup>n+1</sup> = −(φ<sup>n+1</sup> − ψ<sup>n+1</sup>)ψ<sup>n+1</sup>/√5 = (−(−1)<sup>n+1</sup> + ψ<sup>2n+2</sup>)/√5. Thus q²|φ − p/q| → 1/√5 &gt; 1/c, and only finitely many n can satisfy the inequality. ∎</p>
+<p>If φ and the numbers equivalent to it under SL₂(ℤ) (those whose expansions end in all 1s) are excluded, the constant improves to √8; the next values are √221/5, √1517/13, …, accumulating at 3. This is the beginning of the Lagrange and Markov spectra, governed by the solutions of the Markov equation x² + y² + z² = 3xyz.</p>
+<h3>Quadratic irrationals</h3>
+<p>A real number is a quadratic irrational if it is irrational and satisfies a quadratic equation with integer coefficients.</p>
+<p><strong>Theorem 8.5 (Euler, Lagrange)</strong>. The continued fraction of x is eventually periodic if and only if x is a quadratic irrational.</p>
+<p><strong>Proof of the easy direction (Euler)</strong>. If x = [a₀; …, a<sub>s−1</sub>, y] with y = [b₀; …, b<sub>t−1</sub>, y] purely periodic, then by Proposition 7.1, y = (yP + P′)/(yQ + Q′) for integers P, P′, Q, Q′ with Q &gt; 0, so Qy² + (Q′ − P)y − P′ = 0 is a quadratic equation; y is irrational because its expansion is infinite. Then x = (yp + p′)/(yq + q′) is a Möbius image of y with integer coefficients, hence lies in ℚ(y) ∖ ℚ and is a quadratic irrational. ∎</p>
+<p><strong>Proof of the hard direction (Lagrange)</strong>. Let ax² + bx + c = 0 with a, b, c ∈ ℤ, a ≠ 0 and discriminant Δ = b² − 4ac &gt; 0, not a square. Substituting x = (x<sub>n</sub> p<sub>n−1</sub> + p<sub>n−2</sub>)/(x<sub>n</sub> q<sub>n−1</sub> + q<sub>n−2</sub>) shows that the complete quotient x<sub>n</sub> satisfies A<sub>n</sub> x<sub>n²</sub> + B<sub>n</sub> x<sub>n</sub> + C<sub>n</sub> = 0, where</p>
+<pre class="math">A<sub>n</sub> = a p<sub>n−1</sub>² + b p<sub>n−1</sub> q<sub>n−1</sub> + c q<sub>n−1</sub>²,     C<sub>n</sub> = A<sub>n−1</sub>,</pre>
+<p>and, because the substitution matrix has determinant ±1, B<sub>n²</sub> − 4A<sub>n</sub> C<sub>n</sub> = Δ. Writing f(t) = at² + bt + c = a(t − x)(t − x′), we have A<sub>n</sub> = q<sub>n−1</sub>² f(p<sub>n−1</sub>/q<sub>n−1</sub>) = a q<sub>n−1</sub>²(p<sub>n−1</sub>/q<sub>n−1</sub> − x)(p<sub>n−1</sub>/q<sub>n−1</sub> − x′). The first factor is less than 1/q<sub>n−1</sub>² in absolute value and the second is bounded by |x − x′| + 1, so |A<sub>n</sub>| &lt; |a|(|x − x′| + 1) is bounded independently of n; the same holds for C<sub>n</sub> = A<sub>n−1</sub>, and then B<sub>n²</sub> = Δ + 4A<sub>nC</sub><sub>n</sub> is bounded too. Only finitely many integer triples (A<sub>n</sub>, B<sub>n</sub>, C<sub>n</sub>) therefore occur, each with at most two roots, so the complete quotients x<sub>n</sub> take only finitely many values. Hence x<sub>i</sub> = x<sub>j</sub> for some i &lt; j, and the expansion is periodic from position i on. ∎</p>
+<p>Galois added a refinement: the expansion is purely periodic exactly when x &gt; 1 and its conjugate x′ satisfies −1 &lt; x′ &lt; 0. From this one derives that for a non-square integer N ≥ 2,</p>
+<pre class="math">√N = [a₀; a₁, a₂, …, a<sub>ℓ−1</sub>, 2a₀, a₁, a₂, …],   with a<sub>k</sub> = a<sub>ℓ−k</sub> for 1 ≤ k ≤ ℓ − 1,</pre>
+<p>where the block a₁, …, a<sub>ℓ−1</sub>, 2a₀ of length ℓ repeats forever and its first ℓ − 1 entries form a palindrome. For example √7 = [2; 1, 1, 1, 4, …], √13 = [3; 1, 1, 1, 1, 6, …], √19 = [4; 2, 1, 3, 1, 2, 8, …] and √61 = [7; 1, 4, 3, 1, 2, 2, 1, 3, 4, 1, 14, …], with periods 4, 5, 6 and 11.</p>
+<h3>Pell's equation</h3>
+<p><strong>Theorem 8.6</strong>. Let N ≥ 2 be a non-square, let ℓ be the period of √N, and let p<sub>k</sub>/q<sub>k</sub> be its convergents. Then</p>
+<pre class="math">p<sub>ℓ−1</sub>² − N q<sub>ℓ−1</sub>² = (−1)<sup>ℓ</sup>.</pre>
+<p>Every positive solution of x² − Ny² = ±1 is a convergent (x, y) = (p<sub>k</sub>, q<sub>k</sub>); the smallest positive solution of x² − Ny² = 1 is (p<sub>ℓ−1</sub>, q<sub>ℓ−1</sub>) if ℓ is even and (p<sub>2ℓ−1</sub>, q<sub>2ℓ−1</sub>) if ℓ is odd.</p>
+<p><strong>Proof of the identity</strong>. The complete quotient after one period is x<sub>ℓ</sub> = a₀ + √N, so by Proposition 7.1</p>
+<pre class="math">√N = ((a₀ + √N) p<sub>ℓ−1</sub> + p<sub>ℓ−2</sub>) / ((a₀ + √N) q<sub>ℓ−1</sub> + q<sub>ℓ−2</sub>).</pre>
+<p>Clearing the denominator and comparing rational and irrational parts (√N is irrational) gives N q<sub>ℓ−1</sub> = a₀ p<sub>ℓ−1</sub> + p<sub>ℓ−2</sub> and p<sub>ℓ−1</sub> = a₀ q<sub>ℓ−1</sub> + q<sub>ℓ−2</sub>. Hence</p>
+<pre class="math">p<sub>ℓ−1</sub>² − N q<sub>ℓ−1</sub>² = p<sub>ℓ−1</sub>(a₀q<sub>ℓ−1</sub> + q<sub>ℓ−2</sub>) − q<sub>ℓ−1</sub>(a₀p<sub>ℓ−1</sub> + p<sub>ℓ−2</sub>) = p<sub>ℓ−1</sub>q<sub>ℓ−2</sub> − p<sub>ℓ−2</sub>q<sub>ℓ−1</sub> = (−1)<sup>ℓ</sup>.</pre>
+<p>Proof that solutions are convergents. If x² − Ny² = ±1 with x, y ≥ 1, then x ≥ y (because x² ≥ Ny² − 1 ≥ y²), so x + y√N &gt; 2y and</p>
+<pre class="math">|√N − x/y| = |x² − Ny²| / (y(x + y√N)) &lt; 1/(2y²);</pre>
+<p>by Legendre's theorem x/y is a convergent. The description of the smallest solution follows from a finer analysis of the values p<sub>k²</sub> − Nq<sub>k²</sub>, which equal (−1)<sup>k+1</sup> times the denominators of the complete quotients. ∎</p>
+<p>The solutions of x² − Ny² = 1 are the units of norm 1 in ℤ[√N], and they form the group {±ε<sup>k</sup> : k ∈ ℤ}, where ε = x₁ + y₁√N is the fundamental solution. (If ε &gt; 1 is the least unit of norm 1 and η &gt; 1 is any other, choose k with ε<sup>k</sup> ≤ η &lt; ε<sup>k+1</sup>; then η ε<sup>−k</sup> is a unit of norm 1 in [1, ε), so equals 1.) For example:</p>
+<pre class="math">√7:   ℓ = 4, convergents 2, 3, 5/2, 8/3,          8² − 7·3² = 1
+√13:  ℓ = 5, p₄/q₄ = 18/5,  18² − 13·5² = −1,     (18 + 5√13)² = 649 + 180√13
+√61:  ℓ = 11, 29718² − 61·3805² = −1,             fundamental solution (1766319049, 226153980)</pre>
+<p>The last example was posed by Fermat as a challenge in 1657, but had been solved five centuries earlier by Bhāskara II using the cyclic (chakravala) method that goes back to Brahmagupta. The size of the fundamental solution can be enormous: its number of digits can be of the order of √N, which is why Pell's equation is a benchmark problem in computational number theory, where subexponential and quantum algorithms (Hallgren, 2002) compute the regulator log ε.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the continued fraction of √11 and the fundamental solution of x² − 11y² = 1.</div></li><li><span class="mk">(b)</span><div>Using √19 = [4; 2, 1, 3, 1, 2, 8, …], find the fundamental solution of x² − 19y² = 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) √11 = [3; 3, 6, …] with period 2; the convergents begin 3, 10/3, and 10² − 11·3² = 100 − 99 = 1, so (10, 3) is the fundamental solution. (b) The period is ℓ = 6, so we need p₅/q₅. Numerators: 4, 9, 13, 48, 61, 170; denominators: 1, 2, 3, 11, 14, 39. Hence (170, 39), and 170² − 19·39² = 28900 − 28899 = 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

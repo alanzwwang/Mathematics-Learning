@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#7c3aed">
+<body id="top" class="mode-kid" style="--topic:#7c3aed">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/complex-analysis/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Number That Shouldn't Exist">1</a><a href="lesson-2.html" title="Lesson 2: The Complex Map — Right for Real, Up for Imaginary">2</a><a href="lesson-3.html" title="Lesson 3: Adding and Subtracting — Pile by Pile">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Multiplying by i — The Quarter Turn">4</a><a href="lesson-5.html" title="Lesson 5: Multiplying Anything — Four Baby Multiplications">5</a><a href="lesson-6.html" title="Lesson 6: Length and Direction — The Spin-and-Stretch Secret">6</a><a href="lesson-7.html" title="Lesson 7: The Mirror Trick — Conjugates and Division">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Multiplying by i turns every number
 a quarter turn counterclockwise.</pre></div>
@@ -58,7 +59,7 @@ i · 2i = −2             (0, 2) → (−2, 0)     north to west ✅
 i · (1 + i) = −1 + i    (1, 1) → (−1, 1)     diagonal, spun ✅</pre>
 <p>(Sharp eyes: a quarter turn sends the point (x, y) to (−y, x). Check it on all three!)</p>
 <p>And the most useful spin fact of all: TWO quarter turns = a half turn = multiplying by −1. Of course — that's just i² = −1 said in spinning language. The one rule was a rotation rule all along.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>i · 5i = ? (b) Use the cycle: i²³ = ? (How many full turns can you throw away?)</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 5i² = −5. (b) 23 = 4 × 5 + 3, so i²³ = i³ = −i.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>i · 5i = ?</div></li><li><span class="mk">(b)</span><div>Use the cycle: i²³ = ? (How many full turns can you throw away?)</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 5i² = −5. (b) 23 = 4 × 5 + 3, so i²³ = i³ = −i.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
 </main>
 
@@ -68,7 +69,7 @@ i · (1 + i) = −1 + i    (1, 1) → (−1, 1)     diagonal, spun ✅</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

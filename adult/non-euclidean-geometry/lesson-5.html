@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Upper Half-Plane — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 5</p>
+    <h1>The Upper Half-Plane</h1>
+    <p class="kicker">Lesson 5 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">H = { z = x + iy : y &gt; 0 },    ds² = (dx² + dy²) / y²
+cosh d(z, w) = 1 + |z − w|² / (2 Im z · Im w)
+PSL(2,ℝ) acts by z ↦ (az + b)/(cz + d),  ad − bc = 1</pre></div>
+<h3>The metric</h3>
+<p>The upper half-plane model is H = { x + iy : y &gt; 0 } with Riemannian metric ds² = (dx² + dy²)/y², i.e. |dz|/Im z. The length of a piecewise C¹ curve γ(t) = x(t) + iy(t), t ∈ [0, 1], is</p>
+<pre class="math">L(γ) = ∫₀¹ √(x′(t)² + y′(t)²) / y(t) dt,</pre>
+<p>and d(z, w) is the infimum of L(γ) over curves from z to w. The metric is conformal (a positive multiple of the Euclidean metric), so hyperbolic angles equal Euclidean angles. Near the real axis Euclidean-small segments are hyperbolically long: the real axis together with ∞ is the ideal boundary ∂H = ℝ ∪ {∞}, at infinite distance from every point.</p>
+<h3>Vertical geodesics</h3>
+<p><strong>Proposition 5.1</strong>. For 0 &lt; a &lt; b, d(ia, ib) = ln(b/a), and the vertical segment is the unique shortest curve.</p>
+<p><strong>Proof</strong>. For any curve from ia to ib, L(γ) = ∫ √(x′² + y′²)/y dt ≥ ∫ |y′|/y dt ≥ ∫ y′/y dt = ln(b/a). Equality in the first inequality requires x′ ≡ 0 and in the second y′ ≥ 0, so the minimiser is the vertical segment, monotonically parametrised. ∎</p>
+<h3>Isometries</h3>
+<p><strong>Proposition 5.2</strong>. For g = (a b; c d) ∈ SL(2,ℝ), the map g(z) = (az + b)/(cz + d) is an isometry of H. The kernel of the action is {±I}, so PSL(2,ℝ) = SL(2,ℝ)/{±I} acts faithfully.</p>
+<p><strong>Proof</strong>. Multiplying numerator and denominator by the conjugate of cz + d and using ad − bc = 1 gives Im g(z) = Im z / |cz + d|², so g preserves H. Also g′(z) = 1/(cz + d)². Hence |g′(z)| / Im g(z) = (1/|cz + d|²) · (|cz + d|² / Im z) = 1/Im z, so g pulls the metric |dw|/Im w back to |dz|/Im z. ∎</p>
+<p>The group acts transitively: the matrix (√y  x/√y; 0  1/√y) sends i to x + iy. The stabiliser of i is PSO(2), the image of the rotations k<sub>θ</sub> = (cos θ  sin θ; −sin θ  cos θ); since k<sub>θ</sub>′(i) = 1/(cos θ − i sin θ)² = e<sup>2iθ</sup>, it rotates the tangent plane at i by 2θ. Consequently PSL(2,ℝ) acts simply transitively on the unit tangent bundle of H, which is therefore diffeomorphic to PSL(2,ℝ). The full isometry group consists of PSL(2,ℝ) together with the orientation-reversing maps z ↦ (−az̄ + b)/(−cz̄ + d); it is isomorphic to PGL(2,ℝ), and its identity component PSL(2,ℝ) is isomorphic to SO⁺(2,1).</p>
+<h3>Geodesics</h3>
+<p><strong>Theorem 5.3</strong>. The geodesics of H are the vertical half-lines {Re z = c} and the semicircles centred on the real axis.</p>
+<p><strong>Proof</strong>. Möbius maps send generalised circles to generalised circles, preserve angles, and preserve ℝ ∪ {∞}; hence elements of PSL(2,ℝ) send the imaginary axis, a generalised circle orthogonal to ℝ, to a generalised circle orthogonal to ℝ — a vertical line or a semicircle centred on ℝ. Conversely, any such curve with endpoints p &lt; q is the image of the imaginary axis under z ↦ (qz + p)/(z + 1), which has determinant q − p &gt; 0 and sends 0 ↦ p and ∞ ↦ q (vertical lines are images under translations). By Proposition 5.1 and isometry invariance, these are exactly the geodesics. ∎</p>
+<p>The geodesic equations confirm this. The Christoffel symbols of g = y⁻²(dx² + dy²) are Γˣ<sub>xy</sub> = −1/y, Γʸ<sub>xx</sub> = 1/y, Γʸ<sub>yy</sub> = −1/y, the others zero, so geodesics satisfy</p>
+<pre class="math">ẍ − (2/y) ẋ ẏ = 0,          ÿ + (ẋ² − ẏ²)/y = 0.</pre>
+<p>The first equation says d/dt(ẋ/y²) = 0, so ẋ = C y². With unit speed ẋ² + ẏ² = y², this yields ẏ² = y²(1 − C²y²). If C = 0 we get vertical lines; otherwise dx/dy = ±Cy/√(1 − C²y²), whose solutions satisfy (x − x₀)² + y² = 1/C², semicircles of radius 1/|C| centred on the real axis.</p>
+<h3>The distance formula</h3>
+<p><strong>Theorem 5.4</strong>. For z, w ∈ H, cosh d(z, w) = 1 + |z − w|² / (2 Im z Im w). Equivalently, sinh(d/2) = |z − w| / (2√(Im z Im w)), and tanh(d/2) = |z − w| / |z − w̄|.</p>
+<p><strong>Proof</strong>. The right-hand side is invariant under PSL(2,ℝ): from g(z) − g(w) = (z − w)/((cz + d)(cw + d)) and Im g(z) = Im z/|cz + d|², the factors |cz + d|²|cw + d|² cancel. Applying an isometry, we may assume z = ia, w = ib with a &lt; b. Then 1 + (b − a)²/(2ab) = (a² + b²)/(2ab) = ½(b/a + a/b) = cosh ln(b/a), which by Proposition 5.1 is cosh d(z, w). The other forms follow from cosh d = 1 + 2 sinh²(d/2) and from |z − w̄|² = |z − w|² + 4 Im z Im w. ∎</p>
+<p><strong>Worked example</strong>. d(i, 2 + i): cosh d = 1 + 4/2 = 3, so d = arccosh 3 = ln(3 + 2√2) = 2 ln(1 + √2) ≈ 1.7627. The geodesic joining the points is the arc of the semicircle |z − 1| = √2; the horizontal segment between them, of hyperbolic length 2, is longer.</p>
+<h3>Hyperbolic circles and horocycles</h3>
+<p>The hyperbolic circle of centre i and radius r is the Euclidean circle with centre i cosh r and radius sinh r: it is invariant under the rotations about i, hence (being the image of a circle in the disk model) a Euclidean circle symmetric about the imaginary axis, and it passes through ieʳ and ie⁻ʳ. The horizontal lines Im z = c are horocycles centred at ∞: they are orthogonal to all geodesics ending at ∞ and are limits of circles whose centres recede to ∞. Every Euclidean circle in H tangent to ℝ is a horocycle centred at the point of tangency. Two points on the horocycle Im z = 1 separated horizontally by Euclidean distance L are at distance L along the horocycle but at hyperbolic distance arccosh(1 + L²/2) = 2 arsinh(L/2), which is about 2 ln L for large L.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute d(2i, 3 + 6i).</div></li><li><span class="mk">(b)</span><div>Find the hyperbolic circle of centre 3i and radius ln 2 as a Euclidean circle.</div></li><li><span class="mk">(c)</span><div>Which geodesic passes through 1 + i and 3 + i? Give its endpoints on ℝ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) cosh d = 1 + (9 + 16)/(2 · 2 · 6) = 1 + 25/24 = 49/24, so d = arccosh(49/24) ≈ 1.3407. (b) The circle of centre i and radius r has Euclidean centre i cosh r and radius sinh r; applying the isometry z ↦ 3z gives centre 3i cosh(ln 2) = 15i/4 and radius 3 sinh(ln 2) = 9/4. Check: the circle passes through 15i/4 ± 9i/4, i.e. 6i and 3i/2, which are both at distance ln 2 from 3i. (c) The centre x₀ on ℝ is equidistant from both points, so x₀ = 2, and the radius is |1 + i − 2| = √2. The endpoints are 2 − √2 and 2 + √2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

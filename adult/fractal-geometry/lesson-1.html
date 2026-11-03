@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Metric Spaces and the Hausdorff Metric — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 1</p>
+    <h1>Metric Spaces and the Hausdorff Metric</h1>
+    <p class="kicker">Lesson 1 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For non-empty compact A, B ⊂ X:
+h(A, B) = max{ sup<sub>a∈A</sub> d(a, B),  sup<sub>b∈B</sub> d(b, A) }
+If (X, d) is complete, then (𝒦(X), h) is complete.</pre></div>
+<p>Fractals are sets, and to speak of a sequence of sets converging to a fractal — the stages of the Koch construction converging to the Koch curve, say — we need a topology on a space of sets. The right choice for compact sets is the Hausdorff metric, introduced by Hausdorff in his Grundzüge der Mengenlehre (1914).</p>
+<h3>Distance from a point to a set</h3>
+<p>Let (X, d) be a metric space. For x ∈ X and a non-empty set A ⊂ X, put d(x, A) = inf{d(x, a) : a ∈ A}. The function x ↦ d(x, A) is 1-Lipschitz: for any a ∈ A, d(x, a) ≤ d(x, y) + d(y, a), and taking the infimum over a gives d(x, A) ≤ d(x, y) + d(y, A). If A is compact the infimum is attained.</p>
+<h3>For ε &gt; 0 define the closed ε-neighbourhood of A as</h3>
+<pre class="math">A<sub>ε</sub> = { x ∈ X : d(x, A) ≤ ε }</pre>
+<h3>Definition of the Hausdorff metric</h3>
+<p>Let 𝒦(X) be the collection of non-empty compact subsets of X. For A, B ∈ 𝒦(X) define</p>
+<pre class="math">h(A, B) = max{ sup<sub>a∈A</sub> d(a, B),  sup<sub>b∈B</sub> d(b, A) }
+        = inf{ ε ≥ 0 : A ⊂ B<sub>ε</sub> and B ⊂ A<sub>ε</sub> }</pre>
+<p>The two expressions agree: A ⊂ B<sub>ε</sub> says exactly that sup<sub>a∈A</sub> d(a, B) ≤ ε, and since both suprema are attained on compact sets, the infimum in the second line is attained and equals the maximum in the first.</p>
+<p><strong>Theorem 1.1</strong>. h is a metric on 𝒦(X).</p>
+<p><strong>Proof</strong>. Finiteness: a compact set is bounded and d(·, B) is continuous, so the suprema are finite. Symmetry is built into the definition. If h(A, B) = 0 then every a ∈ A has d(a, B) = 0, so a lies in the closure of B, which is B itself; hence A ⊂ B, and by symmetry A = B. For the triangle inequality, let A, B, C ∈ 𝒦(X) and a ∈ A. For every c ∈ C we have d(a, B) ≤ d(a, c) + d(c, B) ≤ d(a, c) + h(C, B). Taking the infimum over c, d(a, B) ≤ d(a, C) + h(C, B) ≤ h(A, C) + h(C, B). The same bound holds for d(b, A) with b ∈ B, so h(A, B) ≤ h(A, C) + h(C, B). ∎</p>
+<p>Two warnings. The Hausdorff metric is not a measure of how much the sets overlap: h({0}, [0, 1]) = 1 although {0} ⊂ [0, 1]. And it is not continuous with respect to Lebesgue measure: the finite sets Pₙ = {k/n : 0 ≤ k ≤ n} have measure zero but h(Pₙ, [0, 1]) = 1/(2n) → 0. Fractal approximations behave in exactly this way: the stages of a construction may have positive area while the limit has none.</p>
+<p><strong>Worked example</strong>. Let A = [0, 1] and B = [0, 3] in ℝ. Every point of A lies in B, so sup<sub>a∈A</sub> d(a, B) = 0. The point of B farthest from A is 3, at distance 2. Hence h(A, B) = 2. More generally, for intervals h([a, b], [c, d]) = max{|a − c|, |b − d|}, because the distance from a point to an interval is a convex function of the point and is therefore maximised at an endpoint.</p>
+<h3>Completeness</h3>
+<p><strong>Theorem 1.2</strong>. If (X, d) is complete, then (𝒦(X), h) is complete. If X is compact, then 𝒦(X) is compact.</p>
+<p><strong>Proof</strong>. Let (Aₙ) be Cauchy in 𝒦(X). Define A to be the set of points x ∈ X for which there exist n₁ &lt; n₂ &lt; ⋯ and points x<sub>k</sub> ∈ A<sub>n<sub>k</sub></sub> with x<sub>k</sub> → x. (Equivalently, A = ⋂ₙ closure(⋃<sub>m≥n</sub> A<sub>m</sub>).) We show A is non-empty, compact, and that h(Aₙ, A) → 0.</p>
+<p>Fix ε &gt; 0 and choose N₁ &lt; N₂ &lt; ⋯ such that h(A<sub>m</sub>, Aₙ) &lt; ε 2<sup>−j</sup> for m, n ≥ N<sub>j</sub>; put N = N₁. Starting from any y₁ ∈ A<sub>N₁</sub>, pick y<sub>j+1</sub> ∈ A<sub>N<sub>j+1</sub></sub> with d(y<sub>j</sub>, y<sub>j+1</sub>) &lt; ε 2<sup>−j</sup>; this is possible because d(y<sub>j</sub>, A<sub>N<sub>j+1</sub></sub>) ≤ h(A<sub>N<sub>j</sub></sub>, A<sub>N<sub>j+1</sub></sub>). The sequence (y<sub>j</sub>) is Cauchy, so it converges to some y ∈ A, and d(y₁, y) &lt; ∑ ε 2<sup>−j</sup> = ε. This shows A is non-empty and, since y₁ ∈ A<sub>N</sub> was arbitrary (and the argument works from any n ≥ N), every point of Aₙ (n ≥ N) is within ε of A.</p>
+<p>Conversely, if x ∈ A then x is a limit of points x<sub>k</sub> ∈ A<sub>n<sub>k</sub></sub>; for n ≥ N and n<sub>k</sub> ≥ N large, d(x, Aₙ) ≤ d(x, x<sub>k</sub>) + h(A<sub>n<sub>k</sub></sub>, Aₙ) &lt; 2ε eventually. So h(Aₙ, A) ≤ 2ε for all n ≥ N.</p>
+<p>Finally A is closed by construction (it is an intersection of closed sets) and totally bounded: a finite ε-net of A<sub>N</sub>, which exists because A<sub>N</sub> is compact, is a 3ε-net of A. A closed totally bounded subset of a complete space is compact. For the second statement, if X is compact then it is totally bounded, and the finite subsets of a finite ε-net of X form a finite ε-net of 𝒦(X) in h; so 𝒦(X) is complete and totally bounded, hence compact. ∎</p>
+<p>The second half of Theorem 1.2 is the Blaschke selection theorem in its general form: every sequence of non-empty compact subsets of a compact metric space has a subsequence converging in the Hausdorff metric.</p>
+<h3>Two useful inequalities</h3>
+<p><strong>Lemma 1.3</strong>. For A, B, C, D ∈ 𝒦(X), h(A ∪ B, C ∪ D) ≤ max{h(A, C), h(B, D)}.</p>
+<p><strong>Proof</strong>. If ε ≥ max{h(A, C), h(B, D)} then A ⊂ C<sub>ε</sub> ⊂ (C ∪ D)<sub>ε</sub> and B ⊂ D<sub>ε</sub> ⊂ (C ∪ D)<sub>ε</sub>; symmetrically C ∪ D ⊂ (A ∪ B)<sub>ε</sub>. ∎</p>
+<p><strong>Lemma 1.4</strong>. If f : X → X is Lipschitz with constant L, then h(f(A), f(B)) ≤ L·h(A, B).</p>
+<p><strong>Proof</strong>. If a ∈ A and b ∈ B with d(a, b) = d(a, B), then d(f(a), f(B)) ≤ d(f(a), f(b)) ≤ L d(a, B) ≤ L h(A, B). By symmetry the claim follows; note f(A) is compact because f is continuous. ∎</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute h([0, 1], [2, 5]) in ℝ.</div></li><li><span class="mk">(b)</span><div>Compute h(Pₙ, [0, 1]) where Pₙ = {0, 1/n, 2/n, …, 1}.</div></li><li><span class="mk">(c)</span><div>In ℝ², compute h(S, D), where S is the unit circle and D is the closed unit disc.</div></li><li><span class="mk">(d)</span><div>Give an example showing that the space of non-empty closed bounded subsets of a non-complete metric space need not be complete under h.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Endpoint differences are |0 − 2| = 2 and |1 − 5| = 4, so h = 4 (the point 5 is at distance 4 from [0, 1]). (b) Every point of Pₙ is in [0, 1]; the point of [0, 1] farthest from Pₙ is the midpoint of a gap, at distance 1/(2n). So h = 1/(2n). (c) S ⊂ D, and the point of D farthest from S is the origin, at distance 1, so h = 1. (d) In X = (0, 1] with the usual metric, the singletons {1/n} are Cauchy in h (h({1/n}, {1/m}) = |1/n − 1/m|) but have no limit in 𝒦(X), since the only candidate {0} is not a subset of X.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

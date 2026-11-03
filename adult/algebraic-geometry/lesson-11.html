@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: The Group Law on an Elliptic Curve — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 11</p>
+    <h1>The Group Law on an Elliptic Curve</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P + Q + R = O  ⟺  P, Q, R are the three intersections of E with a line</pre></div>
+<h3>The chord-and-tangent construction</h3>
+<p>Let E be a smooth cubic in ℙ² with a chosen flex O; in Weierstrass form O = [0 : 1 : 0]. By Bézout, every line meets E in exactly three points counted with multiplicity. For points P, Q ∈ E, let P ∗ Q denote the third intersection of the line PQ with E (the tangent line at P if P = Q). Define</p>
+<pre class="math">P + Q = O ∗ (P ∗ Q)</pre>
+<p><strong>Theorem</strong>. With this operation E is an abelian group with identity O. In Weierstrass form, −(x, y) = (x, −y), and three points sum to O exactly when they are collinear.</p>
+<p><strong>Proof</strong>. Commutativity is clear since the line PQ is symmetric in P and Q. Identity: the line through P and O meets E again at P ∗ O, and the line through P ∗ O and O meets E again at P, so P + O = P. Inverses: since O is a flex, O ∗ O = O; put P′ = P ∗ O. Then P ∗ P′ = O and P + P′ = O ∗ O = O. In Weierstrass form, the lines through O = [0 : 1 : 0] are the vertical lines x = c together with Z = 0, so P ∗ O is the reflection (x, −y), and −P = (x, −y). If P, Q, R are collinear, then P ∗ Q = R and P + Q = O ∗ R = −R. Associativity is the substantial point. One proof uses Cayley–Bacharach: for points P, Q, R in general position, consider the two reducible cubics C₁ = line(P, Q) · line(Q ∗ R, O) · line(P + Q, R) and C₂ = line(Q, R) · line(P ∗ Q, O) · line(P, Q + R). The three lines of C₁ meet E in P, Q, P ∗ Q; then Q ∗ R, O, Q + R; then P + Q, R, X with X = (P + Q) ∗ R. The three lines of C₂ meet E in Q, R, Q ∗ R; then P ∗ Q, O, P + Q; then P, Q + R, Y with Y = P ∗ (Q + R). So E and C₁ meet in nine points, and C₂ passes through eight of them. By Cayley–Bacharach C₂ also passes through X, and as X ∈ E ∩ C₂ is not among the other eight points in general position, X = Y. Hence (P + Q) + R = O ∗ X = O ∗ Y = P + (Q + R). Degenerate configurations follow by continuity in the Zariski topology, or by direct verification. Another proof identifies E with its Picard group Pic⁰(E) via P ↦ [P − O], where the group structure is evident. ∎</p>
+<h3>Explicit formulas</h3>
+<p>Let E: y² = x³ + ax + b and P₁ = (x₁, y₁), P₂ = (x₂, y₂) ≠ O. If x₁ = x₂ and y₁ = −y₂, then P₁ + P₂ = O. Otherwise let</p>
+<pre class="math">λ = (y₂ − y₁)/(x₂ − x₁)   if P₁ ≠ P₂,       λ = (3x₁² + a)/(2y₁)   if P₁ = P₂</pre>
+<p>Then P₁ + P₂ = (x₃, y₃), where:</p>
+<pre class="math">x₃ = λ² − x₁ − x₂,    y₃ = λ(x₁ − x₃) − y₁</pre>
+<p>Derivation. The line y = λx + ν with ν = y₁ − λx₁ meets E where x³ + ax + b − (λx + ν)² = 0. This monic cubic has roots x₁, x₂, x₃ (the third intersection), and the coefficient of x² is −λ², so x₁ + x₂ + x₃ = λ². The third point P₁ ∗ P₂ is (x₃, λx₃ + ν), and P₁ + P₂ is its reflection, with y-coordinate −(λx₃ + ν) = λ(x₁ − x₃) − y₁.</p>
+<p><strong>Example (Nagell's curve y² = x³ + 17)</strong>. Take P = (−2, 3) and Q = (−1, 4); both lie on E since −8 + 17 = 9 and −1 + 17 = 16. Then λ = (4 − 3)/(−1 + 2) = 1, x₃ = 1 + 2 + 1 = 4 and y₃ = 1 · (−2 − 4) − 3 = −9, so P + Q = (4, −9), and indeed 64 + 17 = 81. Doubling P: λ = 3 · 4/(2 · 3) = 2, x₃ = 4 − 2(−2) = 8 and y₃ = 2(−2 − 8) − 3 = −23, so 2P = (8, −23), and 512 + 17 = 529 = 23². This curve has many integral points, including (43, ±282) and (52, ±375), and its group of rational points is free abelian of rank 2.</p>
+<h3>Torsion</h3>
+<p>A point P is torsion if nP = O for some n ≥ 1. A point of order 2 is a point with vertical tangent, i.e. y = 0; over k̄ there are exactly three, the roots of x³ + ax + b, so E[2] ≅ ℤ/2 × ℤ/2. On y² = x³ + 1, the point (−1, 0) has order 2. The points (0, ±1) have order 3: doubling (0, 1) gives λ = 0, x₃ = 0, y₃ = −1, so 2(0, 1) = (0, −1) = −(0, 1). The point (2, 3) has order 6: λ = 3 · 4/6 = 2, x₃ = 4 − 4 = 0, y₃ = 2(2 − 0) − 3 = 1, so 2(2, 3) = (0, 1), which has order 3. The rational torsion subgroup of y² = x³ + 1 is cyclic of order 6, generated by (2, 3).</p>
+<p><strong>Theorem (Nagell–Lutz, 1935–37)</strong>. Let E: y² = x³ + ax + b with a, b ∈ ℤ. If P = (x, y) ∈ E(ℚ) is a torsion point other than O, then x, y ∈ ℤ, and either y = 0 or y² divides 4a³ + 27b².</p>
+<p><strong>Theorem (Mordell 1922, Weil 1928)</strong>. For an elliptic curve E over a number field K, the group E(K) is finitely generated: E(K) ≅ E(K)<sub>tors</sub> ⊕ ℤʳ.</p>
+<p><strong>Theorem (Mazur, 1977)</strong>. For an elliptic curve over ℚ, the torsion subgroup E(ℚ)<sub>tors</sub> is isomorphic to one of the fifteen groups ℤ/N for 1 ≤ N ≤ 10 or N = 12, or ℤ/2 × ℤ/2N for 1 ≤ N ≤ 4.</p>
+<p>The rank r is far more mysterious. The conjecture of Birch and Swinnerton-Dyer (1960s) predicts that r equals the order of vanishing at s = 1 of the L-function L(E, s), which is built from the numbers of points of E modulo primes. The modularity theorem (Wiles and Taylor–Wiles 1995 for semistable curves; Breuil, Conrad, Diamond and Taylor 2001 in general) shows that L(E, s) comes from a modular form, and in the semistable case it was the key to Fermat's Last Theorem.</p>
+<h3>Elliptic curves over finite fields</h3>
+<p>Over 𝔽<sub>p</sub> (p &gt; 3), E(𝔽<sub>p</sub>) is a finite abelian group, and Hasse's theorem (1933) gives</p>
+<pre class="math">| #E(𝔽<sub>p</sub>) − (p + 1) | ≤ 2√p</pre>
+<p>This was the first case of the Weil conjectures, proved in general by Deligne in 1974. For example, y² = x³ + x + 1 over 𝔽₅: the squares mod 5 are 0, 1, 4. The values of x³ + x + 1 for x = 0, 1, 2, 3, 4 are 1, 3, 1, 1, 4, giving 2, 0, 2, 2, 2 points, so #E(𝔽₅) = 8 + 1 = 9, and |9 − 6| = 3 ≤ 2√5 ≈ 4.47. The hardness of the discrete logarithm problem in E(𝔽<sub>p</sub>) underlies elliptic curve cryptography, proposed independently by Koblitz and Miller in 1985.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>On y² = x³ + 17, compute (−2, 3) + (2, 5).</div></li><li><span class="mk">(b)</span><div>On y² = x³ − 2, compute 2(3, 5).</div></li><li><span class="mk">(c)</span><div>Show that (0, 0) has order 2 on y² = x³ + x, and find all points of order 2 over ℂ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) λ = (5 − 3)/(2 + 2) = 1/2, x₃ = 1/4 + 2 − 2 = 1/4 and y₃ = (1/2)(−2 − 1/4) − 3 = −9/8 − 3 = −33/8. So the sum is (1/4, −33/8); check: 1/64 + 17 = 1089/64 = (33/8)². (b) λ = 3 · 9/(2 · 5) = 27/10, x₃ = 729/100 − 6 = 129/100 and y₃ = (27/10)(3 − 129/100) − 5 = (27/10)(171/100) − 5 = 4617/1000 − 5000/1000 = −383/1000. So 2(3, 5) = (129/100, −383/1000). (c) At (0, 0) we have y = 0, so the tangent line is vertical (x = 0), the third intersection is O, and 2(0, 0) = O. The points of order 2 are the points with y = 0: x³ + x = x(x − i)(x + i), so (0, 0), (i, 0) and (−i, 0).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

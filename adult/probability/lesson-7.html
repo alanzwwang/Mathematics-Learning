@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Modes of Convergence — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 7</p>
+    <h1>Modes of Convergence</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">almost surely  ⇒  in probability  ⇒  in distribution,      in Lᵖ  ⇒  in probability
+and no other implication holds in general.</pre></div>
+<h3>Four definitions</h3>
+<p>Let X, X₁, X₂, … be random variables. We say that Xₙ → X</p>
+<pre class="math">almost surely (a.s.)    if P(Xₙ → X) = 1
+in probability          if P(|Xₙ − X| &gt; ε) → 0 for every ε &gt; 0
+in Lᵖ (p ≥ 1)           if E|Xₙ − X|ᵖ → 0
+in distribution         if Fₙ(x) → F(x) at every continuity point x of F</pre>
+<p>Convergence in distribution (also called weak convergence, written Xₙ ⇒ X) concerns only the laws, so the variables may even live on different probability spaces. The restriction to continuity points is essential: Xₙ = 1/n should converge to X = 0, yet Fₙ(0) = 0 does not converge to F(0) = 1.</p>
+<h3>The implications</h3>
+<p><strong>Theorem 7.1</strong>. (i) Almost sure convergence implies convergence in probability. (ii) Lᵖ convergence implies convergence in probability. (iii) Convergence in probability implies convergence in distribution. (iv) If Xₙ ⇒ c for a constant c, then Xₙ → c in probability.</p>
+<p><strong>Proof</strong>. (i) Let Aₙ = {|Xₙ − X| &gt; ε}. Almost sure convergence means P(Aₙ i.o.) = 0, and P(Aₙ) ≤ P(⋃<sub>m≥n</sub> Aₘ) ↓ P(Aₙ i.o.) = 0. (ii) By Markov, P(|Xₙ − X| &gt; ε) ≤ E|Xₙ − X|ᵖ/εᵖ. (iii) For every ε &gt; 0, P(Xₙ ≤ x) ≤ P(X ≤ x + ε) + P(|Xₙ − X| &gt; ε) and P(X ≤ x − ε) ≤ P(Xₙ ≤ x) + P(|Xₙ − X| &gt; ε). Let n → ∞ and then ε ↓ 0, using continuity of F at x. (iv) P(|Xₙ − c| &gt; ε) ≤ Fₙ(c − ε) + 1 − Fₙ(c + ε/2) → 0, since c − ε and c + ε/2 are continuity points of the distribution function of the constant c. ∎</p>
+<h3>The counterexamples</h3>
+<p>Every missing implication fails. Work on Ω = [0, 1] with Lebesgue measure.</p>
+<p>The typewriter sequence: for n = 2ᵏ + j with 0 ≤ j &lt; 2ᵏ, let Xₙ be the indicator of [j 2⁻ᵏ, (j + 1) 2⁻ᵏ]. Then P(Xₙ ≠ 0) = 2⁻ᵏ → 0, so Xₙ → 0 in probability and in every Lᵖ, but for every ω the sequence Xₙ(ω) equals 1 infinitely often: there is no almost sure convergence at any point.</p>
+<p>Spikes: Xₙ = n · 1<sub>(0, 1/n)</sub> converges to 0 at every point, hence a.s. and in probability, but E Xₙ = 1, so not in L¹.</p>
+<p>Symmetric swaps: let X be Bernoulli(1/2) and Xₙ = 1 − X for all n. Then every Xₙ has the same law as X, so Xₙ ⇒ X trivially, but |Xₙ − X| = 1 always: no convergence in probability.</p>
+<h3>Two partial converses</h3>
+<p><strong>Theorem 7.2 (Riesz)</strong>. If Xₙ → X in probability, then some subsequence converges almost surely.</p>
+<p><strong>Proof</strong>. Choose n₁ &lt; n₂ &lt; ⋯ with P(|X<sub>nₖ</sub> − X| &gt; 1/k) ≤ 2⁻ᵏ. These probabilities are summable, so by the first Borel–Cantelli lemma, almost surely |X<sub>nₖ</sub> − X| ≤ 1/k for all large k. ∎</p>
+<p>A sequence is uniformly integrable if sup<sub>n</sub> E[|Xₙ| 1{|Xₙ| &gt; K}] → 0 as K → ∞. It is UI if, for instance, it is bounded in Lᵖ for some p &gt; 1, or dominated by an integrable variable.</p>
+<p><strong>Theorem 7.3 (Vitali)</strong>. Xₙ → X in L¹ if and only if Xₙ → X in probability and (Xₙ) is uniformly integrable.</p>
+<p>The spike example fails exactly this test: E[Xₙ 1{Xₙ &gt; K}] = 1 whenever n &gt; K.</p>
+<h3>Working with convergence in distribution</h3>
+<p><strong>Theorem 7.4 (portmanteau, partial)</strong>. The following are equivalent: (a) Xₙ ⇒ X; (b) E g(Xₙ) → E g(X) for every bounded continuous g; (c) lim sup P(Xₙ ∈ F) ≤ P(X ∈ F) for every closed F; (d) P(Xₙ ∈ B) → P(X ∈ B) for every Borel B with P(X ∈ ∂B) = 0.</p>
+<p>Statement (b) is the definition used for random elements of metric spaces, such as random functions in the theory of Brownian motion. From it follows the continuous mapping theorem: if Xₙ ⇒ X and h is continuous, then h(Xₙ) ⇒ h(X). Two further tools are used all the time in statistics.</p>
+<p><strong>Theorem 7.5 (Slutsky)</strong>. If Xₙ ⇒ X and Yₙ → c in probability, with c constant, then Xₙ + Yₙ ⇒ X + c and XₙYₙ ⇒ cX.</p>
+<p><strong>Theorem 7.6 (Skorokhod representation)</strong>. If Xₙ ⇒ X on ℝ, there exist variables Yₙ, Y on a common probability space with Yₙ equal in law to Xₙ, Y equal in law to X, and Yₙ → Y almost surely.</p>
+<p>The proof of 7.6 takes Yₙ = Fₙ⁻(U) and Y = F⁻(U) for one uniform U, the quantile construction of Lesson 3; the generalised inverses converge at every continuity point of F⁻, and there are only countably many discontinuities.</p>
+<p>Finally, tightness is the probabilistic form of compactness. A family of laws is tight if for every ε &gt; 0 there is K with P(|Xₙ| &gt; K) &lt; ε for all n. Helly's selection theorem with Prokhorov's theorem says that every tight sequence has a subsequence converging in distribution. This is the compactness input in the proof of Lévy's continuity theorem in Lesson 9.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Let Xₙ be independent with P(Xₙ = 1) = 1/n and P(Xₙ = 0) = 1 − 1/n. Does Xₙ → 0 in probability? Almost surely?</div></li><li><span class="mk">(b)</span><div>Same question with P(Xₙ = 1) = 1/n².</div></li><li><span class="mk">(c)</span><div>Let Xₙ be uniform on {1/n, 2/n, …, n/n}. Show that Xₙ ⇒ U, where U is Uniform(0, 1).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) In probability yes, since P(Xₙ = 1) → 0; almost surely no, since the events {Xₙ = 1} are independent with divergent probability sum, so Xₙ = 1 infinitely often a.s. by the second Borel–Cantelli lemma. (b) Both: the probabilities are summable, so Xₙ = 0 eventually a.s. by the first lemma. (c) For x ∈ [0, 1], Fₙ(x) = ⌊nx⌋/n, which lies within 1/n of x, so Fₙ(x) → x = F(x) everywhere.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

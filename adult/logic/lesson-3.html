@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Natural Deduction and Soundness — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 3</p>
+    <h1>Natural Deduction and Soundness</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A derivation is a finite tree of formulas built by introduction and elimination rules.
+Γ ⊢ φ: there is a derivation of φ all of whose open assumptions lie in Γ.
+Soundness: Γ ⊢ φ implies Γ ⊨ φ.</pre></div>
+<h3>Why a proof calculus</h3>
+<p>Semantic consequence quantifies over all valuations. For propositional logic that is a finite check, but for first-order logic it quantifies over all structures of every cardinality, a genuinely infinitary notion. A proof calculus replaces it by a syntactic notion: finite objects, checkable by a mechanical procedure. The calculus we use is Gentzen's natural deduction (1934), which models the way mathematicians actually argue: we make assumptions, reason from them, and discharge them.</p>
+<h3>The rules</h3>
+<p>A derivation is a finite tree whose nodes are labelled with formulas, whose leaves are assumptions, and whose inner nodes are justified by rules. Some rules discharge assumptions, written [φ]; a discharged assumption is no longer an open hypothesis of the derivation. Writing the premises before the slash and the conclusion after it, the rules are:</p>
+<pre class="math">∧I:  φ, ψ / φ ∧ ψ                    ∧E:  φ ∧ ψ / φ      and   φ ∧ ψ / ψ
+∨I:  φ / φ ∨ ψ    and   ψ / φ ∨ ψ    ∨E:  φ ∨ ψ,  [φ]…χ,  [ψ]…χ / χ
+→I:  [φ]…ψ / φ → ψ                   →E:  φ, φ → ψ / ψ   (modus ponens)
+¬I:  [φ]…⊥ / ¬φ                      ¬E:  φ, ¬φ / ⊥
+⊥E:  ⊥ / φ   (ex falso)              RAA: [¬φ]…⊥ / φ   (reductio ad absurdum)</pre>
+<p>Here [φ]…ψ means a subderivation of ψ in which φ may be used as an assumption, and the rule discharges φ. We write Γ ⊢ φ if there is a derivation with conclusion φ whose open (undischarged) assumptions all belong to Γ. The biconditional is treated as an abbreviation of (φ → ψ) ∧ (ψ → φ).</p>
+<p>Dropping RAA gives intuitionistic logic, in which the law of excluded middle φ ∨ ¬φ and double negation elimination ¬¬φ → φ are not derivable. Dropping ⊥E as well gives minimal logic. Classical logic is our default.</p>
+<h3>A worked derivation</h3>
+<p>We derive the excluded middle ⊢ φ ∨ ¬φ. Assume ¬(φ ∨ ¬φ) (assumption 1). Assume φ (assumption 2). By ∨I, φ ∨ ¬φ; with assumption 1 and ¬E, ⊥. By ¬I discharging assumption 2, ¬φ. By ∨I, φ ∨ ¬φ; with assumption 1 and ¬E, ⊥. By RAA discharging assumption 1, φ ∨ ¬φ. All assumptions are discharged, so the conclusion is derivable from the empty set.</p>
+<h3>Basic properties of ⊢</h3>
+<p>The following are immediate from the definition: monotonicity (Γ ⊢ φ and Γ ⊆ Δ imply Δ ⊢ φ); finiteness (if Γ ⊢ φ, then Γ₀ ⊢ φ for some finite Γ₀ ⊆ Γ, because a derivation is finite); cut or transitivity (if Γ ⊢ φ and Γ ∪ {φ} ⊢ ψ, then Γ ⊢ ψ, by grafting); and the syntactic deduction theorem (Γ ⊢ φ → ψ if and only if Γ ∪ {φ} ⊢ ψ, by →I and →E). A set Γ is consistent if Γ ⊬ ⊥. By RAA and ¬I, Γ ⊢ φ if and only if Γ ∪ {¬φ} is inconsistent, and Γ ⊬ φ if and only if Γ ∪ {¬φ} is consistent.</p>
+<p><strong>Theorem 3.1 (Soundness)</strong>. If Γ ⊢ φ, then Γ ⊨ φ.</p>
+<p><strong>Proof</strong>. We prove by induction on derivations D the statement: if D has conclusion φ and its open assumptions form the set Δ, then Δ ⊨ φ. Since Δ ⊆ Γ, this gives Γ ⊨ φ. A one-node derivation is an assumption φ with Δ = {φ}, and {φ} ⊨ φ. For the inductive step we check each rule; we do the three that discharge.</p>
+<p>→I: D ends with φ → ψ, obtained from a derivation of ψ with open assumptions Δ′ ⊆ Δ ∪ {φ}. By induction Δ ∪ {φ} ⊨ ψ, and Proposition 1.4 gives Δ ⊨ φ → ψ.</p>
+<p>∨E: from derivations of φ ∨ ψ (assumptions in Δ), of χ (in Δ ∪ {φ}) and of χ (in Δ ∪ {ψ}). If v satisfies Δ, then v satisfies φ or ψ; in either case the corresponding induction hypothesis gives v ⊨ χ.</p>
+<p>RAA: from a derivation of ⊥ with assumptions in Δ ∪ {¬φ}. By induction Δ ∪ {¬φ} ⊨ ⊥, so Δ ∪ {¬φ} is unsatisfiable, so Δ ⊨ φ by Proposition 1.4.</p>
+<p>The non-discharging rules are immediate; for example →E is sound because v ⊨ φ and v ⊨ φ → ψ imply v ⊨ ψ. ∎</p>
+<p><strong>Corollary 3.2</strong>. Every satisfiable set is consistent. In particular ⊬ ⊥, and the calculus does not derive p ∨ q → p, since that formula is not a tautology.</p>
+<h3>Hilbert systems and sequent calculus</h3>
+<p>Natural deduction is one of three standard formats. A Hilbert system has many axiom schemes and a single rule, modus ponens; for instance the schemes φ → (ψ → φ), (φ → (ψ → χ)) → ((φ → ψ) → (φ → χ)) and (¬ψ → ¬φ) → (φ → ψ) suffice for the {¬, →} fragment. Gentzen's sequent calculus manipulates sequents Γ ⇒ Δ and enjoys the cut-elimination theorem (Gentzen's Hauptsatz): every derivable sequent has a derivation in which every formula is a subformula of the end sequent. All three formats derive exactly the same consequences, and the soundness and completeness theorems hold for each.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Give a natural deduction derivation of (φ → ψ) → (¬ψ → ¬φ).</div></li><li><span class="mk">(b)</span><div>Derive ¬¬φ ⊢ φ and say which rule makes this inherently classical.</div></li><li><span class="mk">(c)</span><div>Explain why soundness implies that the axiom-free calculus cannot derive p.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Assume φ → ψ (1), assume ¬ψ (2), assume φ (3). By →E from (3) and (1), ψ; by ¬E with (2), ⊥. By ¬I discharging (3), ¬φ. By →I discharging (2), ¬ψ → ¬φ. By →I discharging (1), the result. (b) Assume ¬φ (1). With the premise ¬¬φ, ¬E gives ⊥. RAA discharging (1) gives φ. RAA is essential: ¬¬φ → φ is not intuitionistically derivable. (c) If ⊢ p, soundness gives ⊨ p, but the valuation with v(p) = 0 falsifies p.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

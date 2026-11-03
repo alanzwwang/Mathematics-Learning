@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Quadratic Equations over Arbitrary Fields — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 4</p>
+    <h1>Quadratic Equations over Arbitrary Fields</h1>
+    <p class="kicker">Lesson 4 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">char K ≠ 2:  ax² + bx + c = 0  ⟺  (2ax + b)² = b² − 4ac
+roots exist in K  ⟺  the discriminant b² − 4ac is a square in K</pre></div>
+<p>The quadratic formula is not a fact about real numbers; it is an identity valid in every field in which 2 is invertible. Seeing it this way explains where the formula breaks and what replaces it.</p>
+<h3>Completing the square</h3>
+<p>Let K be a field with char K ≠ 2 and a ≠ 0. Multiplying ax² + bx + c = 0 by 4a (an invertible operation) gives 4a²x² + 4abx + 4ac = 0, that is</p>
+<pre class="math">(2ax + b)² = b² − 4ac = Δ</pre>
+<p>So the equation has a root in K if and only if Δ is a square in K, and then the roots are x = (−b ± δ)/(2a), where δ² = Δ. If Δ = 0 there is a double root −b/(2a); if Δ is a nonzero square there are two distinct roots; otherwise the polynomial is irreducible over K and its roots lie in the quadratic extension K(√Δ) = K[t]/(t² − Δ). Every quadratic extension of K arises this way: if [L : K] = 2 and α ∈ L∖K, then α satisfies a quadratic over K, and completing the square shows L = K(√Δ) for some non-square Δ ∈ K.</p>
+<p>Vieta's relations for the quadratic state that the roots α, β satisfy α + β = −b/a and αβ = c/a, and the discriminant is</p>
+<pre class="math">Δ = a²(α − β)²</pre>
+<p>This form generalizes to every degree (Lesson 8): the discriminant is, up to a power of the leading coefficient, the product of the squared differences of the roots.</p>
+<h3>Quadratics over finite fields</h3>
+<p>Over 𝔽ₚ with p odd, the nonzero squares form the subgroup of index 2 in the cyclic group 𝔽ₚˣ, so exactly (p − 1)/2 nonzero elements are squares. Euler's criterion decides squareness: for a ≢ 0, a is a square modulo p if and only if a<sup>(p−1)/2</sup> ≡ 1 (mod p). (If g is a generator, gᵏ is a square exactly when k is even, and (gᵏ)<sup>(p−1)/2</sup> = (−1)ᵏ.) Quadratic reciprocity then makes the computation efficient for large p.</p>
+<p><strong>Worked example</strong>. Over 𝔽₅ solve x² + x + 3 = 0. The discriminant is 1 − 12 = −11 ≡ 4 = 2², so the roots are (−1 ± 2)/2. Since 2⁻¹ = 3 in 𝔽₅, these are 1 · 3 = 3 and (−3) · 3 = −9 ≡ 1. Check: 3² + 3 + 3 = 15 ≡ 0 and 1 + 1 + 3 = 5 ≡ 0. Vieta: 3 + 1 = 4 ≡ −1 and 3 · 1 = 3, as required.</p>
+<p><strong>Worked example</strong>. Over 𝔽₇, x² + 3x + 4 has Δ = 9 − 16 = −7 ≡ 0, so it has the double root −3/2 = −3 · 4 = −12 ≡ 2. Indeed (x − 2)² = x² − 4x + 4 ≡ x² + 3x + 4 mod 7, since −4 ≡ 3.</p>
+<h3>Characteristic 2</h3>
+<p>When char K = 2, the derivative of x² + bx + c is b, and the substitution trick collapses because 2a = 0. If b = 0 the equation is x² = c, which has the root √c, a double root, whenever c is a square; over a finite field of characteristic 2 every element is a square, because the Frobenius map x ↦ x² is injective and hence bijective. If b ≠ 0, substitute x = by to obtain the Artin–Schreier form</p>
+<pre class="math">y² + y = d,    d = c/b²</pre>
+<p>The map y ↦ y² + y is additive in characteristic 2, with kernel {0, 1}. Over 𝔽 with 2ᵏ elements its image is the kernel of the absolute trace Tr(d) = d + d² + d⁴ + ⋯ + d<sup>2<sup>k−1</sup></sup>, so y² + y = d is solvable if and only if Tr(d) = 0. Over 𝔽₂ itself the trace is the identity, so y² + y + 1 has no root: it is the unique irreducible quadratic over 𝔽₂, and 𝔽₄ = 𝔽₂[y]/(y² + y + 1).</p>
+<h3>Counting irreducible quadratics</h3>
+<p>Over 𝔽<sub>q</sub> there are q² monic quadratics, and the reducible ones are (x − α)(x − β) with {α, β} a multiset of size 2 from 𝔽<sub>q</sub>, giving q(q + 1)/2 of them. Hence the number of monic irreducible quadratics is q² − q(q + 1)/2 = (q² − q)/2. For q = 2 this is 1, for q = 3 it is 3 (namely x² + 1, x² + x + 2, x² + 2x + 2), for q = 5 it is 10. Gauss's general formula, proved via the factorization of x<sup>qⁿ</sup> − x as the product of all monic irreducibles of degree dividing n, gives (1/n) ∑<sub>d | n</sub> μ(d) q<sup>n/d</sup> monic irreducibles of degree n.</p>
+<h3>Quadratic forms and geometry</h3>
+<p>Solving ax² + bxy + cy² = 0 projectively is the same problem, and over ℚ the deeper question of solving ax² + by² = cz² in integers is answered by Legendre's theorem and, more generally, by the Hasse–Minkowski local-global principle: a quadratic form over ℚ represents 0 nontrivially if and only if it does so over ℝ and over every p-adic field ℚₚ. No such principle holds for cubic equations (Selmer's example 3x³ + 4y³ + 5z³ = 0 has nontrivial solutions everywhere locally but none in ℚ), which is one sign of how much harder degree three is.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Does x² + 4x + 1 have a root in 𝔽₇?</div></li><li><span class="mk">(b)</span><div>Solve y² + y = 1 over 𝔽₄ = {0, 1, ω, ω²}, where ω² = ω + 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Δ = 16 − 4 = 12 ≡ 5 (mod 7). The nonzero squares modulo 7 are 1, 4, 2, so 5 is not a square (equivalently 5³ = 125 ≡ 6 ≡ −1). There is no root; the polynomial is irreducible over 𝔽₇. (b) Over 𝔽₄ the trace of 1 is 1 + 1 = 0, so solutions exist. Try y = ω: ω² + ω = (ω + 1) + ω = 1. The other solution is ω + 1 = ω². Thus y ∈ {ω, ω²}, the two roots of y² + y + 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

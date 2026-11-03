@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Linear Programming and the Simplex Method — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 10</p>
+    <h1>Linear Programming and the Simplex Method</h1>
+    <p class="kicker">Lesson 10 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">maximise cᵀx   subject to   Ax ≤ b,  x ≥ 0
+The feasible region is a polyhedron; a bounded optimum is attained at a vertex
+Simplex method: walk from vertex to adjacent vertex, improving the objective</pre></div>
+<h3>Linear programmes</h3>
+<p>A linear programme (LP) optimises a linear objective over a set described by finitely many linear inequalities and equations. In the form used here, we seek to maximise cᵀx subject to Ax ≤ b and x ≥ 0, with A an m × n matrix. Any LP can be brought to this form by standard tricks: an equation is two inequalities, a free variable is a difference of two nonnegative ones, and minimising cᵀx is maximising −cᵀx. The subject was created in the Second World War era for planning problems. Leonid Kantorovich formulated production-planning LPs in 1939, George Dantzig invented the simplex method in 1947, and John von Neumann conjectured the duality theorem in the same year. Kantorovich and Tjalling Koopmans shared the 1975 Nobel prize in economics for the theory of optimal allocation of resources.</p>
+<h3>Polyhedra and vertices</h3>
+<p>The feasible region P = {x : Ax ≤ b, x ≥ 0} is a polyhedron: an intersection of finitely many closed half-spaces {x : aᵀx ≤ β}. It is convex, since each half-space is. A point v ∈ P is a vertex (extreme point) if it is not a proper convex combination of two other points of P. Algebraically, v is a vertex exactly when the constraints active at v (those holding with equality) include n whose normal vectors are linearly independent; then v is the unique solution of those n equations. Since there are finitely many ways to choose n constraints out of m + n, a polyhedron has finitely many vertices.</p>
+<h3>Theorem 10.1 (Fundamental theorem of linear programming)</h3>
+<p>If an LP over a polyhedron P that contains no line has a finite optimal value, the optimum is attained at a vertex of P.</p>
+<p><strong>Proof sketch</strong>. The set F of optimal points is a non-empty polyhedron (P intersected with the hyperplane cᵀx = z*), and any vertex of F is a vertex of P, because if a point of F is a proper convex combination of two points of P, both points must also be optimal and hence lie in F. Take x ∈ F with the largest possible rank r of the active constraints of F at x. If r &lt; n, there is a nonzero direction d orthogonal to all active normals; moving along x + td stays in F until a new constraint becomes active, which must happen in one direction or the other because F contains no line. The new point has larger rank, a contradiction. So r = n and x is a vertex. ∎</p>
+<p>The polyhedron {Ax ≤ b, x ≥ 0} never contains a line (the constraints x ≥ 0 forbid it), so the theorem applies to every LP in our form.</p>
+<h3>A worked example</h3>
+<p>Maximise z = 3x + 2y subject to x + y ≤ 4, x + 3y ≤ 7, x ≤ 3, x ≥ 0, y ≥ 0. The vertices of the feasible pentagon and the objective values are</p>
+<pre class="math">(0, 0):     z = 0
+(3, 0):     z = 9
+(3, 1):     z = 11     (x = 3 and x + y = 4)
+(5/2, 3/2): z = 21/2   (x + y = 4 and x + 3y = 7)
+(0, 7/3):   z = 14/3</pre>
+<p>so the optimum is z = 11 at (3, 1). Optimality can be certified without listing vertices: at (3, 1) the active constraints are x ≤ 3 and x + y ≤ 4, and the objective gradient (3, 2) = 1·(1, 0) + 2·(1, 1) is a nonnegative combination of their outward normals. So no feasible direction can increase z. The multipliers 1 and 2 are the dual solution of Lesson 11.</p>
+<h3>The simplex method</h3>
+<p>The simplex method makes this search systematic. Introduce slack variables s₁ = 4 − x − y, s₂ = 7 − x − 3y, s₃ = 3 − x, all required to be nonnegative, and write the objective in terms of the current nonbasic variables, which are set to zero; the starting vertex is the origin, where z = 3x + 2y = 0.</p>
+<p>Pivot 1. The coefficient of x in z is positive, so increasing x improves z. The ratio test asks how far x can grow before a basic variable becomes negative: s₁ allows x ≤ 4, s₂ allows x ≤ 7, s₃ allows x ≤ 3. The minimum is 3, so x enters and s₃ leaves: x = 3 − s₃, and substituting gives</p>
+<pre class="math">s₁ = 1 + s₃ − y,    s₂ = 4 + s₃ − 3y,    z = 9 − 3s₃ + 2y.</pre>
+<p>Pivot 2. Now y has a positive coefficient. The ratio test gives y ≤ 1 (from s₁) and y ≤ 4/3 (from s₂), so y enters and s₁ leaves: y = 1 + s₃ − s₁. Substituting,</p>
+<pre class="math">z = 11 − 2s₁ − s₃,    s₂ = 1 + 3s₁ − 2s₃,    x = 3 − s₃.</pre>
+<p>All coefficients in the objective row are now negative, so no move improves z, and the vertex (x, y) = (3, 1) with z = 11 is optimal. The negatives of the slack coefficients, 2, 0 and 1, are again the dual prices.</p>
+<p>Each pivot moves along an edge of the polyhedron to an adjacent vertex with a larger (or, at a degenerate vertex, equal) objective value. Degeneracy can make the naive method cycle forever; Bland's rule (1977), always choosing the eligible variable with the smallest index, prevents cycling, so the method terminates in finitely many steps.</p>
+<h3>Complexity</h3>
+<p>The simplex method is extraordinarily fast in practice, typically needing a small multiple of m pivots, yet Klee and Minty (1972) constructed deformed cubes on which Dantzig's pivoting rule visits all 2ⁿ vertices. Whether some pivoting rule runs in polynomial time is open, and is linked to the polynomial Hirsch conjecture on diameters of polytopes (the original Hirsch conjecture was disproved by Francisco Santos in 2010). The first polynomial-time algorithm for LP was Khachiyan's ellipsoid method (1979); Karmarkar's interior-point method (1984) was the first that was also practical. Spielman and Teng's smoothed analysis (2001) explained the practical success of simplex: under small random perturbations of the data, its expected running time is polynomial. Whether LP admits a strongly polynomial algorithm, one whose number of arithmetic operations is bounded by a polynomial in m and n alone, is one of Smale's eighteen problems for the twenty-first century.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Maximise x + 2y subject to x + y ≤ 5, y ≤ 3, x, y ≥ 0, by listing vertices.</div></li><li><span class="mk">(b)</span><div>In the worked example, which constraint is slack at the optimum, and by how much?</div></li><li><span class="mk">(c)</span><div>Explain why the LP &quot;maximise x subject to x − y ≤ 1, x, y ≥ 0&quot; has no vertex at which the optimum is attained.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The vertices are (0, 0), (5, 0), (2, 3), (0, 3), with values 0, 5, 8, 6; the maximum is 8 at (2, 3). (b) x + 3y ≤ 7 has x + 3y = 6 at (3, 1), so it is slack by 1 (s₂ = 1). (c) The objective is unbounded: (t + 1, t) is feasible for every t ≥ 0 with value t + 1 → ∞. Theorem 10.1 needs a finite optimal value.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

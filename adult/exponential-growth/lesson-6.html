@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 6</p>
+    <h1>The Logistic Equation — Saturation, Equilibria and Stability</h1>
+    <p class="kicker">Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P′ = rP(1 − P/K)   ⟹   P(t) = K / (1 + ((K − P₀)/P₀) e<sup>−rt</sup>),   P → K for every P₀ &gt; 0</pre></div>
+<p>Thomas Malthus argued in 1798 that population, &quot;when unchecked, increases in a geometrical ratio&quot;, while subsistence increases only arithmetically. Pierre-François Verhulst proposed in 1838 that the per-capita growth rate should decline linearly as the population approaches a ceiling K, the carrying capacity. Raymond Pearl and Lowell Reed rediscovered the model in 1920 and fitted it to the United States census. The logistic equation is the simplest nonlinear correction to exponential growth and the prototype for autonomous scalar dynamics.</p>
+<h3>Explicit solution</h3>
+<p>Substitute u = 1/P. Then u′ = −P′/P² = −r/P + r/K = −r u + r/K, a linear equation (Lesson 5) with equilibrium 1/K. Its solution is u(t) = 1/K + (1/P₀ − 1/K) e<sup>−rt</sup>, and inverting gives the formula in the box. (Alternatively, separate variables using the partial fraction 1/(P(1 − P/K)) = 1/P + 1/(K − P).) The solution is defined for all t ≥ 0 when P₀ &gt; 0; for P₀ &gt; K it decreases to K, and for 0 &lt; P₀ &lt; K it increases to K along an S-shaped (sigmoid) curve.</p>
+<p>For P₀ &lt; K, the inflection point is at P = K/2, where P″ = r(1 − 2P/K)P′ vanishes; it occurs at t = ln((K − P₀)/P₀)/r. Before the inflection the curve is approximately exponential, P ≈ P₀ e<sup>rt</sup> for P ≪ K; after it, the approach to K is again exponential: K − P(t) ~ C e<sup>−rt</sup>.</p>
+<p><strong>Example</strong>. With K = 1000, P₀ = 100 and r = 0.5 per year, P(t) = 1000/(1 + 9e<sup>−0.5t</sup>). Then P(4) = 1000/(1 + 9e<sup>−2</sup>) ≈ 450.9, the inflection is at t = 2 ln 9 ≈ 4.39 years, and P(10) = 1000/(1 + 9e<sup>−5</sup>) ≈ 942.8.</p>
+<h3>Stability of equilibria of y′ = f(y)</h3>
+<p>For an autonomous scalar equation with f ∈ C¹, solutions are monotone (they cannot cross an equilibrium, by uniqueness), and every bounded solution converges to an equilibrium. An equilibrium y* (f(y*) = 0) is</p>
+<pre class="math">asymptotically stable if f′(y*) &lt; 0,    unstable if f′(y*) &gt; 0.</pre>
+<p><strong>Proof</strong>. If f′(y*) = −μ &lt; 0, choose δ with f′(y) ≤ −μ/2 on [y* − δ, y* + δ]. For a solution starting in this interval, w = (y − y*)² satisfies w′ = 2(y − y*) f(y) ≤ −μ w, because f(y) = f′(ξ)(y − y*) with ξ between y and y*. So w(t) ≤ w(0) e<sup>−μt</sup> by Grönwall: the solution stays in the interval and converges to y* exponentially with rate at least μ/2. The unstable case is symmetric with time reversed. ∎</p>
+<p>For the logistic equation f(P) = rP − rP²/K, so f′(0) = r &gt; 0 and f′(K) = −r &lt; 0: extinction is unstable and the carrying capacity is asymptotically stable, with linear convergence rate r. When f′(y*) = 0 the linearization is inconclusive (consider y′ = y³ and y′ = −y³).</p>
+<h3>Harvesting and the saddle-node bifurcation</h3>
+<p>With a constant harvest h ≥ 0, P′ = rP(1 − P/K) − h. Equilibria solve rP²/K − rP + h = 0:</p>
+<pre class="math">P± = (K/2) (1 ± √(1 − 4h/(rK)))</pre>
+<p>For h &lt; rK/4 there are two equilibria; P₊ is stable and P₋ is an unstable threshold: a population that falls below P₋ collapses to zero in finite time. As h increases to rK/4 the two equilibria merge at K/2 and disappear (a saddle-node bifurcation); for h &gt; rK/4 every population collapses. The quantity rK/4 is the maximum sustainable yield, the peak of the logistic growth curve rP(1 − P/K). With r = 0.5, K = 1000 the maximum sustainable yield is 125; a harvest h = 96 gives P± = 500(1 ± 0.4817) ≈ 740.8 and 259.2.</p>
+<p>Constant-effort harvesting, P′ = rP(1 − P/K) − EP, behaves very differently: there is a single positive equilibrium K(1 − E/r) for E &lt; r, it is stable, and the sustained yield EK(1 − E/r) is maximized at E = r/2 with the same value rK/4. Harvesting a fixed quota is structurally fragile; harvesting a fixed fraction is not. This contrast is a standard lesson of fisheries management.</p>
+<h3>Other sigmoid laws</h3>
+<p>The Gompertz equation P′ = rP ln(K/P) (Gompertz 1825, originally for human mortality) has solution P = K exp(ln(P₀/K) e<sup>−rt</sup>), an asymmetric sigmoid with inflection at K/e; it is widely used for tumour growth. The Richards family P′ = rP(1 − (P/K)<sup>ν</sup>)/ν interpolates between logistic (ν = 1) and Gompertz (ν → 0).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>For P′ = 0.2P(1 − P/500) with P(0) = 50, find the time at which P = 250 and the value of P′ at that moment.</div></li><li><span class="mk">(b)</span><div>Find the equilibria of y′ = y(1 − y)(y − 1/3) and their stability.</div></li><li><span class="mk">(c)</span><div>A logistic population has r = 0.4 and K = 2000. What is the largest constant harvest it can sustain?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) P = 250 = K/2 is the inflection point, at t = ln(450/50)/0.2 = 5 ln 9 ≈ 10.99; there P′ = rK/4 = 25. (b) f(y) = −y³ + (4/3)y² − (1/3)y, so f′(y) = −3y² + (8/3)y − 1/3. f′(0) = −1/3 &lt; 0 (stable), f′(1/3) = −1/3 + 8/9 − 1/3 = 2/9 &gt; 0 (unstable), f′(1) = −3 + 8/3 − 1/3 = −2/3 &lt; 0 (stable). This is a bistable system with threshold 1/3 (an Allee effect). (c) rK/4 = 0.4 · 2000/4 = 200.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

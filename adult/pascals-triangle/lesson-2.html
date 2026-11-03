@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Four Proof Techniques for Binomial Identities — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 2</p>
+    <h1>Four Proof Techniques for Binomial Identities</h1>
+    <p class="kicker">Lesson 2 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">double counting · explicit bijection · sign-reversing involution · polynomial method</pre></div>
+<h3>Double counting</h3>
+<p>To prove that two expressions are equal, exhibit a finite set and count it in two ways. The prototype is the committee–chair identity k C(n, k) = n C(n − 1, k − 1): both sides count pairs (S, s) with S a k-subset of [n] = {1, …, n} and s ∈ S; on the left choose S first, on the right choose the chair s first. Summing over k gives the first moment of the row.</p>
+<p><strong>Proposition 2.1</strong>. For n ≥ 1, ∑ₖ k C(n, k) = n 2ⁿ⁻¹, and for n ≥ 2, ∑ₖ k² C(n, k) = n(n + 1) 2ⁿ⁻². Proof. The first sum counts pairs (S, s) with s ∈ S ⊆ [n]; choosing s first leaves 2ⁿ⁻¹ subsets of the remaining elements. The second sum counts triples (S, s, t) with s, t ∈ S. Pairs with s = t contribute n 2ⁿ⁻¹; ordered pairs with s ≠ t contribute n(n − 1)2ⁿ⁻². The total is 2ⁿ⁻²(2n + n² − n) = n(n + 1)2ⁿ⁻². ∎</p>
+<p>The same idea proves the trinomial revision identity C(n, m) C(m, k) = C(n, k) C(n − k, m − k), counting pairs K ⊆ M ⊆ [n] with |K| = k and |M| = m: choose M then K, or choose K then the m − k further elements of M from the n − k remaining.</p>
+<h3>Explicit bijection</h3>
+<p>A bijection proof identifies two families of objects. The upper summation identity (the hockey stick) is the standard example.</p>
+<p><strong>Proposition 2.2</strong>. For integers 0 ≤ k ≤ n, ∑<sub>m=k</sub><sup>n</sup> C(m, k) = C(n + 1, k + 1). Proof. Partition the (k + 1)-subsets of [n + 1] according to their largest element m + 1, where k ≤ m ≤ n. A subset with maximum m + 1 is determined by its other k elements, an arbitrary k-subset of [m]. ∎</p>
+<p>Its companion, parallel summation, has an arbitrary upper index and is proved by induction: ∑<sub>j=0</sub><sup>m</sup> C(α + j, j) = C(α + m + 1, m). For m = 0 both sides equal 1, and the inductive step is C(α + m + 1, m) + C(α + m + 1, m + 1) = C(α + m + 2, m + 1), which is Pascal's rule.</p>
+<h3>Sign-reversing involutions</h3>
+<p>To evaluate an alternating sum ∑ (−1)<sup>|X|</sup> over a family of objects, find an involution ι on the family that changes the parity of |X| on all objects except a set of fixed points. Then the sum equals the signed count of fixed points.</p>
+<p><strong>Proposition 2.3</strong>. For n ≥ 1, ∑ₖ (−1)ᵏ C(n, k) = 0, and for every α and every m ∈ ℕ, ∑<sub>k=0</sub><sup>m</sup> (−1)ᵏ C(α, k) = (−1)ᵐ C(α − 1, m). Proof. For the first claim, the map S ↦ S △ {1} (add 1 if absent, remove it if present) is a fixed-point-free involution on subsets of [n] changing |S| by one. For the second, write C(α, k) = C(α − 1, k) + C(α − 1, k − 1); the alternating sum telescopes: ∑<sub>k=0</sub><sup>m</sup> (−1)ᵏ [C(α − 1, k) + C(α − 1, k − 1)] = (−1)ᵐ C(α − 1, m), because the term (−1)ᵏ C(α − 1, k) cancels against (−1)<sup>k+1</sup> C(α − 1, k) coming from index k + 1, leaving only the last one. ∎</p>
+<pre class="math">example:  1 − 12 + 66 − 220 + 495 = 330 = C(11, 4)</pre>
+<h3>The polynomial method</h3>
+<p>To prove an identity of polynomials in α, it suffices by Lemma 1.1 to prove it for α ∈ ℕ, where combinatorics is available. Conversely, a generating-function computation can yield an identity that is hard to see combinatorially. A typical example is the signed sum of squares.</p>
+<p><strong>Proposition 2.4</strong>. ∑ₖ (−1)ᵏ C(n, k)² equals (−1)<sup>n/2</sup> C(n, n/2) if n is even and 0 if n is odd. Proof. The coefficient of xⁿ in (1 − x)ⁿ(1 + x)ⁿ is ∑ₖ (−1)ᵏ C(n, k) C(n, n − k) = ∑ₖ (−1)ᵏ C(n, k)². On the other hand (1 − x)ⁿ(1 + x)ⁿ = (1 − x²)ⁿ = ∑ⱼ (−1)ʲ C(n, j) x<sup>2j</sup>, whose coefficient of xⁿ is (−1)<sup>n/2</sup> C(n, n/2) if n is even and 0 otherwise. ∎</p>
+<p>For cubes the corresponding result is Dixon's identity (1891), ∑ₖ (−1)ᵏ C(2n, k)³ = (−1)ⁿ (3n)!/(n!)³, which we cite. For n = 1 the row is C(2, k) = 1, 2, 1, so the sum is 1 − 8 + 1 = −6 = (−1)¹ · 3!/1!³; for n = 2 it is 1 − 64 + 216 − 64 + 1 = 90 = 6!/2!³. Identities of this kind are now provable mechanically by the Wilf–Zeilberger method, which certifies any identity of the form ∑ₖ F(n, k) = r(n) with F hypergeometric by producing a rational certificate.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Evaluate ∑ₖ k² C(10, k).</div></li><li><span class="mk">(b)</span><div>Evaluate ∑<sub>k=0</sub><sup>4</sup> (−1)ᵏ C(12, k) without adding the terms.</div></li><li><span class="mk">(c)</span><div>Give a double-counting proof that ∑ₖ C(n, k) C(k, m) = C(n, m) 2ⁿ⁻ᵐ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) n(n + 1)2ⁿ⁻² = 10 · 11 · 2⁸ = 28160. (b) By Proposition 2.3 it equals (−1)⁴ C(11, 4) = 330 (indeed 1 − 12 + 66 − 220 + 495 = 330). (c) Both sides count pairs M ⊆ K ⊆ [n] with |M| = m: choose K of size k and then M inside K, or choose M first and then K ∖ M as an arbitrary subset of the n − m remaining elements.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

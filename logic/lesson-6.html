@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#eab308">
+<body id="top" class="mode-kid" style="--topic:#eab308">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/logic/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Draw &quot;All A are B&quot; as circle A INSIDE circle B.
 A conclusion only counts if it HAS to be true in every picture you can draw.
@@ -45,10 +46,10 @@ BROKEN lookalike:   All A are B.  All C are B.  →  All A are C??  NO — two c
                     apart: &quot;All dogs are animals; all cats are animals; so all dogs are cats&quot;?? Absurd.
 BROKEN some-some:   Some A are B.  Some B are C.  →  Some A are C??  NO — the overlaps can live in
                     different parts of B.</pre>
-<p>And keep the mantra from before: TRUE is not the same as FOLLOWS. &quot;All multiples of 4 are even; all multiples of 6 are even&quot; does NOT let you conclude &quot;some multiple of 4 is a multiple of 6&quot; — the facts never say the circles touch. (In arithmetic the conclusion happens to be true — 12! — but that's extra knowledge, not a conclusion. Logic asks what FOLLOWS.)</p>
+<p>Here's a mantra to remember: TRUE is not the same as FOLLOWS. &quot;All multiples of 4 are even; all multiples of 6 are even&quot; does NOT let you conclude &quot;some multiple of 4 is a multiple of 6&quot; — the facts never say the circles touch. (In arithmetic the conclusion happens to be true — 12! — but that's extra knowledge, not a conclusion. Logic asks what FOLLOWS.)</p>
 <p>Now for the big leap. With variables, ∀ claims are everywhere — &quot;for all x, this equals that&quot; — and circles can't help. Examples can't help either: a million agreeing checks never prove ∀ (remember x² &gt; x, killed by ½). What CAN prove a ∀ claim? Letters. A letter stands for EVERY case at once — so if you reason with the letter and never assume anything special about it, the conclusion covers everything.</p>
 <p>PROOF 1 — an identity, proved for all numbers at once.</p>
-<p>Claim: For all numbers a and b, (a + b)² = a² + 2ab + b².</p>
+<p><strong>Claim</strong>: For all numbers a and b, (a + b)² = a² + 2ab + b².</p>
 <pre class="math">(a + b)² = (a + b)(a + b)            the meaning of ²: multiply by itself
          = a(a + b) + b(a + b)       distribute: each term of the first (a + b) times the second
          = a² + ab + ba + b²         distribute each piece
@@ -58,7 +59,7 @@ BROKEN some-some:   Some A are B.  Some B are C.  →  Some A are C??  NO — th
 <p>PROOF 2 — an even/odd claim. First, arm the letters with definitions:</p>
 <p>An even number is one that can be written 2k for some whole number k.</p>
 <p>An odd number is one that can be written 2k + 1 for some whole number k.</p>
-<p>Claim: The sum of two odd numbers is even.</p>
+<p><strong>Claim</strong>: The sum of two odd numbers is even.</p>
 <pre class="math">Call the two odd numbers 2m + 1 and 2n + 1.    (Different letters m, n — they might be different numbers!)
 Sum = (2m + 1) + (2n + 1)
     = 2m + 2n + 2            rearrange: order of addition never matters
@@ -68,7 +69,7 @@ So the sum is 2 × (a whole number) = 2k shape, with k = m + n + 1.
 By the definition above, the sum is EVEN. ∎   (the little box means: proof finished)</pre>
 <p>Check the power: this one argument covers 3 + 5, 101 + 999, and every other pair of odds in the universe. THAT is why mathematicians bother with letters.</p>
 <p>PROOF 3 — the contrapositive as a proof TOOL. (This one is a college-level move, and you can do it.)</p>
-<p>Claim: For every whole number n, if n² is even, then n is even.</p>
+<p><strong>Claim</strong>: For every whole number n, if n² is even, then n is even.</p>
 <p>Try a direct assault and you get stuck: the IF hands you n², and unpacking a square is hard. So flip AND deny (Lesson 5): prove the contrapositive instead — it stands or falls with the original.</p>
 <pre class="math">Contrapositive: if n is ODD, then n² is ODD.
 Suppose n is odd → n = 2k + 1 for some whole number k.    (definition of odd)
@@ -91,7 +92,7 @@ One witness is a complete proof of ∃. (x = 0 works too — 0² = 0 = 2·0 — 
 To kill ∀:   exhibit ONE counterexample.
 To prove ∃:  exhibit ONE witness.
 To kill ∃:   show EVERY case fails (letters again — like Lesson 1's x = x + 1 ending in 0 = 1).</pre>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Prove: the sum of two even numbers is even. (Model it on Proof 2.)   (b) Prove ∃: &quot;There exists x with x² = 9x.&quot;   (c) Prove ∀: &quot;The sum of three consecutive whole numbers is divisible by 3.&quot; (Arm a letter: call the smallest one n.)</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Call them 2m and 2n. Sum = 2m + 2n = 2(m + n) — factor out the 2. m + n is a whole number, so the sum has the 2k shape → even ∎. (b) Witness x = 9: 9² = 81 and 9(9) = 81 ✓. One witness proves ∃. (x = 0 works too.) (c) Call them n, n + 1, n + 2. Sum = n + (n + 1) + (n + 2) = 3n + 3 (combine like terms) = 3(n + 1) (factor out 3). n + 1 is a whole number, so the sum is 3 × (a whole number) — divisible by 3 by definition ∎. Check with numbers: 4 + 5 + 6 = 15 = 3 × 5 ✓.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Prove: the sum of two even numbers is even. (Model it on Proof 2.)</div></li><li><span class="mk">(b)</span><div>Prove ∃: &quot;There exists x with x² = 9x.&quot;</div></li><li><span class="mk">(c)</span><div>Prove ∀: &quot;The sum of three consecutive whole numbers is divisible by 3.&quot; (Arm a letter: call the smallest one n.)</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Call them 2m and 2n. Sum = 2m + 2n = 2(m + n) — factor out the 2. m + n is a whole number, so the sum has the 2k shape → even ∎. (b) Witness x = 9: 9² = 81 and 9(9) = 81 ✓. One witness proves ∃. (x = 0 works too.) (c) Call them n, n + 1, n + 2. Sum = n + (n + 1) + (n + 2) = 3n + 3 (combine like terms) = 3(n + 1) (factor out 3). n + 1 is a whole number, so the sum is 3 × (a whole number) — divisible by 3 by definition ∎. Check with numbers: 4 + 5 + 6 = 15 = 3 × 5 ✓.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
 </main>
 
@@ -101,7 +102,7 @@ To kill ∃:   show EVERY case fails (letters again — like Lesson 1's x = x + 
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

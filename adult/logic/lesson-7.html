@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 7</p>
+    <h1>Definability, Normal Forms and the Proof Calculus for First-Order Logic</h1>
+    <p class="kicker">Lesson 7 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A set X ⊆ Aⁿ is definable if X = {a⃗ : 𝔄 ⊨ φ[a⃗]} for some formula φ.
+Definable sets are invariant under automorphisms.
+Every formula has a prenex form; every sentence has an equisatisfiable universal Skolem form.</pre></div>
+<h3>Definable sets</h3>
+<p>Given an L-structure 𝔄 and a formula φ(x₁, …, xₙ), the set φ(𝔄) = {a⃗ ∈ Aⁿ : 𝔄 ⊨ φ[a⃗]} is the set defined by φ. Definable sets are closed under Boolean operations (by the connectives) and projections (by ∃). Examples: in (ℝ, +, ·, 0, 1) the order is definable by x ≤ y ↔ ∃z (x + z · z = y), because the nonnegative reals are exactly the squares. In 𝔑 the set of primes is defined by 1 &lt; x ∧ ∀y ∀z (y · z = x → y = 1 ∨ z = 1), where 1 abbreviates S(0).</p>
+<p><strong>Theorem 7.1</strong>. If σ is an automorphism of 𝔄 and X is definable in 𝔄 without parameters, then σ(X) = X.</p>
+<p><strong>Proof</strong>. By the isomorphism lemma applied to σ : 𝔄 → 𝔄, 𝔄 ⊨ φ[a⃗] iff 𝔄 ⊨ φ[σ(a⃗)]. ∎</p>
+<p>This is the main tool for proving non-definability. In (ℤ, +), the map x ↦ −x is an automorphism, so the set ℕ is not definable without parameters, nor is the order &lt;. In (ℝ, &lt;) every translation x ↦ x + c is an automorphism; since translations can move any point to any other, the only parameter-free definable subsets of ℝ are ∅ and ℝ.</p>
+<h3>Prenex normal form</h3>
+<p>A formula is in prenex form if it is Q₁x₁ … Qₙxₙ ψ with each Qᵢ a quantifier and ψ quantifier-free. Using the equivalences ¬∀x φ ≡ ∃x ¬φ, ¬∃x φ ≡ ∀x ¬φ, and, when x ∉ FV(ψ), (∀x φ) ∧ ψ ≡ ∀x (φ ∧ ψ), (∃x φ) ∧ ψ ≡ ∃x (φ ∧ ψ) and their analogues for ∨, together with (∀x φ) → ψ ≡ ∃x (φ → ψ) and (∃x φ) → ψ ≡ ∀x (φ → ψ), every formula can be converted to an equivalent prenex formula after renaming bound variables. Note the reversal of the quantifier in the antecedent of an implication; also note that (∀x φ) → ψ ≡ ∃x (φ → ψ) uses that domains are nonempty. Prenex formulas are classified by quantifier alternations: Σₙ formulas begin with ∃ and have n alternating blocks, Πₙ formulas begin with ∀. This hierarchy will reappear in computability theory as the arithmetical hierarchy.</p>
+<h3>Skolem normal form</h3>
+<p>Given a prenex sentence ∀x₁ … ∀xₖ ∃y ψ(x⃗, y), add a new k-ary function symbol f and pass to ∀x₁ … ∀xₖ ψ(x⃗, f(x⃗)). Repeating removes all existential quantifiers and yields a universal sentence σ<sup>S</sup> in an expanded language.</p>
+<p><strong>Theorem 7.2 (Skolem)</strong>. σ is satisfiable if and only if its Skolem form σ<sup>S</sup> is satisfiable. Indeed σ<sup>S</sup> ⊨ σ, and every model of σ expands to a model of σ<sup>S</sup>.</p>
+<p><strong>Proof</strong>. If 𝔄 ⊨ ∀x⃗ ψ(x⃗, f(x⃗)), then for each a⃗ the element f<sup>𝔄(a⃗)</sup> witnesses ∃y ψ(a⃗, y). Conversely, if 𝔄 ⊨ ∀x⃗ ∃y ψ, use the axiom of choice to pick, for each a⃗, some b with 𝔄 ⊨ ψ[a⃗, b], and interpret f by a⃗ ↦ b. ∎</p>
+<h3>The proof calculus</h3>
+<p>Natural deduction for first-order logic adds to the propositional rules the quantifier rules and the equality rules:</p>
+<pre class="math">∀E:  ∀x φ / φ[t/x]                 ∀I:  φ[y/x] / ∀x φ     (y not free in any open assumption, nor in ∀x φ)
+∃I:  φ[t/x] / ∃x φ                 ∃E:  ∃x φ,  [φ[y/x]]…χ / χ   (y not free in χ, ∃x φ or other open assumptions)
+=I:  t = t                         =E:  s = t,  φ[s/x] / φ[t/x]</pre>
+<p>with t substitutable. The eigenvariable conditions on ∀I and ∃E are essential: without them one could derive ∃x P(x) ⊢ ∀x P(x). The soundness theorem extends routinely: if Σ ⊢ φ then Σ ⊨ φ. The real content of first-order logic is the converse, Gödel's completeness theorem.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Put ∀x P(x) → ∃y ∀z R(y, z) into prenex form.</div></li><li><span class="mk">(b)</span><div>Give the Skolem form of ∀x ∃y ∀z ∃w (R(x, y) ∧ S(z, w)).</div></li><li><span class="mk">(c)</span><div>Show that 0 is definable in (ℝ, +) and that 1 is not.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Rename nothing (the variables are already distinct). (∀x P(x)) → ψ ≡ ∃x (P(x) → ψ), so the formula is ∃x ∃y ∀z (P(x) → R(y, z)). (b) ∀x ∀z (R(x, f(x)) ∧ S(z, g(x, z))), with f unary and g binary. (c) 0 is defined by x + x = x. The map x ↦ 2x is an automorphism of (ℝ, +) moving 1, so {1} is not definable without parameters.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

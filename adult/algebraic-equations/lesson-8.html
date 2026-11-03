@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Resultants, Discriminants and Elimination — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 8</p>
+    <h1>Resultants, Discriminants and Elimination</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Res(f, g) = aₙᵐ bₘⁿ ∏<sub>i,j</sub> (αᵢ − βⱼ) = aₙᵐ ∏ᵢ g(αᵢ)
+Res(f, g) = 0  ⟺  f and g have a common factor  (aₙbₘ ≠ 0)
+Disc(f) = aₙ<sup>2n−2</sup> ∏<sub>i&lt;j</sub> (αᵢ − αⱼ)²,   Res(f, f′) = (−1)<sup>n(n−1)/2</sup> aₙ Disc(f)</pre></div>
+<p>How do we decide whether two polynomials have a common root without finding any roots? Euclid's algorithm answers this, but it requires division, and it does not give a single closed formula in the coefficients. The resultant, introduced by Euler and Bézout and put in determinant form by Sylvester (1840), does.</p>
+<h3>The Sylvester matrix</h3>
+<p>Let f = aₙxⁿ + ⋯ + a₀ and g = bₘxᵐ + ⋯ + b₀ over a commutative ring R. The Sylvester matrix Syl(f, g) is the (m + n) × (m + n) matrix whose first m rows are the coefficients (aₙ, …, a₀) shifted one place right in each successive row, and whose last n rows are the coefficients (bₘ, …, b₀) shifted likewise. The resultant is Res(f, g) = det Syl(f, g). For f = x² − 1 and g = x − 2 (n = 2, m = 1):</p>
+<pre class="math">⎡ 1   0  −1 ⎤
+⎢ 1  −2   0 ⎥       det = 1 · ((−2)(−2) − 0 · 1) − 0 + (−1)(1 · 1 − 0) = 4 − 1 = 3
+⎣ 0   1  −2 ⎦</pre>
+<p><strong>Theorem 8.1</strong>. Let K be a field, f, g ∈ K[x] with aₙbₘ ≠ 0. Then Res(f, g) = 0 if and only if f and g have a nonconstant common factor.</p>
+<p><strong>Proof</strong>. Consider the K-linear map Φ : (u, v) ↦ uf + vg from pairs with deg u &lt; m, deg v &lt; n to polynomials of degree &lt; m + n. Both spaces have dimension m + n, and in the monomial bases the matrix of Φ is the transpose of Syl(f, g). If h = gcd(f, g) is nonconstant, then u = g/h, v = −f/h is a nonzero element of ker Φ, so det = 0. Conversely, if det = 0 there is (u, v) ≠ 0 with uf = −vg. Then f divides vg; if gcd(f, g) = 1 then f divides v, impossible because deg v &lt; n and v ≠ 0 (v = 0 would force u = 0). ∎</p>
+<p>Since Φ is surjective when the resultant is nonzero, Cramer's rule gives polynomials u, v with coefficients in R (not just K) such that uf + vg = Res(f, g). So the resultant lies in the ideal (f, g) ∩ R: it is the &quot;eliminant&quot; of x from the system f = g = 0.</p>
+<p><strong>Theorem 8.2 (Product formula)</strong>. If f = aₙ∏(x − αᵢ) and g = bₘ∏(x − βⱼ), then</p>
+<pre class="math">Res(f, g) = aₙᵐ bₘⁿ ∏<sub>i,j</sub>(αᵢ − βⱼ) = aₙᵐ ∏ᵢ g(αᵢ) = (−1)<sup>mn</sup> bₘⁿ ∏ⱼ f(βⱼ)</pre>
+<p><strong>Sketch of proof</strong>. Work universally, with aₙ, bₘ, αᵢ, βⱼ as indeterminates and the other coefficients given by Vieta. Res(f, g) is then a polynomial that vanishes whenever αᵢ = βⱼ (by Theorem 8.1), so each αᵢ − βⱼ divides it. Counting degrees, give a₍ₙ₋ⱼ₎ and b₍ₘ₋ⱼ₎ weight j: every term of the Sylvester determinant has total weight mn, and a₍ₙ₋ⱼ₎/aₙ = (−1)ʲeⱼ(α) has degree j in the α's (similarly for the β's), so Res/(aₙᵐbₘⁿ) has degree mn in the α's and β's, the degree of ∏(αᵢ − βⱼ). Comparing the coefficient of a single monomial (for instance setting all βⱼ = 0, when g = bₘxᵐ and the Sylvester determinant is a triangular computation) fixes the constant. ∎</p>
+<p>Check with the example: aₙᵐ ∏ g(αᵢ) = 1 · g(1) g(−1) = (−1)(−3) = 3, as computed from the determinant.</p>
+<h3>The discriminant</h3>
+<p>Define Disc(f) = aₙ<sup>2n−2</sup> ∏<sub>i&lt;j</sub>(αᵢ − αⱼ)². It is symmetric in the roots, hence (by Lesson 7) a polynomial in the coefficients, and it vanishes exactly when f has a repeated root. Since f′(αᵢ) = aₙ∏<sub>j≠i</sub>(αᵢ − αⱼ), the product formula gives</p>
+<pre class="math">Res(f, f′) = aₙⁿ⁻¹ ∏ᵢ f′(αᵢ) = aₙ<sup>2n−1</sup> ∏<sub>i≠j</sub>(αᵢ − αⱼ) = (−1)<sup>n(n−1)/2</sup> aₙ Disc(f)</pre>
+<p>because each pair i &lt; j contributes (αᵢ − αⱼ)(αⱼ − αᵢ) = −(αᵢ − αⱼ)², and there are n(n − 1)/2 pairs. For the quadratic, Res(ax² + bx + c, 2ax + b) = a(2aα + b)(2aβ + b) = a · (√Δ)(−√Δ) = −aΔ, recovering Disc = b² − 4ac. Further examples worth knowing:</p>
+<pre class="math">Disc(x³ + px + q) = −4p³ − 27q²
+Disc(xⁿ + a) = (−1)<sup>n(n−1)/2</sup> nⁿ aⁿ⁻¹
+Disc(xⁿ + ax + b) = (−1)<sup>n(n−1)/2</sup> (nⁿ bⁿ⁻¹ + (−1)ⁿ⁻¹ (n − 1)ⁿ⁻¹ aⁿ)</pre>
+<p>For n = 3 the last formula gives −(27b² + 4a³), agreeing with the first.</p>
+<h3>Elimination of variables</h3>
+<p>Treat f, g ∈ K[x, y] as polynomials in y with coefficients in K[x]. The resultant Res<sub>y</sub>(f, g) is a polynomial in x alone, and it vanishes at every x-coordinate of a common zero (and at x-values where both leading coefficients vanish). This is elimination. Example: intersect the circle x² + y² = 5 with the hyperbola xy = 2. Taking f = y² + (x² − 5) and g = xy − 2, the product formula applied to the root y = 2/x of g gives</p>
+<pre class="math">Res<sub>y</sub>(f, g) = x² f(x, 2/x) = 4 + x⁴ − 5x² = (x² − 1)(x² − 4)</pre>
+<p>so x ∈ {±1, ±2} and the intersection points are (1, 2), (−1, −2), (2, 1), (−2, −1). There are 2 · 2 = 4 of them, as Bézout's theorem predicts: two projective plane curves of degrees d and e without a common component meet in exactly de points of the complex projective plane, counted with multiplicity. The degree bound in Bézout's theorem comes from the degree of the resultant.</p>
+<p>For several variables the resultant generalizes in two directions: the multivariate (Macaulay) resultant of n homogeneous forms in n variables, and Gröbner bases (Buchberger, 1965), which give an algorithmic elimination theory for arbitrary ideals and are the standard tool of computer algebra for solving polynomial systems.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute Res(x² + 1, x³ + x + 1).</div></li><li><span class="mk">(b)</span><div>Compute Res(x² − 3x + 2, x² + x − 6) and interpret the result.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The roots of x² + 1 are ±i, and g(i) = −i + i + 1 = 1, g(−i) = i − i + 1 = 1, so Res = 1³ · 1 · 1 = 1. The polynomials are coprime; in fact there are integer polynomials u, v with u(x² + 1) + v(x³ + x + 1) = 1. (b) The roots of the first polynomial are 1 and 2; g(1) = −4 and g(2) = 0, so the resultant is 0. The polynomials share the root 2: indeed x² − 3x + 2 = (x − 1)(x − 2) and x² + x − 6 = (x − 2)(x + 3).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

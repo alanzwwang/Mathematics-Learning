@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#ec4899">
+<body id="top" class="mode-kid" style="--topic:#ec4899">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/pascals-triangle/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Shortest paths across an m-by-n grid: C(m + n, n).
 Paths THROUGH a marked corner: multiply (paths to it) × (paths from it).
@@ -44,7 +45,7 @@ Vandermonde's identity: C(m + n, k) = Σ C(m, i) · C(n, k − i).</pre></div>
 <pre class="math">number of paths = C(m + n, n)   (choose which steps are Down)</pre>
 <pre class="math">Example — 3 wide, 2 tall: C(5, 2) = 10 paths.
 (Equivalently C(5, 3) = 10 — choosing which steps are Right. Same answer by symmetry!)</pre>
-<p>This is why the triangle appeared on the grid map all along: paths to a corner = paths from above + paths from the left (you must arrive from one of those two), which is Pascal's rule. Same rule, same start (1s on the edges) — same numbers.</p>
+<p>Write the number of paths at every corner of the grid and Pascal's triangle appears! Here's why: paths to a corner = paths from above + paths from the left (you must arrive from one of those two), which is Pascal's rule. Same rule, same start (1s on the edges) — same numbers.</p>
 <h3>Paths through a marked corner — multiply</h3>
 <p>How many of those 3-by-2 routes pass through a specific corner, say the one 2 blocks right and 1 block down from the start?</p>
 <pre class="math">Start → corner:  2 R-steps and 1 D-step → C(3, 1) = 3 paths.
@@ -75,7 +76,7 @@ Total: 10 + 40 + 30 + 4 = 84 ✅</pre>
 <p>The squares of any row add to the middle entry of the row twice as far down! Verify with row 4:</p>
 <pre class="math">1² + 4² + 6² + 4² + 1² = 1 + 16 + 36 + 16 + 1 = 70 = C(8, 4) ✅</pre>
 <p>That one identity combines symmetry, Vandermonde, and casework — three of our proof moves in a single line.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>How many shortest paths cross a 3-by-3 grid? (b) How many of them pass through the corner 1 right and 1 down from the start?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: (a) C(6, 3) = 20 (3 R's and 3 D's, choose where the D's go). (b) To the corner: 1 R + 1 D → C(2, 1) = 2. From the corner to the finish: 2 R + 2 D → C(4, 2) = 6. Multiply: 2 × 6 = 12 paths through. ✅</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>How many shortest paths cross a 3-by-3 grid?</div></li><li><span class="mk">(b)</span><div>How many of them pass through the corner 1 right and 1 down from the start?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: (a) C(6, 3) = 20 (3 R's and 3 D's, choose where the D's go). (b) To the corner: 1 R + 1 D → C(2, 1) = 2. From the corner to the finish: 2 R + 2 D → C(4, 2) = 6. Multiply: 2 × 6 = 12 paths through. ✅</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
 </main>
 
@@ -85,7 +86,7 @@ Total: 10 + 40 + 30 + 4 = 84 ✅</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

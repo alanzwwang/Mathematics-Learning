@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Inverses, Cramer's Rule and Block Matrices — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 4</p>
+    <h1>Inverses, Cramer's Rule and Block Matrices</h1>
+    <p class="kicker">Lesson 4 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A · adj(A) = adj(A) · A = (det A) I
+det [ A B ; C D ] = det A · det(D − C A⁻¹ B)</pre></div>
+<h3>The adjugate</h3>
+<p>The (i, j) minor M<sub>ij</sub> of A is the determinant of the (n − 1) × (n − 1) matrix obtained by deleting row i and column j, and the cofactor is C<sub>ij</sub> = (−1)<sup>i+j</sup> M<sub>ij</sub>. Laplace expansion along row i reads det A = ∑<sub>j</sub> a<sub>ij</sub> C<sub>ij</sub>. The adjugate adj(A) is the transpose of the cofactor matrix: adj(A)<sub>ji</sub> = C<sub>ij</sub>.</p>
+<p><strong>Theorem 4.1</strong>. A · adj(A) = adj(A) · A = (det A) I. Hence, if det A ≠ 0, A⁻¹ = adj(A)/det A.</p>
+<p><strong>Proof</strong>. The (i, k) entry of A · adj(A) is ∑<sub>j</sub> a<sub>ij</sub> C<sub>kj</sub>. For i = k this is the expansion of det A along row i. For i ≠ k it is the expansion along row k of the matrix obtained from A by replacing row k with row i; that matrix has two equal rows, so its determinant is 0. The other product is handled by expanding along columns. ∎</p>
+<p>For n = 2 the theorem gives the familiar formula [ a b ; c d ]⁻¹ = (1/(ad − bc)) [ d −b ; −c a ]. Theorem 4.1 also shows that the entries of A⁻¹ are rational functions of the entries of A, so inversion is continuous, indeed smooth, on the open set of invertible matrices.</p>
+<p><strong>Theorem 4.2 (Cramer's rule, 1750)</strong>. If det A ≠ 0, the unique solution of Ax = b has components x<sub>i</sub> = det A<sub>i</sub>(b) / det A, where A<sub>i</sub>(b) is A with column i replaced by b.</p>
+<p><strong>Proof</strong>. Let X<sub>i</sub> be the identity matrix with column i replaced by x. Then A X<sub>i</sub> = A<sub>i</sub>(b), because A e<sub>j</sub> = a<sub>j</sub> for j ≠ i and A x = b. Expanding det X<sub>i</sub> along row i gives det X<sub>i</sub> = x<sub>i</sub>. Taking determinants, det A · x<sub>i</sub> = det A<sub>i</sub>(b). ∎</p>
+<p><strong>Worked example</strong>: for 2x + y = 5 and x + 3y = 10, det A = 6 − 1 = 5, so x = det [ 5 1 ; 10 3 ]/5 = (15 − 10)/5 = 1 and y = det [ 2 5 ; 1 10 ]/5 = (20 − 5)/5 = 3. Cramer's rule is of great theoretical value, for example in proving that the solution depends smoothly on the data and in bounding the size of integer solutions, but as an algorithm it costs far more than elimination and is numerically inferior.</p>
+<h3>Block elimination and the Schur complement</h3>
+<p>Matrices may be partitioned into blocks and multiplied blockwise, provided the block sizes are compatible. Suppose M = [ A B ; C D ] with A square and invertible. Block elimination gives the factorization</p>
+<pre class="math">[ A  B ]   [ I       0 ] [ A  0 ] [ I  A⁻¹B ]
+[ C  D ] = [ CA⁻¹    I ] [ 0  S ] [ 0    I  ]        S = D − C A⁻¹ B</pre>
+<p>The matrix S is the Schur complement of A in M. Since the outer factors are block unitriangular with determinant 1, det M = det A · det S. Inverting the three factors yields</p>
+<pre class="math">M⁻¹ = [ A⁻¹ + A⁻¹ B S⁻¹ C A⁻¹     −A⁻¹ B S⁻¹ ]
+      [ −S⁻¹ C A⁻¹                  S⁻¹      ]</pre>
+<p>whenever S is invertible. Schur complements appear throughout mathematics: as conditional covariance matrices of Gaussian vectors, in the reduction of a quadratic form, in domain decomposition methods, and in the proof of Sylvester's criterion in Lesson 9.</p>
+<h3>Low-rank updates</h3>
+<p><strong>Theorem 4.3 (Sherman–Morrison–Woodbury)</strong>. Let A ∈ 𝔽<sup>n×n</sup> and C ∈ 𝔽<sup>k×k</sup> be invertible and U ∈ 𝔽<sup>n×k</sup>, V ∈ 𝔽<sup>k×n</sup>. If C⁻¹ + V A⁻¹ U is invertible, then</p>
+<pre class="math">(A + U C V)⁻¹ = A⁻¹ − A⁻¹ U (C⁻¹ + V A⁻¹ U)⁻¹ V A⁻¹</pre>
+<p><strong>Proof</strong>. Multiply A + UCV by the proposed inverse. The product is I + UCVA⁻¹ − U(C⁻¹ + VA⁻¹U)⁻¹VA⁻¹ − UCVA⁻¹U(C⁻¹ + VA⁻¹U)⁻¹VA⁻¹. The last two terms combine to −UC(C⁻¹ + VA⁻¹U)(C⁻¹ + VA⁻¹U)⁻¹VA⁻¹ = −UCVA⁻¹, which cancels the second term, leaving I. ∎</p>
+<p>The case k = 1 is the Sherman–Morrison formula (A + uvᵀ)⁻¹ = A⁻¹ − A⁻¹uvᵀA⁻¹/(1 + vᵀA⁻¹u). Its companion is the matrix determinant lemma det(A + uvᵀ) = det A · (1 + vᵀA⁻¹u), which follows from det(I + xvᵀ) = 1 + vᵀx: indeed I + xvᵀ maps x to (1 + vᵀx)x and fixes every vector of the (n − 1)-dimensional subspace {w : vᵀw = 0}, so (when vᵀx ≠ 0, and by continuity otherwise) its eigenvalues are 1 + vᵀx and 1 repeated n − 1 times. These formulas let one update a factorization after a rank-one change in O(n²) operations instead of refactoring in O(n³); they are the engine of quasi-Newton methods such as BFGS and of recursive least squares.</p>
+<h3>The Neumann series</h3>
+<p>If ‖E‖ &lt; 1 in some submultiplicative matrix norm, then I − E is invertible and (I − E)⁻¹ = I + E + E² + ⋯, with ‖(I − E)⁻¹‖ ≤ 1/(1 − ‖E‖). The proof is the geometric series: the partial sums are Cauchy, and (I − E)(I + E + ⋯ + E<sup>k</sup>) = I − E<sup>k+1</sup> → I. One consequence is that the invertible matrices form an open set: if A is invertible and ‖A⁻¹‖ ‖F‖ &lt; 1, then A + F = A(I + A⁻¹F) is invertible.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the inverse of [ 2 1 ; 5 3 ] using the adjugate.</div></li><li><span class="mk">(b)</span><div>Let u = (1, 2, 3)ᵀ and v = (1, 1, 1)ᵀ. Find det(I + uvᵀ).</div></li><li><span class="mk">(c)</span><div>For the same u and v, use Sherman–Morrison to write (I + uvᵀ)⁻¹.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The determinant is 6 − 5 = 1, so the inverse is the adjugate [ 3 −1 ; −5 2 ]. (b) det(I + uvᵀ) = 1 + vᵀu = 1 + 1 + 2 + 3 = 7. (c) With A = I the formula gives (I + uvᵀ)⁻¹ = I − uvᵀ/(1 + vᵀu) = I − (1/7) uvᵀ, where uvᵀ = [ 1 1 1 ; 2 2 2 ; 3 3 3 ].</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

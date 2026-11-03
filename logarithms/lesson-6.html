@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#a855f7">
+<body id="top" class="mode-kid" style="--topic:#a855f7">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/logarithms/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Backwards Question — What a Logarithm Really Is">1</a><a href="lesson-2.html" title="Lesson 2: The Two Languages — Translating Logs and Powers">2</a><a href="lesson-3.html" title="Lesson 3: Base 10 — The Log That Counts Zeros">3</a><a href="lesson-4.html" title="Lesson 4: The Superpower — Multiplication Becomes Addition">4</a><a href="lesson-5.html" title="Lesson 5: The Landmarks — 0, 1, and the Questions You Can't Ask">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Logs in the Wild — Doubling and the Earthquake Scale">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">&quot;How many times did it double?&quot; IS a base-2 log.
 The earthquake scale runs on base 10: +1 magnitude = ×10 the shaking.</pre></div>
@@ -45,9 +46,9 @@ The earthquake scale runs on base 10: +1 magnitude = ×10 the shaking.</pre></di
 <p>Any question about doubling — money doubling, a rumor reaching twice as many people each day, folded paper doubling in thickness — is secretly log base 2. And a question about halving (a bouncing ball reaching half its height each bounce) is the same log walked DOWN the ladder: 1/2, 1/4, 1/8, 1/16 — four bounces, because 16 = 2⁴.</p>
 <h3>The earthquake scale</h3>
 <p>Scientists measure earthquakes on a magnitude scale where each whole step up means 10 times the shaking. A magnitude 5 quake shakes 10 times harder than a magnitude 4. Magnitude 6 versus magnitude 4? Two steps: 10 × 10 = 100 times the shaking.</p>
-<pre class="math">steps apart = log(how many times stronger)</pre>
-<p>A quake 1,000 times stronger than another is 3 steps up, because log(1,000) = 3. The scale squishes enormous differences into friendly numbers — and that is exactly what logs are FOR. (Sound volume in decibels and acidity in pH work the same way: every step multiplies by 10, so the scale is a log in disguise.)</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">a)</span><div>A rumor doubles in reach every day. How many days until it reaches 32 times as many people?</div></li><li><span class="mk">b)</span><div>How many times stronger is a magnitude 7 quake than a magnitude 5?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: a) log₂(32) = 5 days. b) Two steps: 10 × 10 = 100 times stronger.</p></div></details></div></article>
+<pre class="math">steps apart = log(how many times the shaking)</pre>
+<p>A quake that shakes 1,000 times harder than another is 3 steps up, because log(1,000) = 3. The scale squishes enormous differences into friendly numbers — and that is exactly what logs are FOR. (Acidity in pH works the same way: every step multiplies by 10. Sound in decibels does too, just in bigger steps: every 10 decibels multiplies the sound's power by 10. Both are logs in disguise!)</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">a)</span><div>A rumor doubles in reach every day. How many days until it reaches 32 times as many people?</div></li><li><span class="mk">b)</span><div>How many times harder does a magnitude 7 quake shake than a magnitude 5?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: a) log₂(32) = 5 days. b) Two steps: 10 × 10 = 100 times the shaking.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
 </main>
 
@@ -57,7 +58,7 @@ The earthquake scale runs on base 10: +1 magnitude = ×10 the shaking.</pre></di
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

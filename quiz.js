@@ -19,7 +19,7 @@
   var p = function (n) { return n < 0 ? "(" + f(n) + ")" : String(n); };          // (−5) in brackets when negative
   var fr = function (n, d) { if (d < 0) { n = -n; d = -d; } var g = gcd(n, d) || 1; n /= g; d /= g; return d === 1 ? f(n) : f(n) + "/" + d; };
   var fact = function (n) { return n <= 1 ? 1 : n * fact(n - 1); };
-  var P = function (n, k) { return fact(n) / fact(n - k); };
+  var P = function (n, k) { return k < 0 || k > n ? 0 : fact(n) / fact(n - k); };
   var C = function (n, k) { return P(n, k) / fact(k); };
   var SUP = { "0": "⁰", "1": "¹", "2": "²", "3": "³", "4": "⁴", "5": "⁵", "6": "⁶", "7": "⁷", "8": "⁸", "9": "⁹", "-": "⁻" };
   var SUB = { "0": "₀", "1": "₁", "2": "₂", "3": "₃", "4": "₄", "5": "₅", "6": "₆", "7": "₇", "8": "₈", "9": "₉" };
@@ -66,11 +66,12 @@
 
   // ---------- the question makers, one list per topic ----------
   var G = {};
+  /* MAKERS:START (the adult site's quiz.js is built from this file with these makers swapped for tools/adult/*.quiz.js) */
 
   G.arithmetic = [
     function () { var a = R(2, 9), x = R(-10, 10), b = nz(-20, 20), c = a * x + b;
       return num("Solve for x: <b>" + poly([a, b]) + " = " + f(c) + "</b>", x, null,
-        (b > 0 ? "Subtract " + b : "Add " + (-b)) + " on both sides: " + a + "x = " + f(c - b) + ". Then divide by " + a + ": x = " + f(x) + "."); },
+        (b > 0 ? "Subtract " + b + " from" : "Add " + (-b) + " to") + " both sides: " + a + "x = " + f(c - b) + ". Then divide by " + a + ": x = " + f(x) + "."); },
     function () { var a = R(2, 20), b = R(2, 9), c = R(2, 9), d = R(1, 20), v = a + b * c - d;
       return num("Work it out: <b>" + a + " + " + b + " × " + c + " − " + d + "</b>", v, null,
         "Multiply first: " + b + " × " + c + " = " + (b * c) + ". Then go left to right: " + a + " + " + (b * c) + " − " + d + " = " + f(v) + "."); },
@@ -88,7 +89,7 @@
       return num("If f(x) = " + poly([m, k]) + ", what is f(" + f(x) + ")?", v, null, "Put " + f(x) + " in for x: " + f(m) + " × " + p(x) + (k ? plusMinus(k) : "") + " = " + f(v) + "."); },
     function () { var a = -R(2, 6), x = R(-6, 6), b = R(-10, 10), c = a * x + b;
       return ch("Solve: <b>" + poly([a, b]) + " &lt; " + f(c) + "</b>", "x > " + f(x), ["x < " + f(x), "x > " + f(x === 0 ? 1 : -x), "x < " + f(x === 0 ? -1 : -x), "x ≥ " + f(x)],
-        (b ? (b > 0 ? "Subtract " + b : "Add " + (-b)) + " on both sides: " : "") + f(a) + "x < " + f(c - b) + ". Divide by " + f(a) + ". Dividing by a NEGATIVE number flips the sign, so x > " + f(x) + "."); },
+        (b ? (b > 0 ? "Subtract " + b + " from" : "Add " + (-b) + " to") + " both sides: " : "") + f(a) + "x < " + f(c - b) + ". Divide by " + f(a) + ". Dividing by a NEGATIVE number flips the sign, so x > " + f(x) + "."); },
     function () { var n = R(2, 12);
       return ch("Solve: <b>x² = " + (n * n) + "</b>", "x = " + n + " or x = −" + n, ["x = " + n + " only", "x = −" + n + " only", "x = " + (2 * n)],
         "Both " + n + "² and (−" + n + ")² equal " + (n * n) + ", so there are TWO answers."); }
@@ -98,20 +99,20 @@
     function () { var b, d, a, c; do { b = R(2, 9); d = R(2, 9); a = R(1, b - 1); c = R(1, d - 1); } while (gcd(a, b) !== 1 || gcd(c, d) !== 1);
       var L = lcm(b, d), A = a * L / b, Cc = c * L / d, n = A + Cc;
       return num("Add, and simplify fully: <b>" + a + "/" + b + " + " + c + "/" + d + "</b>", n / L, fr(n, L),
-        "Make the bottoms match (the LCD is " + L + "): " + a + "/" + b + " = " + A + "/" + L + " and " + c + "/" + d + " = " + Cc + "/" + L + ". Add the tops: " + n + "/" + L + (gcd(n, L) > 1 ? " = " + fr(n, L) : "") + ".", { lowest: true }); },
+        (b === d ? "The bottoms already match. " : "Make the bottoms match (the LCD is " + L + "): " + a + "/" + b + " = " + A + "/" + L + " and " + c + "/" + d + " = " + Cc + "/" + L + ". ") + "Add the tops: " + n + "/" + L + (gcd(n, L) > 1 ? " = " + fr(n, L) : "") + ".", { lowest: true }); },
     function () { var b, d, a, c; do { b = R(2, 9); d = R(2, 9); a = R(1, b - 1); c = R(1, d - 1); } while (gcd(a, b) !== 1 || gcd(c, d) !== 1 || a * d === c * b);
       var L = lcm(b, d), A = a * L / b, Cc = c * L / d, n = A - Cc;
       return num("Subtract, and simplify fully: <b>" + a + "/" + b + " − " + c + "/" + d + "</b>", n / L, fr(n, L),
-        "Make the bottoms match (the LCD is " + L + "): " + A + "/" + L + " − " + Cc + "/" + L + " = " + f(n) + "/" + L + (gcd(n, L) > 1 ? " = " + fr(n, L) : "") + ".", { lowest: true }); },
+        (b === d ? "The bottoms already match: " : "Make the bottoms match (the LCD is " + L + "): ") + A + "/" + L + " − " + Cc + "/" + L + " = " + f(n) + "/" + L + (gcd(n, L) > 1 ? " = " + fr(n, L) : "") + ".", { lowest: true }); },
     function () { var a, b, c, d; do { a = nz(-9, 9); b = R(2, 9); c = R(1, 9); d = R(2, 9); } while (gcd(a, b) !== 1 || gcd(c, d) !== 1 || c === d);
       return num("Multiply, and simplify fully: <b>" + fr(a, b).replace(/^(−.*)$/, "($1)") + " × " + c + "/" + d + "</b>", (a * c) / (b * d), fr(a * c, b * d),
-        "Straight across: top × top = " + f(a * c) + ", bottom × bottom = " + (b * d) + ". So " + f(a * c) + "/" + (b * d) + " = " + fr(a * c, b * d) + ".", { lowest: true }); },
+        "Straight across: top × top = " + f(a * c) + ", bottom × bottom = " + (b * d) + ". So " + f(a * c) + "/" + (b * d) + (gcd(a * c, b * d) > 1 ? " = " + fr(a * c, b * d) : "") + ".", { lowest: true }); },
     function () { var a, b, c, d; do { a = R(1, 9); b = R(2, 9); c = R(1, 9); d = R(2, 9); } while (gcd(a, b) !== 1 || gcd(c, d) !== 1 || c === d || a === b);
       return num("Divide, and simplify fully: <b>" + a + "/" + b + " ÷ " + c + "/" + d + "</b>", (a * d) / (b * c), fr(a * d, b * c),
-        "Keep, change, flip: " + a + "/" + b + " × " + d + "/" + c + " = " + (a * d) + "/" + (b * c) + " = " + fr(a * d, b * c) + ".", { lowest: true }); },
+        "Keep, change, flip: " + a + "/" + b + " × " + d + "/" + c + " = " + (a * d) + "/" + (b * c) + (gcd(a * d, b * c) > 1 ? " = " + fr(a * d, b * c) : "") + ".", { lowest: true }); },
     function () { var b = R(3, 12), a, k = R(2, 9); do { a = R(1, b - 1); } while (gcd(a, b) !== 1);
       return num("Simplify fully: <b>" + (a * k) + "/" + (b * k) + "</b>", a / b, a + "/" + b,
-        "The biggest number that divides both is " + k + ". " + (a * k) + " ÷ " + k + " = " + a + " and " + (b * k) + " ÷ " + k + " = " + b + ".", { lowest: true }); },
+        "The biggest number that divides both is " + k + ". " + (a * k) + " ÷ " + k + " = " + a + " and " + (b * k) + " ÷ " + k + " = " + b + ". So " + (a * k) + "/" + (b * k) + " = " + a + "/" + b + ".", { lowest: true }); },
     function () { var a, b, c, d; do { b = R(2, 12); d = R(2, 12); a = R(1, b + 3); c = R(1, d + 3); } while (b === d);
       var l = a * d, r = c * b, s = l > r ? ">" : l < r ? "<" : "=";
       return ch("Which sign goes in the box? <b>" + a + "/" + b + " ☐ " + c + "/" + d + "</b>", s, [">", "<", "="].filter(function (x) { return x !== s; }),
@@ -144,7 +145,7 @@
           "NOT flips the sign AND swaps whether the number itself is included. The opposite of " + esc(o[0]) + " is " + esc(o[1]) + "."); },
       function () { var a = st(), b = st(), v = !a.v || b.v;
         return ch("True or false? <b>IF (" + a.t + ") THEN (" + b.t + ")</b>", TF(v), [TF(!v)],
-          "An IF–THEN promise is only broken when the IF part is true but the THEN part is false. Here the IF part is " + TF(a.v).toLowerCase() + " and the THEN part is " + TF(b.v).toLowerCase() + ", so it's " + TF(v).toLowerCase() + "."); },
+          "An IF–THEN promise is only broken when the IF part is true but the THEN part is false. Here the IF part is " + TF(a.v).toLowerCase() + " and the THEN part is " + TF(b.v).toLowerCase() + ", so it's " + TF(v).toLowerCase() + "." + (a.v ? "" : " A false IF never tests the promise, so it can't be broken.")); },
       function () { var s = pick(PAIRS), kind = pick(["contrapositive", "converse", "inverse"]);
         var why = { converse: "The CONVERSE swaps the two parts.", inverse: "The INVERSE puts NOT in front of both parts.", contrapositive: "The CONTRAPOSITIVE swaps the parts AND puts NOT in front of both. It's the one that always means the same as the original!" };
         return ch("Which is the <b>" + kind.toUpperCase() + "</b> of: “" + s.original + "”", s[kind], ["contrapositive", "converse", "inverse", "original"].filter(function (k) { return k !== kind; }).map(function (k) { return s[k]; }), why[kind]); },
@@ -160,7 +161,7 @@
   G["algebraic-equations"] = [
     function () { var x = R(-9, 9), a = R(2, 9), c, b = R(-15, 15); do { c = R(1, 9); } while (c === a); var d = a * x + b - c * x;
       return num("Solve for x: <b>" + poly([a, b]) + " = " + poly([c, d]) + "</b>", x, null,
-        "Get the x's on one side: " + poly([a, 0]) + " − " + poly([c, 0]) + " = " + poly([a - c, 0]) + ". Get the numbers on the other: " + f(d) + " − " + p(b) + " = " + f(d - b) + ". So " + poly([a - c, 0]) + " = " + f(d - b) + ", and x = " + f(x) + "."); },
+        "Get the x's on one side: " + poly([a, 0]) + " − " + poly([c, 0]) + " = " + poly([a - c, 0]) + ". Get the numbers on the other: " + f(d) + " − " + p(b) + " = " + f(d - b) + ". So " + poly([a - c, 0]) + " = " + f(d - b) + ". " + (a - c === 1 ? "" : "Divide both sides by " + f(a - c) + ": ") + "x = " + f(x) + "."); },
     function () { var a = R(2, 6), x = R(-8, 8), b = nz(-9, 9), c = a * (x + b);
       return num("Solve for x: <b>" + a + "(x" + plusMinus(b) + ") = " + f(c) + "</b>", x, null, "Divide both sides by " + a + ": x" + plusMinus(b) + " = " + f(x + b) + ". Then " + (b > 0 ? "subtract " + b : "add " + (-b)) + ": x = " + f(x) + "."); },
     function () { var a = R(2, 6), m = R(-6, 6), b = nz(-9, 9), x = a * m, c = m + b;
@@ -174,7 +175,7 @@
     function () { var a = nz(-9, 9), b = nz(-9, 9), k = nz(-9, 9), ask = pick(["x", "y", "c"]);
       var e = poly([a, 0]) + (b < 0 ? " − " : " + ") + (Math.abs(b) === 1 ? "" : Math.abs(b)) + "y" + plusMinus(k);
       if (ask === "c") return num("In <b>" + e + "</b>, what is the CONSTANT term?", k, null, "The constant is the plain number with no letter: " + f(k) + ". (The sign comes along!)");
-      return num("In <b>" + e + "</b>, what is the COEFFICIENT of " + ask + "?", ask === "x" ? a : b, null, "The coefficient is the number in front of " + ask + ", sign included: " + f(ask === "x" ? a : b) + "."); }
+      return num("In <b>" + e + "</b>, what is the COEFFICIENT of " + ask + "?", ask === "x" ? a : b, null, "The coefficient is the number in front of " + ask + ", sign included" + (Math.abs(ask === "x" ? a : b) === 1 ? " (no number means 1, so −" + ask + " means −1 × " + ask + ")" : "") + ": " + f(ask === "x" ? a : b) + "."); }
   ];
 
   G["linear-functions"] = [
@@ -184,7 +185,7 @@
     function () { var m = nz(-6, 6), b = R(-9, 9), k = R(-6, 6);
       return num("If f(x) = " + poly([m, b]) + ", what is f(" + f(k) + ")?", m * k + b, null, f(m) + " × " + p(k) + (b ? plusMinus(b) : "") + " = " + f(m * k + b) + "."); },
     function () { var r = R(-8, 8), m = nz(-5, 5), b = -m * r;
-      return num("Where does the line <b>y = " + poly([m, b]) + "</b> cross the x-axis? Type the x-value.", r, null, "On the x-axis, y = 0. So " + poly([m, b]) + " = 0, which gives x = " + f(r) + "."); },
+      return num("Where does the line <b>y = " + poly([m, b]) + "</b> cross the x-axis? Type the x-value.", r, null, "On the x-axis, y = 0. So " + poly([m, b]) + " = 0. " + (b ? (b < 0 ? "Add " + (-b) + " to" : "Subtract " + b + " from") + " both sides: " + poly([m, 0]) + " = " + f(-b) + ". " : "") + "Divide by " + f(m) + ": x = " + f(r) + "."); },
     function () { var pp = nz(-5, 5), q = R(1, 5), b = R(-9, 9), perp = Math.random() < 0.5, mS = fr(pp, q);
       var line = pp % q === 0 ? "y = " + poly([pp / q, b]) : "y = (" + mS + ")x" + (b ? plusMinus(b) : "");
       if (perp) return num("What is the slope of a line PERPENDICULAR to <b>" + line + "</b>? (Type a fraction if it isn't a whole number.)", -q / pp, fr(-q, pp), "Perpendicular slopes multiply to −1: flip the slope " + mS + " and change its sign, giving " + fr(-q, pp) + ".");
@@ -193,13 +194,13 @@
       return num("If f(x) = " + poly([a, b]) + " and g(x) = " + poly([c, d]) + ", what is <b>f(g(" + f(k) + "))</b>?", v, null, "Inside first: g(" + f(k) + ") = " + f(g) + ". Then f(" + f(g) + ") = " + f(a) + " × " + p(g) + (b ? plusMinus(b) : "") + " = " + f(v) + "."); },
     function () { var m = nz(-4, 4), b = R(-9, 9), x1 = R(-5, 5), x2; do { x2 = R(-5, 5); } while (x2 === x1);
       return num("A straight line goes through <b>(" + f(x1) + ", " + f(m * x1 + b) + ")</b> and <b>(" + f(x2) + ", " + f(m * x2 + b) + ")</b>. What is its y-intercept?", b, null,
-        "The slope is " + f(m * (x2 - x1)) + " ÷ " + f(x2 - x1) + " = " + f(m) + ". Then b = y − mx = " + f(m * x1 + b) + " − " + p(m) + " × " + p(x1) + " = " + f(b) + "."); }
+        "The slope is (" + f(m * x2 + b) + " − " + p(m * x1 + b) + ") ÷ (" + f(x2) + " − " + p(x1) + ") = " + f(m * (x2 - x1)) + " ÷ " + p(x2 - x1) + " = " + f(m) + ". Then b = y − mx = " + f(m * x1 + b) + " − " + p(m) + " × " + p(x1) + " = " + f(b) + "."); }
   ];
 
   G.logarithms = [
     function () { var b = pick([2, 3, 5, 10]), n = R(0, b === 2 ? 7 : b === 3 ? 5 : 4);
       return num("Work it out: <b>log" + sub(b) + "(" + big(Math.pow(b, n)) + ")</b>", n, null, b + " to the power " + n + " is " + big(Math.pow(b, n)) + ", so the log is " + n + "."); },
-    function () { var b = pick([2, 10]), n = R(1, 3);
+    function () { var b = 2, n = R(1, 3);
       return num("Bonus! Work it out: <b>log" + sub(b) + "(1/" + big(Math.pow(b, n)) + ")</b>", -n, null, "1/" + big(Math.pow(b, n)) + " = " + b + sup(-n) + ", so the log is " + f(-n) + "."); },
     function () { var b = pick([2, 3, 4, 5, 10]), n = R(1, b === 10 ? 5 : 4);
       return num("If <b>log" + sub(b) + "(x) = " + n + "</b>, what is x?", Math.pow(b, n), big(Math.pow(b, n)), "Rewrite it as a power: x = " + b + sup(n) + " = " + big(Math.pow(b, n)) + "."); },
@@ -208,7 +209,7 @@
     function () { var b = pick([2, 3, 10]), y = R(2, 9), k = R(2, 9);
       return num("log" + sub(b) + "(" + (y * k) + ") − log" + sub(b) + "(" + y + ") = log" + sub(b) + "(?)", k, null, "Subtracting logs is the same as dividing inside: " + (y * k) + " ÷ " + y + " = " + k + "."); },
     function () { var b = pick([2, 5, 7, 10, 12]), one = Math.random() < 0.5;
-      return num("Work it out: <b>log" + sub(b) + "(" + (one ? 1 : b) + ")</b>", one ? 0 : 1, null, one ? "Any number to the power 0 is 1, so the log of 1 is always 0." : b + " to the power 1 is " + b + ", so the answer is 1."); },
+      return num("Work it out: <b>log" + sub(b) + "(" + (one ? 1 : b) + ")</b>", one ? 0 : 1, null, one ? b + " to the power 0 is 1, so the log of 1 is 0." : b + " to the power 1 is " + b + ", so the answer is 1."); },
     function () { var a = R(3, 6), d = R(1, 3);
       return num("One earthquake is magnitude " + (a + d) + " and another is magnitude " + a + ". How many times more shaking does the bigger one have?", Math.pow(10, d), big(Math.pow(10, d)),
         "Each step up the magnitude scale means 10 times the shaking. " + d + " step" + (d > 1 ? "s" : "") + " up: 10" + sup(d) + " = " + big(Math.pow(10, d)) + "."); }
@@ -225,8 +226,8 @@
       return num("Work it out: <b>" + b + sup(-n) + "</b>. (Type a fraction.)", 1 / Math.pow(b, n), "1/" + Math.pow(b, n), "A negative exponent means flip: " + b + sup(-n) + " = 1/" + (n === 1 ? b : b + sup(n) + " = 1/" + Math.pow(b, n)) + "."); },
     function () { var b = R(2, 15); return num("Work it out: <b>" + b + "⁰</b>", 1, null, "Any (non-zero) number to the power 0 is 1."); },
     function () { var r = pick([5, 10, 20, 25, 50, 3, 8]), up = Math.random() < 0.5;
-      return num("Something " + (up ? "grows" : "shrinks") + " by " + r + "% every year. What do you multiply by each year? (Type a decimal or a fraction.)", up ? 1 + r / 100 : 1 - r / 100, String(up ? 1 + r / 100 : 1 - r / 100) + " (= " + fr(up ? 100 + r : 100 - r, 100) + ")",
-        (up ? "Keep 100% and add " + r + "%: 1 + " : "Keep 100% and take away " + r + "%: 1 − ") + (r / 100) + " = " + (up ? 1 + r / 100 : 1 - r / 100) + "."); },
+      return num("Something " + (up ? "grows" : "shrinks") + " by " + r + "% every year. What do you multiply by each year? (Type a decimal or a fraction.)", up ? 1 + r / 100 : 1 - r / 100, String(up ? 1 + r / 100 : 1 - r / 100),
+        (up ? "Keep 100% and add " + r + "%: 1 + " : "Keep 100% and take away " + r + "%: 1 − ") + (r / 100) + " = " + (up ? 1 + r / 100 : 1 - r / 100) + "." + " (As a fraction: " + fr(up ? 100 + r : 100 - r, 100) + ".)"); },
     function () { var a = R(1, 5), r = R(2, 4), d = R(2, 6), s = R(1, 5);
       var ex = [a, a * r, a * r * r, a * r * r * r].join(", "), li = [s, s + d, s + 2 * d, s + 3 * d].join(", "), qu = [1, 4, 9, 16].map(function (x) { return x + s; }).join(", ");
       return ch("Which list of numbers grows EXPONENTIALLY?", ex, [li, qu], "In " + ex + ", every number is " + r + " times the one before. Multiplying by the same number each step is exponential growth."); }
@@ -236,11 +237,11 @@
     function () { var n = R(4, 10), k = R(1, n - 1);
       return num("In Pascal's triangle, what is entry " + k + " of row " + n + "? (Start counting rows and entries at 0.) That's C(" + n + ", " + k + ").", C(n, k), null, "C(" + n + ", " + k + ") = " + n + "! ÷ (" + k + "! × " + (n - k) + "!) = " + C(n, k) + "."); },
     function () { var n = R(3, 12);
-      return num("What do all the numbers in row " + n + " of Pascal's triangle add up to?", Math.pow(2, n), big(Math.pow(2, n)), "Each row adds up to a power of 2: row " + n + " adds up to 2" + sup(n) + " = " + big(Math.pow(2, n)) + "."); },
+      return num("What do all the numbers in row " + n + " of Pascal's triangle add up to? (The top row is row 0.)", Math.pow(2, n), big(Math.pow(2, n)), "Each row adds up to a power of 2: row " + n + " adds up to 2" + sup(n) + " = " + big(Math.pow(2, n)) + "."); },
     function () { var n = R(4, 10), k = R(1, n - 2);
       return num("Two neighbours in Pascal's triangle are <b>" + C(n, k) + "</b> and <b>" + C(n, k + 1) + "</b>. What number sits right below them?", C(n, k) + C(n, k + 1), null, "Pascal's rule: add the two numbers above. " + C(n, k) + " + " + C(n, k + 1) + " = " + (C(n, k) + C(n, k + 1)) + "."); },
     function () { var n = R(3, 8), k = R(1, n - 1);
-      return num("When you multiply out <b>(x + 1)" + sup(n) + "</b>, what number is in front of x" + sup(k) + "?", C(n, k), null, "The numbers come from row " + n + " of Pascal's triangle: C(" + n + ", " + k + ") = " + C(n, k) + "."); },
+      return num("When you multiply out <b>(x + 1)" + sup(n) + "</b>, what number is in front of x" + (k === 1 ? "" : sup(k)) + "?", C(n, k), null, "The numbers come from row " + n + " of Pascal's triangle: C(" + n + ", " + k + ") = " + C(n, k) + "."); },
     function () { var a = R(1, 5), b = R(1, 5);
       return num("On a grid, you walk from the bottom-left corner to a spot " + a + " step" + (a > 1 ? "s" : "") + " right and " + b + " step" + (b > 1 ? "s" : "") + " up, only moving RIGHT or UP. How many different paths are there?", C(a + b, a), null, "You take " + (a + b) + " steps and choose which " + a + " of them are RIGHT: C(" + (a + b) + ", " + a + ") = " + C(a + b, a) + "."); },
     function () { var n = R(5, 20); return num("A row of Pascal's triangle starts 1, " + n + ", ... What is its third number?", C(n, 2), null, "That's row " + n + ", and its third number is C(" + n + ", 2) = " + n + " × " + (n - 1) + " ÷ 2 = " + C(n, 2) + "."); }
@@ -249,7 +250,7 @@
   G.geometry = [
     function () { var a = R(20, 100), b = R(20, 160 - a - 10), c = 180 - a - b;
       return num("A triangle has angles of " + a + "° and " + b + "°. What is the third angle (in degrees)?", c, null, "The angles of a triangle add up to 180°: 180 − " + a + " − " + b + " = " + c + "."); },
-    function () { var t = pick(TRIPLES), k = R(1, 3), A = t[0] * k, B = t[1] * k, H = t[2] * k;
+    function () { var t = pick(TRIPLES.slice(0, 4)), k = R(1, 2), A = t[0] * k, B = t[1] * k, H = t[2] * k;
       if (Math.random() < 0.5) return num("A right triangle has legs " + A + " and " + B + ". How long is the hypotenuse?", H, null, A + "² + " + B + "² = " + (A * A) + " + " + (B * B) + " = " + (H * H) + ", and √" + (H * H) + " = " + H + ".");
       return num("A right triangle has hypotenuse " + H + " and one leg " + A + ". How long is the other leg?", B, null, H + "² − " + A + "² = " + (H * H) + " − " + (A * A) + " = " + (B * B) + ", and √" + (B * B) + " = " + B + "."); },
     function () { var n = R(3, 12);
@@ -266,7 +267,7 @@
     function () { var r = R(2, 12), area = Math.random() < 0.5;
       return num("A circle has radius " + r + ". Its " + (area ? "AREA" : "CIRCUMFERENCE") + " is how many times π? (Type just the number in front of π.)", area ? r * r : 2 * r, null, area ? "Area = πr² = π × " + r + "² = " + (r * r) + "π." : "Circumference = 2πr = 2 × π × " + r + " = " + (2 * r) + "π."); },
     function () { var k = R(2, 5);
-      return num("A shape is enlarged so every length is " + k + " times longer. How many times bigger is its AREA?", k * k, null, "Area grows by the scale factor SQUARED: " + k + "² = " + (k * k) + "."); }
+      return num("A shape is enlarged so every length is " + k + " times longer. How many times as big is its AREA?", k * k, null, "Area grows by the scale factor SQUARED: " + k + "² = " + (k * k) + "."); }
   ];
 
   G["algebraic-geometry"] = [
@@ -275,7 +276,7 @@
       return num("How far apart are <b>(" + f(x) + ", " + f(y) + ")</b> and <b>(" + f(x + dx) + ", " + f(y + dy) + ")</b>?", t[2], null, "Across " + Math.abs(dx) + ", up/down " + Math.abs(dy) + ". Distance = √(" + Math.abs(dx) + "² + " + Math.abs(dy) + "²) = √" + (t[2] * t[2]) + " = " + t[2] + "."); },
     function () { var x1 = R(-8, 8), y1 = R(-8, 8), x2 = x1 + 2 * R(-5, 5), y2 = y1 + 2 * nz(-5, 5), mx = (x1 + x2) / 2, my = (y1 + y2) / 2;
       var pt = function (a, b) { return "(" + f(a) + ", " + f(b) + ")"; };
-      return ch("What is the MIDPOINT of " + pt(x1, y1) + " and " + pt(x2, y2) + "?", pt(mx, my), [pt(x2 - x1, y2 - y1), pt(x1 + x2, y1 + y2), pt(my, mx), pt(mx, -my)],
+      return ch("What is the MIDPOINT of " + pt(x1, y1) + " and " + pt(x2, y2) + "?", pt(mx, my), [pt(x2 - x1, y2 - y1), pt(x1 + x2, y1 + y2), pt(my, mx), pt(mx, -my), pt(mx + 1, my), pt(mx, my + 1), pt(x1, y1)],
         "Average the coordinates: x = (" + f(x1) + " + " + p(x2) + ") ÷ 2 = " + f(mx) + ", y = (" + f(y1) + " + " + p(y2) + ") ÷ 2 = " + f(my) + "."); },
     function () { var x = nz(-9, 9), y = nz(-9, 9), q = x > 0 ? (y > 0 ? "I" : "IV") : (y > 0 ? "II" : "III");
       return ch("Which quadrant is the point <b>(" + f(x) + ", " + f(y) + ")</b> in?", "Quadrant " + q, ["Quadrant I", "Quadrant II", "Quadrant III", "Quadrant IV"],
@@ -298,7 +299,7 @@
     function () { var a, b, c; do { a = R(60, 150); b = R(60, 150); c = R(10, 170); } while (a + b + c <= 185 || a + 180 <= b + c || b + 180 <= a + c || c + 180 <= a + b);
       return num("A triangle drawn on a sphere (ball) has angles " + a + "°, " + b + "° and " + c + "°. What is its angle EXCESS (sum − 180°)?", a + b + c - 180, null, a + " + " + b + " + " + c + " = " + (a + b + c) + "°, and " + (a + b + c) + " − 180 = " + (a + b + c - 180) + "°."); },
     function () { var E = pick([72, 90, 120, 144, 180, 240, 270]);
-      return num("A triangle on a sphere (ball) has an angle excess of " + E + "°. What FRACTION of the whole sphere does it cover?", E / 720, fr(E, 720), "Girard's theorem: area = R² × excess (in radians), and the whole ball is 4πR². So the fraction is excess ÷ 4π, which in degrees is excess ÷ 720°. (The 90°-90°-90° triangle has excess 90° and covers 1/8 of the ball.) " + E + "/720 = " + fr(E, 720) + "."); },
+      return num("A triangle on a sphere (ball) has an angle excess of " + E + "°. What FRACTION of the whole sphere does it cover? (Type a fraction.)", E / 720, fr(E, 720), "Girard's theorem: area = R² × excess (in radians), and the whole ball is 4πR². So the fraction is excess ÷ 4π, which in degrees is excess ÷ 720°. (The 90°-90°-90° triangle has excess 90° and covers 1/8 of the ball.) " + E + "/720 = " + fr(E, 720) + "."); },
     function () { var t = R(0, 2), s = t === 0 ? R(120, 179) : t === 1 ? 180 : R(181, 300);
       var w = ["a saddle (hyperbolic)", "a flat plane (Euclidean)", "a sphere (spherical)"];
       return ch("A triangle's angles add up to " + s + "°. What kind of surface is it drawn on?", w[t], w.filter(function (x, i) { return i !== t; }),
@@ -308,7 +309,7 @@
         "Flat: exactly 1 (Euclid's parallel postulate). Sphere: none, because every pair of great circles meets. Saddle: infinitely many."); },
     function () { var a = R(30, 80), b = R(20, 80), c = R(10, Math.max(11, 170 - a - b));
       return num("A triangle on a saddle (hyperbolic) surface has angles " + a + "°, " + b + "° and " + c + "°. What is its angle DEFICIT (180° − sum)?", 180 - a - b - c, null, "180 − (" + a + " + " + b + " + " + c + ") = 180 − " + (a + b + c) + " = " + (180 - a - b - c) + "°."); },
-    function () { return ch("On a sphere, what are the \"straight lines\" (the shortest paths)?", "Great circles", ["Latitude lines", "Tiny circles", "Spirals"], "The shortest path on a sphere follows a GREAT circle, a circle whose center is the center of the sphere, like the equator."); }
+    function () { return ch("On a sphere, what are the \"straight lines\" (the shortest paths)?", "Great circles", ["Latitude lines other than the equator", "Tiny circles", "Spirals"], "The shortest path on a sphere follows a GREAT circle, a circle whose center is the center of the sphere, like the equator."); }
   ];
 
   G["fractal-geometry"] = [
@@ -319,7 +320,7 @@
     function () { var c = pick([[4, 2, "a square"], [9, 3, "a square"], [8, 2, "a cube"], [27, 3, "a cube"], [3, 3, "a line segment"], [3, 2, "the Sierpinski triangle"], [4, 3, "the Koch curve"], [8, 3, "the Sierpinski carpet"]]);
       var d = Math.log(c[0]) / Math.log(c[1]), whole = Math.abs(d - Math.round(d)) < 1e-9, show = whole ? String(Math.round(d)) : d.toFixed(2);
       return num("It takes " + c[0] + " copies of " + c[2] + ", each 1/" + c[1] + " the size, to build the whole thing. Its dimension is log(" + c[0] + ") ÷ log(" + c[1] + "). What is it?" + (whole ? "" : " (Round to 2 decimal places.)"), d, show,
-        "log(" + c[0] + ") ÷ log(" + c[1] + ") = " + show + "." + (whole ? "" : " A dimension between whole numbers is the sign of a fractal!"), { tol: whole ? 1e-9 : 0.006 }); },
+        "log(" + c[0] + ") ÷ log(" + c[1] + ") = " + show + (whole ? "" : " (≈ " + d.toFixed(3) + ")") + "." + (whole ? "" : " A dimension between whole numbers is the sign of a fractal!"), { tol: whole ? 1e-9 : 0.006 }); },
     function () { var n = R(1, 5), len = Math.random() < 0.5;
       if (len) return num("The Cantor set starts as a line 1 unit long. Each step removes the middle third of every piece. How long is what's left after " + n + " step" + (n > 1 ? "s" : "") + "? (Type a fraction.)", Math.pow(2 / 3, n), fr(Math.pow(2, n), Math.pow(3, n)), "Each step keeps 2/3: (2/3)" + sup(n) + " = " + fr(Math.pow(2, n), Math.pow(3, n)) + ".");
       return num("The Cantor set removes the middle third of every piece each step. How many pieces are there after " + n + " step" + (n > 1 ? "s" : "") + "?", Math.pow(2, n), null, "Each piece becomes 2: 2" + sup(n) + " = " + Math.pow(2, n) + "."); }
@@ -352,19 +353,19 @@
         "Real parts: " + f(a) + (s > 0 ? " + " : " − ") + p(c) + " = " + f(a + s * c) + ". Imaginary parts: " + f(b) + (s > 0 ? " + " : " − ") + p(d) + " = " + f(b + s * d) + ". So the answer is " + cx(a + s * c, b + s * d) + "."); },
     function () { var a = nz(-5, 5), b = nz(-5, 5), c = nz(-5, 5), d = nz(-5, 5), re = a * c - b * d, im = a * d + b * c;
       return ch("Work it out: <b>(" + cx(a, b) + ")(" + cx(c, d) + ")</b>", cx(re, im), [cx(a * c + b * d, im), cx(re, a * d - b * c), cx(a * c, b * d), cx(re, -im)],
-        "Four baby multiplications: " + f(a * c) + ", " + cx(0, a * d) + ", " + cx(0, b * c) + " and " + f(b * d) + "i². Since i² = −1, the last one is " + f(-b * d) + ". Add the real parts and the i parts: " + cx(re, im) + "."); },
-    function () { var t = pick(TRIPLES.slice(0, 5)), a = t[0] * pick([1, -1]), b = t[1] * pick([1, -1]);
+        "Four baby multiplications: " + f(a * c) + ", " + cx(0, a * d) + ", " + cx(0, b * c) + " and " + (Math.abs(b * d) === 1 ? (b * d < 0 ? "−" : "") : f(b * d)) + "i². Since i² = −1, the last one is " + f(-b * d) + ". Add the real parts and the i parts: " + cx(re, im) + "."); },
+    function () { var t = pick(TRIPLES.slice(0, 5)), sw = Math.random() < 0.5, a = t[sw ? 1 : 0] * pick([1, -1]), b = t[sw ? 0 : 1] * pick([1, -1]);
       return num("What is the length (modulus) of <b>" + cx(a, b) + "</b>?", t[2], null, "|a + bi| = √(a² + b²) = √(" + (a * a) + " + " + (b * b) + ") = √" + (t[2] * t[2]) + " = " + t[2] + "."); },
     function () { var a = nz(-9, 9), b = nz(-9, 9);
-      return ch("What is the CONJUGATE of <b>" + cx(a, b) + "</b>?", cx(a, -b), [cx(-a, b), cx(-a, -b), cx(b, a)], "The conjugate is the mirror image: keep the real part, flip the sign of the imaginary part: " + cx(a, -b) + "."); },
+      return ch("What is the CONJUGATE of <b>" + cx(a, b) + "</b>?", cx(a, -b), [cx(-a, b), cx(-a, -b), cx(b, a), cx(a + 1, -b), cx(a, b)], "The conjugate is the mirror image: keep the real part, flip the sign of the imaginary part: " + cx(a, -b) + "."); },
     function () { var a = nz(-9, 9), b = nz(-9, 9);
-      return ch("Work it out: <b>i × (" + cx(a, b) + ")</b>", cx(-b, a), [cx(b, a), cx(-b, -a), cx(a, -b)], "i × " + p(a) + " = " + cx(0, a) + ", and i × " + (b < 0 ? "(" + cx(0, b) + ")" : cx(0, b)) + " = " + (Math.abs(b) === 1 ? (b < 0 ? "−" : "") : f(b)) + "i² = " + f(-b) + ". Together: " + cx(-b, a) + ". (Multiplying by i turns a point a quarter turn!)"); },
+      return ch("Work it out: <b>i × (" + cx(a, b) + ")</b>", cx(-b, a), [cx(b, a), cx(-b, -a), cx(a, -b), cx(-b + 1, a), cx(a, b)], "i × " + p(a) + " = " + cx(0, a) + ", and i × " + (b < 0 ? "(" + cx(0, b) + ")" : cx(0, b)) + " = " + (Math.abs(b) === 1 ? (b < 0 ? "−" : "") : f(b)) + "i² = " + f(-b) + ". Together: " + cx(-b, a) + ". (Multiplying by i turns a point a quarter turn!)"); },
     function () { return ch("Multiplying a number by <b>i</b> does what to its arrow on the complex map?", "Turns it 90° counterclockwise", ["Turns it 180°", "Makes it twice as long", "Flips it upside down"], "Multiplying by i is a quarter turn (90°) counterclockwise, and its length stays the same."); }
   ];
 
   G["matrix-math"] = [
     function () { var M = [[R(0, 9), R(0, 9), R(0, 9)], [R(0, 9), R(0, 9), R(0, 9)]], r = R(1, 2), c = R(1, 3);
-      return num("What is the entry in row " + r + ", column " + c + " of this matrix?" + mat(M), M[r - 1][c - 1], null, "Go down to row " + r + ", then across to column " + c + ": " + f(M[r - 1][c - 1]) + "."); },
+      return num("What is the entry in row " + r + ", column " + c + " of this matrix?" + mat(M), M[r - 1][c - 1], null, "Find row " + r + " (going across), then column " + c + " (going down): " + f(M[r - 1][c - 1]) + "."); },
     function () { var A = [[R(0, 9), R(0, 9)], [R(0, 9), R(0, 9)]], B = [[R(0, 9), R(0, 9)], [R(0, 9), R(0, 9)]], r = R(1, 2), c = R(1, 2);
       return num("Add the matrices. What is the entry in row " + r + ", column " + c + " of A + B?<div class=\"qz-mats\">A =" + mat(A) + "B =" + mat(B) + "</div>", A[r - 1][c - 1] + B[r - 1][c - 1], null, "Add the matching squares: " + f(A[r - 1][c - 1]) + " + " + p(B[r - 1][c - 1]) + " = " + f(A[r - 1][c - 1] + B[r - 1][c - 1]) + "."); },
     function () { var k = R(2, 5), A = [[R(0, 9), R(0, 9)], [R(0, 9), R(0, 9)]], r = R(1, 2), c = R(1, 2);
@@ -379,7 +380,8 @@
     function () { var m = R(2, 4), n = R(2, 4), k; do { k = R(2, 4); } while (k === n); var yes = Math.random() < 0.5, bRows = yes ? n : k;
       return ch("Can you multiply a " + m + " × " + n + " matrix A by a " + bRows + " × " + R(2, 4) + " matrix B (A × B)?", YN(yes)[0], [YN(yes)[1]],
         "You can only multiply when A's number of columns (" + n + ") equals B's number of rows (" + bRows + "). " + (yes ? "They match, so yes!" : "They don't match, so no.")); },
-    function () { return ch("If I is the identity matrix, what is A × I?", "A", ["I", "0 (the zero matrix)", "2A"], "The identity matrix is like the number 1 for matrices: A × I = A."); }
+    function () { var A = [[R(0, 9), R(0, 9)], [R(0, 9), R(0, 9)]], r = R(1, 2), c = R(1, 2);
+      return num("I is the identity matrix [ 1 0 ; 0 1 ]. What is the entry in row " + r + ", column " + c + " of A × I?<div class=\"qz-mats\">A =" + mat(A) + "</div>", A[r - 1][c - 1], null, "The identity matrix is like the number 1 for matrices: A × I = A, so the entry is the same as in A: " + f(A[r - 1][c - 1]) + "."); }
   ];
 
   G["number-theory"] = (function () {
@@ -415,11 +417,11 @@
       return num("In a right triangle, angle A has OPPOSITE side " + o + ", ADJACENT side " + a + " and HYPOTENUSE " + h + ". What is <b>" + fn + " A</b>? (Type a fraction.)", nn / dd, fr(nn, dd),
         "SOH CAH TOA: " + fn + " = " + (fn === "sin" ? "opposite ÷ hypotenuse" : fn === "cos" ? "adjacent ÷ hypotenuse" : "opposite ÷ adjacent") + " = " + nn + "/" + dd + (gcd(nn, dd) > 1 ? " = " + fr(nn, dd) : "") + "."); },
     function () { var T = { "sin 30°": "0.5", "sin 45°": "≈ 0.71", "sin 60°": "≈ 0.87", "cos 30°": "≈ 0.87", "cos 45°": "≈ 0.71", "cos 60°": "0.5", "tan 30°": "≈ 0.58", "tan 45°": "1", "tan 60°": "≈ 1.73" };
-      var k = pick(Object.keys(T)); return ch("What is <b>" + k + "</b>?", T[k], shuffle(["0.5", "≈ 0.71", "≈ 0.87", "1", "≈ 1.73", "≈ 0.58", "2"]), "This is one of the special angles: " + k + " = " + T[k] + "."); },
+      var k = pick(Object.keys(T)); return ch("What is <b>" + k + "</b>?", T[k], shuffle(["0.5", "≈ 0.71", "≈ 0.87", "1", "≈ 1.73", "≈ 0.58", "2"]), "This is one of the special angles: " + k + (T[k].charAt(0) === "≈" ? " " : " = ") + T[k] + "."); },
     function () { var t = pick(TRIPLES), k = R(1, 2);
-      return num("A right triangle has legs " + (t[0] * k) + " and " + (t[1] * k) + ". How long is the hypotenuse?", t[2] * k, null, "Pythagoras: √(" + (t[0] * k) + "² + " + (t[1] * k) + "²) = √" + (t[2] * t[2] * k * k) + " = " + (t[2] * k) + "."); },
+      return num("A right triangle has legs " + (t[0] * k) + " and " + (t[1] * k) + ". How long is the hypotenuse?", t[2] * k, null, "Pythagorean theorem: " + (t[0] * k) + "² + " + (t[1] * k) + "² = " + (t[0] * t[0] * k * k) + " + " + (t[1] * t[1] * k * k) + " = " + (t[2] * t[2] * k * k) + ", and " + (t[2] * k) + "² = " + (t[2] * t[2] * k * k) + ", so the hypotenuse is " + (t[2] * k) + "."); },
     function () { var L = 2 * R(2, 10);
-      return num("A " + L + "-metre ladder leans on a wall, making a 30° angle with the ground. How high up the wall does it reach (in metres)?", L / 2, null, "sin 30° = height ÷ ladder, and sin 30° = 1/2. So height = " + L + " × 1/2 = " + (L / 2) + " m."); },
+      return num("A " + L + "-meter ladder leans on a wall, making a 30° angle with the ground. How high up the wall does it reach (in meters)?", L / 2, null, "sin 30° = height ÷ ladder, and sin 30° = 1/2. So height = " + L + " × 1/2 = " + (L / 2) + " m."); },
     function () { var s = R(3, 30);
       return num("The Sun is 45° above the horizon, and a tree's shadow is " + s + " m long. How tall is the tree (in metres)?", s, null, "tan 45° = height ÷ shadow, and tan 45° = 1, so the height equals the shadow: " + s + " m."); },
     function () { var a = R(5, 85);
@@ -431,7 +433,7 @@
       return num("You have " + a + " shirts, " + b + " pairs of pants and " + c + " hats. How many different outfits (one of each) can you make?", a * b * c, null, "AND means multiply: " + a + " × " + b + " × " + c + " = " + (a * b * c) + "."); },
     function () { var n = R(3, 8); return num("In how many different orders can " + n + " friends stand in a line?", fact(n), big(fact(n)), n + "! = " + Array.from({ length: n }, function (_, i) { return n - i; }).join(" × ") + " = " + big(fact(n)) + "."); },
     function () { var n = R(5, 10), k = R(2, 3); return num("" + n + " runners are in a race. In how many ways can the " + (k === 2 ? "gold and silver" : "gold, silver and bronze") + " medals be given out?", P(n, k), null, "Order matters: " + Array.from({ length: k }, function (_, i) { return n - i; }).join(" × ") + " = " + P(n, k) + "."); },
-    function () { var n = R(5, 10), k = R(2, 4); return num("How many different teams of " + k + " can be chosen from " + n + " kids?", C(n, k), null, "Order doesn't matter: C(" + n + ", " + k + ") = " + P(n, k) + " ÷ " + k + "! = " + P(n, k) + " ÷ " + fact(k) + " = " + C(n, k) + "."); },
+    function () { var n = R(5, 10), k = R(2, 4); return num("How many different teams of " + k + " can be chosen from " + n + " kids?", C(n, k), null, "In order, there are " + Array.from({ length: k }, function (_, i) { return n - i; }).join(" × ") + " = " + big(P(n, k)) + " ways. But a team doesn't care about order, and each team can be lined up in " + k + "! = " + fact(k) + " ways. So " + big(P(n, k)) + " ÷ " + fact(k) + " = " + C(n, k) + " teams."); },
     function () { var k = R(2, 4); if (Math.random() < 0.5) return num("How many " + k + "-digit codes can you make using the digits 0–9 (repeats allowed)?", Math.pow(10, k), big(Math.pow(10, k)), "10 choices for each of " + k + " digits: 10" + sup(k) + " = " + big(Math.pow(10, k)) + ".");
       return num("How many " + k + "-digit codes (digits 0–9, repeats allowed) have AT LEAST ONE 7?", Math.pow(10, k) - Math.pow(9, k), big(Math.pow(10, k) - Math.pow(9, k)), "Count the opposite! All codes: 10" + sup(k) + " = " + big(Math.pow(10, k)) + ". Codes with NO 7: 9" + sup(k) + " = " + big(Math.pow(9, k)) + ". Subtract: " + big(Math.pow(10, k) - Math.pow(9, k)) + "."); },
     function () { var n = R(4, 15); return num("" + n + " people meet, and everyone shakes hands with everyone else once. How many handshakes is that?", C(n, 2), null, "Each handshake is a pair of people: C(" + n + ", 2) = " + n + " × " + (n - 1) + " ÷ 2 = " + C(n, 2) + "."); },
@@ -450,7 +452,7 @@
       function () { var n = R(5, 10), k = R(2, 4); return num("Work out <b>C(" + n + ", " + k + ")</b>.", C(n, k), null, "C(" + n + ", " + k + ") = P(" + n + ", " + k + ") ÷ " + k + "! = " + P(n, k) + " ÷ " + fact(k) + " = " + C(n, k) + "."); },
       function () { var n = R(3, 7); return num("Work out <b>" + n + "!</b>", fact(n), big(fact(n)), Array.from({ length: n }, function (_, i) { return n - i; }).join(" × ") + " = " + big(fact(n)) + "."); },
       function () { var n = R(5, 9), k = R(2, 4);
-        return num("P(" + n + ", " + k + ") = " + P(n, k) + ". Each team of " + k + " can be put in order in " + k + "! = " + fact(k) + " ways. So how many TEAMS of " + k + " can be chosen from " + n + " kids?", C(n, k), null, "Divide out the orders: " + P(n, k) + " ÷ " + fact(k) + " = " + C(n, k) + "."); },
+        return num("There are P(" + n + ", " + k + ") = " + P(n, k) + " ways to pick " + k + " kids IN ORDER from " + n + " kids. Each team of " + k + " can be put in order in " + k + "! = " + fact(k) + " ways. So how many TEAMS of " + k + " can be chosen from " + n + " kids?", C(n, k), null, "Divide out the orders: " + P(n, k) + " ÷ " + fact(k) + " = " + C(n, k) + "."); },
       function () { var w = pick(["MATH", "CAT", "DOG", "STAR", "PLANET", "BRICK", "QUIZ", "FROG", "LUNCH"]);
         return num("How many different ways can you arrange ALL the letters of the word <b>" + w + "</b>?", fact(w.length), big(fact(w.length)), "All " + w.length + " letters are different, so " + w.length + "! = " + big(fact(w.length)) + "."); }
     ];
@@ -462,13 +464,13 @@
     function () { var r = R(1, 9);
       return num("The chance of rain tomorrow is " + r + "/10. What is the chance it does NOT rain? (Type a fraction or decimal.)", 1 - r / 10, fr(10 - r, 10), "The chances of \"rain\" and \"no rain\" add up to 1: 1 − " + r + "/10 = " + fr(10 - r, 10) + "."); },
     function () { var r = R(1, 9), b = R(1, 9), g = R(0, 6), c = pick([["red", r], ["blue", b]]), t = r + b + g;
-      return num("A bag has " + r + " red, " + b + " blue" + (g ? " and " + g + " green" : "") + " marbles. You pick one without looking. What is the probability it's " + c[0] + "? (Type a fraction.)", c[1] / t, fr(c[1], t), c[1] + " " + c[0] + " out of " + t + " marbles: " + c[1] + "/" + t + (gcd(c[1], t) > 1 ? " = " + fr(c[1], t) : "") + "."); },
+      return num("A bag has " + r + " red" + (g ? ", " + b + " blue and " + g + " green" : " and " + b + " blue") + " marbles. You pick one without looking. What is the probability it's " + c[0] + "? (Type a fraction.)", c[1] / t, fr(c[1], t), c[1] + " " + c[0] + " out of " + t + " marbles: " + c[1] + "/" + t + (gcd(c[1], t) > 1 ? " = " + fr(c[1], t) : "") + "."); },
     function () { var n = R(2, 4), t = pick(["coins", "die"]);
       if (t === "coins") return num("You flip " + n + " coins. What is the probability they ALL land heads? (Type a fraction.)", 1 / Math.pow(2, n), "1/" + Math.pow(2, n), "Each coin is 1/2, and AND means multiply: (1/2)" + sup(n) + " = 1/" + Math.pow(2, n) + ".");
       return num("You flip a coin AND roll a die. What is the probability of heads AND a " + R(1, 6) + "? (Type a fraction.)", 1 / 12, "1/12", "1/2 × 1/6 = 1/12. AND means multiply when the two things don't affect each other."); },
     function () { var r = R(2, 6), b = R(1, 6), t = r + b;
       return num("A bag has " + r + " red and " + b + " blue marbles. You take out 2 marbles, one after the other, WITHOUT putting the first back. What is the probability both are red? (Type a fraction.)", r * (r - 1) / (t * (t - 1)), fr(r * (r - 1), t * (t - 1)),
-        "First red: " + r + "/" + t + ". Then " + (r - 1) + " red are left out of " + (t - 1) + ": " + (r - 1) + "/" + (t - 1) + ". Multiply: " + (r * (r - 1)) + "/" + (t * (t - 1)) + " = " + fr(r * (r - 1), t * (t - 1)) + "."); },
+        "First red: " + r + "/" + t + ". Then " + (r - 1) + " red " + (r - 1 === 1 ? "is" : "are") + " left out of " + (t - 1) + ": " + (r - 1) + "/" + (t - 1) + ". Multiply: " + (r * (r - 1)) + "/" + (t * (t - 1)) + " = " + fr(r * (r - 1), t * (t - 1)) + "."); },
     function () { var x = 6 * R(1, 8);
       return num("A game: roll a die. If you roll a 6 you win " + x + " points; otherwise you win 0. What is the EXPECTED number of points per roll?", x / 6, null, "Expected value = " + x + " × 1/6 + 0 × 5/6 = " + (x / 6) + "."); },
     function () { var A = pick([["even", [2, 4, 6]], ["odd", [1, 3, 5]]]), k = R(2, 4), B = [], u = [];
@@ -478,6 +480,8 @@
     function () { var n = 6 * R(2, 20);
       return num("You roll a die " + n + " times. About how many times do you EXPECT to roll a " + R(1, 6) + "?", n / 6, null, "Each number has a 1/6 chance: " + n + " × 1/6 = " + (n / 6) + "."); }
   ];
+
+  /* MAKERS:END */
 
   // ---------- checking typed answers ----------
   function parse(s) {
@@ -500,7 +504,7 @@
   }
 
   // ---------- the quiz on the page ----------
-  var N = 10;
+  var N = 10; // questions per quiz
   function makeQuiz(gens) {
     var qs = [], seen = {}, order = [], guard = 0;
     while (qs.length < N && guard++ < 400) {
@@ -512,27 +516,63 @@
     return qs;
   }
 
+  // Adult questions sometimes write powers/indices as x^(…), x^y, a_{…}, a_ij: show them as real super/subscripts.
+  var NICE = function (h) {
+    var B = "(?<=[\\p{L}\\p{N}\\p{M})\\]}|‖′∑∏∫∮⋂⋃₀-₌ₐ-ₜ×]|</su[bp]>)";
+    var P2 = "(?:[^()<>]|\\((?:[^()<>]|\\([^()<>]*\\))*\\))";
+    var rules = [
+      [/\^\{([^{}<>]{1,80})\}/g, "<sup>$1</sup>"], [/_\{([^{}<>]{1,80})\}/g, "<sub>$1</sub>"],
+      [/([\p{L}])\^([\p{L}])\^([\p{L}∞])/gu, "$1<sup>$2<sup>$3</sup></sup>"],
+      [new RegExp(B + "\\^(\\|[^|<>]{1,20}\\||⌊[^⌋<>]{1,20}⌋|⌈[^⌉<>]{1,20}⌉|[ℕℤℚℝℂ⊥∞×𝔄-𝔷](?:\\([^()<>]{1,20}\\))?)", "gu"), "<sup>$1</sup>"],
+      [new RegExp(B + "\\^\\((" + P2 + "{1,60})\\)", "gu"), "<sup>$1</sup>"],
+      [new RegExp(B + "\\^(\\p{L}{1,6}\\([^()<>]{1,30}\\))", "gu"), "<sup>$1</sup>"],
+      [new RegExp(B + "\\^([−-]?[\\p{L}\\p{N}∞×]{1,3})(?![\\p{L}\\p{N}({])", "gu"), "<sup>$1</sup>"],
+      [new RegExp(B + "_\\((" + P2 + "{1,60})\\)", "gu"), "<sub>$1</sub>"],
+      [new RegExp(B + "_([\\p{L}\\p{N}∞]{1,4})(?![\\p{L}\\p{N}{_])", "gu"), "<sub>$1</sub>"]
+    ];
+    for (var i = 0; i < 4; i++) { var n = h; rules.forEach(function (r) { n = n.replace(r[0], r[1]); }); if (n === h) break; h = n; }
+    return h;
+  };
+  function niceMath(h) { return NICE(String(h)).replace(/(^|[\s(=,:])-(\d)/g, "$1−$2"); }
+
   function start() {
     var box = document.getElementById("quiz"); if (!box) return;
     var topic = box.getAttribute("data-topic"), gens = G[topic];
-    if (!gens) { box.innerHTML = "<p>This quiz is coming soon!</p>"; return; }
-    var KEY = "quizBest." + topic, qs, answers, warned;
+    if (!gens) { box.innerHTML = "<p>This quiz is coming soon.</p>"; return; }
+    var ADULT = box.getAttribute("data-mode") === "adult";
+    // wording for the two modes
+    var W = ADULT ? {
+      best: "Best score so far: ", tip: "Enter integers, decimals or fractions, e.g. <b>12</b>, <b>-5</b>, <b>0.75</b>, <b>3/4</b>.",
+      submit: "Submit", blank: function (n) { return n + " question" + (n > 1 ? "s are" : " is") + " unanswered. Press Submit again to submit anyway."; },
+      right: "Correct.", left: "Not answered.", simplify: "Correct value, but not fully simplified.", wrong: "Incorrect.", answer: "Answer: ", why: "",
+      score: function (s) { return "Score: <strong>" + s + " / " + N + "</strong>"; },
+      msg: function (p) { return p === 1 ? "All answers correct." : p >= 0.7 ? "Review the solutions to the questions you missed." : "Review the relevant lessons, then attempt a new assessment."; },
+      again: "New assessment"
+    } : {
+      best: "⭐ Your best score so far: ", tip: "💡 Type whole numbers like <b>12</b>, negatives like <b>-5</b> and fractions like <b>3/4</b>.",
+      submit: "📝 Submit my quiz", blank: function (n) { return "✋ You left " + n + " question" + (n > 1 ? "s" : "") + " blank. Press Submit again to hand it in anyway, or fill " + (n > 1 ? "them" : "it") + " in first."; },
+      right: "✅ Correct!", left: "⬜ Left blank.", simplify: "🟡 Right value, but simplify it all the way!", wrong: "❌ Not quite.", answer: "The answer is ", why: "💭 ",
+      score: function (s) { return "You got <strong>" + s + " out of " + N + "</strong>!"; },
+      msg: function (p) { return p === 1 ? "🏆 PERFECT SCORE! You're a math superstar!" : p >= 0.8 ? "🌟 Awesome work!" : p >= 0.6 ? "👍 Nice job! Check the ones you missed below." : p >= 0.4 ? "💪 Good try! Read the explanations, then try a new quiz." : "📚 Keep going! Look back at the lessons, then try a brand-new quiz."; },
+      again: "🔄 Try a brand-new quiz"
+    };
+    var KEY = "quizBest." + (ADULT ? "adult." : "") + topic, qs, answers, warned;
 
     function best() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
 
     function render() {
       qs = makeQuiz(gens); answers = []; warned = false;
       var b = best();
-      var html = (b ? '<p class="qz-best">⭐ Your best score so far: <strong>' + b + "/" + N + "</strong></p>" : "") +
-        '<p class="qz-tip">💡 Type whole numbers like <b>12</b>, negatives like <b>-5</b> and fractions like <b>3/4</b>.</p><ol class="qz-list">';
+      var html = (b ? '<p class="qz-best">' + W.best + '<strong>' + b + "/" + N + "</strong></p>" : "") +
+        '<p class="qz-tip">' + W.tip + '</p><ol class="qz-list">';
       qs.forEach(function (q, i) {
-        html += '<li class="qz-q" id="qz-' + i + '"><p class="qz-num">Question ' + (i + 1) + ' of ' + N + '</p><div class="qz-text">' + q.q + "</div>";
-        if (q.kind === "num") html += '<label class="qz-label">Your answer: <input class="qz-in" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" data-i="' + i + '"></label>';
-        else html += '<div class="qz-opts" role="radiogroup">' + q.opts.map(function (o, j) {
-          return '<label class="qz-opt"><input type="radio" name="qz-' + i + '" value="' + j + '" data-i="' + i + '"> <span>' + o + "</span></label>"; }).join("") + "</div>";
+        html += '<li class="qz-q" id="qz-' + i + '"><p class="qz-num">Question ' + (i + 1) + ' of ' + N + '</p><div class="qz-text">' + (ADULT ? niceMath(q.q) : q.q) + "</div>";
+        if (q.kind === "num") html += '<label class="qz-label">' + (ADULT ? "Answer:" : "Your answer:") + ' <input class="qz-in" type="text" aria-label="' + (ADULT ? "Answer" : "Your answer") + ' to question ' + (i + 1) + '" autocomplete="off" autocapitalize="off" spellcheck="false" data-i="' + i + '"></label>';
+        else html += '<div class="qz-opts" role="radiogroup" aria-label="Choices for question ' + (i + 1) + '">' + q.opts.map(function (o, j) {
+          return '<label class="qz-opt"><input type="radio" name="qz-' + i + '" value="' + j + '" data-i="' + i + '"> <span>' + (ADULT ? niceMath(o) : o) + "</span></label>"; }).join("") + "</div>";
         html += '<div class="qz-result" hidden></div></li>';
       });
-      html += '</ol><p class="qz-warn" hidden></p><div class="qz-actions"><button type="button" class="btn qz-submit">📝 Submit my quiz</button></div><div class="qz-score" hidden></div>';
+      html += '</ol><p class="qz-warn" role="alert" hidden></p><div class="qz-actions"><button type="button" class="btn qz-submit">' + W.submit + '</button></div><div class="qz-score" aria-live="polite" hidden></div>';
       box.innerHTML = html;
       box.querySelector(".qz-submit").addEventListener("click", submit);
       box.querySelectorAll(".qz-in").forEach(function (inp) { inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); var n = box.querySelector("#qz-" + (+inp.dataset.i + 1) + " input"); if (n) n.focus(); } }); });
@@ -550,7 +590,7 @@
       var blank = answers.filter(function (a) { return a === null; }).length, warn = box.querySelector(".qz-warn");
       if (blank && !warned) {
         warned = true; warn.hidden = false;
-        warn.textContent = "✋ You left " + blank + " question" + (blank > 1 ? "s" : "") + " blank. Press Submit again to hand it in anyway, or fill " + (blank > 1 ? "them" : "it") + " in first.";
+        warn.textContent = W.blank(blank);
         var first = answers.indexOf(null); var el = box.querySelector("#qz-" + first); if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
         return;
       }
@@ -563,13 +603,13 @@
         li.querySelectorAll("input").forEach(function (x) { x.disabled = true; });
         if (q.kind === "choice") li.querySelectorAll(".qz-opt").forEach(function (lab, j) { if (j === q.ans) lab.classList.add("qz-correct-opt"); });
         res.hidden = false;
-        res.innerHTML = (g === "right" ? "<p><strong>✅ Correct!</strong></p>" : "<p><strong>" + (g === "blank" ? "⬜ Left blank." : g === "simplify" ? "🟡 Right value, but simplify it all the way!" : "❌ Not quite.") + "</strong> The answer is <strong>" + q.show + "</strong>.</p>") +
-          '<p class="qz-why">💭 ' + q.why + "</p>";
+        res.innerHTML = (g === "right" ? "<p><strong>" + W.right + "</strong></p>" : "<p><strong>" + (g === "blank" ? W.left : g === "simplify" ? W.simplify : W.wrong) + "</strong> " + W.answer + "<strong>" + (ADULT ? niceMath(q.show) : q.show) + "</strong>.</p>") +
+          '<p class="qz-why">' + W.why + (ADULT ? niceMath(q.why) : q.why) + "</p>";
       });
       try { var b = +best() || 0; if (score > b) localStorage.setItem(KEY, String(score)); } catch (e) { /* fine */ }
-      var pct = score / N, msg = pct === 1 ? "🏆 PERFECT SCORE! You're a math superstar!" : pct >= 0.8 ? "🌟 Awesome work!" : pct >= 0.6 ? "👍 Nice job! Check the ones you missed below." : pct >= 0.4 ? "💪 Good try! Read the explanations, then try a new quiz." : "📚 Keep going! Look back at the lessons, then try a brand-new quiz.";
+      var pct = score / N, msg = W.msg(pct);
       var sc = box.querySelector(".qz-score"); sc.hidden = false;
-      sc.innerHTML = '<p class="qz-big">You got <strong>' + score + " out of " + N + "</strong>!</p><p>" + msg + '</p><button type="button" class="btn qz-again">🔄 Try a brand-new quiz</button>';
+      sc.innerHTML = '<p class="qz-big">' + W.score(score) + "</p><p>" + msg + '</p><button type="button" class="btn qz-again">' + W.again + '</button>';
       box.querySelector(".qz-actions").hidden = true;
       sc.querySelector(".qz-again").addEventListener("click", function () { render(); box.scrollIntoView({ behavior: "smooth", block: "start" }); });
       var top = box.querySelector(".qz-score"); box.insertBefore(top, box.firstChild); top.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -582,6 +622,6 @@
     window.MathQuiz = { G: G, grade: grade, parse: parse, makeQuiz: makeQuiz };
     if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start); else start();
   } else if (typeof module !== "undefined") {
-    module.exports = { G: G, grade: grade, parse: parse, makeQuiz: makeQuiz };
+    module.exports = { G: G, grade: grade, parse: parse, makeQuiz: makeQuiz, niceMath: niceMath };
   }
 })();

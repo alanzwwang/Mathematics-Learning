@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Inclusion–Exclusion and Möbius Inversion — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 3</p>
+    <h1>Inclusion–Exclusion and Möbius Inversion</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">|A₁ ∪ ⋯ ∪ Aₘ| = ∑ over nonempty I ⊆ [m] of (−1)<sup>|I|+1</sup> |⋂ᵢ∈I Aᵢ|
+Dₙ = n! ∑ⱼ₌₀ⁿ (−1)ʲ/j!</pre></div>
+<h3>The principle</h3>
+<p><strong>Theorem 3.1 (Inclusion–exclusion)</strong>. Let A₁, …, Aₘ be subsets of a finite set X, and for I ⊆ [m] let A<sub>I</sub> = ⋂ᵢ∈I Aᵢ, with A_∅ = X. Then the number of elements of X lying in none of the Aᵢ is ∑ over I ⊆ [m] of (−1)<sup>|I|</sup> |A<sub>I</sub>|.</p>
+<p><strong>Proof</strong>. Consider an element x ∈ X, and let J be the set of indices i with x ∈ Aᵢ, with |J| = j. The element x is counted in |A<sub>I</sub>| exactly when I ⊆ J, so its total contribution to the right-hand side is ∑ over I ⊆ J of (−1)<sup>|I|</sup> = ∑ᵣ C(j, r)(−1)ʳ = (1 − 1)ʲ, which is 1 if j = 0 and 0 otherwise. ∎</p>
+<p>Truncating the alternating sum gives the Bonferroni inequalities: stopping after a positive term gives an upper bound for the union, and stopping after a negative term gives a lower bound. In probability these yield the estimates Pr(⋃Aᵢ) ≤ ∑ Pr(Aᵢ) and Pr(⋃Aᵢ) ≥ ∑ Pr(Aᵢ) − ∑ Pr(Aᵢ ∩ Aⱼ).</p>
+<h3>Derangements</h3>
+<p>A derangement is a permutation with no fixed point. Let Aᵢ be the set of permutations of [n] fixing i. Then |A<sub>I</sub>| = (n − |I|)!, and inclusion–exclusion gives</p>
+<pre class="math">Dₙ = ∑ⱼ (−1)ʲ C(n, j)(n − j)! = n! ∑ⱼ₌₀ⁿ (−1)ʲ / j!.</pre>
+<p>The first values are D₀, …, D₈ = 1, 0, 1, 2, 9, 44, 265, 1854, 14833. Since the tail of the alternating series for e⁻¹ is bounded by its first omitted term, |Dₙ − n!/e| &lt; n!/(n + 1)! = 1/(n + 1), so for n ≥ 1, Dₙ is the integer nearest to n!/e, and the probability that a random permutation is a derangement tends to 1/e ≈ 0.3679. Two recurrences follow combinatorially: Dₙ = (n − 1)(Dₙ₋₁ + Dₙ₋₂) (look at where n goes and whether that image maps back to n) and Dₙ = n Dₙ₋₁ + (−1)ⁿ. The number of permutations of [n] with exactly j fixed points is C(n, j) Dₙ₋ⱼ.</p>
+<h3>Surjections and Euler's totient</h3>
+<p>Taking Aᵢ to be the set of functions [n] → [k] missing the value i gives the count of surjections, k!·S(n, k) = ∑ⱼ (−1)ʲ C(k, j)(k − j)ⁿ. Taking X = [N] and Aᵢ the multiples of the i-th prime divisor pᵢ of N gives Euler's product φ(N) = N ∏ (1 − 1/p) over primes p dividing N, since |A<sub>I</sub>| = N/∏ᵢ∈I pᵢ.</p>
+<h3>Upper bounds in stars and bars</h3>
+<p><strong>Example 3.2</strong>. The number of solutions of x₁ + x₂ + x₃ = 15 with 0 ≤ xᵢ ≤ 7: let Aᵢ be the solutions with xᵢ ≥ 8. Then |Aᵢ| is the number of weak compositions of 7 into 3 parts, C(9, 2) = 36, and no two of the Aᵢ intersect because 16 &gt; 15. Hence the count is C(17, 2) − 3 · 36 = 136 − 108 = 28.</p>
+<h3>Möbius inversion on posets</h3>
+<p>Inclusion–exclusion is the special case of a far more general principle. Let (P, ≤) be a locally finite partially ordered set (every interval [x, y] is finite). The Möbius function μ is defined recursively by μ(x, x) = 1 and μ(x, y) = −∑ over x ≤ z &lt; y of μ(x, z) for x &lt; y, and μ(x, y) = 0 unless x ≤ y.</p>
+<p><strong>Theorem 3.3 (Möbius inversion)</strong>. Let f, g : P → ℂ, and suppose every principal ideal {y : y ≤ x} is finite. Then g(x) = ∑ over y ≤ x of f(y) for all x if and only if f(x) = ∑ over y ≤ x of μ(y, x) g(y) for all x.</p>
+<p><strong>Proof</strong>. Assume the first relation. Then ∑ over y ≤ x of μ(y, x) g(y) = ∑ over z ≤ x of f(z) ∑ over z ≤ y ≤ x of μ(y, x). The inner sum is 1 if z = x and 0 otherwise; this is the dual form of the defining recursion, which holds because the incidence algebra of P is an associative algebra in which μ is the two-sided inverse of the zeta function ζ(x, y) = [x ≤ y], and ζ has both a left inverse and a right inverse (each defined by an analogous recursion), which in an associative algebra must coincide. The converse is identical. ∎</p>
+<p>Three posets recover classical results. For the Boolean lattice of subsets of [m], μ(S, T) = (−1)<sup>|T∖S|</sup>, which is inclusion–exclusion. For the positive integers ordered by divisibility, μ(d, n) = μ(n/d), the number-theoretic Möbius function, giving the classical inversion g(n) = ∑<sub>d|n</sub> f(d) ⟺ f(n) = ∑<sub>d|n</sub> μ(n/d) g(d). For the lattice of set partitions of [n] ordered by refinement, μ(0̂, 1̂) = (−1)ⁿ⁻¹(n − 1)!. Philip Hall and, decisively, Gian-Carlo Rota (On the Foundations of Combinatorial Theory I, 1964) made Möbius functions a central tool.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many permutations of [7] have exactly 2 fixed points?</div></li><li><span class="mk">(b)</span><div>Compute φ(360) by inclusion–exclusion.</div></li><li><span class="mk">(c)</span><div>Using the recurrence Dₙ = n Dₙ₋₁ + (−1)ⁿ, compute D₉ from D₈ = 14833.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(7, 2) D₅ = 21 · 44 = 924. (b) 360 = 2³·3²·5, so φ(360) = 360 · (1/2)(2/3)(4/5) = 96. (c) D₉ = 9 · 14833 − 1 = 133,496.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

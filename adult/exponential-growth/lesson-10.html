@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 10</p>
+    <h1>Epidemics — the SIR Model, R₀ and the Final Size</h1>
+    <p class="kicker">Lesson 10 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">early growth rate r = γ(R₀ − 1);   final size z solves  1 − z = e<sup>−R₀ z</sup>;   herd immunity at 1 − 1/R₀</pre></div>
+<p>The early phase of an epidemic is exponential growth in its purest form: each case generates a roughly constant number of new cases. What distinguishes an epidemic from a Malthusian population is that the resource consumed is the pool of susceptible individuals, and its depletion ends the outbreak. The model of W. O. Kermack and A. G. McKendrick (1927) captures this in three equations.</p>
+<h3>The model</h3>
+<p>A closed population of size N is divided into susceptible S, infectious I and removed R individuals (S + I + R = N). Infection occurs by mass action with transmission rate β and recovery with rate γ, so the mean infectious period is 1/γ:</p>
+<pre class="math">S′ = −β S I / N
+I′ = β S I / N − γ I
+R′ = γ I</pre>
+<p>The basic reproduction number R₀ = β/γ is the expected number of secondary cases produced by one infectious individual in a fully susceptible population: infections at rate β for an expected time 1/γ.</p>
+<h3>The threshold and early exponential growth</h3>
+<p>Since I′ = γI (R₀ S/N − 1), the number infected increases if and only if S/N &gt; 1/R₀. This is the threshold theorem: an outbreak introduced into a population with S(0)/N ≤ 1/R₀ never grows. While S ≈ N, the infectious class grows exponentially at rate</p>
+<pre class="math">r = β − γ = γ (R₀ − 1)</pre>
+<p>so R₀ = 1 + r/γ. Example: with an infectious period of 7 days (γ = 1/7 per day) and R₀ = 2.5, r = 1.5/7 ≈ 0.214 per day, and the early doubling time is ln 2/r ≈ 3.23 days. The relation between r and R₀ depends on the distribution of the generation interval: for a general generation-interval density g, the Euler–Lotka equation reappears as 1/R₀ = ∫₀<sup>∞</sup> e<sup>−rt</sup> g(t) dt (Wallinga and Lipsitch 2007), and the formula R₀ = 1 + r/γ is the case of an exponential g.</p>
+<h3>A conserved quantity, the peak and the final size</h3>
+<p>Dividing the equations, dI/dS = −1 + N/(R₀ S), which integrates to the first integral</p>
+<pre class="math">S + I − (N/R₀) ln S = constant</pre>
+<p>The peak of I occurs when S = N/R₀. Starting from S(0) ≈ N and I(0) ≈ 0, the peak prevalence is</p>
+<pre class="math">I<sub>max</sub>/N = 1 − (1 + ln R₀)/R₀</pre>
+<p>which is about 15.3% for R₀ = 2 and 30.0% for R₀ = 3. Similarly dS/dR = −R₀ S/N gives S(t) = S(0) e<sup>−R₀ R(t)/N</sup>. As t → ∞, I → 0 and R(∞) = N − S(∞). Writing z = R(∞)/N for the fraction ever infected and letting S(0) → N, R(0) = 0:</p>
+<pre class="math">1 − z = e<sup>−R₀ z</sup></pre>
+<p><strong>Theorem 10.1</strong>. If R₀ &gt; 1, the final-size equation has exactly one root z ∈ (0, 1), and z &gt; 1 − 1/R₀. If R₀ ≤ 1, the only root in [0, 1] is z = 0.</p>
+<p><strong>Proof</strong>. Let h(z) = 1 − e<sup>−R₀z</sup> − z, a strictly concave function with h(0) = 0, h′(0) = R₀ − 1 and h(1) = −e<sup>−R₀</sup> &lt; 0. If R₀ &gt; 1, h is positive just to the right of 0, so it has a root in (0, 1), and by strict concavity it has at most one root besides 0. If R₀ ≤ 1, h′(z) &lt; h′(0) ≤ 0 for z &gt; 0, so h &lt; 0 on (0, 1]. For the inequality, put z₀ = 1 − 1/R₀; then h(z₀) = 1/R₀ − e<sup>−(R₀ − 1)</sup> &gt; 0 because e<sup>R₀−1</sup> &gt; R₀ for R₀ ≠ 1 (Lesson 2), so the root lies to the right of z₀. ∎</p>
+<pre class="math">R₀ = 1.5:   z ≈ 0.583      R₀ = 2:   z ≈ 0.797      R₀ = 3:   z ≈ 0.940      R₀ = 4:   z ≈ 0.980</pre>
+<p>In closed form, z = 1 + W(−R₀ e<sup>−R₀</sup>)/R₀, with W the principal branch of the Lambert W function. The inequality z &gt; 1 − 1/R₀ is the overshoot: an unmitigated epidemic does not stop at the herd-immunity threshold, because at the moment the threshold is crossed (the epidemic peak) many people are still infectious.</p>
+<h3>Herd immunity and vaccination</h3>
+<p>If a fraction p of the population is immune before the outbreak, the effective reproduction number is R₀(1 − p), and the outbreak cannot grow if p ≥ p<sub>c</sub> = 1 − 1/R₀. For measles, with R₀ commonly quoted in the range 12 to 18, p<sub>c</sub> lies between about 92% and 94%; for a disease with R₀ = 2.5, it is 60%. This assumes a perfectly effective vaccine and homogeneous mixing; heterogeneity in contact rates generally lowers the threshold reached by natural infection but not necessarily the one required of random vaccination.</p>
+<h3>The stochastic beginning</h3>
+<p>When a single infective enters a large susceptible population, the early epidemic is a branching process (Lesson 9). In the Markovian SIR model, the number of infections caused by one case is geometric with mean R₀, so by the geometric example the probability of only a minor outbreak is q = 1/R₀, and a major outbreak occurs with probability 1 − 1/R₀ (Whittle 1955). Conditioned on a major outbreak, the deterministic final-size equation holds in the limit N → ∞. If instead each case caused a Poisson(R₀) number of infections (a fixed infectious period), the minor-outbreak probability would satisfy q = e<sup>−R₀(1 − q)</sup>, and 1 − q would satisfy exactly the final-size equation: the probability of a major outbreak equals the final size, a coincidence explained by a duality between the forward epidemic and a backward branching process.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>An epidemic has early doubling time 4 days and mean infectious period 5 days (SIR model). Estimate R₀.</div></li><li><span class="mk">(b)</span><div>For R₀ = 4 (S(0) ≈ N), compute the peak prevalence and the herd-immunity threshold.</div></li><li><span class="mk">(c)</span><div>Show that z = 1/2 is the final size exactly when R₀ = 2 ln 2.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) r = ln 2/4 ≈ 0.1733 per day and γ = 0.2, so R₀ = 1 + r/γ ≈ 1.87. (b) I<sub>max</sub>/N = 1 − (1 + ln 4)/4 ≈ 1 − 2.386/4 ≈ 0.403, about 40%; the threshold is 1 − 1/4 = 75%. (c) 1 − 1/2 = e<sup>−R₀/2</sup> gives R₀/2 = ln 2, so R₀ = 2 ln 2 ≈ 1.386.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

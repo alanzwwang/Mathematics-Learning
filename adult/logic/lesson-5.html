@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 5</p>
+    <h1>Resolution, Horn Formulas and the Satisfiability Problem</h1>
+    <p class="kicker">Lesson 5 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Resolution: from clauses C ∪ {p} and D ∪ {¬p}, infer C ∪ D.
+A CNF is unsatisfiable iff the empty clause □ is derivable by resolution.
+Horn-SAT and 2-SAT are solvable in linear time; 3-SAT is NP-complete.</pre></div>
+<h3>Clauses as sets</h3>
+<p>A literal is an atom p or its negation ¬p; the complement of a literal ℓ is written ℓ̄. A clause is a finite set of literals, read as their disjunction; the empty clause □ is unsatisfiable. A CNF formula is a finite set of clauses, read as their conjunction. The satisfiability problem SAT asks, given a CNF, whether some valuation satisfies it. By the Tseitin transformation of Lesson 2 this is no less general than satisfiability of arbitrary formulas.</p>
+<h3>The resolution rule</h3>
+<p>Given clauses C₁ containing a literal ℓ and C₂ containing ℓ̄, their resolvent on ℓ is (C₁ − {ℓ}) ∪ (C₂ − {ℓ̄}). A resolution refutation of a clause set S is a finite sequence of clauses, each in S or a resolvent of two earlier ones, ending in □. Resolution was introduced by Davis and Putnam (1960) and, for first-order logic, by J. A. Robinson (1965), and it underlies modern automated theorem proving.</p>
+<p><strong>Theorem 5.1 (Soundness and refutation completeness of resolution)</strong>. A finite clause set S is unsatisfiable if and only if □ can be derived from S by resolution.</p>
+<p><strong>Proof</strong>. Soundness: if v satisfies C₁ and C₂, then either v ⊨ ℓ, in which case v must satisfy some literal of C₂ other than ℓ̄, or v ⊨ ℓ̄, in which case v satisfies some literal of C₁ other than ℓ. Either way v satisfies the resolvent, so □ is never derived from a satisfiable set.</p>
+<p>Completeness, by induction on the number n of atoms occurring in S. If n = 0, S is either empty (satisfiable) or {□}. Suppose S is unsatisfiable and p occurs in S. Let S<sub>p</sub> be obtained by deleting every clause containing p and deleting ¬p from the remaining clauses; this is S simplified under p = 1. Similarly S_¬p is S simplified under p = 0. Both are unsatisfiable and mention fewer atoms, so each has a resolution refutation. Restore ¬p to the clauses of S<sub>p</sub> from which it was deleted, and replay the refutation: every step remains a valid resolution step, and it now ends either in □ or in {¬p}. Similarly the refutation of S_¬p becomes a derivation of □ or of {p}. If either ends in □ we are done; otherwise one more resolution of {p} with {¬p} gives □. ∎</p>
+<p><strong>Example</strong>. S = {{p, q}, {¬p, q}, {p, ¬q}, {¬p, ¬q}}. Resolving the first two on p gives {q}; the last two give {¬q}; resolving these gives □. So S is unsatisfiable, as is obvious from its four clauses excluding all four assignments of p, q.</p>
+<p>Resolution is complete but can be very slow: Haken proved in 1985 that the pigeonhole principle PHPⁿ⁺¹ₙ, which says that n + 1 pigeons cannot sit in n holes injectively, has only resolution refutations of exponential size, 2<sup>Ω(n)</sup>. Proof complexity studies such lower bounds for stronger systems; a superpolynomial lower bound for every proof system would imply NP ≠ coNP and hence P ≠ NP (Cook and Reckhow, 1979).</p>
+<h3>Horn formulas</h3>
+<p>A Horn clause has at most one positive literal. Horn clauses are definite clauses {¬q₁, …, ¬qₖ, p}, read as rules q₁ ∧ … ∧ qₖ → p (with k = 0 a fact p), and goal clauses {¬q₁, …, ¬qₖ}.</p>
+<p><strong>Theorem 5.2</strong>. Satisfiability of a set of Horn clauses is decidable in polynomial time (indeed in linear time, by Dowling and Gallier 1984). Moreover a satisfiable Horn set has a least model.</p>
+<p><strong>Proof</strong>. Marking algorithm: start with nothing marked. Repeatedly, if some definite clause q₁ ∧ … ∧ qₖ → p has all qᵢ marked and p unmarked, mark p. When no rule applies, let v make exactly the marked atoms true. Every definite clause is then satisfied. Every atom that gets marked is true in every model, by induction on the stage at which it is marked. If some goal clause has all its atoms marked, the set is unsatisfiable, because those atoms are true in every model; otherwise v satisfies all goal clauses too, and v is the least model. Each step adds a mark, so there are at most n rounds. ∎</p>
+<p>The least-model property is the semantic foundation of logic programming (Prolog) and of Datalog.</p>
+<h3>The 2-SAT problem</h3>
+<p><strong>Theorem 5.3 (Aspvall, Plass and Tarjan 1979)</strong>. Satisfiability of CNFs with at most two literals per clause is decidable in linear time.</p>
+<p><strong>Proof sketch</strong>. Form the implication graph with a vertex for each literal and, for each clause {ℓ₁, ℓ₂}, the edges ℓ̄₁ → ℓ₂ and ℓ̄₂ → ℓ₁. A valuation satisfies the CNF iff no edge goes from a true literal to a false one. The CNF is unsatisfiable iff some atom p and ¬p lie in the same strongly connected component: in that case p forces ¬p and ¬p forces p. Conversely, if no such component exists, process the components in reverse topological order, and whenever a component whose literals are still unassigned is reached, make all of its literals true and their complements false; one checks that no edge then leads from a true literal to a false one. Strongly connected components can be found in linear time by Tarjan's algorithm. ∎</p>
+<p>By contrast, 3-SAT is NP-complete (Lesson 12). The dividing line between 2 and 3 literals per clause is the first and most famous instance of the phenomenon that tiny changes in a problem can move it from easy to apparently intractable. Schaefer's dichotomy theorem (1978) shows that every Boolean constraint satisfaction problem is either in P (it falls into one of six tractable classes, which include Horn, dual-Horn, 2-SAT and affine) or is NP-complete.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Refute by resolution: {{p, q, r}, {¬p, q}, {¬q, r}, {¬r}}.</div></li><li><span class="mk">(b)</span><div>Run the marking algorithm on: facts a, b; rules a ∧ b → c, c → d, d ∧ e → f; goal ¬d ∨ ¬f. Is the set satisfiable?</div></li><li><span class="mk">(c)</span><div>Is (p ∨ q) ∧ (¬p ∨ q) ∧ (¬q ∨ r) ∧ (¬r ∨ ¬q) satisfiable?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) {¬q, r} with {¬r} gives {¬q}. {¬p, q} with {¬q} gives {¬p}. {p, q, r} with {¬p} gives {q, r}; with {¬r} gives {q}; with {¬q} gives □. (b) Mark a, b, then c, then d. The rule d ∧ e → f cannot fire since e is never marked. The goal ¬d ∨ ¬f has d marked but f unmarked, so the set is satisfiable, with least model a = b = c = d = 1, e = f = 0. (c) No. From p ∨ q and ¬p ∨ q we get q; then ¬q ∨ r gives r and ¬r ∨ ¬q gives ¬r, a contradiction.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

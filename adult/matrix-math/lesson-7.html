@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Inner Products, Gram–Schmidt and QR — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 7</p>
+    <h1>Inner Products, Gram–Schmidt and QR</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A = QR,  Q*Q = I,  R upper triangular        Pb = QQ*b is the closest point of col(A) to b
+least squares:  A*A x = A*b   ⇔   R x = Q*b</pre></div>
+<h3>Inner products and the Cauchy–Schwarz inequality</h3>
+<p>An inner product on a vector space V over 𝔽 is a map ⟨·, ·⟩ : V × V → 𝔽 that is linear in its first argument, conjugate symmetric (⟨y, x⟩ is the complex conjugate of ⟨x, y⟩) and positive definite (⟨x, x⟩ &gt; 0 for x ≠ 0). The standard inner product on 𝔽ⁿ is ⟨x, y⟩ = y*x = ∑ x<sub>i</sub> ȳ<sub>i</sub>, with norm ‖x‖ = ⟨x, x⟩<sup>1/2</sup>. Other important examples are ⟨x, y⟩_M = y*Mx for a positive definite matrix M (Lesson 9), and ⟨f, g⟩ = ∫₀¹ f(t) g(t) dt on polynomials, which leads to the Legendre polynomials and to the Hilbert matrix of Lesson 12.</p>
+<p><strong>Theorem 7.1 (Cauchy–Schwarz)</strong>. |⟨x, y⟩| ≤ ‖x‖ ‖y‖, with equality if and only if x and y are linearly dependent.</p>
+<p><strong>Proof</strong>. The case y = 0 is trivial. Otherwise let p = (⟨x, y⟩/‖y‖²) y. Then ⟨x − p, y⟩ = ⟨x, y⟩ − ⟨x, y⟩ = 0, so x − p ⊥ p and Pythagoras gives ‖x‖² = ‖p‖² + ‖x − p‖² ≥ ‖p‖² = |⟨x, y⟩|²/‖y‖². Equality holds exactly when x = p, that is, when x is a multiple of y. ∎</p>
+<p>The triangle inequality ‖x + y‖ ≤ ‖x‖ + ‖y‖ follows by expanding ‖x + y‖² and applying Cauchy–Schwarz to the cross term.</p>
+<h3>Gram–Schmidt and the QR factorization</h3>
+<p>Given linearly independent a₁, …, aₙ, the Gram–Schmidt process sets q₁ = a₁/‖a₁‖ and, for k ≥ 2,</p>
+<pre class="math">v<sub>k</sub> = a<sub>k</sub> − ∑<sub>j&lt;k</sub> ⟨a<sub>k</sub>, q<sub>j</sub>⟩ q<sub>j</sub>,        q<sub>k</sub> = v<sub>k</sub> / ‖v<sub>k</sub>‖</pre>
+<p>By induction q₁, …, q<sub>k</sub> is an orthonormal basis of span(a₁, …, a<sub>k</sub>) for every k; v<sub>k</sub> ≠ 0 because a<sub>k</sub> is not in the span of its predecessors. Solving for a<sub>k</sub> gives a<sub>k</sub> = ∑<sub>j≤k</sub> r<sub>jk</sub> q<sub>j</sub> with r<sub>jk</sub> = ⟨a<sub>k</sub>, q<sub>j</sub>⟩ for j &lt; k and r<sub>kk</sub> = ‖v<sub>k</sub>‖ &gt; 0. In matrix form this is the QR factorization.</p>
+<p><strong>Theorem 7.2 (QR factorization)</strong>. If A ∈ 𝔽<sup>m×n</sup> has linearly independent columns, then A = QR with Q ∈ 𝔽<sup>m×n</sup> having orthonormal columns and R ∈ 𝔽<sup>n×n</sup> upper triangular with positive diagonal. This factorization is unique.</p>
+<p><strong>Proof</strong>. Existence is Gram–Schmidt. For uniqueness, suppose Q₁R₁ = Q₂R₂. Then A*A = R₁*R₁ = R₂*R₂, so the matrix X = R₂R₁⁻¹ equals (R₂*)⁻¹R₁* = (R₁R₂⁻¹)*. The first expression is upper triangular and the last is lower triangular, so X is diagonal with positive diagonal entries. Moreover X*X = R₁⁻* R₂*R₂ R₁⁻¹ = R₁⁻* R₁*R₁ R₁⁻¹ = I, so each diagonal entry has modulus 1 and therefore equals 1. Hence R₁ = R₂ and Q₁ = Q₂. ∎</p>
+<p><strong>Worked example</strong>: let a₁ = (1, 1, 0) and a₂ = (1, 0, 1). Then q₁ = (1, 1, 0)/√2, ⟨a₂, q₁⟩ = 1/√2, and v₂ = a₂ − (1/2)(1, 1, 0) = (1/2, −1/2, 1) with ‖v₂‖ = √(3/2). Thus q₂ = (1, −1, 2)/√6 and</p>
+<pre class="math">[ 1  1 ]   [ 1/√2    1/√6 ]
+[ 1  0 ] = [ 1/√2   −1/√6 ] [ √2   1/√2  ]
+[ 0  1 ]   [ 0       2/√6 ] [ 0    √(3/2) ]</pre>
+<h3>Orthogonal projection and least squares</h3>
+<p>Let W be a subspace with orthonormal basis given by the columns of Q, and let P = QQ*. Then P² = P = P*, Pb ∈ W, and b − Pb ⊥ W.</p>
+<p><strong>Theorem 7.3 (Best approximation)</strong>. For every w ∈ W, ‖b − w‖ ≥ ‖b − Pb‖, with equality only for w = Pb.</p>
+<p><strong>Proof</strong>. Write b − w = (b − Pb) + (Pb − w). The first summand is orthogonal to W and the second lies in W, so ‖b − w‖² = ‖b − Pb‖² + ‖Pb − w‖². ∎</p>
+<p>Now consider an overdetermined system Ax = b with A ∈ 𝔽<sup>m×n</sup>, m &gt; n, of full column rank. The least-squares problem asks for x minimizing ‖Ax − b‖. By Theorem 7.3 the minimizer satisfies Ax = Pb, the projection of b onto col(A); equivalently the residual is orthogonal to col(A), that is, A*(b − Ax) = 0. These are the normal equations A*A x = A*b. Since A*A is invertible when A has full column rank, x = (A*A)⁻¹A*b, and the projection onto col(A) is P = A(A*A)⁻¹A*. With A = QR the normal equations collapse to R x = Q*b, which is solved by back substitution.</p>
+<p><strong>Worked example</strong>: fit a line y = c₀ + c₁t to the data (0, 1), (1, 2), (2, 2). Here A has rows (1, 0), (1, 1), (1, 2) and b = (1, 2, 2), so AᵀA = [ 3 3 ; 3 5 ] and Aᵀb = (5, 6). The normal equations give c₀ = 7/6 and c₁ = 1/2. The residuals are −1/6, 1/3, −1/6; they sum to zero and are orthogonal to (0, 1, 2), as the normal equations require.</p>
+<h3>Householder reflections and numerical orthogonality</h3>
+<p>For a nonzero vector v, the Householder matrix H = I − 2vv*/(v*v) is Hermitian and unitary, and it reflects in the hyperplane orthogonal to v. Given x, the choice v = x + sign(x₁)‖x‖e₁ (for real x) yields Hx = −sign(x₁)‖x‖e₁, and the sign is chosen to avoid cancellation. Applying n such reflections annihilates the subdiagonal of A column by column and produces A = QR with Q orthogonal to working precision. In floating-point arithmetic the classical Gram–Schmidt process can lose orthogonality badly when A is ill conditioned; the modified Gram–Schmidt process, which subtracts each projection from the current vector immediately, loses orthogonality only in proportion to κ(A) times the unit roundoff (Björck, 1967); Householder QR is backward stable regardless of conditioning. Solving least-squares problems through the normal equations is avoided in practice because κ(A*A) = κ(A)², a fact explained in Lesson 12.</p>
+<p>The process is named after Jørgen Pedersen Gram (1883) and Erhard Schmidt (1907), although the underlying computation already appears in work of Laplace. Alston Householder introduced his reflections for QR factorization in 1958.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the matrix of orthogonal projection onto the line spanned by (1, 2) in ℝ².</div></li><li><span class="mk">(b)</span><div>Find the distance from b = (1, 2, 3) to the line spanned by (1, 1, 1).</div></li><li><span class="mk">(c)</span><div>Find the Householder reflection H with H(3, 4) = (5, 0).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) P = aaᵀ/(aᵀa) = (1/5) [ 1 2 ; 2 4 ]. (b) The projection is ((1 + 2 + 3)/3)(1, 1, 1) = (2, 2, 2), the residual is (−1, 0, 1), and the distance is √2. (c) Take v = (3, 4) − (5, 0) = (−2, 4); then H = I − 2vvᵀ/20 = I − (1/10) [ 4 −8 ; −8 16 ] = [ 0.6 0.8 ; 0.8 −0.6 ], and indeed H(3, 4) = (1.8 + 3.2, 2.4 − 2.4) = (5, 0).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

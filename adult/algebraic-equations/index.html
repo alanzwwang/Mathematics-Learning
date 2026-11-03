@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Algebraic Equations — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Algebraic Equations</span></p>
+    <h1>Algebraic Equations</h1>
+    <p class="kicker">Algebra · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>The elementary theory of equations asks a deceptively simple question: given an equation built from an unknown by the operations of arithmetic, which values of the unknown make it true? For linear equations the answer is completely mechanical, and the introductory course ends with the rule &quot;do the same thing to both sides&quot;. This course begins where that one stops. We treat equations the way a graduate algebra course does: as statements about polynomial rings and fields, whose solvability is governed by structure rather than by cleverness.</p>
+<p>The story has three strands. The first is computational: systems of linear equations are solved by Gaussian elimination, and the solvability of a system is decided by the rank of a matrix. The second is classical: the Babylonians solved quadratics, the Italian algebraists of the sixteenth century (del Ferro, Tartaglia, Cardano, Ferrari) solved cubics and quartics by radicals, and for almost three centuries afterwards the best mathematicians in Europe tried and failed to do the same for the quintic. The third strand is structural: Lagrange (1770) noticed that the classical formulas work because of how permutations of the roots act on certain auxiliary expressions; Ruffini (1799) and Abel (1824) proved that no general formula in radicals exists for degree five; and Galois (written 1830–1832, published 1846) gave the definitive criterion, attaching to every equation a group whose structure decides whether the equation is solvable by radicals.</p>
+<p>Alongside the algebra we need two analytic facts. The fundamental theorem of algebra guarantees that every complex polynomial equation has a complex solution, so that the question is never whether roots exist but how they can be expressed. And when no expression in radicals exists, or when one exists but is useless in practice, we compute roots numerically; Newton's method, with its quadratic convergence, is the workhorse, and its failures are as instructive as its successes.</p>
+<p>Throughout, K denotes a field, K[x] the ring of polynomials in one indeterminate over K, and ℤ, ℚ, ℝ, ℂ the integers, rationals, reals and complex numbers. 𝔽ₚ denotes the field ℤ/pℤ for a prime p. For a polynomial f, deg f is its degree and lc(f) its leading coefficient. Proofs are given in full except where a result is standard group theory, which we quote by its usual name.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Decide solvability of linear systems by Gaussian elimination and rank, and prove the Rouché–Capelli theorem</div></li><li><span class="mk">2.</span><div>Work in the polynomial ring K[x]: division with remainder, the Euclidean algorithm, the factor theorem and multiple roots</div></li><li><span class="mk">3.</span><div>Prove the rational root theorem, Gauss's lemma and Eisenstein's criterion, and use them to test irreducibility</div></li><li><span class="mk">4.</span><div>Solve quadratic equations over arbitrary fields, including finite fields and characteristic 2</div></li><li><span class="mk">5.</span><div>Derive Cardano's formula for the cubic and understand the casus irreducibilis</div></li><li><span class="mk">6.</span><div>Solve the quartic by Ferrari's method and its resolvent cubic</div></li><li><span class="mk">7.</span><div>Prove the fundamental theorem on symmetric polynomials and use Vieta's formulas and Newton's identities</div></li><li><span class="mk">8.</span><div>Compute resultants and discriminants and use them to eliminate variables</div></li><li><span class="mk">9.</span><div>Prove the fundamental theorem of algebra</div></li><li><span class="mk">10.</span><div>Build field extensions and splitting fields and compute their degrees</div></li><li><span class="mk">11.</span><div>State and apply the fundamental theorem of Galois theory</div></li><li><span class="mk">12.</span><div>Prove that the general quintic is not solvable by radicals, and exhibit an explicit unsolvable quintic</div></li><li><span class="mk">13.</span><div>Analyse Newton's method, prove its quadratic convergence, and count real roots with Sturm sequences</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/algebraic-equations-1.jpg" alt="A printed Latin page from Cardano's Ars Magna with a square diagram and the rule for solving a cubic" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Chapter XII of Cardano's Ars Magna (Nuremberg, 1545), on the cube equal to things and a number (x³ = px + q): a geometric demonstration, then the rule. Its worked example x³ = 6x + 40 gives ∛(20 + √392) + ∛(20 − √392), which equals 4. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/algebraic-equations-2.jpg" alt="Pencil portrait of the young Évariste Galois" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> Évariste Galois (1811–1832) at about fifteen, in a drawing of c. 1826. Before his death at twenty he showed that an equation is solvable by radicals exactly when its group is solvable. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>Linear Systems, Gaussian Elimination and Rank</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Polynomial Rings over a Field</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Factorization over ℤ and ℚ</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Quadratic Equations over Arbitrary Fields</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>The Cubic — Cardano's Formula and the Casus Irreducibilis</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>The Quartic — Ferrari's Method and the Resolvent Cubic</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Symmetric Polynomials and Vieta's Formulas</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Resultants, Discriminants and Elimination</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>The Fundamental Theorem of Algebra</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Field Extensions and Splitting Fields</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Galois Theory — The Fundamental Correspondence</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Solvability by Radicals and the Abel–Ruffini Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-13.html"><span><span class="lc-num">Lesson 13</span><br><strong>Numerical Solution — Newton's Method and Its Convergence</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Ars Magna Cardanische Formel. By Gerolamo Cardano. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Ars_Magna_Cardanische_Formel.png">https://commons.wikimedia.org/wiki/File:Ars_Magna_Cardanische_Formel.png</a></li><li><strong>Figure 2</strong> · Evariste galois. By Unknown author. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Evariste_galois.jpg">https://commons.wikimedia.org/wiki/File:Evariste_galois.jpg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

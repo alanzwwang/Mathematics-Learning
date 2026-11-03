@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mathematics Learning — Math Topics for Curious Kids!</title>
-<meta name="description" content="A kid-friendly math library: 20 topics from arithmetic to complex analysis, with lessons, pictures and practice problems.">
+<meta name="description" content="A kid-friendly math library: 20 topics from arithmetic to complex analysis, with lessons, pictures, practice problems and quizzes.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📐</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body id="top" class="mode-kid">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="index.html#geometry">📐 Geometry</a>
       <a href="index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="adult/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -34,7 +35,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <h2>👋 Welcome, math explorer!</h2>
   <p class="intro">Math isn't just numbers on a page. It's a giant toolbox for solving puzzles, building games, measuring the world and even exploring curved space!</p>
   <div class="how">
@@ -96,7 +97,7 @@
         </span>
       </a>
       <a class="topic-card" href="logarithms/index.html" style="--topic:#a855f7">
-        <img src="img/logarithms-1.jpg" alt="An old painted portrait of a man with a beard and a ruff collar" loading="lazy">
+        <img src="img/logarithms-1.jpg" alt="Portrait of John Napier, a bearded man with a ruff collar" loading="lazy">
         <span class="tc-body">
           <span class="tc-title">🪵 Logarithms</span>
           <span class="tc-blurb">The backwards question: what power do I need? Logs turn multiplying into adding!</span>
@@ -112,7 +113,7 @@
         </span>
       </a>
       <a class="topic-card" href="pascals-triangle/index.html" style="--topic:#ec4899">
-        <img src="img/pascals-triangle-1.jpg" alt="An old painted portrait of a man with long hair" loading="lazy">
+        <img src="img/pascals-triangle-1.jpg" alt="Portrait of Blaise Pascal, a man with long hair" loading="lazy">
         <span class="tc-body">
           <span class="tc-title">🔺 Pascal's Triangle</span>
           <span class="tc-blurb">A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!</span>
@@ -135,7 +136,7 @@
         </span>
       </a>
       <a class="topic-card" href="algebraic-geometry/index.html" style="--topic:#06b6d4">
-        <img src="img/algebraic-geometry-1.jpg" alt="An old painted portrait of a man with long dark hair and a moustache" loading="lazy">
+        <img src="img/algebraic-geometry-1.jpg" alt="Portrait of René Descartes, a man with long dark hair and a moustache" loading="lazy">
         <span class="tc-body">
           <span class="tc-title">🗺️ Algebraic Geometry</span>
           <span class="tc-blurb">Give every point an address (x, y) and watch equations draw lines, circles and parabolas!</span>
@@ -166,7 +167,7 @@
     <p class="group-blurb">Ready for a challenge? Big ideas from real mathematicians.</p>
     <div class="topic-grid">
       <a class="topic-card" href="calculus/index.html" style="--topic:#3b82f6">
-        <img src="img/calculus-1.jpg" alt="An old painted portrait of a man with long grey hair" loading="lazy">
+        <img src="img/calculus-1.jpg" alt="Portrait of Isaac Newton, a man with long grey hair" loading="lazy">
         <span class="tc-body">
           <span class="tc-title">♾️ Calculus</span>
           <span class="tc-blurb">The math of change: limits, derivatives, areas and the Fundamental Theorem.</span>
@@ -174,7 +175,7 @@
         </span>
       </a>
       <a class="topic-card" href="complex-analysis/index.html" style="--topic:#7c3aed">
-        <img src="img/complex-analysis-1.jpg" alt="An old painted portrait of a man wearing a cloth cap" loading="lazy">
+        <img src="img/complex-analysis-1.jpg" alt="Portrait of Leonhard Euler wearing a cloth cap" loading="lazy">
         <span class="tc-body">
           <span class="tc-title">🌀 Complex Analysis</span>
           <span class="tc-blurb">Meet i, the number whose square is −1, and see how multiplying can spin and stretch!</span>
@@ -214,7 +215,7 @@
         </span>
       </a>
       <a class="topic-card" href="permutations-vs-combinations/index.html" style="--topic:#e11d48">
-        <img src="img/permutations-vs-combinations-1.jpg" alt="A black padlock with a number dial" loading="lazy">
+        <img src="img/permutations-vs-combinations-1.jpg" alt="A silver padlock with a blue number dial" loading="lazy">
         <span class="tc-body">
           <span class="tc-title">🔐 Permutations vs Combinations</span>
           <span class="tc-blurb">Does order matter? Learn the big decision that every counting problem asks.</span>
@@ -239,7 +240,7 @@
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

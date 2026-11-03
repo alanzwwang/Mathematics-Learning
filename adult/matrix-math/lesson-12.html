@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Norms, Conditioning and Numerical Stability — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 12</p>
+    <h1>Norms, Conditioning and Numerical Stability</h1>
+    <p class="kicker">Lesson 12 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">κ(A) = ‖A‖ ‖A⁻¹‖,    κ₂(A) = σ₁/σₙ        ‖δx‖/‖x‖ ≤ κ(A) ‖δb‖/‖b‖
+forward error ≲ condition number × backward error</pre></div>
+<h3>Matrix norms</h3>
+<p>A vector norm ‖·‖ on 𝔽ⁿ induces the operator norm ‖A‖ = max<sub>‖x‖=1</sub> ‖Ax‖, which satisfies ‖Ax‖ ≤ ‖A‖‖x‖ and ‖AB‖ ≤ ‖A‖‖B‖. For the 1-norm the induced norm is the largest absolute column sum, for the ∞-norm it is the largest absolute row sum, and for the Euclidean norm it is the largest singular value, ‖A‖₂ = σ₁. The Frobenius norm ‖A‖<sub>F</sub> = (∑|a<sub>ij</sub>|²)<sup>1/2</sup> is not induced by any vector norm (‖I‖<sub>F</sub> = √n), but it is submultiplicative and unitarily invariant. For every induced norm ρ(A) ≤ ‖A‖, since Av = λv gives |λ|‖v‖ ≤ ‖A‖‖v‖.</p>
+<h3>Condition numbers</h3>
+<p>The condition number of an invertible matrix is κ(A) = ‖A‖‖A⁻¹‖ ≥ ‖AA⁻¹‖ = 1; in the 2-norm κ₂(A) = σ₁/σₙ. It measures how much relative errors in the data can be amplified in the solution. The term was introduced by Alan Turing in 1948, in a paper on rounding errors in matrix processes.</p>
+<p><strong>Theorem 12.1</strong>. Let Ax = b with b ≠ 0, and A(x + δx) = b + δb. Then ‖δx‖/‖x‖ ≤ κ(A) ‖δb‖/‖b‖, and for each A there exist b and δb for which equality holds.</p>
+<p><strong>Proof</strong>. From Aδx = δb, ‖δx‖ = ‖A⁻¹δb‖ ≤ ‖A⁻¹‖‖δb‖, and from b = Ax, ‖b‖ ≤ ‖A‖‖x‖. Multiplying the first inequality by the reciprocal of the second gives the bound. Equality holds when x is chosen with ‖Ax‖ = ‖A‖‖x‖ and δb with ‖A⁻¹δb‖ = ‖A⁻¹‖‖δb‖. ∎</p>
+<p><strong>Theorem 12.2</strong>. If Ax = b and (A + δA)(x + δx) = b, then ‖δx‖/‖x + δx‖ ≤ κ(A) ‖δA‖/‖A‖.</p>
+<p><strong>Proof</strong>. Subtracting gives Aδx = −δA(x + δx), so ‖δx‖ ≤ ‖A⁻¹‖‖δA‖‖x + δx‖ = κ(A)(‖δA‖/‖A‖)‖x + δx‖. ∎</p>
+<p><strong>Theorem 12.3 (Distance to singularity)</strong>. min { ‖E‖₂ : A + E singular } = σₙ(A), so the relative distance from A to the nearest singular matrix is 1/κ₂(A).</p>
+<p><strong>Proof</strong>. This is the case k = n − 1 of Theorem 10.2: the singular matrices are exactly the matrices of rank at most n − 1, and the nearest one is A<sub>n−1</sub> at distance σₙ. ∎</p>
+<p><strong>Worked example</strong>: A = [ 1 1 ; 1 1.0001 ] has det A = 0.0001 and A⁻¹ = 10⁴ [ 1.0001 −1 ; −1 1 ], so κ∞(A) = 2.0001 × 20001 ≈ 4.0 × 10⁴. The system Ax = (2, 2.0001) has solution x = (1, 1). Changing the right side to (2, 2.0002), a relative change of about 5 × 10⁻⁵ in the ∞-norm, changes the solution to (0, 2), a relative change of 1. The amplification factor 20001 is within the bound κ∞(A).</p>
+<p>A classical family of ill-conditioned matrices is the Hilbert matrix H<sub>n</sub> = (1/(i + j − 1)), the Gram matrix of 1, t, …, t<sup>n−1</sup> in L²(0, 1). It is positive definite, but κ₂(H₃) ≈ 524, κ₂(H₅) ≈ 4.8 × 10⁵ and κ₂(H₁₀) ≈ 1.6 × 10¹³, growing roughly like e<sup>3.5n</sup>. This is why fitting high-degree polynomials in the monomial basis is numerically hopeless, and why orthogonal polynomial bases are used instead. Note also that κ₂(A*A) = κ₂(A)², because the singular values of A*A are the squares of those of A; forming the normal equations squares the condition number.</p>
+<h3>Floating point and backward stability</h3>
+<p>IEEE double-precision arithmetic has unit roundoff u = 2⁻⁵³ ≈ 1.1 × 10⁻¹⁶: each arithmetic operation returns the exact result multiplied by (1 + δ) with |δ| ≤ u. An algorithm is backward stable if its computed output is the exact output for slightly perturbed input, with a relative perturbation of order u. Wilkinson's analysis (1961) showed that Gaussian elimination with partial pivoting computes x̂ satisfying (A + E)x̂ = b with ‖E‖∞ ≤ c n³ ρ<sub>n</sub> u ‖A‖∞ for a modest constant c, where the growth factor ρ<sub>n</sub> is the ratio of the largest entry produced during elimination to the largest entry of A. The worst case is ρ<sub>n</sub> = 2<sup>n−1</sup> (Practice Problem 56), but for matrices met in practice the growth is small, a phenomenon explained only partially to this day. Householder QR and the Cholesky factorization are backward stable unconditionally. Combining backward stability with Theorem 12.2 gives the rule of thumb that solving a linear system loses about log₁₀ κ(A) of the sixteen significant digits available.</p>
+<h3>Sensitivity of eigenvalues</h3>
+<p><strong>Theorem 12.4 (Bauer–Fike)</strong>. Let A = VΛV⁻¹ be diagonalizable and let μ be an eigenvalue of A + E. Then min<sub>i</sub> |μ − λ<sub>i</sub>| ≤ κ<sub>p</sub>(V) ‖E‖<sub>p</sub> for every p-norm.</p>
+<p><strong>Proof</strong>. If μ is an eigenvalue of A there is nothing to prove. Otherwise μI − A − E is singular, and μI − A − E = V(μI − Λ)(I − (μI − Λ)⁻¹V⁻¹EV)V⁻¹, so the last bracket is singular. Then 1 ≤ ‖(μI − Λ)⁻¹V⁻¹EV‖<sub>p</sub> ≤ κ<sub>p</sub>(V)‖E‖<sub>p</sub> / min<sub>i</sub> |μ − λ<sub>i</sub>|, because the p-norm of a diagonal matrix is the largest modulus of its entries. ∎</p>
+<p>For normal matrices V can be taken unitary, κ₂(V) = 1, and eigenvalues move no further than ‖E‖₂, in agreement with Weyl's inequalities. Non-normal matrices can be dramatically worse: perturbing the (n, 1) entry of J<sub>n</sub>(0) from 0 to ε produces the characteristic polynomial λⁿ − ε, whose roots have modulus ε<sup>1/n</sup>. For n = 10 and ε = 10⁻¹⁰ the eigenvalues move from 0 to modulus 0.1.</p>
+<h3>Computing eigenvalues</h3>
+<p>The power iteration x<sub>k+1</sub> = Ax<sub>k</sub>/‖Ax<sub>k</sub>‖ converges to a dominant eigenvector at the rate |λ₂/λ₁|ᵏ when |λ₁| &gt; |λ₂| (Practice Problem 57); it is the method behind PageRank. The standard algorithm for all eigenvalues of a dense matrix is the QR algorithm, found independently by John Francis (1961–62) and Vera Kublanovskaya (1961): factor A<sub>k</sub> = Q<sub>kR</sub><sub>k</sub> and set A<sub>k+1</sub> = R<sub>kQ</sub><sub>k</sub> = Q<sub>k</sub>*A<sub>kQ</sub><sub>k</sub>. Each iterate is unitarily similar to A, and under mild conditions A<sub>k</sub> converges to the Schur form. In practice the matrix is first reduced to Hessenberg form, shifts are used to accelerate convergence, and the whole computation takes O(n³) operations and is backward stable. The SVD is computed by the closely related Golub–Kahan–Reinsch algorithm, which never forms A*A.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute κ₂(diag(10, 0.1)).</div></li><li><span class="mk">(b)</span><div>Show that κ₂(Q) = 1 for every unitary Q, and that κ₂(QA) = κ₂(A).</div></li><li><span class="mk">(c)</span><div>Compute ‖A‖₁ and ‖A‖∞ for A = [ 1 −2 ; 3 4 ].</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The singular values are 10 and 0.1, so κ₂ = 10/0.1 = 100. (b) ‖Qx‖₂ = ‖x‖₂ gives ‖Q‖₂ = 1, and Q⁻¹ = Q* is unitary too, so κ₂(Q) = 1; multiplying by Q does not change singular values, so κ₂(QA) = κ₂(A). (c) The absolute column sums are 4 and 6, so ‖A‖₁ = 6; the absolute row sums are 3 and 7, so ‖A‖∞ = 7.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

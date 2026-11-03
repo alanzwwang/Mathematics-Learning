@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: The Laws of Arithmetic by Induction — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 2</p>
+    <h1>The Laws of Arithmetic by Induction</h1>
+    <p class="kicker">Lesson 2 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">(ℕ, +, ·, ≤) is a commutative semiring with cancellation,
+totally ordered, with no zero divisors, and well ordered.
+Every law is proved by induction on one variable, using the recursive definitions.</pre></div>
+<h3>Addition</h3>
+<p>The recursive definition of addition treats its two arguments asymmetrically: recursion is on the right-hand argument. Commutativity, which is obvious to a child counting pebbles, therefore requires proof. The standard route goes through two lemmas.</p>
+<p><strong>Lemma 2.1</strong>. For all a ∈ ℕ, 0 + a = a.</p>
+<p><strong>Proof</strong>. Induction on a. The case a = 0 is the definition 0 + 0 = 0. If 0 + a = a then 0 + S(a) = S(0 + a) = S(a). ∎</p>
+<p><strong>Lemma 2.2</strong>. For all a, b ∈ ℕ, S(a) + b = S(a + b).</p>
+<p><strong>Proof</strong>. Induction on b. For b = 0 both sides equal S(a). If S(a) + b = S(a + b), then S(a) + S(b) = S(S(a) + b) = S(S(a + b)) = S(a + S(b)). ∎</p>
+<p><strong>Theorem 2.3</strong>. Addition is associative and commutative, and it satisfies cancellation: a + c = b + c implies a = b.</p>
+<p><strong>Proof</strong>. Associativity, (a + b) + c = a + (b + c), by induction on c. For c = 0 both sides are a + b. If it holds for c, then (a + b) + S(c) = S((a + b) + c) = S(a + (b + c)) = a + S(b + c) = a + (b + S(c)).</p>
+<p>Commutativity, a + b = b + a, by induction on b. For b = 0 this is a = 0 + a, Lemma 2.1. If a + b = b + a then a + S(b) = S(a + b) = S(b + a) = S(b) + a, the last step being Lemma 2.2.</p>
+<p>Cancellation by induction on c. For c = 0 there is nothing to prove. If a + S(c) = b + S(c) then S(a + c) = S(b + c), so a + c = b + c by P1, and a = b by the induction hypothesis. ∎</p>
+<h3>Multiplication</h3>
+<p><strong>Theorem 2.4</strong>. Multiplication is commutative and associative, distributes over addition, has identity 1, and has no zero divisors: ab = 0 implies a = 0 or b = 0.</p>
+<p><strong>Proof</strong>. We give the steps in a workable order.</p>
+<p>Left distributivity a(b + c) = ab + ac, by induction on c: for c = 0 both sides are ab. If it holds for c then a(b + S(c)) = a · S(b + c) = a(b + c) + a = (ab + ac) + a = ab + (ac + a) = ab + a · S(c).</p>
+<p>The identities 0 · a = 0 and S(a) · b = ab + b follow by induction on the second variable, exactly as in Lemmas 2.1 and 2.2; for instance S(a) · S(b) = S(a) · b + S(a) = (ab + b) + S(a) = ab + S(b + a) = (ab + a) + S(b) = a · S(b) + S(b), using associativity and commutativity of addition and Lemma 2.2. With these, commutativity ab = ba follows by induction on b. Right distributivity then follows from left distributivity and commutativity. Associativity (ab)c = a(bc) is induction on c: (ab) · S(c) = (ab)c + ab = a(bc) + ab = a(bc + b) = a(b · S(c)). Finally a · 1 = a · S(0) = a · 0 + a = 0 + a = a.</p>
+<p>For zero divisors, suppose a ≠ 0 and b ≠ 0. By Lemma 1.2 write b = S(c); then ab = ac + a, and a = S(d) gives ab = S(ac + d) ≠ 0 by P2. ∎</p>
+<h3>Order</h3>
+<p><strong>Definition 2.5</strong>. For a, b ∈ ℕ write a ≤ b if there is c ∈ ℕ with a + c = b; such c is unique by cancellation and is denoted b − a. Write a &lt; b if a ≤ b and a ≠ b.</p>
+<p><strong>Theorem 2.6</strong>. The relation ≤ is a total order on ℕ, compatible with the operations: a ≤ b implies a + c ≤ b + c and ac ≤ bc. Moreover a &lt; b if and only if S(a) ≤ b.</p>
+<p><strong>Proof</strong>. Reflexivity: a + 0 = a. Transitivity: a + c = b and b + d = e give a + (c + d) = e. Antisymmetry: if a + c = b and b + d = a then a + (c + d) = a = a + 0, so c + d = 0 by cancellation; if d ≠ 0 then d = S(m) and c + d = S(c + m) ≠ 0, so d = 0 and c = 0, whence a = b. Totality: fix a and let A = {b : a ≤ b or b ≤ a}. Clearly 0 ≤ a, so 0 ∈ A. If b ≤ a, write a = b + c; either c = 0 and then a ≤ S(b), or c = S(m) and then a = S(b) + m, so S(b) ≤ a. If a ≤ b then a ≤ S(b). By P3, A = ℕ. Compatibility is immediate from the definitions. For the final statement, a &lt; b means b = a + c with c ≠ 0, so c = S(m) and b = S(a) + m. ∎</p>
+<p><strong>Theorem 2.7 (Well-ordering principle)</strong>. Every nonempty subset of ℕ has a least element.</p>
+<p><strong>Proof</strong>. Suppose E ⊆ ℕ has no least element. Let A = {n : no element of E is ≤ n}. Then 0 ∈ A, for otherwise 0 ∈ E would be least. If n ∈ A and S(n) ∉ A, some e ∈ E satisfies e ≤ S(n); since e ≤ n is excluded, e = S(n) (by totality and Theorem 2.6, n &lt; e ≤ S(n) forces e = S(n)), and then e would be the least element of E. So S(n) ∈ A, A = ℕ and E = ∅. ∎</p>
+<p>Well-ordering is equivalent (given the other axioms) to the principle of strong induction: if a property holds for n whenever it holds for all m &lt; n, then it holds for every n. Both are used freely below.</p>
+<h3>Exponents</h3>
+<p>The exponent laws a<sup>m + n</sup> = a<sup>m</sup> · a<sup>n</sup>, (a<sup>m</sup>)<sup>n</sup> = a<sup>mn</sup> and (ab)<sup>n</sup> = a<sup>n</sup> b<sup>n</sup> are proved by induction on n from the recursion a<sup>S(n)</sup> = a<sup>n</sup> · a; for the first, a<sup>m + S(n)</sup> = a<sup>S(m + n)</sup> = a<sup>m + n</sup> · a = a<sup>m</sup> · a<sup>n</sup> · a = a<sup>m</sup> · a<sup>S(n)</sup>. Note that the definition forces 0⁰ = 1, the convention that makes the binomial theorem and power series hold without exception.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Prove by induction on n that a<sup>mn</sup> = (a<sup>m</sup>)<sup>n</sup>, using the first exponent law.</div></li><li><span class="mk">(b)</span><div>Show that a ≤ b and c ≤ d imply a + c ≤ b + d.</div></li><li><span class="mk">(c)</span><div>Show that if ab = ac and a ≠ 0, then b = c.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) For n = 0 both sides are 1. If a<sup>mn</sup> = (a<sup>m</sup>)<sup>n</sup> then a<sup>m · S(n)</sup> = a<sup>mn + m</sup> = a<sup>mn</sup> · a<sup>m</sup> = (a<sup>m</sup>)<sup>n</sup> · a<sup>m</sup> = (a<sup>m</sup>)<sup>S(n)</sup>. (b) Write b = a + x and d = c + y; then b + d = (a + c) + (x + y) by associativity and commutativity. (c) By totality we may assume b ≤ c, so c = b + x. Then ab = ab + ax, so ax = 0 by cancellation, and since a ≠ 0 we get x = 0 by the absence of zero divisors.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Classification of Plane Isometries — Geometry (Advanced)</title>
+<meta name="description" content="Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Geometry</a> › Lesson 3</p>
+    <h1>Classification of Plane Isometries</h1>
+    <p class="kicker">Lesson 3 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Hilbert's Axioms and the Foundations of Geometry">1</a><a href="lesson-2.html" title="Lesson 2: Isometries of the Euclidean Plane">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Classification of Plane Isometries">3</a><a href="lesson-4.html" title="Lesson 4: Symmetry Groups, Lattices and the Crystallographic Restriction">4</a><a href="lesson-5.html" title="Lesson 5: Triangle Centres, the Euler Line and the Nine-Point Circle">5</a><a href="lesson-6.html" title="Lesson 6: Ceva, Menelaus and Routh">6</a><a href="lesson-7.html" title="Lesson 7: Power of a Point, Radical Axes and Inversion">7</a><a href="lesson-8.html" title="Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus">8</a><a href="lesson-9.html" title="Lesson 9: The Euler Characteristic and Angular Defect">9</a><a href="lesson-10.html" title="Lesson 10: Regular Polytopes and the Platonic Solids">10</a><a href="lesson-11.html" title="Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem">11</a><a href="lesson-12.html" title="Lesson 12: Constructibility with Straightedge and Compass">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every isometry of the plane is one of: identity, translation, rotation,
+reflection, glide reflection — and is a product of at most three reflections.</pre></div>
+<h3>Reflections generate the group</h3>
+<p><strong>Theorem 3.1</strong>. Every isometry of ℝ² is the composition of at most three reflections.</p>
+<p><strong>Proof</strong>. Let T be an isometry. If T = id, it is the product of zero reflections. Otherwise pick a point P with T(P) ≠ P and let σ₁ be the reflection in the perpendicular bisector of P and T(P), so σ₁T fixes P. Now we have an isometry fixing a point. If it is not the identity, pick Q with σ₁T(Q) ≠ Q; since σ₁T(P) = P, the points Q and σ₁T(Q) are equidistant from P, so the perpendicular bisector of Q and σ₁T(Q) passes through P, and the reflection σ₂ in it fixes P; then σ₂σ₁T fixes P and Q, hence fixes every point of line PQ. If it is not yet the identity, it is a non-identity isometry fixing a line pointwise, and by Corollary 2.3 it must be the reflection σ₃ in that line (an isometry fixing PQ pointwise and some third non-collinear point is the identity; otherwise it agrees with the reflection on three non-collinear points). In all cases T is the product of at most three reflections. ∎</p>
+<h3>Products of two reflections</h3>
+<p>Let σ<sub>ℓ</sub> denote the reflection in a line ℓ. If ℓ and m are parallel at distance d, then σ<sub>m</sub> σ<sub>ℓ</sub> is the translation by 2d in the direction perpendicular to the lines, from ℓ towards m. If ℓ and m meet at O with directed angle θ from ℓ to m, then σ<sub>m</sub> σ<sub>ℓ</sub> is the rotation about O through 2θ. This follows from S<sub>β</sub> S<sub>α</sub> = R<sub>2(β−α)</sub>. Conversely, every translation and every rotation can be factored in infinitely many ways as a product of two reflections: for a rotation about O through φ one may take any line ℓ through O and let m be the line through O at angle φ/2 from ℓ. This freedom is the key computational tool.</p>
+<p>Composition of rotations. Let ρ<sub>A</sub> be rotation about A through α and ρ<sub>B</sub> rotation about B through β, with A ≠ B. Let n = line AB, choose ℓ through A with ρ<sub>A</sub> = σ<sub>n</sub> σ<sub>ℓ</sub> and m through B with ρ<sub>B</sub> = σ<sub>m</sub> σ<sub>n</sub>. Then ρ<sub>B</sub> ρ<sub>A</sub> = σ<sub>m</sub> σ<sub>n</sub> σ<sub>n</sub> σ<sub>ℓ</sub> = σ<sub>m</sub> σ<sub>ℓ</sub>. If α + β is not a multiple of 2π, the lines ℓ and m meet at a point C and ρ<sub>B</sub> ρ<sub>A</sub> is the rotation about C through α + β; the triangle ABC has angles α/2 at A and β/2 at B. If α + β ≡ 0 (mod 2π), then ℓ ∥ m and the composite is a translation. In particular the composite of two half-turns about A and B is the translation by 2(B − A).</p>
+<h3>The classification</h3>
+<p><strong>Theorem 3.2</strong>. Every isometry of ℝ² is exactly one of the following.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>The identity (fixes every point).</div></li><li><span class="mk">2.</span><div>A non-trivial translation x ↦ x + v, v ≠ 0 (no fixed point, direct).</div></li><li><span class="mk">3.</span><div>A non-trivial rotation about a point (exactly one fixed point, direct).</div></li><li><span class="mk">4.</span><div>A reflection in a line (fixes exactly a line, opposite).</div></li><li><span class="mk">5.</span><div>A glide reflection: a reflection in a line ℓ followed by a non-zero translation along ℓ (no fixed point, opposite).</div></li></ul>
+<p><strong>Proof</strong>. Write T(x) = Ax + b. Suppose first det A = 1, so A = R<sub>θ</sub>. If θ ≡ 0, T is a translation (or the identity). If θ ≢ 0, then I − A is invertible (its determinant is 2 − 2cos θ &gt; 0), so T(x) = x has a unique solution c, and T(x) = A(x − c) + c is the rotation about c through θ. Now suppose det A = −1. Then A = S<sub>α</sub> is the reflection in a line L₀ through 0 with unit direction u, and has eigenvalues 1 (eigenvector u) and −1 (eigenvector u⊥). Decompose b = su + tu⊥. Then T(x) = S<sub>α</sub> x + tu⊥ + su. The map x ↦ S<sub>α</sub> x + tu⊥ is the reflection in the line ℓ = L₀ + (t/2)u⊥, because it fixes that line pointwise and is opposite. Hence T is the reflection in ℓ followed by the translation su along ℓ; T is a reflection if s = 0 and a glide reflection if s ≠ 0. The five types are distinguished by orientation and fixed-point sets, so they are mutually exclusive. ∎</p>
+<p>The proof gives an effective test. For an opposite isometry T(x) = Ax + b, with u a unit vector fixed by A, the glide component is s = ⟨b, u⟩; T is a reflection if and only if ⟨b, u⟩ = 0, equivalently if and only if T² = id, since T² is the translation by 2su.</p>
+<h3>Fixed points and conjugacy classes</h3>
+<p>Conjugation by g ∈ E(2) maps a rotation about c through θ to the rotation about g(c) through ±θ (with the sign − if g is opposite), a translation by v to the translation by Av, a reflection in ℓ to the reflection in g(ℓ), and a glide reflection with axis ℓ and glide length s to one with axis g(ℓ) and the same glide length. Thus the conjugacy classes of E(2) are: the identity; all translations of a given length; rotations through ±θ for fixed θ ∈ (0, π]; all reflections; and glide reflections with a given glide length. In SE(2) rotations through θ and −θ are not conjugate.</p>
+<h3>Complex form</h3>
+<p>Identify ℝ² with ℂ. Direct isometries are z ↦ e<sup>iθ</sup>z + b and opposite ones are z ↦ e<sup>iθ</sup>z̄ + b. The rotation about c through θ is z ↦ c + e<sup>iθ</sup>(z − c). For an opposite isometry, T²(z) = e<sup>iθ</sup>(e<sup>−iθ</sup>z + b̄) + b = z + e<sup>iθ</sup>b̄ + b, so T is a reflection iff e<sup>iθ</sup>b̄ + b = 0, and otherwise a glide reflection with translation part (e<sup>iθ</sup>b̄ + b)/2.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Let σ₁ be the reflection in the x-axis and σ₂ the reflection in the line y = x. Identify σ₂σ₁.</div></li><li><span class="mk">(b)</span><div>Let ρ₀ be the rotation through 90° about (0, 0) and ρ₁ the rotation through 90° about (1, 0). Identify ρ₁ρ₀ and find its fixed point.</div></li><li><span class="mk">(c)</span><div>Classify T(x, y) = (−x + 4, y + 3) and T(x, y) = (y + 2, x + 3).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) σ₁(x, y) = (x, −y) and σ₂(x, y) = (y, x), so σ₂σ₁(x, y) = (−y, x): the rotation about the origin through +90°, twice the 45° angle from the x-axis to y = x. (b) ρ₀(x, y) = (−y, x) and ρ₁(x, y) = (1 − y, x − 1), so ρ₁ρ₀(x, y) = (1 − x, −y − 1). This is a half-turn (angles add to 180°); solving 1 − x = x and −y − 1 = y gives the centre (1/2, −1/2). (c) The first has A = diag(−1, 1), the reflection in the y-axis, with fixed direction u = (0, 1) and ⟨b, u⟩ = 3 ≠ 0: a glide reflection with axis x = 2 and glide vector (0, 3). The second has A the reflection in y = x, u = (1, 1)/√2, ⟨b, u⟩ = 5/√2 ≠ 0: a glide reflection; T²(x, y) = (x + 5, y + 5), so the glide vector is (5/2, 5/2), and the axis is y = x + 1/2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

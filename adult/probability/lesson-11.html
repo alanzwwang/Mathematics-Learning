@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Markov Chains — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 11</p>
+    <h1>Markov Chains</h1>
+    <p class="kicker">Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P(Xₙ₊₁ = j | X₀, …, Xₙ) = p(Xₙ, j);   πP = π;   for an irreducible, aperiodic,
+positive recurrent chain,  Pⁿ(i, j) → π(j) = 1/E<sub>j</sub>[T<sub>j</sub>]  for all i, j.</pre></div>
+<h3>Definitions</h3>
+<p>Let S be a finite or countable state space. A stochastic matrix P = (p(i, j)) has nonnegative entries and rows summing to 1. A sequence X₀, X₁, … is a Markov chain with transition matrix P if</p>
+<pre class="math">P(Xₙ₊₁ = j | X₀ = i₀, …, Xₙ₋₁ = iₙ₋₁, Xₙ = i) = p(i, j)</pre>
+<p>whenever the conditioning event has positive probability. The future depends on the past only through the present. Summing over intermediate states gives the Chapman–Kolmogorov equations Pᵐ⁺ⁿ = PᵐPⁿ, so the n-step transition probabilities are the entries of the matrix power Pⁿ, and if X₀ has law λ (a row vector) then Xₙ has law λPⁿ. The strong Markov property states that, at any stopping time T with X<sub>T</sub> = i, the process (X<sub>T+n</sub>) is again a Markov chain started from i, independent of the past before T.</p>
+<h3>Classification of states</h3>
+<p>State j is accessible from i if Pⁿ(i, j) &gt; 0 for some n ≥ 0; i and j communicate if each is accessible from the other. Communication is an equivalence relation, and the chain is irreducible if there is only one class. The period of i is d(i) = gcd{n ≥ 1 : Pⁿ(i, i) &gt; 0}; it is a class property, and the chain is aperiodic if d = 1 (for instance, if some p(i, i) &gt; 0 in an irreducible chain).</p>
+<p>Let Tᵢ = inf{n ≥ 1 : Xₙ = i} be the first return time. State i is recurrent if Pᵢ(Tᵢ &lt; ∞) = 1 and transient otherwise. By the strong Markov property the number of visits Vᵢ to i is geometric when i is transient, and infinite a.s. when i is recurrent, so</p>
+<pre class="math">i is recurrent  ⇔  Eᵢ Vᵢ = ∑ₙ Pⁿ(i, i) = ∞</pre>
+<p>A recurrent state is positive recurrent if Eᵢ Tᵢ &lt; ∞ and null recurrent otherwise. Recurrence and positive recurrence are class properties. In a finite irreducible chain every state is positive recurrent.</p>
+<p><strong>Theorem 11.1 (Pólya, 1921)</strong>. The simple symmetric random walk on ℤᵈ is recurrent for d = 1 and d = 2 and transient for d ≥ 3.</p>
+<p>Proof for d = 1 and a sketch for d ≥ 2. Returns occur only at even times, and P²ⁿ(0, 0) = C(2n, n) 2⁻²ⁿ ∼ 1/√(πn) by Stirling's formula. The series ∑ n<sup>−1/2</sup> diverges, so the walk is recurrent. In dimension d the return probability at time 2n is of order n<sup>−d/2</sup> (for d = 2 it is exactly [C(2n, n) 2⁻²ⁿ]², because the walk rotated by 45° splits into two independent one-dimensional walks), and ∑ n<sup>−d/2</sup> converges precisely when d ≥ 3. ∎</p>
+<p>In three dimensions the probability of ever returning to the origin is approximately 0.3405. Kakutani's quip summarises the theorem: a drunk man will find his way home, but a drunk bird may get lost forever.</p>
+<h3>Stationary distributions</h3>
+<p>A probability vector π is stationary if πP = π: if X₀ has law π, so does every Xₙ.</p>
+<p><strong>Theorem 11.2</strong>. An irreducible chain has a stationary distribution if and only if it is positive recurrent. The stationary distribution is then unique and given by π(j) = 1/E<sub>j</sub> T<sub>j</sub>.</p>
+<p>The construction behind the theorem: fix a state k and let μ(j) be the expected number of visits to j during an excursion from k, that is, before Tₖ. Then μ is invariant (μP = μ), μ(k) = 1 and ∑ⱼ μ(j) = Eₖ Tₖ; normalising gives π(k) = 1/Eₖ Tₖ.</p>
+<p>A useful sufficient condition is detailed balance: if π(i) p(i, j) = π(j) p(j, i) for all i, j, then summing over i gives πP = π. Such chains are reversible, since in equilibrium the process has the same law run forwards and backwards. For a random walk on a finite connected graph, moving to a uniformly random neighbour, π(v) = deg(v)/(2|E|) satisfies detailed balance.</p>
+<p><strong>Worked example 11.3</strong>. Consider the chain on {1, 2, 3} with</p>
+<pre class="math">P = [ 1/2  1/2   0  ]
+    [ 1/4  1/2  1/4 ]
+    [  0   1/2  1/2 ]</pre>
+<p>Detailed balance gives π(1) · 1/2 = π(2) · 1/4 and π(2) · 1/4 = π(3) · 1/2, so π(2) = 2π(1) and π(3) = π(1). Normalising, π = (1/4, 1/2, 1/4). By Theorem 11.2 the mean return time to state 2 is 2 steps, and to state 1 it is 4 steps.</p>
+<h3>Convergence to equilibrium</h3>
+<p><strong>Theorem 11.4 (convergence theorem)</strong>. If the chain is irreducible, aperiodic and has stationary distribution π, then for every initial state i, ∑ⱼ |Pⁿ(i, j) − π(j)| → 0.</p>
+<p>Proof by coupling (Doeblin, 1938). Run the chain X from i and an independent copy Y from π. Aperiodicity and irreducibility imply that the product chain (X, Y) is irreducible, and it has the stationary distribution π ⊗ π, so it is recurrent and the coupling time τ = inf{n : Xₙ = Yₙ} is finite a.s. After τ, let X follow Y; this does not change the law of X. Then for every set A of states, |P(Xₙ ∈ A) − π(A)| ≤ P(τ &gt; n), which is the total variation bound ‖Pⁿ(i, ·) − π‖<sub>TV</sub> ≤ P(τ &gt; n) → 0. ∎</p>
+<p>Aperiodicity is necessary: the chain on {1, 2} that always switches state has π = (1/2, 1/2) but Pⁿ(1, 1) alternates between 0 and 1. For a finite chain the rate is governed by the eigenvalues of P: if all eigenvalues other than 1 have modulus at most λ* &lt; 1, the distance decays like (λ*)ⁿ up to a polynomial factor. For the two-state chain with p(1, 2) = a and p(2, 1) = b (0 &lt; a + b &lt; 2),</p>
+<pre class="math">π = ( b/(a + b),  a/(a + b) ),      Pⁿ(1, 1) = b/(a + b) + (a/(a + b)) (1 − a − b)ⁿ</pre>
+<p>The ergodic theorem completes the picture: for an irreducible positive recurrent chain and any bounded f, (1/n) ∑<sub>k&lt;n</sub> f(Xₖ) → ∑ⱼ π(j) f(j) almost surely, whatever the initial state. Time averages equal space averages. This is the basis of Markov chain Monte Carlo: to sample from a complicated π (for example a posterior distribution), the Metropolis–Hastings algorithm builds a reversible chain with stationary law π and averages along its path. The study of how long such chains take to mix, including the cutoff phenomenon discovered by Diaconis and Shahshahani (seven riffle shuffles suffice to mix a 52-card deck, in the sense of Bayer and Diaconis, 1992), is an active research area.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>For the two-state chain with a = 0.3 and b = 0.1, find π and P¹⁰(1, 1) to four decimal places.</div></li><li><span class="mk">(b)</span><div>A random walk moves on the vertices of a star graph with one centre joined to 5 leaves. Find the stationary distribution and the mean return time to the centre. Is the chain aperiodic?</div></li><li><span class="mk">(c)</span><div>Use Stirling's formula to estimate P²⁰⁰(0, 0) for the simple symmetric random walk on ℤ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) π = (0.25, 0.75); P¹⁰(1, 1) = 0.25 + 0.75 · 0.6¹⁰ ≈ 0.25 + 0.75 · 0.0060466 ≈ 0.2545. (b) The centre has degree 5 and each leaf degree 1, with 2|E| = 10, so π(centre) = 1/2 and π(leaf) = 1/10; the mean return time to the centre is 2. The chain has period 2 (it alternates between the centre and the leaves), so it is not aperiodic and Pⁿ does not converge. (c) n = 100: 1/√(100π) ≈ 0.0564 (the exact value C(200, 100)/2²⁰⁰ ≈ 0.0563).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

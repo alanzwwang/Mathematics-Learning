@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Positive Definite Matrices and Quadratic Forms — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 9</p>
+    <h1>Positive Definite Matrices and Quadratic Forms</h1>
+    <p class="kicker">Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">x*Ax &gt; 0  ⇔  all λ<sub>i</sub> &gt; 0  ⇔  A = B*B (B invertible)  ⇔  A = LL*  ⇔  all leading minors &gt; 0
+the inertia (n₊, n₋, n₀) is invariant under congruence A ↦ S*AS</pre></div>
+<h3>Five characterizations</h3>
+<p>A Hermitian matrix A is positive definite (A ≻ 0) if x*Ax &gt; 0 for every x ≠ 0, and positive semidefinite (A ⪰ 0) if x*Ax ≥ 0 for every x. Positive definite matrices are exactly the Gram matrices of linearly independent vectors, the covariance matrices of nondegenerate random vectors, the Hessians at strict local minima satisfying the second-order sufficient condition, and the matrices of inner products: ⟨x, y⟩_A = y*Ax is an inner product precisely when A ≻ 0.</p>
+<p><strong>Theorem 9.1</strong>. For Hermitian A ∈ 𝔽<sup>n×n</sup> the following are equivalent:</p>
+<ul class="steps"><li><span class="mk">(i)</span><div>x*Ax &gt; 0 for all x ≠ 0</div></li><li><span class="mk">(ii)</span><div>every eigenvalue of A is positive</div></li><li><span class="mk">(iii)</span><div>A = B*B for some invertible B</div></li><li><span class="mk">(iv)</span><div>A = LL* for a lower triangular L with positive diagonal (Cholesky factorization), and L is unique</div></li><li><span class="mk">(v)</span><div>every leading principal minor det A<sub>k</sub> (k = 1, …, n) is positive (Sylvester's criterion)</div></li></ul>
+<p><strong>Proof</strong>. (i) ⇔ (ii): if Aq = λq with ‖q‖ = 1, then q*Aq = λ; conversely, writing x = ∑ c<sub>i</sub> q<sub>i</sub> in an orthonormal eigenbasis, x*Ax = ∑ λ<sub>i</sub> |c<sub>i</sub>|². (ii) ⇒ (iii): by the spectral theorem A = UΛU*; take B = Λ<sup>1/2</sup>U*. (iii) ⇒ (i): x*B*Bx = ‖Bx‖² &gt; 0 since B is injective. (i) ⇒ (v): for x ∈ 𝔽<sup>k</sup> \ {0}, padding x with zeros gives x*A<sub>kx</sub> &gt; 0, so A<sub>k</sub> satisfies (i), hence (ii), and det A<sub>k</sub> is a product of positive numbers. (v) ⇒ (iv): by Theorem 2.3, A = LU with L unit lower triangular, and u₁₁ ⋯ u<sub>kk</sub> = det A<sub>k</sub> &gt; 0, so every u<sub>kk</sub> &gt; 0. Write U = DM with D = diag(u<sub>kk</sub>) and M unit upper triangular. Then A = LDM, and A = A* = M*D L* is another factorization of the same type, so uniqueness gives M = L*. Hence A = (LD<sup>1/2</sup>)(LD<sup>1/2</sup>)*. Uniqueness of the Cholesky factor follows from the uniqueness of LU. (iv) ⇒ (iii) is immediate with B = L*. ∎</p>
+<p>The Cholesky factor is computed column by column from the identity A = LL*: for real A,</p>
+<pre class="math">l<sub>jj</sub> = ( a<sub>jj</sub> − ∑<sub>k&lt;j</sub> l<sub>jk²</sub> )<sup>1/2</sup>,        l<sub>ij</sub> = ( a<sub>ij</sub> − ∑<sub>k&lt;j</sub> l<sub>ik</sub> l<sub>jk</sub> ) / l<sub>jj</sub>   (i &gt; j)</pre>
+<p>at a cost of about n³/3 operations, half that of LU, and no pivoting is needed for stability. If a radicand is not positive, A is not positive definite: Cholesky is also the cheapest practical test of definiteness. The method is due to André-Louis Cholesky, an officer in the French army geodetic service, and was published posthumously in 1924.</p>
+<p><strong>Worked example</strong>: for A = [ 4 2 2 ; 2 5 3 ; 2 3 6 ] the formulas give l₁₁ = 2, l₂₁ = 1, l₃₁ = 1, l₂₂ = √(5 − 1) = 2, l₃₂ = (3 − 1 · 1)/2 = 1 and l₃₃ = √(6 − 1 − 1) = 2. Hence</p>
+<pre class="math">[ 4  2  2 ]   [ 2  0  0 ] [ 2  1  1 ]
+[ 2  5  3 ] = [ 1  2  0 ] [ 0  2  1 ]
+[ 2  3  6 ]   [ 1  1  2 ] [ 0  0  2 ]</pre>
+<p>The leading minors are 4, 16 and 64 = (2 · 2 · 2)², all positive, as Sylvester's criterion predicts.</p>
+<h3>Semidefinite matrices and square roots</h3>
+<p>For semidefinite matrices the analogues of (i)–(iv) hold with &quot;positive&quot; replaced by &quot;nonnegative&quot; and invertibility dropped, but (v) fails: A = [ 0 0 ; 0 −1 ] has leading minors 0 and 0 yet is not semidefinite. The correct criterion is that all principal minors, not merely the leading ones, are nonnegative. Every A ⪰ 0 has a unique positive semidefinite square root A<sup>1/2</sup> = UΛ<sup>1/2</sup>U*. Uniqueness holds because any positive semidefinite B with B² = A commutes with A, hence preserves each eigenspace of A, and on the eigenspace for λ it is a positive semidefinite matrix whose square is λI, so it acts there as √λ times the identity.</p>
+<h3>Congruence and Sylvester's law of inertia</h3>
+<p>Matrices A and S*AS with S invertible are congruent; they represent the same Hermitian form x ↦ x*Ax in different coordinates. Congruence does not preserve eigenvalues, but it preserves their signs. Let n₊(A), n₋(A), n₀(A) be the numbers of positive, negative and zero eigenvalues, counted with multiplicity; the triple is the inertia of A.</p>
+<p><strong>Theorem 9.2 (Sylvester's law of inertia, 1852)</strong>. Congruent Hermitian matrices have the same inertia.</p>
+<p><strong>Proof</strong>. First, n₊(A) is the largest dimension of a subspace W on which x*Ax &gt; 0 for all nonzero x ∈ W. Indeed the span of the eigenvectors for positive eigenvalues is such a subspace, and any subspace of larger dimension meets the span of the remaining eigenvectors, of dimension n − n₊(A), in a nonzero x with x*Ax ≤ 0. Now if x*S*ASx &gt; 0 on W \ {0}, then y*Ay &gt; 0 on SW \ {0}, and dim SW = dim W because S is invertible. Hence n₊(S*AS) ≤ n₊(A), and applying the same argument with S⁻¹ gives equality. The same reasoning applies to n₋, and n₀ = n − rank A is preserved because rank is. ∎</p>
+<p>Consequently a real quadratic form can be reduced by a change of variables to ∑<sub>i ≤ p</sub> y<sub>i²</sub> − ∑<sub>p &lt; i ≤ p+q</sub> y<sub>i²</sub>, and the pair (p, q) is an invariant. In optimization, the inertia of the Hessian at a critical point classifies it as a local minimum, a local maximum or a saddle whenever n₀ = 0. In the LDL* factorization of a Hermitian matrix with nonzero leading minors, the inertia can be read off from the signs of the pivots d<sub>k</sub> = det A<sub>k</sub> / det A<sub>k−1</sub>.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>For which real t is [ 1 t ; t 4 ] positive definite?</div></li><li><span class="mk">(b)</span><div>Find the inertia of [ 1 2 ; 2 1 ].</div></li><li><span class="mk">(c)</span><div>Show that if A ≻ 0 then a<sub>ii</sub> &gt; 0 for all i and |a<sub>ij</sub>|² &lt; a<sub>ii</sub> a<sub>jj</sub> for all i ≠ j.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The leading minors are 1 &gt; 0 and 4 − t² &gt; 0, so exactly for −2 &lt; t &lt; 2. (b) The eigenvalues are 3 and −1 (trace 2, determinant −3), so the inertia is (1, 1, 0): the matrix is indefinite although all its entries are positive. (c) a<sub>ii</sub> = e<sub>i</sub>*Ae<sub>i</sub> &gt; 0, and the 2 × 2 principal submatrix in rows and columns i, j is positive definite by the argument for (i) ⇒ (v) (applied after a permutation), so its determinant a<sub>ii</sub> a<sub>jj</sub> − |a<sub>ij</sub>|² is positive.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

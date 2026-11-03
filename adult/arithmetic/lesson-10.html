@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Floating-Point Arithmetic and IEEE 754 — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 10</p>
+    <h1>Floating-Point Arithmetic and IEEE 754</h1>
+    <p class="kicker">Lesson 10 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A binary floating-point number is ±(1.f)₂ × 2ᵉ with a p-bit significand.
+Every real x in the normal range rounds to fl(x) = x(1 + δ) with |δ| ≤ u = 2⁻ᵖ.
+IEEE 754 requires +, −, ×, ÷ and √ to be correctly rounded:
+fl(x ∘ y) = (x ∘ y)(1 + δ),  |δ| ≤ u.</pre></div>
+<h3>Floating-point systems</h3>
+<p>Exact real arithmetic is impossible on a finite machine, and exact rational arithmetic is too expensive for most scientific computation because denominators grow without bound. The practical compromise is scientific notation with a fixed number of digits.</p>
+<p><strong>Definition 10.1</strong>. The floating-point system F(β, p, e<sub>min</sub>, e<sub>max</sub>) consists of 0 and the numbers ±(d₀.d₁d₂…d₍p−1₎)<sub>β</sub> × βᵉ with digits 0 ≤ dᵢ &lt; β, d₀ ≠ 0 and e<sub>min</sub> ≤ e ≤ e<sub>max</sub>. The integer p is the precision. The machine epsilon ε = β<sup>1−p</sup> is the gap between 1 and the next larger element, and the unit roundoff is u = ½β<sup>1−p</sup>.</p>
+<p>The elements are not uniformly spaced. In each binade [βᵉ, βᵉ⁺¹) there are (β − 1)β<sup>p−1</sup> elements with constant spacing β<sup>e−p+1</sup>, the unit in the last place, ulp. Relative spacing is therefore roughly constant, between ε/β and ε, which is exactly what scientific computation needs.</p>
+<h3>The IEEE 754 standard</h3>
+<p>Before 1985 every manufacturer had its own floating-point arithmetic, with different precisions, rounding rules and exceptional behaviour, and portable numerical software was nearly impossible. The IEEE 754 standard (1985), whose principal architect was William Kahan (Turing Award 1989), fixed binary formats and their semantics; revisions in 2008 and 2019 added decimal formats, the fused multiply-add and recommended elementary functions. The three most common binary formats are</p>
+<pre class="math">format      sign  exponent  fraction   p    bias   e<sub>min</sub>   e<sub>max</sub>   machine ε
+binary16      1       5        10      11     15     −14      15    2⁻¹⁰ ≈ 9.77 × 10⁻⁴
+binary32      1       8        23      24    127    −126     127    2⁻²³ ≈ 1.19 × 10⁻⁷
+binary64      1      11        52      53   1023   −1022    1023    2⁻⁵² ≈ 2.22 × 10⁻¹⁶</pre>
+<p>A word with sign bit s, biased exponent field E (w bits) and fraction field f is decoded as follows.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>If 1 ≤ E ≤ 2ʷ − 2: the normal number (−1)ˢ × (1.f)₂ × 2<sup>E − bias</sup>. The leading 1 is implicit (the hidden bit), which is why p exceeds the fraction width by one.</div></li><li><span class="mk">2.</span><div>If E = 0: the number (−1)ˢ × (0.f)₂ × 2<sup>e</sup><sub>min</sub>, a subnormal number when f ≠ 0, and ±0 when f = 0.</div></li><li><span class="mk">3.</span><div>If E = 2ʷ − 1: ±∞ when f = 0, and NaN (not a number) when f ≠ 0.</div></li></ul>
+<p><strong>Worked Example 10.2</strong> — encoding and decoding in binary32. To encode −6.25: 6.25 = 110.01₂ = 1.1001₂ × 2², so s = 1, E = 2 + 127 = 129 = 10000001₂ and f = 1001 followed by 19 zeros. The word is 1 10000001 10010000000000000000000, or C0C80000 in hexadecimal. Conversely, the word 40490FDB has s = 0, E = 10000000₂ = 128 and f = 490FDB₁₆, which decodes to 1.5707963705… × 2¹ = 3.14159274101257…, the binary32 number nearest to π.</p>
+<p>Key numbers for binary64 (the type double in C and the type of every JavaScript number): the largest finite value is (2 − 2⁻⁵²) × 2¹⁰²³ ≈ 1.7977 × 10³⁰⁸; the smallest positive normal value is 2⁻¹⁰²² ≈ 2.2251 × 10⁻³⁰⁸; the smallest positive subnormal is 2⁻¹⁰⁷⁴ ≈ 4.94 × 10⁻³²⁴; and every integer of absolute value at most 2⁵³ = 9007199254740992 is exactly representable, but 2⁵³ + 1 is not. For binary32 the corresponding numbers are about 3.4028 × 10³⁸, 1.1755 × 10⁻³⁸, 1.4013 × 10⁻⁴⁵ and 2²⁴ = 16777216.</p>
+<h3>Rounding</h3>
+<p>The default rounding mode is round to nearest, ties to even: a real x is rounded to the nearest floating-point number, and in case of a tie to the one whose last significand bit is 0. Three directed modes (toward 0, toward +∞, toward −∞) are also required; the latter two make interval arithmetic possible.</p>
+<p><strong>Theorem 10.3 (Standard model)</strong>. If x ∈ ℝ lies in the normal range of a binary format with precision p and fl(x) denotes x rounded to nearest, then fl(x) = x(1 + δ) with |δ| ≤ u = 2⁻ᵖ. IEEE 754 requires that for x, y in the format and ∘ ∈ {+, −, ×, ÷}, the computed result is fl(x ∘ y), and likewise for √.</p>
+<p><strong>Proof</strong>. Suppose 2ᵉ ≤ |x| &lt; 2ᵉ⁺¹. Floating-point numbers in this binade are spaced 2<sup>e−p+1</sup> apart, and the endpoint 2ᵉ⁺¹ is also representable, so |fl(x) − x| ≤ ½ · 2<sup>e−p+1</sup> = 2<sup>e−p</sup>. Hence |fl(x) − x|/|x| ≤ 2<sup>e−p</sup>/2ᵉ = 2⁻ᵖ. ∎</p>
+<p>For binary64, u = 2⁻⁵³ ≈ 1.11 × 10⁻¹⁶: each operation is accurate to about 16 significant decimal digits. The guarantee concerns a single operation. It says nothing directly about a sequence of operations, which is the subject of Lesson 11.</p>
+<h3>The decimal fraction 0.1</h3>
+<p>Since 1/10 has a factor 5 in the denominator, its binary expansion 0.0(0011)₂ does not terminate (Theorem 8.3), and fl(0.1) is a different number. In binary64 the stored values are exactly</p>
+<pre class="math">fl(0.1)         = 0.1000000000000000055511151231257827021181583404541015625
+fl(0.2)         = 0.200000000000000011102230246251565404236316680908203125
+fl(0.3)         = 0.299999999999999988897769753748434595763683319091796875
+fl(0.1) ⊕ fl(0.2) = 0.3000000000000000444089209850062616169452667236328125</pre>
+<p>where ⊕ denotes floating-point addition. The sum is the floating-point number immediately above fl(0.3), so the comparison 0.1 + 0.2 == 0.3 is false in every IEEE 754 binary64 environment, and the shortest decimal string that reads back to the computed sum is 0.30000000000000004. Every one of these numbers is a dyadic rational with denominator dividing 2¹⁰⁷⁴, and every one has a terminating decimal expansion, because 2 divides 10.</p>
+<p>The same phenomenon had real consequences. During the Gulf War, in February 1991, a Patriot missile battery at Dhahran failed to intercept an incoming Scud missile. Its clock counted tenths of a second in an integer and multiplied by 1/10 stored in a 24-bit fixed-point register; the chopping error of about 9.5 × 10⁻⁸ per tenth accumulated over 100 hours of continuous operation (3.6 × 10⁶ tenths) to about 0.34 s, enough for the tracking gate to miss a target moving at about 1,700 m/s. Twenty-eight soldiers were killed.</p>
+<h3>Failure of the field axioms</h3>
+<p>Floating-point addition is commutative but not associative. In binary64,</p>
+<pre class="math">(2⁵³ ⊕ 1) ⊕ 1 = 2⁵³ ⊕ 1 = 2⁵³,      but      2⁵³ ⊕ (1 ⊕ 1) = 2⁵³ + 2</pre>
+<p>because 2⁵³ + 1 lies exactly halfway between the representable numbers 2⁵³ and 2⁵³ + 2, and ties go to the even significand, which is 2⁵³. Distributivity fails as well, and x ⊕ y = x can hold with y ≠ 0. Multiplication by a power of 2 is exact (barring overflow and underflow), and so are the operations whose exact result is representable, a fact exploited in Lesson 11.</p>
+<h3>Subnormals and special values</h3>
+<p>Without subnormal numbers, the gap between 0 and the smallest normal number 2<sup>e</sup><sub>min</sub> would be much larger than the gap just above it. With them (gradual underflow, championed by Kahan), the implication x ≠ y ⇒ x ⊖ y ≠ 0 holds for all finite floating-point x, y, a property that protects code such as &quot;if x ≠ y then z = 1/(x − y)&quot;. Infinities and signed zeros make 1/(+0) = +∞ and 1/(−0) = −∞, and NaN is the result of invalid operations such as 0/0, ∞ − ∞ and √−1; NaN compares unequal to everything, including itself, so x ≠ x is the standard test for NaN.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Decode the binary32 word 0 10000010 01100000000000000000000.</div></li><li><span class="mk">(b)</span><div>How many binary64 numbers lie in [1, 2), and what is the next binary64 number after 1?</div></li><li><span class="mk">(c)</span><div>Encode 0.15625 in binary32, giving the three fields.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) E = 130, so the exponent is 130 − 127 = 3, and the significand is 1.011₂ = 1.375; the value is 1.375 × 8 = 11. (b) The exponent is fixed at 0 and the 52 fraction bits are free, so there are 2⁵² numbers; the successor of 1 is 1 + 2⁻⁵² = 1 + ε ≈ 1.0000000000000002. (c) 0.15625 = 5/32 = 0.00101₂ = 1.01₂ × 2⁻³, so s = 0, E = −3 + 127 = 124 = 01111100₂, and f = 01 followed by 21 zeros; the word is 3E200000 in hexadecimal.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

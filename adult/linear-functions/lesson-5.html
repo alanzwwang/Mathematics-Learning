@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Dual Spaces and Linear Functionals — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 5</p>
+    <h1>Dual Spaces and Linear Functionals</h1>
+    <p class="kicker">Lesson 5 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">V* = { linear maps V → F }       dim V* = dim V  (finite dimension)
+Dual basis:  φᵢ(bⱼ) = δᵢⱼ
+dim U⁰ = dim V − dim U,     V ≅ (V*)* canonically</pre></div>
+<h3>Linear functionals</h3>
+<p>A linear functional on V is a linear map φ : V → F. On ℝⁿ every functional has the form φ(x) = a₁x₁ + ⋯ + aₙxₙ = aᵀx for a unique row vector aᵀ; this is the case m = 1 of Lesson 1, and it is what the school lesson calls a &quot;linear expression&quot; in several variables. On function spaces the functionals are more interesting: evaluation p ↦ p(t₀), differentiation followed by evaluation p ↦ p′(t₀), and integration p ↦ ∫₀¹ p(t) dt are all linear functionals on Pₙ. The set of all functionals is the dual space V*, a vector space under pointwise operations.</p>
+<h3>Theorem 5.1 (Dual basis)</h3>
+<p>Let B = (b₁, …, bₙ) be a basis of V. There are unique functionals φ₁, …, φₙ with φᵢ(bⱼ) = δᵢⱼ (1 if i = j, 0 otherwise), and they form a basis of V*. In particular dim V* = dim V.</p>
+<p><strong>Proof</strong>. A linear map is determined by, and may be freely prescribed on, a basis; so each φᵢ exists and is unique, namely φᵢ(v) = the i-th B-coordinate of v. If ψ ∈ V*, then ψ = Σψ(bᵢ)φᵢ, because both sides agree on every bⱼ; so the φᵢ span. If Σcᵢφᵢ = 0, evaluating at bⱼ gives cⱼ = 0; so they are independent. ∎</p>
+<p>Computing a dual basis in ℝⁿ. If the basis vectors are the columns of an invertible matrix V, the dual basis functionals are the rows of V⁻¹, because V⁻¹V = I says precisely that (row i of V⁻¹)·(column j of V) = δᵢⱼ. For b₁ = (1, 1) and b₂ = (1, 2),</p>
+<pre class="math">V = [ 1  1 ]     V⁻¹ = [  2  −1 ]     φ₁(x, y) = 2x − y,   φ₂(x, y) = −x + y
+    [ 1  2 ]           [ −1   1 ]</pre>
+<p>and one checks φ₁(1, 1) = 1, φ₁(1, 2) = 0, φ₂(1, 1) = 0, φ₂(1, 2) = 1.</p>
+<h3>Annihilators and the transpose</h3>
+<p>For a subspace U ⊆ V, the annihilator is U⁰ = {φ ∈ V* : φ(u) = 0 for all u ∈ U}. Extending a basis u₁, …, uₖ of U to a basis of V and taking the dual basis, one sees that U⁰ is spanned by the last n − k dual functionals, so dim U⁰ = dim V − dim U (Problem 27). Every subspace of dimension k is therefore the common zero set of n − k independent linear equations, and every hyperplane (subspace of dimension n − 1) is the kernel of a single nonzero functional, unique up to scaling.</p>
+<p>A linear map T : V → W induces the transpose (or dual) map T* : W* → V*, T*(ψ) = ψ∘T. With respect to dual bases the matrix of T* is the transpose of the matrix of T (Problem 30). The identities ker T* = (im T)⁰ and im T* = (ker T)⁰ give another proof that row rank equals column rank.</p>
+<h3>The double dual</h3>
+<p>There is a natural linear map ι : V → (V*)*, ι(v)(φ) = φ(v). It is injective (if v ≠ 0, extend v to a basis and use the dual functional that is 1 on v), and when dim V &lt; ∞ it is an isomorphism because dim (V*)* = dim V. This isomorphism requires no choice of basis, unlike the isomorphism V ≅ V* given by a dual basis; in the language of category theory, ι is a natural transformation while V ≅ V* is not. In infinite dimensions ι is never surjective: if V has an infinite basis, then V* has strictly larger dimension than V (the Erdős–Kaplansky theorem), and the coordinate functionals no longer span V* (Problem 49).</p>
+<h3>Inner products and the Riesz representation</h3>
+<p>On a finite-dimensional real inner product space, every functional is of the form φ(x) = ⟨x, a⟩ for a unique vector a: choose an orthonormal basis eᵢ and put a = Σφ(eᵢ)eᵢ. The same statement holds for continuous functionals on any Hilbert space (the Riesz representation theorem, 1907), and it is the reason that gradients exist: the derivative of a scalar function at a point is a functional (Lesson 7), and its Riesz representative is the gradient vector.</p>
+<h3>Application: quadrature rules as dual-space identities</h3>
+<p>On Pₙ the evaluations at n + 1 distinct points t₀, …, tₙ form a basis of Pₙ* (Problem 28). Its dual basis in Pₙ is the Lagrange basis ℓⱼ(t) = ∏<sub>i≠j</sub> (t − tᵢ)/(tⱼ − tᵢ). Consequently every linear functional on Pₙ, in particular every integral, is a unique linear combination of point evaluations. For P₂ with nodes 0, 1, 2, write ∫₀² p(t) dt = c₀p(0) + c₁p(1) + c₂p(2) and test on the basis:</p>
+<pre class="math">p = 1:    2   = c₀ + c₁ + c₂
+p = t:    2   = c₁ + 2c₂
+p = t²:   8/3 = c₁ + 4c₂</pre>
+<p>Subtracting the second equation from the third gives 2c₂ = 2/3, so c₂ = 1/3, c₁ = 4/3 and c₀ = 1/3. This is Simpson's rule ∫₀² p ≈ (p(0) + 4p(1) + p(2))/3, exact on P₂ by construction. By symmetry it is also exact for t³ (∫₀² t³ dt = 4 and (0 + 4 + 8)/3 = 4), hence on P₃. Gaussian quadrature (Problem 29) pushes this idea further by choosing the nodes as well as the weights.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the dual basis of b₁ = (1, 0), b₂ = (1, 1) in ℝ².</div></li><li><span class="mk">(b)</span><div>U is a 2-dimensional subspace of ℝ⁵. What is dim U⁰? How many independent linear equations are needed to describe U?</div></li><li><span class="mk">(c)</span><div>Find c₀, c₁ so that ∫₀¹ p(t) dt = c₀p(0) + c₁p(1) for every p ∈ P₁.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) V has columns (1, 0), (1, 1), and V⁻¹ has rows (1, −1) and (0, 1); so φ₁(x, y) = x − y and φ₂(x, y) = y. (b) dim U⁰ = 5 − 2 = 3, so U is the solution set of 3 independent homogeneous linear equations. (c) p = 1 gives c₀ + c₁ = 1 and p = t gives c₁ = 1/2, so c₀ = c₁ = 1/2: the trapezoidal rule.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

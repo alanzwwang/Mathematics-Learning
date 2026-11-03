@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matrix Math — Mathematics Learning (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Matrix Math</span></p>
+    <h1>Matrix Math</h1>
+    <p class="kicker">Advanced · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><pre class="math">A = U Σ V*        A = Q Λ Qᵀ        PA = LU        A = S J S⁻¹</pre>
+<p>These four factorizations, the singular value decomposition, the spectral decomposition, the LU factorization and the Jordan normal form, summarize most of what is known about a single matrix. Each one rewrites an arbitrary array of numbers as a product of matrices that are simple in some precise sense: orthogonal, diagonal, triangular or nearly diagonal. This course is about where those factorizations come from, why they exist, what they reveal, and what happens when they are computed in floating-point arithmetic.</p>
+<p>The elementary course treated a matrix as a rectangular table and taught the mechanics of addition, scalar multiplication and the row-by-column product. Here a matrix is primarily the coordinate expression of a linear map between finite-dimensional vector spaces. That shift of viewpoint explains at once why the product is defined as it is, why it is associative but not commutative, and why quantities such as the rank, the determinant, the trace and the eigenvalues are worth computing: they are exactly the quantities that do not depend on the choice of coordinates.</p>
+<p>The subject has a long history. Elimination on rectangular arrays appears in the Chinese Nine Chapters on the Mathematical Art (compiled by the first century CE). Determinants were introduced independently by Seki Takakazu (1683) and Leibniz (1693), and Cramer published his rule in 1750. Sylvester coined the word matrix in 1850, and Cayley's 1858 memoir made matrices algebraic objects in their own right. The twentieth century added the spectral theory of Hilbert, Schur and von Neumann, and, with the arrival of electronic computers, the numerical linear algebra of Turing, Wilkinson, Householder and Golub, which is now the computational core of scientific computing, statistics and machine learning.</p>
+<p><strong>Notation</strong>. Throughout, 𝔽 denotes ℝ or ℂ unless a general field is explicitly allowed. 𝔽<sup>m×n</sup> is the space of m × n matrices, a<sub>ij</sub> is the entry in row i and column j, Aᵀ is the transpose, and A* = Āᵀ is the conjugate transpose (for real matrices A* = Aᵀ). Vectors are columns. Inside a paragraph a matrix is written row by row with semicolons separating rows, so [ 1 2 ; 3 4 ] has first row (1, 2) and second row (3, 4). The identity is I, the standard basis vectors are e₁, …, eₙ, and diag(d₁, …, dₙ) is the diagonal matrix with the given diagonal. Proofs end with the symbol ∎.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Treat matrices as linear maps, prove the rank–nullity theorem and understand change of basis and similarity</div></li><li><span class="mk">2.</span><div>Prove that row rank equals column rank, that reduced row echelon form is unique, and when LU factorization exists</div></li><li><span class="mk">3.</span><div>Characterize the determinant axiomatically, derive the Leibniz formula, and prove det(AB) = det A · det B</div></li><li><span class="mk">4.</span><div>Use the adjugate, Cramer's rule, Schur complements and the Sherman–Morrison–Woodbury identity</div></li><li><span class="mk">5.</span><div>Study eigenvalues through the characteristic and minimal polynomials and prove the Cayley–Hamilton theorem</div></li><li><span class="mk">6.</span><div>Decide diagonalizability and construct the Jordan normal form, including the rank formula for block sizes</div></li><li><span class="mk">7.</span><div>Build orthonormal bases by Gram–Schmidt, factor A = QR, and solve least-squares problems</div></li><li><span class="mk">8.</span><div>Prove the spectral theorem, Schur's triangularization theorem and the Courant–Fischer min-max principle</div></li><li><span class="mk">9.</span><div>Characterize positive definite matrices five different ways and prove Sylvester's criterion and law of inertia</div></li><li><span class="mk">10.</span><div>Prove the existence of the singular value decomposition and the Eckart–Young low-rank approximation theorem</div></li><li><span class="mk">11.</span><div>Analyze Markov chains through the Perron–Frobenius theory of nonnegative matrices</div></li><li><span class="mk">12.</span><div>Measure sensitivity with norms and condition numbers and understand backward stability of algorithms</div></li><li><span class="mk">13.</span><div>Solve 60 practice problems, from computations to research-style proofs</div></li></ul>
+<p>How to use this course: the lessons are cumulative, and each one states its key idea at the top. Work every exercise before opening its solution, and attempt each practice problem with pencil and paper. Several practice problems prove results that are quoted without proof in the lessons.</p></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/matrix-math-1.png" alt="Diagram of the singular value decomposition: a unit disc is rotated by V*, stretched by Sigma into an ellipse, then rotated by U" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> The singular value decomposition M = UΣV*: every real 2 × 2 matrix acts on the unit disc as a rotation or reflection, an axis-aligned stretch by the singular values σ₁ and σ₂, and a second rotation or reflection. The image of the disc is an ellipse whose semi-axes have lengths σ₁ and σ₂. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/matrix-math-2.jpg" alt="Black-and-white photographic portrait of the mathematician Arthur Cayley" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> Arthur Cayley (1821–1895), photographed by Herbert Rose Barraud. His 1858 &quot;A Memoir on the Theory of Matrices&quot; treated matrices as algebraic objects in their own right and stated the Cayley–Hamilton theorem. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>Matrices as Linear Maps</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Row Reduction, Rank and LU Factorization</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Determinants</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Inverses, Cramer's Rule and Block Matrices</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Eigenvalues and the Cayley–Hamilton Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Diagonalization and the Jordan Normal Form</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Inner Products, Gram–Schmidt and QR</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>The Spectral Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>Positive Definite Matrices and Quadratic Forms</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>The Singular Value Decomposition</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Nonnegative Matrices, Markov Chains and Perron–Frobenius</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Norms, Conditioning and Numerical Stability</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Singular-Value-Decomposition. By Georg-Johann. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Singular-Value-Decomposition.svg">https://commons.wikimedia.org/wiki/File:Singular-Value-Decomposition.svg</a></li><li><strong>Figure 2</strong> · Arthur Cayley. By Herbert Rose Barraud. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Arthur_Cayley.jpg">https://commons.wikimedia.org/wiki/File:Arthur_Cayley.jpg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

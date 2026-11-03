@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#f59e0b">
+<body id="top" class="mode-kid" style="--topic:#f59e0b">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,18 +22,19 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/probability/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
 <section class="hero topic-hero">
   <div class="container">
-    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🎲 Probability</a></p>
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <span aria-current="page">🎲 Probability</span></p>
     <h1>🎲 Probability</h1>
     <p class="kicker">🚀 Advanced · A Complete Lesson (Honors Edition)</p>
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <div class="welcome"><pre class="math">P(event) = number of favorable outcomes / total number of possible outcomes
 P(not A) = 1 − P(A)
@@ -63,7 +64,7 @@ P(A and then B) = P(A) × P(B after A)</pre>
     <a class="lesson-card" href="lesson-8.html"><span class="lc-emoji">⚠️</span><span><span class="lc-num">Lesson 8</span><br><strong>Watch Out! Common Mistakes</strong></span></a>
     <a class="lesson-card" href="lesson-9.html"><span class="lc-emoji">🧠</span><span><span class="lc-num">Lesson 9</span><br><strong>Review — The Big Picture</strong></span></a>
     <a class="lesson-card" href="practice.html"><span class="lc-emoji">🏋️</span><span><span class="lc-num">Practice Problems</span><br><strong>100 problems to try</strong></span></a>
-    <a class="lesson-card" href="quiz.html"><span class="lc-emoji">🏆</span><span><span class="lc-num">Quiz</span><br><strong>Test yourself: new questions every time!</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Galton box. By Exhibit by Estes Objethos Atelier, photo by Rodrigo.Argenton. CC BY-SA 4.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Galton_box.jpg">https://commons.wikimedia.org/wiki/File:Galton_box.jpg</a></li><li><strong>Picture 2</strong> · Quincunx (Galton Box) - Galton 1889 diagram. By Francis Galton. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Quincunx_(Galton_Box)_-_Galton_1889_diagram.png">https://commons.wikimedia.org/wiki/File:Quincunx_(Galton_Box)_-_Galton_1889_diagram.png</a></li></ol></section>
+    <a class="lesson-card" href="quiz.html"><span class="lc-emoji">🏆</span><span><span class="lc-num">Quiz</span><br><strong>Test yourself: new questions every time!</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Galton box. By Estes Objethos Atelier (exhibit), photo by Rodrigo.Argenton. CC BY-SA 4.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Galton_box.jpg">https://commons.wikimedia.org/wiki/File:Galton_box.jpg</a></li><li><strong>Picture 2</strong> · Quincunx (Galton Box) - Galton 1889 diagram. By Francis Galton. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Quincunx_(Galton_Box)_-_Galton_1889_diagram.png">https://commons.wikimedia.org/wiki/File:Quincunx_(Galton_Box)_-_Galton_1889_diagram.png</a></li></ol></section>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">🏠 All topics</a><a class="btn" href="lesson-1.html">Lesson 1 ➡️</a></nav>
 </main>
 
@@ -73,7 +74,7 @@ P(A and then B) = P(A) × P(B after A)</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

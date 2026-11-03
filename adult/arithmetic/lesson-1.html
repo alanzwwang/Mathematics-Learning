@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: The Peano Axioms and Definition by Recursion — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 1</p>
+    <h1>The Peano Axioms and Definition by Recursion</h1>
+    <p class="kicker">Lesson 1 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ℕ is a set with an element 0 and an injective map S : ℕ → ℕ
+such that 0 ∉ S(ℕ) and every subset containing 0 and closed under S is all of ℕ.
+Addition and multiplication are then the unique functions satisfying
+a + 0 = a,  a + S(b) = S(a + b),  a · 0 = 0,  a · S(b) = a · b + a.</pre></div>
+<h3>The axioms</h3>
+<p>In 1889 Giuseppe Peano published Arithmetices principia, nova methodo exposita, a short Latin pamphlet that set out the natural numbers as a formal axiomatic system. Richard Dedekind had reached essentially the same characterisation a year earlier in Was sind und was sollen die Zahlen? (1888), and Hermann Grassmann had already given recursive definitions of addition and multiplication in his Lehrbuch der Arithmetik (1861). We follow the modern formulation, starting the natural numbers at 0.</p>
+<p><strong>Definition 1.1 (Peano system)</strong>. A Peano system is a triple (N, z, S) consisting of a set N, an element z ∈ N and a function S : N → N such that the following hold.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>(P1) S is injective: S(m) = S(n) implies m = n.</div></li><li><span class="mk">2.</span><div>(P2) z is not in the image of S: S(n) ≠ z for every n ∈ N.</div></li><li><span class="mk">3.</span><div>(P3) Induction: if A ⊆ N, z ∈ A, and n ∈ A implies S(n) ∈ A, then A = N.</div></li></ul>
+<p>We write ℕ, 0 and S for a fixed Peano system and call S(n) the successor of n. Abbreviations: 1 = S(0), 2 = S(1), 3 = S(2), and so on. Axiom P3 is the principle of mathematical induction; it is what forbids ℕ from containing &quot;extra&quot; elements beyond those reachable from 0 by repeated succession.</p>
+<p><strong>Lemma 1.2</strong>. Every n ∈ ℕ with n ≠ 0 is a successor: n = S(m) for a unique m.</p>
+<p><strong>Proof</strong>. Let A = {0} ∪ S(ℕ). Then 0 ∈ A, and if n ∈ A then S(n) ∈ S(ℕ) ⊆ A. By P3, A = ℕ, so every nonzero n lies in S(ℕ). Uniqueness of m is P1. ∎</p>
+<p>Each axiom is independent of the others. The set {0} with S(0) = 0 satisfies P1 and P3 but not P2. The set {0, 1, 2} with S(0) = 1, S(1) = 2, S(2) = 1 satisfies P2 and P3 but not P1. The set ℕ ∪ {ω} with S(ω) = ω satisfies P1 and P2 but not P3, since ℕ itself is a proper subset containing 0 and closed under S.</p>
+<h3>The recursion theorem</h3>
+<p>It is tempting to say &quot;define a + b by a + 0 = a and a + S(b) = S(a + b)&quot; and move on. But a definition of this shape is a claim that a unique function exists with those properties, and that claim needs proof. Dedekind was the first to see this clearly.</p>
+<p><strong>Theorem 1.3 (Dedekind's recursion theorem)</strong>. Let X be a set, x₀ ∈ X and g : X → X a function. Then there is exactly one function h : ℕ → X such that h(0) = x₀ and h(S(n)) = g(h(n)) for all n ∈ ℕ.</p>
+<p><strong>Proof</strong>. Call a relation R ⊆ ℕ × X admissible if (0, x₀) ∈ R and (n, x) ∈ R implies (S(n), g(x)) ∈ R. The set ℕ × X is admissible, so the intersection H of all admissible relations is a nonempty admissible relation, the smallest one. We show that H is the graph of a function, that is, for every n there is exactly one x with (n, x) ∈ H.</p>
+<p>Let A be the set of n for which there is exactly one such x. First, 0 ∈ A: certainly (0, x₀) ∈ H. Suppose (0, y) ∈ H with y ≠ x₀. Then H minus the pair (0, y) is still admissible, because by P2 no pair of the form (S(n), g(x)) equals (0, y); this contradicts minimality. Next suppose n ∈ A, with unique partner x. Then (S(n), g(x)) ∈ H. If also (S(n), y) ∈ H with y ≠ g(x), remove the pair (S(n), y) from H; the result is still admissible, since the only way the closure condition could require (S(n), y) is from a pair (m, w) ∈ H with S(m) = S(n) and g(w) = y, and by P1 m = n, so w = x and g(w) = g(x) ≠ y. Again minimality is contradicted, so S(n) ∈ A. By P3, A = ℕ and H is the graph of a function h with the required properties.</p>
+<p>Uniqueness: if h and h′ both satisfy the conditions, the set {n : h(n) = h′(n)} contains 0 and is closed under S, so it is ℕ. ∎</p>
+<p>The theorem extends without difficulty to recursions with a parameter: given functions x₀ : P → X and g : P × X → X there is a unique h : P × ℕ → X with h(p, 0) = x₀(p) and h(p, S(n)) = g(p, h(p, n)). Applying it for each fixed p gives existence and uniqueness at once.</p>
+<p><strong>Definition 1.4 (Addition, multiplication, exponentiation)</strong>. For a, b ∈ ℕ define:</p>
+<pre class="math">a + 0 = a,          a + S(b) = S(a + b)
+a · 0 = 0,          a · S(b) = a · b + a
+a⁰ = 1,             a<sup>S(b)</sup> = a<sup>b</sup> · a</pre>
+<p>The first line is the recursion theorem with parameter a, x₀(a) = a and g(a, x) = S(x). The second line uses x₀(a) = 0 and g(a, x) = x + a, which is legitimate because addition has already been defined. The third line uses multiplication in the same way. Each operation is therefore a well-defined function ℕ × ℕ → ℕ.</p>
+<p>Two immediate observations. First, a + 1 = a + S(0) = S(a + 0) = S(a), so the successor is &quot;adding one&quot;, as it should be. Second, the definitions make 2 + 2 = 4 a theorem with a four-line proof:</p>
+<pre class="math">2 + 2 = 2 + S(1) = S(2 + 1) = S(2 + S(0)) = S(S(2 + 0)) = S(S(2)) = S(3) = 4</pre>
+<h3>Categoricity</h3>
+<p><strong>Theorem 1.5 (Dedekind, 1888)</strong>. Any two Peano systems are isomorphic: if (N, z, S) and (N′, z′, S′) are Peano systems there is a unique bijection φ : N → N′ with φ(z) = z′ and φ∘S = S′∘φ.</p>
+<p><strong>Proof</strong>. By the recursion theorem there are unique maps φ : N → N′ and ψ : N′ → N commuting with the successors and sending z to z′ and z′ to z. Then ψ∘φ : N → N sends z to z and commutes with S, as does the identity; by the uniqueness half of Theorem 1.3, ψ∘φ = id. Similarly φ∘ψ = id. ∎</p>
+<p>This explains why it does not matter which set-theoretic model of ℕ one adopts (von Neumann's 0 = ∅, S(n) = n ∪ {n}, or Zermelo's S(n) = {n}): all of them are the same structure. A word of caution is in order. Axiom P3 quantifies over all subsets of ℕ and is a second-order statement. When the induction axiom is replaced by the first-order induction schema (one axiom for each formula of the language of arithmetic), the resulting theory, first-order Peano arithmetic (PA), is no longer categorical: it has nonstandard models containing elements larger than every standard numeral, which Skolem constructed in 1933–34 and which also follow from the compactness theorem. By Gödel's first incompleteness theorem (1931), PA is moreover incomplete: if it is consistent, there are sentences of arithmetic it neither proves nor refutes. The arithmetic of this course is that of the standard model, which second-order induction pins down uniquely.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Using only Definition 1.4, compute 2 · 2, recording each use of a defining equation.</div></li><li><span class="mk">(b)</span><div>Prove by induction that S(n) ≠ n for every n ∈ ℕ.</div></li><li><span class="mk">(c)</span><div>Which of the three Peano axioms fails for the set of integers ℤ with S(n) = n + 1 and z = 0?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 2 · 2 = 2 · S(1) = 2 · 1 + 2 = (2 · S(0)) + 2 = (2 · 0 + 2) + 2 = (0 + 2) + 2 = 2 + 2 = 4, where 0 + 2 = 2 needs one more short computation (0 + 2 = S(0 + 1) = S(S(0 + 0)) = S(S(0)) = 2) and 2 + 2 = 4 was computed above. (b) Let A = {n : S(n) ≠ n}. By P2, S(0) ≠ 0, so 0 ∈ A. If S(n) ≠ n then by P1 (injectivity, in contrapositive) S(S(n)) ≠ S(n), so S(n) ∈ A. By P3, A = ℕ. (c) P2 fails, since 0 = S(−1). P1 holds, and P3 fails too: ℕ ⊂ ℤ contains 0 and is closed under S.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

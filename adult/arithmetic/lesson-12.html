@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: The Computational Complexity of Arithmetic — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 12</p>
+    <h1>The Computational Complexity of Arithmetic</h1>
+    <p class="kicker">Lesson 12 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Adding n-digit numbers costs Θ(n). Schoolbook multiplication costs Θ(n²).
+Karatsuba (1960): (aB + b)(cB + d) = acB² + [(a + b)(c + d) − ac − bd]B + bd, cost O(n<sup>1</sup>.585).
+FFT methods: Schönhage–Strassen (1971) O(n log n log log n);
+Harvey–van der Hoeven (2019) O(n log n). Division costs a constant times multiplication.</pre></div>
+<h3>Kolmogorov's conjecture and its refutation</h3>
+<p>Write M(n) for the number of bit operations needed to multiply two n-bit integers. Schoolbook multiplication shows M(n) = O(n²), and for millennia no one suspected that one could do better. In a seminar at Moscow State University in 1960, Andrey Kolmogorov conjectured that Θ(n²) is optimal. Within a week a 23-year-old student in the seminar, Anatoly Karatsuba, found a faster method, and Kolmogorov closed the seminar; the result was published in 1962 under the names of Karatsuba and Ofman.</p>
+<h3>Karatsuba's algorithm</h3>
+<p>Split n-digit numbers in base B as x = aBᵐ + b and y = cBᵐ + d with m = ⌈n/2⌉. Then</p>
+<pre class="math">xy = ac B²ᵐ + (ad + bc) Bᵐ + bd,      ad + bc = (a + b)(c + d) − ac − bd</pre>
+<p>so three multiplications of half-size numbers (ac, bd and (a + b)(c + d)) and a linear number of additions suffice, instead of four. Applied recursively this gives the recurrence T(n) = 3T(n/2) + O(n).</p>
+<p><strong>Theorem 12.1 (Master theorem, simple form)</strong>. If T(n) = aT(n/b) + Θ(n) with a &gt; b ≥ 2, then T(n) = Θ(n<sup>log<sub>b</sub> a</sup>).</p>
+<p><strong>Proof sketch</strong>. The recursion tree has log<sub>b</sub> n levels; level j has aʲ subproblems of size n/bʲ, costing Θ(n (a/b)ʲ) in total. This geometric series is dominated by its last term, Θ(n (a/b)<sup>log<sub>b</sub> n</sup>) = Θ(a<sup>log<sub>b</sub> n</sup>) = Θ(n<sup>log<sub>b</sub> a</sup>). ∎</p>
+<p>Thus Karatsuba multiplication costs Θ(n<sup>log₂ 3</sup>) = Θ(n<sup>1</sup>.58496…). For n = 2ᵏ single digits the recursion performs exactly 3ᵏ single-digit multiplications against 4ᵏ for the schoolbook method: 2187 against 16384 at k = 7.</p>
+<p><strong>Worked Example 12.2</strong> — 1234 × 5678 with one level of Karatsuba. Here a = 12, b = 34, c = 56, d = 78 with B = 10 and m = 2, so Bᵐ = 100:</p>
+<pre class="math">ac = 12 · 56 = 672,     bd = 34 · 78 = 2652,     (a + b)(c + d) = 46 · 134 = 6164
+ad + bc = 6164 − 672 − 2652 = 2840
+xy = 672 · 10⁴ + 2840 · 10² + 2652 = 6720000 + 284000 + 2652 = 7006652</pre>
+<h3>Toom–Cook</h3>
+<p>Karatsuba's trick is polynomial interpolation in disguise: x and y are values at B of linear polynomials, their product is a quadratic polynomial, and a quadratic is determined by three values (at 0, 1 and ∞ in Karatsuba's version). Toom (1963) and Cook (1966) generalised this by splitting into k pieces: the product of two polynomials of degree k − 1 has degree 2k − 2 and is determined by 2k − 1 values, giving T(n) = (2k − 1)T(n/k) + O(n) and cost Θ(n<sup>log<sub>k</sub>(2k − 1)</sup>). Toom-3 has exponent log₃ 5 ≈ 1.465. Since log<sub>k</sub>(2k − 1) → 1 as k → ∞, for every ε &gt; 0 there is an O(n<sup>1+ε</sup>) algorithm, though the constants grow rapidly with k.</p>
+<h3>The fast Fourier transform</h3>
+<p>Taking the evaluation points to be N-th roots of unity, with N a power of 2 at least the length of the product, turns evaluation and interpolation into the discrete Fourier transform, which the fast Fourier transform computes in O(N log N) ring operations. The FFT was published by Cooley and Tukey in 1965, but Gauss had used the method around 1805 for interpolating asteroid orbits. To multiply integers: write them as digit sequences, i.e. polynomials evaluated at the base, compute the cyclic convolution of the digit sequences by FFT, pointwise multiplication and inverse FFT, and finally propagate carries.</p>
+<p>The ring in which the FFT runs is a design choice. Over ℂ with floating-point arithmetic one needs an error analysis to be sure that rounding to the nearest integer recovers the exact convolution. Alternatively, the number-theoretic transform works in ℤ/pℤ for a prime p = c · 2ᵏ + 1, which contains primitive 2ᵏ-th roots of unity because (ℤ/pℤ)<sup>×</sup> is cyclic of order p − 1; a popular choice is p = 998244353 = 119 · 2²³ + 1. Schönhage and Strassen (1971) worked in ℤ/(2<sup>K</sup> + 1)ℤ, where 2 is a root of unity of order 2K so that multiplications by roots of unity are mere shifts, and obtained M(n) = O(n log n log log n). Schönhage and Strassen conjectured that Θ(n log n) is the true complexity. Fürer (2007) improved the bound to n log n · 2<sup>O(log* n)</sup>, and in 2019 David Harvey and Joris van der Hoeven gave an algorithm with M(n) = O(n log n) (Annals of Mathematics, 2021), so the upper bound now matches the conjecture. No matching lower bound is known for general models of computation; Ω(n log n) has been proved only for restricted models or conditionally on conjectures in network coding.</p>
+<p>The hierarchy of practical algorithms is visible in libraries such as GMP, which switch from schoolbook to Karatsuba to several Toom variants and finally to FFT multiplication as operand sizes grow past tuned thresholds. Record computations of π to trillions of digits rest entirely on FFT multiplication.</p>
+<h3>Division and other operations</h3>
+<p><strong>Theorem 12.3</strong>. Division of n-bit numbers can be performed in O(M(n)) bit operations.</p>
+<p><strong>Proof sketch</strong>. To compute 1/d, use Newton's method on g(x) = 1/x − d, which gives the iteration</p>
+<pre class="math">xₖ₊₁ = xₖ(2 − d xₖ),        with error eₖ = 1 − d xₖ satisfying eₖ₊₁ = eₖ²</pre>
+<p>since 1 − d xₖ(2 − d xₖ) = (1 − d xₖ)². The number of correct bits doubles at each step, so step k need only be carried out with about 2ᵏ bits of precision. The total cost is O(M(n) + M(n/2) + M(n/4) + ⋯) = O(M(n)), assuming M(n)/n is nondecreasing; then a/d = a · (1/d) costs one more multiplication, and a final correction fixes the last bit of the quotient. ∎</p>
+<p>Similar Newton iterations give square roots in O(M(n)). Conversion between binary and decimal, and the gcd by the Knuth–Schönhage half-gcd algorithm, cost O(M(n) log n), compared with O(n²) for the naive methods. Modular exponentiation aᵉ mod m with n-bit numbers costs O(n) modular multiplications by the square-and-multiply method of Lesson 7, hence O(n M(n)) bit operations, which is what makes RSA practical. The analogous question for matrices remains open: Strassen (1969) showed that n × n matrices can be multiplied in O(n<sup>log₂ 7</sup>) = O(n<sup>2</sup>.807) operations, and the best known exponent ω is now below 2.372, but whether ω = 2 is unknown.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Apply Newton's iteration for 1/7 from x₀ = 0.1 three times, and verify that the error eₖ = 1 − 7xₖ squares at each step.</div></li><li><span class="mk">(b)</span><div>Compute 47 × 83 by one level of Karatsuba with B = 10.</div></li><li><span class="mk">(c)</span><div>How many single-digit multiplications does fully recursive Karatsuba use for two 64-digit numbers, compared with the schoolbook method?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) x₁ = 0.1(2 − 0.7) = 0.13, x₂ = 0.13(2 − 0.91) = 0.1417, x₃ = 0.1417(2 − 0.9919) = 0.14284777. The errors are e₀ = 0.3, e₁ = 0.09, e₂ = 0.0081, e₃ = 0.00006561, each the square of the one before; 1/7 = 0.142857142…. (b) a = 4, b = 7, c = 8, d = 3: ac = 32, bd = 21, (a + b)(c + d) = 11 · 11 = 121, so ad + bc = 121 − 32 − 21 = 68 and the product is 3200 + 680 + 21 = 3901. (c) 64 = 2⁶, so Karatsuba uses 3⁶ = 729 single-digit multiplications against 64² = 4096.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

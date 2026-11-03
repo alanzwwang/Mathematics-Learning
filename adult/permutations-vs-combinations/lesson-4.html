@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Conjugacy Classes of the Symmetric Group — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 4</p>
+    <h1>Conjugacy Classes of the Symmetric Group</h1>
+    <p class="kicker">Lesson 4 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">π (a₁ ⋯ a<sub>ℓ</sub>) π⁻¹ = (π(a₁) ⋯ π(a<sub>ℓ</sub>)): conjugation relabels cycles.
+Two permutations are conjugate in Sₙ iff they have the same cycle type.
+The class of type 1<sup>m₁</sup>2<sup>m₂</sup>⋯ has n!/z<sub>λ</sub> elements, z<sub>λ</sub> = ∏ i<sup>mᵢ</sup> mᵢ!.</pre></div>
+<h3>Conjugation as relabelling</h3>
+<p><strong>Lemma 4.1</strong>. For π ∈ Sₙ and any cycle (a₁ a₂ ⋯ a<sub>ℓ</sub>), we have π(a₁ a₂ ⋯ a<sub>ℓ</sub>)π⁻¹ = (π(a₁) π(a₂) ⋯ π(a<sub>ℓ</sub>)).</p>
+<p><strong>Proof</strong>. Let γ = (a₁ ⋯ a<sub>ℓ</sub>). Then πγπ⁻¹(π(aᵢ)) = π(γ(aᵢ)) = π(a<sub>i+1</sub>), indices modulo ℓ. If b is not of the form π(aᵢ), then π⁻¹(b) is fixed by γ, so πγπ⁻¹(b) = b. ∎</p>
+<p>Since conjugation is a homomorphism, it acts on a product of disjoint cycles cycle by cycle: to compute πσπ⁻¹, write σ in cycle notation and replace every symbol i by π(i).</p>
+<p><strong>Theorem 4.2</strong>. Permutations σ, τ ∈ Sₙ are conjugate if and only if they have the same cycle type. Hence the conjugacy classes of Sₙ are in bijection with the partitions of n, and Sₙ has p(n) conjugacy classes.</p>
+<p><strong>Proof</strong>. By Lemma 4.1 conjugation preserves cycle type. Conversely, if σ and τ have the same cycle type, write both in cycle notation (including 1-cycles), with the cycles listed in order of decreasing length, and stack the two expressions one above the other. Each symbol of [n] appears exactly once in each row, so the stack defines a bijection π mapping each entry of the σ-row to the entry beneath it in the τ-row. By Lemma 4.1, πσπ⁻¹ = τ. ∎</p>
+<p>For example, p(5) = 7 and p(10) = 42, so S₅ has 7 conjugacy classes and S₁₀ has 42. To conjugate (1 2 3) to (2 4 5) inside S₅ we stack (1 2 3)(4)(5) over (2 4 5)(1)(3), obtaining π with 1 ↦ 2, 2 ↦ 4, 3 ↦ 5, 4 ↦ 1, 5 ↦ 3, that is, π = (1 2 4)(3 5).</p>
+<h3>Class sizes</h3>
+<p><strong>Theorem 4.3</strong>. Let λ = 1<sup>m₁</sup> 2<sup>m₂</sup> ⋯ n<sup>mₙ</sup> be a partition of n. The number of permutations in Sₙ of cycle type λ is n!/z<sub>λ</sub>, where z<sub>λ</sub> = ∏ᵢ i<sup>mᵢ</sup> mᵢ!. Equivalently, the centraliser of any permutation of type λ has order z<sub>λ</sub>.</p>
+<p><strong>Proof</strong>. Fix a template consisting of m₁ empty brackets of length 1, then m₂ brackets of length 2, and so on. Filling the n slots with the n symbols of [n] in each of the n! possible ways produces a permutation of type λ, and every permutation of type λ arises. A given permutation arises from exactly z<sub>λ</sub> fillings: within each cycle of length i the starting point can be chosen in i ways (this gives the factor i<sup>mᵢ</sup>), and the mᵢ cycles of length i can be placed in the mᵢ brackets of that length in mᵢ! orders. Hence the class has n!/z<sub>λ</sub> elements. The statement about centralisers follows from the orbit–stabiliser theorem applied to the conjugation action (Lesson 12): the class is the orbit and the centraliser is the stabiliser. ∎</p>
+<p>For S₅ the classes are:</p>
+<pre class="math">type        z<sub>λ</sub>     size     sign
+1⁵          120        1      +
+2 1³         12       10      −
+2² 1          8       15      +
+3 1²          6       20      +
+3 2           6       20      −
+4 1           4       30      −
+5             5       24      +
+            total    120</pre>
+<p>Dividing the identity ∑<sub>λ</sub> n!/z<sub>λ</sub> = n! by n! gives the useful identity ∑<sub>λ ⊢ n</sub> 1/z<sub>λ</sub> = 1, which we shall reinterpret probabilistically in Lesson 13: 1/z<sub>λ</sub> is the probability that a uniformly random permutation has cycle type λ.</p>
+<h3>Classes in the alternating group and the simplicity of A₅</h3>
+<p>A conjugacy class of Sₙ contained in Aₙ is either a single Aₙ-class or splits into two Aₙ-classes of equal size. It splits precisely when the cycle type consists of distinct odd parts; equivalently, when the centraliser of an element is contained in Aₙ. In A₅ the even classes of S₅ have sizes 1, 15, 20, 24, and only the 5-cycles (type (5), distinct odd parts) split, into two classes of 12. So A₅ has class sizes 1, 15, 20, 12, 12.</p>
+<p><strong>Theorem 4.4</strong>. A₅ is simple.</p>
+<p><strong>Proof</strong>. A normal subgroup N ⊴ A₅ is a union of conjugacy classes containing the identity, so |N| = 1 + (a sum of a sub-multiset of {15, 20, 12, 12}), and |N| divides 60 by Lagrange's theorem. The possible sums are 1, 13, 16, 21, 25, 28, 33, 36, 40, 45, 48 and 60; the only divisors of 60 among them are 1 and 60. ∎</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many elements of S₈ have cycle type (3, 3, 2)?</div></li><li><span class="mk">(b)</span><div>Find π ∈ S₅ with π(1 2 3)(4 5)π⁻¹ = (1 3 4)(2 5).</div></li><li><span class="mk">(c)</span><div>What is the order of the centraliser of (1 2)(3 4) in S₄?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) z = 3² · 2! · 2¹ · 1! = 36, so 8!/36 = 40320/36 = 1120. (b) Stack (1 2 3)(4 5) over (1 3 4)(2 5): π sends 1 ↦ 1, 2 ↦ 3, 3 ↦ 4, 4 ↦ 2, 5 ↦ 5, so π = (2 3 4). (c) z = 2² · 2! = 8; the centraliser is a dihedral group of order 8, and the class has 24/8 = 3 elements.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

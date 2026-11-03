@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Uniform Convergence and the Interchange of Limits — Calculus (Advanced)</title>
+<meta name="description" content="Real analysis from the completeness of ℝ to the Lebesgue integral, with multivariable calculus and full proofs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../calculus/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Calculus</a> › Lesson 10</p>
+    <h1>Uniform Convergence and the Interchange of Limits</h1>
+    <p class="kicker">Lesson 10 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Real Numbers and Completeness">1</a><a href="lesson-2.html" title="Lesson 2: Sequences, Cauchy Sequences and lim sup">2</a><a href="lesson-3.html" title="Lesson 3: Infinite Series and Convergence Tests">3</a><a href="lesson-4.html" title="Lesson 4: Limits, Continuity and Uniform Continuity">4</a><a href="lesson-5.html" title="Lesson 5: Differentiation and the Mean Value Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Taylor's Theorem and the Remainder">6</a><a href="lesson-7.html" title="Lesson 7: The Riemann Integral via Darboux Sums">7</a><a href="lesson-8.html" title="Lesson 8: The Fundamental Theorem of Calculus">8</a><a href="lesson-9.html" title="Lesson 9: Improper Integrals">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Uniform Convergence and the Interchange of Limits">10</a><a href="lesson-11.html" title="Lesson 11: Power Series">11</a><a href="lesson-12.html" title="Lesson 12: Differentiation in Several Variables">12</a><a href="lesson-13.html" title="Lesson 13: Multiple Integrals and Change of Variables">13</a><a href="lesson-14.html" title="Lesson 14: The Lebesgue Integral — An Overview">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">fₙ → f uniformly on D  ⇔  ‖fₙ − f‖ = sup over x ∈ D of |fₙ(x) − f(x)| → 0
+Uniform limits of continuous functions are continuous</pre></div>
+<h3>Pointwise versus uniform</h3>
+<p>Many objects in analysis are defined as limits of functions: power series, Fourier series, solutions of differential equations obtained by iteration. A sequence of functions fₙ converges pointwise to f on D if fₙ(x) → f(x) for each x ∈ D. Pointwise convergence is too weak to preserve the basic properties of functions. On [0, 1], fₙ(x) = xⁿ converges pointwise to the function that is 0 on [0, 1) and 1 at x = 1: continuous functions with a discontinuous limit. Cauchy believed in 1821 that a convergent series of continuous functions has a continuous sum; Abel pointed out in 1826 that Fourier series provide counterexamples. The correct hypothesis, isolated by Seidel, Stokes and Weierstrass in the 1840s, is uniform convergence.</p>
+<p>fₙ → f uniformly on D if for every ε &gt; 0 there is N such that |fₙ(x) − f(x)| &lt; ε for all n ≥ N and all x ∈ D simultaneously, i.e. ‖fₙ − f‖ → 0 in the sup norm. For xⁿ on [0, 1), ‖fₙ − 0‖ = 1 for every n, so the convergence is not uniform; on [0, r] with r &lt; 1 it is uniform, since ‖fₙ‖ = rⁿ → 0.</p>
+<p><strong>Worked example</strong>: fₙ(x) = x/(1 + nx²) on ℝ. For x ≥ 0, the derivative (1 − nx²)/(1 + nx²)² vanishes at x = 1/√n, where fₙ = 1/(2√n). By symmetry ‖fₙ‖ = 1/(2√n) → 0, so fₙ → 0 uniformly. In contrast, gₙ(x) = nxe<sup>−nx</sup> on [0, ∞) tends to 0 pointwise, but its maximum, at x = 1/n, is e⁻¹ for every n: not uniform.</p>
+<p><strong>Theorem 10.1 (Cauchy criterion for uniform convergence)</strong>. (fₙ) converges uniformly on D iff for every ε &gt; 0 there is N with ‖fₘ − fₙ‖ &lt; ε for all m, n ≥ N.</p>
+<h3>Continuity</h3>
+<p><strong>Theorem 10.2</strong>. If each fₙ is continuous at a and fₙ → f uniformly, then f is continuous at a.</p>
+<p><strong>Proof (the ε/3 argument)</strong>. Given ε &gt; 0 choose n with ‖fₙ − f‖ &lt; ε/3, then δ with |fₙ(x) − fₙ(a)| &lt; ε/3 for |x − a| &lt; δ. For such x,</p>
+<pre class="math">|f(x) − f(a)| ≤ |f(x) − fₙ(x)| + |fₙ(x) − fₙ(a)| + |fₙ(a) − f(a)| &lt; ε. ∎</pre>
+<p>Restated, uniform convergence permits the interchange lim (x → a) lim (n → ∞) fₙ(x) = lim (n → ∞) lim (x → a) fₙ(x). In functional-analytic language, the continuous functions on [a, b] with the sup norm form a complete normed space C[a, b], a Banach space.</p>
+<h3>Integration</h3>
+<p><strong>Theorem 10.3</strong>. If fₙ are integrable on [a, b] and fₙ → f uniformly, then f is integrable and ∫ₐᵇ fₙ → ∫ₐᵇ f.</p>
+<p><strong>Proof</strong>. For any partition, U(f, P) − L(f, P) ≤ U(fₙ, P) − L(fₙ, P) + 2‖fₙ − f‖(b − a), which is small for suitable n and P; and |∫fₙ − ∫f| ≤ ‖fₙ − f‖(b − a). ∎</p>
+<p>Without uniformity this fails. Let fₙ(x) = nx(1 − x²)ⁿ on [0, 1]. For each fixed x, fₙ(x) → 0 (for 0 &lt; x &lt; 1 the geometric factor (1 − x²)ⁿ beats the linear factor n). But</p>
+<pre class="math">∫₀¹ nx(1 − x²)ⁿ dx = n/(2(n + 1)) → 1/2 ≠ 0.</pre>
+<h3>Differentiation</h3>
+<p>Uniform convergence of fₙ says nothing about the derivatives. fₙ(x) = sin(nx)/√n → 0 uniformly on ℝ, but fₙ′(x) = √n cos(nx) does not converge at x = 0. For the sequence x/(1 + nx²) above, the limit is f = 0, but fₙ′(0) = 1 for every n. The correct theorem puts the uniformity on the derivatives:</p>
+<p><strong>Theorem 10.4</strong>. Let fₙ be differentiable on [a, b]. Suppose fₙ′ → g uniformly on [a, b] and (fₙ(x₀)) converges for some x₀. Then fₙ converges uniformly to a differentiable function f with f′ = g.</p>
+<p><strong>Proof sketch</strong>. Applying the mean value theorem to fₘ − fₙ gives |(fₘ − fₙ)(x) − (fₘ − fₙ)(x₀)| ≤ ‖fₘ′ − fₙ′‖(b − a), so (fₙ) is uniformly Cauchy. A second application, to difference quotients at a point c, shows that the difference quotients of fₙ at c converge uniformly in h, and Theorem 10.2's interchange-of-limits argument identifies f′(c) with g(c). ∎</p>
+<h3>The Weierstrass M-test</h3>
+<p><strong>Theorem 10.5 (Weierstrass M-test)</strong>. If |uₙ(x)| ≤ Mₙ for all x ∈ D and ∑ Mₙ &lt; ∞, then ∑ uₙ converges absolutely and uniformly on D.</p>
+<p><strong>Proof</strong>. For m &gt; n, ‖∑ₖ₌ₙ₊₁ᵐ uₖ‖ ≤ ∑ₖ₌ₙ₊₁ᵐ Mₖ, which tends to 0; apply the Cauchy criterion. ∎</p>
+<p>For instance ∑ sin(nx)/n² converges uniformly on ℝ to a continuous function, and its termwise derivative ∑ cos(nx)/n does not converge uniformly, so Theorem 10.4 does not apply to it.</p>
+<h3>Continuous nowhere differentiable functions</h3>
+<p>In 1872 Weierstrass presented to the Berlin Academy the function:</p>
+<pre class="math">W(x) = ∑ₙ₌₀<sup>∞</sup> aⁿ cos(bⁿπx),    0 &lt; a &lt; 1,  b an odd integer,  ab &gt; 1 + 3π/2.</pre>
+<p>By the M-test (Mₙ = aⁿ) W is continuous; Weierstrass proved it is differentiable nowhere. Hardy showed in 1916 that 0 &lt; a &lt; 1 and ab ≥ 1 suffice. A simpler example is the Takagi function T(x) = ∑ₙ₌₀<sup>∞</sup> 2⁻ⁿ d(2ⁿx), where d(x) is the distance from x to the nearest integer (Problem 55). Banach proved in 1931, using the Baire category theorem, that in a precise sense most continuous functions are nowhere differentiable. The geometric intuition that curves are smooth except at isolated corners is simply false.</p>
+<h3>Two further theorems</h3>
+<p><strong>Theorem 10.6 (Dini, 1878)</strong>. If fₙ are continuous on a closed bounded interval, fₙ(x) is increasing in n for every x, and the pointwise limit f is continuous, then the convergence is uniform.</p>
+<p><strong>Theorem 10.7 (Weierstrass approximation theorem, 1885)</strong>. Every continuous function on [a, b] is a uniform limit of polynomials. An explicit construction on [0, 1] is given by the Bernstein polynomials Bₙ(x) = ∑ₖ₌₀ⁿ f(k/n) C(n, k) xᵏ(1 − x)ⁿ⁻ᵏ (Bernstein, 1912), whose convergence is a disguised form of the law of large numbers.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute ‖fₙ‖ on [0, ∞) for fₙ(x) = x²e<sup>−nx</sup>, and decide whether fₙ → 0 uniformly.</div></li><li><span class="mk">(b)</span><div>Does ∑ xⁿ/n² converge uniformly on [−1, 1]?</div></li><li><span class="mk">(c)</span><div>Find lim (n → ∞) ∫₀¹ (n + x)/(n + x²) dx and justify the interchange.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The derivative vanishes at x = 2/n, where fₙ = (4/n²)e⁻²; so ‖fₙ‖ = 4/(e²n²) → 0 and the convergence is uniform. (b) Yes, by the M-test with Mₙ = 1/n². (c) (n + x)/(n + x²) → 1 uniformly on [0, 1], since |(x − x²)/(n + x²)| ≤ 1/(4n); hence the limit is ∫₀¹ 1 dx = 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

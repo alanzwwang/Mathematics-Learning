@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 13</p>
+    <h1>Analytic Continuation, the Gamma Function and the Riemann Zeta Function</h1>
+    <p class="kicker">Lesson 13 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A holomorphic function on a domain is determined by its restriction to any open subset.
+Γ(s) = ∫₀<sup>∞</sup> e<sup>−t</sup> t<sup>s−1</sup> dt continues to ℂ \ {0, −1, −2, …}, with Γ(s)Γ(1 − s) = π/sin(πs).
+ζ(s) = ∑ n<sup>−s</sup> (Re s &gt; 1) continues to ℂ \ {1}, with a simple pole of residue 1 at s = 1,
+and ξ(s) = π<sup>−s/2</sup> Γ(s/2) ζ(s) satisfies ξ(s) = ξ(1 − s).</pre></div>
+<h3>Analytic continuation</h3>
+<p>If f is holomorphic on a domain U and g is holomorphic on a domain V ⊇ U with g = f on U, then g is an analytic continuation of f, and by the identity theorem it is unique. More generally, one continues a power series along a path by a chain of overlapping discs, each series being the re-expansion of the previous one. The result may depend on the path: continuing Log z once around the origin returns Log z + 2πi, and continuing √z returns −√z. The monodromy theorem asserts that if a germ can be continued along every path in a simply connected domain, the continuations along homotopic paths agree, so the result is a single-valued holomorphic function there. Riemann's resolution of multivaluedness was to build a new surface, the Riemann surface of the function, on which the continuation becomes single-valued.</p>
+<p>Continuation can also be impossible. The series f(z) = ∑ z<sup>2ⁿ</sup> (n ≥ 0) has radius 1, and for every 2ᵏ-th root of unity ζ, all but finitely many terms satisfy (rζ)<sup>2ⁿ</sup> = r<sup>2ⁿ</sup>, so |f(rζ)| → ∞ as r → 1⁻. Such roots of unity are dense in the circle, so no point of |z| = 1 has a neighbourhood to which f extends: the unit circle is a natural boundary. Fabry's gap theorem generalises this to any series whose exponents nₖ satisfy nₖ/k → ∞.</p>
+<h3>The Gamma function</h3>
+<p>For Re s &gt; 0 the integral Γ(s) = ∫₀<sup>∞</sup> e<sup>−t</sup> t<sup>s−1</sup> dt converges absolutely and locally uniformly, so Γ is holomorphic there (differentiate under the integral sign, or apply Morera with Fubini). Integration by parts gives Γ(s + 1) = sΓ(s), and Γ(1) = 1, so Γ(n + 1) = n!. The functional equation provides the continuation: Γ(s) = Γ(s + n + 1)/(s(s + 1)…(s + n)) defines Γ on Re s &gt; −n − 1 except at 0, −1, …, −n, consistently for all n. Each nonpositive integer −n is a simple pole with</p>
+<pre class="math">Res(Γ, −n) = (−1)ⁿ/n!.</pre>
+<p>The Beta integral B(a, b) = ∫₀¹ t<sup>a−1</sup>(1 − t)<sup>b−1</sup> dt = Γ(a)Γ(b)/Γ(a + b) and the substitution t = x/(1 + x) turn the keyhole integral of Lesson 10 into Γ(a)Γ(1 − a) = π/sin(πa) for 0 &lt; a &lt; 1, and the identity theorem extends it to all non-integer a ∈ ℂ. At a = 1/2 it gives Γ(1/2)² = π, so Γ(1/2) = √π and Γ(5/2) = (3/2)(1/2)√π = 3√π/4. Since sin(πs)/π has no poles, the reflection formula shows that Γ has no zeros and 1/Γ is entire, with the Weierstrass product 1/Γ(s) = s e<sup>γs</sup> ∏ (1 + s/n) e<sup>−s/n</sup>, where γ ≈ 0.5772 is the Euler–Mascheroni constant.</p>
+<h3>The Riemann zeta function</h3>
+<p>For σ = Re s &gt; 1, ζ(s) = ∑ n<sup>−s</sup> converges absolutely and locally uniformly, because |n<sup>−s</sup>| = n<sup>−σ</sup>. Unique prime factorisation gives Euler's product (1737)</p>
+<pre class="math">ζ(s) = ∏ over primes p of (1 − p<sup>−s</sup>)⁻¹   (Re s &gt; 1),</pre>
+<p>an absolutely convergent product of nonzero factors, so ζ(s) ≠ 0 for Re s &gt; 1. The divergence of ∑ 1/p, and hence the infinitude of primes, follows from letting s → 1⁺.</p>
+<p><strong>Theorem 13.1</strong>. The function ζ(s) − 1/(s − 1) extends to a holomorphic function on Re s &gt; 0. Hence ζ is meromorphic there with a single simple pole at s = 1, of residue 1.</p>
+<p><strong>Proof</strong>. For Re s &gt; 1, 1/(s − 1) = ∫₁<sup>∞</sup> x<sup>−s</sup> dx = ∑ ∫ from n to n + 1 of x<sup>−s</sup> dx, so</p>
+<pre class="math">ζ(s) − 1/(s − 1) = ∑ over n ≥ 1 of φₙ(s),   φₙ(s) = ∫ from n to n + 1 of (n<sup>−s</sup> − x<sup>−s</sup>) dx.</pre>
+<p>Each φₙ is entire. For n ≤ x ≤ n + 1, n<sup>−s</sup> − x<sup>−s</sup> = s ∫ from n to x of u<sup>−s−1</sup> du, so |φₙ(s)| ≤ |s|/n<sup>σ+1</sup>. The series therefore converges uniformly on compact subsets of Re s &gt; 0, and by the Weierstrass corollary of Lesson 7 its sum is holomorphic there.</p>
+<p>Evaluating at s = 1 shows that ζ(s) = 1/(s − 1) + γ + O(s − 1), since ∑ φₙ(1) = lim (1 + 1/2 + … + 1/N − ln(N + 1)) = γ. Iterating the same idea with more terms of the Euler–Maclaurin formula continues ζ to Re s &gt; −k for every k, hence to all of ℂ \ {1}. A cleaner route is Riemann's.</p>
+<p><strong>Theorem 13.2 (Riemann, 1859)</strong>. The function ξ(s) = π<sup>−s/2</sup> Γ(s/2) ζ(s) extends meromorphically to ℂ with simple poles only at s = 0 and s = 1, and ξ(s) = ξ(1 − s).</p>
+<p><strong>Sketch of proof</strong>. Substituting t ↦ πn²t in the Gamma integral gives π<sup>−s/2</sup> Γ(s/2) n<sup>−s</sup> = ∫₀<sup>∞</sup> e<sup>−πn²t</sup> t<sup>s/2 − 1</sup> dt, and summing over n, ξ(s) = ∫₀<sup>∞</sup> ω(t) t<sup>s/2 − 1</sup> dt with ω(t) = ∑ e<sup>−πn²t</sup> over n ≥ 1. The theta function θ(t) = 1 + 2ω(t) satisfies θ(1/t) = √t θ(t), a consequence of the Poisson summation formula and the self-duality of the Gaussian proved in Lesson 6. Splitting the integral at t = 1 and using this identity on (0, 1) gives</p>
+<pre class="math">ξ(s) = −1/s − 1/(1 − s) + ∫₁<sup>∞</sup> ω(t) (t<sup>s/2</sup> + t<sup>(1−s)/2</sup>) t⁻¹ dt,</pre>
+<p>where the integral is entire because ω decays like e<sup>−πt</sup>. The right side is visibly invariant under s ↦ 1 − s.</p>
+<p>Consequences. Because Γ(s/2) has poles at s = 0, −2, −4, …, and ξ is finite at s = −2, −4, …, the zeta function has the trivial zeros ζ(−2) = ζ(−4) = … = 0. The pole of ξ at 0 is cancelled by the pole of Γ(s/2), giving ζ(0) = −1/2. In general ζ(1 − 2k) = −B₂ₖ/(2k), with Bernoulli numbers B₂ = 1/6, B₄ = −1/30, so ζ(−1) = −1/12 and ζ(−3) = 1/120, and ζ(2k) = (−1)<sup>k+1</sup> B₂ₖ (2π)<sup>2k</sup>/(2(2k)!), which reproduces ζ(2) = π²/6 and ζ(4) = π⁴/90 from Lesson 10. These values are those of the continued function; the series ∑ n diverges, and the equation ζ(−1) = −1/12 is not a statement about it.</p>
+<h3>The zeros and the primes</h3>
+<p>All other zeros, the nontrivial ones, lie in the critical strip 0 ≤ Re s ≤ 1, symmetric about the real axis and about the critical line Re s = 1/2; the first is near 1/2 + 14.134725i. In 1896 Hadamard and de la Vallée Poussin proved, independently, that ζ(1 + it) ≠ 0 for real t, and deduced the prime number theorem π(x) ~ x/ln x. A slick proof of the non-vanishing, due to Mertens, starts from the inequality 3 + 4 cos θ + cos 2θ = 2(1 + cos θ)² ≥ 0. Applied to the logarithm of the Euler product it gives |ζ(σ)³ ζ(σ + it)⁴ ζ(σ + 2it)| ≥ 1 for σ &gt; 1; a zero at 1 + it would make the left side behave like (σ − 1)<sup>−3</sup> (σ − 1)⁴ → 0 as σ → 1⁺, a contradiction. Riemann conjectured in 1859 that every nontrivial zero lies on the critical line. The Riemann hypothesis is equivalent to the error estimate π(x) = Li(x) + O(√x ln x), and it remains open: it is one of the Clay Millennium Prize Problems. Many billions of zeros have been computed, and all lie on the line.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute Γ(7/2).</div></li><li><span class="mk">(b)</span><div>Find the residue of Γ at s = −3.</div></li><li><span class="mk">(c)</span><div>Using the alternating zeta function η(s) = ∑ (−1)<sup>n−1</sup> n<sup>−s</sup> = (1 − 2<sup>1−s</sup>) ζ(s), which converges for Re s &gt; 0, compute lim of (1 − 2<sup>1−s</sup>) ζ(s) as s → 1, and check it against η(1).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Γ(7/2) = (5/2)(3/2)(1/2)√π = 15√π/8. (b) (−1)³/3! = −1/6. (c) Near s = 1, 1 − 2<sup>1−s</sup> = (s − 1) ln 2 + O((s − 1)²) and ζ(s) = 1/(s − 1) + O(1), so the product tends to ln 2, which agrees with η(1) = 1 − 1/2 + 1/3 − … = ln 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="lesson-14.html">Lesson 14 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

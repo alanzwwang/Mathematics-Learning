@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#0ea5e9">
+<body id="top" class="mode-kid" style="--topic:#0ea5e9">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry" class="active">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/non-euclidean-geometry/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Five Postulates — and the Troublemaker">1</a><a href="lesson-2.html" title="Lesson 2: What Is a Straight Line, Anyway?">2</a><a href="lesson-3.html" title="Lesson 3: Geometry on a Ball — Fat Triangles">3</a><a href="lesson-4.html" title="Lesson 4: Girard's Theorem — On a Ball, Area IS Excess">4</a><a href="lesson-5.html" title="Lesson 5: Geometry on a Saddle — Skinny Triangles">5</a><a href="lesson-6.html" title="Lesson 6: The Curvature Detective, Quantified">6</a><a href="lesson-7.html" title="Lesson 7: Maps Lie — Geometry in the Real World">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: The Three Worlds, Side by Side">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Seven Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">One changed rule → three worlds of geometry.
 Which one applies depends on the surface you're standing on.</pre></div>
@@ -54,12 +55,11 @@ different sizes?
 Pythagorean theorem?    YES             no                no
 Circle, radius r        2πr             less than 2πr     more than 2πr
 Curvature K             zero            positive (1/R²)   negative
-Real-life home          small places:   planet Earth,     Einstein's
-                        rooms, maps     flights, GPS      universe, ruffled
-                                                          leaves</pre>
+Real-life home          small places:   planet Earth,     ruffled lettuce
+                        rooms, maps     flights, GPS      leaves, coral</pre>
 <h3>So which world is the REAL one?</h3>
 <p>All three are real math — perfectly consistent, no contradictions anywhere. The question &quot;which is true?&quot; only makes sense once you add: &quot;...true OF WHAT SURFACE?&quot;</p>
-<ul class="steps"><li><span class="mk">·</span><div>Your desk, your notebook, the schoolyard: FLAT (or so close you can't tell the difference — tiny triangles on a huge ball carry excess E = area/R² ≈ 0!).</div></li><li><span class="mk">·</span><div>Planet Earth, long flights, world maps, GPS: BALL.</div></li><li><span class="mk">·</span><div>The fabric of space near heavy things — and every ruffled lettuce leaf: SADDLE.</div></li></ul>
+<ul class="steps"><li><span class="mk">·</span><div>Your desk, your notebook, the schoolyard: FLAT (or so close you can't tell the difference — tiny triangles on a huge ball carry excess E = area/R² ≈ 0!).</div></li><li><span class="mk">·</span><div>Planet Earth, long flights, world maps, GPS: BALL.</div></li><li><span class="mk">·</span><div>Ruffled lettuce leaves and coral: SADDLE.</div></li><li><span class="mk">·</span><div>And space itself? Einstein showed that space CAN curve, so the whole universe could be flat, ball-like or saddle-like. So far, astronomers measure it as FLAT, but they're still checking!</div></li></ul>
 <p>The 2,000-year argument over postulate 5 ended with a plot twist nobody saw coming: Euclid wasn't wrong — he was just LOCAL.</p>
 <div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Sort these four facts by world: (a) &quot;Digons exist here.&quot; (b) &quot;Triangle area equals R² times the excess.&quot; (c) &quot;No triangle ever reaches area π.&quot; (d) &quot;You can draw a triangle with the same angles but twice the sides.&quot;</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Ball — two great circles meet twice, closing a two-sided lune. (b) Ball — that's Girard's theorem. (c) Saddle — area = deficit &lt; 180° = π radians. (d) Flat — only the flat world has similarity; on a fixed ball or saddle, the angles alone fix the area, so scaling is impossible.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">⬅️ Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 ➡️</a></nav>
@@ -71,7 +71,7 @@ Real-life home          small places:   planet Earth,     Einstein's
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: The Laws of Large Numbers — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 8</p>
+    <h1>The Laws of Large Numbers</h1>
+    <p class="kicker">Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">X₁, X₂, … i.i.d. with E|X₁| &lt; ∞ and μ = E X₁:   Sₙ/n = (X₁ + ⋯ + Xₙ)/n → μ   almost surely.</pre></div>
+<h3>The weak law</h3>
+<p>Bernoulli's theorem of 1713, the first limit theorem of probability, says that the proportion of successes in n Bernoulli(p) trials converges in probability to p. Chebyshev's inequality makes the general L² case a one-line argument.</p>
+<p><strong>Theorem 8.1 (weak law, L² version)</strong>. Let X₁, X₂, … be uncorrelated with E Xᵢ = μ and Var Xᵢ ≤ C &lt; ∞. Then Sₙ/n → μ in L² and in probability.</p>
+<p><strong>Proof</strong>. By uncorrelatedness, Var(Sₙ/n) = (1/n²) ∑ Var Xᵢ ≤ C/n. Hence E(Sₙ/n − μ)² ≤ C/n → 0, and Chebyshev gives P(|Sₙ/n − μ| &gt; ε) ≤ C/(nε²) → 0. ∎</p>
+<p>The finite-variance hypothesis can be removed. For i.i.d. integrable Xᵢ, truncate at level n, writing Xᵢ = Xᵢ 1{|Xᵢ| ≤ n} + Xᵢ 1{|Xᵢ| &gt; n}; the truncated variables have variance at most E[X₁² 1{|X₁| ≤ n}] = o(n), and the probability that any of the first n variables exceeds n is at most n P(|X₁| &gt; n) → 0. This proves Khinchin's weak law: Sₙ/n → μ in probability whenever E|X₁| &lt; ∞. Feller's refinement shows that Sₙ/n − E[X₁ 1{|X₁| ≤ n}] → 0 in probability if and only if x P(|X₁| &gt; x) → 0, which can hold even when E|X₁| = ∞.</p>
+<p>Bernstein's polynomial proof of the Weierstrass approximation theorem is a pretty application. For continuous f on [0, 1], define Bₙ(x) = E f(Sₙ/n) with Sₙ ~ Binomial(n, x), a polynomial of degree n in x. Splitting the expectation according to whether |Sₙ/n − x| &lt; δ, uniform continuity of f and Chebyshev's bound x(1 − x)/(nδ²) ≤ 1/(4nδ²) give sup<sub>x</sub> |Bₙ(x) − f(x)| → 0.</p>
+<h3>The strong law</h3>
+<p><strong>Theorem 8.2 (Kolmogorov's strong law, 1933)</strong>. If X₁, X₂, … are i.i.d., then Sₙ/n converges almost surely to a finite limit if and only if E|X₁| &lt; ∞, and in that case the limit is E X₁.</p>
+<p>We prove the direct half under an extra moment assumption, where the argument is transparent.</p>
+<p><strong>Theorem 8.3</strong>. If X₁, X₂, … are i.i.d. with E X₁⁴ &lt; ∞, then Sₙ/n → E X₁ almost surely.</p>
+<p><strong>Proof</strong>. Replacing Xᵢ by Xᵢ − μ, assume E Xᵢ = 0. Expand Sₙ⁴ = ∑ XᵢXⱼXₖXₗ. Any term containing an index exactly once has zero expectation by independence. The surviving terms are Xᵢ⁴ (n of them) and Xᵢ²Xⱼ² with i ≠ j, which arise in C(4, 2) = 6 orderings for each of the C(n, 2) unordered pairs. Hence</p>
+<pre class="math">E Sₙ⁴ = n E X₁⁴ + 3n(n − 1)(E X₁²)² ≤ K n²</pre>
+<p>for a constant K. By Markov's inequality applied to Sₙ⁴, P(|Sₙ/n| &gt; ε) ≤ K n²/(ε⁴ n⁴) = K/(ε⁴ n²), which is summable. The first Borel–Cantelli lemma shows that almost surely |Sₙ/n| ≤ ε for all large n. Applying this with ε = 1/k for k = 1, 2, … and intersecting countably many events of probability 1 gives Sₙ/n → 0 a.s. ∎</p>
+<p>The general proof (Etemadi's 1981 argument is the shortest) uses truncation, a Chebyshev bound along a geometric subsequence nₖ = ⌊αᵏ⌋, and monotonicity for nonnegative summands to fill in the gaps between the nₖ. The necessity of E|X₁| &lt; ∞ follows from the second Borel–Cantelli lemma: if E|X₁| = ∞ then ∑ P(|Xₙ| &gt; n) = ∞, so |Xₙ| &gt; n infinitely often, and Sₙ/n cannot converge. The Cauchy distribution, whose sample means are again standard Cauchy (Lesson 5), illustrates the failure vividly.</p>
+<h3>Tail events and the zero–one law</h3>
+<p>Why is the limit in the strong law a constant? Let 𝓣 = ⋂ₙ σ(Xₙ, Xₙ₊₁, …) be the tail σ-algebra. Events such as {Sₙ/n converges} or {lim sup Sₙ/n ≤ 3} belong to 𝓣, because changing finitely many Xᵢ does not affect them.</p>
+<p><strong>Theorem 8.4 (Kolmogorov's zero–one law)</strong>. If X₁, X₂, … are independent, every event in 𝓣 has probability 0 or 1.</p>
+<p><strong>Proof</strong>. For each n, σ(X₁, …, Xₙ) is independent of σ(Xₙ₊₁, …) and hence of 𝓣. So 𝓣 is independent of ⋃ₙ σ(X₁, …, Xₙ), which is a π-system generating σ(X₁, X₂, …) ⊇ 𝓣. By Lemma 2.6, 𝓣 is independent of itself, so P(A) = P(A)² for every A ∈ 𝓣. ∎</p>
+<p>A tail-measurable random variable is therefore almost surely constant. Hewitt and Savage proved the stronger statement that events invariant under finite permutations of an i.i.d. sequence also have probability 0 or 1.</p>
+<h3>Applications</h3>
+<p>Monte Carlo integration rests on the strong law: if U₁, U₂, … are i.i.d. uniform on [0, 1]ᵈ and f is integrable, then (1/n) ∑ f(Uᵢ) → ∫ f almost surely, and, when f is square-integrable, with error of order σ/√n regardless of dimension. Borel's normal number theorem (1909) follows by applying the strong law to binary digits: almost every x ∈ [0, 1] has asymptotic frequency 1/2 of the digit 1 in its binary expansion (and indeed is normal in every base). The Glivenko–Cantelli theorem upgrades the strong law for the empirical distribution function Fₙ(x) = (1/n) ∑ 1{Xᵢ ≤ x} to uniform convergence: sup<sub>x</sub> |Fₙ(x) − F(x)| → 0 almost surely. It is often called the fundamental theorem of statistics.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Verify the identity E S₂⁴ = 2E X₁⁴ + 6(E X₁²)² for i.i.d. mean-zero X₁, X₂ by direct expansion.</div></li><li><span class="mk">(b)</span><div>Let X₁, X₂, … be i.i.d. Exponential(1). To what does (X₁² + ⋯ + Xₙ²)/n converge almost surely?</div></li><li><span class="mk">(c)</span><div>Using Chebyshev, how many fair-coin tosses guarantee that the observed proportion of heads lies within 0.01 of 1/2 with probability at least 0.95?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (X₁ + X₂)⁴ = X₁⁴ + 4X₁³X₂ + 6X₁²X₂² + 4X₁X₂³ + X₂⁴; the odd cross terms have mean zero, leaving 2E X₁⁴ + 6(E X₁²)², which agrees with n E X₁⁴ + 3n(n − 1)(E X₁²)² at n = 2. (b) The Xᵢ² are i.i.d. and integrable with mean E X₁² = Var X₁ + (E X₁)² = 2, so the limit is 2. (c) We need (1/4)/(n · 0.0001) ≤ 0.05, that is n ≥ 50,000. (The CLT shows about 9,604 tosses actually suffice.)</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

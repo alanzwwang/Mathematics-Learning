@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Diagonalization and the Jordan Normal Form — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 6</p>
+    <h1>Diagonalization and the Jordan Normal Form</h1>
+    <p class="kicker">Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A diagonalizable  ⇔  m<sub>A</sub> has distinct roots  ⇔  ∑ geometric multiplicities = n
+A = S (J<sub>k₁</sub>(λ₁) ⊕ ⋯ ⊕ J<sub>k<sub>s</sub></sub>(λ<sub>s</sub>)) S⁻¹,   unique up to the order of blocks</pre></div>
+<h3>Diagonalizability</h3>
+<p>A is diagonalizable if A = SΛS⁻¹ with Λ diagonal; the columns of S are then eigenvectors and the diagonal of Λ lists the eigenvalues. Thus A is diagonalizable precisely when 𝔽ⁿ has a basis of eigenvectors. Diagonalization makes functions of A transparent: A<sup>k</sup> = SΛ<sup>kS</sup>⁻¹, and more generally q(A) = S q(Λ) S⁻¹.</p>
+<p><strong>Lemma 6.1 (Kernel decomposition)</strong>. If q = q₁q₂ with gcd(q₁, q₂) = 1, then ker q(A) = ker q₁(A) ⊕ ker q₂(A).</p>
+<p><strong>Proof</strong>. By Bézout there are polynomials a, b with aq₁ + bq₂ = 1, hence I = a(A)q₁(A) + b(A)q₂(A). For x ∈ ker q(A), put x₁ = b(A)q₂(A)x and x₂ = a(A)q₁(A)x. Then x = x₁ + x₂, while q₁(A)x₁ = b(A)q(A)x = 0 and q₂(A)x₂ = 0. If x lies in both kernels, x = a(A)q₁(A)x + b(A)q₂(A)x = 0. ∎</p>
+<p><strong>Theorem 6.2</strong>. For A ∈ 𝔽<sup>n×n</sup> the following are equivalent: (i) A is diagonalizable over 𝔽; (ii) p<sub>A</sub> splits over 𝔽 and, for each eigenvalue, the geometric multiplicity equals the algebraic multiplicity; (iii) m<sub>A</sub> splits over 𝔽 into distinct linear factors.</p>
+<p><strong>Proof</strong>. (i) ⇒ (iii): if A = SΛS⁻¹ with distinct diagonal values μ₁, …, μ<sub>s</sub>, then q(t) = ∏(t − μ<sub>j</sub>) kills Λ and hence A, so m<sub>A</sub> divides q and has distinct roots. (iii) ⇒ (i): if m<sub>A</sub> = ∏(t − μ<sub>j</sub>) with distinct μ<sub>j</sub>, repeated use of Lemma 6.1 gives 𝔽ⁿ = ker m<sub>A</sub>(A) = ⊕ ker(A − μ<sub>jI</sub>), a direct sum of eigenspaces. (i) ⇔ (ii): eigenspaces for distinct eigenvalues form a direct sum by Proposition 5.2, so A has a basis of eigenvectors exactly when the geometric multiplicities add up to n; since each is at most the corresponding algebraic multiplicity (Proposition 5.1) and those add up to at most n, with equality exactly when p<sub>A</sub> splits, this happens exactly under (ii). ∎</p>
+<p><strong>Corollary 6.3</strong>. A matrix with n distinct eigenvalues is diagonalizable. Over ℂ the diagonalizable matrices are dense, since an arbitrarily small perturbation of the upper triangular Schur form (Lesson 8) separates the eigenvalues.</p>
+<h3>Jordan blocks</h3>
+<p>The Jordan block J<sub>k</sub>(λ) is the k × k matrix with λ on the diagonal, 1 on the superdiagonal and 0 elsewhere. With N = J<sub>k</sub>(λ) − λI, the shift N sends e<sub>k</sub> ↦ e<sub>k−1</sub> ↦ ⋯ ↦ e₁ ↦ 0, so N<sup>k−1</sup> ≠ 0 and N<sup>k</sup> = 0. Hence J<sub>k</sub>(λ) has the single eigenvalue λ with algebraic multiplicity k, geometric multiplicity 1, and minimal polynomial (t − λ)<sup>k</sup>. For k ≥ 2 it is not diagonalizable.</p>
+<p><strong>Theorem 6.4 (Jordan normal form)</strong>. Let A ∈ ℂ<sup>n×n</sup>, or more generally suppose p<sub>A</sub> splits over 𝔽. Then A is similar to a block-diagonal matrix J = J<sub>k₁</sub>(λ₁) ⊕ ⋯ ⊕ J<sub>k<sub>s</sub></sub>(λ<sub>s</sub>), and J is unique up to the order of the blocks.</p>
+<p><strong>Proof</strong>. Step 1 (generalized eigenspaces). Write p<sub>A</sub> = ∏(t − μ<sub>j</sub>)<sup>a<sub>j</sub></sup> with distinct μ<sub>j</sub>. By Cayley–Hamilton and Lemma 6.1, 𝔽ⁿ = ⊕_j G<sub>j</sub> with G<sub>j</sub> = ker(A − μ<sub>jI</sub>)<sup>a<sub>j</sub></sup>. Each G<sub>j</sub> is A-invariant, and on G<sub>j</sub> the operator N<sub>j</sub> = A − μ<sub>jI</sub> is nilpotent. It therefore suffices to show that a nilpotent operator N on a space G has a basis consisting of chains x, Nx, …, N<sup>k−1</sup>x with N<sup>k</sup> x = 0, because in the reversed basis N<sup>k−1</sup>x, …, Nx, x each chain is a single shift block.</p>
+<p>Step 2 (nilpotent operators). Induct on dim G; the case dim G = 0 is empty. Since N is nilpotent, N is not injective, so W = N(G) is a proper N-invariant subspace. By induction W has a basis of chains: vectors y₁, …, y<sub>p</sub> and lengths ℓ₁, …, ℓ<sub>p</sub> such that the vectors N<sup>r</sup> y<sub>i</sub> (0 ≤ r &lt; ℓ<sub>i</sub>) form a basis of W and N<sup>ℓ<sub>i</sub></sup> y<sub>i</sub> = 0. Each y<sub>i</sub> lies in N(G), so choose x<sub>i</sub> with Nx<sub>i</sub> = y<sub>i</sub>. The vectors N<sup>ℓ<sub>i</sub> − 1</sup>y<sub>i</sub> (the chain ends) are independent and lie in ker N; extend them to a basis of ker N by vectors z₁, …, z<sub>q</sub>. Consider the chains x<sub>i</sub>, Nx<sub>i</sub>, …, N<sup>ℓ<sub>i</sub></sup>x<sub>i</sub> (length ℓ<sub>i</sub> + 1) together with the one-element chains z<sub>j</sub>. Their number of vectors is dim W + p + q = dim im N + dim ker N = dim G. They are independent: given a vanishing linear combination, apply N; the z<sub>j</sub> and the chain ends N<sup>ℓ<sub>i</sub></sup>x<sub>i</sub> are killed, and what remains is a combination of the basis of W, so all coefficients except those of N<sup>ℓ<sub>i</sub></sup>x<sub>i</sub> = N<sup>ℓ<sub>i</sub>−1</sup>y<sub>i</sub> and z<sub>j</sub> vanish; those remaining vectors are independent by construction, so their coefficients vanish as well. Thus we have a chain basis of G.</p>
+<p>Step 3 (uniqueness). For an eigenvalue λ let r<sub>k</sub> = rank(A − λI)<sup>k</sup>, with r₀ = n. On a block J<sub>m</sub>(λ) the rank of N<sup>k</sup> drops by one for each k ≤ m, while blocks with other eigenvalues are invertible under A − λI. Counting gives that the number of Jordan blocks for λ of size at least k equals r<sub>k−1</sub> − r<sub>k</sub>. These ranks are similarity invariants, so the block sizes are determined by A. ∎</p>
+<p><strong>Corollary 6.5</strong>. The number of Jordan blocks for λ of size exactly k is r<sub>k−1</sub> − 2r<sub>k</sub> + r<sub>k+1</sub>. The number of blocks for λ is its geometric multiplicity, the sum of their sizes is its algebraic multiplicity, and the largest size is its multiplicity as a root of m<sub>A</sub>.</p>
+<p><strong>Worked example</strong>: A = [ 3 1 ; −1 1 ] has tr A = 4 and det A = 4, so p<sub>A</sub>(λ) = (λ − 2)². Since A − 2I = [ 1 1 ; −1 −1 ] has rank 1, there is a single block: A ∼ J₂(2). A chain is obtained by choosing x = e₁, which is not in ker(A − 2I), and setting y = (A − 2I)x = (1, −1). With S = [ y x ] = [ 1 1 ; −1 0 ] one has A = S J₂(2) S⁻¹.</p>
+<h3>The matrix exponential</h3>
+<p>For any square A the series exp(A) = ∑<sub>k≥0</sub> A<sup>k</sup>/k! converges absolutely, and x(t) = exp(tA)x₀ is the unique solution of x′ = Ax with x(0) = x₀. If AB = BA then exp(A + B) = exp(A)exp(B), the binomial theorem being valid for commuting matrices. Writing J<sub>k</sub>(λ) = λI + N with N nilpotent and commuting with λI,</p>
+<pre class="math">exp(t J<sub>k</sub>(λ)) = e<sup>λt</sup> ( I + tN + t²N²/2! + ⋯ + t<sup>k−1</sup>N<sup>k−1</sup>/(k−1)! )</pre>
+<p>For the worked example, N = A − 2I satisfies N² = 0, so exp(tA) = e<sup>2t</sup>(I + tN) = e<sup>2t</sup> [ 1 + t  t ; −t  1 − t ]. The polynomial factors t<sup>j</sup> e<sup>λt</sup> that appear for nontrivial blocks are the source of the secular terms in the theory of linear differential equations with repeated characteristic roots.</p>
+<p>Two caveats are important in practice. First, the Jordan form is discontinuous in the entries: the matrix [ 0 1 ; ε 0 ] is diagonalizable with eigenvalues ±√ε for every ε &gt; 0, but tends to J₂(0). The Jordan form therefore cannot be computed stably in floating-point arithmetic, and numerical work uses the Schur form of Lesson 8 instead. Second, every A with split characteristic polynomial decomposes uniquely as A = D + N with D diagonalizable, N nilpotent and DN = ND (the Jordan–Chevalley decomposition); moreover D and N are polynomials in A.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many similarity classes of 4 × 4 nilpotent complex matrices are there?</div></li><li><span class="mk">(b)</span><div>A is 7 × 7 with single eigenvalue 3, and with N = A − 3I one has rank N = 4, rank N² = 2, rank N³ = 1, rank N⁴ = 0. Find the Jordan block sizes.</div></li><li><span class="mk">(c)</span><div>Compute exp(tA) for A = [ 0 1 ; 0 0 ] and use it to solve x′ = Ax with x(0) = (a, b).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Nilpotent Jordan forms correspond to partitions of 4: 4, 3 + 1, 2 + 2, 2 + 1 + 1, 1 + 1 + 1 + 1, so there are 5 classes. (b) Blocks of size ≥ 1: 7 − 4 = 3; ≥ 2: 4 − 2 = 2; ≥ 3: 2 − 1 = 1; ≥ 4: 1 − 0 = 1; ≥ 5: 0. Hence the sizes are 4, 2, 1 (and indeed 4 + 2 + 1 = 7). (c) A² = 0, so exp(tA) = I + tA = [ 1 t ; 0 1 ] and x(t) = (a + bt, b).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Möbius Transformations and the Classification of Isometries — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 6</p>
+    <h1>Möbius Transformations and the Classification of Isometries</h1>
+    <p class="kicker">Lesson 6 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For g ∈ PSL(2,ℝ), g ≠ id:
+  |tr g| &lt; 2   elliptic     one fixed point in H;  rotation by θ with |tr g| = 2|cos(θ/2)|
+  |tr g| = 2   parabolic    one fixed point on ∂H
+  |tr g| &gt; 2   hyperbolic   two fixed points on ∂H;  translation length ℓ, |tr g| = 2cosh(ℓ/2)</pre></div>
+<h3>Fixed points</h3>
+<p>The trace of an element of PSL(2,ℝ) is defined up to sign, so |tr g| is a well-defined conjugacy invariant. The fixed points of g(z) = (az + b)/(cz + d) satisfy cz² + (d − a)z − b = 0. If c ≠ 0,</p>
+<pre class="math">z = ( (a − d) ± √((a + d)² − 4) ) / (2c),</pre>
+<p>using (d − a)² + 4bc = (a + d)² − 4(ad − bc) = (tr g)² − 4. So g has two real fixed points if |tr g| &gt; 2, a double real fixed point if |tr g| = 2, and a conjugate pair of non-real fixed points — exactly one in H — if |tr g| &lt; 2. If c = 0, then ∞ is fixed and the other fixed point is b/(d − a) when a ≠ d.</p>
+<h3>Normal forms</h3>
+<p><strong>Theorem 6.1</strong>. Every g ∈ PSL(2,ℝ) other than the identity is conjugate in PSL(2,ℝ) to exactly one of:</p>
+<pre class="math">elliptic:     k<sub>φ</sub>(z) = (cos φ · z + sin φ)/(−sin φ · z + cos φ),   0 &lt; φ &lt; π
+parabolic:    z ↦ z + 1   or   z ↦ z − 1
+hyperbolic:   z ↦ λz,   λ &gt; 1</pre>
+<p>The elliptic normal form is rotation about i through angle 2φ; the hyperbolic normal form translates along the imaginary axis (its axis) by ℓ = ln λ, and its matrix diag(√λ, 1/√λ) has trace √λ + 1/√λ = 2cosh(ℓ/2). The two parabolic normal forms are not conjugate in PSL(2,ℝ); they are conjugate by z ↦ −z̄, which reverses orientation.</p>
+<p><strong>Proof</strong>. If g has a fixed point in H, conjugate it to i; then g lies in the stabiliser PSO(2). If g has a unique fixed point on ∂H, conjugate it to ∞; then g(z) = αz + β, and α = 1 (otherwise β/(1 − α) would be a second fixed point), so g(z) = z + β with β ≠ 0, and conjugating by z ↦ z/|β| gives z ↦ z ± 1. If g has two boundary fixed points, conjugate them to 0 and ∞; then g(z) = λz with λ &gt; 0, λ ≠ 1, and conjugating by z ↦ −1/z if necessary gives λ &gt; 1. ∎</p>
+<p>Dynamics. Elliptic elements are rotations; they preserve the hyperbolic circles about their fixed point. Parabolic elements preserve each horocycle at their fixed point and slide points along it. Hyperbolic elements preserve their axis, translating along it by ℓ; points off the axis move along hypercycles (equidistant curves), which are Euclidean rays from 0 when the axis is the imaginary axis. For a hyperbolic g the translation length is the minimum displacement, ℓ(g) = min over z ∈ H of d(z, gz), and 2cosh(ℓ/2) = |tr g|.</p>
+<p><strong>Worked example</strong>. g = (2 1; 1 1) has det 1 and tr 3 &gt; 2, so g is hyperbolic with translation length ℓ = 2 arccosh(3/2) = 2 ln((3 + √5)/2) ≈ 1.9248. Its fixed points solve z² − z − 1 = 0, namely z = (1 ± √5)/2, the golden ratio φ and its conjugate. Since (3 + √5)/2 = φ², ℓ = 4 ln φ.</p>
+<h3>Cross-ratio and distance</h3>
+<p>The cross-ratio [z₁, z₂; z₃, z₄] = (z₁ − z₃)(z₂ − z₄) / ((z₁ − z₄)(z₂ − z₃)) is invariant under all Möbius maps of the Riemann sphere. Proposition 6.2: if the geodesic through z, w has ideal endpoints p and q, with p on the side of z and q on the side of w, then</p>
+<pre class="math">d(z, w) = ln | (w − p)(z − q) / ((z − p)(w − q)) |.</pre>
+<p><strong>Proof</strong>: map p ↦ 0 and q ↦ ∞, so that z = ia and w = ib with a &lt; b. The expression becomes (ib/ia) · (z − q)/(w − q), whose limit as q → ∞ is b/a, and ln(b/a) = d(z, w). By invariance of the cross-ratio this holds in general. ∎</p>
+<h3>Discreteness and Jørgensen's inequality</h3>
+<p>A subgroup Γ of PSL(2,ℝ) is discrete if it has no accumulation points in the topology of matrix entries. Not every group generated by isometries is discrete: the group generated by h(z) = 2z and t(z) = z + 1 contains h⁻ⁿ t hⁿ, which is z ↦ z + 2⁻ⁿ, for every n, so it is not discrete. A sharp criterion is Jørgensen's inequality (1976): if A, B ∈ SL(2,ℂ) generate a non-elementary discrete group, then</p>
+<pre class="math">|tr²A − 4| + |tr(ABA⁻¹B⁻¹) − 2| ≥ 1.</pre>
+<p>Results of this kind are closely related to the Margulis lemma and the collar lemma, which guarantee embedded collars around short closed geodesics and embedded cusp neighbourhoods on every hyperbolic surface; they underlie the thick–thin decomposition.</p>
+<h3>Trace identities</h3>
+<p>For A, B ∈ SL(2,ℝ) one has tr A tr B = tr AB + tr AB⁻¹ (from the Cayley–Hamilton theorem B + B⁻¹ = (tr B) I), and the Fricke identity</p>
+<pre class="math">tr²A + tr²B + tr²AB − tr A · tr B · tr AB = 2 + tr[A, B].</pre>
+<p>The commutator [A, B] = ABA⁻¹B⁻¹ is parabolic with trace −2 exactly in the situation where A and B are the holonomies of a complete hyperbolic once-punctured torus; with x = tr A, y = tr B, z = tr AB this becomes x² + y² + z² = xyz. Its integer solutions, starting from (3, 3, 3), are three times the solutions of Markov's equation a² + b² + c² = 3abc, which govern the Markov–Lagrange spectrum in Diophantine approximation — a striking bridge between hyperbolic geometry and number theory.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Classify g = (3 −2; 2 −1) and find its fixed point(s).</div></li><li><span class="mk">(b)</span><div>Classify g = (1 −1; 1 0). Find the fixed point in H and the rotation angle.</div></li><li><span class="mk">(c)</span><div>Find the translation length of g(z) = 9z, and of (5 2; 2 1).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) det = −3 + 4 = 1 and tr = 2, so g is parabolic (g ≠ ±I). Fixed points: 2z² − 4z + 2 = 0, i.e. z = 1 (double). (b) det = 0 + 1 = 1 and tr = 1 &lt; 2: elliptic. Fixed points: z² − z + 1 = 0, so z = (1 + i√3)/2 = e<sup>iπ/3</sup> in H. The rotation angle θ satisfies 2cos(θ/2) = 1, so θ = 2π/3; indeed the characteristic polynomial x² − x + 1 has primitive sixth roots of unity as roots, so g³ = −I and g has order 3 in PSL(2,ℝ). (c) For z ↦ 9z the matrix is diag(3, 1/3), with trace 10/3 = 2cosh(ln 3), so ℓ = 2 ln 3 = ln 9 ≈ 2.1972. For (5 2; 2 1): det = 1, tr = 6, so ℓ = 2 arccosh 3 = 2 ln(3 + 2√2) ≈ 3.5255.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

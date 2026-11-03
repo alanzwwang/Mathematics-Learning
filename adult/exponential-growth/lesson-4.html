@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 4</p>
+    <h1>Exponential versus Polynomial — A Hierarchy of Growth Rates</h1>
+    <p class="kicker">Lesson 4 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">for every a &gt; 1 and every k:   nᵏ/aⁿ → 0,   and   (ln x)ᵏ/x<sup>ε</sup> → 0  for every ε &gt; 0</pre></div>
+<p>The phrase &quot;growing exponentially&quot; is used colloquially for anything that grows fast. Mathematically it is a precise and very strong statement: exponential growth eventually overwhelms every polynomial, however large its degree and coefficients. We prove this in several ways, because each proof generalizes differently.</p>
+<h3>Three proofs that eˣ dominates xᵏ</h3>
+<p><strong>Theorem 4.1</strong>. For every k ≥ 0, xᵏ e<sup>−x</sup> → 0 as x → ∞.</p>
+<p><strong>Proof 1 (series)</strong>. For x &gt; 0 every term of the exponential series is positive, so eˣ &gt; x<sup>k+1</sup>/(k+1)!. Hence 0 &lt; xᵏ/eˣ &lt; (k+1)!/x → 0.</p>
+<p><strong>Proof 2 (logarithms)</strong>. ln(xᵏ e<sup>−x</sup>) = k ln x − x = −x(1 − k (ln x)/x), and (ln x)/x → 0 (for instance because ln x ≤ 2√x, as the derivative of 2√x − ln x is (√x − 1)/x ≥ 0 for x ≥ 1). So the logarithm tends to −∞.</p>
+<p><strong>Proof 3 (L'Hôpital)</strong>. Apply L'Hôpital's rule k times (for integer k): xᵏ/eˣ has the same limit as k!/eˣ, which is 0. ∎</p>
+<p><strong>Corollary 4.2</strong>. For a &gt; 1 and any real k, nᵏ/aⁿ → 0. For ε &gt; 0 and any k, (ln x)ᵏ/x<sup>ε</sup> → 0. Both follow by substitution: aⁿ = e<sup>n ln a</sup>, and setting x = eᵘ turns (ln x)ᵏ/x<sup>ε</sup> into uᵏ/e<sup>εu</sup>.</p>
+<p>The discrete version is the ratio test: if bₙ = nᵏ/aⁿ then bₙ₊₁/bₙ = (1 + 1/n)ᵏ/a → 1/a &lt; 1, so the series ∑ bₙ converges and in particular bₙ → 0.</p>
+<h3>The asymptotic hierarchy</h3>
+<p>Write f ≪ g if f(n)/g(n) → 0. Then for constants 0 &lt; ε &lt; 1, k &gt; 1 and a &gt; 1:</p>
+<pre class="math">1 ≪ ln ln n ≪ ln n ≪ (ln n)ᵏ ≪ n<sup>ε</sup> ≪ n ≪ nᵏ ≪ n<sup>ln n</sup> ≪ 2<sup>n<sup>ε</sup></sup> ≪ aⁿ ≪ n! ≪ nⁿ ≪ 2<sup>2ⁿ</sup></pre>
+<p>A few links deserve justification. n<sup>ln n</sup> = e<sup>(ln n)²</sup> and (ln n)² ≪ n<sup>ε</sup> ln 2, so n<sup>ln n</sup> ≪ 2<sup>n<sup>ε</sup></sup>; this quasi-polynomial class sits strictly between polynomial and exponential. For n!, Stirling's formula</p>
+<pre class="math">n! ~ √(2πn) (n/e)ⁿ</pre>
+<p>shows n!/aⁿ ≥ (n/(ae))ⁿ → ∞, while n!/nⁿ ~ √(2πn) e<sup>−n</sup> → 0. Stirling's approximation is already good at n = 10: it gives 3,598,696 against 10! = 3,628,800, an error of about 0.83%, consistent with the correction factor 1 + 1/(12n).</p>
+<h3>Exponential rate as the right invariant</h3>
+<p>Two exponential functions aⁿ and bⁿ with a &lt; b are separated by an exponential factor (b/a)ⁿ, so the natural coarse invariant of a positive sequence is its exponential growth rate</p>
+<pre class="math">γ = limsup<sub>n→∞</sub> (1/n) ln xₙ,</pre>
+<p>equivalently the base e<sup>γ</sup> = limsup xₙ<sup>1/n</sup>. Polynomial factors do not change γ: nᵏ aⁿ and aⁿ have the same rate ln a. By the root test, γ also determines the radius of convergence 1/e<sup>γ</sup> of the power series ∑ xₙ zⁿ (Cauchy–Hadamard), a link between growth rates and complex analysis that is the starting point of analytic combinatorics: the exponential growth of the coefficients of a generating function is dictated by the location of its dominant singularity.</p>
+<h3>A warning about finite ranges</h3>
+<p>The hierarchy is asymptotic. The polynomial n¹⁰⁰ exceeds 2ⁿ for all 2 ≤ n ≤ 996 (the crossover lies between 996 and 997, where n ln 2 = 100 ln n), and 1.0001ⁿ remains below n² for every n from 2 up to 248,474. Statements of the form &quot;exponential beats polynomial&quot; therefore carry no information about any particular range of n without explicit constants, a point that matters greatly in complexity theory (Lesson 11).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find lim<sub>x→∞</sub> x¹⁰⁰⁰ e<sup>−x/1000</sup>.</div></li><li><span class="mk">(b)</span><div>Order by growth: n<sup>√n</sup>, 3ⁿ, n! / 2ⁿ, (ln n)<sup>ln n</sup>.</div></li><li><span class="mk">(c)</span><div>Use the series to show eˣ ≥ x³/6 for x ≥ 0 and deduce x² e<sup>−x</sup> ≤ 6/x for x &gt; 0.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 0, by Corollary 4.2 with u = x/1000: x¹⁰⁰⁰ e<sup>−x/1000</sup> = 1000¹⁰⁰⁰ u¹⁰⁰⁰ e<sup>−u</sup> → 0. (b) Take logarithms: (ln n)<sup>ln n</sup> = e<sup>ln n · ln ln n</sup>, n<sup>√n</sup> = e<sup>√n ln n</sup>, 3ⁿ = e<sup>n ln 3</sup>, n!/2ⁿ = e<sup>n ln n − n(1 + ln 2) + O(ln n)</sup>; the exponents are ordered ln n ln ln n ≪ √n ln n ≪ n ln 3 ≪ n ln n, so (ln n)<sup>ln n</sup> ≪ n<sup>√n</sup> ≪ 3ⁿ ≪ n!/2ⁿ. (c) All terms of the series are nonnegative for x ≥ 0, so eˣ ≥ x³/3! = x³/6; dividing, x² e<sup>−x</sup> ≤ x²·6/x³ = 6/x.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

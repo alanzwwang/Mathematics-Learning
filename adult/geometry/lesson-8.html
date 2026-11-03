@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus — Geometry (Advanced)</title>
+<meta name="description" content="Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Geometry</a> › Lesson 8</p>
+    <h1>Projective Geometry, Cross-Ratio, Desargues and Pappus</h1>
+    <p class="kicker">Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Hilbert's Axioms and the Foundations of Geometry">1</a><a href="lesson-2.html" title="Lesson 2: Isometries of the Euclidean Plane">2</a><a href="lesson-3.html" title="Lesson 3: Classification of Plane Isometries">3</a><a href="lesson-4.html" title="Lesson 4: Symmetry Groups, Lattices and the Crystallographic Restriction">4</a><a href="lesson-5.html" title="Lesson 5: Triangle Centres, the Euler Line and the Nine-Point Circle">5</a><a href="lesson-6.html" title="Lesson 6: Ceva, Menelaus and Routh">6</a><a href="lesson-7.html" title="Lesson 7: Power of a Point, Radical Axes and Inversion">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus">8</a><a href="lesson-9.html" title="Lesson 9: The Euler Characteristic and Angular Defect">9</a><a href="lesson-10.html" title="Lesson 10: Regular Polytopes and the Platonic Solids">10</a><a href="lesson-11.html" title="Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem">11</a><a href="lesson-12.html" title="Lesson 12: Constructibility with Straightedge and Compass">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ℝP² = lines through 0 in ℝ³; points [x : y : z], lines ax + by + cz = 0.
+Cross-ratio (A, B; C, D) = (c − a)(d − b) / ((c − b)(d − a)) is invariant under projection.
+Desargues ⇔ coordinates in a division ring;  Pappus ⇔ coordinates in a field.</pre></div>
+<h3>The projective plane</h3>
+<p>The real projective plane ℝP² is the set of one-dimensional subspaces of ℝ³. A point is written in homogeneous coordinates [x : y : z], meaning the line through (x, y, z) ≠ 0, so that [x : y : z] = [λx : λy : λz] for λ ≠ 0. Lines of ℝP² are the two-dimensional subspaces, given by equations ax + by + cz = 0 and themselves described by homogeneous coordinates [a : b : c]. The affine plane ℝ² embeds as the chart z ≠ 0 via (x, y) ↦ [x : y : 1]; the remaining points [x : y : 0] form the line at infinity, one point for each direction in the plane. Two parallel affine lines meet at the point at infinity of their common direction, so in ℝP² any two distinct lines meet in exactly one point.</p>
+<p>Incidence computations become linear algebra. The line through points p, q is p × q (the cross product), the intersection of lines ℓ, m is ℓ × m, and three points are collinear iff the determinant of their coordinate vectors vanishes. Points and lines play symmetric roles: the principle of duality states that from every theorem about incidences one obtains another by exchanging &quot;point&quot; and &quot;line&quot;, &quot;lies on&quot; and &quot;passes through&quot;. An abstract projective plane is an incidence structure in which any two points lie on a unique line, any two lines meet in a unique point, and there are four points no three collinear. The smallest is the Fano plane of 7 points and 7 lines, the plane PG(2, 2) over the field with two elements; in general PG(2, q) has q² + q + 1 points, q + 1 on each line.</p>
+<h3>Projective transformations</h3>
+<p>An invertible 3 × 3 matrix M induces a bijection [v] ↦ [Mv] of ℝP² mapping lines to lines; M and λM give the same map, so the projective group is PGL(3, ℝ) = GL(3, ℝ)/ℝ*, of dimension 8. The fundamental theorem of projective geometry (in its simplest form) says that for any two ordered quadruples of points in general position (no three collinear) there is a unique projective transformation taking one to the other. On a line, PGL(2, ℝ) acts on ℝP¹ = ℝ ∪ {∞} by Möbius maps x ↦ (αx + β)/(γx + δ), αδ − βγ ≠ 0, and is sharply 3-transitive. A central projection from one line to another through a point not on either (a perspectivity) is such a map. Affine maps are exactly the projective transformations preserving the line at infinity.</p>
+<h3>The cross-ratio</h3>
+<p>For four distinct points of ℝP¹ with affine coordinates a, b, c, d define:</p>
+<pre class="math">(A, B; C, D) = ((c − a)(d − b)) / ((c − b)(d − a)),</pre>
+<p>with the obvious limits when one point is ∞; for instance (A, B; C, ∞) = (c − a)/(c − b).</p>
+<p><strong>Theorem 8.1</strong>. The cross-ratio is invariant under every projective transformation of the line, and hence under perspectivities between lines.</p>
+<p><strong>Proof</strong>. For g(x) = (αx + β)/(γx + δ) a direct computation gives g(x) − g(y) = (αδ − βγ)(x − y)/((γx + δ)(γy + δ)). In the cross-ratio of g(a), g(b), g(c), g(d), the numerator contains the factors (γc + δ)(γa + δ)(γd + δ)(γb + δ) in its denominator, and the denominator of the cross-ratio contains (γc + δ)(γb + δ)(γd + δ)(γa + δ); these cancel, as does the factor (αδ − βγ)², leaving the original cross-ratio. ∎</p>
+<p>Conversely, since PGL(2, ℝ) is sharply 3-transitive, three points and a value of the cross-ratio determine the fourth point: the projective map x ↦ ((x − a)(c − b))/((x − b)(c − a)) sends A ↦ 0, B ↦ ∞, C ↦ 1 and D ↦ 1/(A, B; C, D). Permuting the four points changes the cross-ratio λ through the six values λ, 1/λ, 1 − λ, 1/(1 − λ), (λ − 1)/λ, λ/(λ − 1), an action of S₄ with kernel the Klein four-group.</p>
+<p>Four points are in harmonic position if (A, B; C, D) = −1; then D is the harmonic conjugate of C with respect to A, B. The midpoint of AB and the point at infinity are harmonic conjugates: (A, B; M, ∞) = (m − a)/(m − b) = −1. Harmonic conjugates can be constructed with a straightedge alone, using a complete quadrilateral, and the harmonic relation is preserved by projection. In the Cayley–Klein model of Lesson 1, the hyperbolic distance is defined through the cross-ratio with the endpoints of a chord, which is why it is invariant under the projective maps preserving the disc.</p>
+<h3>Desargues's theorem</h3>
+<p><strong>Theorem 8.2 (Desargues, c. 1639)</strong>. Let ABC and A′B′C′ be triangles in ℝP² such that the lines AA′, BB′, CC′ pass through a common point O (the triangles are perspective from O). Then the three points AB ∩ A′B′, BC ∩ B′C′, CA ∩ C′A′ are collinear (the triangles are perspective from a line).</p>
+<p><strong>Proof</strong>. Let a, b, c, a′, b′, c′, o ∈ ℝ³ be coordinate vectors. Since O, A, A′ are collinear and distinct, o is a linear combination of a and a′; rescaling the representatives a and a′ we may write o = a − a′, and likewise o = b − b′ = c − c′. Then a − b = a′ − b′. The vector a − b represents a point on line AB, and a′ − b′ a point on line A′B′, so this common vector represents AB ∩ A′B′. Similarly b − c represents BC ∩ B′C′ and c − a represents CA ∩ C′A′. But (a − b) + (b − c) + (c − a) = 0, so the three vectors are linearly dependent and the three points are collinear. ∎</p>
+<p>The converse is the dual statement and therefore also true. Desargues's theorem in the plane can also be proved by lifting to space: if the triangles lie in different planes of ℝ³, the three intersection points lie on the line where the two planes meet, and the planar case is obtained by projection. This explains a remarkable fact discovered by Hilbert: every projective plane that embeds in a projective space of dimension at least 3 satisfies Desargues's theorem, but there are planes, such as the Moulton plane (1902), in which it fails.</p>
+<h3>Pappus's theorem</h3>
+<p><strong>Theorem 8.3 (Pappus of Alexandria, c. 340 AD)</strong>. Let A, B, C be distinct points on a line ℓ and A′, B′, C′ distinct points on another line m, none of them equal to ℓ ∩ m. Then the points AB′ ∩ A′B, AC′ ∩ A′C and BC′ ∩ B′C are collinear.</p>
+<p><strong>Proof</strong>. By a projective transformation we may assume that ℓ and m are the affine x-axis and y-axis. Write A = (a, 0), B = (b, 0), C = (c, 0), A′ = (0, a′), B′ = (0, b′), C′ = (0, c′), all coordinates non-zero, and put α = 1/a, β = 1/b, γ = 1/c and α′ = 1/a′, β′ = 1/b′, γ′ = 1/c′. The line AB′ is αx + β′y = 1 and A′B is βx + α′y = 1. Their intersection is</p>
+<pre class="math">AB′ ∩ A′B = [α′ − β′ : α − β : αα′ − ββ′],</pre>
+<p>as one verifies by substitution: α(α′ − β′) + β′(α − β) = αα′ − ββ′ and β(α′ − β′) + α′(α − β) = αα′ − ββ′. Let v₁ = (α′, α, αα′), v₂ = (β′, β, ββ′), v₃ = (γ′, γ, γγ′). The computation shows that the three Pappus points are represented by v₁ − v₂, v₁ − v₃ and v₂ − v₃. Since (v₁ − v₂) − (v₁ − v₃) + (v₂ − v₃) = 0, they are collinear. ∎</p>
+<p>Notice where commutativity was used: the identity α(α′ − β′) + β′(α − β) = αα′ − ββ′ needs αβ′ = β′α. Pappus's theorem is the projective incarnation of the commutative law. Pascal's theorem (1640) generalises it from a pair of lines (a degenerate conic) to any conic: the three intersection points of opposite sides of a hexagon inscribed in a conic are collinear. Its dual is Brianchon's theorem (1806).</p>
+<h3>Coordinatisation</h3>
+<p>Hilbert showed that an abstract projective plane satisfies Desargues's theorem if and only if it is isomorphic to the plane P²(D) over a division ring D (a skew field), and that it satisfies Pappus's theorem if and only if D is commutative, that is, a field. The proof constructs addition and multiplication of points on a line by geometric constructions and uses Desargues to prove associativity and distributivity. Hessenberg (1905) proved that Pappus implies Desargues. By Wedderburn's theorem (1905), every finite division ring is a field; consequently every finite Desarguesian plane is Pappian, a purely geometric statement with no known purely geometric proof. The quaternions ℍ give a Desarguesian non-Pappian plane P²(ℍ), and the octonions give the Moufang plane, in which Desargues fails but the weaker little Desargues theorem holds.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the cross-ratio (A, B; C, D) of the points with coordinates 0, 1, 2, 3.</div></li><li><span class="mk">(b)</span><div>With A = 0 and B = 6, find the harmonic conjugate D of C = 2.</div></li><li><span class="mk">(c)</span><div>Find the intersection point of the lines x + 2y − 3z = 0 and 2x − y + z = 0 in ℝP², and interpret it in the affine chart z = 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) ((2 − 0)(3 − 1))/((2 − 1)(3 − 0)) = 4/3. (b) We need ((2 − 0)(d − 6))/((2 − 6)(d − 0)) = −1, i.e. 2(d − 6) = 4d, so d = −6. Check: (2 · (−12))/((−4)(−6)) = −24/24 = −1. (c) The cross product (1, 2, −3) × (2, −1, 1) = (2·1 − (−3)(−1), (−3)·2 − 1·1, 1·(−1) − 2·2) = (−1, −7, −5), so the point is [1 : 7 : 5], the affine point (1/5, 7/5). Check: 1/5 + 14/5 − 3 = 0 and 2/5 − 7/5 + 1 = 0.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

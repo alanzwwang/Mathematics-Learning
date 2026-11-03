@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: The Field of Fractions of an Integral Domain — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 1</p>
+    <h1>The Field of Fractions of an Integral Domain</h1>
+    <p class="kicker">Lesson 1 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every integral domain D embeds in a field Frac(D), and every injective
+ring homomorphism from D to a field K extends uniquely to Frac(D) → K.</pre></div>
+<h3>Why a construction is needed</h3>
+<p>Elementary arithmetic treats 2/4 and 1/2 as &quot;the same fraction&quot; without explaining what kind of object a fraction is. The cleanest answer is that a fraction is an equivalence class of ordered pairs. This is not pedantry: the same construction produces the field of rational functions K(x) from the polynomial ring K[x], the Gaussian rationals ℚ(i) from the Gaussian integers ℤ[i], and the field of formal Laurent series K((x)) from the ring of formal power series K[[x]]. Throughout, ring means commutative ring with identity 1 ≠ 0, and an integral domain is a ring D in which ab = 0 implies a = 0 or b = 0.</p>
+<h3>The construction</h3>
+<p>Let D be an integral domain and let S = D × (D ∖ {0}). Define a relation on S by</p>
+<pre class="math">(a, b) ~ (c, d)   ⟺   ad = bc.</pre>
+<p><strong>Lemma 1.1</strong>. The relation ~ is an equivalence relation on S.</p>
+<p><strong>Proof</strong>. Reflexivity (ab = ba) and symmetry are immediate from commutativity. For transitivity, suppose (a, b) ~ (c, d) and (c, d) ~ (e, f), so that ad = bc and cf = de. Multiplying the first equation by f and the second by b gives adf = bcf = bde. Hence d(af − be) = 0. Since d ≠ 0 and D has no zero divisors, af = be, that is (a, b) ~ (e, f). ∎</p>
+<p>The hypothesis that D is a domain was used exactly once, in the cancellation of d, and it cannot be dropped: in ℤ/6ℤ one has (2, 1) ~ (0, 3) and (0, 3) ~ (4, 1), because 2·3 = 0 = 1·0 and 0·1 = 0 = 3·4, but (2, 1) is not related to (4, 1) because 2·1 ≠ 1·4. We write a/b for the class of (a, b) and Frac(D) for the set of classes.</p>
+<p>Define addition and multiplication by the familiar formulas:</p>
+<pre class="math">a/b + c/d = (ad + bc)/(bd),        (a/b)·(c/d) = (ac)/(bd).</pre>
+<p>The denominators are nonzero because D is a domain. The essential point is that these formulas do not depend on the chosen representatives. Suppose a/b = a′/b′, so ab′ = a′b. Then</p>
+<pre class="math">(ad + bc)·(b′d) = ab′d² + bb′cd = a′bd² + bb′cd = (a′d + b′c)·(bd),</pre>
+<p>so (ad + bc)/(bd) = (a′d + b′c)/(b′d); by symmetry the same holds when the second fraction is changed, and an analogous one-line computation, acb′d = a′cbd, handles multiplication.</p>
+<p><strong>Theorem 1.2</strong>. With these operations Frac(D) is a field, and the map ι: D → Frac(D), ι(a) = a/1, is an injective ring homomorphism.</p>
+<p><strong>Proof</strong>. The ring axioms reduce to the corresponding identities in D after clearing denominators; for example, associativity of addition follows because both bracketings of a/b + c/d + e/f equal (adf + bcf + bde)/(bdf). The zero is 0/1 and the identity 1/1. Note that a/b = 0/1 if and only if a = 0. If a/b ≠ 0 then a ≠ 0, so b/a is defined, and (a/b)(b/a) = ab/(ba) = 1/1. Hence every nonzero element is invertible. Finally ι is clearly additive and multiplicative, and a/1 = a′/1 forces a = a′. ∎</p>
+<p>From now on we identify a with a/1, so that D ⊆ Frac(D) and a/b = a·b⁻¹ literally.</p>
+<h3>The universal property</h3>
+<p><strong>Theorem 1.3 (Universal property)</strong>. Let φ: D → K be an injective ring homomorphism into a field K. Then there is a unique ring homomorphism Φ: Frac(D) → K with Φ(a) = φ(a) for all a ∈ D, namely</p>
+<pre class="math">Φ(a/b) = φ(a)·φ(b)⁻¹.</pre>
+<p><strong>Proof</strong>. Since φ is injective and b ≠ 0, φ(b) ≠ 0 is invertible in K. If a/b = a′/b′ then ab′ = a′b, so φ(a)φ(b′) = φ(a′)φ(b), and dividing by φ(b)φ(b′) shows that Φ is well defined. That Φ preserves sums and products is a direct verification: Φ(a/b + c/d) = φ(ad + bc)φ(bd)⁻¹ = φ(a)φ(b)⁻¹ + φ(c)φ(d)⁻¹. For uniqueness, if Ψ is any homomorphism extending φ, then Ψ(b)·Ψ(a/b) = Ψ(a), so Ψ(a/b) = φ(a)φ(b)⁻¹ = Φ(a/b). ∎</p>
+<p><strong>Corollary 1.4</strong>. Frac(D) is, up to a unique isomorphism fixing D, the smallest field containing D: if D ⊆ K for a field K, then the elements ab⁻¹ (a, b ∈ D, b ≠ 0) form a subfield of K isomorphic to Frac(D). Any two fields satisfying the universal property are isomorphic by a unique isomorphism compatible with the embeddings.</p>
+<p>The usual argument from category theory applies: if F and F′ both satisfy the universal property, the induced maps F → F′ and F′ → F compose to homomorphisms extending the identity of D, which by uniqueness must be the identities.</p>
+<h3>Examples</h3>
+<p>The motivating example is Frac(ℤ) = ℚ, which we adopt as the definition of the rational numbers. For a field K, Frac(K[x]) = K(x) is the field of rational functions, whose elements are quotients P/Q of polynomials with Q ≠ 0. For the Gaussian integers, Frac(ℤ[i]) = ℚ(i), because</p>
+<pre class="math">(a + bi)/(c + di) = ((ac + bd) + (bc − ad)i)/(c² + d²),</pre>
+<p>so every quotient of Gaussian integers is a Gaussian rational, and conversely every (r + si)/n with r, s, n ∈ ℤ is a quotient of Gaussian integers. For a field K, the field of fractions of the power series ring K[[x]] is the field K((x)) of formal Laurent series ∑<sub>n ≥ −N</sub> a<sub>n</sub> xⁿ: every nonzero power series has the form x<sup>m</sup>·u with u a unit of K[[x]], so dividing by it amounts to multiplying by x<sup>−m</sup>·u⁻¹.</p>
+<h3>Localisation</h3>
+<p>The construction generalises. If R is any ring and S ⊆ R is multiplicatively closed (1 ∈ S, and s, t ∈ S implies st ∈ S), the localisation S⁻¹R consists of classes of pairs (r, s) ∈ R × S under the relation (r, s) ~ (r′, s′) if and only if u(rs′ − r′s) = 0 for some u ∈ S. The extra factor u repairs the transitivity argument of Lemma 1.1 in the presence of zero divisors. When R is a domain and S = R ∖ {0}, S⁻¹R = Frac(R). Two localisations of ℤ are fundamental in number theory: ℤ[1/n], obtained by inverting the powers of n, and the local ring ℤ₍ₚ₎ = {a/b ∈ ℚ : p ∤ b}, obtained by inverting every integer prime to p. The ring ℤ₍ₚ₎ has a unique maximal ideal pℤ₍ₚ₎, and its units are the a/b with p ∤ a and p ∤ b. In a ring with zero divisors localisation can kill elements: if 0 ∈ S then S⁻¹R = 0, and inverting 2 in ℤ/6ℤ sends 3 to zero, because 2·3 = 0.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Let S = {1, 2, 4} ⊆ ℤ/6ℤ (a multiplicatively closed set, since 4·4 = 16 = 4 and 2·4 = 8 = 2). Identify the ring S⁻¹(ℤ/6ℤ).</div></li><li><span class="mk">(b)</span><div>Write (3 + 2i)/(1 − i) in the form r + si with r, s ∈ ℚ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The natural map ℤ/6ℤ → S⁻¹(ℤ/6ℤ) sends 3 to 0, because 2·(3 − 0) = 0 with 2 ∈ S, and it makes 2 invertible; since 2 is already a unit in ℤ/3ℤ, the result is S⁻¹(ℤ/6ℤ) ≅ ℤ/3ℤ. (Equivalently, ℤ/6ℤ ≅ ℤ/2ℤ × ℤ/3ℤ and 2 corresponds to (0, 2), which kills the first factor.) (b) Multiply numerator and denominator by 1 + i: (3 + 2i)(1 + i)/2 = (3 + 3i + 2i − 2)/2 = (1 + 5i)/2, so r = 1/2 and s = 5/2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

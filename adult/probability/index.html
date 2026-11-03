@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probability — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Probability</span></p>
+    <h1>Probability</h1>
+    <p class="kicker">Advanced · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>Probability theory began as a calculus of games. In 1654 Pascal and Fermat exchanged letters on the &quot;problem of points&quot; (how to divide the stakes of an interrupted game), Huygens wrote the first textbook in 1657, Jacob Bernoulli proved the first law of large numbers in the posthumous Ars Conjectandi (1713), de Moivre found the normal approximation to the binomial in 1733, and Laplace turned the subject into a systematic theory in his Théorie analytique des probabilités (1812). For the next century, however, the foundations remained unclear: what exactly is an &quot;event&quot;, and what is a &quot;random variable&quot;? Hilbert's sixth problem (1900) asked for an axiomatic treatment of probability alongside mechanics.</p>
+<p>The answer came in 1933, when A. N. Kolmogorov published the Grundbegriffe der Wahrscheinlichkeitsrechnung. Kolmogorov observed that the new theory of measure and integration created by Borel, Lebesgue, Fréchet and Radon was exactly the right language: a probability is a measure of total mass one, a random variable is a measurable function, and an expectation is a Lebesgue integral. Once this identification is made, the deep limit theorems of the subject (the strong law of large numbers, the central limit theorem, the convergence of Markov chains, the martingale convergence theorem) become precise statements with rigorous proofs, and probability becomes a branch of analysis with its own distinctive intuition.</p>
+<p>This course develops that theory at the level of a first graduate course. The elementary rules met in a school course (P(not A) = 1 − P(A), the addition rule, the multiplication rule for independent events, expected value as a weighted average) are taken as known; here they are derived from axioms, generalised to infinite and continuous settings, and used as tools to prove theorems. We assume familiarity with real analysis (limits, series, the Riemann integral, basic topology of ℝ) and linear algebra. Measure theory is introduced as needed, with the central convergence theorems stated precisely and their proofs sketched or referenced.</p>
+<p>Notation used throughout: (Ω, 𝓕, P) is a probability space; ω ∈ Ω is a sample point; 1<sub>A</sub> is the indicator function of A; Aᶜ is the complement of A; a.s. means &quot;almost surely&quot;, that is, outside an event of probability zero; i.i.d. means &quot;independent and identically distributed&quot;; Φ is the standard normal distribution function; and log denotes the natural logarithm.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Build probability on Kolmogorov's axioms: σ-algebras, probability measures, and the extension and uniqueness theorems</div></li><li><span class="mk">2.</span><div>Master conditional probability, Bayes' theorem, independence of events and σ-algebras, and the Borel–Cantelli lemmas</div></li><li><span class="mk">3.</span><div>Treat random variables as measurable maps and classify their distributions (discrete, absolutely continuous, singular)</div></li><li><span class="mk">4.</span><div>Define expectation as a Lebesgue integral and use the monotone and dominated convergence theorems</div></li><li><span class="mk">5.</span><div>Use probability generating functions, moment generating functions and characteristic functions</div></li><li><span class="mk">6.</span><div>Prove and apply the inequalities of Markov, Chebyshev, Jensen, Hölder and Chernoff</div></li><li><span class="mk">7.</span><div>Distinguish the four main modes of convergence and know every implication and counterexample between them</div></li><li><span class="mk">8.</span><div>Prove the weak law of large numbers and the strong law under a fourth-moment hypothesis</div></li><li><span class="mk">9.</span><div>Prove the central limit theorem with characteristic functions and meet its refinements</div></li><li><span class="mk">10.</span><div>Work with conditional expectation and martingales, and prove the optional stopping theorem</div></li><li><span class="mk">11.</span><div>Analyse Markov chains: recurrence, stationary distributions and convergence to equilibrium</div></li><li><span class="mk">12.</span><div>Construct and characterise the Poisson process</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/probability-1.jpg" alt="Title page of Grundbegriffe der Wahrscheinlichkeitsrechnung by A. Kolmogoroff, Berlin, Julius Springer, 1933" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Title page of Kolmogorov's Grundbegriffe der Wahrscheinlichkeitsrechnung (Springer, 1933), which founded probability theory on measure theory with the axioms used today. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/probability-2.gif" alt="Latin title page of Ars Conjectandi by Jacob Bernoulli, printed in Basel in 1713" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> Title page of Jacob Bernoulli's Ars Conjectandi (Basel, 1713), published after his death. Its fourth part contains the first proof of a law of large numbers. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>Probability Spaces and the Kolmogorov Axioms</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Conditioning, Bayes' Theorem and Independence</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Random Variables and Their Distributions</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Expectation as a Lebesgue Integral</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Generating Functions and Characteristic Functions</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>The Fundamental Inequalities</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Modes of Convergence</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>The Laws of Large Numbers</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>The Central Limit Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Conditional Expectation and Martingales</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Markov Chains</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>The Poisson Process</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Kolmogoroff Grundbegriffe. By KurtSchwitters. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Kolmogoroff_Grundbegriffe.png">https://commons.wikimedia.org/wiki/File:Kolmogoroff_Grundbegriffe.png</a></li><li><strong>Figure 2</strong> · Arsconj. By Jakob Bernoulli. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Arsconj.gif">https://commons.wikimedia.org/wiki/File:Arsconj.gif</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

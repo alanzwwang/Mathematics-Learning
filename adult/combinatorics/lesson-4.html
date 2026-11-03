@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Linear Recurrence Relations — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 4</p>
+    <h1>Linear Recurrence Relations</h1>
+    <p class="kicker">Lesson 4 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">aₙ = c₁aₙ₋₁ + ⋯ + c<sub>d</sub> a<sub>n−d</sub>,   χ(t) = t<sup>d</sup> − c₁t<sup>d−1</sup> − ⋯ − c<sub>d</sub> = ∏ (t − rᵢ)<sup>mᵢ</sup>
+⟹ aₙ = ∑ᵢ Pᵢ(n) rᵢⁿ,  deg Pᵢ &lt; mᵢ</pre></div>
+<h3>The structure theorem</h3>
+<p>A sequence (aₙ)ₙ≥₀ of complex numbers satisfies a linear recurrence of order d with constant coefficients if aₙ = c₁aₙ₋₁ + ⋯ + c<sub>d</sub> a<sub>n−d</sub> for all n ≥ d, with c<sub>d</sub> ≠ 0. The solutions form a complex vector space V of dimension d, since a solution is determined freely by its initial values a₀, …, a<sub>d−1</sub>. The characteristic polynomial is χ(t) = t<sup>d</sup> − c₁t<sup>d−1</sup> − ⋯ − c<sub>d</sub>.</p>
+<p><strong>Theorem 4.1</strong>. Suppose χ(t) = ∏ᵢ (t − rᵢ)<sup>mᵢ</sup> with distinct nonzero roots rᵢ. Then the sequences nʲ rᵢⁿ, for 0 ≤ j &lt; mᵢ, form a basis of V. Equivalently, every solution has the form aₙ = ∑ᵢ Pᵢ(n) rᵢⁿ with Pᵢ a polynomial of degree less than mᵢ.</p>
+<p><strong>Proof</strong>. Let E be the shift operator (Ea)ₙ = aₙ₊₁ on the space of all sequences. Then V is the kernel of χ(E). Because the factors (E − rᵢ)<sup>mᵢ</sup> commute and are pairwise coprime polynomials in E, the kernel of their product is the direct sum of their kernels (by Bézout, write 1 = ∑ uᵢ(E) ∏ⱼ≠ᵢ (E − rⱼ)<sup>mⱼ</sup> and project). It remains to show that the kernel of (E − r)<sup>m</sup> has basis nʲ rⁿ, 0 ≤ j &lt; m. Substituting aₙ = rⁿ bₙ, one checks ((E − r)a)ₙ = rⁿ⁺¹(bₙ₊₁ − bₙ) = rⁿ⁺¹(Δb)ₙ, so (E − r)<sup>m</sup> a = 0 if and only if Δ<sup>m</sup> b = 0, i.e. bₙ is a polynomial in n of degree less than m. The sequences found are linearly independent (their total number is d = dim V, and they span by the direct-sum decomposition), so they form a basis. ∎</p>
+<h3>Fibonacci numbers and Binet's formula</h3>
+<p>For F₀ = 0, F₁ = 1, Fₙ = Fₙ₋₁ + Fₙ₋₂, the characteristic polynomial is t² − t − 1, with roots φ = (1 + √5)/2 and ψ = (1 − √5)/2. Solving for the constants with the initial values gives Binet's formula</p>
+<pre class="math">Fₙ = (φⁿ − ψⁿ)/√5.</pre>
+<p>Because |ψ| &lt; 1, Fₙ is the integer nearest to φⁿ/√5. Combinatorially, Fₙ₊₁ counts tilings of a 1 × n strip by squares and dominoes, i.e. compositions of n into parts 1 and 2; counting tilings with k dominoes gives the identity Fₙ₊₁ = ∑ₖ C(n − k, k).</p>
+<h3>A repeated root</h3>
+<p><strong>Worked example 4.2</strong>. Solve aₙ = 4aₙ₋₁ − 4aₙ₋₂ with a₀ = 1, a₁ = 6. Here χ(t) = (t − 2)², so aₙ = (α + βn)2ⁿ. From a₀ = 1 we get α = 1, and from a₁ = 2(1 + β) = 6 we get β = 2. Thus aₙ = (2n + 1)2ⁿ. Check: a₂ = 4 · 6 − 4 · 1 = 20 = 5 · 4.</p>
+<h3>Inhomogeneous recurrences</h3>
+<p>If aₙ = c₁aₙ₋₁ + ⋯ + c<sub>d</sub> a<sub>n−d</sub> + g(n), the general solution is a particular solution plus the general homogeneous solution. When g(n) = Q(n) sⁿ with Q a polynomial, one tries a particular solution R(n) sⁿ with deg R = deg Q, multiplied by n<sup>m</sup> when s is a root of χ of multiplicity m (resonance). The justification is the annihilator method: (E − s)<sup>deg Q + 1</sup> kills g, so a satisfies a homogeneous recurrence whose characteristic polynomial is χ(t)(t − s)<sup>deg Q + 1</sup>, and Theorem 4.1 applies.</p>
+<p><strong>Worked example 4.3</strong>. Solve aₙ = 3aₙ₋₁ + 2ⁿ with a₀ = 0. Try c·2ⁿ: c·2ⁿ = 3c·2ⁿ⁻¹ + 2ⁿ gives c = 3c/2 + 1, so c = −2. Hence aₙ = α3ⁿ − 2ⁿ⁺¹, and a₀ = 0 forces α = 2: aₙ = 2·3ⁿ − 2ⁿ⁺¹. Check: a₁ = 2, a₂ = 3·2 + 4 = 10 = 18 − 8.</p>
+<h3>Domino tilings of a 3 × n board</h3>
+<p>Let aₙ be the number of domino tilings of a 3 × n rectangle and bₙ the number of tilings of a 3 × n rectangle with one corner cell removed. Examining the leftmost column gives aₙ = aₙ₋₂ + 2bₙ₋₁ and bₙ = aₙ₋₁ + bₙ₋₂. Eliminating b yields aₙ = 4aₙ₋₂ − aₙ₋₄ for even n, with a₀ = 1, a₂ = 3, so a₄ = 11, a₆ = 41, a₈ = 153, and aₙ = 0 for odd n. The characteristic polynomial λ⁴ − 4λ² + 1 has roots with λ² = 2 ± √3, so aₙ grows like a constant times (2 + √3)<sup>n/2</sup>.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Solve aₙ = aₙ₋₁ + 6aₙ₋₂ with a₀ = 2, a₁ = 1.</div></li><li><span class="mk">(b)</span><div>Solve aₙ = 6aₙ₋₁ − 9aₙ₋₂ with a₀ = 1, a₁ = 6.</div></li><li><span class="mk">(c)</span><div>Solve aₙ = 2aₙ₋₁ + 3ⁿ with a₀ = 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Roots 3 and −2; aₙ = 3ⁿ + (−2)ⁿ. (b) Double root 3; aₙ = (n + 1)3ⁿ. (c) A particular solution is 3ⁿ⁺¹; then aₙ = 3ⁿ⁺¹ + α2ⁿ with 3 + α = 1, so aₙ = 3ⁿ⁺¹ − 2ⁿ⁺¹.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Contour Integrals — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 5</p>
+    <h1>Contour Integrals</h1>
+    <p class="kicker">Lesson 5 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∫<sub>γ</sub> f(z) dz = ∫ₐᵇ f(γ(t)) γ′(t) dt,    |∫<sub>γ</sub> f(z) dz| ≤ max over γ of |f| · L(γ).
+If F′ = f on U, then ∫<sub>γ</sub> f(z) dz = F(γ(b)) − F(γ(a)).
+∮ over |z − a| = r of (z − a)ⁿ dz = 2πi if n = −1, and 0 for every other integer n.</pre></div>
+<h3>Paths and the integral</h3>
+<p>A path is a continuous, piecewise continuously differentiable map γ : [a, b] → ℂ; it is closed if γ(a) = γ(b). For f continuous on the trace γ* = γ([a, b]) define ∫<sub>γ</sub> f(z) dz = ∫ₐᵇ f(γ(t)) γ′(t) dt. The chain rule shows that the integral is unchanged by an orientation-preserving reparametrisation and changes sign under reversal of orientation. Writing f = u + iv and dz = dx + i dy, the contour integral is the pair of real line integrals ∫ (u dx − v dy) + i ∫ (v dx + u dy). The length of γ is L(γ) = ∫ₐᵇ |γ′(t)| dt, and the estimate |∫<sub>γ</sub> f dz| ≤ sup over γ* of |f| · L(γ), often called the ML-inequality, follows from |∫ g| ≤ ∫ |g| for complex-valued g. Circles |z − a| = r are always oriented counterclockwise unless stated otherwise.</p>
+<h3>The fundamental computation</h3>
+<p>Parametrise the circle by γ(t) = a + r e<sup>it</sup>, 0 ≤ t ≤ 2π, so γ′(t) = i r e<sup>it</sup>. For n ∈ ℤ,</p>
+<pre class="math">∮ (z − a)ⁿ dz = ∫₀<sup>2π</sup> rⁿ e<sup>int</sup> · i r e<sup>it</sup> dt = i r<sup>n+1</sup> ∫₀<sup>2π</sup> e<sup>i(n+1)t</sup> dt,</pre>
+<p>which is 2πi when n = −1 and 0 otherwise, because e<sup>ikt</sup> integrates to 0 over a full period when k ≠ 0. Almost every theorem in this course is, in the end, a sophisticated reduction to this one computation.</p>
+<h3>Primitives</h3>
+<p><strong>Theorem 5.1</strong>. If f is continuous on an open set U and has a primitive F there (F holomorphic with F′ = f), then for every path γ in U from p to q, ∫<sub>γ</sub> f dz = F(q) − F(p). In particular ∮<sub>γ</sub> f dz = 0 for every closed path γ in U.</p>
+<p><strong>Proof</strong>. On each C¹ piece, (F ∘ γ)′(t) = F′(γ(t)) γ′(t) by the chain rule, so the integral telescopes by the fundamental theorem of calculus applied to real and imaginary parts.</p>
+<p>Combining this with the fundamental computation: the function 1/z has no primitive on ℂ \ {0}, because its integral over the unit circle is 2πi ≠ 0. Equivalently, there is no continuous logarithm on the punctured plane. On the other hand, every integer power zⁿ with n ≠ −1 has the primitive z<sup>n+1</sup>/(n + 1); so ∫ over any path from 0 to 1 + i of z² dz equals (1 + i)³/3 = (−2 + 2i)/3.</p>
+<h3>Integration and limits</h3>
+<p>If fₙ → f uniformly on γ*, then ∫<sub>γ</sub> fₙ dz → ∫<sub>γ</sub> f dz, by the ML-inequality. In particular a uniformly convergent series of continuous functions may be integrated term by term along a path. This simple remark is what turns Cauchy's integral formula into power series expansions in Lesson 7.</p>
+<h3>Green's theorem and a first glimpse of Cauchy</h3>
+<p>If f is C¹ on a neighbourhood of a closed region Ω with piecewise smooth positively oriented boundary, Green's theorem applied to the real and imaginary parts gives</p>
+<pre class="math">∮ over ∂Ω of f dz = 2i ∬ over Ω of ∂f/∂z̄ dA.</pre>
+<p>For holomorphic f with continuous derivative the right side is 0, which is Cauchy's original (1825) form of his theorem. The test case f = z̄ has ∂f/∂z̄ = 1, and indeed ∮ over |z| = 1 of z̄ dz = ∫₀<sup>2π</sup> e<sup>−it</sup> i e<sup>it</sup> dt = 2πi = 2i · π. Lesson 6 removes the hypothesis that f′ be continuous, which is essential for a theory built on the bare definition of holomorphy.</p>
+<h3>The winding number</h3>
+<p>For a closed path γ and a point a ∉ γ*, define the winding number (index) n(γ, a) = (1/2πi) ∮<sub>γ</sub> dz/(z − a).</p>
+<p><strong>Theorem 5.2</strong>. n(γ, a) is an integer; it is constant on each connected component of ℂ \ γ* and is 0 on the unbounded component.</p>
+<p><strong>Proof</strong>. Parametrise γ on [α, β] and let φ(t) = ∫ from α to t of γ′(s)/(γ(s) − a) ds, so that φ(β) = 2πi n(γ, a). The function e<sup>−φ(t)</sup>(γ(t) − a) has derivative e<sup>−φ</sup>(γ′ − φ′(γ − a)) = 0 wherever γ is differentiable, so it is constant; comparing t = α with t = β and using γ(α) = γ(β) gives e<sup>φ(β)</sup> = 1, hence φ(β) ∈ 2πiℤ. The index is a continuous integer-valued function of a, hence locally constant, and it tends to 0 as |a| → ∞ by the ML-inequality.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute ∮ over |z| = 2 of z⁻³ dz.</div></li><li><span class="mk">(b)</span><div>Compute ∫ dz/z along the upper half of the unit circle from 1 to −1.</div></li><li><span class="mk">(c)</span><div>Show that |∮ over |z| = R of dz/(z² + 1)| ≤ 2πR/(R² − 1) for R &gt; 1, and deduce the limit as R → ∞.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 0, since z⁻³ has the primitive −z⁻²/2 on ℂ \ {0}. (b) With z = e<sup>it</sup>, 0 ≤ t ≤ π, the integral is ∫₀<sup>π</sup> i dt = iπ. (c) On |z| = R, |z² + 1| ≥ R² − 1 by the reverse triangle inequality, and the length is 2πR; the bound tends to 0. (Lesson 9 shows the integral is in fact exactly 0 for every R &gt; 1.)</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Linear Systems and the Matrix Exponential — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 7</p>
+    <h1>Linear Systems and the Matrix Exponential</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">x′ = Ax,  x(0) = x₀   ⟹   x(t) = e<sup>tA</sup> x₀,   e<sup>tA</sup> = ∑<sub>n≥0</sub> tⁿAⁿ/n!</pre></div>
+<p>The scalar theory generalizes verbatim to linear systems, with the matrix exponential in place of the exponential. The new phenomena are rotation (complex eigenvalues), polynomial corrections (non-trivial Jordan blocks), coexistence of growth and decay in different directions (saddles), and transient growth in systems that are asymptotically stable.</p>
+<h3>Definition and basic properties</h3>
+<p>For an n × n real or complex matrix A, the series ∑ Aⁿ/n! converges absolutely in any operator norm, since ‖Aⁿ/n!‖ ≤ ‖A‖ⁿ/n!; hence ‖e<sup>A</sup>‖ ≤ e<sup>‖A‖</sup>. Term-by-term differentiation (justified by uniform convergence on bounded t-sets) gives (d/dt) e<sup>tA</sup> = A e<sup>tA</sup> = e<sup>tA</sup> A. The uniqueness argument of Theorem 1.1 carries over: if x′ = Ax then (e<sup>−tA</sup> x)′ = 0. Further properties:</p>
+<pre class="math">e<sup>A+B</sup> = e<sup>A</sup> e<sup>B</sup>   whenever AB = BA
+e<sup>PAP⁻¹</sup> = P e<sup>A</sup> P⁻¹
+(e<sup>A</sup>)⁻¹ = e<sup>−A</sup>
+det e<sup>A</sup> = e<sup>tr A</sup></pre>
+<p>The commuting hypothesis cannot be dropped. With A = [[0, 1], [0, 0]] and B = [[0, 0], [1, 0]] (rows listed), e<sup>A</sup> = [[1, 1], [0, 1]] and e<sup>B</sup> = [[1, 0], [1, 1]], so e<sup>A</sup> e<sup>B</sup> = [[2, 1], [1, 1]], whereas A + B = [[0, 1], [1, 0]] has e<sup>A+B</sup> = [[cosh 1, sinh 1], [sinh 1, cosh 1]] ≈ [[1.543, 1.175], [1.175, 1.543]]. The general correction is the Baker–Campbell–Hausdorff formula, e<sup>A</sup> e<sup>B</sup> = e<sup>A + B + [A,B]/2 + …</sup>.</p>
+<p>The determinant identity (Liouville's formula) has a two-line proof: over ℂ, A is similar to an upper triangular matrix T with the eigenvalues λ₁, …, λₙ on the diagonal, and e<sup>T</sup> is upper triangular with diagonal entries e<sup>λ<sub>j</sub></sup>, so det e<sup>A</sup> = det e<sup>T</sup> = e<sup>λ₁ + … + λₙ</sup> = e<sup>tr A</sup>. Geometrically, the flow of x′ = Ax multiplies volumes by e<sup>t tr A</sup>.</p>
+<h3>Computing e<sup>tA</sup></h3>
+<p>If A = PDP⁻¹ is diagonalizable with D = diag(λ₁, …, λₙ), then e<sup>tA</sup> = P diag(e<sup>λ₁t</sup>, …, e<sup>λₙt</sup>) P⁻¹: in the eigenbasis the system decouples into n scalar exponential laws. Example: A = [[1, 2], [2, 1]] has eigenvalues 3 and −1 with eigenvectors (1, 1) and (1, −1), and</p>
+<pre class="math">e<sup>tA</sup> = (1/2) [[e<sup>3t</sup> + e<sup>−t</sup>,  e<sup>3t</sup> − e<sup>−t</sup>],
+                [e<sup>3t</sup> − e<sup>−t</sup>,  e<sup>3t</sup> + e<sup>−t</sup>]]</pre>
+<p>The origin is a saddle: growth at rate 3 along the diagonal, decay at rate 1 along the antidiagonal.</p>
+<p>For a Jordan block J = λI + N with N nilpotent (N<sup>m</sup> = 0), λI and N commute, so:</p>
+<pre class="math">e<sup>tJ</sup> = e<sup>λt</sup> (I + tN + t²N²/2! + … + t<sup>m−1</sup> N<sup>m−1</sup>/(m−1)!)</pre>
+<p>and polynomial factors appear: for J = [[λ, 1], [0, λ]], e<sup>tJ</sup> = e<sup>λt</sup> [[1, t], [0, 1]]. For complex eigenvalues a ± ib of a real 2 × 2 matrix, the real normal form [[a, −b], [b, a]] has exponential e<sup>at</sup> [[cos bt, −sin bt], [sin bt, cos bt]]: rotation at angular speed b combined with exponential growth or decay at rate a.</p>
+<h3>Spectral characterization of stability</h3>
+<p><strong>Theorem 7.1</strong>. Let α(A) = max Re λ over the eigenvalues of A (the spectral abscissa). For every ε &gt; 0 there is C<sub>ε</sub> with ‖e<sup>tA</sup>‖ ≤ C<sub>ε</sub> e<sup>(α(A)+ε)t</sup> for t ≥ 0, and ε may be taken 0 if every eigenvalue with Re λ = α(A) is semisimple. In particular every solution of x′ = Ax tends to 0 if and only if α(A) &lt; 0, and then the decay is exponential.</p>
+<p><strong>Proof</strong>. Use the Jordan form A = P J P⁻¹. Each entry of e<sup>tJ</sup> has the form e<sup>λt</sup> tʲ/j! with j smaller than the size of the block, and |e<sup>λt</sup> tʲ| ≤ C e<sup>(Re λ + ε)t</sup> for t ≥ 0. Conversely, if Re λ ≥ 0 for some eigenvalue with eigenvector v, the solution e<sup>λt</sup> v does not tend to 0 (for real A take its real part). ∎</p>
+<p>For 2 × 2 real matrices, with τ = tr A and Δ = det A, the eigenvalues are (τ ± √(τ² − 4Δ))/2 and the phase portrait is classified by the (τ, Δ) plane: Δ &lt; 0 gives a saddle; Δ &gt; 0 and τ &lt; 0 a stable node (τ² ≥ 4Δ) or stable spiral (τ² &lt; 4Δ); Δ &gt; 0 and τ &gt; 0 the unstable counterparts; Δ &gt; 0 and τ = 0 a centre. For nonlinear systems x′ = F(x) the Hartman–Grobman theorem says that near an equilibrium whose Jacobian has no eigenvalues on the imaginary axis, the flow is topologically conjugate to the linear flow of the Jacobian.</p>
+<h3>Transient growth and non-normality</h3>
+<p>Eigenvalues govern the limit t → ∞, not intermediate times. For A = [[−1, 10], [0, −2]], both eigenvalues are negative, yet the (1, 2) entry of e<sup>tA</sup> equals 10(e<sup>−t</sup> − e<sup>−2t</sup>), which rises from 0 to its maximum 2.5 at t = ln 2 before decaying. For highly non-normal matrices (large ‖A‖ compared with the eigenvalue gap) the transient amplification can be enormous; this mechanism is central to the theory of the transition to turbulence in shear flows, and is the reason pseudospectra, not spectra, predict the short-time behaviour of such systems. An entry of exactly this form is the daughter population of the decay chain of Lesson 3, which is the linear system with triangular matrix [[−λ<sub>A</sub>, 0], [λ<sub>A</sub>, −λ<sub>B</sub>]].</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute e<sup>tA</sup> for A = [[2, 1], [0, 2]] and solve x′ = Ax with x(0) = (1, 1).</div></li><li><span class="mk">(b)</span><div>Classify the origin for A = [[1, −5], [1, −3]].</div></li><li><span class="mk">(c)</span><div>Without computing e<sup>A</sup>, find det e<sup>A</sup> for A = [[3, 7], [−2, −5]].</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) A = 2I + N with N = [[0, 1], [0, 0]], so e<sup>tA</sup> = e<sup>2t</sup> [[1, t], [0, 1]] and x(t) = e<sup>2t</sup>(1 + t, 1). (b) τ = −2, Δ = −3 + 5 = 2, τ² − 4Δ = −4 &lt; 0: eigenvalues −1 ± i, a stable spiral. (c) det e<sup>A</sup> = e<sup>tr A</sup> = e<sup>3 − 5</sup> = e<sup>−2</sup>.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

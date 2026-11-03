@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Continued Fractions and Pell's Equation — Number Theory (Advanced)</title>
+<meta name="description" content="Congruences, primitive roots, quadratic reciprocity, arithmetic functions, the primes, Pell's equation and RSA.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../number-theory/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Number Theory</a> › Lesson 12</p>
+    <h1>Continued Fractions and Pell's Equation</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Divisibility, the Euclidean Algorithm and Bézout's Identity">1</a><a href="lesson-2.html" title="Lesson 2: Primes and the Fundamental Theorem of Arithmetic">2</a><a href="lesson-3.html" title="Lesson 3: Congruences and the Ring ℤ/nℤ">3</a><a href="lesson-4.html" title="Lesson 4: The Theorems of Fermat, Euler and Wilson">4</a><a href="lesson-5.html" title="Lesson 5: The Chinese Remainder Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Primitive Roots and the Structure of (ℤ/nℤ)×">6</a><a href="lesson-7.html" title="Lesson 7: Quadratic Residues and the Legendre Symbol">7</a><a href="lesson-8.html" title="Lesson 8: The Law of Quadratic Reciprocity">8</a><a href="lesson-9.html" title="Lesson 9: Arithmetic Functions, Dirichlet Convolution and Möbius Inversion">9</a><a href="lesson-10.html" title="Lesson 10: The Distribution of Primes">10</a><a href="lesson-11.html" title="Lesson 11: Sums of Two Squares and Pythagorean Triples">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Continued Fractions and Pell's Equation">12</a><a href="lesson-13.html" title="Lesson 13: Primality Testing and the RSA Cryptosystem">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For non-square d &gt; 0, x² − dy² = 1 has infinitely many solutions, all of the form ±(x₁ + y₁√d)ⁿ.</pre></div>
+<h3>Continued fractions</h3>
+<p>Every real α has a simple continued fraction expansion α = [a₀; a₁, a₂, …], obtained by a₀ = ⌊α⌋, α₁ = 1/(α − a₀), a₁ = ⌊α₁⌋, and so on; it terminates exactly when α is rational, and then it is the Euclidean algorithm in disguise. The convergents pₖ/qₖ = [a₀; a₁, …, aₖ] satisfy</p>
+<pre class="math">pₖ = aₖpₖ₋₁ + pₖ₋₂,   qₖ = aₖqₖ₋₁ + qₖ₋₂,   pₖqₖ₋₁ − pₖ₋₁qₖ = (−1)<sup>k−1</sup>,</pre>
+<p>with p₋₁ = 1, q₋₁ = 0, p₋₂ = 0, q₋₂ = 1. The last identity implies that consecutive convergents straddle α and that |α − pₖ/qₖ| &lt; 1/(qₖqₖ₊₁) &lt; 1/qₖ². Conversely (Legendre), any fraction p/q with |α − p/q| &lt; 1/(2q²) is a convergent. Convergents are the best rational approximations: for instance π = [3; 7, 15, 1, 292, …] gives 22/7 and 355/113, the latter accurate to within 3 · 10⁻⁷ because the next partial quotient, 292, is large.</p>
+<p><strong>Theorem 12.1 (Euler; Lagrange, 1770)</strong>. The continued fraction of α is eventually periodic if and only if α is a quadratic irrational. For a non-square d &gt; 0,</p>
+<pre class="math">√d = [a₀; a₁, a₂, …, aᵣ₋₁, 2a₀]   with period r, the block a₁, …, aᵣ₋₁ being a palindrome.</pre>
+<p>For example √2 = [1; 2, 2, 2, …], √7 = [2; 1, 1, 1, 4, …] with period 4, √13 = [3; 1, 1, 1, 1, 6, …] with period 5, and √61 = [7; 1, 4, 3, 1, 2, 2, 1, 3, 4, 1, 14, …] with period 11. No pattern of this kind is known for cube roots or for any algebraic number of degree ≥ 3; it is not even known whether the partial quotients of ∛2 are bounded.</p>
+<h3>Pell's equation</h3>
+<p>The equation x² − dy² = 1 for a non-square d &gt; 0 was studied by Brahmagupta (628), who discovered the composition law</p>
+<pre class="math">(x₁² − dy₁²)(x₂² − dy₂²) = (x₁x₂ + dy₁y₂)² − d(x₁y₂ + x₂y₁)²,</pre>
+<p>and posed x² − 92y² = 1 (smallest solution (1151, 120)). The chakravala method of Bhāskara II (1150) solved x² − 61y² = 1. Fermat set the same equation as a challenge in 1657; the name of John Pell is a historical accident due to Euler. In modern language, solutions correspond to units of norm 1 in the ring ℤ[√d], since (x + y√d)(x − y√d) = x² − dy².</p>
+<p><strong>Theorem 12.2 (Lagrange, 1768)</strong>. For non-square d &gt; 0, x² − dy² = 1 has a solution with y ≠ 0.</p>
+<p><strong>Proof</strong>. By Dirichlet's approximation theorem (pigeonhole applied to the fractional parts of 0, √d, 2√d, …, N√d) there are infinitely many pairs of positive integers (p, q) with |p − q√d| &lt; 1/q. For each, |p² − dq²| = |p − q√d| · |p + q√d| &lt; (1/q)(2q√d + 1/q) ≤ 2√d + 1. Hence some integer k, necessarily non-zero because √d is irrational, satisfies p² − dq² = k for infinitely many pairs. Among these, two distinct pairs (p₁, q₁), (p₂, q₂) have p₁ ≡ p₂ and q₁ ≡ q₂ (mod |k|). Put α = p₁ + q₁√d and β = p₂ + q₂√d, both of norm k. Then</p>
+<pre class="math">α β̄ = (p₁p₂ − dq₁q₂) + (p₂q₁ − p₁q₂)√d,</pre>
+<p>and modulo |k| the coefficients are ≡ p₁² − dq₁² = k ≡ 0 and ≡ p₁q₁ − p₁q₁ = 0. So αβ̄/k = x + y√d with x, y ∈ ℤ and x² − dy² = N(α)N(β)/k² = 1. If y = 0 then x = ±1 and αβ̄ = ±k = ±ββ̄, so α = ±β, impossible for distinct pairs of positive integers. ∎</p>
+<p><strong>Theorem 12.3</strong>. Let (x₁, y₁) be the solution in positive integers with x₁ + y₁√d minimal (the fundamental solution) and ε = x₁ + y₁√d. Then the solutions of x² − dy² = 1 are exactly x + y√d = ±εⁿ, n ∈ ℤ.</p>
+<p><strong>Proof</strong>. Every ±εⁿ has norm 1. Conversely let η = x + y√d have norm 1; replacing η by −η we may assume η &gt; 0, and replacing η by η⁻¹ = x − y√d we may assume η ≥ 1. Choose n ≥ 0 with εⁿ ≤ η &lt; εⁿ⁺¹. Then u = ηε⁻ⁿ has norm 1 and 1 ≤ u &lt; ε. If u &gt; 1, write u = a + b√d; since u⁻¹ = a − b√d lies in (0, 1), we get a = (u + u⁻¹)/2 &gt; 0 and b√d = (u − u⁻¹)/2 &gt; 0, so (a, b) is a positive solution with a + b√d &lt; ε, contradicting minimality. So u = 1 and η = εⁿ. ∎</p>
+<p>The units of ℤ[√d] therefore form the group {±1} × ⟨ε⟩ ≅ C₂ × ℤ, the simplest case of Dirichlet's unit theorem (1846), which describes the unit group of the ring of integers of any number field as a finite cyclic group times ℤ<sup>r₁+r₂−1</sup>.</p>
+<h3>Finding the fundamental solution</h3>
+<p><strong>Theorem 12.4</strong>. Let √d have period r and convergents pₖ/qₖ. Then pₖ² − dqₖ² = ±1 exactly for k ≡ −1 (mod r), with sign (−1)<sup>k+1</sup>. Consequently the fundamental solution of x² − dy² = 1 is (pᵣ₋₁, qᵣ₋₁) if r is even and (p₂ᵣ₋₁, q₂ᵣ₋₁) if r is odd; and x² − dy² = −1 is solvable if and only if r is odd.</p>
+<p><strong>Worked example</strong>: d = 7. The convergents of [2; 1, 1, 1, 4, …] are 2/1, 3/1, 5/2, 8/3, and r = 4, so the fundamental solution is (8, 3): 64 − 63 = 1. The next solution is (8 + 3√7)² = 127 + 48√7, and 127² − 7 · 48² = 16129 − 16128 = 1.</p>
+<p><strong>Worked example</strong>: d = 13. The convergents of [3; 1, 1, 1, 1, 6, …] are 3/1, 4/1, 7/2, 11/3, 18/5, and r = 5 is odd. So 18² − 13 · 5² = 324 − 325 = −1, and the fundamental solution of the positive equation is</p>
+<pre class="math">(18 + 5√13)² = (324 + 325) + 180√13 = 649 + 180√13,   649² − 13 · 180² = 421201 − 421200 = 1.</pre>
+<p>For d = 61 the period 11 is odd; x² − 61y² = −1 has fundamental solution (29718, 3805), and squaring gives the fundamental solution (1766319049, 226153980) of x² − 61y² = 1, the answer to Fermat's challenge. The fundamental solution can be enormous compared to d: its logarithm is the regulator, and by the class number formula it is related to the class number of ℚ(√d), so large regulators are typical. The Archimedes cattle problem reduces to x² − 410286423278424y² = 1, whose solution gives a herd whose size has 206 545 digits; it was computed in full only in 1965 (Williams, German and Zarnke).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the fundamental solution of x² − 3y² = 1 and the next two solutions.</div></li><li><span class="mk">(b)</span><div>Show that x² − 3y² = −1 has no integer solutions.</div></li><li><span class="mk">(c)</span><div>Verify that (1151, 120) solves x² − 92y² = 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) √3 = [1; 1, 2, …] has period 2, convergents 1/1, 2/1, so the fundamental solution is (2, 1). Then (2 + √3)² = 7 + 4√3 and (2 + √3)³ = (7 + 4√3)(2 + √3) = 26 + 15√3, giving (7, 4) and (26, 15): 49 − 48 = 1 and 676 − 675 = 1. (b) Modulo 3, x² ≡ −1 ≡ 2, but squares are 0 or 1 mod 3. (Equivalently, the period of √3 is even.) (c) 1151² = 1324801 and 92 · 120² = 92 · 14400 = 1324800.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

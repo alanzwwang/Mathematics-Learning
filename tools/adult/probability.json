@@ -1,0 +1,13 @@
+{
+  "blurb": "Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.",
+  "pics": [
+    { "img": "img/adult/probability-1.jpg", "alt": "Title page of Grundbegriffe der Wahrscheinlichkeitsrechnung by A. Kolmogoroff, Berlin, Julius Springer, 1933",
+      "caption": "Title page of Kolmogorov's Grundbegriffe der Wahrscheinlichkeitsrechnung (Springer, 1933), which founded probability theory on measure theory with the axioms used today.",
+      "title": "Kolmogoroff Grundbegriffe.png", "page": "https://commons.wikimedia.org/wiki/File:Kolmogoroff_Grundbegriffe.png",
+      "license": "CC BY-SA 3.0", "artist": "KurtSchwitters" },
+    { "img": "img/adult/probability-2.gif", "alt": "Latin title page of Ars Conjectandi by Jacob Bernoulli, printed in Basel in 1713",
+      "caption": "Title page of Jacob Bernoulli's Ars Conjectandi (Basel, 1713), published after his death. Its fourth part contains the first proof of a law of large numbers.",
+      "title": "Arsconj.gif", "page": "https://commons.wikimedia.org/wiki/File:Arsconj.gif",
+      "license": "Public domain", "artist": "Jakob Bernoulli" }
+  ]
+}

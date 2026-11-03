@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 8</p>
+    <h1>Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix</h1>
+    <p class="kicker">Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">xₙ₊₁ = L xₙ with L ≥ 0 primitive   ⟹   xₙ ~ c ρⁿ v,   ρ = spectral radius, v &gt; 0 the Perron vector</pre></div>
+<p>Populations that reproduce in discrete seasons, accounts credited at discrete dates, and algorithms that proceed in rounds are modelled by difference equations. The discrete theory runs parallel to the continuous one, with powers in place of exponentials: the scalar law xₙ₊₁ = λxₙ gives xₙ = λⁿ x₀, which is growth if |λ| &gt; 1 and decay if |λ| &lt; 1, and the bridge between the two worlds is λ = e<sup>k</sup> (one time step of a continuous process of rate k).</p>
+<h3>Linear recurrences</h3>
+<p>A recurrence xₙ₊ₘ = c₁xₙ₊ₘ₋₁ + … + cₘxₙ is the first-order system Xₙ₊₁ = CXₙ with companion matrix C, whose characteristic polynomial is χ(λ) = λᵐ − c₁λᵐ⁻¹ − … − cₘ. If χ has distinct roots λ₁, …, λₘ then xₙ = ∑ a<sub>j</sub> λ<sub>jⁿ</sub>, and if one root strictly dominates the others in modulus and its coefficient is nonzero, xₙ ~ a₁λ₁ⁿ. The Fibonacci numbers (F₀ = 0, F₁ = 1, Fₙ₊₂ = Fₙ₊₁ + Fₙ) have roots φ = (1 + √5)/2 and ψ = (1 − √5)/2, and Binet's formula</p>
+<pre class="math">Fₙ = (φⁿ − ψⁿ)/√5</pre>
+<p>shows Fₙ is the nearest integer to φⁿ/√5 (because |ψⁿ/√5| &lt; 1/2). For example φ²⁰/√5 ≈ 6765.00003 and F₂₀ = 6765. The growth rate per step is φ ≈ 1.618.</p>
+<h3>The Leslie matrix</h3>
+<p>P. H. Leslie (1945) divided a female population into age classes 1, …, m. Let f<sub>j</sub> ≥ 0 be the expected number of daughters born per female in class j per time step and s<sub>j</sub> ∈ (0, 1] the probability of surviving from class j to class j + 1. The census vector xₙ evolves by xₙ₊₁ = Lxₙ with</p>
+<pre class="math">L = [[f₁, f₂, …, fₘ₋₁, fₘ],
+     [s₁, 0,  …, 0,    0 ],
+     [0,  s₂, …, 0,    0 ],
+     [0,  0,  …, sₘ₋₁, 0 ]]</pre>
+<p>Expanding det(λI − L) along the first row gives the Euler–Lotka equation for the eigenvalues:</p>
+<pre class="math">1 = ∑<sub>j=1</sub><sup>m</sup> f<sub>j</sub> ℓ<sub>j</sub> λ<sup>−j</sup>,    ℓ₁ = 1,  ℓ<sub>j</sub> = s₁ s₂ ⋯ s<sub>j−1</sub></pre>
+<p>The right-hand side is strictly decreasing in λ &gt; 0, so there is exactly one positive root ρ, and ρ &gt; 1, = 1 or &lt; 1 according as the net reproductive number R₀ = ∑ f<sub>j</sub> ℓ<sub>j</sub> exceeds, equals or falls below 1 (evaluate at λ = 1).</p>
+<h3>Perron–Frobenius</h3>
+<p><strong>Theorem 8.1 (Perron 1907, Frobenius 1912)</strong>. Let L be a nonnegative square matrix that is primitive (some power Lᵏ has all entries positive). Then the spectral radius ρ is a simple eigenvalue, it has right and left eigenvectors v, w with all entries positive, every other eigenvalue satisfies |λ| &lt; ρ, and</p>
+<pre class="math">Lⁿ/ρⁿ → v wᵀ / (wᵀ v)   as n → ∞.</pre>
+<p>Consequently, for any nonzero nonnegative x₀, xₙ/ρⁿ → (wᵀx₀/wᵀv) v: the population grows geometrically at rate ρ, and its age structure converges to the stable age distribution v, at the geometric rate |λ₂|/ρ set by the second-largest eigenvalue modulus. A Leslie matrix with s<sub>j</sub> &gt; 0 and fₘ &gt; 0 is primitive if and only if the gcd of the ages j with f<sub>j</sub> &gt; 0 equals 1.</p>
+<p><strong>Example</strong>. Take three age classes with f = (0, 1, 3), s₁ = 1/2, s₂ = 1/3. The characteristic polynomial is λ³ − (1/2)λ − 1/2 = (λ − 1)(λ² + λ + 1/2). The dominant eigenvalue is ρ = 1 (R₀ = 0 + 1 · 1/2 + 3 · 1/6 = 1), the others are (−1 ± i)/2 with modulus √2/2 ≈ 0.707, and the stable age distribution is v ∝ (1, s₁/ρ, s₁s₂/ρ²) = (1, 1/2, 1/6), that is (3/5, 3/10, 1/10). Fertility occurs at ages 2 and 3, with gcd 1, so L is primitive and every initial population converges to a multiple of v, the deviations shrinking like 0.707ⁿ.</p>
+<p>The intrinsic rate of increase of the population, in continuous-time units, is r = ln ρ; demographers estimate r from life tables through the Euler–Lotka equation, and the stable-population theory of Lotka (1907–1939) is its continuous-age analogue.</p>
+<h3>Nonlinear discrete models</h3>
+<p>The discrete logistic map xₙ₊₁ = μxₙ(1 − xₙ) shows how dramatically the discrete and continuous theories can differ. The fixed point x* = 1 − 1/μ has multiplier f′(x*) = 2 − μ, so it is stable for 1 &lt; μ &lt; 3. At μ = 3 it loses stability to a 2-cycle (the multiplier passes through −1, which is impossible in one-dimensional continuous time), and a cascade of period doublings accumulates at μ ≈ 3.5699, beyond which chaos appears. The ratios of successive period-doubling intervals converge to Feigenbaum's constant δ ≈ 4.6692, the same for every smooth unimodal map with a quadratic maximum.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Solve xₙ₊₂ = 5xₙ₊₁ − 6xₙ with x₀ = 0 and x₁ = 1, and give the growth rate.</div></li><li><span class="mk">(b)</span><div>For L = [[1, 2], [1/2, 0]], find the dominant eigenvalue, R₀ and the stable age distribution.</div></li><li><span class="mk">(c)</span><div>For which μ is the fixed point x* = 1 − 1/μ of the logistic map superstable (multiplier 0)?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) χ(λ) = λ² − 5λ + 6 = (λ − 2)(λ − 3), so xₙ = a2ⁿ + b3ⁿ with a + b = 0 and 2a + 3b = 1, giving xₙ = 3ⁿ − 2ⁿ, which grows at rate 3 per step. (b) λ² − λ − 1 = 0 gives ρ = φ = (1 + √5)/2 ≈ 1.618; R₀ = 1 + 2 · 1/2 = 2; v ∝ (1, s₁/ρ) = (1, 1/(2φ)) ≈ (1, 0.309). (c) 2 − μ = 0 gives μ = 2, where x* = 1/2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

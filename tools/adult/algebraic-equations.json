@@ -1,0 +1,13 @@
+{
+  "blurb": "Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.",
+  "pics": [
+    { "img": "img/adult/algebraic-equations-1.jpg", "alt": "A printed Latin page from Cardano's Ars Magna with a square diagram and the rule for solving a cubic",
+      "caption": "Chapter XII of Cardano's Ars Magna (Nuremberg, 1545), on the cube equal to things and a number (x³ = px + q): a geometric demonstration, then the rule. Its worked example x³ = 6x + 40 gives ∛(20 + √392) + ∛(20 − √392), which equals 4.",
+      "title": "Ars Magna Cardanische Formel.png", "page": "https://commons.wikimedia.org/wiki/File:Ars_Magna_Cardanische_Formel.png",
+      "license": "Public domain", "artist": "Gerolamo Cardano" },
+    { "img": "img/adult/algebraic-equations-2.jpg", "alt": "Pencil portrait of the young Évariste Galois",
+      "caption": "Évariste Galois (1811–1832) at about fifteen, in a drawing of c. 1826. Before his death at twenty he showed that an equation is solvable by radicals exactly when its group is solvable.",
+      "title": "Evariste galois.jpg", "page": "https://commons.wikimedia.org/wiki/File:Evariste_galois.jpg",
+      "license": "Public domain", "artist": "Unknown author" }
+  ]
+}

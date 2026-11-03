@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Discrete Logarithms and Cryptography — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 13</p>
+    <h1>Discrete Logarithms and Cryptography</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">G = ⟨g⟩ cyclic of order n:   log<sub>g</sub>: G → ℤ/nℤ,   g<sup>log<sub>g</sub> h</sup> = h,   an isomorphism (G, ·) ≅ (ℤ/nℤ, +)
+Computing g<sup>x</sup> is easy (O(log x) multiplications); recovering x from g<sup>x</sup> is believed hard</pre></div>
+<h3>The discrete logarithm</h3>
+<p>Let G be a finite cyclic group of order n with generator g. The map ℤ/nℤ → G, x ↦ gˣ, is a group isomorphism, and its inverse is the discrete logarithm log<sub>g</sub>. It satisfies the familiar laws log<sub>g</sub>(hk) = log<sub>g</sub> h + log<sub>g</sub> k and log<sub>g</sub>(hᵐ) = m log<sub>g</sub> h, now with arithmetic modulo n, and change of base reads log<sub>g′</sub> h = log<sub>g</sub> h · (log<sub>g</sub> g′)⁻¹ mod n for another generator g′. Algebraically, then, the discrete logarithm is exactly as well behaved as the real logarithm: both are isomorphisms from a multiplicative group to an additive one (Lesson 3). The difference is computational. The real logarithm can be evaluated to any precision in time polynomial in the number of digits (Lesson 5). For well-chosen groups no comparable algorithm for log<sub>g</sub> is known.</p>
+<p>Exponentiation is fast. Square-and-multiply computes gˣ with at most 2⌊log₂ x⌋ multiplications by scanning the binary digits of x: for x = 13 = 1101₂ one computes g, g², g³ = g²·g, g⁶, g¹², g¹³ = g¹²·g. The discrete logarithm problem (DLP) is: given g and h ∈ G, find x with gˣ = h.</p>
+<p><strong>Example</strong>. In G = (ℤ/23ℤ)ˣ, of order 22, the element 5 is a primitive root, and its powers 5⁰, 5¹, …, 5²¹ are</p>
+<pre class="math">1, 5, 2, 10, 4, 20, 8, 17, 16, 11, 9, 22, 18, 21, 13, 19, 3, 15, 6, 7, 12, 14.</pre>
+<p>Hence log₅ 8 = 6, log₅ 22 = 11 (consistent with 5¹¹ ≡ −1, as for any primitive root modulo an odd prime) and log₅ 19 = 15.</p>
+<h3>Diffie–Hellman key exchange</h3>
+<p>In 1976 Whitfield Diffie and Martin Hellman, building on ideas of Ralph Merkle, published a method by which two parties communicating over a public channel can agree on a secret. Fix a public group G = ⟨g⟩. Alice chooses a secret a and publishes A = gᵃ; Bob chooses a secret b and publishes B = gᵇ. Each computes the shared key K = Bᵃ = Aᵇ = gᵃᵇ. An eavesdropper sees g, gᵃ and gᵇ, and must solve the computational Diffie–Hellman problem of producing gᵃᵇ. Anyone who can compute discrete logarithms can do this, by recovering a from A. Whether the converse holds is a deep question; Maurer and Wolf showed that for many groups the two problems are equivalent under plausible assumptions.</p>
+<p>With p = 23 and g = 5 as above, a = 6 and b = 15 give A = 8 and B = 19, and both parties obtain K = 19⁶ ≡ 8¹⁵ ≡ 5⁹⁰ ≡ 5² = 2 (mod 23), using 90 ≡ 2 (mod 22). The same idea underlies ElGamal encryption (1985), the Digital Signature Algorithm (1991) and their elliptic-curve analogues ECDH and ECDSA, which secure most present-day TLS connections.</p>
+<h3>Generic algorithms: baby-step giant-step</h3>
+<p><strong>Theorem 13.1 (Shanks, 1971)</strong>. The DLP in a cyclic group of order n can be solved with O(√n) group operations and O(√n) storage.</p>
+<p><strong>Proof</strong>. Let m = ⌈√n⌉. Every x ∈ {0, …, n − 1} can be written x = im + j with 0 ≤ i, j &lt; m. Then gˣ = h is equivalent to gʲ = h·(g⁻ᵐ)ⁱ. Compute and store the m &quot;baby steps&quot; gʲ in a hash table. Then compute the &quot;giant steps&quot; h, hg⁻ᵐ, hg⁻²ᵐ, … until one appears in the table; this happens for some i &lt; m, and x = im + j. Both phases use O(m) operations. ∎</p>
+<p><strong>Example</strong>. Solve 5ˣ ≡ 8 (mod 23). Here n = 22 and m = 5. The baby steps 5ʲ for j = 0, …, 4 are 1, 5, 2, 10, 4. Since 5⁵ ≡ 20 and 20·15 = 300 ≡ 1 (mod 23), we have 5⁻⁵ ≡ 15. The giant steps are 8 (not in the table) and then 8·15 = 120 ≡ 5, which is 5¹. So i = 1, j = 1, and x = 1·5 + 1 = 6.</p>
+<p>Pollard's rho method (1978) achieves the same O(√n) time with only O(1) memory, by looking for a collision in a pseudo-random walk on G, and is the method of choice in practice; it parallelises well using distinguished points (van Oorschot and Wiener). Shoup (1997) proved that in the generic group model, where an algorithm can only perform group operations and test equality, Ω(√q) operations are necessary, q being the largest prime divisor of n. Generic algorithms therefore cannot do better than square-root time.</p>
+<h3>Pohlig–Hellman reduction</h3>
+<p>If n = ∏ qᵢ<sup>eᵢ</sup>, the DLP in G reduces to DLPs in subgroups of prime order qᵢ. For each i, raising gˣ = h to the power n/qᵢ<sup>eᵢ</sup> projects onto the subgroup of order qᵢ<sup>eᵢ</sup> and determines x mod qᵢ<sup>eᵢ</sup>, one base-qᵢ digit at a time; the Chinese remainder theorem then reassembles x mod n. The cost is O(∑ eᵢ(log n + √qᵢ)) group operations. Consequently cryptographic groups must have order divisible by a large prime q, typically with q ≥ 2²⁵⁶, and in (ℤ/pℤ)ˣ one uses a &quot;safe prime&quot; p = 2q + 1 or works in a subgroup of prime order q.</p>
+<p><strong>Example</strong>. For 5ˣ ≡ 8 (mod 23) with n = 22 = 2·11: raising to the 11th power, (5¹¹)ˣ = (−1)ˣ must equal 8¹¹ ≡ 1, so x is even. Raising to the square, (5²)ˣ = 2ˣ must equal 8² = 64 ≡ 18, and the powers of 2 modulo 23 are 1, 2, 4, 8, 16, 9, 18, …, so x ≡ 6 (mod 11). The Chinese remainder theorem gives x = 6.</p>
+<h3>Index calculus and subexponential attacks</h3>
+<p>In the multiplicative group of a finite field the elements have additional structure, namely factorisation, and this allows much faster algorithms. The index calculus method chooses a factor base of small primes ℓ ≤ B, finds many relations gᵏ ≡ ∏ ℓ<sup>eℓ</sup> (mod p) by testing random k for B-smoothness, solves the resulting linear system modulo p − 1 for the unknowns log<sub>g</sub> ℓ, and finally finds one k with h·gᵏ smooth. With the optimal choice of B the running time is L<sub>p</sub>[1/2, √2], where</p>
+<pre class="math">L<sub>p</sub>[α, c] = exp((c + o(1)) (ln p)<sup>α</sup> (ln ln p)<sup>1−α</sup>).</pre>
+<p>The number field sieve reduces this to L<sub>p</sub>[1/3, (64/9)<sup>1/3</sup>] ≈ L<sub>p</sub>[1/3, 1.923], which is why 2048-bit primes are now the minimum recommended size for finite-field Diffie–Hellman. In fields of small characteristic, Joux and collaborators found in 2013–2014 quasi-polynomial algorithms, of complexity exp(O((ln ln Q)²)) in a field of Q elements, so such fields are no longer used. The 2015 &quot;Logjam&quot; attack exploited the fact that many servers shared a few 512-bit primes, for which the expensive precomputation of the number field sieve could be done once and reused.</p>
+<h3>Elliptic curves</h3>
+<p>For the group of points of a well-chosen elliptic curve over a prime field, no analogue of smoothness is known, and the best algorithms remain the generic ones of time O(√n). Hence a 256-bit elliptic-curve group gives roughly 128-bit security, comparable to a 3072-bit finite-field group. Special curves must be avoided: supersingular and pairing-friendly curves allow the MOV reduction to a finite-field DLP, and anomalous curves with n = p are broken in polynomial time by the Semaev–Satoh–Araki–Smart method, which is itself built on a p-adic elliptic logarithm.</p>
+<h3>Quantum algorithms</h3>
+<p>Peter Shor (1994) gave a quantum algorithm that solves the DLP in any group in which the group operation is efficiently computable, in time polynomial in log n. It uses the quantum Fourier transform over ℤ/nℤ × ℤ/nℤ to find the period of the function (a, b) ↦ gᵃh⁻ᵇ, whose kernel is generated by (log<sub>g</sub> h, 1). The hidden-subgroup framework thus unifies the computation of the real logarithm via periods of exp (the kernel 2πiℤ of Lesson 7) with the discrete case. Large-scale quantum computers would break both RSA and all discrete-logarithm cryptography, and this is the motivation for the post-quantum standards (lattice-based ML-KEM and ML-DSA) published by NIST in 2024.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Using the table of powers of 5 modulo 23, compute log₅ 13 and log₅ 13⁻¹.</div></li><li><span class="mk">(b)</span><div>Solve 3ˣ ≡ 7 (mod 17) by baby-step giant-step with m = 4.</div></li><li><span class="mk">(c)</span><div>Explain why the DLP in the additive group (ℤ/nℤ, +) with generator g (g coprime to n) is easy.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) From the table, 5¹⁴ ≡ 13, so log₅ 13 = 14, and log₅ 13⁻¹ = −14 ≡ 8 (mod 22); indeed 5⁸ ≡ 16 and 13·16 = 208 = 9·23 + 1. (b) Baby steps 3ʲ for j = 0, …, 3: 1, 3, 9, 10. Since 3⁴ ≡ 13 and 13·4 = 52 ≡ 1, 3⁻⁴ ≡ 4. Giant steps: 7, 7·4 = 28 ≡ 11, 11·4 = 44 ≡ 10 = 3³. So i = 2, j = 3 and x = 2·4 + 3 = 11; check: 3¹¹ ≡ 7 (mod 17). (c) &quot;Exponentiation&quot; there is multiplication: x·g ≡ h (mod n), so x ≡ h·g⁻¹ (mod n), and g⁻¹ is computed by the extended Euclidean algorithm in O(log n) steps. The isomorphism type of the group is the same as for any cyclic group of order n, for example (ℤ/pℤ)ˣ when n = p − 1; what differs is the representation, which is why the hardness of the DLP is a property of how the group is presented, not of the abstract group.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

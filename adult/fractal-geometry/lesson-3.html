@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Coding, Addresses and the Chaos Game — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 3</p>
+    <h1>Coding, Addresses and the Chaos Game</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">The coding map π : {1, …, N}<sup>ℕ</sup> → F,
+π(i₁i₂i₃…) = lim<sub>n→∞</sub> f<sub>i₁</sub> ∘ f<sub>i₂</sub> ∘ ⋯ ∘ f<sub>iₙ</sub>(x₀)
+is a continuous surjection from the symbol space onto the attractor.</pre></div>
+<h3>Symbolic space</h3>
+<p>Let Σ = {1, …, N}<sup>ℕ</sup> be the space of infinite words i = i₁i₂i₃… with the metric ρ(i, j) = 2<sup>−k</sup>, where k is the length of the longest common prefix of i and j (and ρ(i, i) = 0). Then Σ is a compact metric space homeomorphic to the Cantor set; the cylinder sets [i₁…iₙ] = {j : j₁ = i₁, …, jₙ = iₙ} are the closed (and open) balls. Write f<sub>i₁…iₙ</sub> = f<sub>i₁</sub> ∘ ⋯ ∘ f<sub>iₙ</sub> and F<sub>i₁…iₙ</sub> = f<sub>i₁…iₙ</sub>(F).</p>
+<p><strong>Theorem 3.1</strong>. For every i ∈ Σ, the sets F<sub>i₁…iₙ</sub> are nested and |F<sub>i₁…iₙ</sub>| ≤ cⁿ|F| → 0, so ⋂ₙ F<sub>i₁…iₙ</sub> is a single point π(i). The map π : Σ → F is continuous and surjective, and π(i) = lim f<sub>i₁…iₙ</sub>(x₀) for every x₀ ∈ X.</p>
+<p><strong>Proof</strong>. Nesting: F<sub>i₁…iₙ₊₁</sub> = f<sub>i₁…iₙ</sub>(f<sub>iₙ₊₁</sub>(F)) ⊂ f<sub>i₁…iₙ</sub>(F) because f<sub>j</sub>(F) ⊂ F. The diameter bound follows from Lemma 1.4. A nested sequence of non-empty compact sets with diameters tending to 0 has one-point intersection. If ρ(i, j) ≤ 2<sup>−n</sup>, then π(i), π(j) ∈ F<sub>i₁…iₙ</sub>, so |π(i) − π(j)| ≤ cⁿ|F|: π is uniformly continuous. Surjectivity: iterating F = ⋃ f<sub>i</sub>(F) gives F = ⋃<sub>|w|=n</sub> F<sub>w</sub> for each n, so a point x ∈ F lies in some F<sub>i₁</sub> ∩ F<sub>i₁i₂</sub> ∩ ⋯ by König's lemma (or compactness of Σ). Finally, both f<sub>i₁…iₙ</sub>(x₀) and π(i) lie in f<sub>i₁…iₙ</sub>(F ∪ {x₀}), whose diameter is at most cⁿ|F ∪ {x₀}| → 0, which gives the last claim. ∎</p>
+<p>For the Cantor set, π(i₁i₂…) = ∑ 2(i<sub>k</sub> − 1) 3<sup>−k</sup>: the attractor consists exactly of the numbers in [0, 1] having a ternary expansion with digits 0 and 2 only, and π is a homeomorphism. For the interval [0, 1] with the two halving maps, π is the binary expansion map, which is two-to-one at dyadic rationals; so coding maps need not be injective, and the failure of injectivity is measured precisely by how much the pieces f<sub>i</sub>(F) overlap.</p>
+<h3>Shift dynamics</h3>
+<p>The left shift σ(i₁i₂i₃…) = i₂i₃… satisfies π(i) = f<sub>i₁</sub>(π(σi)). When the pieces f<sub>i</sub>(F) are pairwise disjoint (the strong separation condition), π is a homeomorphism and the map g : F → F defined by g = f<sub>i</sub>⁻¹ on f<sub>i</sub>(F) is conjugate to σ. Since the shift has a dense orbit and dense periodic points and is sensitive to initial conditions, g is chaotic in the sense of Devaney; this is the first example of the link between fractal sets and chaotic dynamics that Lessons 9–11 develop.</p>
+<h3>The chaos game</h3>
+<p>Fix probabilities p₁, …, p<sub>N</sub> &gt; 0 with ∑ p<sub>i</sub> = 1. Start at x₀ ∈ X, and repeatedly set x<sub>k+1</sub> = f<sub>i<sub>k</sub></sub>(x<sub>k</sub>), where i₀, i₁, i₂, … are independent with P(i<sub>k</sub> = j) = p<sub>j</sub>. Note the order: the new map is applied on the outside, so x<sub>k</sub> = f<sub>i<sub>k−1</sub></sub> ∘ ⋯ ∘ f<sub>i₀</sub>(x₀) — this is a backward composition relative to π, which is why the points x<sub>k</sub> do not converge but wander over F.</p>
+<p><strong>Theorem 3.2 (Elton, 1987, in simplified form)</strong>. With probability one, the orbit {x<sub>k</sub>} accumulates on all of F; indeed d(x<sub>k</sub>, F) ≤ c<sup>k</sup> d(x₀, F), and every cylinder F<sub>w</sub> is visited infinitely often. Moreover the empirical measures (1/n)∑<sub>k&lt;n</sub> δ<sub>x<sub>k</sub></sub> converge weakly to the self-similar measure μ, the unique Borel probability measure with</p>
+<pre class="math">μ = ∑<sub>i=1</sub><sup>N</sup> p<sub>i</sub> · μ ∘ f<sub>i</sub>⁻¹</pre>
+<p><strong>Proof of the first part</strong>. d(x<sub>k+1</sub>, F) ≤ d(f<sub>i<sub>k</sub></sub>(x<sub>k</sub>), f<sub>i<sub>k</sub></sub>(F)) ≤ c d(x<sub>k</sub>, F), since f<sub>i<sub>k</sub></sub>(F) ⊂ F. For a fixed word w = w₁…w<sub>m</sub>, the event that the next m symbols are w<sub>m</sub>, …, w₁ (in that order, so that x<sub>k+m</sub> = f<sub>w₁…w<sub>m</sub></sub>(x<sub>k</sub>)) has probability p<sub>w₁</sub>⋯p<sub>w<sub>m</sub></sub> &gt; 0 independently in disjoint blocks, so by the second Borel–Cantelli lemma it happens infinitely often; when it happens, x<sub>k+m</sub> lies within c<sup>m</sup> d(x<sub>k</sub>, F) + (diameter of F<sub>w</sub>) of F<sub>w</sub>. ∎</p>
+<p>The existence and uniqueness of μ is itself a contraction argument: on the space of Borel probability measures on F with the Wasserstein (Kantorovich–Rubinstein) metric, the operator ν ↦ ∑ p<sub>i</sub> ν ∘ f<sub>i</sub>⁻¹ is a contraction with ratio c. The measure μ is the image under π of the Bernoulli product measure (p₁, …, p<sub>N</sub>)<sup>ℕ</sup> on Σ. Self-similar measures reappear as the prototypical multifractals in Lesson 13.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find π(1222…) and π(2111…) for the Cantor IFS, and explain why the coding map is nevertheless injective.</div></li><li><span class="mk">(b)</span><div>For the IFS x ↦ x/2, x ↦ x/2 + 1/2, show that π(1222…) = π(2111…).</div></li><li><span class="mk">(c)</span><div>For the Sierpinski IFS f<sub>i</sub>(x) = (x + p<sub>i</sub>)/2, which point has address 123123123…?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) π(1222…) = ∑<sub>k≥2</sub> 2·3<sup>−k</sup> = 2·(1/9)/(2/3) = 1/3, and π(2111…) = 2/3. Different words give different points because the two first-level pieces [0, 1/3] and [2/3, 1] are disjoint, and by self-similarity the same holds at every level. (b) π(1222…) = ∑<sub>k≥2</sub> 2<sup>−k</sup> = 1/2 = π(2111…), the two binary expansions 0.0111… and 0.1000… of 1/2. (c) It is the fixed point of f₁ ∘ f₂ ∘ f₃, namely x = f₁(f₂(f₃(x))) = x/8 + p₃/8 + p₂/4 + p₁/2, so x = (4p₁ + 2p₂ + p₃)/7.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

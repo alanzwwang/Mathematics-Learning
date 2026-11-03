@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Gödel's Completeness Theorem — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 8</p>
+    <h1>Gödel's Completeness Theorem</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Σ ⊨ φ implies Σ ⊢ φ: truth in all models is captured by finite derivations.
+Henkin: add witnesses c<sub>φ</sub> with ∃x φ → φ[c<sub>φ</sub>/x], extend to a maximal consistent set.
+The model is built from the closed terms, modulo provable equality.</pre></div>
+<h3>Statement</h3>
+<p><strong>Theorem 8.1 (Gödel 1929)</strong>. Let Σ be a set of sentences and φ a sentence of a first-order language L. If Σ ⊨ φ, then Σ ⊢ φ. Equivalently (model existence): every consistent set of sentences has a model.</p>
+<p>The equivalence is as in the propositional case: Σ ⊬ φ implies that Σ ∪ {¬φ} is consistent, and a model of Σ ∪ {¬φ} witnesses Σ ⊭ φ. Gödel's original proof (his doctoral dissertation) reduced to prenex sentences and used propositional compactness on a sequence of quantifier-free instances. The proof below is Leon Henkin's (1949), which generalises to uncountable languages and to many other logics. We give it for countable L; for arbitrary L replace the enumerations by transfinite ones or by Zorn's lemma, and the model obtained has cardinality at most |L| + ℵ₀.</p>
+<h3><strong>Step 1</strong>: Henkin witnesses</h3>
+<p>A set Σ of L-sentences has the witness property if for every L-formula φ(x) with one free variable there is a constant c with ∃x φ(x) → φ(c) in Σ.</p>
+<p><strong>Lemma 8.2</strong>. Let Σ be consistent and let c be a constant symbol not occurring in Σ or in φ. Then Σ ∪ {∃x φ(x) → φ(c)} is consistent.</p>
+<p><strong>Proof</strong>. Suppose Σ, ∃x φ(x) → φ(c) ⊢ ⊥. Then Σ ⊢ ¬(∃x φ(x) → φ(c)), hence Σ ⊢ ∃x φ(x) and Σ ⊢ ¬φ(c). Since c does not occur in Σ, a derivation of ¬φ(c) can be turned into a derivation of ¬φ(y) for a fresh variable y by replacing c throughout (constants not in the assumptions behave like eigenvariables), and then ∀I gives Σ ⊢ ∀y ¬φ(y), which with Σ ⊢ ∃x φ(x) yields Σ ⊢ ⊥, a contradiction. ∎</p>
+<p>Let L₀ = L, and let Lₙ₊₁ be Lₙ together with a new constant c<sub>φ</sub> for each Lₙ-formula φ(x) with one free variable. Put L* = ⋃ Lₙ, and let Σ* be Σ together with all the Henkin axioms ∃x φ(x) → φ(c<sub>φ</sub>). Each finite subset of Σ* adds finitely many Henkin axioms to Σ; adding them one at a time, in order of the level n of their constants, preserves consistency by Lemma 8.2. So Σ* is consistent and has the witness property for L*.</p>
+<h3><strong>Step 2</strong>: Lindenbaum</h3>
+<p>Exactly as in Lemma 4.3, extend Σ* to a maximal consistent set Δ of L*-sentences. Since Δ ⊇ Σ*, it still has the witness property. Maximal consistent sets have the properties of Lemma 4.2, and in addition: ∃x φ(x) ∈ Δ iff φ(c) ∈ Δ for some closed term c (by the witness axioms and ∃I), and ∀x φ(x) ∈ Δ iff φ(t) ∈ Δ for every closed term t (apply the previous clause to ¬φ).</p>
+<h3><strong>Step 3</strong>: the term model</h3>
+<p>Let T be the set of closed L*-terms. Define t ∼ u iff (t = u) ∈ Δ. By the equality rules and deductive closure, ∼ is an equivalence relation and a congruence: if tᵢ ∼ uᵢ then F(t⃗) ∼ F(u⃗), and R(t⃗) ∈ Δ iff R(u⃗) ∈ Δ. Let A = T/∼, and interpret c<sup>𝔄</sup> = [c], F<sup>𝔄([t₁], …, [tₙ])</sup> = [F(t₁, …, tₙ)] and R<sup>𝔄</sup> = {([t₁], …, [tₙ]) : R(t₁, …, tₙ) ∈ Δ}. These are well defined because ∼ is a congruence.</p>
+<p><strong>Lemma 8.3 (Truth lemma)</strong>. For every L*-sentence ψ, 𝔄 ⊨ ψ iff ψ ∈ Δ.</p>
+<p><strong>Proof</strong>. By induction on the number of logical symbols in ψ. For atomic sentences this is the definition of 𝔄 (each closed term t denotes [t], by induction on t). The connective steps use Lemma 4.2. For ∃x φ(x): 𝔄 ⊨ ∃x φ(x) iff 𝔄 ⊨ φ[a] for some a ∈ A; every a is [t] for a closed term t, and 𝔄 ⊨ φ[[t]] iff 𝔄 ⊨ φ(t) by the substitution lemma, iff φ(t) ∈ Δ by induction (φ(t) has fewer logical symbols than ∃x φ(x)), iff ∃x φ(x) ∈ Δ by the witness property. The ∀ case is dual. ∎</p>
+<p>Finally, by the truth lemma 𝔄 satisfies every member of Δ ⊇ Σ, so the reduct of 𝔄 to the original language L is a model of Σ. This proves Theorem 8.1. ∎</p>
+<h3>Consequences</h3>
+<p>The completeness theorem has three immediate consequences of great importance. First, compactness: Σ has a model iff every finite subset does, since consistency is a finitary property. Second, the downward Löwenheim–Skolem theorem: a consistent set in a countable language has a countable model, since A is a quotient of the countable set T. Third, the set of valid sentences of a computable language is computably enumerable: one can list all derivations mechanically, and a sentence is valid iff it eventually appears as a conclusion. Church and Turing showed in 1936 that this set is not computable (Lesson 10), so completeness is the best possible result: validity is semi-decidable and no more.</p>
+<p>The completeness theorem is also exactly where the expressive power of first-order logic is limited. Second-order logic, which allows quantification over all subsets of the domain, can characterise (ℕ, S, 0) up to isomorphism by the induction axiom, but in consequence it has no sound, complete and effective proof system.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Why must the language be expanded with new constants in Step 1, rather than using existing ones?</div></li><li><span class="mk">(b)</span><div>Let Σ = {∃x P(x)} ∪ {¬P(c)}. Describe a Henkin axiom and a possible term model.</div></li><li><span class="mk">(c)</span><div>Explain why a consistent set of sentences in a countable language with equality might have a finite term model.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) An existing constant may already be constrained by Σ: for Σ = {∃x P(x), ¬P(c)}, adding ∃x P(x) → P(c) would make the set inconsistent. Fresh constants carry no prior information, which is what Lemma 8.2 needs. (b) Add a fresh constant d with the Henkin axiom ∃x P(x) → P(d). Any maximal consistent extension Δ contains P(d) and ¬P(c), hence c ≠ d. So the term model has at least the two distinct elements [c] and [d], with [d] ∈ P<sup>𝔄</sup> and [c] ∉ P<sup>𝔄</sup>; how many further elements it has depends on which equations between the other Henkin constants Δ happens to contain. (c) Equalities in Δ may identify infinitely many closed terms: if Σ contains ∀x ∀y (x = y), then all closed terms are equivalent and A has a single element.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

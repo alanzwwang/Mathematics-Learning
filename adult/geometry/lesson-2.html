@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Isometries of the Euclidean Plane — Geometry (Advanced)</title>
+<meta name="description" content="Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Geometry</a> › Lesson 2</p>
+    <h1>Isometries of the Euclidean Plane</h1>
+    <p class="kicker">Lesson 2 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Hilbert's Axioms and the Foundations of Geometry">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Isometries of the Euclidean Plane">2</a><a href="lesson-3.html" title="Lesson 3: Classification of Plane Isometries">3</a><a href="lesson-4.html" title="Lesson 4: Symmetry Groups, Lattices and the Crystallographic Restriction">4</a><a href="lesson-5.html" title="Lesson 5: Triangle Centres, the Euler Line and the Nine-Point Circle">5</a><a href="lesson-6.html" title="Lesson 6: Ceva, Menelaus and Routh">6</a><a href="lesson-7.html" title="Lesson 7: Power of a Point, Radical Axes and Inversion">7</a><a href="lesson-8.html" title="Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus">8</a><a href="lesson-9.html" title="Lesson 9: The Euler Characteristic and Angular Defect">9</a><a href="lesson-10.html" title="Lesson 10: Regular Polytopes and the Platonic Solids">10</a><a href="lesson-11.html" title="Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem">11</a><a href="lesson-12.html" title="Lesson 12: Constructibility with Straightedge and Compass">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every isometry of ℝ² has the form x ↦ Ax + b with A ∈ O(2), b ∈ ℝ².
+E(2) = ℝ² ⋊ O(2), and the orientation-preserving isometries form SE(2) = ℝ² ⋊ SO(2).</pre></div>
+<h3>Definitions and Klein's viewpoint</h3>
+<p>From now on we work in the model ℝ² with the Euclidean inner product ⟨x, y⟩ = x₁y₁ + x₂y₂ and norm |x| = √⟨x, x⟩. An isometry is a map T : ℝ² → ℝ² with |T(x) − T(y)| = |x − y| for all x, y. We do not assume T is surjective, linear, or even continuous; all of this will follow. In Felix Klein's Erlangen Program (1872), Euclidean geometry is the study of properties invariant under the group of isometries, affine geometry the study of invariants of the larger affine group, and projective geometry the study of invariants of the projective group. Lengths, angles and areas are Euclidean invariants; ratios of lengths along a line and parallelism are affine invariants; incidence and cross-ratio are projective invariants.</p>
+<h3>The structure theorem</h3>
+<p><strong>Theorem 2.1</strong>. Let T be an isometry of ℝ². Then there are a unique orthogonal matrix A (AᵀA = I) and a unique vector b such that T(x) = Ax + b for all x.</p>
+<p><strong>Proof</strong>. Put b = T(0) and S(x) = T(x) − b. Then S is an isometry with S(0) = 0, so |S(x)| = |x| for all x. Polarisation gives ⟨S(x), S(y)⟩ = ½(|S(x)|² + |S(y)|² − |S(x) − S(y)|²) = ½(|x|² + |y|² − |x − y|²) = ⟨x, y⟩. Let e₁, e₂ be the standard basis; then f₁ = S(e₁), f₂ = S(e₂) form an orthonormal basis. For any x, the coordinates of S(x) in this basis are ⟨S(x), fᵢ⟩ = ⟨S(x), S(eᵢ)⟩ = ⟨x, eᵢ⟩ = xᵢ. Hence S(x) = x₁f₁ + x₂f₂ = Ax with A the matrix of columns f₁, f₂, which is orthogonal. Uniqueness: b = T(0), and then A is determined by its values on e₁, e₂. ∎</p>
+<p><strong>Corollary 2.2</strong>. Isometries are bijective, affine, and map lines to lines, circles to circles, and preserve angles; the set of isometries is a group E(2) under composition.</p>
+<p><strong>Corollary 2.3</strong>. An isometry is determined by the images of three non-collinear points. Indeed if T and T′ agree on non-collinear P, Q, R, then T′⁻¹T is an isometry fixing P, Q, R; any point X is determined by its distances to P, Q, R (two circles meet in at most two points, symmetric about line PQ, and the distance to R distinguishes them), so T′⁻¹T is the identity.</p>
+<h3>The group structure</h3>
+<p>The orthogonal group O(2) consists of the rotations:</p>
+<pre class="math">R<sub>θ</sub> = [ cos θ   −sin θ ]       det R<sub>θ</sub> = 1,
+      [ sin θ    cos θ ]</pre>
+<p>and the reflections</p>
+<pre class="math">S<sub>θ</sub> = [ cos 2θ    sin 2θ ]     det S<sub>θ</sub> = −1,
+      [ sin 2θ   −cos 2θ ]</pre>
+<p>where S<sub>θ</sub> is the reflection in the line through 0 making angle θ with the x-axis. One checks the multiplication rules R<sub>α</sub> R<sub>β</sub> = R<sub>α+β</sub>, S<sub>α</sub> S<sub>β</sub> = R<sub>2(α−β)</sub>, R<sub>α</sub> S<sub>β</sub> = S<sub>β+α/2</sub> and S<sub>β</sub> R<sub>α</sub> = S<sub>β−α/2</sub>. The homomorphism E(2) → O(2), (x ↦ Ax + b) ↦ A, has kernel the translation group T ≅ ℝ², which is therefore normal, and the sequence 1 → ℝ² → E(2) → O(2) → 1 splits via A ↦ (x ↦ Ax). Hence E(2) ≅ ℝ² ⋊ O(2), with multiplication (b, A)(c, B) = (b + Ac, AB). Conjugating a translation τ<sub>c</sub> by g = (b, A) gives g τ<sub>c</sub> g⁻¹ = τ<sub>Ac</sub>.</p>
+<p>The determinant gives a homomorphism E(2) → {±1}; its kernel SE(2), the group of direct (orientation-preserving) isometries or proper motions, has index 2. The other coset consists of the opposite (orientation-reversing) isometries. As a manifold, E(2) has dimension 3 and two connected components.</p>
+<h3>Isometries and congruence</h3>
+<p>In Hilbert's synthetic setting, congruence is primitive. In the model, two figures are called congruent if some isometry maps one onto the other. The SAS axiom of Lesson 1 corresponds to the fact that an isometry is determined by three non-collinear points: given triangles with AB = A′B′, AC = A′C′ and equal included angles, there is an isometry with A ↦ A′, B ↦ B′, C ↦ C′, hence the triangles are congruent. Thus the axiom that Euclid tried to prove by superposition becomes, in the model, a theorem about the group E(2).</p>
+<h3>Similarities and the affine group</h3>
+<p>A similarity with ratio k &gt; 0 satisfies |T(x) − T(y)| = k|x − y|; by the theorem applied to T/k, every similarity has the form x ↦ kAx + b with A ∈ O(2). Every similarity that is not an isometry has a unique fixed point: solving x = kAx + b requires I − kA to be invertible, which holds because the eigenvalues of kA have absolute value k ≠ 1. A direct similarity can be written in complex notation as z ↦ az + b with a ∈ ℂ \ {0}, and an opposite one as z ↦ a z̄ + b. Isometries correspond to |a| = 1.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the direct isometry T with T(0, 0) = (1, 2) and T(1, 0) = (1, 3), and compute T(0, 1).</div></li><li><span class="mk">(b)</span><div>Show that the map T(x, y) = (y + 1, x − 1) is an isometry, write it as x ↦ Ax + b, and decide whether it is direct or opposite.</div></li><li><span class="mk">(c)</span><div>In complex notation, find the fixed point of the direct similarity z ↦ 2iz + 5.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) b = (1, 2) and A e₁ = (1, 3) − (1, 2) = (0, 1), so A = R<sub>90°</sub> and A e₂ = (−1, 0). Hence T(0, 1) = (−1, 0) + (1, 2) = (0, 2). (b) A = [[0, 1], [1, 0]] and b = (1, −1); A is orthogonal with determinant −1, so T is opposite (in fact a reflection, see Lesson 3). (c) z = 2iz + 5 gives z(1 − 2i) = 5, so z = 5/(1 − 2i) = 5(1 + 2i)/5 = 1 + 2i.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

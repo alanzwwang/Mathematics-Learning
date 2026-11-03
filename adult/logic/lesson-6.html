@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: First-Order Languages, Structures and Satisfaction — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 6</p>
+    <h1>First-Order Languages, Structures and Satisfaction</h1>
+    <p class="kicker">Lesson 6 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A signature supplies constant, function and relation symbols, each with an arity.
+An L-structure 𝔄 interprets them on a nonempty domain A.
+Tarski's definition: 𝔄 ⊨ φ[s] by recursion on φ, with s an assignment of variables.</pre></div>
+<h3>Languages</h3>
+<p>Propositional logic cannot express &quot;every element has an inverse&quot; or &quot;between any two rationals there is another&quot;. First-order logic adds individual variables x, y, z, … ranging over the elements of a structure, the quantifiers ∀ and ∃, the equality symbol =, and a signature L (also called a language or vocabulary): a set of constant symbols c, function symbols F each with an arity n ≥ 1, and relation symbols R each with an arity n ≥ 1.</p>
+<p>Terms are generated from variables and constants by applying function symbols: if t₁, …, tₙ are terms and F is n-ary, F(t₁, …, tₙ) is a term. Atomic formulas are t₁ = t₂ and R(t₁, …, tₙ). Formulas are generated from atomic formulas by the connectives and by ∀x φ and ∃x φ. Unique readability holds as before.</p>
+<p>Examples of signatures: the language of groups L = {·, ⁻¹, e}; the language of ordered rings {+, ·, −, 0, 1, &lt;}; the language of arithmetic L<sub>A</sub> = {0, S, +, ·, &lt;}; the language of set theory {∈}; the language of graphs {E}.</p>
+<h3>Free and bound variables</h3>
+<p>An occurrence of x in φ is bound if it lies within a subformula ∀x ψ or ∃x ψ, and free otherwise. FV(φ) is the set of variables with a free occurrence. A sentence is a formula with no free variables. In ∀x (x &lt; y) ∧ x = 0 the first two occurrences of x are bound, the last is free, and FV = {x, y}. Writing φ(x₁, …, xₙ) signals that FV(φ) ⊆ {x₁, …, xₙ}.</p>
+<h3>Structures</h3>
+<p>An L-structure 𝔄 consists of a nonempty set A (the domain or universe) together with an element c<sup>𝔄</sup> ∈ A for each constant symbol, a function F<sup>𝔄</sup> : Aⁿ → A for each n-ary function symbol and a relation R<sup>𝔄</sup> ⊆ Aⁿ for each n-ary relation symbol. The standard model of arithmetic is 𝔑 = (ℕ, 0, S, +, ·, &lt;). The rational ordered field, every group, every graph and the universe of sets (if it were a set) are structures in their signatures.</p>
+<h3>Satisfaction</h3>
+<p>An assignment in 𝔄 is a function s from the variables to A. It extends to terms by s(c) = c<sup>𝔄</sup> and s(F(t₁, …, tₙ)) = F<sup>𝔄</sup>(s(t₁), …, s(tₙ)). Write s[x ↦ a] for the assignment that agrees with s except that it sends x to a. Tarski's satisfaction relation 𝔄 ⊨ φ[s] is defined by recursion on φ:</p>
+<pre class="math">𝔄 ⊨ (t₁ = t₂)[s]        iff  s(t₁) = s(t₂)
+𝔄 ⊨ R(t₁, …, tₙ)[s]     iff  (s(t₁), …, s(tₙ)) ∈ R<sup>𝔄</sup>
+𝔄 ⊨ ¬φ[s]               iff  not 𝔄 ⊨ φ[s]
+𝔄 ⊨ (φ ∧ ψ)[s]          iff  𝔄 ⊨ φ[s] and 𝔄 ⊨ ψ[s]       (similarly ∨, →, ↔)
+𝔄 ⊨ ∀x φ[s]             iff  𝔄 ⊨ φ[s[x ↦ a]] for every a ∈ A
+𝔄 ⊨ ∃x φ[s]             iff  𝔄 ⊨ φ[s[x ↦ a]] for some a ∈ A</pre>
+<p>By the coincidence lemma, whether 𝔄 ⊨ φ[s] depends only on s restricted to FV(φ). For a sentence σ we therefore simply write 𝔄 ⊨ σ, read &quot;𝔄 is a model of σ&quot;. For a set Σ of sentences, Mod(Σ) is the class of its models, and Σ ⊨ σ means that every model of Σ is a model of σ. A theory is a set of sentences closed under ⊨; Th(𝔄) = {σ : 𝔄 ⊨ σ} is the complete theory of 𝔄.</p>
+<p>The definition is deliberately metamathematical: the clause for ∀ uses &quot;for every&quot; in the metalanguage. The satisfaction relation is not definable inside the structure itself, a fact made precise by Tarski's undefinability theorem in Lesson 11.</p>
+<h3>Substitution</h3>
+<p>The term t is substitutable for x in φ if no free occurrence of x in φ lies within the scope of a quantifier ∀y or ∃y with y occurring in t. Without this proviso substitution changes meaning: in φ = ∃y (y ≠ x), which is true in any structure with at least two elements, substituting y for x gives ∃y (y ≠ y), which is false. When t is substitutable, the substitution lemma holds: 𝔄 ⊨ φ[t/x][s] iff 𝔄 ⊨ φ[s[x ↦ s(t)]]. Bound variables can always be renamed to make a term substitutable.</p>
+<h3>Homomorphisms and isomorphisms</h3>
+<p>An isomorphism h : 𝔄 → 𝔅 is a bijection that preserves the interpretations of all symbols: h(c<sup>𝔄</sup>) = c<sup>𝔅</sup>, h(F<sup>𝔄(a⃗)</sup>) = F<sup>𝔅</sup>(h(a⃗)), and a⃗ ∈ R<sup>𝔄</sup> iff h(a⃗) ∈ R<sup>𝔅</sup>. A routine induction proves the isomorphism lemma: 𝔄 ⊨ φ[s] iff 𝔅 ⊨ φ[h ∘ s] for all φ and s. Hence isomorphic structures satisfy the same sentences; they are elementarily equivalent, 𝔄 ≡ 𝔅. The converse fails badly, as compactness will show: (ℚ, &lt;) ≡ (ℝ, &lt;), and 𝔑 is elementarily equivalent to uncountable structures.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Write a sentence in the language {&lt;} expressing that the order is dense and has no endpoints.</div></li><li><span class="mk">(b)</span><div>In (ℤ, +, 0), is ∀x ∃y (y + y = x) true? In (ℚ, +, 0)?</div></li><li><span class="mk">(c)</span><div>List the free variables of ∀x (R(x, y) → ∃y R(y, z)) ∧ R(x, x).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) ∀x ∀y (x &lt; y → ∃z (x &lt; z ∧ z &lt; y)) ∧ ∀x ∃y (y &lt; x) ∧ ∀x ∃y (x &lt; y). (b) In ℤ it is false, since x = 1 is not of the form 2y. In ℚ it is true, take y = x/2. (c) x (in the last conjunct), y (the first occurrence, in R(x, y), which is not in the scope of ∃y) and z. So FV = {x, y, z}.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

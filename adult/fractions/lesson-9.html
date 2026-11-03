@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Irrationality and Diophantine Approximation — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 9</p>
+    <h1>Irrationality and Diophantine Approximation</h1>
+    <p class="kicker">Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">x is irrational  ⟺  0 &lt; |qx − p| &lt; ε has integer solutions for every ε &gt; 0.
+Dirichlet: every irrational x has infinitely many p/q with |x − p/q| &lt; 1/q².
+Liouville: an algebraic x of degree d ≥ 2 satisfies |x − p/q| ≥ c(x)/q<sup>d</sup>.</pre></div>
+<h3>Three proofs that √2 is irrational</h3>
+<p>First proof (valuations). If √2 = p/q then p² = 2q², and v<sub>2</sub> of the left side is even while v<sub>2</sub> of the right side is odd.</p>
+<p>Second proof (descent). If √2 = p/q with q ≥ 1 minimal, then since 1 &lt; √2 &lt; 2 we have 0 &lt; p − q &lt; q, and</p>
+<pre class="math">(2q − p)/(p − q) = (2 − √2)/(√2 − 1) = √2,</pre>
+<p>a representation with smaller denominator, a contradiction. Geometrically this is the classical argument that the side and diagonal of a square have no common measure.</p>
+<p>Third proof (rational root theorem). √2 is a root of the monic polynomial x² − 2, so if it were rational it would be an integer, but 1² &lt; 2 &lt; 2².</p>
+<h3>An irrationality criterion</h3>
+<p><strong>Proposition 9.1</strong>. A real number x is irrational if and only if for every ε &gt; 0 there are integers p, q with 0 &lt; |qx − p| &lt; ε.</p>
+<p><strong>Proof</strong>. If x = a/b with b ≥ 1, then qx − p = (qa − pb)/b is either 0 or at least 1/b in absolute value, so the condition fails for ε = 1/b. Conversely, if x is irrational, Dirichlet's theorem below provides, for every N, integers with 0 &lt; |qx − p| &lt; 1/N. ∎</p>
+<p>Every classical irrationality proof is, at heart, a construction of integer combinations qx − p that are nonzero but too small to be nonzero integers divided by a fixed denominator.</p>
+<h3>The irrationality of e</h3>
+<p><strong>Theorem 9.2 (Euler, 1737; this proof is due to Fourier)</strong>. The number e is irrational.</p>
+<p><strong>Proof</strong>. Suppose e = a/q with integers a, q ≥ 1. The number</p>
+<pre class="math">N = q!·(e − ∑<sub>k=0</sub><sup>q</sup> 1/k!)</pre>
+<p>is an integer, because q!·e = (q − 1)!·a and q!/k! ∈ ℤ for k ≤ q. On the other hand N = ∑<sub>k &gt; q</sub> q!/k! &gt; 0 and</p>
+<pre class="math">N = 1/(q + 1) + 1/((q + 1)(q + 2)) + ⋯ &lt; ∑<sub>j ≥ 1</sub> (q + 1)<sup>−j</sup> = 1/q ≤ 1,</pre>
+<p>so 0 &lt; N &lt; 1, a contradiction. ∎</p>
+<h3>The irrationality of π</h3>
+<p><strong>Theorem 9.3 (Lambert, 1761; this proof is due to Niven, 1947)</strong>. The number π is irrational.</p>
+<p><strong>Proof</strong>. Suppose π = a/b with positive integers a, b. For n ≥ 1 put</p>
+<pre class="math">f(x) = xⁿ(a − bx)ⁿ / n!,     F(x) = f(x) − f″(x) + f⁽⁴⁾(x) − ⋯ + (−1)ⁿ f⁽²ⁿ⁾(x).</pre>
+<p>The polynomial n!·f has integer coefficients and only terms of degree n to 2n, so f<sup>j</sup>(0) is 0 for j &lt; n and an integer for j ≥ n. Since f(π − x) = f(x), also f<sup>j</sup>(π) = (−1)<sup>j</sup> f<sup>j</sup>(0) ∈ ℤ. Hence F(0) and F(π) are integers. Now F″ + F = f, so</p>
+<pre class="math">d/dx [F′(x) sin x − F(x) cos x] = F″(x) sin x + F(x) sin x = f(x) sin x,</pre>
+<p>and therefore ∫₀<sup>π</sup> f(x) sin x dx = F(π) + F(0) ∈ ℤ. But for 0 &lt; x &lt; π we have 0 &lt; f(x) sin x ≤ πⁿaⁿ/n!, so the integral lies strictly between 0 and π(πa)ⁿ/n!, which is less than 1 for n large. No integer lies strictly between 0 and 1. ∎</p>
+<p>Hermite proved in 1873 that e is transcendental, and Lindemann in 1882 that π is transcendental, which settled the ancient problem of squaring the circle. Apéry's proof of the irrationality of ζ(3) (1978) uses the same principle with an ingenious sequence of rational approximations. It is still unknown whether e + π, or Euler's constant γ, is irrational.</p>
+<h3>Dirichlet's approximation theorem</h3>
+<p><strong>Theorem 9.4 (Dirichlet, 1842)</strong>. For every real x and every integer N ≥ 1 there are integers p, q with 1 ≤ q ≤ N and |qx − p| &lt; 1/N.</p>
+<p><strong>Proof</strong>. Consider the N + 1 numbers {kx} = kx − ⌊kx⌋ for k = 0, 1, …, N, all in [0, 1), and the N intervals [j/N, (j + 1)/N) for j = 0, …, N − 1. By the pigeonhole principle two of them, {ix} and {jx} with 0 ≤ i &lt; j ≤ N, lie in the same interval. Put q = j − i and p = ⌊jx⌋ − ⌊ix⌋; then 1 ≤ q ≤ N and |qx − p| = |{jx} − {ix}| &lt; 1/N. ∎</p>
+<p><strong>Corollary 9.5</strong>. If x is irrational, there are infinitely many fractions p/q with |x − p/q| &lt; 1/q².</p>
+<p><strong>Proof</strong>. Dividing the theorem's conclusion by q gives |x − p/q| &lt; 1/(qN) ≤ 1/q². Since x is irrational, |qx − p| &gt; 0 for every pair; choosing N larger than 1/|qx − p| for the pairs already found produces new pairs. ∎</p>
+<p>The pigeonhole argument extends immediately to simultaneous approximation: for real x₁, …, x<sub>d</sub> and N ≥ 1 there is 1 ≤ q ≤ N<sup>d</sup> with |qx<sub>i</sub> − p<sub>i</sub>| &lt; 1/N for all i. This is the starting point of the geometry of numbers.</p>
+<h3>Liouville's theorem and transcendental numbers</h3>
+<p><strong>Theorem 9.6 (Liouville, 1844)</strong>. Let x be a real algebraic number of degree d ≥ 2. There is a constant c(x) &gt; 0 such that |x − p/q| ≥ c(x)/q<sup>d</sup> for all integers p and q ≥ 1.</p>
+<p><strong>Proof</strong>. Let f ∈ ℤ[t] be the minimal polynomial of x, of degree d, scaled to have integer coefficients. Let M = max |f′(t)| over [x − 1, x + 1]. If |x − p/q| ≥ 1 there is nothing to prove once c ≤ 1. Otherwise, f(p/q) ≠ 0 because f is irreducible of degree ≥ 2 and so has no rational root, and qᵈ f(p/q) is a nonzero integer, so |f(p/q)| ≥ 1/qᵈ. By the mean value theorem, |f(p/q)| = |f(x) − f(p/q)| ≤ M|x − p/q|. Hence |x − p/q| ≥ 1/(M qᵈ), and c(x) = min(1, 1/M) works. ∎</p>
+<p><strong>Corollary 9.7</strong>. The Liouville number L = ∑<sub>k ≥ 1</sub> 10<sup>−k!</sup> = 0.110001000000000000000001… is transcendental.</p>
+<p><strong>Proof</strong>. Let p<sub>n</sub>/q<sub>n</sub> be the partial sum up to k = n, so q<sub>n</sub> = 10<sup>n!</sup>. Then 0 &lt; L − p<sub>n</sub>/q<sub>n</sub> &lt; 2·10<sup>−(n+1)!</sup> = 2/q<sub>n</sub><sup>n+1</sup>. If L were algebraic of degree d (d ≥ 2, since its decimal expansion is not eventually periodic), Liouville's theorem would give c/q<sub>n</sub><sup>d</sup> &lt; 2/q<sub>n</sub><sup>n+1</sup> for all n, which fails once n + 1 &gt; d and q<sub>n</sub> is large. ∎</p>
+<p>The irrationality measure μ(x) is the supremum of the exponents μ for which |x − p/q| &lt; 1/q<sup>μ</sup> has infinitely many solutions. Rationals have μ = 1, Dirichlet gives μ ≥ 2 for irrationals, Liouville gives μ ≤ d for algebraic numbers of degree d, and the Thue–Siegel–Roth theorem (Roth, 1955, for which he received the Fields Medal in 1958) gives μ(x) = 2 for every irrational algebraic x. By a theorem of Khinchin, μ(x) = 2 for almost every real x. For e one also has μ(e) = 2, as follows from its continued fraction, whereas for π the best known upper bound, due to Zeilberger and Zudilin (2020), is about 7.103.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Dirichlet's theorem with x = √2 and N = 10 guarantees some q ≤ 10 with |q√2 − p| &lt; 1/10. Find the smallest such q.</div></li><li><span class="mk">(b)</span><div>Prove that log₂ 3 is irrational.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Testing q = 1, …, 5: the distances from q√2 to the nearest integer are about 0.414, 0.172, 0.243, 0.343, 0.071. So q = 5 is the smallest, with |5√2 − 7| ≈ 0.0711 &lt; 0.1. (b) If log₂ 3 = a/b with positive integers a, b, then 2<sup>a</sup> = 3<sup>b</sup>, impossible because the left side is even and the right side odd.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

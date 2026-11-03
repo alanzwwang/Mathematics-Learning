@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 12</p>
+    <h1>Solvability by Radicals and the Abel–Ruffini Theorem</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">f is solvable by radicals over a field of characteristic 0  ⟺  Gal(f) is a solvable group
+A₅ is simple, so S₅ is not solvable, and the general quintic has no solution in radicals</pre></div>
+<p>An extension L/K is radical if there is a tower K = K₀ ⊆ K₁ ⊆ ⋯ ⊆ Kₘ = L with Kᵢ₊₁ = Kᵢ(αᵢ) and αᵢ<sup>nᵢ</sup> ∈ Kᵢ for some nᵢ ≥ 1. A polynomial f ∈ K[x] is solvable by radicals if its splitting field is contained in some radical extension of K. This makes precise the idea of a formula for the roots built from the coefficients by field operations and extraction of roots. Throughout this lesson K has characteristic 0.</p>
+<h3>Solvable groups</h3>
+<p>A finite group G is solvable if it has a chain of subgroups 1 = G₀ ⊴ G₁ ⊴ ⋯ ⊴ Gₖ = G, each normal in the next, with every quotient Gᵢ₊₁/Gᵢ abelian; equivalently (refining the chain), with every quotient cyclic of prime order. Subgroups and quotients of solvable groups are solvable, and an extension of a solvable group by a solvable group is solvable. Abelian groups, p-groups, S₃ and S₄ are solvable. The term was coined precisely for the application to equations.</p>
+<p><strong>Theorem 12.1</strong>. Aₙ is simple for n ≥ 5. In particular Sₙ is not solvable for n ≥ 5.</p>
+<p>Proof for n = 5. The conjugacy classes of A₅ have sizes 1 (identity), 15 (products of two disjoint transpositions), 20 (3-cycles), 12 and 12 (the 5-cycles split into two classes in A₅). A normal subgroup is a union of conjugacy classes containing the identity, and its order divides 60. The possible sums 1 + (a subset of {12, 12, 15, 20}) are 1, 13, 16, 21, 25, 28, 33, 36, 40, 45, 48 and 60, of which only 1 and 60 divide 60. So A₅ is simple. Being simple and non-abelian, A₅ equals its own commutator subgroup, so the derived series of S₅ stops at A₅ ≠ 1 and S₅ is not solvable. For n &gt; 5, Sₙ contains a copy of S₅, and subgroups of solvable groups are solvable. ∎</p>
+<h3>Roots of unity and Kummer theory</h3>
+<p>Two kinds of radical step occur. Adjoining a primitive n-th root of unity ζₙ gives an abelian extension, since Gal(K(ζₙ)/K) embeds in (ℤ/nℤ)ˣ. If K already contains ζₙ and a ∈ K, then K(ⁿ√a)/K is Galois with cyclic group: σ ↦ σ(α)/α (α = ⁿ√a) is an injective homomorphism into the group of n-th roots of unity. Conversely (Kummer theory), if K contains a primitive n-th root of unity and L/K is cyclic of degree n with generator σ, then L = K(α) with αⁿ ∈ K. One takes α to be a Lagrange resolvent α = θ + ζ⁻¹σ(θ) + ζ⁻²σ²(θ) + ⋯ + ζ<sup>−(n−1)</sup>σⁿ⁻¹(θ), which satisfies σ(α) = ζα; then αⁿ is fixed by σ, so it lies in K, and Dedekind's lemma guarantees a choice of θ with α ≠ 0. Cardano's formula is exactly this construction for the cyclic group A₃: the cube roots u and v are, up to a factor 3, the resolvents x₁ + ω²x₂ + ωx₃ and x₁ + ωx₂ + ω²x₃.</p>
+<p><strong>Theorem 12.2 (Galois, 1832)</strong>. A polynomial f over a field K of characteristic 0 is solvable by radicals if and only if its Galois group is solvable.</p>
+<p><strong>Proof sketch</strong>. Suppose the splitting field of f lies in a radical extension. Enlarging the tower, we may assume it is Galois over K and that its first step adjoins a primitive N-th root of unity, where N is the product of all the exponents nᵢ. Then the tower has successive steps that are abelian (the root of unity step) or cyclic (the Kummer steps), so by the Galois correspondence the Galois group of the top field has a normal series with abelian quotients, hence is solvable. Gal(f) is a quotient of it, hence solvable. Conversely, if G = Gal(f) is solvable, adjoin a primitive N-th root of unity with N = |G|. Over K(ζ<sub>N</sub>), the Galois group of f is a subgroup of G, hence solvable, with a normal series whose quotients are cyclic of prime order dividing N. By the correspondence this is a tower of cyclic extensions of prime degree, and by Kummer theory each step is obtained by adjoining a root. ∎</p>
+<h3>The general polynomial of degree n</h3>
+<p>Let k be a field of characteristic 0 and t₁, …, tₙ indeterminates. The general polynomial of degree n is Xⁿ − s₁Xⁿ⁻¹ + s₂Xⁿ⁻² − ⋯ + (−1)ⁿsₙ over the field k(s₁, …, sₙ), whose coefficients are independent indeterminates. A formula in radicals for the roots of the general polynomial would specialize to a formula valid for all polynomials over k.</p>
+<p><strong>Theorem 12.3</strong>. The Galois group of the general polynomial of degree n is Sₙ. Hence for n ≥ 5 the general polynomial of degree n is not solvable by radicals (Abel–Ruffini).</p>
+<p><strong>Proof</strong>. Let F = k(t₁, …, tₙ) and let Sₙ act by permuting the tᵢ. Put eᵢ = eᵢ(t₁, …, tₙ). By the uniqueness part of Theorem 7.1, the eᵢ are algebraically independent, so the field E = k(e₁, …, eₙ) is isomorphic to k(s₁, …, sₙ) via sᵢ ↦ eᵢ, and the general polynomial becomes ∏(X − tᵢ). Its splitting field over E is F. Every symmetric rational function is a quotient of symmetric polynomials (multiply numerator and denominator by the other conjugates of the denominator), so the fixed field F<sup>Sₙ</sup> is E. By Artin's theorem, Gal(F/E) = Sₙ. For n ≥ 5 this group is not solvable, and Theorem 12.2 applies. ∎</p>
+<p>Ruffini's 1799 proof contained a gap, closed by Abel in 1824 and 1826; Abel's argument shows directly that any radical expression for a root would be a rational function of the roots, and then uses the fact that a rational function of five variables taking fewer than five values under permutations takes at most two. Galois's work, published by Liouville in 1846, explained not only the general case but every specific equation.</p>
+<h3>An explicit unsolvable quintic</h3>
+<p>Theorem 12.3 does not by itself exhibit a quintic over ℚ with no radical solution. Here is one.</p>
+<p><strong>Lemma 12.4</strong>. Let p be prime. A subgroup G of Sₚ containing a p-cycle and a transposition is Sₚ.</p>
+<p><strong>Proof</strong>. Let τ = (a b) and let σ be the p-cycle. Some power σᵏ maps a to b, and since p is prime σᵏ is again a p-cycle. Relabeling, σᵏ = (1 2 ⋯ p) and τ = (1 2). Conjugating (1 2) by powers of (1 2 ⋯ p) gives all transpositions (i i+1), and these generate Sₚ. ∎</p>
+<p><strong>Theorem 12.5</strong>. The Galois group of f = x⁵ − 6x + 3 over ℚ is S₅, so f is not solvable by radicals.</p>
+<p><strong>Proof</strong>. f is Eisenstein at 3, hence irreducible, so 5 = [ℚ(α) : ℚ] divides |Gal(f)|, and by Cauchy's theorem Gal(f) contains an element of order 5, which in S₅ is a 5-cycle. Next, f′ = 5x⁴ − 6 vanishes only at x = ±(6/5)<sup>1/4</sup> ≈ ±1.0466 among the reals, with f(−1.0466) ≈ 8.02 &gt; 0 and f(1.0466) ≈ −2.02 &lt; 0. With f(x) → −∞ as x → −∞ and f(x) → +∞ as x → +∞, f has exactly three real roots (approximately −1.6709, 0.5055 and 1.4016) and so exactly two non-real roots. Complex conjugation restricts to an automorphism of the splitting field that swaps the two non-real roots and fixes the three real ones: a transposition. By Lemma 12.4, Gal(f) = S₅. ∎</p>
+<p>The same argument works for any irreducible polynomial of prime degree p with exactly two non-real roots. Not every quintic is unsolvable: x⁵ − 2 has Galois group of order 20 (the Frobenius group F₂₀, generated by σ, which sends ⁵√2 to ζ₅⁵√2 and fixes ζ₅, and τ, which fixes ⁵√2 and sends ζ₅ to ζ₅²), which is solvable, and its roots are ζ₅ᵏ ⁵√2. Up to conjugacy, the solvable transitive subgroups of S₅ are C₅, D₅ and F₂₀, which are exactly the transitive subgroups of F₂₀. Beyond radicals, the general quintic can be solved by elliptic modular functions (Hermite, 1858) or by the geometry of the icosahedron (Klein, 1884), whose rotation group is A₅.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that x⁵ − 4x + 2 is not solvable by radicals over ℚ.</div></li><li><span class="mk">(b)</span><div>Why is every polynomial of degree at most 4 solvable by radicals?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) It is Eisenstein at 2, hence irreducible of degree 5. The real critical points are ±(4/5)<sup>1/4</sup> ≈ ±0.9457, with f(−0.9457) ≈ 5.03 &gt; 0 and f(0.9457) ≈ −1.03 &lt; 0, so there are exactly three real roots (≈ −1.5185, 0.5085, 1.2436) and two non-real roots. As in Theorem 12.5, the Galois group contains a 5-cycle and a transposition, so it is S₅, which is not solvable. (b) The Galois group of a polynomial of degree n ≤ 4 embeds in Sₙ, and S₁, S₂, S₃ and S₄ are solvable (S₄ ⊳ A₄ ⊳ V₄ ⊳ 1 has abelian quotients C₂, C₃ and V₄). Subgroups of solvable groups are solvable, so Theorem 12.2 applies.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

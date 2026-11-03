@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Row Reduction, Rank and LU Factorization — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 2</p>
+    <h1>Row Reduction, Rank and LU Factorization</h1>
+    <p class="kicker">Lesson 2 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">row operations = left multiplication by invertible elementary matrices
+row rank = column rank          A = LU  ⇔  leading minors ≠ 0 (A invertible)</pre></div>
+<h3>Elementary matrices and echelon form</h3>
+<p>The three elementary row operations, namely swapping two rows, multiplying a row by a nonzero scalar, and adding a multiple of one row to another, are each effected by left multiplication by an invertible elementary matrix E obtained by performing the same operation on I. Consequently row reduction of A produces EA with E = E<sub>k</sub> ⋯ E₁ invertible, and it preserves the null space: Ax = 0 if and only if EAx = 0. Equivalently, row operations preserve every linear relation among the columns of A.</p>
+<p>A matrix is in reduced row echelon form (RREF) if every nonzero row lies above every zero row, the first nonzero entry of each nonzero row (its pivot) equals 1 and lies strictly to the right of the pivot in the row above, and each pivot is the only nonzero entry in its column. Gauss–Jordan elimination shows that every matrix can be brought to RREF.</p>
+<p><strong>Theorem 2.1 (Uniqueness of RREF)</strong>. Each matrix A is row-equivalent to exactly one matrix in reduced row echelon form.</p>
+<p><strong>Proof</strong>. Let R be any RREF of A. Because row operations preserve linear relations among columns, column j of R lies in the span of the preceding columns of R exactly when column j of A lies in the span of the preceding columns of A. In an RREF the pivot columns are precisely the columns not in the span of their predecessors, so the pivot positions are determined by A alone. If the pivot columns are j₁ &lt; ⋯ &lt; j<sub>r</sub>, then the pivot columns of R are e₁, …, e<sub>r</sub>, and every non-pivot column of R is the coefficient vector expressing the corresponding column of A in terms of columns j₁, …, j<sub>r</sub> of A; those coefficients are unique because the pivot columns of A are independent. Hence every entry of R is determined by A. ∎</p>
+<p><strong>Theorem 2.2 (Row rank equals column rank)</strong>. For every A ∈ 𝔽<sup>m×n</sup>, dim col(A) = dim col(Aᵀ).</p>
+<p><strong>Proof</strong>. Let r = dim col(A) and let C ∈ 𝔽<sup>m×r</sup> have as columns a basis of col(A). Each column of A is a combination of the columns of C, so A = CF for some F ∈ 𝔽<sup>r×n</sup>. Then each row of A is a combination of the r rows of F, so the row space of A has dimension at most r. Thus row rank ≤ column rank for every matrix; applying this to Aᵀ gives the reverse inequality. ∎</p>
+<p>The factorization A = CF with C of full column rank and F of full row rank is called a rank factorization. The common value r is the rank of A, and equals the number of pivots in its RREF. In the RREF the non-pivot columns correspond to free variables, and setting one free variable to 1 and the others to 0 produces a basis of null(A), confirming nullity = n − r.</p>
+<p><strong>Worked example</strong>: A = [ 1 2 3 ; 4 5 6 ; 7 8 9 ] reduces as R₂ − 4R₁ = (0, −3, −6), R₃ − 7R₁ = (0, −6, −12), then R₃ − 2R₂ = 0. The RREF is [ 1 0 −1 ; 0 1 2 ; 0 0 0 ], so the rank is 2, and the free variable x₃ = 1 gives x₁ = 1, x₂ = −2: the null space is spanned by (1, −2, 1). Indeed column 1 − 2 · column 2 + column 3 = 0.</p>
+<h3>The LU factorization</h3>
+<p>Gaussian elimination without row swaps subtracts multiples ℓ<sub>ij</sub> of row j from row i (i &gt; j) to clear column j below the diagonal. Each step is left multiplication by a unit lower-triangular matrix, the product of these is unit lower triangular, and so is its inverse, which contains the multipliers ℓ<sub>ij</sub> in their natural positions. The result is A = LU with L unit lower triangular and U upper triangular.</p>
+<p><strong>Theorem 2.3 (Existence and uniqueness of LU)</strong>. An invertible A ∈ 𝔽<sup>n×n</sup> has a factorization A = LU with L unit lower triangular and U upper triangular if and only if every leading principal submatrix A<sub>k</sub> (rows and columns 1, …, k) is invertible. The factorization is then unique.</p>
+<p><strong>Proof</strong>. If A = LU, the block structure of triangular matrices gives A<sub>k</sub> = L<sub>k</sub> U<sub>k</sub>, so det A<sub>k</sub> = det U<sub>k</sub> = u₁₁ ⋯ u<sub>kk</sub>; since det A ≠ 0 all u<sub>ii</sub> ≠ 0, hence every det A<sub>k</sub> ≠ 0. Conversely, induct on n. Write A = [ A<sub>n−1</sub> b ; cᵀ d ] with A<sub>n−1</sub> = L′U′ by induction, and seek L = [ L′ 0 ; ℓᵀ 1 ], U = [ U′ u ; 0 δ ]. Multiplying out requires L′u = b, ℓᵀU′ = cᵀ and ℓᵀu + δ = d, which are uniquely solvable because L′ and U′ are invertible. For uniqueness in general, L₁U₁ = L₂U₂ gives L₂⁻¹L₁ = U₂U₁⁻¹, a matrix that is simultaneously unit lower triangular and upper triangular, hence equal to I. ∎</p>
+<p><strong>Worked example</strong>: for A = [ 2 1 1 ; 4 3 3 ; 8 7 9 ], subtract 2 × row 1 from row 2 and 4 × row 1 from row 3 to get rows (0, 1, 1) and (0, 3, 5); then subtract 3 × the new row 2 from row 3 to get (0, 0, 2). Recording the multipliers 2, 4, 3,</p>
+<pre class="math">[ 2  1  1 ]   [ 1  0  0 ] [ 2  1  1 ]
+[ 4  3  3 ] = [ 2  1  0 ] [ 0  1  1 ]
+[ 8  7  9 ]   [ 4  3  1 ] [ 0  0  2 ]</pre>
+<p>The condition of Theorem 2.3 can fail even for invertible matrices, for example [ 0 1 ; 1 0 ]. Partial pivoting, which at step j swaps into the pivot position the entry of largest absolute value in column j, always succeeds for invertible A and gives PA = LU with P a permutation matrix and all |ℓ<sub>ij</sub>| ≤ 1. Its numerical behaviour is discussed in Lesson 12.</p>
+<p>Cost. Elimination on an n × n matrix requires about (2/3)n³ floating-point operations. Once A = LU is known, each system Ax = b is solved by forward substitution Ly = b and back substitution Ux = y in about 2n² operations. This is why one factors a matrix once and reuses the factors, and why one essentially never forms A⁻¹ explicitly in order to solve a linear system.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the LU factorization of A = [ 1 2 ; 3 8 ].</div></li><li><span class="mk">(b)</span><div>Find the rank of B = [ 1 2 1 0 ; 2 4 0 2 ; 3 6 1 2 ].</div></li><li><span class="mk">(c)</span><div>Show directly that [ 0 1 ; 1 0 ] has no factorization LU with L unit lower triangular and U upper triangular.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The multiplier is 3, and row 2 − 3 × row 1 = (0, 2), so L = [ 1 0 ; 3 1 ] and U = [ 1 2 ; 0 2 ]. (b) Row 3 = row 1 + row 2, while rows 1 and 2 are independent, so the rank is 2. (c) Comparing (1, 1) entries gives 0 = 1 · u₁₁, so u₁₁ = 0; but then the (2, 1) entry of LU is ℓ₂₁u₁₁ = 0 ≠ 1, a contradiction.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Legendre, Kummer and the p-adic Valuation — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 8</p>
+    <h1>Legendre, Kummer and the p-adic Valuation</h1>
+    <p class="kicker">Lesson 8 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">v<sub>p</sub>(n!) = ∑<sub>i≥1</sub> ⌊n/pⁱ⌋ = (n − s<sub>p</sub>(n))/(p − 1)
+v<sub>p</sub> C(n, k) = (s<sub>p</sub>(k) + s<sub>p</sub>(n − k) − s<sub>p</sub>(n))/(p − 1) = number of carries in k + (n − k)</pre></div>
+<h3>Legendre's formula</h3>
+<p><strong>Theorem 8.1 (Legendre, 1808)</strong>. v<sub>p</sub>(n!) = ∑<sub>i≥1</sub> ⌊n/pⁱ⌋ = (n − s<sub>p</sub>(n))/(p − 1).</p>
+<p><strong>Proof</strong>. v<sub>p</sub>(n!) = ∑<sub>m=1</sub><sup>n</sup> v<sub>p</sub>(m) = ∑<sub>m=1</sub><sup>n</sup> #{i ≥ 1 : pⁱ ∣ m} = ∑<sub>i≥1</sub> #{m ≤ n : pⁱ ∣ m} = ∑<sub>i≥1</sub> ⌊n/pⁱ⌋. For the second form, if n = ∑ⱼ nⱼ pʲ then ⌊n/pⁱ⌋ = ∑<sub>j≥i</sub> nⱼ p<sup>j−i</sup>, and summing over i ≥ 1 gives ∑ⱼ nⱼ (p<sup>j−1</sup> + ⋯ + 1) = ∑ⱼ nⱼ (pʲ − 1)/(p − 1) = (n − s<sub>p</sub>(n))/(p − 1). ∎</p>
+<pre class="math">v₂(30!) = 15 + 7 + 3 + 1 = 26 = (30 − 4)/1        (30 = 11110₂)
+v₅(30!) = 6 + 1 = 7 = (30 − 2)/4                   (30 = 110₅)</pre>
+<h3>Kummer's theorem</h3>
+<p><strong>Theorem 8.2 (Kummer, 1852)</strong>. For 0 ≤ k ≤ n, v<sub>p</sub> C(n, k) equals the number of carries that occur when k and n − k are added in base p.</p>
+<p><strong>Proof</strong>. By Legendre, v<sub>p</sub> C(n, k) = v<sub>p</sub>(n!) − v<sub>p</sub>(k!) − v<sub>p</sub>((n − k)!) = (s<sub>p</sub>(k) + s<sub>p</sub>(n − k) − s<sub>p</sub>(n))/(p − 1). Now add a = k and b = n − k digit by digit with carries c₋₁ = 0, c₀, c₁, … ∈ {0, 1}: at position i, aᵢ + bᵢ + c<sub>i−1</sub> = (a + b)ᵢ + p cᵢ. Summing over i gives s<sub>p</sub>(a) + s<sub>p</sub>(b) + ∑ᵢ c<sub>i−1</sub> = s<sub>p</sub>(a + b) + p ∑ᵢ cᵢ, i.e. s<sub>p</sub>(a) + s<sub>p</sub>(b) − s<sub>p</sub>(a + b) = (p − 1) ∑ cᵢ. ∎</p>
+<p>Kummer proved the theorem in his 1852 memoir on reciprocity laws; the digit-sum form makes it a one-line consequence of Legendre. Lucas' theorem is the special case &quot;zero carries&quot; read modulo p.</p>
+<pre class="math">v₃ C(100, 50):  50 = 1212₃;  1212₃ + 1212₃ produces carries at all 4 positions
+⟹ 3⁴ = 81 divides C(100, 50) exactly
+v₂ C(100, 50) = s₂(50) = 3,   v₅ = v₇ = 0  (50 = 200₅ = 101₇; no carries)</pre>
+<h3>Corollaries</h3>
+<p><strong>Corollary 8.3</strong>. (i) v₂ C(2n, n) = s₂(n); in particular C(2n, n) is even for n ≥ 1 and divisible by 4 unless n is a power of 2. (ii) For every prime p and 0 ≤ k ≤ n, p<sup>v<sub>p</sub> C(n, k)</sup> ≤ n. (iii) C(n, k) divides lcm(1, 2, …, n), and therefore lcm(1, …, 2n) ≥ C(2n, n) ≥ 4ⁿ/(2n + 1).</p>
+<p><strong>Proof</strong>. (i) In n + n each binary 1 of n produces a carry (Kummer), or directly 2s₂(n) − s₂(2n) = s₂(n). (ii) If pᴸ⁻¹ ≤ n &lt; pᴸ then n has L digits, and a carry out of position L − 1 would force n ≥ pᴸ; so there are at most L − 1 carries and p<sup>v</sup> ≤ p<sup>L−1</sup> ≤ n. (iii) By (ii), every prime power exactly dividing C(n, k) is at most n and hence divides lcm(1, …, n). The last inequality holds because C(2n, n) is the largest of the 2n + 1 terms in the expansion of 4ⁿ = (1 + 1)<sup>2n</sup>. ∎</p>
+<p>Part (iii) is the elementary route to Chebyshev-type bounds: it shows lcm(1, …, N) grows at least like 2<sup>N</sup> up to polynomial factors, i.e. ψ(N) = log lcm(1, …, N) ≥ N log 2 − O(log N).</p>
+<h3>Babbage and Wolstenholme</h3>
+<p><strong>Theorem 8.4 (Babbage, 1819)</strong>. For every prime p ≥ 3, C(2p − 1, p − 1) ≡ 1 (mod p²).</p>
+<p><strong>Proof</strong>. C(2p − 1, p − 1) = ∏<sub>k=1</sub><sup>p−1</sup> (p + k)/k = ∏<sub>k=1</sub><sup>p−1</sup> (1 + p/k). Working in the ring ℤ₍p₎ of rationals with denominator prime to p, the product is ≡ 1 + p ∑<sub>k=1</sub><sup>p−1</sup> 1/k (mod p²). Pairing k with p − k, 1/k + 1/(p − k) = p/(k(p − k)), so the harmonic sum H<sub>p−1</sub> is divisible by p (for p ≥ 3, where the pairs are disjoint). Hence the product is ≡ 1 (mod p²). ∎</p>
+<p>Wolstenholme (1862) proved more: for p ≥ 5, H<sub>p−1</sub> ≡ 0 (mod p²), which yields C(2p − 1, p − 1) ≡ 1 (mod p³), equivalently C(2p, p) ≡ 2 (mod p³). For p = 7: C(14, 7) = 3432 and 3432 − 2 = 3430 = 7³ · 10. Primes for which the congruence holds modulo p⁴ are called Wolstenholme primes; only 16843 and 2124679 are known.</p>
+<h3>Erdős's proof of Bertrand's postulate</h3>
+<p><strong>Theorem 8.5 (Chebyshev, 1852)</strong>. For every n ≥ 1 there is a prime p with n &lt; p ≤ 2n.</p>
+<p><strong>Proof (Erdős, 1932)</strong>. Step 1: ∏<sub>p≤m</sub> p &lt; 4ᵐ for m ≥ 1. By induction it suffices to treat odd m = 2s + 1; the primes in (s + 1, 2s + 1] all divide C(2s + 1, s), which is at most 4ˢ because it appears twice in the expansion of 2<sup>2s+1</sup>; hence ∏<sub>p≤2s+1</sub> p &lt; 4<sup>s+1</sup> · 4ˢ = 4<sup>2s+1</sup>. Step 2: write v<sub>p</sub> C(2n, n) = ∑<sub>i≥1</sub> (⌊2n/pⁱ⌋ − 2⌊n/pⁱ⌋), each term being 0 or 1. Hence p<sup>v<sub>p</sub></sup> ≤ 2n by Corollary 8.3(ii); primes p &gt; √(2n) appear at most to the first power; and for n ≥ 5 primes with 2n/3 &lt; p ≤ n do not divide C(2n, n) at all, because then ⌊2n/p⌋ = 2, ⌊n/p⌋ = 1 and p² &gt; 2n. Step 3: suppose no prime lies in (n, 2n]. Then all prime factors of C(2n, n) are at most 2n/3, and</p>
+<pre class="math">4ⁿ/(2n + 1) ≤ C(2n, n) ≤ (2n)<sup>√(2n)</sup> · ∏<sub>p ≤ 2n/3</sub> p &lt; (2n)<sup>√(2n)</sup> · 4<sup>2n/3</sup></pre>
+<p>where primes up to √(2n) (fewer than √(2n) of them) contribute at most 2n each. This gives 4<sup>n/3</sup> &lt; (2n + 1)(2n)<sup>√(2n)</sup>, which is false for all n ≥ 468. For n &lt; 468 (indeed for n &lt; 631) the primes 2, 3, 5, 7, 13, 23, 43, 83, 163, 317, 631, each less than twice its predecessor, supply a prime in (n, 2n]. ∎</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find v₂ C(1000, 500).</div></li><li><span class="mk">(b)</span><div>Find v₃ C(63, 26) by counting carries.</div></li><li><span class="mk">(c)</span><div>Verify Babbage's congruence for p = 7.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) s₂(500) = 6 (500 = 111110100₂), so v₂ = 6. (b) 26 = 222₃ and 63 − 26 = 37 = 1101₃. Adding 0222₃ + 1101₃: position 0: 2 + 1 = 3, write 0 carry 1; position 1: 2 + 0 + 1 = 3, write 0 carry 1; position 2: 2 + 1 + 1 = 4, write 1 carry 1; position 3: 0 + 1 + 1 = 2, no carry. Three carries, so v₃ C(63, 26) = 3 (and indeed 63 = 2100₃). (c) C(13, 6) = 1716 and 1716 − 1 = 1715 = 49 · 35.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

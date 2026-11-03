@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#14b8a6">
+<body id="top" class="mode-kid" style="--topic:#14b8a6">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry" class="active">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/geometry/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Points, Lines, Segments, Rays — and Where They Live">1</a><a href="lesson-2.html" title="Lesson 2: Angles — Measuring the Turn, Proving the Rules">2</a><a href="lesson-3.html" title="Lesson 3: Parallel Lines and a Transversal — and the Proof of 180°">3</a><a href="lesson-4.html" title="Lesson 4: Triangles — the Inequality, Isosceles Secrets, and Congruence">4</a><a href="lesson-5.html" title="Lesson 5: The Pythagorean Theorem — State It, Prove It, Reverse It">5</a><a href="lesson-6.html" title="Lesson 6: Polygons — Angle Sums, Exterior Angles, and Diagonals">6</a><a href="lesson-7.html" title="Lesson 7: Area — Formulas You Can Derive, Not Memorize">7</a><a href="lesson-8.html" title="Lesson 8: Similarity — Same Shape, Different Size, and the k² Surprise">8</a><a href="lesson-9.html" title="Lesson 9: Circles — π, Arcs, Sectors, and the Inscribed Angle Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Transformations — Moving the Plane with Functions">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Counting Meets Geometry — Casework and Complementary Counting">11</a><a href="lesson-12.html" title="Lesson 12: Sequences, Series, and Exponential Growth — Tamed by Logarithms">12</a><a href="lesson-13.html" title="Lesson 13: Watch Out! Common Mistakes (Honors Edition)">13</a><a href="lesson-14.html" title="Lesson 14: Recap — The Big Picture">14</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Count systematically: by cases, by choosing, or by SUBTRACTING the unwanted.
 Choosing 2 of n lines: n(n−1)/2. Rectangles in a grid: choose, then multiply.</pre></div>
@@ -75,7 +76,7 @@ Answer: 36 − 16 = 20   (total minus the unwanted — complementary counting!)<
 <p>Ten people each shake hands once with everyone else: how many handshakes? Each of the 10 people shakes 9 hands, but that counts every handshake twice:</p>
 <pre class="math">10 × 9 ÷ 2 = 45 handshakes</pre>
 <p>Same formula as segments and the same as diagonals-plus-sides of a polygon: a decagon has 10 × 9 ÷ 2 = 45 segments joining vertex pairs, of which 10 are sides — so 45 − 10 = 35 diagonals, exactly matching n(n − 3)/2 = 10 × 7 ÷ 2 = 35 ✅. One counting idea, three disguises.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute 1 + 2 + ... + 40. (b) How many rectangles in a 2 × 2 grid? (c) How many squares in a 2 × 2 grid?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 40 × 41 ÷ 2 = 820. (b) 3 lines each direction: (3 × 2 ÷ 2)² = 3 × 3 = 9. (c) 4 little + 1 big = 5.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute 1 + 2 + ... + 40.</div></li><li><span class="mk">(b)</span><div>How many rectangles in a 2 × 2 grid?</div></li><li><span class="mk">(c)</span><div>How many squares in a 2 × 2 grid?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 40 × 41 ÷ 2 = 820. (b) 3 lines each direction: (3 × 2 ÷ 2)² = 3 × 3 = 9. (c) 4 little + 1 big = 5.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">⬅️ Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 ➡️</a></nav>
 </main>
 
@@ -85,7 +86,7 @@ Answer: 36 − 16 = 20   (total minus the unwanted — complementary counting!)<
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

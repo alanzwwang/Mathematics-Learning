@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: The Pigeonhole Principle and Ramsey Theory — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 11</p>
+    <h1>The Pigeonhole Principle and Ramsey Theory</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">R(3, 3) = 6,   R(s, t) ≤ R(s − 1, t) + R(s, t − 1) ≤ C(s + t − 2, s − 1)
+&quot;Complete disorder is impossible.&quot; — T. S. Motzkin</pre></div>
+<h3>Pigeonhole</h3>
+<p>If n objects are placed in k boxes, some box contains at least ⌈n/k⌉ objects. This trivial statement has nontrivial consequences.</p>
+<p><strong>Theorem 11.1 (Erdős–Szekeres, 1935)</strong>. Every sequence of rs + 1 distinct real numbers contains an increasing subsequence of length r + 1 or a decreasing subsequence of length s + 1. The bound is sharp.</p>
+<p><strong>Proof</strong>. Label the i-th term by the pair (aᵢ, dᵢ), the lengths of the longest increasing and decreasing subsequences ending at it. For i &lt; j, if the j-th term is larger than the i-th, then aⱼ &gt; aᵢ; otherwise dⱼ &gt; dᵢ; so the labels are distinct. If every aᵢ ≤ r and dᵢ ≤ s, there are at most rs labels for rs + 1 terms, a contradiction. For sharpness, concatenate s increasing blocks of length r, each block lying entirely below the previous one. ∎</p>
+<p><strong>Theorem 11.2 (Dirichlet, 1842)</strong>. For every real α and integer N ≥ 1 there are integers p and q with 1 ≤ q ≤ N and |qα − p| &lt; 1/N.</p>
+<p><strong>Proof</strong>. The N + 1 numbers {0·α}, {1·α}, …, {N·α} (fractional parts) lie in [0, 1), which is the union of N intervals of length 1/N. Two of them, say {iα} and {jα} with i &lt; j, lie in the same interval; take q = j − i and p the difference of the integer parts. ∎</p>
+<h3>Ramsey numbers</h3>
+<p>The Ramsey number R(s, t) is the least n such that every red–blue colouring of the edges of Kₙ contains a red Kₛ or a blue Kₜ. Ramsey (1930) proved that such n exists in a lemma on decidability in logic; Erdős and Szekeres rediscovered it in 1935.</p>
+<p><strong>Theorem 11.3</strong>. R(3, 3) = 6.</p>
+<p><strong>Proof</strong>. Colour the edges of K₆ and fix a vertex v. Of its five edges, at least three have the same colour, say red, to vertices a, b, c. If any edge among a, b, c is red, it forms a red triangle with v; otherwise a, b, c form a blue triangle. So R(3, 3) ≤ 6. For the lower bound, colour the edges of a pentagon (the 5-cycle) red and its diagonals blue; the red graph C₅ and the blue graph (again a C₅) contain no triangle. ∎</p>
+<p><strong>Theorem 11.4 (Erdős–Szekeres)</strong>. For s, t ≥ 2, R(s, t) ≤ R(s − 1, t) + R(s, t − 1). If both terms on the right are even, the inequality is strict. Consequently R(s, t) ≤ C(s + t − 2, s − 1).</p>
+<p><strong>Proof</strong>. Let n = R(s − 1, t) + R(s, t − 1) and colour Kₙ. A vertex v has n − 1 neighbours, so either at least R(s − 1, t) of them are joined to v by red edges or at least R(s, t − 1) by blue edges. In the first case, the red neighbourhood contains a blue Kₜ (done) or a red Kₛ₋₁, which together with v forms a red Kₛ. The second case is symmetric. If both numbers are even and n − 1 is odd, a colouring with no red Kₛ and no blue Kₜ on n − 1 vertices would need every vertex to have red degree exactly R(s − 1, t) − 1, which is odd; but then the red graph would have an odd number of vertices of odd degree, contradicting the handshake lemma. The binomial bound follows by induction from R(2, t) = t and Pascal's rule. ∎</p>
+<p>Thus R(3, 4) ≤ R(2, 4) + R(3, 3) − 1 = 4 + 6 − 1 = 9, and in fact R(3, 4) = 9. Known exact values include R(3, 5) = 14, R(4, 4) = 18 (Greenwood and Gleason, 1955, using the Paley graph on 17 vertices, whose edges join residues mod 17 differing by a quadratic residue) and R(4, 5) = 25 (McKay and Radziszowski, 1995). For R(5, 5) only 43 ≤ R(5, 5) ≤ 46 is known, the upper bound due to Angeltveit and McKay (2024). Erdős famously remarked that if aliens demanded the value of R(5, 5) we should marshal all our computers to find it, but if they asked for R(6, 6) we should try to destroy them.</p>
+<h3>Multicolour Ramsey numbers</h3>
+<p>The same argument shows that R(3, 3, 3), the least n such that every 3-colouring of Kₙ has a monochromatic triangle, satisfies R(3, 3, 3) ≤ 3(R(3, 3) − 1) + 2 = 17: a vertex of K₁₇ has 16 edges, so six of them have one colour, and the six neighbours span a monochromatic triangle in that colour or a 2-coloured K₆. Greenwood and Gleason showed R(3, 3, 3) = 17. This is closely tied to Schur's theorem (1916): for every r there is N such that any r-colouring of [N] contains x, y, z of one colour with x + y = z; colour the edge {i, j} of K<sub>N+1</sub> by the colour of |i − j| and look for a monochromatic triangle.</p>
+<h3>Asymptotics of diagonal Ramsey numbers</h3>
+<p>Theorem 11.4 gives R(k, k) ≤ C(2k − 2, k − 1) &lt; 4ᵏ, and Erdős's probabilistic argument (Lesson 13) gives R(k, k) &gt; 2<sup>k/2</sup>. For more than seventy-five years the exponential bases √2 and 4 were not improved, apart from lower-order factors. In 2023 Campos, Griffiths, Morris and Sahasrabudhe proved R(k, k) ≤ (4 − ε)ᵏ for some fixed ε &gt; 0, the first exponential improvement of the upper bound. The lower bound has seen only a constant-factor improvement since 1947 (Spencer, via the local lemma). The infinite Ramsey theorem — every 2-colouring of the pairs of ℕ has an infinite monochromatic set — follows by a compactness or a direct greedy argument, and its finite form, through the Paris–Harrington variant, gives a true statement of arithmetic unprovable in Peano arithmetic.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that every 2-colouring of K₆ contains at least two monochromatic triangles.</div></li><li><span class="mk">(b)</span><div>What is the least N such that every sequence of N distinct reals has a monotone subsequence of length 5?</div></li><li><span class="mk">(c)</span><div>Bound R(3, 5) using Theorem 11.4.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Call a pair of edges at a common vertex bichromatic if they differ in colour. A vertex with r red and 5 − r blue edges is the apex of r(5 − r) ≤ 6 bichromatic pairs, so there are at most 36 in total. Each non-monochromatic triangle contains exactly two bichromatic pairs and each monochromatic triangle none, so at most 18 of the C(6, 3) = 20 triangles are non-monochromatic, and at least 2 are monochromatic. (Goodman, 1959, determined the minimum for every n.) (b) N = 4·4 + 1 = 17. (c) R(3, 5) ≤ R(2, 5) + R(3, 4) = 5 + 9 = 14, which is the exact value.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

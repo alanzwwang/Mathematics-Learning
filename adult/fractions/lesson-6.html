@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Ford Circles and the Modular Group — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 6</p>
+    <h1>Ford Circles and the Modular Group</h1>
+    <p class="kicker">Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">The Ford circle C(p/q) has centre (p/q, 1/(2q²)) and radius 1/(2q²).
+Two Ford circles are tangent if |ps − qr| = 1 and disjoint otherwise.</pre></div>
+<h3>Definition</h3>
+<p>For each reduced fraction p/q with q ≥ 1, let C(p/q) be the circle in the upper half-plane tangent to the real axis at p/q with radius 1/(2q²). These circles were introduced by Lester R. Ford in 1938 as a geometric model of the Farey sequences. Large circles sit above fractions with small denominators: C(0/1) and C(1/1) have radius 1/2, C(1/2) has radius 1/8, C(1/3) and C(2/3) have radius 1/18.</p>
+<p><strong>Theorem 6.1 (Ford)</strong>. Two distinct Ford circles C(p/q) and C(r/s) are either tangent or disjoint; they are tangent if and only if |ps − qr| = 1.</p>
+<p><strong>Proof</strong>. Let D be the distance between the centres and ρ₁ = 1/(2q²), ρ₂ = 1/(2s²) the radii. Then</p>
+<pre class="math">D² − (ρ₁ + ρ₂)² = (p/q − r/s)² + (ρ₁ − ρ₂)² − (ρ₁ + ρ₂)²
+                = (ps − qr)²/(q²s²) − 4ρ₁ρ₂
+                = ((ps − qr)² − 1)/(q²s²).</pre>
+<p>Since the fractions are distinct and reduced, ps − qr is a nonzero integer, so the last expression is ≥ 0, with equality exactly when |ps − qr| = 1. The circles therefore never overlap, and they touch exactly in the unimodular case. ∎</p>
+<p>Combining this with Theorem 5.2: the Ford circles of two consecutive Farey fractions are tangent, and the circle of their mediant is tangent to both of them. A short computation with the weighted average of the centres shows that when bc − ad = 1 the circles C(a/b) and C(c/d) touch at the point</p>
+<pre class="math">( (ab + cd)/(b² + d²),  1/(b² + d²) ).</pre>
+<h3>Areas and ζ-values</h3>
+<p>How much of the strip 0 ≤ x &lt; 1 do the Ford circles cover? Each denominator q contributes φ(q) circles with base point in [0, 1), each of area π/(4q⁴). Using the Dirichlet series ∑ φ(q)q<sup>−s</sup> = ζ(s − 1)/ζ(s), valid for Re s &gt; 2,</p>
+<pre class="math">∑<sub>q ≥ 1</sub> φ(q)·π/(4q⁴) = (π/4)·ζ(3)/ζ(4) ≈ 0.87228.</pre>
+<p>Because the whole configuration is invariant under x ↦ x + 1 and the circles are pairwise disjoint, this sum equals the area of the part of the unit square 0 ≤ x &lt; 1, 0 &lt; y ≤ 1 covered by Ford circles: about 87.2% of the square is covered, and the uncovered region consists of curvilinear triangles between triples of mutually tangent circles.</p>
+<h3>Ford circles as horocycles</h3>
+<p>Let ℍ = {z ∈ ℂ : Im z &gt; 0} be the upper half-plane and let SL₂(ℤ) act by Möbius transformations γz = (αz + β)/(γ₀z + δ) for γ = (α β; γ₀ δ) with αδ − βγ₀ = 1. A computation gives</p>
+<pre class="math">Im(γz) = Im z / |γ₀z + δ|².</pre>
+<p>Take γ = (p r; q s) with ps − rq = 1 and q ≥ 1, so that γ(∞) = p/q. The horizontal line Im z = 1 is a horocycle at ∞; its image under γ is a circle tangent to ℝ at p/q, whose highest point has height max 1/|qz + s|² over Im z = 1, namely 1/q² (attained when Re(qz + s) = 0, where |qz + s| = q). Hence the image is a circle of diameter 1/q²: precisely the Ford circle C(p/q). The Ford circles together with the line Im z = 1 form a single SL₂(ℤ)-orbit of horocycles, and their tangency pattern is the Farey tessellation of the hyperbolic plane by ideal triangles with vertices at Farey neighbours. This is the geometric backbone of the theory of modular forms, where SL₂(ℤ) acts on ℍ with fundamental domain {|z| ≥ 1, |Re z| ≤ 1/2}.</p>
+<h3>Approximation by Ford circles</h3>
+<p>A vertical line through a real number x meets the circle C(p/q) if and only if |x − p/q| ≤ 1/(2q²). Ford's geometry thus gives a quick proof of a classical approximation theorem.</p>
+<p><strong>Theorem 6.2</strong>. If x is irrational, there are infinitely many reduced fractions p/q with |x − p/q| &lt; 1/(2q²).</p>
+<p><strong>Proof</strong>. Translating by an integer, assume 0 &lt; x &lt; 1. For each n ≥ 2, x lies strictly between two consecutive terms a/b &lt; c/d of F<sub>n</sub>. Suppose neither of them satisfies the inequality. Then, as x is irrational, x − a/b &gt; 1/(2b²) and c/d − x &gt; 1/(2d²), and adding,</p>
+<pre class="math">1/(bd) = c/d − a/b &gt; 1/(2b²) + 1/(2d²) = (b² + d²)/(2b²d²),</pre>
+<p>that is 2bd &gt; b² + d², or (b − d)² &lt; 0, which is absurd. So one of a/b and c/d satisfies the inequality. Since b + d &gt; n, bd ≥ b + d − 1 ≥ n, so the bracketing interval has length 1/(bd) ≤ 1/n. As n grows the selected fractions therefore come arbitrarily close to x, and since x is irrational each individual fraction has positive distance from x; hence infinitely many distinct fractions occur. ∎</p>
+<p>In Lesson 8 we shall see that the constant 1/2 can be improved to 1/√5 and no further.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Are C(5/8) and C(3/5) tangent? What about C(1/3) and C(3/7)?</div></li><li><span class="mk">(b)</span><div>Find the radius of the largest Ford circle lying strictly between C(0/1) and C(1/1) and touching both, and give its point of contact with C(0/1).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) |5·5 − 8·3| = 1, so C(5/8) and C(3/5) are tangent. |1·7 − 3·3| = 2, so C(1/3) and C(3/7) are disjoint. (b) The mediant of 0/1 and 1/1 is 1/2, with radius 1/(2·2²) = 1/8. With a/b = 0/1 and c/d = 1/2 (so bc − ad = 1), the contact point is ((0·1 + 1·2)/(1 + 4), 1/(1 + 4)) = (2/5, 1/5).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

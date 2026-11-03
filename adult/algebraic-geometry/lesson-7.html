@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Singular Points, Tangent Cones and Multiplicity — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 7</p>
+    <h1>Singular Points, Tangent Cones and Multiplicity</h1>
+    <p class="kicker">Lesson 7 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P ∈ V(f) is singular  ⟺  f(P) = ∂f/∂x(P) = ∂f/∂y(P) = 0</pre></div>
+<h3>Smooth and singular points of plane curves</h3>
+<p>Let f ∈ k[x, y] be squarefree and nonconstant, with k algebraically closed, and let C = V(f). A point P = (p₁, p₂) ∈ C is singular (a singularity) if both partial derivatives fₓ and f<sub>y</sub> vanish at P; otherwise P is smooth (nonsingular), and the tangent line to C at P is</p>
+<pre class="math">fₓ(P)(x − p₁) + f<sub>y</sub>(P)(y − p₂) = 0</pre>
+<p>The curve is smooth if all of its points are smooth. Over ℂ, the holomorphic implicit function theorem shows that near a smooth point C is a one-dimensional complex manifold.</p>
+<h3>Multiplicity and tangent cone</h3>
+<p>Translate P to the origin and expand f as a sum of homogeneous parts, f = f<sub>m</sub> + f<sub>m+1</sub> + ⋯ + f<sub>d</sub> with f<sub>m</sub> ≠ 0. The integer m = m<sub>P</sub>(C) ≥ 1 is the multiplicity of C at P; P is smooth iff m = 1, in which case the tangent line is f₁ = 0. Over k algebraically closed the lowest form factors into linear forms, f<sub>m</sub> = ∏ Lᵢ<sup>rᵢ</sup>, and the lines Lᵢ = 0 are the tangent lines at P, with multiplicities rᵢ; their union is the tangent cone. A singular point is ordinary if it has m distinct tangent lines. An ordinary double point is a node; the double point of y² = x³, with a single tangent line counted twice, is the simplest cusp.</p>
+<p><strong>Example (the nodal cubic)</strong>. Let f = y² − x³ − x². Then fₓ = −3x² − 2x and f<sub>y</sub> = 2y. A singular point needs y = 0 and x(3x + 2) = 0, and must lie on the curve. At x = 0 the point (0, 0) is on the curve. At x = −2/3, f(−2/3, 0) = 8/27 − 4/9 = −4/27 ≠ 0. So the origin is the only singular point. The lowest form is f₂ = y² − x² = (y − x)(y + x): a node with tangent lines y = x and y = −x.</p>
+<p><strong>Example (the cusp)</strong>. For f = y² − x³ the origin is the only singular point, with tangent cone y² = 0: one tangent line, the x-axis, of multiplicity 2.</p>
+<p><strong>Example (the folium of Descartes)</strong>. For f = x³ + y³ − 3xy, the conditions fₓ = 3x² − 3y = 0 and f<sub>y</sub> = 3y² − 3x = 0 give y = x² and x = x⁴, so x = 0 or x³ = 1. For x³ = 1 we get y = x² and f = x³ + x⁶ − 3x³ = 1 + 1 − 3 = −1 ≠ 0. Hence only the origin is singular; f₂ = −3xy, so it is a node whose tangents are the two coordinate axes.</p>
+<h3>Finiteness of the singular locus</h3>
+<p><strong>Lemma</strong>. If f, g ∈ k[x, y] have no common factor, then V(f, g) is finite.</p>
+<p><strong>Proof</strong>. Regard f and g as polynomials in y over the field k(x). By Gauss's lemma they have no common factor there either, so there are a, b ∈ k(x)[y] with af + bg = 1. Clearing denominators gives a′f + b′g = d(x) with a′, b′ ∈ k[x, y] and 0 ≠ d ∈ k[x]. Any common zero (x₀, y₀) has d(x₀) = 0, leaving finitely many possible x₀. Symmetrically there are finitely many possible y₀. ∎</p>
+<p><strong>Proposition</strong>. In characteristic 0, a plane curve C = V(f) with f squarefree has only finitely many singular points.</p>
+<p><strong>Proof</strong>. A singular point of C is either a singular point of one irreducible component or a point lying on two components, and two distinct components meet in finitely many points by the lemma. For an irreducible nonconstant f, at least one partial derivative, say fₓ, is a nonzero polynomial of smaller degree (characteristic 0), so f ∤ fₓ, and since f is irreducible, f and fₓ have no common factor. The singular points lie in V(f, fₓ), which is finite by the lemma. ∎</p>
+<p>In characteristic p the same argument works unless both partial derivatives vanish identically, which happens only when f is a polynomial in xᵖ and yᵖ; over a perfect field such an f is a p-th power, contradicting squarefreeness.</p>
+<h3>Singular Weierstrass cubics</h3>
+<p>Consider C: y² = x³ + ax + b, that is, f = y² − x³ − ax − b, in characteristic ≠ 2, 3. Then f<sub>y</sub> = 2y and fₓ = −(3x² + a). A singular point must have y = 0, x³ + ax + b = 0 and 3x² + a = 0; that is, x must be a repeated root of the cubic x³ + ax + b. This happens exactly when the discriminant of the cubic vanishes:</p>
+<pre class="math">C is singular  ⟺  4a³ + 27b² = 0</pre>
+<p>For example x³ − 3x + 2 = (x − 1)²(x + 2) has 4(−27) + 27·4 = 0, and the singular point is (1, 0). Writing u = x − 1, the equation becomes y² = u²(u + 3), whose tangent cone at u = y = 0 is y² = 3u²: a node with tangents y = ±√3 (x − 1). In general, if 4a³ + 27b² = 0 and a ≠ 0, eliminating x² between 3x² + a = 0 and x³ + ax + b = 0 gives (2a/3)x + b = 0, so the double root is x₀ = −3b/(2a) and the singularity is a node; if a = b = 0 the curve is the cusp y² = x³.</p>
+<h3>The Jacobian criterion</h3>
+<p>For an irreducible algebraic set X ⊆ 𝔸ⁿ of dimension d with I(X) = ⟨f₁, …, f<sub>r</sub>⟩, a point P is smooth iff the Jacobian matrix (∂fᵢ/∂xⱼ(P)) has rank n − d. Intrinsically, the Zariski tangent space at P is the dual of 𝔪<sub>P</sub>/𝔪<sub>P²</sub>, where 𝔪<sub>P</sub> is the maximal ideal of the local ring 𝒪<sub>X,P</sub>, and P is smooth iff dim<sub>k</sub> 𝔪<sub>P</sub>/𝔪<sub>P²</sub> = dim X, that is, iff 𝒪<sub>X,P</sub> is a regular local ring. For the cusp y² = x³ at the origin, 𝔪/𝔪² is spanned by the classes of x and y and has dimension 2 &gt; 1, confirming that the origin is singular.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the singular points in 𝔸²(ℝ) of the quartic f = (x² + y²)² − (x² − y²) (the lemniscate of Bernoulli) and the tangent lines there.</div></li><li><span class="mk">(b)</span><div>Show that the conic x² + y² − 1 is smooth.</div></li><li><span class="mk">(c)</span><div>For which values of b is y² = x³ − 12x + b singular? Find the singular point in each case.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) fₓ = 4x(x² + y²) − 2x = 2x(2(x² + y²) − 1) and f<sub>y</sub> = 4y(x² + y²) + 2y = 2y(2(x² + y²) + 1). Over ℝ the second factor of f<sub>y</sub> is positive, so f<sub>y</sub> = 0 forces y = 0. Then fₓ = 0 gives x = 0 or x² = 1/2, and f(x, 0) = x⁴ − x² vanishes at x = 0 but equals 1/4 − 1/2 ≠ 0 when x² = 1/2. So only the origin is singular in the real plane; the lowest form is −(x² − y²), a node with tangents y = x and y = −x. (b) fₓ = 2x and f<sub>y</sub> = 2y vanish only at (0, 0), which is not on the curve. (c) 4(−12)³ + 27b² = 0 gives b² = 256, b = ±16. For b = 16: x³ − 12x + 16 = (x − 2)²(x + 4), singular point (2, 0). For b = −16: x³ − 12x − 16 = (x + 2)²(x − 4), singular point (−2, 0).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

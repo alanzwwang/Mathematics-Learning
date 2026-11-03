@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Finite Differences and Integer-Valued Polynomials — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 6</p>
+    <h1>Finite Differences and Integer-Valued Polynomials</h1>
+    <p class="kicker">Lesson 6 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Δf(x) = f(x + 1) − f(x),   Δ C(x, k) = C(x, k − 1)
+f(x) = ∑ₖ Δᵏf(0) C(x, k)   for every polynomial f
+f(ℤ) ⊆ ℤ  ⟺  f is an integer combination of the C(x, k)   (Pólya, 1915)</pre></div>
+<h3>The difference operator</h3>
+<p>Let Δ be the forward difference operator, Δf(x) = f(x + 1) − f(x), and E the shift, Ef(x) = f(x + 1), so Δ = E − 1. Pascal's rule in the form C(x + 1, k) − C(x, k) = C(x, k − 1) says that Δ lowers the binomial basis exactly as d/dx lowers the basis xᵏ/k!. Expanding Δⁿ = (E − 1)ⁿ by the binomial theorem (E and 1 commute) gives</p>
+<pre class="math">Δⁿf(x) = ∑ₖ (−1)ⁿ⁻ᵏ C(n, k) f(x + k)</pre>
+<h3>Newton's forward-difference formula</h3>
+<p><strong>Theorem 6.1</strong>. For every polynomial f with coefficients in a ℚ-algebra, f(x) = ∑<sub>k≥0</sub> Δᵏf(0) C(x, k), the sum being finite.</p>
+<p><strong>Proof</strong>. The polynomials C(x, 0), C(x, 1), …, C(x, d) have degrees 0, 1, …, d and therefore form a basis of the polynomials of degree at most d. Write f = ∑ cₖ C(x, k). Applying Δʲ and evaluating at 0 gives Δʲf(0) = ∑ₖ cₖ C(0, k − j) = cⱼ, since C(0, m) = 1 for m = 0 and 0 otherwise. ∎</p>
+<p>This is the discrete Taylor formula: falling factorials play the role of powers, and Δ plays the role of the derivative. The analogy extends to summation: since Δ C(x, k + 1) = C(x, k), the discrete antiderivative of C(x, k) is C(x, k + 1), and</p>
+<pre class="math">∑<sub>j=0</sub><sup>N−1</sup> f(j) = ∑ₖ Δᵏf(0) C(N, k + 1)</pre>
+<p>which is the hockey stick identity applied term by term.</p>
+<pre class="math">f(j) = j³:  values 0, 1, 8, 27  →  Δ-table 0, 1, 6, 6
+j³ = C(j, 1) + 6 C(j, 2) + 6 C(j, 3)
+∑<sub>j&lt;N</sub> j³ = C(N, 2) + 6 C(N, 3) + 6 C(N, 4)      (N = 4: 6 + 24 + 6 = 36)</pre>
+<h3>Stirling numbers</h3>
+<p>Writing powers in the binomial basis introduces the Stirling numbers of the second kind S(m, k), the number of partitions of an m-set into k nonempty blocks: xᵐ = ∑ₖ k! S(m, k) C(x, k) = ∑ₖ S(m, k) x<sup>k</sup>. Combinatorial proof for x ∈ ℕ: a function [m] → [x] is determined by its kernel partition into k blocks together with an injective assignment of the k blocks to values, which can be done in x<sup>k</sup> ways. Comparing with Theorem 6.1 yields</p>
+<pre class="math">∑ₖ (−1)ⁿ⁻ᵏ C(n, k) kᵐ = Δⁿ(xᵐ)(0) = n! S(m, n)</pre>
+<p>In particular the left side vanishes for m &lt; n and equals n! for m = n. These are the classical alternating power sums of Euler.</p>
+<h3>Integer-valued polynomials</h3>
+<p>A polynomial f ∈ ℚ[x] is integer-valued if f(ℤ) ⊆ ℤ. Examples are C(x, k) (Proposition 1.3) and x(x + 1)(2x + 1)/6, which is not in ℤ[x].</p>
+<p><strong>Theorem 6.2 (Pólya, 1915)</strong>. The following are equivalent for f ∈ ℚ[x] of degree d: (i) f is integer-valued; (ii) f(0), f(1), …, f(d) are integers; (iii) f = ∑ₖ cₖ C(x, k) with every cₖ ∈ ℤ.</p>
+<p><strong>Proof</strong>. (i) ⇒ (ii) is trivial. (ii) ⇒ (iii): Δᵏf(0) = ∑ⱼ (−1)ᵏ⁻ʲ C(k, j) f(j) is an integer combination of f(0), …, f(k) for k ≤ d, and cₖ = Δᵏf(0) by Theorem 6.1. (iii) ⇒ (i): each C(x, k) is integer-valued. ∎</p>
+<p><strong>Corollary 6.3</strong>. If f ∈ ℚ[x] has degree d and is integer-valued, then d! f ∈ ℤ[x]. Proof. k! C(x, k) = x<sup>k</sup> ∈ ℤ[x], and d!/k! is an integer for k ≤ d. ∎</p>
+<p>The ring Int(ℤ) of integer-valued polynomials is a free ℤ-module with basis C(x, k), but it is not Noetherian; it is a basic example in commutative algebra (Cahen and Chabert's monograph is the standard reference). Its structure is closely tied to the p-adic behaviour of factorials studied in Lesson 8.</p>
+<p><strong>Example</strong>. Is (x⁵ − x)/30 integer-valued? Using S(5, k) = 1, 15, 25, 10, 1 for k = 1, …, 5, x⁵ = C(x, 1) + 30 C(x, 2) + 150 C(x, 3) + 240 C(x, 4) + 120 C(x, 5). Hence (x⁵ − x)/30 = C(x, 2) + 5 C(x, 3) + 8 C(x, 4) + 4 C(x, 5), which has integer coefficients; the answer is yes. (This also follows from Fermat's little theorem for the primes 2, 3, 5.)</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Express x⁴ in the binomial basis and check the result at x = 3.</div></li><li><span class="mk">(b)</span><div>Decide whether (x⁴ − x²)/12 is integer-valued.</div></li><li><span class="mk">(c)</span><div>Find the polynomial f of degree at most 3 with f(0) = 1, f(1) = 3, f(2) = 8, f(3) = 19, and compute f(4).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) With S(4, k) = 1, 7, 6, 1: x⁴ = C(x, 1) + 14 C(x, 2) + 36 C(x, 3) + 24 C(x, 4); at x = 3, 3 + 42 + 36 + 0 = 81 = 3⁴. (b) x⁴ − x² = 12 C(x, 2) + 36 C(x, 3) + 24 C(x, 4), so (x⁴ − x²)/12 = C(x, 2) + 3 C(x, 3) + 2 C(x, 4), integer-valued. (c) The difference table of 1, 3, 8, 19 is 1; 2; 3; 3 (first entries of successive rows), so f = 1 + 2 C(x, 1) + 3 C(x, 2) + 3 C(x, 3) and f(4) = 1 + 8 + 18 + 12 = 39.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

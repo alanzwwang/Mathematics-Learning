@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: The Poincaré Disk and the Beltrami–Klein Model — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 7</p>
+    <h1>The Poincaré Disk and the Beltrami–Klein Model</h1>
+    <p class="kicker">Lesson 7 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Poincaré disk:  D,  ds² = 4|du|² / (1 − |u|²)²,   conformal;  geodesics = arcs ⊥ ∂D
+Klein disk:     D,  geodesics = straight chords;  not conformal
+d(0, u) = 2 artanh |u|  (Poincaré),     d(0, k) = artanh |k|  (Klein)</pre></div>
+<h3>The Cayley transform</h3>
+<p>The map C(z) = (z − i)/(z + i) is a biholomorphism from H onto the unit disk D sending i to 0 and ℝ ∪ {∞} to the unit circle. Transporting the metric of H by C gives the Poincaré disk model with metric</p>
+<pre class="math">ds² = 4 |du|² / (1 − |u|²)².</pre>
+<p>To check this, note |C′(z)| = 2/|z + i|² and 1 − |C(z)|² = (|z + i|² − |z − i|²)/|z + i|² = 4 Im z/|z + i|². Hence 2|C′(z)|/(1 − |C(z)|²) = 1/Im z, as required.</p>
+<p>Geodesics are the diameters of D and the arcs of circles meeting the unit circle orthogonally; the orientation-preserving isometries are</p>
+<pre class="math">u ↦ e<sup>iθ</sup> (u − a)/(1 − ā u),     |a| &lt; 1,  θ ∈ ℝ,</pre>
+<p>which form the group PSU(1,1), conjugate to PSL(2,ℝ) by C. The distance is given by</p>
+<pre class="math">cosh d(u, v) = 1 + 2|u − v|² / ((1 − |u|²)(1 − |v|²)),      tanh(d/2) = |u − v| / |1 − ū v|.</pre>
+<p>For v = 0 and |u| = r this gives cosh d = (1 + r²)/(1 − r²), so d(0, u) = 2 artanh r = ln((1 + r)/(1 − r)).</p>
+<h3>Relation to the hyperboloid</h3>
+<p>Stereographic projection from (0, 0, −1) to the plane x₃ = 0 maps H² onto D by x ↦ (x₁, x₂)/(1 + x₃). Indeed |u|² = (x₃² − 1)/(1 + x₃)² = (x₃ − 1)/(x₃ + 1) &lt; 1. This projection is an isometry from the hyperboloid model to the Poincaré disk, exactly as stereographic projection from the South Pole maps the unit sphere conformally onto the plane with metric 4|du|²/(1 + |u|²)².</p>
+<h3>Circles in the disk</h3>
+<p>A hyperbolic circle in D is a Euclidean circle (with a different centre unless it is centred at 0). The circle of hyperbolic radius r about 0 has Euclidean radius ρ = tanh(r/2). In polar geodesic coordinates ds² = dr² + sinh²r dθ², so</p>
+<pre class="math">circumference = 2π sinh r,          area = ∫₀ʳ 2π sinh t dt = 2π(cosh r − 1) = 4π sinh²(r/2).</pre>
+<p>Both grow like π eʳ. For r = 1 the circumference is 2π sinh 1 ≈ 7.384 (Euclidean: 6.283) and the area is about 3.412 (Euclidean: 3.142). For r = 10 the circumference is about 69 198. Exponential growth of balls is the basic large-scale feature of negative curvature; it reappears in the exponential growth of hyperbolic groups in Gromov's sense and in the efficiency of hyperbolic embeddings of tree-like data.</p>
+<h3>The Beltrami–Klein model</h3>
+<p>Central projection from the origin of ℝ³ to the plane x₃ = 1 maps H² onto D by x ↦ (x₁/x₃, x₂/x₃). Since planes through the origin meet x₃ = 1 in straight lines, geodesics in this model are open chords of the unit disk: it is a projective model, and its isometries are the projective transformations of the plane preserving the unit disk. The model is not conformal; angles are distorted except at the centre.</p>
+<p><strong>Proposition 7.1</strong>. If the chord through P, Q has endpoints A (beyond P) and B (beyond Q) on the unit circle, then d(P, Q) = ½ ln( |AQ| · |PB| / (|AP| · |QB|) ), half the logarithm of a cross-ratio.</p>
+<p>Check at the centre: P = 0, Q = k ∈ (0, 1), A = −1, B = 1. Then d = ½ ln((1 + k)/(1 − k)) = artanh k. The same formula makes sense in any bounded convex domain and defines the Hilbert metric; it descends from Cayley's projective metric of 1859, which Klein recognised in 1871 as a model of Lobachevsky's geometry.</p>
+<h3>Converting between Poincaré and Klein</h3>
+<p>A point at Euclidean distance r from the centre in the Poincaré disk corresponds to the point in the same direction at distance k = 2r/(1 + r²) in the Klein disk. Check: k = 2 tanh(t)/(1 + tanh²t) = tanh 2t with t = artanh r, so artanh k = 2 artanh r, matching the two distance formulas. Geometrically: lift the Poincaré disk to the upper hemisphere by inverse stereographic projection from the South Pole, then project vertically down. Under this correspondence a Poincaré geodesic arc becomes the chord joining its endpoints.</p>
+<h3>A dictionary of models</h3>
+<pre class="math">Model             Space                  Geodesics                           Conformal
+Hyperboloid       sheet of ⟨x,x⟩ = −1    H² ∩ planes through 0               yes
+Upper half-plane  Im z &gt; 0               vertical lines, semicircles ⊥ ℝ     yes
+Poincaré disk     |u| &lt; 1                diameters, arcs ⊥ unit circle       yes
+Beltrami–Klein    |k| &lt; 1                straight chords                     no</pre>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>In the Poincaré disk, find d(0, 1/2) and the Klein coordinate of the same point.</div></li><li><span class="mk">(b)</span><div>Find the hyperbolic distance between u = 1/2 and v = −1/2 in the Poincaré disk, in two ways.</div></li><li><span class="mk">(c)</span><div>What Euclidean radius does a Poincaré-disk circle about 0 of hyperbolic radius 2 have?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) d = ln((1 + 1/2)/(1 − 1/2)) = ln 3 ≈ 1.0986; k = 2(1/2)/(1 + 1/4) = 4/5, and artanh(4/5) = ½ ln 9 = ln 3, consistent. (b) Along the diameter, d = ln 3 + ln 3 = ln 9 ≈ 2.1972. By the formula, cosh d = 1 + 2 · 1/((3/4)(3/4)) = 1 + 32/9 = 41/9, and cosh(ln 9) = (9 + 1/9)/2 = 41/9. (c) ρ = tanh 1 ≈ 0.7616.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

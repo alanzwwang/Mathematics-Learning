@@ -581,7 +581,7 @@ Try this at home (with permission!): peel an orange and press the peel flat on t
 
 Most world maps deal with the problem by pushing the stretch toward the poles. Look at a classic world map (the famous one is called the Mercator map): Greenland looms as big as Africa. In reality, Africa is about FOURTEEN times bigger than Greenland! Near the equator the map is fairly honest; near the poles it exaggerates wildly.
 
-The champion of distortion: Antarctica. On the ball, the South Pole is ONE POINT. On the rectangular map, it stretches into the ENTIRE bottom edge — a point pulled into a line thousands of miles long on the page! A point becoming a line is the ultimate stretch, and it's exactly what the orange peel warned you about.
+The champion of distortion: Antarctica. On the ball, the South Pole is ONE POINT. On a simple rectangular map (the kind that draws latitude and longitude lines as an even grid), it stretches into the ENTIRE bottom edge — a point pulled into a line thousands of miles long on the page! (The Mercator map is even wilder: there the poles are infinitely far away, so it can't show them at all — its bottom edge just gets cut off.) A point becoming a line is the ultimate stretch, and it's exactly what the orange peel warned you about.
 
 The curved-looking shortcut
 
@@ -630,9 +630,8 @@ You've now toured all three worlds. Line them up — including the new honors ro
         Pythagorean theorem?    YES             no                no
         Circle, radius r        2πr             less than 2πr     more than 2πr
         Curvature K             zero            positive (1/R²)   negative
-        Real-life home          small places:   planet Earth,     Einstein's
-                                rooms, maps     flights, GPS      universe, ruffled
-                                                                  leaves
+        Real-life home          small places:   planet Earth,     ruffled lettuce
+                                rooms, maps     flights, GPS      leaves, coral
 
 So which world is the REAL one?
 
@@ -640,7 +639,8 @@ All three are real math — perfectly consistent, no contradictions anywhere. Th
 
   · Your desk, your notebook, the schoolyard: FLAT (or so close you can't tell the difference — tiny triangles on a huge ball carry excess E = area/R² ≈ 0!).
   · Planet Earth, long flights, world maps, GPS: BALL.
-  · The fabric of space near heavy things — and every ruffled lettuce leaf: SADDLE.
+  · Ruffled lettuce leaves and coral: SADDLE.
+  · And space itself? Einstein showed that space CAN curve, so the whole universe could be flat, ball-like or saddle-like. So far, astronomers measure it as FLAT, but they're still checking!
 
 The 2,000-year argument over postulate 5 ended with a plot twist nobody saw coming: Euclid wasn't wrong — he was just LOCAL.
 
@@ -685,7 +685,7 @@ Mistake 4: "The map shows it huge, so it must be huge"
 
         "Greenland looks as big as Africa, so they're about the same size." ❌
 
-Flat maps of the whole Earth MUST stretch something — the orange-peel problem — and most push the stretch to the poles. Greenland sits far north and gets inflated; Africa hugs the equator and stays honest. In reality, Africa is about 14 times bigger. And the South Pole — one single point! — stretches into the map's entire bottom edge. Never trust sizes near a map's top and bottom edges! ✅
+Flat maps of the whole Earth MUST stretch something — the orange-peel problem — and most push the stretch to the poles. Greenland sits far north and gets inflated; Africa hugs the equator and stays honest. In reality, Africa is about 14 times bigger. And on a simple rectangular map, the South Pole — one single point! — stretches into the map's entire bottom edge (Mercator can't even fit the poles on the page). Never trust sizes near a map's top and bottom edges! ✅
 
 Mistake 5: "A bigger triangle still adds to almost exactly 180°"
 
@@ -749,7 +749,7 @@ Say it out loud three times. Seriously! That's the whole lesson in four lines.
 
 Why this matters
 
-For 2,000 years, the greatest minds insisted Euclid's rules were the only possible ones — and they were wrong in the most useful way. Ball geometry guides every long flight and every GPS ping; saddle geometry is woven into Einstein's universe. And the detective trick you learned — one triangle reveals the shape, even the RADIUS, of a world — is literally what astronomers do to measure the universe itself. You didn't just learn geometry. You learned that even the RULES can be chosen — and that choosing differently builds new worlds, each with its own formulas, its own limits, and its own surprises.
+For 2,000 years, the greatest minds insisted Euclid's rules were the only possible ones — and they were wrong in the most useful way. Ball geometry guides every long flight and every GPS ping; and astronomers test all three worlds, saddle included, when they measure the shape of Einstein's curved universe. And the detective trick you learned — one triangle reveals the shape, even the RADIUS, of a world — is literally what astronomers do to measure the universe itself. You didn't just learn geometry. You learned that even the RULES can be chosen — and that choosing differently builds new worlds, each with its own formulas, its own limits, and its own surprises.
 
 Now it's time to prove it — with 100 practice problems! 💪
 

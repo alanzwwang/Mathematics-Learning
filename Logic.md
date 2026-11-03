@@ -536,7 +536,7 @@ About 2,300 years ago Aristotle invented the syllogism — arguments built from 
         BROKEN some-some:   Some A are B.  Some B are C.  →  Some A are C??  NO — the overlaps can live in
                             different parts of B.
 
-And keep the mantra from before: TRUE is not the same as FOLLOWS. "All multiples of 4 are even; all multiples of 6 are even" does NOT let you conclude "some multiple of 4 is a multiple of 6" — the facts never say the circles touch. (In arithmetic the conclusion happens to be true — 12! — but that's extra knowledge, not a conclusion. Logic asks what FOLLOWS.)
+Here's a mantra to remember: TRUE is not the same as FOLLOWS. "All multiples of 4 are even; all multiples of 6 are even" does NOT let you conclude "some multiple of 4 is a multiple of 6" — the facts never say the circles touch. (In arithmetic the conclusion happens to be true — 12! — but that's extra knowledge, not a conclusion. Logic asks what FOLLOWS.)
 
 Now for the big leap. With variables, ∀ claims are everywhere — "for all x, this equals that" — and circles can't help. Examples can't help either: a million agreeing checks never prove ∀ (remember x² > x, killed by ½). What CAN prove a ∀ claim? Letters. A letter stands for EVERY case at once — so if you reason with the letter and never assume anything special about it, the conclusion covers everything.
 
@@ -690,7 +690,7 @@ Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN
         table) tells you exactly what that falsehood means.
         Method: SUPPOSE, FOLLOW the consequences, hit a contradiction → switch, then CHECK.
 
-Welcome back to Raymond Smullyan's island, where every islander is a knight (never lies) or a knave (never tells the truth). Last time the puzzles were warm-ups. Now the islanders fight back with compound statements — and everything you learned about ¬, ∧, ∨, → becomes a weapon. The key upgrade:
+Welcome to Raymond Smullyan's island, where every islander is a knight (never lies) or a knave (never tells the truth). These islanders fight back with compound statements — and everything you learned about ¬, ∧, ∨, → becomes a weapon. The key upgrade:
 
         If a knave says "p AND q," the AND is false — De Morgan: ¬p OR ¬q (at least one part fails).
         If a knave says "p OR q," the OR is false — De Morgan: ¬p AND ¬q (BOTH parts fail).

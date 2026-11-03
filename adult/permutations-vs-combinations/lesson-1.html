@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Permutations as Bijections and the Symmetric Group — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 1</p>
+    <h1>Permutations as Bijections and the Symmetric Group</h1>
+    <p class="kicker">Lesson 1 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A permutation of a finite set X is a bijection σ : X → X.
+Sym(X) is a group under composition; Sₙ = Sym([n]) has order n!.
+k-permutations of [n] are injections [k] → [n]: there are (n)ₖ of them.</pre></div>
+<h3>From arrangements to functions</h3>
+<p>The elementary course describes a permutation of the letters A, B, C as an arrangement such as BCA. There are two ways to turn that arrangement into a mathematical object, and it is worth keeping both in view. In the passive reading, BCA is a word: a function w : [3] → {A, B, C} with w(1) = B, w(2) = C, w(3) = A, and the requirement that the letters are used once each says precisely that w is a bijection. In the active reading, BCA records a rearrangement of the positions 1, 2, 3: the object in position 1 moves to position 3, and so on. In both readings the essential datum is a bijection between finite sets of the same size, and we take this as the definition.</p>
+<p><strong>Definition 1.1</strong>. Let X be a finite set. A permutation of X is a bijection σ : X → X. The set of all permutations of X is denoted Sym(X). When X = [n] we write Sₙ = Sym([n]) and call it the symmetric group of degree n.</p>
+<p><strong>Theorem 1.2</strong>. Sym(X) is a group under composition of functions, with identity the identity map and inverses the inverse functions. If |X| = n, then |Sym(X)| = n!.</p>
+<p><strong>Proof</strong>. Composition of functions is associative; the composite of two bijections is a bijection; the identity map is a bijection; and the inverse of a bijection is a bijection. This proves the group axioms. For the count, we induct on n. If n = 0 there is exactly one function from the empty set to itself, and it is a bijection, so |Sym(∅)| = 1 = 0!. For n ≥ 1, fix x₀ ∈ X. A bijection σ is determined by the value σ(x₀) ∈ X (n choices) together with the restriction of σ to X ∖ {x₀}, which is a bijection X ∖ {x₀} → X ∖ {σ(x₀)}. Any two (n − 1)-element sets are in bijection, so the number of such restrictions equals |Sₙ₋₁| = (n − 1)! by induction. Hence |Sym(X)| = n · (n − 1)! = n!. ∎</p>
+<p>We write a permutation σ ∈ Sₙ in two-line notation, listing i above σ(i), or in one-line notation as the word σ(1)σ(2)⋯σ(n). For instance σ = 3 1 4 2 is the permutation of [4] with σ(1) = 3, σ(2) = 1, σ(3) = 4, σ(4) = 2.</p>
+<pre class="math">⎛ 1  2  3  4 ⎞
+⎝ 3  1  4  2 ⎠     one-line notation:  3 1 4 2</pre>
+<h3>Injections, surjections and the counting of functions</h3>
+<p>Let K and N be finite sets with |K| = k and |N| = n. The three basic classes of functions K → N give three of the most important counting sequences. Every function is a choice of an image for each element of K, so there are nᵏ functions. An injection assigns distinct images: the first element of K (in some fixed listing) has n possible images, the second n − 1, and so on, giving (n)ₖ = n!/(n − k)! injections when k ≤ n and none otherwise. An injection [k] → [n] is exactly what the elementary course calls a k-permutation of [n]; the word σ(1)σ(2)⋯σ(k) lists the k selected objects in order. Thus P(n, k) = (n)ₖ, and the case k = n recovers Theorem 1.2, since an injection between sets of equal finite size is a bijection.</p>
+<p>Surjections are more subtle and are counted by inclusion–exclusion. For each y ∈ N let A<sub>y</sub> be the set of functions K → N that miss y. A function misses every element of a fixed j-element subset J ⊆ N exactly when it maps into N ∖ J, and there are (n − j)ᵏ such functions. Inclusion–exclusion gives</p>
+<pre class="math">#{surjections K → N} = ∑ⱼ₌₀ⁿ (−1)ʲ C(n, j) (n − j)ᵏ = n! S(k, n),</pre>
+<p>where S(k, n), the Stirling number of the second kind, is the number of partitions of a k-element set into n nonempty blocks (a surjection is a partition of K into the n nonempty fibres, together with a bijection from the set of blocks to N). We return to S(k, n) in Lesson 8.</p>
+<h3>Non-commutativity</h3>
+<p>For n ≥ 3 the group Sₙ is non-abelian. With the right-to-left convention, consider the transpositions (1 2) and (2 3) (cycle notation is defined formally in Lesson 2; (a b) swaps a and b and fixes everything else). Then (1 2)(2 3) sends 1 ↦ 1 ↦ 2, 2 ↦ 3 ↦ 3, and 3 ↦ 2 ↦ 1, so it is the 3-cycle 1 → 2 → 3 → 1. In the other order, (2 3)(1 2) sends 1 ↦ 2 ↦ 3, so it is the 3-cycle 1 → 3 → 2 → 1. The two products differ. For n ≤ 2 the group has order at most 2 and is abelian.</p>
+<h3>The growth of n!</h3>
+<p>Stirling's formula n! ∼ √(2πn) (n/e)ⁿ describes the size of Sₙ. For n = 10 the exact value is 10! = 3,628,800, while √(20π)(10/e)¹⁰ ≈ 3,598,696; the ratio is about 1.0084, in agreement with the first correction term in the refined expansion n! = √(2πn)(n/e)ⁿ (1 + 1/(12n) + O(1/n²)). The super-exponential size of Sₙ is the reason that most questions about permutations must be answered structurally rather than by enumeration: S₂₀ already has more than 2.4 × 10¹⁸ elements.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many injections are there from a 4-element set to a 7-element set?</div></li><li><span class="mk">(b)</span><div>How many surjections are there from a 5-element set onto a 3-element set?</div></li><li><span class="mk">(c)</span><div>In S₄, with right-to-left composition, compute the product (1 2 3)(3 4).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (7)₄ = 7 · 6 · 5 · 4 = 840. (b) 3⁵ − 3 · 2⁵ + 3 · 1⁵ − 0 = 243 − 96 + 3 = 150 (equivalently 3! · S(5, 3) = 6 · 25). (c) 1 ↦ 1 ↦ 2, 2 ↦ 2 ↦ 3, 3 ↦ 4 ↦ 4, 4 ↦ 3 ↦ 1, so the product is the 4-cycle (1 2 3 4).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

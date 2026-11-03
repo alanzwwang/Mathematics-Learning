@@ -1,0 +1,13 @@
+{
+  "blurb": "Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.",
+  "pics": [
+    { "img": "img/adult/linear-functions-1.png", "alt": "Four red data points with a blue least-squares line and green vertical residual segments",
+      "caption": "A least-squares fit to the data (1, 6), (2, 5), (3, 7), (4, 10): the blue line y = 3.5 + 1.4x minimises the sum of the squared vertical residuals shown in green.",
+      "title": "Linear least squares example2.svg", "page": "https://commons.wikimedia.org/wiki/File:Linear_least_squares_example2.svg",
+      "license": "CC BY-SA 3.0", "artist": "Krishnavedala" },
+    { "img": "img/adult/linear-functions-2.png", "alt": "A green three-dimensional polytope with a red path running along its edges",
+      "caption": "The feasible region of a linear programme in three variables is a polytope; the red path shows how the simplex method can move along edges from vertex to vertex towards an optimum.",
+      "title": "Simplex-method-3-dimensions.png", "page": "https://commons.wikimedia.org/wiki/File:Simplex-method-3-dimensions.png",
+      "license": "CC BY-SA 3.0", "artist": "Sdo" }
+  ]
+}

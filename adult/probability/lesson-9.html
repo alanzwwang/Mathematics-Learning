@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: The Central Limit Theorem — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 9</p>
+    <h1>The Central Limit Theorem</h1>
+    <p class="kicker">Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">X₁, X₂, … i.i.d., E X₁ = μ, Var X₁ = σ² ∈ (0, ∞):   (Sₙ − nμ)/(σ√n)  ⇒  N(0, 1),
+i.e.  P((Sₙ − nμ)/(σ√n) ≤ x) → Φ(x) = (2π)<sup>−1/2</sup> ∫<sub>−∞</sub><sup>x</sup> e<sup>−u²/2</sup> du  for every x.</pre></div>
+<h3>History</h3>
+<p>De Moivre (1733) found the normal approximation to Binomial(n, 1/2) by Stirling-type asymptotics, and Laplace (1812) extended it to Binomial(n, p). Lyapunov (1901) gave the first rigorous proof for general sums under a third-moment condition, Lindeberg (1922) found the sharp sufficient condition, and Feller and Lévy (1935) showed it is also necessary under a negligibility assumption. Lévy's continuity theorem made characteristic functions the standard tool.</p>
+<h3>The continuity theorem</h3>
+<p><strong>Theorem 9.1 (Lévy continuity theorem)</strong>. Let Xₙ have characteristic functions φₙ. (i) If Xₙ ⇒ X, then φₙ(t) → φ<sub>X</sub>(t) for every t. (ii) If φₙ(t) → φ(t) for every t and φ is continuous at 0, then φ is the characteristic function of some X and Xₙ ⇒ X.</p>
+<p>Part (i) is immediate from the portmanteau theorem, since cos(tx) and sin(tx) are bounded and continuous. For (ii), the key estimate is</p>
+<pre class="math">P(|Xₙ| &gt; 2/u) ≤ (1/u) ∫<sub>−u</sub><sup>u</sup> (1 − φₙ(t)) dt</pre>
+<p>valid for every u &gt; 0. Continuity of φ at 0 and dominated convergence make the right side small uniformly in large n for small u, so the sequence is tight. By Prokhorov's theorem every subsequence has a further subsequence converging in distribution; by part (i) each such limit has characteristic function φ, and by uniqueness (Theorem 5.2) all the limits are the same law. A sequence every subsequence of which has a further subsequence converging to the same limit converges itself. ∎</p>
+<h3>Proof of the central limit theorem</h3>
+<p><strong>Lemma 9.2</strong>. For real x and n = 0, 1, 2, …,</p>
+<pre class="math">| e<sup>ix</sup> − ∑<sub>k=0</sub><sup>n</sup> (ix)ᵏ/k! | ≤ min( |x|ⁿ⁺¹/(n + 1)!,  2|x|ⁿ/n! )</pre>
+<p><strong>Proof</strong>. Integration by parts gives e<sup>ix</sup> − ∑<sub>k≤n</sub> (ix)ᵏ/k! = (iⁿ⁺¹/n!) ∫₀ˣ (x − s)ⁿ e<sup>is</sup> ds; bounding |e<sup>is</sup>| ≤ 1 gives the first term. Writing the remainder of order n as the remainder of order n − 1 minus the term (ix)ⁿ/n! and using the first bound at order n − 1 gives the second. ∎</p>
+<p><strong>Theorem 9.3 (Lindeberg–Lévy CLT)</strong>. Let X₁, X₂, … be i.i.d. with mean μ and finite variance σ² &gt; 0. Then (Sₙ − nμ)/(σ√n) ⇒ N(0, 1).</p>
+<p><strong>Proof</strong>. Standardising, assume μ = 0 and σ = 1, and let φ be the characteristic function of X₁. By Lemma 9.2 with n = 2,</p>
+<pre class="math">| φ(t) − (1 − t²/2) | ≤ E min(|tX₁|³/6, |tX₁|²)</pre>
+<p>and the right side is o(t²) as t → 0: divide by t² and apply dominated convergence, since min(|t||X₁|³/6, X₁²) → 0 and is dominated by X₁², which is integrable. The characteristic function of Sₙ/√n is φ(t/√n)ⁿ, and for fixed t,</p>
+<pre class="math">φ(t/√n) = 1 − t²/(2n) + o(1/n)</pre>
+<p>For complex numbers of modulus at most 1, |∏ zᵢ − ∏ wᵢ| ≤ ∑ |zᵢ − wᵢ|. With z = φ(t/√n) and w = 1 − t²/(2n) (which has modulus at most 1 once n ≥ t²/2), this gives |φ(t/√n)ⁿ − (1 − t²/(2n))ⁿ| ≤ n · o(1/n) → 0. Since (1 − t²/(2n))ⁿ → e<sup>−t²/2</sup>, the characteristic functions converge to that of N(0, 1), and Lévy's theorem completes the proof. ∎</p>
+<h3>Beyond identical distribution</h3>
+<p><strong>Theorem 9.4 (Lindeberg–Feller)</strong>. For each n let Xₙ,₁, …, Xₙ,ₙ be independent with mean zero and ∑ₖ E Xₙ,ₖ² = 1. If for every ε &gt; 0</p>
+<pre class="math">∑ₖ E[ Xₙ,ₖ² 1{|Xₙ,ₖ| &gt; ε} ] → 0       (Lindeberg's condition)</pre>
+<p>then ∑ₖ Xₙ,ₖ ⇒ N(0, 1). Conversely, if the sum converges to N(0, 1) and max<sub>k</sub> E Xₙ,ₖ² → 0, then Lindeberg's condition holds.</p>
+<p>Lyapunov's condition ∑ₖ E|Xₙ,ₖ|<sup>2+δ</sup> → 0 for some δ &gt; 0 implies Lindeberg's. For example, if Xₖ are independent Bernoulli(pₖ) with ∑ pₖ(1 − pₖ) = ∞, the standardised number of successes is asymptotically normal.</p>
+<h3>Rate of convergence</h3>
+<p><strong>Theorem 9.5 (Berry–Esseen)</strong>. If in addition ρ = E|X₁ − μ|³ &lt; ∞, then</p>
+<pre class="math">sup<sub>x</sub> | P((Sₙ − nμ)/(σ√n) ≤ x) − Φ(x) | ≤ C ρ / (σ³ √n)</pre>
+<p>with an absolute constant C; the best known value is C &lt; 0.4748 (Shevtsova, 2011), and C cannot be smaller than about 0.4097 (Esseen, 1956). The rate n<sup>−1/2</sup> cannot be improved for lattice laws such as the Bernoulli.</p>
+<p><strong>Worked example 9.6 (normal approximation with continuity correction)</strong>. Let S ~ Binomial(100, 1/2), so μ = 50 and σ = 5. Treating the integer-valued S as continuous, P(S ≥ 60) = P(S &gt; 59.5) ≈ 1 − Φ((59.5 − 50)/5) = 1 − Φ(1.9) ≈ 0.0287. The exact probability is 0.0284. Without the continuity correction, 1 − Φ(2) ≈ 0.0228 is noticeably worse.</p>
+<h3>The delta method and the multivariate CLT</h3>
+<p>If √n(Tₙ − θ) ⇒ N(0, τ²) and g is differentiable at θ, then √n(g(Tₙ) − g(θ)) ⇒ N(0, g′(θ)² τ²); the proof is a first-order Taylor expansion and Slutsky's theorem. In ℝᵈ, i.i.d. random vectors with mean μ and covariance matrix Σ satisfy (Sₙ − nμ)/√n ⇒ N(0, Σ), which reduces to the one-dimensional theorem by the Cramér–Wold device: a sequence of random vectors converges in distribution if and only if every fixed linear combination ⟨a, ·⟩ does.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A fair die is rolled 420 times. Approximate the probability that the total exceeds 1500. (Use Φ(0.86) ≈ 0.805.)</div></li><li><span class="mk">(b)</span><div>Show that the Lindeberg condition holds for Xₙ,ₖ = Xₖ/(σ√n) with i.i.d. Xₖ of finite variance σ².</div></li><li><span class="mk">(c)</span><div>If X̄ₙ is the mean of n i.i.d. Exponential(1) variables, find the limiting law of √n(log X̄ₙ).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) One roll has mean 3.5 and variance 35/12, so the total has mean 1470 and variance 1225, standard deviation 35. P(total &gt; 1500) ≈ 1 − Φ(30/35) ≈ 1 − Φ(0.86) ≈ 0.195; with a continuity correction, 1 − Φ(30.5/35) = 1 − Φ(0.871) ≈ 0.192. (b) The sum equals (1/σ²) E[X₁² 1{|X₁| &gt; εσ√n}], which tends to 0 by dominated convergence. (c) √n(X̄ₙ − 1) ⇒ N(0, 1) and g = log has g′(1) = 1, so √n log X̄ₙ ⇒ N(0, 1).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

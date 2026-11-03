@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Graph Theory Essentials — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 12</p>
+    <h1>Graph Theory Essentials</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Euler circuit ⟺ connected and every degree even
+Matching saturating X ⟺ |N(S)| ≥ |S| for all S ⊆ X   (Hall)
+Labelled trees on [n]: nⁿ⁻²   (Cayley)</pre></div>
+<h3>Degrees and Euler's theorem</h3>
+<p>A graph G = (V, E) has ∑ᵥ deg(v) = 2|E| (the handshake lemma), since each edge contributes to two degrees; hence the number of odd-degree vertices is even. An Euler circuit is a closed walk using every edge exactly once.</p>
+<p><strong>Theorem 12.1 (Euler 1736, Hierholzer 1873)</strong>. A connected multigraph has an Euler circuit if and only if every vertex has even degree. It has an Euler trail (not closed) if and only if exactly two vertices have odd degree.</p>
+<p><strong>Proof</strong>. Necessity: each passage of a circuit through v uses two edges at v. Sufficiency, by induction on |E|: since every degree is even and positive (when E ≠ ∅), G has no vertex of degree 1, so walking without repeating edges from any vertex must eventually return to it, giving a closed trail T. Deleting the edges of T leaves a graph whose degrees are still even; each of its components meets T (by connectivity) and has, by induction, an Euler circuit, which can be spliced into T at a common vertex. For the trail version, add an edge between the two odd vertices. ∎</p>
+<p>In 1736 Euler applied this to the seven bridges of Königsberg. The four land masses have degrees 5, 3, 3, 3, so there is no walk crossing each bridge once. More generally, a connected graph with 2k odd vertices (k ≥ 1) can be covered by k edge-disjoint trails, and not fewer.</p>
+<h3>Hall's marriage theorem</h3>
+<p><strong>Theorem 12.2 (Hall, 1935)</strong>. Let G be a bipartite graph with parts X and Y. There is a matching covering every vertex of X if and only if |N(S)| ≥ |S| for every S ⊆ X, where N(S) is the set of neighbours of S.</p>
+<p><strong>Proof (Halmos–Vaughan)</strong>. Necessity is clear. For sufficiency, induct on |X|; the case |X| = 1 is trivial. Case 1: |N(S)| ≥ |S| + 1 for every nonempty proper S ⊂ X. Match any x ∈ X to any neighbour y, and delete both; every nonempty S ⊆ X − x loses at most one neighbour, so Hall's condition still holds, and induction completes the matching. Case 2: some nonempty proper S₀ has |N(S₀)| = |S₀|. By induction S₀ can be matched into N(S₀). In the graph on (X − S₀) ∪ (Y − N(S₀)), any T ⊆ X − S₀ satisfies |N(T) − N(S₀)| = |N(T ∪ S₀)| − |N(S₀)| ≥ |T| + |S₀| − |S₀| = |T|, so by induction X − S₀ can be matched into Y − N(S₀). The two matchings together cover X. ∎</p>
+<p><strong>Corollary 12.3</strong>. Every k-regular bipartite graph with k ≥ 1 has a perfect matching, and its edge set is a disjoint union of k perfect matchings.</p>
+<p><strong>Proof</strong>. Counting edges, k|S| ≤ k|N(S)| for every S ⊆ X, since the k|S| edges leaving S all end in N(S), where at most k|N(S)| edges arrive. Also |X| = |Y|. Remove a perfect matching to obtain a (k − 1)-regular bipartite graph and repeat. ∎</p>
+<p>Equivalently, by Birkhoff and von Neumann, every doubly stochastic matrix is a convex combination of permutation matrices. Hall's theorem is also equivalent to König's theorem (1931): in a bipartite graph the maximum size of a matching equals the minimum size of a vertex cover. Both are special cases of the max-flow min-cut theorem and of linear programming duality for totally unimodular systems, and in turn imply Dilworth's theorem that a finite poset can be partitioned into as many chains as the maximum size of an antichain.</p>
+<h3>Trees and Cayley's formula</h3>
+<p>A tree is a connected acyclic graph; a tree on n vertices has n − 1 edges and a unique path between any two vertices.</p>
+<p><strong>Theorem 12.4 (Cayley)</strong>. There are nⁿ⁻² trees on the vertex set [n]. More precisely, the number with deg(i) = dᵢ for all i, where ∑ dᵢ = 2n − 2 and every dᵢ ≥ 1, is the multinomial coefficient (n − 2)!/∏ᵢ (dᵢ − 1)!.</p>
+<p><strong>Proof (Prüfer, 1918)</strong>. Given a tree on [n] with n ≥ 2, repeatedly delete the leaf with the smallest label and record its unique neighbour, until two vertices remain. The resulting Prüfer code is a word of length n − 2 over [n], in which vertex i appears exactly deg(i) − 1 times (it is recorded once each time a neighbour is deleted, except for the last edge, which either deletes i itself or survives at the end). The tree is recovered from the code: at step j, the deleted leaf is the smallest label that does not occur in the remaining code and has not yet been deleted, and it is joined to the j-th code letter; finally the two unused labels are joined. Hence the map is a bijection between labelled trees and [n]ⁿ⁻², and words with prescribed letter counts dᵢ − 1 are counted by the multinomial coefficient. ∎</p>
+<p>For example, the tree on [6] with edges 12, 13, 34, 35, 56 has leaves 2, 4, 6. Deleting 2 records 1; then 1 is a leaf and deleting it records 3; deleting 4 records 3; deleting 3 records 5. The code is (1, 3, 3, 5), and indeed deg 1 = 2, deg 3 = 3 and deg 5 = 2.</p>
+<h3>The matrix-tree theorem</h3>
+<p><strong>Theorem 12.5 (Kirchhoff, 1847)</strong>. The number of spanning trees of a connected graph G equals any cofactor of its Laplacian L = D − A, where D is the diagonal matrix of degrees and A the adjacency matrix; equivalently, (1/n) times the product of the nonzero eigenvalues of L.</p>
+<p>For Kₙ the Laplacian nI − J has eigenvalue n with multiplicity n − 1, giving nⁿ⁻¹/n = nⁿ⁻², another proof of Cayley's formula. For the complete bipartite graph K<sub>m,n</sub> the theorem gives m<sup>n−1</sup> n<sup>m−1</sup>.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many trees on [6] have vertex 1 of degree exactly 3?</div></li><li><span class="mk">(b)</span><div>Reconstruct the tree on [5] with Prüfer code (4, 4, 2).</div></li><li><span class="mk">(c)</span><div>How many spanning trees does K₄ have, and how many does K₂,₃ have?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Vertex 1 must appear exactly twice in a code of length 4, with the other two letters from the remaining 5 labels: C(4, 2) · 5² = 150. (b) The leaf 1 is joined to 4, then 3 to 4, then 4 to 2; the remaining labels 2 and 5 are joined. Edges: 14, 34, 24, 25. (c) 4² = 16, and 2² · 3¹ = 12.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 11</p>
+    <h1>Nonnegative Matrices, Markov Chains and Perron–Frobenius</h1>
+    <p class="kicker">Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A &gt; 0  ⇒  ρ(A) is a simple eigenvalue with a positive eigenvector, and |λ| &lt; ρ(A) for all other λ
+P primitive stochastic  ⇒  Pᵗ → 1π  geometrically, at rate |λ₂|</pre></div>
+<h3>Positive matrices</h3>
+<p>Write A ≥ 0 if every entry of A is nonnegative and A &gt; 0 if every entry is positive, and similarly for vectors; |v| denotes the vector of absolute values. The spectral radius is ρ(A) = max |λ| over the eigenvalues of A. Positive matrices arise as transition matrices, population (Leslie) models, input–output models in economics and adjacency matrices of strongly connected graphs, and their spectral theory is remarkably rigid.</p>
+<p><strong>Theorem 11.1 (Perron, 1907)</strong>. Let A ∈ ℝ<sup>n×n</sup> with A &gt; 0 and let r = ρ(A). Then r &gt; 0 is an eigenvalue of A with an eigenvector z &gt; 0; every other eigenvalue satisfies |λ| &lt; r; and r is an algebraically simple eigenvalue.</p>
+<p><strong>Proof</strong>. Step 1 (a maximizer). For x ≥ 0, x ≠ 0, define the Collatz–Wielandt function f(x) = min over i with x<sub>i</sub> &gt; 0 of (Ax)<sub>i</sub>/x<sub>i</sub>, so f(x) is the largest t with tx ≤ Ax. Let r* = sup f, the supremum over all nonzero x ≥ 0; by scale invariance we may restrict to the simplex Δ = {x ≥ 0 : ∑ x<sub>i</sub> = 1}. If f(x)x ≤ Ax, then multiplying by A ≥ 0 gives f(x)Ax ≤ A(Ax), so f(Ax) ≥ f(x). Hence r* is also the supremum of f over the set K of normalized vectors Ax/∑(Ax)<sub>i</sub> with x ∈ Δ. That set is compact and consists of positive vectors, on which f is continuous, so the supremum is attained at some z &gt; 0. Moreover r* ≥ f(1, …, 1) = min row sum &gt; 0.</p>
+<p>Step 2 (an eigenvector). We have Az − r*z ≥ 0. If this vector were nonzero, then A(Az − r*z) &gt; 0 because A &gt; 0, so A(Az) &gt; r*Az coordinatewise and f(Az) &gt; r*, contradicting maximality. Hence Az = r*z with z &gt; 0.</p>
+<p>Step 3 (dominance). If Av = λv with v ≠ 0, then |λ||v| = |Av| ≤ A|v|, so |λ| ≤ f(|v|) ≤ r*. Thus r* = ρ(A) = r. If |λ| = r, then A|v| − r|v| ≥ 0, and the argument of Step 2 shows A|v| = r|v|, so |Av| = A|v|: for each i, |∑<sub>j</sub> a<sub>ij</sub> v<sub>j</sub>| = ∑<sub>j</sub> a<sub>ij</sub> |v<sub>j</sub>| with all a<sub>ij</sub> &gt; 0. Equality in the triangle inequality forces all v<sub>j</sub> to have a common argument, v = e<sup>iθ</sup>|v|, and then λv = Av = e<sup>iθ</sup>A|v| = rv, so λ = r.</p>
+<p>Step 4 (geometric simplicity). If w is a real eigenvector for r that is not a multiple of z, choose t so that y = z − tw ≥ 0 has some zero coordinate but y ≠ 0. Then Ay = ry, but Ay &gt; 0, which is impossible at the zero coordinate. Since A is real, the real and imaginary parts of any complex eigenvector for r are real eigenvectors, so the eigenspace is spanned by z.</p>
+<p>Step 5 (algebraic simplicity). Applying Steps 1–4 to Aᵀ &gt; 0 gives y &gt; 0 with yᵀA = ryᵀ. If r had algebraic multiplicity greater than its geometric multiplicity 1, its Jordan block would have size at least 2 and there would be a vector w with (A − rI)w = z. Then yᵀz = yᵀ(A − rI)w = 0, contradicting yᵀz &gt; 0. ∎</p>
+<p>Frobenius (1912) extended the theory to irreducible A ≥ 0, those for which the directed graph with an edge i → j whenever a<sub>ij</sub> &gt; 0 is strongly connected. Such A still has a simple eigenvalue ρ(A) with a positive eigenvector, but there may be other eigenvalues of modulus ρ(A): they are exactly ρ(A)e<sup>2πik/h</sup> for k = 0, …, h − 1, where h is the period, the gcd of the lengths of the closed walks in the graph. A is primitive (some power A<sup>m</sup> &gt; 0) exactly when h = 1, and Wielandt showed that m = (n − 1)² + 1 always suffices for primitive A.</p>
+<h3>Markov chains</h3>
+<p>A finite Markov chain with states 1, …, n is described by a row-stochastic matrix P ≥ 0 whose rows sum to 1, p<sub>ij</sub> being the probability of moving from i to j. A probability distribution is a row vector μ ≥ 0 with μ1 = 1, and it evolves by μ<sub>t+1</sub> = μ<sub>tP</sub>. Since P1 = 1, the number 1 is an eigenvalue; since ‖P‖∞ = 1, ρ(P) = 1. A stationary distribution is a distribution π with πP = π.</p>
+<p><strong>Theorem 11.2 (Convergence theorem)</strong>. If P is primitive (irreducible and aperiodic), there is a unique stationary distribution π, it is positive, and Pᵗ → 1π as t → ∞. The convergence is geometric: ‖Pᵗ − 1π‖ ≤ C(ε)(|λ₂| + ε)ᵗ for every ε &gt; 0, where |λ₂| &lt; 1 is the largest modulus of an eigenvalue of P other than 1.</p>
+<p><strong>Proof</strong>. Apply Theorem 11.1 to P<sup>m</sup> &gt; 0: the eigenvalue 1 of P is simple, and every other eigenvalue λ satisfies |λ<sup>m</sup>| &lt; 1, hence |λ| &lt; 1. The left Perron vector, normalized to sum 1, is π. Let E = 1π. Then PE = EP = E² = E, and induction gives (P − E)ᵗ = Pᵗ − E. The spectrum of P − E is that of P with the eigenvalue 1 replaced by 0, so ρ(P − E) = |λ₂| &lt; 1, and Gelfand's formula ρ(M) = lim ‖Mᵗ‖<sup>1/t</sup> (Practice Problem 50) yields the geometric bound. ∎</p>
+<p><strong>Worked example</strong>: for the two-state chain P = [ 0.9 0.1 ; 0.5 0.5 ], the equation πP = π gives 0.1π₁ = 0.5π₂, so π = (5/6, 1/6). The other eigenvalue is tr P − 1 = 0.4, and in fact Pᵗ = 1π + (0.4)ᵗ [ 1/6 −1/6 ; −5/6 5/6 ] exactly; at t = 1 this reproduces P. The chain forgets its initial state at the rate 0.4ᵗ.</p>
+<h3>PageRank</h3>
+<p>The original PageRank algorithm of Brin and Page (1998) ranks web pages by the stationary distribution of the Google matrix G = αS + (1 − α)(1/n)11ᵀ, where S is the row-stochastic matrix of a random walk on the link graph (with dangling pages patched) and α = 0.85 is the damping factor. Since G &gt; 0, Perron's theorem guarantees a unique positive ranking vector, and since every eigenvalue of G other than 1 has modulus at most α, the power iteration πₜ₊₁ = πₜG converges at rate αᵗ independently of the size of the web.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the stationary distribution of P = [ 0.5 0.5 0 ; 0.25 0.5 0.25 ; 0 0.5 0.5 ].</div></li><li><span class="mk">(b)</span><div>Find the Perron root and a positive eigenvector of A = [ 1 2 ; 3 4 ].</div></li><li><span class="mk">(c)</span><div>For P = [ 0 1 ; 1 0 ], find the eigenvalues and the period, and decide whether Pᵗ converges.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The chain moves only between neighbouring states, so the balance equations π₁ · 0.5 = π₂ · 0.25 and π₂ · 0.25 = π₃ · 0.5 hold; hence π₂ = 2π₁, π₃ = π₁, and normalization gives π = (1/4, 1/2, 1/4). (b) p(λ) = λ² − 5λ − 2, so r = (5 + √33)/2 ≈ 5.372; the first row of (A − rI)v = 0 gives v = (2, r − 1) ≈ (2, 4.372) &gt; 0, and the other eigenvalue (5 − √33)/2 ≈ −0.372 has smaller modulus. (c) The eigenvalues are 1 and −1, the period is 2, and Pᵗ alternates between P and I, so it does not converge, although π = (1/2, 1/2) is still the unique stationary distribution.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

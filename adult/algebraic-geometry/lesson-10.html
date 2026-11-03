@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Plane Cubics and the Weierstrass Form — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 10</p>
+    <h1>Plane Cubics and the Weierstrass Form</h1>
+    <p class="kicker">Lesson 10 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">E: y² = x³ + ax + b,   Δ = −16(4a³ + 27b²) ≠ 0,   j = 1728 · 4a³/(4a³ + 27b²)</pre></div>
+<h3>Elliptic curves</h3>
+<p>An elliptic curve over a field k is a smooth projective curve of genus 1 (Lesson 12) together with a chosen k-rational point O. Every elliptic curve can be embedded in ℙ² as a smooth cubic in which O is a flex, and conversely every smooth plane cubic with a chosen flex is an elliptic curve. The name comes from elliptic integrals such as ∫ dx/√(cubic or quartic), which arose from the arc length of an ellipse; their inversion by Abel and Jacobi in the 1820s produced doubly periodic functions parametrizing these curves.</p>
+<h3>Flexes and the Hessian</h3>
+<p>A smooth point P of a plane curve F is a flex (inflection point) if the tangent line at P meets F with multiplicity at least 3 at P. The Hessian of F is H(F) = det(∂²F/∂Xᵢ∂Xⱼ), a form of degree 3(d − 2). In characteristic 0, a smooth point P ∈ F is a flex if and only if H(F)(P) = 0. For a smooth cubic, H has degree 3, and Bézout gives at most 9 flexes; in fact a smooth complex cubic has exactly 9 flexes, each with I<sub>P</sub>(F, H) = 1. Any line through two of them passes through a third, forming the Hesse configuration of 9 points and 12 lines, which cannot be drawn in the real plane: by the Sylvester–Gallai theorem, a finite set of real points not all on one line has a line through exactly two of them. Accordingly, a real smooth cubic has exactly 3 real flexes, and they are collinear.</p>
+<h3>From a flex to Weierstrass form</h3>
+<p><strong>Theorem</strong>. Let C be a smooth plane cubic and O ∈ C a flex. After a projective change of coordinates, O = [0 : 1 : 0], the tangent at O is the line Z = 0, and C has the long Weierstrass equation</p>
+<pre class="math">Y²Z + a₁XYZ + a₃YZ² = X³ + a₂X²Z + a₄XZ² + a₆Z³</pre>
+<p><strong>Proof</strong>. Move O to [0 : 1 : 0] and its tangent line to Z = 0. Restricting F to Z = 0 gives a binary cubic in X, Y that vanishes to order 3 at [0 : 1] (O is a flex with tangent Z = 0), so F(X, Y, 0) = cX³; and c ≠ 0, for otherwise Z would divide F and C would be reducible. Hence F = cX³ + Z·Q(X, Y, Z) with Q a quadratic form. At O, ∂F/∂X = ∂F/∂Y = 0 (every term of these derivatives contains X or Z), while ∂F/∂Z(O) = Q(0, 1, 0), which is the coefficient of Y² in Q. Smoothness at O therefore forces this coefficient to be nonzero. Scaling X, Y and F suitably normalizes the coefficients of Y²Z and X³ to 1 and −1, which gives the displayed form. ∎</p>
+<p>In characteristic ≠ 2, completing the square in y (replace y by y − (a₁x + a₃)/2) removes the xy and y terms; in characteristic ≠ 3, the shift x ↦ x − b₂/12, where b₂ = a₁² + 4a₂, removes the x² term. One arrives at the short Weierstrass form</p>
+<pre class="math">y² = x³ + ax + b</pre>
+<p>with the point O = [0 : 1 : 0] at infinity, which is always a smooth point: with F = Y²Z − X³ − aXZ² − bZ³ we get ∂F/∂Z = Y² − 2aXZ − 3bZ², equal to 1 at O. By Lesson 7 the affine part is smooth if and only if 4a³ + 27b² ≠ 0. The normalized quantity Δ = −16(4a³ + 27b²) is the discriminant of the curve.</p>
+<p><strong>Worked example</strong>. The curve y² + y = x³ − x² (the curve of conductor 11 labelled 11a3 in Cremona's tables) has a rational flex at infinity. Completing the square: (y + 1/2)² = x³ − x² + 1/4. With x = X + 1/3,</p>
+<pre class="math">x³ − x² = X³ + X² + X/3 + 1/27 − X² − 2X/3 − 1/9 = X³ − X/3 − 2/27</pre>
+<p>so (y + 1/2)² = X³ − X/3 + 19/108. Scaling X = x′/36 and y + 1/2 = y′/216 and multiplying by 216² = 46656 yields the integral model</p>
+<pre class="math">y′² = x′³ − 432x′ + 8208</pre>
+<p>since 46656/108 = 432 and 19 · 432 = 8208.</p>
+<h3>Isomorphisms and the j-invariant</h3>
+<p>The only changes of variables preserving the short Weierstrass form and the point O are x = u²x′, y = u³y′ with u ∈ k*. Substituting gives u⁶y′² = u⁶x′³ + au²x′ + b, that is,</p>
+<pre class="math">a′ = a/u⁴,   b′ = b/u⁶</pre>
+<p>The quantity j = 1728 · 4a³/(4a³ + 27b²) is unchanged, since numerator and denominator both scale by u⁻¹². Over an algebraically closed field, two elliptic curves are isomorphic if and only if they have the same j-invariant. Indeed, j(E) = j(E′) is equivalent to a³b′² = a′³b². If ab ≠ 0 (so also a′b′ ≠ 0), choose u with u² = ba′/(ab′); then u⁴ = b²a′²/(a²b′²) = a/a′ (using b²/b′² = a³/a′³) and u⁶ = u⁴u² = b/b′, as required. If a = 0 then j = 0 forces a′ = 0 and we need only u⁶ = b/b′; if b = 0 then j = 1728 forces b′ = 0 and we need only u⁴ = a/a′. Every value occurs: j = 0 for y² = x³ + 1, j = 1728 for y² = x³ − x, and for any other j₀ the curve</p>
+<pre class="math">y² = x³ + 3j₀(1728 − j₀)x + 2j₀(1728 − j₀)²</pre>
+<p>has j-invariant j₀ (substitute: 4a³ = 108j₀³(1728 − j₀)³ and 27b² = 108j₀²(1728 − j₀)⁴, whose sum is 108 · 1728 · j₀²(1728 − j₀)³). So the isomorphism classes of elliptic curves over ℂ are parametrized by the affine line, the j-line, which is the simplest example of a moduli space.</p>
+<p>The Legendre form y² = x(x − 1)(x − λ), with λ ≠ 0, 1, is often more convenient; its j-invariant is</p>
+<pre class="math">j = 256 (λ² − λ + 1)³ / (λ²(λ − 1)²)</pre>
+<p>which takes each value six times as λ runs over the orbit { λ, 1 − λ, 1/λ, 1/(1 − λ), λ/(λ − 1), (λ − 1)/λ }. For instance λ = −1 gives y² = x³ − x and j = 256 · 27/4 = 1728, consistent with the short form.</p>
+<h3>The real picture</h3>
+<p>Over ℝ, the real points of y² = x³ + ax + b form one connected component if the cubic x³ + ax + b has one real root (Δ &lt; 0) and two components, a bounded oval and an unbounded branch, if it has three distinct real roots (Δ &gt; 0). Over ℂ, the Weierstrass ℘-function of a lattice Λ ⊂ ℂ satisfies ℘′² = 4℘³ − g₂℘ − g₃, and z ↦ [℘(z) : ℘′(z) : 1] identifies the torus ℂ/Λ with the cubic y² = 4x³ − g₂x − g₃. Topologically, every complex elliptic curve is a torus.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the j-invariants of y² = x³ − x, y² = x³ + 1 and y² = x³ − 3x + 3.</div></li><li><span class="mk">(b)</span><div>Show that y² = x³ + 2x + 3 is smooth over ℚ, and find the primes p ≥ 5 for which its reduction modulo p is singular.</div></li><li><span class="mk">(c)</span><div>Find u such that y² = x³ + 16x + 64 becomes y′² = x′³ + x′ + 1 under x = u²x′, y = u³y′.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) For a = −1, b = 0: j = 1728 · (−4)/(−4) = 1728. For a = 0, b = 1: j = 0. For a = −3, b = 3: 4a³ = −108 and 27b² = 243, so j = 1728 · (−108)/135 = −186624/135 = −6912/5. (b) 4a³ + 27b² = 32 + 243 = 275 ≠ 0, so the curve is smooth over ℚ. Since 275 = 5² · 11, the reduction is singular exactly for p = 5 and p = 11 among the primes p ≥ 5. (c) We need a/u⁴ = 1 and b/u⁶ = 1, i.e. u⁴ = 16 and u⁶ = 64, so u = ±2; the other fourth roots of 16, u = ±2i, give u⁶ = −64 and fail.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

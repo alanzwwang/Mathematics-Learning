@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Multinomial Coefficients and Pascal's Simplex — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 10</p>
+    <h1>Multinomial Coefficients and Pascal's Simplex</h1>
+    <p class="kicker">Lesson 10 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">C(n; k₁, …, k<sub>m</sub>) = n! / (k₁! ⋯ k<sub>m</sub>!)      (k₁ + ⋯ + k<sub>m</sub> = n)
+(x₁ + ⋯ + x<sub>m</sub>)ⁿ = ∑ C(n; k₁, …, k<sub>m</sub>) x₁<sup>k₁</sup> ⋯ x<sub>m</sub><sup>k<sub>m</sub></sup>
+v<sub>p</sub> C(n; k₁, …, k<sub>m</sub>) = (∑ s<sub>p</sub>(kⱼ) − s<sub>p</sub>(n))/(p − 1) = total carries in k₁ + ⋯ + k<sub>m</sub></pre></div>
+<h3>Definition and the multinomial theorem</h3>
+<p>For nonnegative integers k₁, …, k<sub>m</sub> with sum n, the multinomial coefficient C(n; k₁, …, k<sub>m</sub>) = n!/(k₁! ⋯ k<sub>m</sub>!) counts the words of length n over the alphabet {1, …, m} in which the letter j occurs kⱼ times; equivalently, the ordered partitions of [n] into blocks of sizes k₁, …, k<sub>m</sub>. Choosing the positions of the letter 1, then of the letter 2, and so on gives the factorization</p>
+<pre class="math">C(n; k₁, …, k<sub>m</sub>) = C(n, k₁) C(n − k₁, k₂) ⋯ C(n − k₁ − ⋯ − k<sub>m−1</sub>, k<sub>m</sub>)</pre>
+<p>which proves integrality and reduces many properties to the binomial case. The multinomial theorem follows by expanding (x₁ + ⋯ + x<sub>m</sub>)ⁿ as a sum over all words of length n: the word w contributes the monomial ∏ x<sub>wᵢ</sub>, and the number of words with letter counts (k₁, …, k<sub>m</sub>) is the multinomial coefficient. Setting all xⱼ = 1 gives ∑ C(n; k₁, …, k<sub>m</sub>) = mⁿ, and the number of distinct monomials is the number of solutions of k₁ + ⋯ + k<sub>m</sub> = n in nonnegative integers, which is C(n + m − 1, m − 1) by stars and bars.</p>
+<pre class="math">[x²y³z] (2x − y + 3z)⁶ = C(6; 2, 3, 1) · 2² · (−1)³ · 3 = 60 · (−12) = −720</pre>
+<h3>Pascal's simplex</h3>
+<p>Classifying words by their last letter gives the recurrence C(n; k₁, …, k<sub>m</sub>) = ∑ⱼ C(n − 1; k₁, …, kⱼ − 1, …, k<sub>m</sub>), with terms having a negative entry omitted. For m = 3 the coefficients of (x + y + z)ⁿ arranged in triangular layers form Pascal's pyramid (or tetrahedron); each entry is the sum of the three entries above it, the edges of each layer are rows of Pascal's triangle, and the entries of layer n with first index a form row n − a of the triangle multiplied by C(n, a), because C(n; a, b, c) = C(n, a) C(n − a, b). For general m one obtains Pascal's (m − 1)-simplex.</p>
+<h3>Maximal coefficients</h3>
+<p><strong>Proposition 10.1</strong>. For fixed n and m, C(n; k₁, …, k<sub>m</sub>) is maximal exactly when the kⱼ differ pairwise by at most 1. Proof. If kᵢ ≥ kⱼ + 2, replace (kᵢ, kⱼ) by (kᵢ − 1, kⱼ + 1); the coefficient is multiplied by kᵢ/(kⱼ + 1) &gt; 1. So a maximizer is balanced, and all balanced vectors are permutations of each other and give the same value. ∎</p>
+<pre class="math">max over (x + y + z)¹⁰:  C(10; 4, 3, 3) = 3628800 / (24 · 6 · 6) = 4200</pre>
+<h3>Arithmetic: Lucas and Kummer for multinomials</h3>
+<p><strong>Theorem 10.2</strong>. Let p be prime. (i) (Kummer for multinomials) v<sub>p</sub> C(n; k₁, …, k<sub>m</sub>) = (s<sub>p</sub>(k₁) + ⋯ + s<sub>p</sub>(k<sub>m</sub>) − s<sub>p</sub>(n))/(p − 1), and this equals the sum of all carries when k₁ + ⋯ + k<sub>m</sub> is computed in base p (a carry at one position may now exceed 1). (ii) (Lucas for multinomials) Writing kⱼ = ∑ᵢ k<sub>j,i</sub> pⁱ and n = ∑ nᵢ pⁱ, C(n; k₁, …, k<sub>m</sub>) ≡ ∏ᵢ C(nᵢ; k<sub>1,i</sub>, …, k<sub>m,i</sub>) (mod p) if k<sub>1,i</sub> + ⋯ + k<sub>m,i</sub> = nᵢ for every i, and ≡ 0 otherwise.</p>
+<p><strong>Proof</strong>. (i) Legendre's formula gives the digit-sum expression, and the carry argument of Theorem 8.2 applies verbatim to a multi-term addition: at position i, ∑ⱼ k<sub>j,i</sub> + c<sub>i−1</sub> = nᵢ + p cᵢ. (ii) By (i) the coefficient is divisible by p exactly when some carry occurs, i.e. exactly when the digit columns do not add up without carrying. If no carry occurs, the factorization into binomial coefficients and Lucas' theorem give the product formula. ∎</p>
+<pre class="math">v₂ C(12; 4, 4, 4) = 3 · s₂(4) − s₂(12) = 3 − 2 = 1      (C(12; 4, 4, 4) = 34650 = 2 · 17325)
+v₃ C(9; 3, 3, 3) = (1 + 1 + 1 − 1)/2 = 1                 (C(9; 3, 3, 3) = 1680 = 3 · 560)</pre>
+<p>Consequently, Pascal's simplex modulo p is self-similar in the same way as the triangle, and modulo 2 the pyramid gives a discrete Sierpinski tetrahedron-type fractal: the number of odd entries in layers 0 through 2ʳ − 1 is 4ʳ, since a layer n has 3<sup>s₂(n)</sup> odd entries (each binary 1 of n can be given to any of the three letters) and ∑<sub>n&lt;2ʳ</sub> 3<sup>s₂(n)</sup> = 4ʳ.</p>
+<p>Multinomial coefficients also appear as the coefficients of the multinomial distribution, and the entropy estimates of Lesson 13 extend to them: for kⱼ = pⱼn, C(n; k₁, …, k<sub>m</sub>) = exp(n H(p₁, …, p<sub>m</sub>) + O(log n)) with H the Shannon entropy in natural units.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the coefficient of a³b²c² in (a + b + c)⁷.</div></li><li><span class="mk">(b)</span><div>How many distinct monomials occur in (x + y + z + w)¹⁰?</div></li><li><span class="mk">(c)</span><div>Find the coefficient of x³yz² in (x − 2y + z)⁶.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(7; 3, 2, 2) = 5040/(6 · 2 · 2) = 210. (b) C(10 + 3, 3) = C(13, 3) = 286. (c) C(6; 3, 1, 2) · (−2) = 60 · (−2) = −120.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

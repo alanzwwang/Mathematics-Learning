@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 2</p>
+    <h1>Ideals, Noetherian Rings and Hilbert's Basis Theorem</h1>
+    <p class="kicker">Lesson 2 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">R Noetherian ⟹ R[x] Noetherian;  so every ideal of k[x₁, …, xₙ] is finitely generated</pre></div>
+<h3>Noetherian rings</h3>
+<p>A commutative ring R is Noetherian if it satisfies any of the following equivalent conditions: (i) every ideal of R is finitely generated; (ii) every ascending chain of ideals I₁ ⊆ I₂ ⊆ I₃ ⊆ ⋯ is eventually constant (the ascending chain condition); (iii) every nonempty set of ideals has a maximal element. For (i) ⟹ (ii), the union I = ⋃ Iⱼ of an ascending chain is an ideal; if I = ⟨f₁, …, f<sub>r</sub>⟩ then all fᵢ lie in some I<sub>N</sub>, and then I<sub>N</sub> = I<sub>N+1</sub> = ⋯ = I. For (ii) ⟹ (iii), a set with no maximal element would allow us to choose (by dependent choice) a strictly increasing infinite chain. For (iii) ⟹ (i), given an ideal I, choose a maximal element J among the finitely generated ideals contained in I; if f ∈ I ∖ J then J + ⟨f⟩ is a larger finitely generated ideal contained in I, a contradiction, so J = I. Fields and principal ideal domains such as ℤ and k[x] are Noetherian. The ring k[x₁, x₂, x₃, …] in infinitely many variables is not: the chain ⟨x₁⟩ ⊊ ⟨x₁, x₂⟩ ⊊ ⋯ never stabilizes.</p>
+<p>The term honours Emmy Noether, whose 1921 paper Idealtheorie in Ringbereichen showed that the ascending chain condition alone implies the primary decomposition of ideals, previously established by Lasker (1905) for polynomial rings by much more computational methods.</p>
+<p><strong>Theorem (Hilbert's basis theorem, 1890)</strong>. If R is a Noetherian ring, then so is R[x]. Consequently k[x₁, …, xₙ] and ℤ[x₁, …, xₙ] are Noetherian.</p>
+<p><strong>Proof</strong>. Let I ⊆ R[x] be an ideal and suppose, for a contradiction, that I is not finitely generated. Choose f₁ ∈ I of minimal degree. Inductively, having chosen f₁, …, f<sub>k</sub>, the ideal ⟨f₁, …, f<sub>k</sub>⟩ is not all of I, so we may choose f<sub>k+1</sub> ∈ I ∖ ⟨f₁, …, f<sub>k</sub>⟩ of minimal degree. Let dᵢ = deg fᵢ and let aᵢ ∈ R be the leading coefficient of fᵢ. By construction d₁ ≤ d₂ ≤ d₃ ≤ ⋯, since f<sub>k+1</sub> was also a candidate at each earlier step. The chain of ideals ⟨a₁⟩ ⊆ ⟨a₁, a₂⟩ ⊆ ⋯ of R stabilizes because R is Noetherian, so for some N we have a<sub>N+1</sub> = ∑<sub>i=1</sub><sup>N</sup> rᵢ aᵢ with rᵢ ∈ R. Put D = d<sub>N+1</sub> and consider</p>
+<pre class="math">g = f<sub>N+1</sub> − ∑<sub>i=1</sub><sup>N</sup> rᵢ x<sup>D − dᵢ</sup> fᵢ</pre>
+<p>The subtracted sum lies in ⟨f₁, …, f<sub>N</sub>⟩ and has leading term (∑ rᵢaᵢ) x<sup>D</sup> = a<sub>N+1</sub> x<sup>D</sup>, so deg g &lt; D. But g ∈ I ∖ ⟨f₁, …, f<sub>N</sub>⟩, since otherwise f<sub>N+1</sub> would lie in ⟨f₁, …, f<sub>N</sub>⟩. This contradicts the minimality of deg f<sub>N+1</sub>. The statement for several variables follows by induction, because R[x₁, …, xₙ] = R[x₁, …, xₙ₋₁][xₙ]. ∎</p>
+<p>Hilbert's original proof (in his work on invariant theory) was famously non-constructive; Gordan's reported reaction, &quot;Das ist nicht Mathematik, das ist Theologie&quot;, reflects the novelty of proving that a finite basis exists without exhibiting one. Effective versions came later through Gröbner bases (Buchberger, 1965), which give an algorithm for ideal membership in k[x₁, …, xₙ].</p>
+<h3>Geometric consequences</h3>
+<p><strong>Corollary 1</strong>. Every algebraic set is the zero locus of finitely many polynomials: V(S) = V(⟨S⟩) = V(f₁, …, f<sub>r</sub>) for generators fᵢ of ⟨S⟩. Indeed one may take the fᵢ from S itself, since the finitely many generators are combinations of finitely many elements of S.</p>
+<p><strong>Corollary 2</strong>. Every descending chain of algebraic sets X₁ ⊇ X₂ ⊇ ⋯ in 𝔸ⁿ is eventually constant. Indeed I(X₁) ⊆ I(X₂) ⊆ ⋯ is an ascending chain of ideals, which stabilizes, and Xⱼ = V(I(Xⱼ)).</p>
+<h3>Computing radicals in examples</h3>
+<p>In k[x, y], the ideal ⟨x², xy⟩ is not radical: x ∉ ⟨x², xy⟩ (every element of the ideal has all its terms of total degree at least 2) although x² ∈ ⟨x², xy⟩. In fact √⟨x², xy⟩ = ⟨x⟩. To see this, note ⟨x²⟩ ⊆ ⟨x², xy⟩ ⊆ ⟨x⟩ and take radicals: ⟨x⟩ = √⟨x²⟩ ⊆ √⟨x², xy⟩ ⊆ √⟨x⟩ = ⟨x⟩, the last because ⟨x⟩ is prime. Geometrically V(x², xy) = V(x), the y-axis; the ideal ⟨x², xy⟩ carries extra &quot;infinitesimal&quot; information at the origin which the set forgets. Lesson 13 explains how schemes remember it.</p>
+<p>A monomial ideal is one generated by monomials. Its radical is generated by the radicals of the generators: for example √⟨x³, y²⟩ = ⟨x, y⟩ and √⟨x²y⟩ = ⟨xy⟩. More generally, for any f with irreducible factorization f = ∏ fᵢ<sup>eᵢ</sup>, unique factorization gives √⟨f⟩ = ⟨∏ fᵢ⟩.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that the ideal ⟨x, y⟩ ⊂ k[x, y] is not principal.</div></li><li><span class="mk">(b)</span><div>Find the smallest N with (x + y)ᴺ ∈ ⟨x², y³⟩ in ℚ[x, y].</div></li><li><span class="mk">(c)</span><div>Is the ring of continuous functions C([0, 1], ℝ) Noetherian?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) If ⟨x, y⟩ = ⟨g⟩ then g divides both x and y, so g is a nonzero constant (x and y are non-associate irreducibles), making ⟨x, y⟩ = k[x, y]; but every element of ⟨x, y⟩ vanishes at the origin, so 1 ∉ ⟨x, y⟩. (b) A monomial xⁱyᴺ⁻ⁱ lies in ⟨x², y³⟩ iff i ≥ 2 or N − i ≥ 3. For N = 3 the term 3xy² fails (i = 1, N − i = 2); for N = 4 every i works (i ≤ 1 gives N − i ≥ 3). Since the binomial coefficients are nonzero in characteristic 0, N = 4. (c) No: the ideals Iⱼ = { f : f vanishes on [0, 1/j] } form a strictly ascending chain I₁ ⊊ I₂ ⊊ ⋯ (a continuous function vanishing on [0, 1/(j+1)] but positive at 1/j lies in I<sub>j+1</sub> ∖ Iⱼ).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

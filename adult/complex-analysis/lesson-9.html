@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: The Residue Theorem — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 9</p>
+    <h1>The Residue Theorem</h1>
+    <p class="kicker">Lesson 9 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">If f is holomorphic on U except at isolated singularities a₁, …, aₖ,
+and γ is a closed path in U \ {a₁, …, aₖ} with n(γ, z) = 0 for all z ∉ U, then
+      ∮<sub>γ</sub> f(z) dz = 2πi ∑ n(γ, aⱼ) Res(f, aⱼ).</pre></div>
+<h3>The theorem</h3>
+<p><strong>Theorem 9.1 (Cauchy's residue theorem, 1831)</strong>. Under the hypotheses of the key idea, the integral of f over γ equals 2πi times the sum of the residues, each weighted by the winding number.</p>
+<p><strong>Proof</strong>. Let Pⱼ(z) be the principal part of f at aⱼ, a series in negative powers of z − aⱼ converging on ℂ \ {aⱼ}. Then g = f − P₁ − … − Pₖ has only removable singularities, so after removing them it is holomorphic on U, and ∮<sub>γ</sub> g dz = 0 by the homology form of Cauchy's theorem. Integrating each Pⱼ term by term, every power (z − aⱼ)<sup>−n</sup> with n ≥ 2 has a primitive and contributes nothing, while c₋₁(z − aⱼ)⁻¹ contributes 2πi n(γ, aⱼ) Res(f, aⱼ).</p>
+<p>For a positively oriented simple closed curve, such as a circle or the boundary of a rectangle, the winding numbers are 1 for points inside and 0 for points outside, and the formula reduces to 2πi times the sum of the residues inside.</p>
+<h3>Computing residues</h3>
+<p>Residues are local, and in practice one rarely computes a full Laurent series. The standard rules are:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>If a is a simple pole, Res(f, a) = lim (z − a) f(z) as z → a.</div></li><li><span class="mk">2.</span><div>If f = g/h with g, h holomorphic at a, g(a) ≠ 0, h(a) = 0 and h′(a) ≠ 0, then Res(f, a) = g(a)/h′(a).</div></li><li><span class="mk">3.</span><div>If a is a pole of order at most m, then Res(f, a) = (1/(m − 1)!) lim d<sup>m−1</sup>/dz<sup>m−1</sup> [(z − a)ᵐ f(z)] as z → a.</div></li><li><span class="mk">4.</span><div>If f has a known Laurent expansion, read off c₋₁; this is the only option at an essential singularity.</div></li></ul>
+<p>Examples. At z = i, the function e<sup>z</sup>/(z² + 1) has the simple pole with residue e<sup>i</sup>/(2i) by rule 2. The function 1/(z² + 1)² has a double pole at i, and by rule 3 its residue is the derivative of (z + i)⁻² at i, namely −2(2i)⁻³ = −2/(−8i) = 1/(4i) = −i/4. The function π cot(πz) has a simple pole at every integer n with residue π cos(πn)/(π cos(πn)) = 1, and π/sin(πz) has residue (−1)ⁿ at n; these two facts are the engine of the summation method in Lesson 10. The function e<sup>1/z</sup> has residue 1 at its essential singularity 0, read off from its Laurent series.</p>
+<h3>Worked integrals</h3>
+<p><strong>Example</strong>. Compute ∮ over |z| = 3 of e<sup>z</sup>/(z(z − 2)) dz. Both poles lie inside; Res at 0 is e⁰/(0 − 2) = −1/2 and Res at 2 is e²/2, so the integral is 2πi(e² − 1)/2 = πi(e² − 1).</p>
+<p><strong>Example</strong>. Compute ∮ over |z| = 2 of z/(z⁴ − 1) dz. The four simple poles ±1, ±i all lie inside. By rule 2 the residue at a pole a is a/(4a³) = 1/(4a²), and the sum over a = 1, −1, i, −i is (1 + 1 − 1 − 1)/4 = 0. So the integral is 0.</p>
+<h3>The residue at infinity</h3>
+<p>If f is holomorphic for |z| &gt; R, define Res(f, ∞) = −(1/2πi) ∮ over |z| = ρ of f dz for any ρ &gt; R, equivalently minus the coefficient of 1/z in the Laurent expansion valid near ∞. The minus sign makes the following statement true: if f is holomorphic on ℂ except at finitely many points, the sum of all its residues, including the one at ∞, is zero. This often shortens computations dramatically. In the last example, z/(z⁴ − 1) = z⁻³ + z⁻⁷ + … near ∞ has no 1/z term, so the residue at ∞ is 0 and the integral over any circle enclosing all four poles vanishes without computing a single finite residue. Similarly ∮ over |z| = 2 of z¹⁰/(z¹¹ − 1) dz = 2πi, because z¹⁰/(z¹¹ − 1) = 1/z + z⁻¹² + … near ∞.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find Res(z/(z² − 3z + 2), 2).</div></li><li><span class="mk">(b)</span><div>Find Res(e<sup>2z</sup>/(z − 1)³, 1).</div></li><li><span class="mk">(c)</span><div>Compute ∮ over |z − 2i| = 2 of dz/(z² + 9).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) z² − 3z + 2 = (z − 1)(z − 2), so the residue is 2/(2 − 1) = 2. (b) By rule 3 with m = 3, the residue is (1/2) · (d²/dz²) e<sup>2z</sup> at 1 = (1/2) · 4e² = 2e². (c) The poles are ±3i; only 3i lies inside, since |3i − 2i| = 1 &lt; 2 while |−3i − 2i| = 5. The residue there is 1/(6i), so the integral is 2πi/(6i) = π/3.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

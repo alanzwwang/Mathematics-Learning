@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Primality Testing and the RSA Cryptosystem — Number Theory (Advanced)</title>
+<meta name="description" content="Congruences, primitive roots, quadratic reciprocity, arithmetic functions, the primes, Pell's equation and RSA.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../number-theory/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Number Theory</a> › Lesson 13</p>
+    <h1>Primality Testing and the RSA Cryptosystem</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Divisibility, the Euclidean Algorithm and Bézout's Identity">1</a><a href="lesson-2.html" title="Lesson 2: Primes and the Fundamental Theorem of Arithmetic">2</a><a href="lesson-3.html" title="Lesson 3: Congruences and the Ring ℤ/nℤ">3</a><a href="lesson-4.html" title="Lesson 4: The Theorems of Fermat, Euler and Wilson">4</a><a href="lesson-5.html" title="Lesson 5: The Chinese Remainder Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Primitive Roots and the Structure of (ℤ/nℤ)×">6</a><a href="lesson-7.html" title="Lesson 7: Quadratic Residues and the Legendre Symbol">7</a><a href="lesson-8.html" title="Lesson 8: The Law of Quadratic Reciprocity">8</a><a href="lesson-9.html" title="Lesson 9: Arithmetic Functions, Dirichlet Convolution and Möbius Inversion">9</a><a href="lesson-10.html" title="Lesson 10: The Distribution of Primes">10</a><a href="lesson-11.html" title="Lesson 11: Sums of Two Squares and Pythagorean Triples">11</a><a href="lesson-12.html" title="Lesson 12: Continued Fractions and Pell's Equation">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Primality Testing and the RSA Cryptosystem">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">If n is prime and n − 1 = 2ˢd with d odd, then a<sup>d</sup> ≡ 1 or a<sup>2ʳd</sup> ≡ −1 (mod n) for some 0 ≤ r &lt; s.</pre></div>
+<h3>The strong probable-prime test</h3>
+<p>Gauss wrote in the Disquisitiones that &quot;the problem of distinguishing prime numbers from composite numbers and of resolving the latter into their prime factors is known to be one of the most important and useful in arithmetic.&quot; Trial division to √n is exponential in the number of digits. Fermat's theorem gives a fast necessary condition, but Carmichael numbers defeat it. The fix uses the fact that modulo a prime, 1 has only the square roots ±1.</p>
+<p><strong>Theorem 13.1</strong>. Let n be an odd prime, n − 1 = 2ˢd with d odd, and n ∤ a. Then either a<sup>d</sup> ≡ 1 (mod n), or a<sup>2ʳd</sup> ≡ −1 (mod n) for some r with 0 ≤ r &lt; s.</p>
+<p><strong>Proof</strong>. Consider the sequence a<sup>d</sup>, a<sup>2d</sup>, a<sup>4d</sup>, …, a<sup>2ˢd</sup> = a<sup>n−1</sup> ≡ 1, each term the square of the previous. If the first term is not 1, let a<sup>2ʳd</sup> be the last term that is not 1; its square is 1, so it is a square root of 1 other than 1, hence −1 (Theorem 3.3). ∎</p>
+<p>A composite n satisfying this condition for the base a is a strong pseudoprime to base a, and a is a strong liar for n. The Miller–Rabin test (Miller 1976, Rabin 1980) chooses random bases and declares n composite as soon as one base fails. Its power comes from the following theorem.</p>
+<p><strong>Theorem 13.2 (Monier; Rabin, 1980)</strong>. If n &gt; 9 is an odd composite, at most φ(n)/4 of the bases 1 ≤ a &lt; n are strong liars.</p>
+<p>We prove the easier fact that if n is not a Carmichael number, at most half of the units are even Fermat liars. The set H = {a ∈ (ℤ/nℤ)× : a<sup>n−1</sup> = 1} is a subgroup, and it is proper because n is not a Carmichael number. By Lagrange's theorem |H| divides φ(n) and is therefore at most φ(n)/2. The full theorem handles Carmichael numbers using the CRT: since such n has at least two distinct prime factors, one can construct units whose powers a<sup>2ʳd</sup> are ≡ −1 modulo one prime factor and ≡ 1 modulo another, and these are never strong liars. Consequently k independent random bases wrongly certify a composite with probability at most 4⁻ᵏ.</p>
+<p><strong>Worked example</strong>: n = 561, a = 2. Here 560 = 2⁴ · 35. Computing,</p>
+<pre class="math">2³⁵ ≡ 263,   263² ≡ 166,   166² ≡ 67,   67² ≡ 1   (mod 561).</pre>
+<p>The sequence never reaches −1 ≡ 560 before reaching 1, so 561 is composite; 2 is a Fermat liar but not a strong liar. Moreover 67 is a non-trivial square root of 1, which reveals factors: gcd(67 − 1, 561) = 33 and gcd(67 + 1, 561) = 17.</p>
+<p>Strong pseudoprimes exist: the smallest to base 2 is 2047 = 23 · 89, since 2046 = 2 · 1023 and 2¹¹ = 2048 ≡ 1 gives 2¹⁰²³ = (2¹¹)⁹³ ≡ 1. But base 3 exposes it (3¹⁰²³ ≡ 1565 ≢ ±1 (mod 2047)). Testing the bases 2, 3, 5, 7 is deterministic for n &lt; 3 215 031 751, and the first twelve primes as bases suffice for n &lt; 3.18 · 10²³. Assuming the generalised Riemann hypothesis, testing all bases a ≤ 2(log n)² is a deterministic polynomial-time test (Miller; Bach, 1990).</p>
+<h3>Deterministic and certifying methods</h3>
+<p>Agrawal, Kayal and Saxena (2002) found the first unconditional deterministic polynomial-time primality test, based on the polynomial congruence (x + a)ⁿ ≡ xⁿ + a modulo (n, x<sup>r</sup> − 1) for suitable small r; Lenstra and Pomerance reduced its running time to Õ((log n)⁶). In practice probabilistic tests are faster. For numbers of special form there are classical tests: Pépin's test for Fermat numbers (Lesson 8), and the Lucas–Lehmer test for Mersenne numbers: with s₀ = 4 and sₖ₊₁ = sₖ² − 2, the number Mₚ = 2ᵖ − 1 (p an odd prime) is prime if and only if Mₚ | sₚ₋₂. For p = 5, M₅ = 31 and s₁ = 14, s₂ = 194 ≡ 8, s₃ ≡ 62 ≡ 0 (mod 31). The largest known primes are Mersenne primes because of this test. Elliptic curve primality proving (ECPP) produces certificates that can be checked much faster than they are found.</p>
+<h3>The RSA cryptosystem</h3>
+<p>Rivest, Shamir and Adleman published their public-key system in 1977 (it had been found in 1973 by Clifford Cocks at GCHQ, but kept secret). Key generation: choose large primes p ≠ q, let n = pq, choose e with gcd(e, φ(n)) = 1, and compute d ≡ e⁻¹ (mod φ(n)) by the extended Euclidean algorithm. The public key is (n, e) and the private key is d. A message m ∈ ℤ/nℤ is encrypted as c = mᵉ mod n and decrypted as cᵈ mod n.</p>
+<p><strong>Theorem 13.3</strong>. For every m ∈ ℤ/nℤ (whether or not gcd(m, n) = 1), (mᵉ)ᵈ ≡ m (mod n).</p>
+<p><strong>Proof</strong>. Write ed = 1 + kφ(n) = 1 + k(p − 1)(q − 1). Modulo p: if p | m both sides are 0; otherwise m<sup>ed</sup> = m · (m<sup>p−1</sup>)<sup>k(q−1)</sup> ≡ m by Fermat. Similarly modulo q. By the CRT the congruence holds modulo n = pq. ∎</p>
+<p>The same proof works with the Carmichael function λ(n) = lcm(p − 1, q − 1) in place of φ(n), giving a smaller decryption exponent.</p>
+<p><strong>Worked example</strong>: p = 61, q = 53, so n = 3233 and φ(n) = 60 · 52 = 3120. Take e = 17; the extended Euclidean algorithm gives d = 2753, since 17 · 2753 = 46801 = 15 · 3120 + 1. The message m = 65 encrypts to c = 65¹⁷ mod 3233 = 2790, and 2790²⁷⁵³ mod 3233 = 65.</p>
+<h3>Security</h3>
+<p>Anyone who can factor n can compute φ(n) and then d. Conversely, knowing φ(n) reveals the factors (p + q = n − φ(n) + 1 and pq = n, so p and q are the roots of a quadratic), and knowing d also allows n to be factored by a randomised algorithm that hunts for non-trivial square roots of 1, exactly as in the Miller–Rabin example above. Whether breaking RSA (recovering m from c without d) is as hard as factoring is open. The best known classical factoring algorithm is the general number field sieve, with heuristic running time</p>
+<pre class="math">exp((64/9)<sup>1/3</sup> (log n)<sup>1/3</sup> (log log n)<sup>2/3</sup> (1 + o(1))),</pre>
+<p>which has factored RSA-250, a number of 829 bits, in 2020. Practical RSA uses moduli of 2048 bits or more, randomised padding (textbook RSA is deterministic and malleable), and the CRT for fast decryption. Shor's quantum algorithm factors in polynomial time, which is why post-quantum schemes based on lattices were standardised by NIST in 2024.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Run one round of Miller–Rabin on n = 91 with base 2.</div></li><li><span class="mk">(b)</span><div>In RSA with p = 5, q = 11 and e = 3, find d, encrypt m = 7, and decrypt.</div></li><li><span class="mk">(c)</span><div>An RSA modulus n = 3233 has φ(n) = 3120. Factor n.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 90 = 2 · 45. 2⁴⁵ ≡ 57 (mod 91), which is not ±1; squaring, 57² = 3249 = 35 · 91 + 64, so 2⁹⁰ ≡ 64 ≢ −1. Hence 91 is composite (indeed 91 = 7 · 13); here even the Fermat test detects it since 2⁹⁰ ≢ 1. (b) φ(55) = 40 and 3 · 27 = 81 ≡ 1 (mod 40), so d = 27. Encryption: 7³ = 343 = 6 · 55 + 13, so c = 13. Decryption: 13²⁷ ≡ 7 (mod 55). (c) p + q = 3233 − 3120 + 1 = 114 and pq = 3233, so p, q are the roots of t² − 114t + 3233 = 0: t = (114 ± √(12996 − 12932))/2 = (114 ± 8)/2, giving 61 and 53.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

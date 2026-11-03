@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Galois Theory — The Fundamental Correspondence — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 11</p>
+    <h1>Galois Theory — The Fundamental Correspondence</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">L/K Galois with group G  ⟹  {subgroups H ≤ G}  ⟷  {fields K ⊆ E ⊆ L}
+H ↦ L<sup>H</sup>,   E ↦ Gal(L/E),   [L : E] = |H|,   E/K normal ⟺ H ⊴ G</pre></div>
+<p>Galois's idea was to measure an equation by the symmetries of its roots: the permutations of the roots that preserve every algebraic relation among them with coefficients in the base field. In modern language these are the field automorphisms of the splitting field that fix the base field.</p>
+<h3>Automorphisms and Galois extensions</h3>
+<p>For an extension L/K, Gal(L/K) (also written Aut(L/K)) is the group of field automorphisms of L fixing K pointwise. If L = K(α₁, …, αₙ) is the splitting field of f, an automorphism σ is determined by its values on the αᵢ, and σ(αᵢ) is again a root of f, since f(σ(αᵢ)) = σ(f(αᵢ)) = 0. So Gal(L/K) embeds in the symmetric group Sₙ on the roots. The extension-counting remark after Theorem 10.2 shows |Gal(L/K)| ≤ [L : K].</p>
+<p>A finite extension L/K is called Galois if |Gal(L/K)| = [L : K]. The following are equivalent: L/K is Galois; L is the splitting field of a separable polynomial over K (one with distinct roots); L/K is normal (every irreducible polynomial over K with one root in L splits in L) and separable; the fixed field of Gal(L/K) is exactly K. In characteristic 0 separability is automatic (Lesson 2), so a Galois extension is simply a splitting field. The key ingredient, Artin's theorem, states that if G is a finite group of automorphisms of a field L, then [L : L<sup>G</sup>] = |G|, where L<sup>G</sup> is the fixed field. Its proof uses Dedekind's lemma that distinct field homomorphisms are linearly independent.</p>
+<p><strong>Theorem 11.1 (Fundamental theorem of Galois theory)</strong>. Let L/K be a finite Galois extension with group G. Then the maps H ↦ L<sup>H</sup> and E ↦ Gal(L/E) are mutually inverse, inclusion-reversing bijections between subgroups of G and intermediate fields K ⊆ E ⊆ L. Moreover [L : E] = |Gal(L/E)| and [E : K] = [G : Gal(L/E)]; E/K is Galois if and only if Gal(L/E) is normal in G, and then Gal(E/K) ≅ G/Gal(L/E).</p>
+<p><strong>Proof outline</strong>. For an intermediate field E, L is still the splitting field over E of the same separable polynomial, so L/E is Galois and L<sup>Gal(L/E)</sup> = E. For a subgroup H, Artin's theorem gives [L : L<sup>H</sup>] = |H|; since H ⊆ Gal(L/L<sup>H</sup>) and the latter has order [L : L<sup>H</sup>], equality holds. This proves the bijection and the degree formulas. For σ ∈ G, σ maps E to σ(E) and Gal(L/σE) = σ Gal(L/E) σ⁻¹. So E is stable under all of G if and only if Gal(L/E) is normal; stability is equivalent to normality of E/K, and restriction σ ↦ σ|<sub>E</sub> gives the surjection G → Gal(E/K) with kernel Gal(L/E). ∎</p>
+<h3>Examples</h3>
+<p>The biquadratic field. L = ℚ(√2, √3) has degree 4, and the automorphisms are determined by √2 ↦ ±√2, √3 ↦ ±√3, all four of which occur. So G ≅ C₂ × C₂, with three subgroups of order 2, corresponding to the three quadratic subfields ℚ(√3), ℚ(√2) and ℚ(√6) (fixed respectively by √2 ↦ −√2, by √3 ↦ −√3, and by changing both signs).</p>
+<p>The splitting field of x³ − 2. Here [L : ℚ] = 6 and G embeds in S₃, so G ≅ S₃, acting on the roots ∛2, ω∛2, ω²∛2. The three subgroups of order 2 (transpositions) fix the three non-normal cubic fields ℚ(∛2), ℚ(ω∛2), ℚ(ω²∛2), and the normal subgroup A₃ fixes the normal quadratic field ℚ(ω) = ℚ(√−3). The non-normality of ℚ(∛2) matches the fact that the transposition subgroups are not normal in S₃.</p>
+<p>Finite fields. Gal(𝔽<sub>pⁿ</sub>/𝔽ₚ) is cyclic of order n, generated by the Frobenius automorphism φ(x) = xᵖ. Its subgroups correspond to the subfields 𝔽<sub>pᵈ</sub> for d | n, one for each divisor.</p>
+<p>Cyclotomic fields. Gal(ℚ(ζₙ)/ℚ) ≅ (ℤ/nℤ)ˣ, the class of a corresponding to ζₙ ↦ ζₙᵃ; this needs the irreducibility of the cyclotomic polynomial Φₙ (Gauss for n prime; Kronecker and Dedekind in general). In particular ℚ(ζₚ)/ℚ is cyclic of degree p − 1, and Gauss's construction of the regular 17-gon is the descent through a chain of subgroups of the cyclic group of order 16.</p>
+<h3>Galois groups of cubics</h3>
+<p>Let f ∈ K[x] (char K ≠ 2) be separable of degree n with roots α₁, …, αₙ, and let δ = ∏<sub>i&lt;j</sub>(αᵢ − αⱼ), so δ² = Disc(f)/aₙ<sup>2n−2</sup>. A permutation σ ∈ Sₙ maps δ to sgn(σ)δ. Since δ ≠ 0 and char K ≠ 2, δ is fixed by Gal(f) exactly when Gal(f) ⊆ Aₙ. By the Galois correspondence:</p>
+<pre class="math">Gal(f) ⊆ Aₙ   ⟺   δ ∈ K   ⟺   Disc(f) is a square in K</pre>
+<p>For an irreducible cubic over ℚ, Gal(f) is a transitive subgroup of S₃, hence A₃ or S₃, and the discriminant decides which. For x³ − 3x + 1, Disc = −4(−3)³ − 27 = 108 − 27 = 81 = 9², so the group is cyclic of order 3 and all three roots lie in ℚ of any one of them. Indeed, putting x = 2cos θ turns the equation into 2cos 3θ = −1, so the roots are 2cos(2π/9), 2cos(4π/9), 2cos(8π/9), and 2cos(4π/9) = (2cos(2π/9))² − 2 expresses one root polynomially in another. For x³ − 2, Disc = −108 is not a square and the group is S₃.</p>
+<p>Irreducibility is transitivity. The Galois group of a separable f acts transitively on the roots if and only if f is irreducible: the orbit of a root α under Gal(f) consists of roots of m<sub>α</sub>, and conversely any two roots of an irreducible polynomial are related by some automorphism of the splitting field (Theorem 10.2(ii)).</p>
+<h3>Artin's algebraic proof of the fundamental theorem of algebra</h3>
+<p>We sketch it. It suffices to show that ℂ has no proper finite extension. Let L be a finite Galois extension of ℝ containing ℂ, with group G, and let P be a Sylow 2-subgroup. The fixed field L<sup>P</sup> has odd degree [G : P] over ℝ; by the primitive element theorem it is ℝ(α), and the minimal polynomial of α has odd degree, hence a real root, hence degree 1. So G = P is a 2-group. Then Gal(L/ℂ) is a 2-group; if it were nontrivial it would have a subgroup of index 2, giving a quadratic extension of ℂ. But every complex quadratic has roots in ℂ, because every complex number has a complex square root. So L = ℂ.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Determine the Galois group of x³ − 4x + 2 over ℚ.</div></li><li><span class="mk">(b)</span><div>List all subfields of ℚ(ζ₈), where ζ₈ = e<sup>2πi/8</sup>.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) It is Eisenstein at 2, hence irreducible. Disc = −4(−4)³ − 27 · 2² = 256 − 108 = 148, which is not a perfect square (12² = 144, 13² = 169). So the Galois group is S₃. (Since 148 &gt; 0, all three roots are real.) (b) ζ₈ = (1 + i)/√2, so ℚ(ζ₈) = ℚ(i, √2), of degree 4 with group (ℤ/8ℤ)ˣ ≅ C₂ × C₂. Its subfields are ℚ, ℚ(i), ℚ(√2), ℚ(√−2) and ℚ(ζ₈) itself: five in all.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: A Glimpse of Schemes — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 13</p>
+    <h1>A Glimpse of Schemes</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Spec A = { prime ideals of A },  closed sets V(𝔞) = { 𝔭 ⊇ 𝔞 },  functions = elements of A</pre></div>
+<h3>Why generalize</h3>
+<p>The dictionary of Lesson 5 identifies affine varieties over k = k̄ with reduced finitely generated k-algebras, and points with maximal ideals. Three limitations suggest going further. First, non-reduced ideals such as ⟨x², y⟩ carry real geometric information (the tangency recorded by intersection multiplicity) that the set V(x², y) forgets. Second, arithmetic questions concern rings like ℤ or ℤ[i], which are not algebras over a field at all. Third, it is natural to want every ring homomorphism to give a map of spaces, but the preimage of a maximal ideal need not be maximal (the preimage of the maximal ideal 0 ⊂ ℚ under ℤ → ℚ is the prime ideal 0 ⊂ ℤ), whereas the preimage of a prime ideal is always prime. Grothendieck's theory of schemes, developed in the Éléments de géométrie algébrique (with Dieudonné, 1960–67), resolves all three by using all prime ideals of an arbitrary commutative ring.</p>
+<h3>The spectrum of a ring</h3>
+<p>For a commutative ring A, the spectrum Spec A is the set of prime ideals of A. Its Zariski topology has closed sets V(𝔞) = { 𝔭 : 𝔭 ⊇ 𝔞 } for ideals 𝔞, and a basis of open sets D(f) = { 𝔭 : f ∉ 𝔭 }. An element f ∈ A is thought of as a function on Spec A whose value at 𝔭 is the image of f in the residue field κ(𝔭) = Frac(A/𝔭). A ring homomorphism φ: A → B induces a continuous map Spec B → Spec A, 𝔮 ↦ φ⁻¹(𝔮). Spec A carries a sheaf of rings 𝒪 with 𝒪(D(f)) = A<sub>f</sub>, the localization; an affine scheme is a space of this form, and a scheme is a space locally isomorphic to affine schemes. The functor A ↦ Spec A is an anti-equivalence between commutative rings and affine schemes, with no hypotheses at all.</p>
+<h3>Examples</h3>
+<p>Spec ℂ[x]. The primes are ⟨x − a⟩ for a ∈ ℂ, the closed points, and the zero ideal ⟨0⟩. The closure of ⟨0⟩ is everything, since every prime contains 0: it is the generic point of the line, a point that lies &quot;everywhere at once&quot; and whose residue field is the function field ℂ(x).</p>
+<p>Spec ℝ[x]. The closed points are ⟨x − a⟩ for a ∈ ℝ and ⟨x² + bx + c⟩ with b² &lt; 4c; the latter correspond to pairs of complex conjugate points, with residue field ℂ. So Spec ℝ[x] is the complex line folded by complex conjugation, plus a generic point.</p>
+<p>Spec ℤ. The points are ⟨p⟩ for p prime, with residue fields 𝔽<sub>p</sub>, and the generic point ⟨0⟩ with residue field ℚ. The ring ℤ behaves like the coordinate ring of a curve, and an integer n is a &quot;function&quot; whose value at ⟨p⟩ is n mod p; it vanishes exactly at the primes dividing n.</p>
+<p>Spec ℤ[i]. The inclusion ℤ → ℤ[i] gives a map Spec ℤ[i] → Spec ℤ, and the fiber over ⟨p⟩ is Spec 𝔽<sub>p</sub>[x]/⟨x² + 1⟩. Over p = 2, x² + 1 = (x + 1)² in 𝔽₂[x], so the fiber is a single non-reduced point: the prime 2 ramifies, 2 = −i(1 + i)². Over primes p ≡ 1 mod 4, x² + 1 has two roots mod p and the fiber consists of two points: p splits, as 5 = (2 + i)(2 − i). Over primes p ≡ 3 mod 4, x² + 1 is irreducible and the fiber is one point with residue field 𝔽<sub>p²</sub>: p is inert. This is the geometric form of Fermat's theorem on sums of two squares: an odd prime is x² + y² exactly when it splits in ℤ[i].</p>
+<p>Spec ℤ[x]. This is an arithmetic surface: its points include the generic point ⟨0⟩, the &quot;horizontal curves&quot; ⟨f⟩ for irreducible f ∈ ℤ[x], the &quot;vertical fibers&quot; ⟨p⟩ ≅ Spec 𝔽<sub>p</sub>[x], and closed points ⟨p, g⟩ with g irreducible mod p. Mumford's famous drawing of Spec ℤ[x] in his Red Book shows it as a plane fibered over Spec ℤ.</p>
+<h3>Nilpotents</h3>
+<p>Spec k[ε]/⟨ε²⟩ has one point, but its ring of functions contains the nonzero nilpotent ε. It is a point equipped with a tangent direction: a morphism Spec k[ε]/⟨ε²⟩ → X is the same as a point of X together with a tangent vector at it (Problem 58). Similarly, the scheme-theoretic intersection of the parabola y = x² with the line y = 0 is Spec k[x, y]/⟨y − x², y⟩ = Spec k[x]/⟨x²⟩, a double point, and its length 2 is precisely the intersection multiplicity of Lesson 9. In the language of schemes, Bézout's theorem says that the intersection of two plane curves without common components is a finite scheme of length mn.</p>
+<h3>Where this leads</h3>
+<p>The theory of schemes made it possible to transport topological intuition into number theory. Weil had conjectured in 1949 that the numbers of points of varieties over finite fields are governed by a cohomology theory with the formal properties of singular cohomology; Grothendieck, Artin and their school constructed étale cohomology, and Deligne used it to prove the last of the Weil conjectures, the analogue of the Riemann hypothesis, in 1974. Faltings's proof of the Mordell conjecture and Wiles's proof of Fermat's Last Theorem are both theorems of arithmetic geometry written in this language. The elementary objects of this course, plane curves over ℚ, remain at the center: the Birch and Swinnerton-Dyer conjecture about the elliptic curves of Lesson 11 is one of the Clay Millennium Problems.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>List the points of Spec ℤ/12ℤ.</div></li><li><span class="mk">(b)</span><div>Describe the fiber of Spec ℤ[i] → Spec ℤ over ⟨13⟩.</div></li><li><span class="mk">(c)</span><div>Show that Spec k[x]/⟨x²⟩ and Spec k have the same underlying topological space but are not isomorphic as schemes.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The primes of ℤ/12ℤ correspond to primes of ℤ containing 12, namely ⟨2⟩ and ⟨3⟩: two points. (b) 13 ≡ 1 mod 4, and x² + 1 ≡ (x − 5)(x + 5) mod 13 since 25 = 26 − 1. So the fiber consists of two points, and 13 = (3 + 2i)(3 − 2i). (c) Both rings have exactly one prime ideal (⟨x⟩, respectively 0), so both spaces are a single point. But k[x]/⟨x²⟩ has the nonzero nilpotent x, while k is a field, so the rings are not isomorphic and, by the anti-equivalence, neither are the schemes.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

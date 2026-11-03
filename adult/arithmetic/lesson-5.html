@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Division Algorithm and Euclidean Domains — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 5</p>
+    <h1>The Division Algorithm and Euclidean Domains</h1>
+    <p class="kicker">Lesson 5 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For a ∈ ℤ and b &gt; 0 there are unique q, r ∈ ℤ with a = qb + r and 0 ≤ r &lt; b.
+Iterating it computes gcd(a, b) and integers x, y with ax + by = gcd(a, b).
+A Euclidean domain is an integral domain with such a division; every one is a PID and a UFD.</pre></div>
+<h3>The division algorithm</h3>
+<p><strong>Theorem 5.1 (Division with remainder)</strong>. Let a, b ∈ ℤ with b &gt; 0. There exist unique integers q and r such that a = qb + r and 0 ≤ r &lt; b.</p>
+<p><strong>Proof</strong>. Existence: the set E = {a − kb : k ∈ ℤ, a − kb ≥ 0} is nonempty (take k = −|a|, which gives a + |a|b ≥ a + |a| ≥ 0), so by well ordering it has a least element r = a − qb ≥ 0. If r ≥ b then r − b = a − (q + 1)b ∈ E is smaller, a contradiction; so 0 ≤ r &lt; b. Uniqueness: if qb + r = q′b + r′ with both remainders in [0, b), then b|q − q′| = |r′ − r| &lt; b, which forces q = q′ and then r = r′. ∎</p>
+<p>The quotient is q = ⌊a/b⌋. For negative a the remainder is still nonnegative: −47 = (−8)·6 + 1. Many programming languages instead truncate the quotient toward zero, giving −47 = (−7)·6 − 5; the C99 standard fixed this truncating convention for the operators / and %, which is why −47 % 6 evaluates to −5 in C, Java and JavaScript but to 1 in Python, whose % follows the floor convention.</p>
+<h3>Greatest common divisors</h3>
+<p>For integers a, b not both zero, gcd(a, b) is the largest integer dividing both. The key observation is that if a = qb + r then the common divisors of (a, b) and of (b, r) coincide, because any common divisor of two of a, b, r divides the third. Hence gcd(a, b) = gcd(b, r), and repeating the division until the remainder vanishes yields the gcd as the last nonzero remainder. This is Euclid's algorithm (Elements, Book VII, Propositions 1–2, c. 300 BC).</p>
+<p><strong>Theorem 5.2 (Bézout's identity)</strong>. For a, b ∈ ℤ not both zero, there are x, y ∈ ℤ with ax + by = gcd(a, b). Moreover gcd(a, b) is the least positive element of the set aℤ + bℤ, and aℤ + bℤ = gcd(a, b)ℤ.</p>
+<p><strong>Proof</strong>. Let d be the least positive element of I = {ax + by : x, y ∈ ℤ}, say d = ax + by. Divide a by d: a = qd + r with 0 ≤ r &lt; d. Then r = a − q(ax + by) ∈ I, and minimality forces r = 0, so d divides a; likewise d divides b. Any common divisor of a and b divides every element of I, in particular d. Thus d = gcd(a, b). Since I is closed under subtraction and integer multiples and contains d, it equals dℤ. ∎</p>
+<p><strong>Worked Example 5.3</strong> — gcd(1071, 462) with Bézout coefficients. The divisions are:</p>
+<pre class="math">1071 = 2 · 462 + 147
+ 462 = 3 · 147 + 21
+ 147 = 7 · 21  + 0</pre>
+<p>so gcd(1071, 462) = 21. Back-substitution gives:</p>
+<pre class="math">21 = 462 − 3 · 147
+   = 462 − 3 · (1071 − 2 · 462)
+   = 7 · 462 − 3 · 1071</pre>
+<p>and indeed 7 · 462 − 3 · 1071 = 3234 − 3213 = 21. In practice one runs the extended Euclidean algorithm forward, maintaining the invariant rᵢ = 1071·xᵢ + 462·yᵢ:</p>
+<pre class="math">i     rᵢ     qᵢ     xᵢ     yᵢ
+0   1071            1      0
+1    462     2      0      1
+2    147     3      1     −2
+3     21     7     −3      7
+4      0</pre>
+<p>Each new row is the row two above minus qᵢ times the row immediately above, where qᵢ is the quotient in the division of rᵢ₋₁ by rᵢ. The last nonzero remainder 21 appears with coefficients (−3, 7).</p>
+<h3>The cost of Euclid's algorithm</h3>
+<p><strong>Theorem 5.4 (Lamé, 1844)</strong>. If Euclid's algorithm applied to a &gt; b &gt; 0 takes n division steps, then b ≥ F(n+1) and a ≥ F(n+2), where F(1) = F(2) = 1 and F(k+1) = F(k) + F(k−1). Consequently the number of steps is at most five times the number of decimal digits of b.</p>
+<p><strong>Proof</strong>. Let r₀ = a, r₁ = b, and let r₂, r₃, … be the successive remainders, with rₙ ≠ 0 and rₙ₊₁ = 0 after n steps. Then rₙ ≥ 1 = F(2), and rₙ₋₁ ≥ 2 = F(3), because rₙ divides rₙ₋₁ and rₙ &lt; rₙ₋₁. Each earlier step has quotient at least 1, so rᵢ₋₁ ≥ rᵢ + rᵢ₊₁, and by downward induction rᵢ ≥ F(n + 2 − i). In particular b = r₁ ≥ F(n + 1) and a = r₀ ≥ F(n + 2). Since F(k) ≥ φ<sup>k−2</sup> with φ = (1 + √5)/2, we get b ≥ φ<sup>n−1</sup>, so n − 1 ≤ log₁₀ b / log₁₀ φ. If b has d decimal digits then log₁₀ b &lt; d, and log₁₀ φ ≈ 0.20899 &gt; 1/5, so n − 1 &lt; 5d and n ≤ 5d. ∎</p>
+<p>Consecutive Fibonacci numbers are the worst case: gcd(13, 8) needs five divisions (13 = 1·8 + 5, 8 = 1·5 + 3, 5 = 1·3 + 2, 3 = 1·2 + 1, 2 = 2·1). Lamé's theorem is often cited as the first result of computational complexity theory: it shows that Euclid's algorithm runs in time polynomial in the number of digits of its input, in fact O(n²) bit operations for n-bit inputs with schoolbook division.</p>
+<h3>Euclidean domains</h3>
+<p><strong>Definition 5.5</strong>. A Euclidean domain is an integral domain R with a function N : R ∖ {0} → ℕ such that for all a, b ∈ R with b ≠ 0 there are q, r ∈ R with a = qb + r and either r = 0 or N(r) &lt; N(b).</p>
+<p>The three classical examples are the following.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>ℤ with N(n) = |n|.</div></li><li><span class="mk">2.</span><div>The polynomial ring k[x] over a field k, with N(f) = deg f. For example, x³ + 2x + 5 = x · (x² + 1) + (x + 5), and deg(x + 5) = 1 &lt; 2.</div></li><li><span class="mk">3.</span><div>The Gaussian integers ℤ[i] = {a + bi : a, b ∈ ℤ}, with N(a + bi) = a² + b².</div></li></ul>
+<p>For ℤ[i], to divide α by β ≠ 0 compute α/β exactly in ℚ(i) and round each coordinate to a nearest integer to get q. The error α/β − q has both coordinates of absolute value at most 1/2, so N(α/β − q) ≤ 1/4 + 1/4 = 1/2, and since N is multiplicative, r = α − qβ satisfies N(r) ≤ N(β)/2 &lt; N(β). For instance, with α = 8 + 9i and β = 2 − i,</p>
+<pre class="math">α/β = (8 + 9i)(2 + i)/5 = (7 + 26i)/5 = 1.4 + 5.2i,   so q = 1 + 5i
+r = (8 + 9i) − (1 + 5i)(2 − i) = (8 + 9i) − (7 + 9i) = 1,   N(r) = 1 &lt; 5 = N(β)</pre>
+<p>so 8 + 9i and 2 − i are coprime Gaussian integers.</p>
+<p><strong>Theorem 5.6</strong>. Every Euclidean domain is a principal ideal domain (PID).</p>
+<p><strong>Proof</strong>. Let I ≠ 0 be an ideal and choose b ∈ I ∖ {0} with N(b) minimal. For a ∈ I write a = qb + r; then r = a − qb ∈ I, and N(r) &lt; N(b) is impossible, so r = 0 and a ∈ (b). Hence I = (b). ∎</p>
+<p>Every PID is a unique factorisation domain (UFD), so the chain ED ⇒ PID ⇒ UFD holds; neither implication reverses. The ring ℤ[(1 + √−19)/2] is a PID that is not Euclidean for any function N (Motzkin, 1949), and ℤ[x] is a UFD that is not a PID, since the ideal (2, x) is not principal.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Use the extended Euclidean algorithm to find gcd(240, 46) and integers x, y with 240x + 46y = gcd(240, 46).</div></li><li><span class="mk">(b)</span><div>Find q and r for the division of x⁴ + 1 by x² + x + 1 in ℚ[x].</div></li><li><span class="mk">(c)</span><div>Divide 11 + 7i by 3 + i in ℤ[i], giving q and r with r = 0 or N(r) &lt; N(3 + i).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 240 = 5·46 + 10, 46 = 4·10 + 6, 10 = 1·6 + 4, 6 = 1·4 + 2, 4 = 2·2, so the gcd is 2. Back-substituting: 2 = 6 − 4 = 6 − (10 − 6) = 2·6 − 10 = 2(46 − 4·10) − 10 = 2·46 − 9·10 = 2·46 − 9(240 − 5·46) = 47·46 − 9·240; check 2162 − 2160 = 2. So x = −9, y = 47. (b) x⁴ + 1 = (x² − x)(x² + x + 1) + (x + 1); check: (x² − x)(x² + x + 1) = x⁴ − x, and adding x + 1 gives x⁴ + 1. So q = x² − x and r = x + 1. (c) (11 + 7i)/(3 + i) = (11 + 7i)(3 − i)/10 = (40 + 10i)/10 = 4 + i exactly, so q = 4 + i and r = 0: indeed (4 + i)(3 + i) = 12 + 4i + 3i − 1 = 11 + 7i.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

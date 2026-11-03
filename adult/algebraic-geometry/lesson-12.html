@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Genus and the Degree–Genus Formula — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 12</p>
+    <h1>Genus and the Degree–Genus Formula</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">smooth plane curve of degree d:   g = (d − 1)(d − 2)/2</pre></div>
+<h3>Curves as Riemann surfaces</h3>
+<p>A smooth projective curve over ℂ is, in the classical topology, a compact connected Riemann surface (connectedness of irreducible projective curves is a theorem), hence a compact orientable surface. By the classification of surfaces it is a sphere with g handles, and g is its genus. Conversely, Riemann's existence theorem shows that every compact Riemann surface is a smooth projective algebraic curve. The genus has several equivalent algebraic definitions: g = dim H⁰(C, Ω¹), the dimension of the space of holomorphic differentials; g = dim H¹(C, 𝒪<sub>C</sub>); or g as the constant in the Riemann–Roch theorem below. These make sense over any field, which is how the genus is defined in characteristic p.</p>
+<p>Examples. ℙ¹ has genus 0. A smooth plane cubic, a torus ℂ/Λ, has genus 1. A smooth plane quartic has genus 3.</p>
+<h3>The Riemann–Hurwitz formula</h3>
+<p><strong>Theorem (Riemann–Hurwitz)</strong>. Let f: X → Y be a nonconstant holomorphic map of degree n between compact Riemann surfaces, and let e<sub>P</sub> be the ramification index at P ∈ X. Then</p>
+<pre class="math">2g<sub>X</sub> − 2 = n(2g<sub>Y</sub> − 2) + ∑<sub>P ∈ X</sub> (e<sub>P</sub> − 1)</pre>
+<p><strong>Proof sketch</strong>. Triangulate Y so that the finitely many branch points are vertices, and lift to X. Every face and edge has exactly n preimages, and so does every vertex except that a vertex f(P) loses ∑(e<sub>P</sub> − 1) preimages. Hence χ(X) = nχ(Y) − ∑(e<sub>P</sub> − 1), and χ = 2 − 2g gives the formula. ∎</p>
+<p>Hyperelliptic curves. Let f ∈ ℂ[x] be squarefree of degree n, and let C be the smooth projective model of y² = f(x). The map (x, y) ↦ x has degree 2 and is ramified exactly at the roots of f and, if n is odd, at the point over ∞, with e = 2 at each. So the number of branch points is r = n for n even and r = n + 1 for n odd, and 2g − 2 = 2(−2) + r gives</p>
+<pre class="math">g = (r − 2)/2 = ⌊(n − 1)/2⌋</pre>
+<p>For n = 3 or 4 this is genus 1, consistent with elliptic curves. The curve y² = x⁶ − 1 has genus 2, and every curve of genus 2 is hyperelliptic.</p>
+<h3>The degree–genus formula</h3>
+<p><strong>Theorem</strong>. A smooth plane curve C ⊂ ℙ² of degree d has genus g = (d − 1)(d − 2)/2.</p>
+<p><strong>Proof</strong>. Choose a point O ∉ C in general position and coordinates with O = [0 : 1 : 0]. Projection from O, π([X : Y : Z]) = [X : Z], is a morphism C → ℙ¹ of degree d, because each line through O meets C in d points counted with multiplicity (Bézout). The ramification points are the points where the line through O is tangent to C, that is, the points of C where ∂F/∂Y = 0. The polar curve ∂F/∂Y = 0 has degree d − 1, so by Bézout C meets it in d(d − 1) points counted with multiplicity; for O general, all these intersections are transverse and each corresponds to a simple tangency, with e<sub>P</sub> = 2 (this genericity statement is standard, see Griffiths–Harris, Principles of Algebraic Geometry, Chapter 2, or Fulton, Algebraic Curves, Chapter 8). Riemann–Hurwitz then gives</p>
+<pre class="math">2g − 2 = d(0 − 2) + d(d − 1) = d² − 3d</pre>
+<p>so g = (d² − 3d + 2)/2 = (d − 1)(d − 2)/2. ∎</p>
+<p>The values are 0, 0, 1, 3, 6, 10, 15, … for d = 1, 2, 3, 4, 5, 6, 7. In particular no smooth plane curve has genus 2, 4 or 5. The Fermat curve Xⁿ + Yⁿ = Zⁿ is smooth (its partial derivatives nXⁿ⁻¹, nYⁿ⁻¹, nZⁿ⁻¹ vanish simultaneously only at the origin of k³), so it has genus (n − 1)(n − 2)/2.</p>
+<h3>Singular curves</h3>
+<p>If C is an irreducible plane curve of degree d with singular points, its normalization C̃ → C is a smooth projective curve birational to C, and the geometric genus of C is the genus of C̃. Then</p>
+<pre class="math">g(C̃) = (d − 1)(d − 2)/2 − ∑<sub>P</sub> δ<sub>P</sub></pre>
+<p>where δ<sub>P</sub> ≥ 1 for each singular point, and δ<sub>P</sub> = m<sub>P</sub>(m<sub>P</sub> − 1)/2 for an ordinary point of multiplicity m<sub>P</sub>. A node or a simple cusp has δ = 1. For example the nodal cubic y² = x²(x + 1) has genus 1 − 1 = 0, so it is rational, and indeed the lines y = tx through the node give the parametrization</p>
+<pre class="math">x = t² − 1,   y = t(t² − 1)</pre>
+<p>since t²x² = x²(x + 1) gives x = t² − 1 for x ≠ 0. The values t = ±1 both map to the node, which is the normalization separating its two branches. A quartic with an ordinary triple point has genus 3 − 3 = 0 and is likewise rational.</p>
+<h3>Riemann–Roch and the trichotomy</h3>
+<p>For a divisor D on a smooth projective curve C of genus g, let ℓ(D) be the dimension of the space of rational functions f with div(f) + D ≥ 0, and K a canonical divisor (the divisor of a meromorphic differential), of degree 2g − 2.</p>
+<p><strong>Theorem (Riemann–Roch)</strong>. ℓ(D) − ℓ(K − D) = deg D + 1 − g.</p>
+<p>For instance, for D = n·O on an elliptic curve and n ≥ 1, ℓ(D) = n; the functions 1, x, y in the Weierstrass model have poles of orders 0, 2, 3 at O, and the seven functions 1, x, y, x², xy, x³, y² in the six-dimensional space of functions with a pole of order at most 6 must satisfy a linear relation, which is precisely a Weierstrass equation.</p>
+<p>The genus controls arithmetic in a striking way. For a smooth projective curve over ℚ: if g = 0, the curve is a conic and has either no rational points or infinitely many, parametrized by ℙ¹(ℚ) (Lesson 6). If g = 1 and there is a rational point, the rational points form a finitely generated abelian group (Mordell–Weil). If g ≥ 2, there are only finitely many rational points: this is the Mordell conjecture, proved by Faltings in 1983. For instance, for n ≥ 4 the Fermat curve xⁿ + yⁿ = 1 has genus at least 3, so it has only finitely many rational points, which was known before Wiles proved there are only the trivial ones.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>What is the genus of a smooth plane sextic?</div></li><li><span class="mk">(b)</span><div>Compute the genus of the curve y² = x⁶ − 1 with Riemann–Hurwitz.</div></li><li><span class="mk">(c)</span><div>An irreducible plane quartic has exactly two singular points, both ordinary nodes. What is its geometric genus?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (6 − 1)(6 − 2)/2 = 10. (b) The polynomial x⁶ − 1 has six distinct roots and even degree, so the double cover x: C → ℙ¹ has exactly 6 branch points: 2g − 2 = 2(−2) + 6 = 2, g = 2. (c) 3 − 1 − 1 = 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

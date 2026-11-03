@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Spherical Trigonometry — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 3</p>
+    <h1>Spherical Trigonometry</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">cos c = cos a cos b + sin a sin b cos γ          (first law of cosines)
+cos γ = −cos α cos β + sin α sin β cos c          (second law of cosines)
+sin α / sin a = sin β / sin b = sin γ / sin c     (law of sines)</pre></div>
+<h3>Conventions</h3>
+<p>A spherical triangle on the unit sphere has vertices A, B, C (unit vectors), sides a = d(B, C), b = d(C, A), c = d(A, B), all in (0, π), and angles α, β, γ at A, B, C. The angle γ at C is the angle between the unit tangent vectors at C pointing along the sides towards A and towards B.</p>
+<p><strong>Theorem 3.1 (first law of cosines)</strong>. cos c = cos a cos b + sin a sin b cos γ.</p>
+<p><strong>Proof</strong>. The unit tangent vector at C pointing towards A is u = (A − (A · C)C)/|A − (A · C)C| = (A − cos b · C)/sin b, since |A − cos b · C|² = 1 − 2cos²b + cos²b = sin²b. Similarly v = (B − cos a · C)/sin a. Then</p>
+<pre class="math">cos γ = u · v = (A·B − cos a (A·C) − cos b (B·C) + cos a cos b) / (sin a sin b)
+             = (cos c − cos a cos b) / (sin a sin b),</pre>
+<p>which rearranges to the stated formula. ∎</p>
+<p><strong>Theorem 3.2 (second law of cosines)</strong>. cos γ = −cos α cos β + sin α sin β cos c.</p>
+<p><strong>Proof</strong>. Apply Theorem 3.1 to the polar triangle, whose sides are π − α, π − β, π − γ and whose angle opposite side π − γ is π − c: cos(π − γ) = cos(π − α)cos(π − β) + sin(π − α)sin(π − β)cos(π − c). Since cos(π − x) = −cos x and sin(π − x) = sin x, this is −cos γ = cos α cos β − sin α sin β cos c. ∎</p>
+<p>The second law has no Euclidean analogue: it determines the sides from the angles, reflecting the fact that the angles of a spherical triangle determine it up to isometry.</p>
+<p><strong>Theorem 3.3 (law of sines)</strong>. sin α / sin a = sin β / sin b = sin γ / sin c.</p>
+<p><strong>Proof</strong>. From Theorem 3.1, sin²γ = 1 − cos²γ = (sin²a sin²b − (cos c − cos a cos b)²)/(sin²a sin²b). Expanding, the numerator equals 1 − cos²a − cos²b − cos²c + 2 cos a cos b cos c, which is symmetric in a, b, c; call it Q. Hence sin²γ / sin²c = Q/(sin²a sin²b sin²c), which is symmetric, and all three ratios agree (all quantities are positive). In fact Q = det[A B C]², the squared volume of the parallelepiped spanned by A, B, C. ∎</p>
+<h3>Right triangles and the Euclidean limit</h3>
+<p>If γ = π/2 the first law gives the spherical Pythagorean theorem cos c = cos a cos b. On a sphere of radius R, with sides a, b, c measured as lengths, it reads cos(c/R) = cos(a/R) cos(b/R). Expanding cos x = 1 − x²/2 + x⁴/24 − ⋯ gives</p>
+<pre class="math">1 − c²/(2R²) + c⁴/(24R⁴) = 1 − (a² + b²)/(2R²) + (a⁴ + 6a²b² + b⁴)/(24R⁴) + O(R⁻⁶),</pre>
+<p>so c² = a² + b² − a²b²/(3R²) + O(R⁻⁴). As R → ∞ the Euclidean theorem is recovered, and the leading correction shows that the hypotenuse is shorter than its Euclidean value — the spherical surface is &quot;more cramped&quot; than the plane. Similar expansions recover the Euclidean laws of sines and cosines.</p>
+<h3>Equilateral triangles</h3>
+<p>For an equilateral spherical triangle with side s and angle α, the first law gives cos s = cos²s + sin²s cos α, so cos α = (cos s − cos²s)/sin²s = cos s/(1 + cos s). As s → 0, cos α → 1/2 and α → π/3; as s → π/2, α → π/2 (the octant triangle); as s → 2π/3, cos α → −1, so α → π and the triangle degenerates to a great circle.</p>
+<h3>Application: great-circle navigation</h3>
+<p>On a sphere of radius R, points with latitude φ₁, φ₂ and longitude difference Δλ form, together with the North Pole, a triangle with sides π/2 − φ₁, π/2 − φ₂ and angle Δλ at the pole. The first law of cosines gives the great-circle distance d by</p>
+<pre class="math">cos(d/R) = sin φ₁ sin φ₂ + cos φ₁ cos φ₂ cos Δλ.</pre>
+<p><strong>Worked example</strong>. Two points on the parallel 60°N whose longitudes differ by 90°. Then cos(d/R) = (√3/2)² + (1/2)² · 0 = 3/4, so d/R = arccos(0.75) ≈ 0.7227 rad ≈ 41.41°. With R = 6371 km, d ≈ 4605 km. Travelling along the parallel instead covers an arc of radius R cos 60° = R/2 through 90°, a distance πR/4 ≈ 5004 km. The great-circle route is about 8% shorter; it bends poleward, which is why transatlantic and transpacific flights appear &quot;curved&quot; on Mercator charts. For numerical work at small distances the haversine form hav(d/R) = hav(Δφ) + cos φ₁ cos φ₂ hav(Δλ), with hav x = sin²(x/2), avoids the loss of precision of arccos near 1.</p>
+<h3>Spherical excess from sides</h3>
+<p>The area can be computed from the sides directly by L'Huilier's theorem: with s = (a + b + c)/2 and E = α + β + γ − π,</p>
+<pre class="math">tan(E/4) = √( tan(s/2) tan((s − a)/2) tan((s − b)/2) tan((s − c)/2) ).</pre>
+<p>For the octant triangle a = b = c = π/2, s = 3π/4, and tan(E/4) = √(tan(3π/8) tan³(π/8)) = tan(π/8) since tan(3π/8) tan(π/8) = 1. So E = π/2, as before.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A right spherical triangle on the unit sphere has legs a = b = π/3. Find the hypotenuse c.</div></li><li><span class="mk">(b)</span><div>Use the second law of cosines to find the side s of an equilateral spherical triangle all of whose angles are 2π/5. (Its vertices are adjacent vertices of the spherical icosahedron.)</div></li><li><span class="mk">(c)</span><div>Find the great-circle distance on the unit sphere between two points on the equator whose longitudes differ by Δλ, and check your formula.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) cos c = cos²(π/3) = 1/4, so c = arccos(1/4) ≈ 1.3181. (b) cos α = −cos²α + sin²α cos s gives cos s = (cos α + cos²α)/sin²α = cos α/(1 − cos α). With cos(2π/5) = (√5 − 1)/4 ≈ 0.30902, cos s ≈ 0.30902/0.69098 ≈ 0.44721 = 1/√5, so s = arccos(1/√5) ≈ 1.1071 rad ≈ 63.43°, the angle subtended by an edge of the regular icosahedron at its centre. (c) With φ₁ = φ₂ = 0, cos d = cos Δλ, so d = Δλ for Δλ ∈ [0, π], as expected since the equator is a great circle.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

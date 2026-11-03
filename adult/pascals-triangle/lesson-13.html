@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Asymptotics of Binomial Coefficients — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 13</p>
+    <h1>Asymptotics of Binomial Coefficients</h1>
+    <p class="kicker">Lesson 13 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">C(2n, n) = (4ⁿ/√(πn)) (1 − 1/(8n) + O(n⁻²))
+4ⁿ/(2√n) ≤ C(2n, n) ≤ 4ⁿ/√(3n + 1)       (n ≥ 1)
+C(n, αn) = 2<sup>nH(α)</sup> / √(2πnα(1 − α)) · (1 + o(1)),   H(α) = −α log₂ α − (1 − α) log₂(1 − α)</pre></div>
+<h3>Stirling's formula</h3>
+<p>Stirling's formula n! = √(2πn)(n/e)ⁿ(1 + 1/(12n) + O(n⁻²)) is the basic tool; Robbins (1955) gave the explicit bounds √(2πn)(n/e)ⁿ e<sup>1/(12n+1)</sup> &lt; n! &lt; √(2πn)(n/e)ⁿ e<sup>1/(12n)</sup> for n ≥ 1. Applied to C(2n, n) = (2n)!/(n!)², the main terms give 4ⁿ/√(πn), and the correction factors combine to e<sup>1/(24n) − 2/(12n) + O(n⁻²)</sup> = 1 − 1/(8n) + O(n⁻²).</p>
+<pre class="math">C(100, 50) = 100891344545564193334812497256 ≈ 1.008913 × 10²⁹
+4⁵⁰/√(50π) ≈ 1.011439 × 10²⁹;   with the factor (1 − 1/400):  ≈ 1.008910 × 10²⁹</pre>
+<h3>Elementary bounds</h3>
+<p><strong>Proposition 13.1</strong>. For n ≥ 1, 4ⁿ/(2√n) ≤ C(2n, n) ≤ 4ⁿ/√(3n + 1), with equality in both at n = 1.</p>
+<p><strong>Proof</strong>. Let aₙ = C(2n, n)/4ⁿ, so a₁ = 1/2 and aₙ₊₁ = aₙ (2n + 1)/(2n + 2). For the upper bound we show aₙ²(3n + 1) ≤ 1 by induction. It holds with equality for n = 1, and the inductive step requires (2n + 1)²(3n + 4) ≤ (3n + 1)(2n + 2)². Expanding, the left side is 12n³ + 28n² + 19n + 4 and the right side is 12n³ + 28n² + 20n + 4, so the inequality holds. For the lower bound we show 4n aₙ² ≥ 1; equality holds at n = 1, and the step requires (2n + 1)²(n + 1) ≥ 4n(n + 1)², i.e. (2n + 1)² ≥ 4n(n + 1), i.e. 1 ≥ 0. ∎</p>
+<p>Both bounds are of the correct order 4ⁿ/√n, and they pin the constant: 1/2 ≤ aₙ√n ≤ 1/√3. The true limit 1/√π ≈ 0.5642 lies between 0.5 and 0.5774; the statement lim aₙ√(πn) = 1 is equivalent to Wallis's product π/2 = ∏ (2k)²/((2k − 1)(2k + 1)).</p>
+<h3>Entropy and the binomial distribution</h3>
+<p><strong>Proposition 13.2</strong>. Let 0 &lt; α &lt; 1 with αn an integer. Then 2<sup>nH(α)</sup>/(n + 1) ≤ C(n, αn) ≤ 2<sup>nH(α)</sup>. Proof. With k = αn, αᵏ(1 − α)ⁿ⁻ᵏ = 2<sup>−nH(α)</sup>. The upper bound follows from 1 = (α + (1 − α))ⁿ ≥ C(n, k) αᵏ(1 − α)ⁿ⁻ᵏ. For the lower bound, the term with j = k is the largest of the n + 1 terms C(n, j) αʲ(1 − α)ⁿ⁻ʲ (the ratio of consecutive terms crosses 1 at j = k), and they sum to 1. ∎</p>
+<p>The sharp form C(n, αn) ~ 2<sup>nH(α)</sup>/√(2πnα(1 − α)) follows from Stirling. A related estimate bounds the volume of a Hamming ball: for 0 &lt; α ≤ 1/2, ∑<sub>k≤αn</sub> C(n, k) ≤ 2<sup>nH(α)</sup>, since for k ≤ αn we have αᵏ(1 − α)ⁿ⁻ᵏ = (1 − α)ⁿ(α/(1 − α))ᵏ ≥ (1 − α)ⁿ(α/(1 − α))<sup>αn</sup> = 2<sup>−nH(α)</sup>, and the sum of C(n, k)αᵏ(1 − α)ⁿ⁻ᵏ is at most 1. This inequality underlies the Gilbert–Varshamov and Hamming bounds in coding theory.</p>
+<pre class="math">∑<sub>k≤10</sub> C(100, k) ≈ 1.94 × 10¹³   ≤   2<sup>100 H(0.1)</sup> = 2<sup>46.90</sup> ≈ 1.31 × 10¹⁴</pre>
+<h3>The local limit theorem</h3>
+<p>The de Moivre–Laplace theorem in local form states that for even n,</p>
+<pre class="math">C(n, n/2 + x) = 2ⁿ √(2/(πn)) e<sup>−2x²/n</sup> (1 + o(1))</pre>
+<p>uniformly for integers x with |x| = o(n<sup>2/3</sup>). Proof sketch: log(C(n, n/2 + x)/C(n, n/2)) = ∑<sub>j=1</sub><sup>x</sup> log((n/2 − j + 1)/(n/2 + j)) = −2x²/n + O(|x|³/n² + |x|/n), using log((1 − u)/(1 + u)) = −2u + O(u³). Combined with the central asymptotics this gives the Gaussian profile: the rows of Pascal's triangle, normalized, converge to the normal density, which is the central limit theorem for fair coin tossing. The binomial coefficients are also strictly log-concave in k, C(n, k)² &gt; C(n, k − 1)C(n, k + 1) for 0 &lt; k &lt; n, because the ratio C(n, k + 1)/C(n, k) = (n − k)/(k + 1) is strictly decreasing; log-concavity implies unimodality, with mode(s) ⌊n/2⌋ and ⌈n/2⌉.</p>
+<p>Random walk interpretation. C(2n, n)/4ⁿ is the probability that a simple random walk is at the origin at time 2n. Since it is ~ 1/√(πn), the expected number of returns ∑ C(2n, n)/4ⁿ diverges, so the one-dimensional walk is recurrent (Pólya, 1921). For n = 50 the exact probability is 0.079589 and 1/√(50π) = 0.079788.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Estimate C(40, 20) by 4ⁿ/√(πn) and by the corrected formula, and compare with the exact value 137846528820.</div></li><li><span class="mk">(b)</span><div>Check the Hamming bound for n = 40 and α = 1/4.</div></li><li><span class="mk">(c)</span><div>Show that C(2n, n) ≥ 4ⁿ/(2n + 1) and compare it with Proposition 13.1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 4²⁰/√(20π) ≈ 1.38711 × 10¹¹ (relative error about 0.63%); multiplying by 1 − 1/160 gives ≈ 1.37844 × 10¹¹, relative error about 0.002%. (b) ∑<sub>k≤10</sub> C(40, k) = 1221246132 ≈ 1.22 × 10⁹, while 2<sup>40 H(1/4)</sup> = 2<sup>32.45</sup> ≈ 5.87 × 10⁹. (c) C(2n, n) is the largest of the 2n + 1 terms of (1 + 1)<sup>2n</sup> = 4ⁿ. This bound is weaker than 4ⁿ/(2√n) for n ≥ 1, since 2√n ≤ 2n + 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="lesson-14.html">Lesson 14 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

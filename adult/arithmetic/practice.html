@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Problem Set — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Problem Set</p>
+    <h1>Problem Set</h1>
+    <p class="kicker">60 problems</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" class="here" aria-current="page" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><p>The sixty problems below are arranged in three groups. The Core problems check the definitions, computations and algorithms of the lessons; the Advanced problems require short proofs or multi-step calculations; the Challenge problems are of the kind found in graduate texts and qualifying examinations.</p>
+<h3>Core (Problems 1–20)</h3>
+<ul class="steps"><li><span class="mk">1.</span><div>Using only the recursive definitions of Lesson 1, compute 2 · 3, recording each step.</div></li><li><span class="mk">2.</span><div>Prove from the definitions that a + 1 = S(a) and 1 + a = S(a) for every a ∈ ℕ.</div></li><li><span class="mk">3.</span><div>Which of the pairs (0, 5), (5, 0), (10, 15), (8, 3) represent the same integer as (3, 8)?</div></li><li><span class="mk">4.</span><div>Compute [(2, 7)] · [(4, 1)] in ℤ = (ℕ × ℕ)/∼ and give its normal form.</div></li><li><span class="mk">5.</span><div>In the construction of ℚ, verify that (1, 2) ∼ (3, 6), and compute (1, 2) + (1, 3) and (1, 2) · (1, 3) as pairs.</div></li><li><span class="mk">6.</span><div>Find the quotient and remainder (with 0 ≤ r &lt; b) for a = −47, b = 6 and for a = −100, b = 7.</div></li><li><span class="mk">7.</span><div>Find gcd(252, 198) by Euclid's algorithm and express it as 252x + 198y.</div></li><li><span class="mk">8.</span><div>Factor 360 into primes and find its number of positive divisors τ(360) and their sum σ(360).</div></li><li><span class="mk">9.</span><div>Find the last digit of 7²²².</div></li><li><span class="mk">10.</span><div>Find the inverse of 7 modulo 26.</div></li><li><span class="mk">11.</span><div>Solve the congruence 5x ≡ 3 (mod 12).</div></li><li><span class="mk">12.</span><div>Write 2026 in bases 2, 8 and 16.</div></li><li><span class="mk">13.</span><div>Convert 101101₂, 2201₃ and 7EA₁₆ to decimal.</div></li><li><span class="mk">14.</span><div>Write the repeating decimal 0.363636… as a fraction in lowest terms.</div></li><li><span class="mk">15.</span><div>Which of 1/40, 1/12, 7/80 and 3/14 have terminating decimal expansions?</div></li><li><span class="mk">16.</span><div>Prove that √3 is irrational using the fundamental theorem of arithmetic.</div></li><li><span class="mk">17.</span><div>State the machine epsilon and the unit roundoff of binary64, as powers of 2 and in decimal.</div></li><li><span class="mk">18.</span><div>Decode the binary32 word 0 10000001 10100000000000000000000.</div></li><li><span class="mk">19.</span><div>Explain precisely why 0.1 + 0.2 == 0.3 evaluates to false in binary64 arithmetic.</div></li><li><span class="mk">20.</span><div>Compute 12 × 34 by one level of Karatsuba's method with B = 10.</div></li></ul>
+<h3>Advanced (Problems 21–45)</h3>
+<ul class="steps"><li><span class="mk">21.</span><div>Prove that if a, b ∈ ℕ and ab = 1, then a = b = 1.</div></li><li><span class="mk">22.</span><div>Prove the principle of strong induction from the well-ordering principle.</div></li><li><span class="mk">23.</span><div>Prove that the order on ℤ defined by [(a, b)] ≤ [(c, d)] ⟺ a + d ≤ b + c is well defined.</div></li><li><span class="mk">24.</span><div>In an ordered field, prove that for a, b &gt; 0 we have a &lt; b if and only if a² &lt; b².</div></li><li><span class="mk">25.</span><div>Prove that no finite field can be ordered.</div></li><li><span class="mk">26.</span><div>In ℚ(t) with the ordering of Lesson 4, show that 1/t is positive and smaller than every positive rational number.</div></li><li><span class="mk">27.</span><div>Divide 11 + 3i by 1 + 2i in ℤ[i], giving q and r with N(r) &lt; N(1 + 2i).</div></li><li><span class="mk">28.</span><div>Find gcd(x⁶ − 1, x⁴ − 1) in ℚ[x] by the Euclidean algorithm.</div></li><li><span class="mk">29.</span><div>How many trailing zeros does 1000! have?</div></li><li><span class="mk">30.</span><div>Compute v₃(50!) by Legendre's formula and confirm it with the digit-sum formula.</div></li><li><span class="mk">31.</span><div>Show that 2 and 1 + √−5 are irreducible in ℤ[√−5] and are not associates.</div></li><li><span class="mk">32.</span><div>Find all x with x ≡ 1 (mod 4), x ≡ 2 (mod 5), x ≡ 3 (mod 7).</div></li><li><span class="mk">33.</span><div>Compute 2²⁰²⁶ mod 101.</div></li><li><span class="mk">34.</span><div>Find the last three digits of 3⁴⁰².</div></li><li><span class="mk">35.</span><div>List the units and the zero divisors of ℤ/12ℤ, and check that their numbers are φ(12) and 12 − 1 − φ(12).</div></li><li><span class="mk">36.</span><div>Find the decimal periods of 1/17, 1/37 and 1/41.</div></li><li><span class="mk">37.</span><div>Prove the divisibility test for 11: n is divisible by 11 if and only if its alternating digit sum is.</div></li><li><span class="mk">38.</span><div>Write 25 and 100 in balanced ternary.</div></li><li><span class="mk">39.</span><div>Write 6 and −3 in base −2.</div></li><li><span class="mk">40.</span><div>Prove that the sum A + B of two Dedekind cuts is a cut.</div></li><li><span class="mk">41.</span><div>Let aₙ be the decimal truncation of √2 to n places. Show that (aₙ) is a Cauchy sequence of rationals.</div></li><li><span class="mk">42.</span><div>Find the largest finite binary32 number exactly and to five significant figures.</div></li><li><span class="mk">43.</span><div>What is the ulp (spacing of consecutive binary64 numbers) at 2026.0, and how many binary64 numbers lie in [1024, 2048)?</div></li><li><span class="mk">44.</span><div>Bound the relative error of the floating-point evaluation fl(x · fl(y + z)) for floating-point x, y, z with y + z ≠ 0.</div></li><li><span class="mk">45.</span><div>Compute the relative condition numbers of f(x) = √x, f(x) = x − 1 and f(x) = sin x, and say where each is ill-conditioned.</div></li></ul>
+<h3>Challenge (Problems 46–60)</h3>
+<ul class="steps"><li><span class="mk">46.</span><div>Deduce the recursion theorem with a parameter from Theorem 1.3.</div></li><li><span class="mk">47.</span><div>Prove that the ideal (2, x) of ℤ[x] is not principal.</div></li><li><span class="mk">48.</span><div>Prove that there are infinitely many primes congruent to 3 modulo 4.</div></li><li><span class="mk">49.</span><div>Prove that gcd(2ᵐ − 1, 2ⁿ − 1) = 2<sup>gcd(m, n)</sup> − 1, and compute gcd(4095, 262143).</div></li><li><span class="mk">50.</span><div>Show that Euclid's algorithm on the pair (F(n+2), F(n+1)) takes exactly n division steps, so Lamé's bound is sharp.</div></li><li><span class="mk">51.</span><div>Prove that ℝ has exactly one ordering making it an ordered field, and deduce that the only field automorphism of ℝ is the identity.</div></li><li><span class="mk">52.</span><div>Show that the number of idempotents (x² = x) in ℤ/nℤ is 2<sup>ω(n)</sup>, where ω(n) is the number of distinct primes dividing n. List the idempotents of ℤ/360ℤ by their count and of ℤ/10ℤ explicitly.</div></li><li><span class="mk">53.</span><div>Prove that every Cauchy sequence of rationals is bounded and that the product of two Cauchy sequences is Cauchy.</div></li><li><span class="mk">54.</span><div>Show that the implication x ≠ y ⇒ x ⊖ y ≠ 0 fails in binary64 if subnormal results are flushed to zero, using x = 1.5 × 2⁻¹⁰²² and y = 2⁻¹⁰²².</div></li><li><span class="mk">55.</span><div>The population variance of the data 10⁹ + 4, 10⁹ + 7, 10⁹ + 13, 10⁹ + 16 is to be computed. Compare the one-pass formula (1/n)Σxᵢ² − x̄² with the two-pass formula (1/n)Σ(xᵢ − x̄)² in binary64.</div></li><li><span class="mk">56.</span><div>Let a ≥ b ≥ 0 be floating-point numbers and s = a ⊕ b. Using the Sterbenz lemma, prove that s ⊖ a is computed exactly.</div></li><li><span class="mk">57.</span><div>Solve the Karatsuba recurrence T(1) = 1, T(n) = 3T(n/2) + cn exactly for n = 2ᵏ.</div></li><li><span class="mk">58.</span><div>Show that Toom-k multiplication has exponent log<sub>k</sub>(2k − 1), compute it for k = 2, 3, 4, and show that it tends to 1.</div></li><li><span class="mk">59.</span><div>Newton's iteration for 1/d is started with error |e₀| = 1/2. How many iterations are needed to guarantee 10⁶ correct bits?</div></li><li><span class="mk">60.</span><div>(Midy's theorem.) Let p be a prime, p ≠ 2, 5, such that the decimal period of 1/p is even, say 2k. Prove that 10ᵏ ≡ −1 (mod p) and that the two halves of the repeating block of 1/p add to 10ᵏ − 1. Check it for 1/7 and 1/17.</div></li></ul></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="quiz.html">Assessment →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

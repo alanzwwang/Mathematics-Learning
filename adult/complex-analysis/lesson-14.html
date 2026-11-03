@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 14: Synthesis and Common Pitfalls — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 14</p>
+    <h1>Synthesis and Common Pitfalls</h1>
+    <p class="kicker">Lesson 14 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" class="here" aria-current="page" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Holomorphic on an open set  ⇔  analytic  ⇔  continuous with vanishing triangle integrals.
+Integrals of holomorphic functions see only topology and residues.</pre></div>
+<h3>The equivalences</h3>
+<p>For a function f on an open set U, the following are equivalent, and the course has proved each implication: f is complex differentiable at every point of U; f is real C¹ and satisfies the Cauchy–Riemann equations; f is continuous and ∮ over ∂T of f dz = 0 for every triangle T in U (Goursat and Morera); f is locally the sum of a convergent power series (Cauchy's integral formula and term-by-term differentiation); f is continuous and satisfies the Cauchy integral formula on every disc in U. Each of these descriptions is useful in a different situation: the first to verify holomorphy of explicit formulas, the third to verify it for limits and integrals depending on a parameter, the fourth for local computations, and the fifth for estimates.</p>
+<h3>Pitfalls that cost marks</h3>
+<p>The principal logarithm and principal powers do not obey the real rules: Log(zw) = Log z + Log w and (zw)<sup>a</sup> = z<sup>a</sup> w<sup>a</sup> fail in general, and every manipulation of a multivalued function must specify a branch and a domain on which it is continuous. In contour integration, the orientation matters, a circle being counterclockwise by convention, and a pole lying exactly on the contour makes the integral undefined until the contour is indented, at which point only half the residue is picked up. When using Theorem 10.1 or Jordan's lemma, check the decay hypotheses: the integral of x/(x² + 1) over ℝ does not converge, although its principal value is 0. When using Rouché's theorem the inequality must be strict at every point of the curve, and the dominating function must have a known number of zeros inside. When computing residues at poles of order m ≥ 2, the shortcut g(a)/h′(a) does not apply. Finally, the values ζ(−1) = −1/12 and ζ(0) = −1/2 belong to the analytically continued function and say nothing about the divergent series 1 + 2 + 3 + … or 1 + 1 + 1 + … in the ordinary sense of summation.</p>
+<h3>Where to go next</h3>
+<p>The natural continuations are the theory of entire functions (Weierstrass and Hadamard factorisation, order and genus, Nevanlinna theory, which quantifies Picard's theorem), Riemann surfaces and algebraic curves (where the Riemann–Roch theorem governs meromorphic functions on compact surfaces), elliptic functions and modular forms (doubly periodic meromorphic functions and the action of PSL(2, ℤ) on ℍ), analytic number theory (Dirichlet L-functions and the explicit formulas linking zeros to primes), complex dynamics (Julia and Mandelbrot sets, whose basic tools are Montel's theorem and the Schwarz lemma), and several complex variables, where Hartogs' phenomenon shows that holomorphic functions of two or more variables can never have isolated singularities.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Is it true that Log(z²) = 2 Log z for all z ≠ 0? Give the exact set of z where it holds.</div></li><li><span class="mk">(b)</span><div>Evaluate the principal value of ∫ x/(x² + 1) dx over ℝ, and explain why the ordinary improper integral diverges.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) No. Log(z²) = 2 Log z holds exactly when 2 Arg z ∈ (−π, π], that is when −π/2 &lt; Arg z ≤ π/2: the open right half-plane together with the positive imaginary axis; for example at z = −1 the left side is 0 and the right side is 2πi. (b) The principal value lim of ∫ from −R to R is 0 by oddness, but ∫ from 0 to R of x/(x² + 1) dx = (1/2) ln(1 + R²) → ∞, so the integral over [0, ∞) diverges and the improper integral over ℝ does not exist.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-13.html">← Lesson 13</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

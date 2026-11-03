@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Improper Integrals — Calculus (Advanced)</title>
+<meta name="description" content="Real analysis from the completeness of ℝ to the Lebesgue integral, with multivariable calculus and full proofs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../calculus/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Calculus</a> › Lesson 9</p>
+    <h1>Improper Integrals</h1>
+    <p class="kicker">Lesson 9 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Real Numbers and Completeness">1</a><a href="lesson-2.html" title="Lesson 2: Sequences, Cauchy Sequences and lim sup">2</a><a href="lesson-3.html" title="Lesson 3: Infinite Series and Convergence Tests">3</a><a href="lesson-4.html" title="Lesson 4: Limits, Continuity and Uniform Continuity">4</a><a href="lesson-5.html" title="Lesson 5: Differentiation and the Mean Value Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Taylor's Theorem and the Remainder">6</a><a href="lesson-7.html" title="Lesson 7: The Riemann Integral via Darboux Sums">7</a><a href="lesson-8.html" title="Lesson 8: The Fundamental Theorem of Calculus">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Improper Integrals">9</a><a href="lesson-10.html" title="Lesson 10: Uniform Convergence and the Interchange of Limits">10</a><a href="lesson-11.html" title="Lesson 11: Power Series">11</a><a href="lesson-12.html" title="Lesson 12: Differentiation in Several Variables">12</a><a href="lesson-13.html" title="Lesson 13: Multiple Integrals and Change of Variables">13</a><a href="lesson-14.html" title="Lesson 14: The Lebesgue Integral — An Overview">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∫₁<sup>∞</sup> x⁻ᵖ dx &lt; ∞  ⇔  p &gt; 1          ∫₀¹ x⁻ᵖ dx &lt; ∞  ⇔  p &lt; 1
+Γ(s) = ∫₀<sup>∞</sup> tˢ⁻¹ e⁻ᵗ dt,   Γ(n + 1) = n!,   Γ(1/2) = √π</pre></div>
+<h3>Definitions</h3>
+<p>The Riemann integral is defined only for bounded functions on bounded intervals. An improper integral extends it by a limit. If f is integrable on [a, R] for every R &gt; a, define ∫ₐ<sup>∞</sup> f = lim (R → ∞) ∫ₐᴿ f when the limit exists (type I). If f is integrable on [a + η, b] for every η &gt; 0 but unbounded near a, define ∫ₐᵇ f = lim (η → 0⁺) of ∫ from a + η to b of f (type II). An integral over (−∞, ∞) or with several bad points is split into pieces, each of which must converge separately.</p>
+<p>The basic examples are computed directly: ∫₁ᴿ x⁻ᵖ dx = (R¹⁻ᵖ − 1)/(1 − p) for p ≠ 1 and ln R for p = 1, so ∫₁<sup>∞</sup> x⁻ᵖ dx converges iff p &gt; 1, with value 1/(p − 1). Similarly ∫₀¹ x⁻ᵖ dx converges iff p &lt; 1, with value 1/(1 − p). For instance ∫₀¹ dx/√x = 2.</p>
+<h3>Tests for convergence</h3>
+<p>For f ≥ 0 the function R ↦ ∫ₐᴿ f is increasing, so the integral converges iff it is bounded. This gives the comparison test (0 ≤ f ≤ g and ∫g &lt; ∞ imply ∫f &lt; ∞) and the limit comparison test, exactly as for series. Examples:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>∫₁<sup>∞</sup> e<sup>−x²</sup> dx converges, since e<sup>−x²</sup> ≤ e⁻ˣ for x ≥ 1.</div></li><li><span class="mk">2.</span><div>∫₀<sup>∞</sup> x²/(x⁴ + 1) dx converges: near ∞ the integrand behaves like 1/x², and on [0, 1] it is continuous.</div></li><li><span class="mk">3.</span><div>∫₀<sup>π/2</sup> dx/sin x diverges, since sin x ≤ x near 0 and ∫₀ dx/x diverges.</div></li></ul>
+<p>The Cauchy criterion also applies: ∫ₐ<sup>∞</sup> f converges iff for every ε &gt; 0 there is R₀ with |∫ from R to S of f| &lt; ε for all S &gt; R &gt; R₀. As with series, absolute convergence (∫|f| &lt; ∞) implies convergence.</p>
+<h3>The integral test</h3>
+<p><strong>Theorem 9.1 (Integral test)</strong>. Let f be positive and decreasing on [1, ∞). Then ∑ f(n) converges iff ∫₁<sup>∞</sup> f converges. Moreover, the remainder satisfies ∫ from N + 1 to ∞ of f ≤ ∑ₙ₌N₊₁<sup>∞</sup> f(n) ≤ ∫ from N to ∞ of f.</p>
+<p><strong>Proof</strong>. On [n, n + 1], f(n + 1) ≤ f(x) ≤ f(n). Integrate and sum. ∎</p>
+<p>The same comparison shows that γₙ = 1 + 1/2 + ... + 1/n − ln n is decreasing and bounded below by 0; its limit γ ≈ 0.57722 is the Euler–Mascheroni constant. It is unknown whether γ is irrational.</p>
+<h3>Conditional convergence: the Dirichlet integral</h3>
+<p>The integral ∫₀<sup>∞</sup> (sin x)/x dx converges (the integrand extends continuously to 1 at 0). Integrating by parts on [1, R],</p>
+<pre class="math">∫₁ᴿ (sin x)/x dx = cos 1 − (cos R)/R − ∫₁ᴿ (cos x)/x² dx,</pre>
+<p>and the last integral converges absolutely. Its value is π/2, a classical result usually proved with complex analysis or by differentiating under the integral sign. But it is not absolutely convergent: on [kπ, (k + 1)π], |sin x|/x ≥ |sin x|/((k + 1)π), whose integral is 2/((k + 1)π), and ∑ 1/(k + 1) diverges. Such integrals are a major reason why the Lebesgue integral, which only handles absolutely integrable functions, does not simply replace improper Riemann integrals.</p>
+<h3>The Gamma function</h3>
+<p>For s &gt; 0, Γ(s) = ∫₀<sup>∞</sup> tˢ⁻¹e⁻ᵗ dt converges: near 0 the integrand is at most tˢ⁻¹ (integrable since s − 1 &gt; −1), and near ∞ it is at most Ce<sup>−t/2</sup>. Integrating by parts gives the functional equation Γ(s + 1) = sΓ(s), and Γ(1) = 1, so Γ(n + 1) = n! for every n ≥ 0. The substitution t = x² shows Γ(1/2) = 2∫₀<sup>∞</sup> e<sup>−x²</sup> dx = √π, using the Gaussian integral proved in Lesson 13. Hence</p>
+<pre class="math">Γ(3/2) = √π/2,   Γ(5/2) = 3√π/4,   Γ(7/2) = 15√π/8.</pre>
+<p>Γ interpolates the factorial; by the Bohr–Mollerup theorem (1922) it is the only log-convex function on (0, ∞) with Γ(1) = 1 and Γ(s + 1) = sΓ(s).</p>
+<h3>Principal values</h3>
+<p>∫₋₁¹ dx/x does not converge as an improper integral, because ∫₀¹ dx/x diverges. Its Cauchy principal value, lim (η → 0⁺) (∫ from −1 to −η + ∫ from η to 1) of dx/x, equals 0 by symmetry. Principal values are an essential tool (the Hilbert transform, dispersion relations) but must not be confused with genuine convergence.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute ∫₁<sup>∞</sup> (ln x)/x² dx.</div></li><li><span class="mk">(b)</span><div>For which p does ∫₂<sup>∞</sup> dx/(x (ln x)ᵖ) converge?</div></li><li><span class="mk">(c)</span><div>Compute Γ(5/2) to four decimal places, and Γ(5).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) By parts, [−(ln x)/x] from 1 to ∞ + ∫₁<sup>∞</sup> dx/x² = 0 + 1 = 1. (b) Substituting u = ln x gives ∫ from ln 2 to ∞ of u⁻ᵖ du, which converges iff p &gt; 1. (c) Γ(5/2) = 3√π/4 ≈ 1.3293, and Γ(5) = 4! = 24.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

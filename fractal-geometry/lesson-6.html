@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#10b981">
+<body id="top" class="mode-kid" style="--topic:#10b981">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry" class="active">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/fractal-geometry/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,15 +34,15 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Nature builds with fractal rules to pack a LOT into a LITTLE space.
 Real-world fractals are approximately self-similar and zoom only a few levels deep.
 Their roughness is measurable: measured length L(ε) = C·ε^(1−D), where ε is your ruler.</pre></div>
 <p>Once you know the zoom test, you start seeing fractals everywhere:</p>
-<ul class="steps"><li><span class="mk">·</span><div>TREES and FERNS: branches that look like small trees, leaflets that look like small leaves.</div></li><li><span class="mk">·</span><div>ROMANESCO BROCCOLI: spiraling cones made of smaller spiraling cones, made of smaller ones still.</div></li><li><span class="mk">·</span><div>LIGHTNING: each fork zigzags and branches the way the whole bolt does.</div></li><li><span class="mk">·</span><div>RIVERS and their tributaries: every small stream branches like the great river it feeds.</div></li><li><span class="mk">·</span><div>COASTLINES: bays within bays within bays, at every scale of map.</div></li><li><span class="mk">·</span><div>YOUR OWN BODY: the airways in your lungs split and split again (about 15–20 levels!), and your blood vessels branch from big highways down to tiny capillaries.</div></li></ul>
-<p>Why does nature keep choosing fractal rules? Because fractal branching PACKS A LOT INTO A LITTLE — and now you can say that quantitatively. Splitting n rounds with ratio 2 produces 2ⁿ tips: after just 10 rounds you have 2¹⁰ = 1024 ends from ONE trunk. Exponential growth is nature's shortcut to huge numbers. A tree catches sunlight over a huge area while taking up a small patch of ground. Your lungs fold an enormous surface — about the size of a tennis court — inside your chest, so oxygen can pass into your blood quickly. One splitting rule, repeated, solves a giant packing problem.</p>
-<p>But remember the difference from Lesson 2: nature's fractals are APPROXIMATELY self-similar and they STOP. Twigs end in buds, airways end in tiny sacs. Real-world fractals zoom only a limited number of levels deep — a handful for a fern, about 15–20 for your lungs. Only in math does the zoom go on forever — and about 20 levels of self-similarity is enough to pack a tennis court into your chest.</p>
+<ul class="steps"><li><span class="mk">·</span><div>TREES and FERNS: branches that look like small trees, leaflets that look like small leaves.</div></li><li><span class="mk">·</span><div>ROMANESCO BROCCOLI: spiraling cones made of smaller spiraling cones, made of smaller ones still.</div></li><li><span class="mk">·</span><div>LIGHTNING: each fork zigzags and branches the way the whole bolt does.</div></li><li><span class="mk">·</span><div>RIVERS and their tributaries: every small stream branches like the great river it feeds.</div></li><li><span class="mk">·</span><div>COASTLINES: bays within bays within bays, at every scale of map.</div></li><li><span class="mk">·</span><div>YOUR OWN BODY: the airways in your lungs split and split again (about 20–23 levels!), and your blood vessels branch from big highways down to tiny capillaries.</div></li></ul>
+<p>Why does nature keep choosing fractal rules? Because fractal branching PACKS A LOT INTO A LITTLE — and now you can say that quantitatively. Splitting n rounds with ratio 2 produces 2ⁿ tips: after just 10 rounds you have 2¹⁰ = 1024 ends from ONE trunk. Exponential growth is nature's shortcut to huge numbers. A tree catches sunlight over a huge area while taking up a small patch of ground. Your lungs fold an enormous surface — about half the size of a tennis court — inside your chest, so oxygen can pass into your blood quickly. One splitting rule, repeated, solves a giant packing problem.</p>
+<p>But remember the difference from Lesson 2: nature's fractals are APPROXIMATELY self-similar and they STOP. Twigs end in buds, airways end in tiny sacs. Real-world fractals zoom only a limited number of levels deep — a handful for a fern, about 20–23 for your lungs. Only in math does the zoom go on forever — and about 23 levels of self-similarity is enough to pack half a tennis court into your chest.</p>
 <p>Now the coastline, with real math. Measure a coast with a ruler of length ε: you count some number of steps N(ε), and your measured length is L(ε) = N(ε)·ε. For a fractal coast of dimension D, the copy-count law from Lesson 5 runs backwards: finer rulers reveal copies in proportion N(ε) ≈ C·ε⁻ᴰ for some constant C. Multiply by ε:</p>
 <pre class="math">L(ε) = N(ε)·ε = C·ε⁻ᴰ · ε = C·ε^(1−D)          (adding exponents: −D + 1)</pre>
 <p>Since coastlines have D &gt; 1, the exponent 1 − D is NEGATIVE — and a negative exponent means the smaller ε gets, the LARGER L gets. The formula makes the paradox precise.</p>
@@ -59,7 +60,7 @@ D = log 4/log 3 = log₃(4)                      (change of base, from Lesson 5)
 3^D = 3^(log₃(4)) = 4                          (base and log base cancel — the definition of log!)
 3^(D−1) = 4/3                                    (so L multiplies by 4/3)</pre>
 <p>That's EXACTLY the perimeter multiplier from Lesson 3 — each iteration is a ruler three times finer, and the measured length grows by 4/3. The coastline formula and the snowflake formula are the same truth in two outfits.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Give one reason nature might &quot;choose&quot; a fractal rule. (b) Does a real fern zoom forever? (c) A very rough coastline has D = 1.5. If you halve your ruler, by what factor does the measured length grow?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) To pack a huge amount of surface or reach into a tiny space — catching sunlight, moving air and blood, draining a valley. (b) No — after a few levels the copies stop. Only math fractals zoom forever. (c) Factor = 2^(D−1) = 2^0.5 = √2 ≈ 1.41 — about 41% longer.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Give one reason nature might &quot;choose&quot; a fractal rule.</div></li><li><span class="mk">(b)</span><div>Does a real fern zoom forever?</div></li><li><span class="mk">(c)</span><div>A very rough coastline has D = 1.5. If you halve your ruler, by what factor does the measured length grow?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) To pack a huge amount of surface or reach into a tiny space — catching sunlight, moving air and blood, draining a valley. (b) No — after a few levels the copies stop. Only math fractals zoom forever. (c) Factor = 2^(D−1) = 2^0.5 = √2 ≈ 1.41 — about 41% longer.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">⬅️ Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 ➡️</a></nav>
 </main>
 
@@ -69,7 +70,7 @@ D = log 4/log 3 = log₃(4)                      (change of base, from Lesson 5)
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Julia Sets of Quadratic Polynomials — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 9</p>
+    <h1>Julia Sets of Quadratic Polynomials</h1>
+    <p class="kicker">Lesson 9 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For f<sub>c</sub>(z) = z² + c, the filled Julia set is K<sub>c</sub> = { z ∈ ℂ : (f<sub>cⁿ</sub>(z)) is bounded },
+and the Julia set is J<sub>c</sub> = ∂K<sub>c</sub>.
+If |z| &gt; max{2, |c|}, then f<sub>cⁿ</sub>(z) → ∞.</pre></div>
+<p>The fractals of Lessons 2–8 were defined by contractions. Julia sets arise from the opposite mechanism: a single expanding map whose repelling behaviour on a compact invariant set creates fine structure at all scales. Their study was founded by Pierre Fatou and Gaston Julia around 1918–1920, using Montel's theory of normal families, decades before the first computer pictures.</p>
+<h3>Escape radius</h3>
+<p><strong>Lemma 9.1</strong>. Let R = max{2, |c|}. If |z| &gt; R, then |f<sub>cⁿ</sub>(z)| ≥ λⁿ |z| with λ = |z| − 1 &gt; 1; in particular f<sub>cⁿ</sub>(z) → ∞.</p>
+<p><strong>Proof</strong>. Since |c| ≤ R &lt; |z|,</p>
+<pre class="math">|z² + c| ≥ |z|² − |c| &gt; |z|² − |z| = |z|(|z| − 1) = λ|z|</pre>
+<p>So |f<sub>c</sub>(z)| &gt; λ|z| &gt; |z| &gt; R. The point f<sub>c</sub>(z) again satisfies the hypothesis, and |f<sub>c</sub>(z)| − 1 &gt; |z| − 1 = λ, so by induction |f<sub>cⁿ</sub>(z)| &gt; λⁿ|z|. ∎</p>
+<p><strong>Corollary 9.2</strong>. K<sub>c</sub> = ⋂<sub>n≥0</sub> f<sub>c</sub><sup>−n</sup>(D̄<sub>R</sub>), where D̄<sub>R</sub> is the closed disc of radius R. Hence K<sub>c</sub> is compact; it is non-empty because it contains the fixed points of f<sub>c</sub>; and it is completely invariant: f<sub>c</sub><sup>−1</sup>(K<sub>c</sub>) = K<sub>c</sub> = f<sub>c</sub>(K<sub>c</sub>).</p>
+<p><strong>Proof</strong>. A point outside D̄<sub>R</sub> escapes by Lemma 9.1, and so does any point with some iterate outside D̄<sub>R</sub>; conversely a point whose orbit stays in D̄<sub>R</sub> has bounded orbit. Each f<sub>c</sub><sup>−n</sup>(D̄<sub>R</sub>) is closed, and they are nested because f<sub>c</sub><sup>−1</sup>(D̄<sub>R</sub>) ⊂ D̄<sub>R</sub> (if |z| &gt; R then |f<sub>c</sub>(z)| &gt; R). Complete invariance holds because z and f<sub>c</sub>(z) have the same orbit from the second term on, and f<sub>c</sub> is surjective. ∎</p>
+<p>The escape-time pictures of Julia sets colour each z by the first n with |f<sub>cⁿ</sub>(z)| &gt; R; by Lemma 9.1 this is a rigorous test.</p>
+<h3>Fatou and Julia sets</h3>
+<p>The Fatou set F<sub>c</sub> is the set of z having a neighbourhood on which the iterates {f<sub>cⁿ</sub>} form a normal family (every sequence has a subsequence converging locally uniformly, possibly to ∞). For polynomials, the Julia set J<sub>c</sub> = ℂ \ F<sub>c</sub> coincides with ∂K<sub>c</sub>: on the interior of K<sub>c</sub> the iterates are uniformly bounded, hence normal by Montel's theorem, and on ℂ \ K<sub>c</sub> they converge to ∞ locally uniformly; at a point of ∂K<sub>c</sub>, any neighbourhood contains points with bounded orbits and points escaping, so no subsequence converges locally uniformly.</p>
+<p><strong>Theorem 9.3 (Fatou, Julia)</strong>. J<sub>c</sub> is a non-empty, compact, perfect, completely invariant set with empty interior. It is the closure of the set of repelling periodic points. For every z ∈ J<sub>c</sub>, the backward orbit ⋃ₙ f<sub>c</sub><sup>−n</sup>(z) is dense in J<sub>c</sub>; and for every open U meeting J<sub>c</sub>, ⋃ₙ f<sub>cⁿ</sub>(U) covers ℂ except at most one point.</p>
+<p>The last property, a consequence of Montel's theorem that a family of holomorphic maps omitting two values is normal, says that J<sub>c</sub> is where the dynamics is chaotic: arbitrarily small neighbourhoods of a point of J<sub>c</sub> are eventually spread over the whole plane. The density of backward orbits gives the inverse iteration method for drawing J<sub>c</sub>: iterate z ↦ ±√(z − c) with random signs, exactly as in the chaos game of Lesson 3. Indeed, when c ∉ M (Lesson 10) the two branches of f<sub>c</sub><sup>−1</sup> are contractions in a suitable metric, and J<sub>c</sub> is literally the attractor of a non-linear IFS.</p>
+<h3>Two exactly solvable examples</h3>
+<p>For c = 0, f₀(z) = z². Points with |z| &lt; 1 converge to 0, points with |z| &gt; 1 escape, and the unit circle is invariant, so K₀ is the closed unit disc and J₀ is the unit circle. In the angle coordinate z = e<sup>2πiθ</sup>, f₀ acts on J₀ as the doubling map θ ↦ 2θ mod 1, which is chaotic.</p>
+<p>For c = −2, consider the substitution z = w + 1/w with |w| ≥ 1, which maps {|w| &gt; 1} conformally onto ℂ \ [−2, 2] and the unit circle two-to-one onto [−2, 2]. Then</p>
+<pre class="math">f₋₂(w + 1/w) = w² + 2 + w<sup>−2</sup> − 2 = w² + w<sup>−2</sup></pre>
+<p>so f₋₂ is conjugate on ℂ \ [−2, 2] to w ↦ w² on {|w| &gt; 1}, and every point off [−2, 2] escapes. On [−2, 2], writing z = 2 cos θ, f₋₂(2 cos θ) = 4 cos²θ − 2 = 2 cos 2θ, so [−2, 2] is invariant. Hence K₋₂ = J₋₂ = [−2, 2], a segment of dimension 1, and f₋₂ on it is a Chebyshev polynomial semiconjugate to angle doubling.</p>
+<h3>Fixed points and multipliers</h3>
+<p>The fixed points of f<sub>c</sub> are the roots of z² − z + c = 0,</p>
+<pre class="math">z± = (1 ± √(1 − 4c))/2,   with multipliers λ± = f<sub>c</sub>′(z±) = 2z±,   λ₊ + λ₋ = 2</pre>
+<p>A periodic point of period p with multiplier λ = (f<sub>cᵖ</sub>)′(z) is attracting if |λ| &lt; 1 (superattracting if λ = 0), repelling if |λ| &gt; 1, and indifferent if |λ| = 1. Since λ₊ + λ₋ = 2, at most one fixed point can be attracting.</p>
+<p><strong>Theorem 9.4 (Fatou)</strong>. The immediate basin of every attracting cycle of a polynomial contains a critical point.</p>
+<p>Since f<sub>c</sub> has a single critical point, 0, it has at most one attracting cycle, and if it has one, the orbit of 0 converges to it. The critical orbit governs everything — the observation that leads to the Mandelbrot set.</p>
+<h3>The fundamental dichotomy</h3>
+<p><strong>Theorem 9.5 (Fatou, Julia)</strong>. (i) If the critical orbit (f<sub>cⁿ</sub>(0)) is bounded, then K<sub>c</sub> and J<sub>c</sub> are connected. (ii) If f<sub>cⁿ</sub>(0) → ∞, then K<sub>c</sub> = J<sub>c</sub> is a Cantor set: compact, perfect and totally disconnected.</p>
+<p><strong>Proof sketch</strong>. Let D = D̄<sub>R</sub> with R as in Lemma 9.1 (enlarged slightly so that its boundary avoids the critical orbit), and Dₙ = f<sub>c</sub><sup>−n</sup>(D), so that K<sub>c</sub> = ⋂ Dₙ. The map f<sub>c</sub> : D<sub>n+1</sub> → Dₙ is a proper holomorphic map of degree 2 branched only over the critical value c. By the Riemann–Hurwitz formula, if Dₙ is a closed topological disc containing c, then D<sub>n+1</sub> is a closed topological disc; if Dₙ is a disc not containing c, then D<sub>n+1</sub> consists of two disjoint discs, each mapped conformally onto Dₙ.</p>
+<ul class="steps"><li><span class="mk">(i)</span><div>If the critical orbit is bounded, it lies in K<sub>c</sub>, so c = f<sub>c</sub>(0) ∈ Dₙ for every n, and every Dₙ is a disc. A nested intersection of compact connected sets is connected, so K<sub>c</sub> is connected, and so is its boundary J<sub>c</sub> (for a compact connected set in the plane whose complement is connected, the boundary is connected).</div></li></ul>
+<ul class="steps"><li><span class="mk">(ii)</span><div>If the critical orbit escapes, then c ∉ D<sub>N</sub> for some N, so D<sub>N+1</sub> splits into two discs, D<sub>N+2</sub> into four, and so on. The inverse branches of f<sub>c</sub> on these discs are uniformly contracting in the hyperbolic metric of D<sub>N</sub>, so the components of Dₙ have diameters tending to zero, and K<sub>c</sub> is a Cantor set — the attractor of a two-map conformal IFS. In particular K<sub>c</sub> has no interior, so K<sub>c</sub> = J<sub>c</sub>. ∎</div></li></ul>
+<p>For |c| large the two inverse branches z ↦ ±√(z − c) contract by a factor of about 1/(2|c|<sup>1/2</sup>) on J<sub>c</sub>, and a conformal version of Moran's equation gives dim<sub>H</sub> J<sub>c</sub> ~ 2 log 2 / log |c| as |c| → ∞.</p>
+<h3>Dimension of Julia sets</h3>
+<p>For c = 0 and c = −2 the Julia set is smooth and has dimension 1; these are the only real-analytic Julia sets in the family. For small c ≠ 0, J<sub>c</sub> is a quasicircle — a Jordan curve that is the image of the circle under a quasiconformal map — whose dimension is strictly greater than 1. Ruelle (1982) proved</p>
+<pre class="math">dim<sub>H</sub> J<sub>c</sub> = 1 + |c|²/(4 log 2) + o(|c|²)   as c → 0</pre>
+<p>using the thermodynamic formalism: for hyperbolic c, dim<sub>H</sub> J<sub>c</sub> is the unique zero t of the pressure function P(−t log|f<sub>c</sub>′|), Bowen's formula (1979). At the other extreme, Shishikura (1998) proved that there are parameters c with dim<sub>H</sub> J<sub>c</sub> = 2, and Buff and Chéritat (2012) constructed quadratic Julia sets of positive Lebesgue measure.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that the critical orbit for c = i is eventually periodic, and conclude that K<sub>i</sub> is connected.</div></li><li><span class="mk">(b)</span><div>Find the fixed points of f<sub>c</sub> for c = −3/4 and classify them.</div></li><li><span class="mk">(c)</span><div>For c = −2, verify that 2 cos(2π/7), 2 cos(4π/7), 2 cos(6π/7) form a cycle of period 3. Is it repelling?</div></li><li><span class="mk">(d)</span><div>For c = 0.3, is J<sub>c</sub> connected?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 0 ↦ i ↦ i² + i = −1 + i ↦ (−1 + i)² + i = −2i + i = −i ↦ (−i)² + i = −1 + i. So the orbit is 0, i, −1 + i, −i, −1 + i, −i, …, bounded, and K<sub>i</sub> is connected by Theorem 9.5 (it is a dendrite with empty interior). (b) z² − z − 3/4 = 0 gives z = 3/2 and z = −1/2, with multipliers 3 (repelling) and −1 (indifferent; parabolic, since −1 is a root of unity). (c) With z = 2 cos θ, f₋₂ doubles θ: 2π/7 → 4π/7 → 8π/7, and cos(8π/7) = cos(6π/7); then 12π/7 ≡ −2π/7 gives cos(12π/7) = cos(2π/7). So the three points form a 3-cycle. The multiplier is ∏ 2z<sub>i</sub> = 8·∏ 2cos(2πk/7) = 8·8·cos(2π/7)cos(4π/7)cos(6π/7) = 8·8·(1/8) = 8, so the cycle is repelling, as every cycle in J₋₂ other than the fixed point 2 must be: differentiating f₋₂ᵖ(2 cos θ) = 2 cos(2ᵖθ) shows a period-p cycle off ±2 has multiplier ±2ᵖ. (d) No: 0 ↦ 0.3 ↦ 0.39 ↦ 0.4521 ↦ … The real orbit of 0 for real c &gt; 1/4 is increasing with no fixed point to converge to (z² + c &gt; z for all real z when 1 − 4c &lt; 0), so it escapes and J<sub>0.3</sub> is a Cantor set.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

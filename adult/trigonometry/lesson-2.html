@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: The Definition of π and Periodicity — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 2</p>
+    <h1>The Definition of π and Periodicity</h1>
+    <p class="kicker">Lesson 2 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">π/2 is defined as the smallest positive zero of cos.
+Then e<sup>it</sup> = 1 ⇔ t ∈ 2πℤ, and t ↦ (cos t, sin t) traces the unit circle at unit speed.</pre></div>
+<h3>Existence of a first zero</h3>
+<p><strong>Lemma 2.1</strong>. The cosine function has exactly one zero in the interval (0, 2).</p>
+<p><strong>Proof</strong>. By Lesson 1, sin x &gt; 0 on (0, 2], so cos′ = −sin &lt; 0 there and cos is strictly decreasing on [0, 2]. We have cos 0 = 1, and from the upper bound cos x &lt; 1 − x²/2 + x⁴/24 at x = 2, cos 2 &lt; 1 − 2 + 16/24 = −1/3 &lt; 0. By the intermediate value theorem cos has a zero in (0, 2), and by strict monotonicity it has only one. ∎</p>
+<p><strong>Definition 2.2</strong>. π is the real number such that π/2 is the unique zero of cos in (0, 2).</p>
+<p>This is Landau's definition (1934), and it is completely independent of geometry. Since cos(π/2) = 0 and sin(π/2) &gt; 0, the Pythagorean identity forces sin(π/2) = 1, so e<sup>iπ/2</sup> = i.</p>
+<h3>Rough bounds on π</h3>
+<p>The two-sided bounds of Lesson 1 locate π quickly. At x = 3/2 the terms of the cosine series decrease in absolute value from the x² term onward, so stopping after a negative term gives a lower bound:</p>
+<pre class="math">cos(3/2) &gt; 1 − 9/8 + 81/384 − 729/46080 = 0.0701… &gt; 0.</pre>
+<p>At x = 8/5 the same holds, and stopping after a positive term gives an upper bound:</p>
+<pre class="math">cos(8/5) &lt; 1 − 1.28 + 0.27306… = −0.00693… &lt; 0.</pre>
+<p>Since cos is decreasing on [0, 2], its zero lies in (3/2, 8/5), so 3 &lt; π &lt; 3.2. Better constants come from the arctangent series of Lesson 4.</p>
+<h3>Periodicity</h3>
+<p><strong>Theorem 2.3</strong>. For all z ∈ ℂ, e<sup>z + iπ/2</sup> = i e<sup>z</sup>, e<sup>z + iπ</sup> = −e<sup>z</sup> and e<sup>z + 2πi</sup> = e<sup>z</sup>. In particular sin and cos are 2π-periodic, and</p>
+<pre class="math">sin(x + π/2) = cos x,   cos(x + π/2) = −sin x,   sin(x + π) = −sin x,   cos(x + π) = −cos x.</pre>
+<p><strong>Proof</strong>. e<sup>iπ/2</sup> = cos(π/2) + i sin(π/2) = i, and the functional equation of exp gives the rest; taking real and imaginary parts gives the formulas for sine and cosine. ∎</p>
+<p><strong>Theorem 2.4</strong>. e<sup>it</sup> = 1 for real t if and only if t ∈ 2πℤ. Consequently 2π is the least positive period of sin and cos, and the zeros of sin are exactly the points kπ, k ∈ ℤ.</p>
+<p><strong>Proof</strong>. Suppose e<sup>it</sup> = 1 with 0 &lt; t &lt; 2π. Write e<sup>it/4</sup> = u + iv with u, v real. If 0 &lt; t/4 &lt; π/2 then u = cos(t/4) &gt; 0 and v = sin(t/4) &gt; 0 (cos is decreasing from 1 to 0 on [0, π/2] and sin² = 1 − cos²). Then (u + iv)⁴ = u⁴ − 6u²v² + v⁴ + 4iuv(u² − v²). For this to equal 1 we need u² = v², hence u² = v² = 1/2, and then the real part is 1/4 − 6/4 + 1/4 = −1 ≠ 1. Contradiction. Thus no t in (0, 2π) works, and by periodicity the set of real t with e<sup>it</sup> = 1 is a subgroup of ℝ containing 2π whose positive part starts at 2π, namely 2πℤ. For the zeros of sin: sin t = 0 implies cos t = ±1, so e<sup>2it</sup> = 1 and t ∈ πℤ. ∎</p>
+<h3>The circle and radian measure</h3>
+<p><strong>Theorem 2.5</strong>. The map γ(t) = (cos t, sin t) is a continuous bijection from [0, 2π) onto the unit circle S¹ = {(x, y) : x² + y² = 1}, and the arc length of γ on [0, t] equals t for 0 ≤ t ≤ 2π.</p>
+<p><strong>Proof</strong>. Injectivity follows from Theorem 2.4: γ(s) = γ(t) means e<sup>i(s − t)</sup> = 1. For surjectivity, let x² + y² = 1. If y ≥ 0, choose t ∈ [0, π] with cos t = x (cos decreases from 1 to −1 on [0, π] by Theorem 2.3); then sin t ≥ 0 and sin t = √(1 − x²) = y. If y &lt; 0, use t ∈ (π, 2π) via the symmetry t ↦ 2π − t. Finally |γ′(t)| = √(sin²t + cos²t) = 1, so the arc length is ∫₀ᵗ 1 ds = t. ∎</p>
+<p>Theorem 2.5 is the rigorous content of &quot;radian measure&quot;: the real number t assigned to an angle is the length of the arc it cuts from the unit circle, and the circumference of the unit circle is 2π. The area of the unit disc is also π, since ∫₋₁¹ 2√(1 − x²) dx equals, after x = cos t, ∫₀<sup>π</sup> 2 sin²t dt = π.</p>
+<p>Every complex number z ≠ 0 can now be written as z = r e<sup>iθ</sup> with r = |z| &gt; 0 and θ unique modulo 2π. This is the polar form, and θ is an argument of z.</p>
+<h3>Historical note</h3>
+<p>That the ratio of circumference to diameter is the same for all circles was known in antiquity; Archimedes proved 223/71 &lt; π &lt; 22/7 with inscribed and circumscribed 96-gons. The symbol π was introduced by William Jones in 1706 and popularised by Euler. The analytic definition used here goes back to Weierstrass's school and to Landau's textbook, whose aim was precisely to free analysis from geometric intuition.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that sin is strictly increasing on [−π/2, π/2].</div></li><li><span class="mk">(b)</span><div>Use the bound cos x ≥ 1 − x²/2 (valid for all real x) to prove that π &gt; 2√2.</div></li><li><span class="mk">(c)</span><div>Show that tan x = sin x / cos x has least positive period π.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) sin′ = cos, and cos &gt; 0 on (−π/2, π/2) because cos is even, positive at 0, and its first positive zero is π/2. (b) If 0 ≤ x &lt; √2 then cos x ≥ 1 − x²/2 &gt; 0, so the first zero π/2 is at least √2; equality is excluded because cos √2 &gt; 1 − 1 = 0 by the strict lower bound of Lesson 1. Hence π &gt; 2√2 ≈ 2.83. (c) tan(x + π) = (−sin x)/(−cos x) = tan x. If tan had a period 0 &lt; p &lt; π then tan p = tan 0 = 0, so sin p = 0, contradicting Theorem 2.4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

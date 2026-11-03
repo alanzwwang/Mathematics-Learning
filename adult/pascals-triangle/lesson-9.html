@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: The Sierpinski Pattern and Fractal Structure — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 9</p>
+    <h1>The Sierpinski Pattern and Fractal Structure</h1>
+    <p class="kicker">Lesson 9 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">rows 0 … 2ᵐ⁺¹ − 1 mod 2  =  three copies of rows 0 … 2ᵐ − 1  +  an inverted triangle of zeros
+#odd entries in rows 0 … 2ᵐ − 1 = 3ᵐ;   limiting set: Sierpinski gasket, dimension log 3/log 2</pre></div>
+<h3>Self-similarity from Lucas' theorem</h3>
+<p>Let Tₘ denote the array of residues C(n, k) mod 2 for 0 ≤ k ≤ n &lt; 2ᵐ. Write a row index in the range 2ᵐ ≤ n &lt; 2ᵐ⁺¹ as n = 2ᵐ + n′ with 0 ≤ n′ &lt; 2ᵐ. By Lucas' theorem with the top binary digit separated:</p>
+<pre class="math">k &lt; 2ᵐ:           C(n, k) ≡ C(1, 0) C(n′, k) = C(n′, k)
+k = 2ᵐ + k′:      C(n, k) ≡ C(1, 1) C(n′, k′) = C(n′, k′)</pre>
+<p>In the first case C(n′, k) = 0 when n′ &lt; k &lt; 2ᵐ. Hence the rows 2ᵐ, …, 2ᵐ⁺¹ − 1 consist of a copy of Tₘ on the left (k ≤ n′), a copy of Tₘ on the right (k ≥ 2ᵐ), and between them the inverted triangle n′ &lt; k &lt; 2ᵐ of zeros. Together with Tₘ itself on top, Tₘ₊₁ is three copies of Tₘ arranged in a triangle around a hole. The same argument works for every prime p: Tₘ₊₁ mod p consists of p(p + 1)/2 blocks, the block in position (a, b), 0 ≤ b ≤ a &lt; p, being C(a, b) · Tₘ (mod p), and the remaining p(p − 1)/2 blocks are zero.</p>
+<h3>Counting odd entries</h3>
+<p><strong>Proposition 9.1</strong>. The number of odd entries in rows 0, …, 2ᵐ − 1 is 3ᵐ; more generally the number of entries not divisible by p in rows 0, …, pᵐ − 1 is (p(p + 1)/2)ᵐ. Proof. By Fine's theorem the count is ∑ over n &lt; pᵐ of ∏ᵢ (nᵢ + 1), and since the digits n₀, …, n<sub>m−1</sub> range independently over {0, …, p − 1}, this is (∑<sub>d=0</sub><sup>p−1</sup> (d + 1))ᵐ = (p(p + 1)/2)ᵐ. ∎</p>
+<p>The total number of entries in the first 2ᵐ rows is 2ᵐ(2ᵐ + 1)/2, so the proportion of odd entries is about 2(3/4)ᵐ → 0: almost all binomial coefficients are even, and more generally, for any fixed modulus, almost all are divisible by it. For a general number N of rows, let f(N) be the number of odd entries in rows 0, …, N − 1. Then f(N)/N<sup>θ</sup> with θ = log₂ 3 equals 1 whenever N is a power of 2 but oscillates otherwise; Harborth (1977) showed that lim sup f(N)/N<sup>θ</sup> = 1 and lim inf f(N)/N<sup>θ</sup> ≈ 0.812556. For example f(100) = 1251, while 100<sup>θ</sup> ≈ 1478.9.</p>
+<h3>The limiting fractal</h3>
+<p>Scale the first 2ᵐ rows into the unit triangle by sending the entry (n, k) to the point (k/2ᵐ − n/2ᵐ⁺¹, −n/2ᵐ) and replacing it by a small triangle of side 2⁻ᵐ. Let Kₘ be the union of the small triangles at odd entries. The self-similarity above says Kₘ₊₁ = φ₁(Kₘ) ∪ φ₂(Kₘ) ∪ φ₃(Kₘ), where φ₁, φ₂, φ₃ are the three similarities of ratio 1/2 fixing the vertices of the big triangle. By Hutchinson's theorem the iterated function system {φ₁, φ₂, φ₃} has a unique nonempty compact invariant set K, the Sierpinski gasket, and Kₘ → K in the Hausdorff metric. Because the open set condition holds (the open triangle is mapped onto three disjoint open subtriangles), Moran's equation 3 · (1/2)ˢ = 1 gives the Hausdorff dimension</p>
+<pre class="math">dim<sub>H</sub> K = log 3 / log 2 ≈ 1.5850</pre>
+<p>For a prime p the same construction with p(p + 1)/2 maps of ratio 1/p gives a fractal of dimension log(p(p + 1)/2)/log p: for p = 3 this is log 6/log 3 ≈ 1.6309, for p = 5 it is log 15/log 5 ≈ 1.6826, and the dimension tends to 2 as p → ∞.</p>
+<h3>Cellular automata and generating functions</h3>
+<p>Pascal's rule modulo 2 says that each row is the exclusive-or of the previous row with its shift. In the staggered layout of the triangle this is Wolfram's elementary cellular automaton Rule 90 (each cell becomes the XOR of its two neighbours), started from a single live cell; Rule 90 is linear over F₂, and its space-time diagram is the Sierpinski pattern. Algebraically, the generating function of row n modulo 2 factors as (1 + x)ⁿ ≡ ∏ᵢ (1 + x<sup>2ⁱ</sup>)<sup>nᵢ</sup>, a product of s₂(n) sparse factors, which is Lucas' theorem once more.</p>
+<h3>Finer valuations</h3>
+<p>Kummer's theorem gives a nested family of patterns: the entries with v<sub>p</sub> C(n, k) ≥ j form a union of inverted triangles of all sizes, determined by the carry structure. The number of entries in row n with v<sub>p</sub> C(n, k) = j can be computed from the digit pattern of n (results of Carlitz and others), and the pictures modulo pᵉ are self-similar in a weaker, automatic-sequence sense: the residues C(n, k) mod pᵉ form a two-dimensional p-automatic sequence (Allouche and Shallit's book is the standard reference).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many odd entries are there in rows 0 through 63?</div></li><li><span class="mk">(b)</span><div>How many entries not divisible by 3 are there in rows 0 through 80?</div></li><li><span class="mk">(c)</span><div>Compute the fractal dimension of Pascal's triangle modulo 5 to four decimal places.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 64 = 2⁶, so 3⁶ = 729. (b) 81 = 3⁴, so (3 · 4/2)⁴ = 6⁴ = 1296. (c) log 15/log 5 = 1.6826 (to four places).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

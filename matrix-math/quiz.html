@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#2563eb">
+<body id="top" class="mode-kid" style="--topic:#2563eb">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/matrix-math/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,12 +34,12 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Matrix — Rows, Columns, Addresses">1</a><a href="lesson-2.html" title="Lesson 2: Adding and Subtracting — Square by Square">2</a><a href="lesson-3.html" title="Lesson 3: The Scalar — One Number Times a Whole Grid">3</a><a href="lesson-4.html" title="Lesson 4: The Real Matrix Multiplication — Row × Column">4</a><a href="lesson-5.html" title="Lesson 5: Order Matters! A × B ≠ B × A">5</a><a href="lesson-6.html" title="Lesson 6: Special Grids — The Zero Grid and the Identity Grid">6</a><a href="lesson-7.html" title="Lesson 7: Matrices at Work — Scores, Photos, Codes, and Flips">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" class="here" aria-current="page" title="Quiz">🏆 Quiz</a></nav>
   <div class="quiz-intro"><p>🏆 Ready to test yourself? This quiz has <strong>10 questions</strong> about Matrix Math.</p>
     <p>🎲 Every quiz is made up fresh by the computer, with new numbers each time, so there's nothing to memorise. You just have to know the math!</p>
     <p>📝 Answer every question, then press <strong>Submit</strong> at the bottom. You'll see your score and the right answers only <em>after</em> you submit.</p></div>
-  <div id="quiz" data-topic="matrix-math"><noscript><p>The quiz needs JavaScript turned on.</p></noscript></div>
+  <div id="quiz" data-topic="matrix-math" data-mode="kid"><noscript><p>The quiz needs JavaScript turned on.</p></noscript></div>
   <script src="../quiz.js" defer></script>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="practice.html">⬅️ Practice Problems</a><a class="btn" href="../index.html">🎉 Pick a new topic!</a></nav>
 </main>
@@ -49,7 +50,7 @@
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 3</p>
+    <h1>Half-Life, Radioactive Decay and the Exponential Distribution</h1>
+    <p class="kicker">Lesson 3 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">N(t) = N₀ e<sup>−λt</sup>,   T½ = ln 2/λ,   mean lifetime τ = 1/λ = T½/ln 2</pre></div>
+<p>Radioactive decay was the first physical process recognized as fundamentally random. Rutherford and Soddy (1902–1903) established that the activity of a radioactive sample decays exponentially; the explanation came later from quantum mechanics, but the mathematical law can be derived from a single probabilistic hypothesis.</p>
+<h3>Memorylessness forces the exponential law</h3>
+<p>Let T be the (random) lifetime of a single unstable nucleus, with survival function S(t) = P(T &gt; t). The physical hypothesis is that a nucleus does not age: the probability that it survives a further time t, given that it has survived to time s, does not depend on s.</p>
+<pre class="math">P(T &gt; s + t | T &gt; s) = P(T &gt; t),   that is   S(s + t) = S(s) S(t)</pre>
+<p><strong>Theorem 3.1</strong>. If T is a positive random variable that is not almost surely infinite, with S(t) &gt; 0 for all t and S(s + t) = S(s) S(t) for all s, t ≥ 0, then S(t) = e<sup>−λt</sup> for some λ &gt; 0. Thus T has the exponential distribution with density λe<sup>−λt</sup>, mean 1/λ and variance 1/λ².</p>
+<p><strong>Proof</strong>. S is monotone, hence measurable, and right-continuous as a survival function. The argument of Theorem 1.2 applies on [0, ∞) (rationals first, then right-continuity), giving S(t) = S(1)ᵗ. Since S(1) ∈ (0, 1) (it is less than 1, otherwise S ≡ 1 and T = ∞ almost surely) we may write S(1) = e<sup>−λ</sup> with λ &gt; 0. ∎</p>
+<p>The exponential distribution is the only continuous memoryless distribution; its discrete analogue is the geometric distribution. The rate λ is a hazard rate: P(t &lt; T ≤ t + h | T &gt; t) = λh + o(h).</p>
+<h3>From one nucleus to a sample</h3>
+<p>For N₀ independent nuclei, the number surviving at time t is binomial with parameters N₀ and e<sup>−λt</sup>, so its mean is N₀ e<sup>−λt</sup> and its standard deviation is √(N₀ e<sup>−λt</sup>(1 − e<sup>−λt</sup>)). For a macroscopic sample (N₀ of order 10²⁰), the relative fluctuation is of order 10⁻¹⁰ and the deterministic law N′ = −λN is effectively exact. The activity A(t) = λN(t) is what a detector measures; it decays with the same half-life.</p>
+<p>Three time scales are related by T½ = τ ln 2: the half-life T½, the mean lifetime τ = 1/λ, and the e-folding time (equal to τ). After m half-lives a fraction 2⁻ᵐ remains; after 10 half-lives, less than 0.1%.</p>
+<h3>Radiocarbon dating</h3>
+<p>Carbon-14 is produced in the atmosphere by cosmic rays and incorporated into living organisms at an approximately constant ratio to carbon-12. After death, intake stops and ¹⁴C decays with half-life 5730 years (the modern value; Libby's original value was 5568 years, and conventional radiocarbon ages are still quoted using it). If a fraction f of the original ¹⁴C remains, the age is</p>
+<pre class="math">t = (T½/ln 2) · ln(1/f) = 8266.6 · ln(1/f)  years      (T½ = 5730)</pre>
+<p>A sample with f = 0.30 has age 8266.6 · ln(10/3) ≈ 9953 years. In practice the raw ages are calibrated against tree-ring and other records, because atmospheric ¹⁴C production has not been constant.</p>
+<h3>Decay chains and the Bateman equations</h3>
+<p>Suppose nuclide A decays to B with rate λ<sub>A</sub> and B decays to a stable C with rate λ<sub>B</sub> ≠ λ<sub>A</sub>. With N<sub>A</sub>(0) = N₀ and N<sub>B</sub>(0) = 0:</p>
+<pre class="math">N<sub>A</sub>′ = −λ<sub>A</sub> N<sub>A</sub>
+N<sub>B</sub>′ = λ<sub>A</sub> N<sub>A</sub> − λ<sub>B</sub> N<sub>B</sub></pre>
+<p>The first equation gives N<sub>A</sub> = N₀ e<sup>−λ<sub>A</sub> t</sup>. The second is an inhomogeneous linear equation (see Lesson 5), whose solution is</p>
+<pre class="math">N<sub>B</sub>(t) = N₀ λ<sub>A</sub>/(λ<sub>B</sub> − λ<sub>A</sub>) · ( e<sup>−λ<sub>A</sub> t</sup> − e<sup>−λ<sub>B</sub> t</sup> )</pre>
+<p>Differentiating and setting N<sub>B</sub>′ = 0 gives the time of maximum daughter population t* = ln(λ<sub>B</sub>/λ<sub>A</sub>)/(λ<sub>B</sub> − λ<sub>A</sub>). If the parent is much longer-lived (λ<sub>A</sub> ≪ λ<sub>B</sub>), then for t ≫ 1/λ<sub>B</sub> the ratio N<sub>B</sub>/N<sub>A</sub> tends to λ<sub>A</sub>/(λ<sub>B</sub> − λ<sub>A</sub>) ≈ λ<sub>A</sub>/λ<sub>B</sub>: the activities λ<sub>A</sub> N<sub>A</sub> and λ<sub>B</sub> N<sub>B</sub> become nearly equal (secular equilibrium). Bateman (1910) solved the general n-member chain; the solution is a linear combination of the exponentials e<sup>−λ<sub>j</sub> t</sup>, obtained also as the matrix exponential of a triangular matrix (Lesson 7).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A sample retains 20% of its original ¹⁴C. Using T½ = 5730 years, find its age to the nearest 10 years.</div></li><li><span class="mk">(b)</span><div>Show that the median of an exponential lifetime is the half-life, and that the mean exceeds the median.</div></li><li><span class="mk">(c)</span><div>For a chain A → B → C with λ<sub>A</sub> = 1 and λ<sub>B</sub> = 2 (per hour), find t* and N<sub>B</sub>(t*)/N₀.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) t = 5730 · ln 5/ln 2 ≈ 13,305, so about 13,300 years. (b) S(m) = 1/2 gives m = ln 2/λ = T½; the mean 1/λ exceeds ln 2/λ since ln 2 &lt; 1. (c) t* = ln 2/(2 − 1) = ln 2 ≈ 0.693 h; N<sub>B</sub>/N₀ = (1/(2 − 1))(e<sup>−ln 2</sup> − e<sup>−2 ln 2</sup>) = 1/2 − 1/4 = 1/4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

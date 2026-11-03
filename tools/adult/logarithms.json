@@ -1,0 +1,13 @@
+{
+  "blurb": "The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.",
+  "pics": [
+    { "img": "img/adult/logarithms-1.png", "alt": "Plot of the ratios π(x)/(x/ln x) and π(x)/Li(x) against x on a logarithmic axis from 1 to 10^24",
+      "caption": "The prime number theorem in pictures: both π(x)/(x/ln x) and π(x)/∫₂ˣ dt/ln t tend to 1, but the logarithmic-integral approximation converges far faster.",
+      "title": "Prime number theorem ratio convergence.svg", "page": "https://commons.wikimedia.org/wiki/File:Prime_number_theorem_ratio_convergence.svg",
+      "license": "CC0", "artist": "Dcoetzee" },
+    { "img": "img/adult/logarithms-2.png", "alt": "Helicoidal Riemann surface of the complex logarithm, coloured by argument",
+      "caption": "The Riemann surface of log z: the imaginary part arg z rises by 2π each time z circles the origin, so the sheets stack into an infinite helicoid over the punctured plane.",
+      "title": "Riemann surface log.svg", "page": "https://commons.wikimedia.org/wiki/File:Riemann_surface_log.svg",
+      "license": "CC BY-SA 3.0", "artist": "Leonid 2" }
+  ]
+}

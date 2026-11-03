@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 5</p>
+    <h1>Plane Triangles: the Laws of Sines, Cosines and Tangents</h1>
+    <p class="kicker">Lesson 5 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">a/sin A = b/sin B = c/sin C = 2R,        c² = a² + b² − 2ab cos C
+(a − b)/(a + b) = tan((A − B)/2) / tan((A + B)/2)</pre></div>
+<h3>Conventions</h3>
+<p>In a triangle ABC we write a, b, c for the lengths of the sides opposite the vertices A, B, C, and use the same letters for the angles. We write s = (a + b + c)/2 for the semiperimeter, Δ for the area, R for the circumradius and r for the inradius. Angles satisfy A + B + C = π in the Euclidean plane, which is equivalent to the parallel postulate.</p>
+<h3>The law of cosines</h3>
+<p><strong>Theorem 5.1</strong>. c² = a² + b² − 2ab cos C.</p>
+<p><strong>Proof</strong>. Place C at the origin and let u, v be the vectors from C to B and to A. Then |u| = a, |v| = b and u·v = ab cos C by the definition of the angle between vectors (which, by Lesson 2, agrees with the arc-length angle). Hence c² = |u − v|² = a² + b² − 2u·v. ∎</p>
+<p>The law of cosines contains Pythagoras's theorem (C = π/2) and its converse, and it determines a triangle up to congruence from SSS or SAS data. Solving for the angle, cos C = (a² + b² − c²)/(2ab). The existence of a triangle with sides a, b, c is equivalent to |cos C| &lt; 1, that is to the triangle inequalities.</p>
+<h3>The law of sines and the circumcircle</h3>
+<p><strong>Theorem 5.2</strong>. a/sin A = b/sin B = c/sin C = 2R.</p>
+<p><strong>Proof</strong>. Let O be the circumcentre and let A′ be the point of the circumcircle diametrically opposite B. By the inscribed angle theorem, the angle BA′C equals A (or π − A if A′ and A lie on opposite sides of BC), and the angle BCA′ is a right angle since BA′ is a diameter. Hence a = BC = 2R sin A. ∎</p>
+<p>A useful consequence is the area formula Δ = (1/2)ab sin C = abc/(4R). Combining Δ = (1/2)ab sin C with the law of cosines gives Heron's formula:</p>
+<pre class="math">16Δ² = 4a²b² − (a² + b² − c²)² = (a+b+c)(−a+b+c)(a−b+c)(a+b−c),
+Δ = √(s(s − a)(s − b)(s − c)).</pre>
+<h3>The ambiguous case SSA</h3>
+<p>Given a, b and the angle A (not between them), the law of sines gives sin B = b sin A / a. If this exceeds 1 there is no triangle; if it equals 1 there is exactly one (right) triangle; if it is less than 1 there are two candidates B and π − B, and the second is valid exactly when A + (π − B) &lt; π, that is A &lt; B. For example, a = 6, b = 8, A = 30° gives sin B = 2/3, B ≈ 41.81° or 138.19°, and both triangles exist.</p>
+<h3>Half-angle formulas, the law of tangents, Mollweide</h3>
+<p>From cos A = (b² + c² − a²)/(2bc) and 1 − cos A = 2 sin²(A/2), one finds:</p>
+<pre class="math">sin²(A/2) = (s − b)(s − c)/(bc),    cos²(A/2) = s(s − a)/(bc),    tan(A/2) = r/(s − a),</pre>
+<p>where the last formula uses Δ = rs (decompose the triangle into three triangles with apex at the incentre). The law of tangents follows from the law of sines and sum-to-product:</p>
+<pre class="math">(a − b)/(a + b) = (sin A − sin B)/(sin A + sin B) = tan((A − B)/2)/tan((A + B)/2),</pre>
+<p>and Mollweide's formula, a convenient check in numerical work, is</p>
+<pre class="math">(a + b)/c = cos((A − B)/2)/sin(C/2).</pre>
+<p>The law of tangents is the natural tool for SAS data before calculators: given a, b and C one knows (A + B)/2 = (π − C)/2 and tan((A − B)/2) = ((a − b)/(a + b)) cot(C/2).</p>
+<h3><strong>Worked example</strong>: the 13–14–15 triangle</h3>
+<p>Let a = 13, b = 14, c = 15. Then s = 21 and Δ = √(21·8·7·6) = √7056 = 84. Hence r = Δ/s = 4 and R = abc/(4Δ) = 2730/336 = 65/8. The law of cosines gives cos A = (196 + 225 − 169)/420 = 3/5, so sin A = 4/5, and indeed a/sin A = 65/4 = 2R. The other angles have cos B = 33/65 and cos C = 5/13.</p>
+<h3>Euler's distance formula</h3>
+<p><strong>Theorem 5.3 (Euler, 1765)</strong>. If O and I are the circumcentre and incentre, OI² = R(R − 2r). In particular R ≥ 2r, with equality only for the equilateral triangle.</p>
+<p><strong>Proof sketch</strong>. Let the bisector from A meet the circumcircle again at M, the midpoint of arc BC. The incentre–excentre lemma gives MI = MB = 2R sin(A/2). Also AI = r/sin(A/2). The power of I with respect to the circumcircle is R² − OI² = AI · IM = (r/sin(A/2)) · 2R sin(A/2) = 2Rr. ∎</p>
+<p>For the 13–14–15 triangle, OI² = (65/8)(65/8 − 8) = 65/64.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>In a triangle with a = 7, b = 8, c = 9, find cos C and the area.</div></li><li><span class="mk">(b)</span><div>Given A = 40°, B = 60° and a = 10, find b and c to three decimal places.</div></li><li><span class="mk">(c)</span><div>Prove that in any non-right triangle tan A + tan B + tan C = tan A tan B tan C.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) cos C = (49 + 64 − 81)/112 = 2/7, so C ≈ 73.40°; s = 12 and Δ = √(12·5·4·3) = √720 = 12√5 ≈ 26.833. (b) C = 80°; b = 10 sin 60°/sin 40° ≈ 13.473 and c = 10 sin 80°/sin 40° ≈ 15.321. (c) tan C = −tan(A + B) = −(tan A + tan B)/(1 − tan A tan B); clear the denominator and rearrange.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

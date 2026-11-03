@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Truth Functions, Functional Completeness and Normal Forms — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 2</p>
+    <h1>Truth Functions, Functional Completeness and Normal Forms</h1>
+    <p class="kicker">Lesson 2 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">There are 2<sup>2ⁿ</sup> Boolean functions of n variables.
+{¬, ∧, ∨} is functionally complete; so is {↑} (NAND) alone.
+Post: a set is complete iff it escapes each of five maximal clones.</pre></div>
+<h3>Boolean functions</h3>
+<p>An n-ary Boolean function is a map F : {0, 1}ⁿ → {0, 1}. Since {0, 1}ⁿ has 2ⁿ elements and each can be sent to 0 or 1, there are exactly 2<sup>2ⁿ</sup> such functions: 4 unary, 16 binary and 256 ternary ones. Every formula φ(p₁, …, pₙ) defines a Boolean function F<sub>φ</sub> by F<sub>φ</sub>(a₁, …, aₙ) = v̄(φ) where v(pᵢ) = aᵢ, and φ ≡ ψ exactly when F<sub>φ</sub> = F<sub>ψ</sub>. Hence there are, up to logical equivalence, exactly 2<sup>2ⁿ</sup> formulas in n given atoms. A set S of connectives is functionally complete if every Boolean function of every arity n ≥ 1 is F<sub>φ</sub> for some formula φ built from atoms using only connectives from S.</p>
+<p><strong>Theorem 2.1</strong>. {¬, ∧, ∨} is functionally complete.</p>
+<p><strong>Proof</strong>. Let F be n-ary. If F is identically 0, it is defined by p₁ ∧ ¬p₁. Otherwise, for each a = (a₁, …, aₙ) with F(a) = 1 form the minterm μ<sub>a</sub> = ℓ₁ ∧ … ∧ ℓₙ where ℓᵢ = pᵢ if aᵢ = 1 and ℓᵢ = ¬pᵢ if aᵢ = 0. Then μ<sub>a</sub> is true at exactly the single point a. The disjunction of all such minterms is true exactly at the points where F is 1. ∎</p>
+<p>The formula constructed is the full disjunctive normal form of F. A formula is in disjunctive normal form (DNF) if it is a disjunction of conjunctions of literals (atoms or negated atoms), and in conjunctive normal form (CNF) if it is a conjunction of disjunctions of literals, called clauses. Applying the theorem to ¬F and using De Morgan's laws, ¬(α ∨ β) ≡ ¬α ∧ ¬β and ¬(α ∧ β) ≡ ¬α ∨ ¬β, shows that every formula is also equivalent to a CNF: one clause for each falsifying assignment, the clause being false exactly at that assignment.</p>
+<p><strong>Corollary 2.2</strong>. {¬, ∧}, {¬, ∨}, {¬, →} and {→, ⊥} are functionally complete, and so are {↑} and {↓}, where p ↑ q = ¬(p ∧ q) (NAND, the Sheffer stroke) and p ↓ q = ¬(p ∨ q) (NOR).</p>
+<p><strong>Proof</strong>. It suffices to define the members of a known complete set. α ∨ β ≡ ¬(¬α ∧ ¬β); α ∧ β ≡ ¬(¬α ∨ ¬β); α ∨ β ≡ ¬α → β; ¬α ≡ α → ⊥. For NAND, ¬α ≡ α ↑ α and α ∧ β ≡ (α ↑ β) ↑ (α ↑ β). For NOR, ¬α ≡ α ↓ α and α ∨ β ≡ (α ↓ β) ↓ (α ↓ β). ∎</p>
+<p>Sheffer showed in 1913 that ↑ alone suffices, though Peirce had observed it around 1880; it is a classical theorem that ↑ and ↓ are the only binary connectives that are functionally complete by themselves. This is why NAND gates are the universal building block of digital circuits.</p>
+<h3>Proving incompleteness: invariants</h3>
+<p>To show a set is not complete, find a property shared by every function definable from it but not by all Boolean functions. A function F preserves 0 if F(0, …, 0) = 0. Every formula built from atoms using only ∧ and ∨ defines a function preserving 0 and preserving 1, and moreover a monotone function (a ≤ b coordinatewise implies F(a) ≤ F(b)). Since ¬ is not monotone, {∧, ∨} is not complete. Similarly, every formula using only → defines a function preserving 1, since 1 → 1 = 1; hence ¬ is not definable from → alone and {→} is incomplete. Every formula built from ¬ and ↔ defines an affine function, one of the form a₀ ⊕ a₁x₁ ⊕ … ⊕ aₙxₙ over the field 𝔽₂ (here ⊕ is addition mod 2, and α ↔ β corresponds to α ⊕ β ⊕ 1); since ∧ is not affine, {¬, ↔} is incomplete.</p>
+<p><strong>Theorem 2.3 (Post, 1941)</strong>. A set S of Boolean functions is functionally complete if and only if, for each of the following five classes, S contains a function not in that class: the 0-preserving functions, the 1-preserving functions, the monotone functions, the affine functions, and the self-dual functions (those with F(¬a₁, …, ¬aₙ) = ¬F(a₁, …, aₙ)).</p>
+<p>Each of the five classes is closed under composition and contains the projections, so the &quot;only if&quot; direction follows from the invariance argument above. The &quot;if&quot; direction is a pleasant exercise (Problem 49): from a non-0-preserving, a non-1-preserving and a non-self-dual function one obtains ¬ and the constants; then a non-monotone function and a non-affine function yield ∧. The five classes are exactly the maximal clones in Post's lattice of all clones on {0, 1}, which Post classified completely — a countably infinite lattice.</p>
+<h3>The cost of normal forms</h3>
+<p>Normal forms can be exponentially long. The parity function x₁ ⊕ … ⊕ xₙ is 1 at exactly 2ⁿ⁻¹ points, and no conjunction of fewer than n literals can be true only at points of odd parity (fixing fewer than n coordinates leaves a subcube containing both parities). So every DNF of parity has at least 2ⁿ⁻¹ terms, and by symmetry every CNF has at least 2ⁿ⁻¹ clauses. For satisfiability purposes this blow-up can be avoided by the Tseitin transformation: introduce a new atom for each subformula and assert, by a few clauses, that it is equivalent to its definition. The result is a CNF of size linear in the original formula that is equisatisfiable with it (satisfiable if and only if the original is), though not logically equivalent to it.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Give the full DNF of the majority function M(p, q, r), which is 1 when at least two arguments are 1. Then give a shorter equivalent DNF.</div></li><li><span class="mk">(b)</span><div>Express p → q using only ↑.</div></li><li><span class="mk">(c)</span><div>Is the set {∧, ⊕, ⊤} functionally complete? Here ⊤ is the constant 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Full DNF: (p ∧ q ∧ r) ∨ (p ∧ q ∧ ¬r) ∨ (p ∧ ¬q ∧ r) ∨ (¬p ∧ q ∧ r). Shorter: (p ∧ q) ∨ (p ∧ r) ∨ (q ∧ r). (b) p → q ≡ ¬(p ∧ ¬q) = p ↑ ¬q = p ↑ (q ↑ q). (c) Yes: ¬α ≡ α ⊕ ⊤, and {¬, ∧} is complete. In Post's terms, ⊤ is not 0-preserving, ⊕ is not 1-preserving, ∧ is neither affine nor self-dual, and ⊕ is not monotone. This set gives the algebraic normal form (Zhegalkin polynomials) of Boolean functions.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

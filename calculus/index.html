@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#3b82f6">
+<body id="top" class="mode-kid" style="--topic:#3b82f6">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,18 +22,19 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/calculus/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
 <section class="hero topic-hero">
   <div class="container">
-    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">♾️ Calculus</a></p>
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <span aria-current="page">♾️ Calculus</span></p>
     <h1>♾️ Calculus</h1>
     <p class="kicker">🚀 Advanced · The Complete Honors Lesson</p>
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <div class="welcome"><pre class="math">f'(x) = lim (h → 0) of  [ f(x + h) − f(x) ] ÷ h</pre>
 <pre class="math">1² + 2² + 3² + ... + n² = n(n + 1)(2n + 1) ÷ 6</pre>
@@ -45,11 +46,11 @@
 <ul class="steps"><li><span class="mk">1.</span><div>Meet the two big questions — instantaneous rate and accumulated total</div></li><li><span class="mk">2.</span><div>Master average rate of change, the Δ notation, and the secant line</div></li><li><span class="mk">3.</span><div>Learn limits rigorously: the tolerance game, one-sided limits, 0/0 forms, limits at infinity</div></li><li><span class="mk">4.</span><div>Define the derivative — and derive the power rule yourself</div></li><li><span class="mk">5.</span><div>Write equations of tangent lines, and find where derivatives fail</div></li><li><span class="mk">6.</span><div>Derive the product, quotient, and chain rules</div></li><li><span class="mk">7.</span><div>Read the derivative's diary: increasing, decreasing, concavity, the second derivative</div></li><li><span class="mk">8.</span><div>Solve real optimization problems — fences, boxes, and five-digit profits</div></li><li><span class="mk">9.</span><div>Compute the area under y = x² exactly, as a limit of rectangle sums</div></li><li><span class="mk">10.</span><div>Unlock the Fundamental Theorem of Calculus — and use it in both directions</div></li><li><span class="mk">11.</span><div>Dodge the classic mistakes that trip up even college students</div></li><li><span class="mk">12.</span><div>Practice with 100 problems, from warm-ups to genuine brain-benders!</div></li></ul>
 <p>How to use this lesson: Read the sections in order — every idea is built from the one before it, and every worked example shows EVERY step with a short reason. Keep pencil and paper next to you, and try every &quot;Your Turn&quot; box before peeking at its answer. Ready? Let's go!</p></div><h2>📸 Pictures</h2><div class="picture-row">
     <figure class="picture">
-      <img src="../img/calculus-1.jpg" alt="An old painted portrait of a man with long grey hair" loading="lazy">
+      <img src="../img/calculus-1.jpg" alt="Portrait of Isaac Newton, a man with long grey hair" loading="lazy">
       <figcaption><span class="photo-badge">📷 Picture 1</span><br>Isaac Newton (1643–1727), painted in 1689. He invented calculus to explain how planets and falling apples move. <a href="#sources">See source ↓</a></figcaption>
     </figure>
     <figure class="picture">
-      <img src="../img/calculus-2.jpg" alt="An old painted portrait of a man in a huge curly wig" loading="lazy">
+      <img src="../img/calculus-2.jpg" alt="Portrait of Gottfried Wilhelm Leibniz in a huge curly wig" loading="lazy">
       <figcaption><span class="photo-badge">📷 Picture 2</span><br>Gottfried Wilhelm Leibniz (1646–1716) invented calculus too, at about the same time. We still use his dy/dx and ∫ symbols today! <a href="#sources">See source ↓</a></figcaption>
     </figure></div><h2>🗺️ Your lesson map</h2><div class="lesson-list">
     <a class="lesson-card" href="lesson-1.html"><span class="lc-emoji">🚀</span><span><span class="lc-num">Lesson 1</span><br><strong>The Two Big Questions — Rate and Accumulation</strong></span></a>
@@ -75,7 +76,7 @@
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: The Fundamental Theorem of Arithmetic — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 6</p>
+    <h1>The Fundamental Theorem of Arithmetic</h1>
+    <p class="kicker">Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every integer n ≥ 2 is a product of primes, uniquely up to order:
+n = p₁<sup>e₁</sup> · p₂<sup>e₂</sup> ⋯ pₖ<sup>eₖ</sup>.
+The engine is Euclid's lemma: if p is prime and p | ab, then p | a or p | b.
+Unique factorisation can fail: in ℤ[√−5], 6 = 2 · 3 = (1 + √−5)(1 − √−5).</pre></div>
+<h3>Irreducible versus prime</h3>
+<p>In an integral domain R, a nonzero non-unit p is irreducible if p = ab forces a or b to be a unit, and prime if p | ab forces p | a or p | b. Every prime is irreducible: if p = ab then p divides a or b, say a = pc, so p = pcb and cb = 1. In ℤ the usual definition of a prime number (no divisors other than ±1 and ±p) is irreducibility; that it coincides with primality is the content of the next lemma.</p>
+<p><strong>Lemma 6.1 (Euclid's lemma, Elements VII.30)</strong>. If p ∈ ℤ is irreducible and p | ab, then p | a or p | b.</p>
+<p><strong>Proof</strong>. Suppose p ∤ a. The only positive divisors of p are 1 and p, so gcd(p, a) = 1, and by Bézout px + ay = 1 for some x, y. Multiplying by b, pbx + aby = b; p divides both terms on the left, hence p | b. ∎</p>
+<p>The same proof works in any PID, so in a PID irreducibles are prime.</p>
+<p><strong>Theorem 6.2 (Fundamental theorem of arithmetic)</strong>. Every integer n ≥ 2 can be written as a product of primes, and the factorisation is unique up to the order of the factors.</p>
+<p><strong>Proof</strong>. Existence by strong induction: if n is prime we are done; otherwise n = ab with 1 &lt; a, b &lt; n, and both a and b are products of primes by the induction hypothesis. Uniqueness: suppose p₁ ⋯ pᵣ = q₁ ⋯ qₛ with all factors prime. Then p₁ divides the product of the q's, and by Euclid's lemma (extended to several factors by induction) p₁ | qⱼ for some j, so p₁ = qⱼ. Cancel and induct on r. ∎</p>
+<p>The theorem was used implicitly from antiquity, but its first clear statement and proof appear in Gauss's Disquisitiones Arithmeticae (1801), Article 16. Gauss recognised that uniqueness is not self-evident; the examples below show why.</p>
+<h3>Valuations: the p-adic order</h3>
+<p>For a prime p and nonzero integer n, the p-adic valuation vₚ(n) is the exponent of p in the factorisation of n; it extends to nonzero rationals by vₚ(a/b) = vₚ(a) − vₚ(b). The fundamental theorem says that the map n ↦ (vₚ(n))ₚ is an isomorphism of the multiplicative monoid of positive integers onto the monoid of finitely supported sequences of natural numbers indexed by the primes. In these coordinates</p>
+<pre class="math">vₚ(ab) = vₚ(a) + vₚ(b)
+vₚ(gcd(a, b)) = min(vₚ(a), vₚ(b)),     vₚ(lcm(a, b)) = max(vₚ(a), vₚ(b))
+vₚ(a + b) ≥ min(vₚ(a), vₚ(b))</pre>
+<p>and gcd(a, b) · lcm(a, b) = ab for positive a, b because min + max = sum. The last inequality is the starting point of p-adic analysis: |x|ₚ = p<sup>−vₚ(x)</sup> is an absolute value on ℚ satisfying the strong triangle inequality |x + y|ₚ ≤ max(|x|ₚ, |y|ₚ).</p>
+<p><strong>Theorem 6.3 (Legendre's formula, 1808)</strong>. For a prime p and n ≥ 1,</p>
+<pre class="math">vₚ(n!) = ⌊n/p⌋ + ⌊n/p²⌋ + ⌊n/p³⌋ + ⋯ = (n − sₚ(n))/(p − 1),</pre>
+<p>where sₚ(n) is the sum of the base-p digits of n.</p>
+<p><strong>Proof</strong>. vₚ(n!) = Σ (k = 1 to n) vₚ(k). The number of k ≤ n with pʲ | k is ⌊n/pʲ⌋, and each k is counted once for every j with 1 ≤ j ≤ vₚ(k). For the second expression write n = Σ dᵢ pⁱ; then ⌊n/pʲ⌋ = Σ (i ≥ j) dᵢ p<sup>i−j</sup>, and summing over j ≥ 1 gives Σ dᵢ (pⁱ − 1)/(p − 1) = (n − sₚ(n))/(p − 1). ∎</p>
+<p>For example v₂(100!) = 50 + 25 + 12 + 6 + 3 + 1 = 97, and 100 = 1100100₂ has digit sum 3, so (100 − 3)/1 = 97 as well. The number of trailing zeros of 100! is v₅(100!) = 20 + 4 = 24, since v₂(100!) ≥ v₅(100!).</p>
+<h3>Two classical consequences</h3>
+<p><strong>Theorem 6.4 (Euclid, Elements IX.20)</strong>. There are infinitely many primes.</p>
+<p><strong>Proof</strong>. Given primes p₁, …, pₖ, any prime factor of p₁p₂⋯pₖ + 1 differs from every pᵢ, since pᵢ divides the product and would then divide 1. ∎</p>
+<p><strong>Theorem 6.5</strong>. If n ≥ 1 is not a perfect k-th power, then the real k-th root of n is irrational.</p>
+<p><strong>Proof</strong>. If n<sup>1/k</sup> = a/b with positive integers a, b then n bᵏ = aᵏ, so vₚ(n) + k · vₚ(b) = k · vₚ(a) for every prime p; hence k | vₚ(n) for all p, and n is a k-th power. ∎</p>
+<h3>Failure of unique factorisation</h3>
+<p>In R = ℤ[√−5] = {a + b√−5 : a, b ∈ ℤ}, the norm N(a + b√−5) = a² + 5b² is multiplicative. We have</p>
+<pre class="math">6 = 2 · 3 = (1 + √−5)(1 − √−5),   with norms  N(2) = 4,  N(3) = 9,  N(1 ± √−5) = 6</pre>
+<p>A proper factor of any of these four elements would have norm 2 or 3, but a² + 5b² = 2 and a² + 5b² = 3 have no integer solutions; so all four are irreducible. They are not associates (the only units are ±1). Thus 6 has two essentially different factorisations into irreducibles, and 2 is irreducible but not prime: it divides (1 + √−5)(1 − √−5) = 6 but neither factor, since (1 ± √−5)/2 ∉ R. Kummer's attempt to rescue unique factorisation in rings of cyclotomic integers (1840s), motivated by Fermat's Last Theorem, led to his ideal numbers, which Dedekind reformulated as ideals: in the ring of integers of any number field, every nonzero ideal factors uniquely into prime ideals. Here (6) = 𝔭² 𝔮 𝔮′ with 𝔭 = (2, 1 + √−5), 𝔮 = (3, 1 + √−5) and 𝔮′ = (3, 1 − √−5). The failure of unique factorisation of elements is measured by the ideal class group, which for ℤ[√−5] has order 2.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute v₃(200!) by Legendre's formula, and check it with the digit-sum formula.</div></li><li><span class="mk">(b)</span><div>Find gcd(2⁴·3²·7, 2²·3⁵·5) and the corresponding lcm, and verify gcd · lcm = product.</div></li><li><span class="mk">(c)</span><div>Show that 3 is irreducible but not prime in ℤ[√−5].</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) ⌊200/3⌋ + ⌊200/9⌋ + ⌊200/27⌋ + ⌊200/81⌋ = 66 + 22 + 7 + 2 = 97. In base 3, 200 = 21102₃ (2·81 + 1·27 + 1·9 + 0·3 + 2 = 200), with digit sum 6, and (200 − 6)/2 = 97. (b) gcd = 2²·3² = 36 and lcm = 2⁴·3⁵·5·7 = 136080. The numbers are 1008 and 4860, and 1008 · 4860 = 4898880 = 36 · 136080. (c) Irreducible: a proper factor would have norm 3, impossible since a² + 5b² = 3 has no solution. Not prime: 3 divides 6 = (1 + √−5)(1 − √−5) but (1 ± √−5)/3 ∉ ℤ[√−5].</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

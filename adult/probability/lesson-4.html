@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Expectation as a Lebesgue Integral — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 4</p>
+    <h1>Expectation as a Lebesgue Integral</h1>
+    <p class="kicker">Lesson 4 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">E X = ∫<sub>Ω</sub> X dP = ∫<sub>ℝ</sub> x μ<sub>X</sub>(dx),   defined for X ≥ 0 as a supremum over simple functions,
+and justified in the limit by the monotone and dominated convergence theorems.</pre></div>
+<h3>Construction in three steps</h3>
+<p>A simple random variable takes finitely many values: X = ∑ᵢ aᵢ 1<sub>Aᵢ</sub> with Aᵢ ∈ 𝓕. Its expectation is E X = ∑ᵢ aᵢ P(Aᵢ), which is well defined (independent of the representation), linear and monotone. For X ≥ 0 we set</p>
+<pre class="math">E X = sup { E S : S simple, 0 ≤ S ≤ X } ∈ [0, ∞]</pre>
+<p>A concrete approximating sequence is Sₙ = min(n, 2⁻ⁿ⌊2ⁿX⌋), which is simple and increases to X pointwise. Finally, for general X write X = X⁺ − X⁻ with X⁺ = max(X, 0) and X⁻ = max(−X, 0); if E|X| = E X⁺ + E X⁻ &lt; ∞ we say X is integrable, write X ∈ L¹, and set E X = E X⁺ − E X⁻. Expectation is then linear and monotone on L¹, and |E X| ≤ E|X|.</p>
+<h3>The three convergence theorems</h3>
+<p>The whole point of the Lebesgue integral is that it interacts well with limits. Here are the three results used constantly in probability.</p>
+<p><strong>Theorem 4.1 (monotone convergence)</strong>. If 0 ≤ X₁ ≤ X₂ ≤ ⋯ and Xₙ ↑ X almost surely, then E Xₙ ↑ E X.</p>
+<p><strong>Theorem 4.2 (Fatou's lemma)</strong>. If Xₙ ≥ 0, then E(lim inf Xₙ) ≤ lim inf E Xₙ.</p>
+<p><strong>Theorem 4.3 (dominated convergence)</strong>. If Xₙ → X almost surely and |Xₙ| ≤ Y with E Y &lt; ∞, then E|Xₙ − X| → 0, and in particular E Xₙ → E X.</p>
+<p>Proof of 4.2 from 4.1. Let Yₘ = inf<sub>n≥m</sub> Xₙ. Then Yₘ ↑ lim inf Xₙ, and Yₘ ≤ Xₙ for every n ≥ m, so E Yₘ ≤ inf<sub>n≥m</sub> E Xₙ. Letting m → ∞ and applying monotone convergence on the left gives the result. ∎</p>
+<p>Proof of 4.3 from 4.2. Apply Fatou to the nonnegative variables 2Y − |Xₙ − X|. Since lim inf of these is 2Y, we get 2E Y ≤ 2E Y − lim sup E|Xₙ − X|, so lim sup E|Xₙ − X| ≤ 0. ∎</p>
+<p>Without domination the conclusion can fail: on (0, 1) with Lebesgue measure, Xₙ = n · 1<sub>(0, 1/n)</sub> tends to 0 at every point, yet E Xₙ = 1 for all n. Applying monotone convergence to partial sums gives the important corollary E ∑ₙ Xₙ = ∑ₙ E Xₙ for nonnegative Xₙ, which is how expectations of infinite sums are computed.</p>
+<h3>The law of the unconscious statistician</h3>
+<p><strong>Theorem 4.4</strong>. If g is Borel and g(X) is integrable or nonnegative, then E g(X) = ∫<sub>ℝ</sub> g(x) μ<sub>X</sub>(dx). In the discrete case this is ∑ₓ g(x) P(X = x), and with a density it is ∫ g(x) f(x) dx.</p>
+<p><strong>Proof</strong>. For g = 1<sub>B</sub> both sides equal P(X ∈ B). Linearity gives simple g; monotone convergence gives nonnegative g; and the decomposition g = g⁺ − g⁻ gives integrable g. ∎</p>
+<p>This &quot;standard machine&quot; (indicators, then simple functions, then limits, then differences) proves most identities about integrals. Another product of it is Fubini's theorem for nonnegative functions, from which follows a formula used repeatedly.</p>
+<p><strong>Theorem 4.5 (tail formula)</strong>. If X ≥ 0, then E X = ∫₀<sup>∞</sup> P(X &gt; t) dt. If N takes values in {0, 1, 2, …}, then E N = ∑<sub>k≥1</sub> P(N ≥ k).</p>
+<p><strong>Proof</strong>. X = ∫₀<sup>∞</sup> 1{t &lt; X} dt pointwise. Take expectations and exchange E with ∫ by Tonelli's theorem, which is permitted for nonnegative integrands. The discrete version is the same argument with a sum. ∎</p>
+<p>For a Geometric(p) variable, P(N ≥ k) = (1 − p)ᵏ⁻¹, so E N = ∑<sub>k≥1</sub> (1 − p)ᵏ⁻¹ = 1/p, with no differentiation of series required.</p>
+<h3>Variance, covariance and indicators</h3>
+<p>For X ∈ L², define Var X = E(X − E X)² = E X² − (E X)² and Cov(X, Y) = E[(X − E X)(Y − E Y)]. Bilinearity gives</p>
+<pre class="math">Var(X₁ + ⋯ + Xₙ) = ∑ᵢ Var Xᵢ + 2 ∑<sub>i&lt;j</sub> Cov(Xᵢ, Xⱼ)</pre>
+<p>If X and Y are independent and integrable, then E XY = E X · E Y (prove it for indicators, then use the standard machine), so Cov(X, Y) = 0 and variances of independent summands add. The converse is false: if X is uniform on {−1, 0, 1} and Y = X², then Cov(X, Y) = E X³ − E X · E X² = 0, yet Y is a function of X. The correlation coefficient ρ = Cov(X, Y)/√(Var X · Var Y) lies in [−1, 1] by the Cauchy–Schwarz inequality, with |ρ| = 1 exactly when Y is almost surely an affine function of X.</p>
+<p>The method of indicators exploits linearity of expectation, which needs no independence. Write a count as a sum of indicators N = ∑ᵢ 1<sub>Aᵢ</sub>; then E N = ∑ᵢ P(Aᵢ) and Var N = ∑ᵢ P(Aᵢ)(1 − P(Aᵢ)) + 2∑<sub>i&lt;j</sub> [P(Aᵢ ∩ Aⱼ) − P(Aᵢ)P(Aⱼ)].</p>
+<p><strong>Worked example 4.6 (fixed points)</strong>. Let N be the number of fixed points of a uniformly random permutation of {1, …, n}, and Aᵢ = {i is fixed}. Then P(Aᵢ) = 1/n and P(Aᵢ ∩ Aⱼ) = 1/(n(n − 1)) for i ≠ j. Hence E N = 1 for every n, and</p>
+<pre class="math">Var N = n · (1/n)(1 − 1/n) + 2 · C(n, 2) · [1/(n(n − 1)) − 1/n²] = (1 − 1/n) + 1/n = 1</pre>
+<p>for every n ≥ 2. The exact law is P(N = 0) = ∑<sub>k=0</sub><sup>n</sup> (−1)ᵏ/k! → e<sup>−1</sup> by inclusion–exclusion, and in fact N converges in distribution to Poisson(1).</p>
+<p><strong>Worked example 4.7 (coupon collector)</strong>. A collector receives independent uniformly random coupons from n types. After k distinct types have been seen, the waiting time for a new one is Geometric((n − k)/n), with mean n/(n − k). Summing over k = 0, …, n − 1, the expected time to complete the collection is</p>
+<pre class="math">E T = n (1 + 1/2 + ⋯ + 1/n) = n Hₙ ∼ n log n</pre>
+<p>For n = 6 (the faces of a die), E T = 6 · 49/20 = 14.7 rolls.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Use the tail formula to compute E X for X ~ Exponential(λ).</div></li><li><span class="mk">(b)</span><div>Let X ~ Binomial(n, p). Write X as a sum of indicators and derive Var X = np(1 − p).</div></li><li><span class="mk">(c)</span><div>A random permutation of {1, …, 10} is chosen. What is the expected number of indices i ≤ 9 with σ(i + 1) = σ(i) + 1?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) E X = ∫₀<sup>∞</sup> e<sup>−λt</sup> dt = 1/λ. (b) X = ∑ 1<sub>Aᵢ</sub> with independent Aᵢ of probability p; covariances vanish, so Var X = ∑ p(1 − p) = np(1 − p). (c) For each i, the pair (σ(i), σ(i + 1)) is uniform over the 90 ordered pairs of distinct values, of which 9 have the form (v, v + 1); so each indicator has probability 1/10 and the expectation is 9/10.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

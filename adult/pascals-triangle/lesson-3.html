@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: The Chu–Vandermonde Identity — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 3</p>
+    <h1>The Chu–Vandermonde Identity</h1>
+    <p class="kicker">Lesson 3 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∑ₖ C(α, k) C(β, n − k) = C(α + β, n)      for all α, β and all n ∈ ℕ
+equivalently  (α + β)<sup>n</sup> = ∑ₖ C(n, k) α<sup>k</sup> β<sup>n−k</sup></pre></div>
+<h3>Statement and two proofs</h3>
+<p>The identity was known to Zhu Shijie in 1303 and rediscovered by Alexandre-Théophile Vandermonde in 1772. For natural numbers it is a familiar double count: choosing n people from a group of a women and b men, classified by the number k of women chosen.</p>
+<p><strong>Theorem 3.1 (Chu–Vandermonde)</strong>. For all α, β in a commutative ℚ-algebra and every n ∈ ℕ, ∑<sub>k=0</sub><sup>n</sup> C(α, k) C(β, n − k) = C(α + β, n).</p>
+<p>First proof (polynomial method). Fix n. Both sides are polynomials in (α, β) with rational coefficients. For (α, β) = (a, b) ∈ ℕ², both sides count n-subsets of a disjoint union of an a-set and a b-set. By the two-variable form of Lemma 1.1 the identity holds identically. ∎</p>
+<p>Second proof (formal power series). Define the formal power series B<sub>α</sub>(x) = ∑ₖ C(α, k) xᵏ in A[[x]]. The coefficient of xⁿ in B<sub>α</sub>(x) B<sub>β</sub>(x) − B<sub>α+β</sub>(x) is a polynomial in (α, β) which vanishes on ℕ², because for natural exponents B<sub>a</sub>(x) = (1 + x)ᵃ is a polynomial and (1 + x)ᵃ(1 + x)ᵇ = (1 + x)<sup>a+b</sup>. Hence B<sub>α</sub> B<sub>β</sub> = B<sub>α+β</sub> in A[[x]], which is exactly the theorem. ∎</p>
+<p>The second proof shows that B<sub>α</sub> behaves like an exponential: B<sub>α</sub> B<sub>β</sub> = B<sub>α+β</sub> and B<sub>1</sub> = 1 + x. This is the formal content of the generalized binomial theorem; Lesson 5 adds convergence.</p>
+<h3>The binomial-type form</h3>
+<p>Multiplying Theorem 3.1 by n! gives (α + β)<sup>n</sup> = ∑ₖ C(n, k) α<sup>k</sup> β<sup>n−k</sup>. A sequence of polynomials pₙ(x) with deg pₙ = n satisfying pₙ(x + y) = ∑ₖ C(n, k) pₖ(x) pₙ₋ₖ(y) is said to be of binomial type. The monomials xⁿ, the falling factorials x<sup>n</sup>, the rising factorials x(x + 1)⋯(x + n − 1) and the Abel polynomials x(x − an)ⁿ⁻¹ are all of binomial type; Rota's umbral calculus classifies such sequences through their generating functions ∑ pₙ(x) tⁿ/n! = exp(x g(t)) for a power series g with g(0) = 0 and g′(0) ≠ 0. For falling factorials g(t) = log(1 + t).</p>
+<h3>Hypergeometric form</h3>
+<p>With the Pochhammer symbol (a)ₙ = a(a + 1)⋯(a + n − 1), the Gauss hypergeometric series is ₂F₁(a, b; c; z) = ∑ₙ (a)ₙ (b)ₙ zⁿ/((c)ₙ n!). When a = −n is a negative integer the series terminates, and Chu–Vandermonde is equivalent to</p>
+<pre class="math">₂F₁(−n, b; c; 1) = (c − b)ₙ / (c)ₙ</pre>
+<p>a special case of Gauss's summation theorem ₂F₁(a, b; c; 1) = Γ(c)Γ(c − a − b)/(Γ(c − a)Γ(c − b)) for Re(c − a − b) &gt; 0. The translation uses C(α, k) = (−1)ᵏ(−α)ₖ/k!. In this language most classical binomial identities become special evaluations of hypergeometric series, which is the starting point of the Wilf–Zeilberger theory.</p>
+<h3>Consequences</h3>
+<p><strong>Corollary 3.2</strong>. (i) ∑ₖ C(n, k)² = C(2n, n). (ii) ∑ₖ C(m, k) C(n, k) = C(m + n, m) for m, n ∈ ℕ. (iii) For a, b, n ∈ ℕ, ∑<sub>k=0</sub><sup>n</sup> C(a + k, k) C(b + n − k, n − k) = C(a + b + n + 1, n). Proof. (i) and (ii) follow from Theorem 3.1 with β = n and C(n, n − k) = C(n, k). For (iii), upper negation gives C(a + k, k) = (−1)ᵏ C(−a − 1, k), so the sum equals (−1)ⁿ ∑ₖ C(−a − 1, k) C(−b − 1, n − k) = (−1)ⁿ C(−a − b − 2, n) = C(a + b + n + 1, n), by Theorem 3.1 and upper negation once more. ∎</p>
+<p>Part (iii) has a combinatorial reading in terms of multisets, and for a = b = 0 it reduces to ∑ₖ 1 = n + 1. It shows how negative upper indices, which have no direct combinatorial meaning, give short proofs of positive identities.</p>
+<p><strong>Corollary 3.3</strong>. ∑ₖ k C(n, k)² = n C(2n − 1, n − 1). Proof. By absorption the sum is n ∑ₖ C(n − 1, k − 1) C(n, n − k) = n C(2n − 1, n − 1) by Theorem 3.1, since the lower indices sum to n − 1. ∎</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Evaluate ∑<sub>k=0</sub><sup>5</sup> C(7, k) C(6, 5 − k).</div></li><li><span class="mk">(b)</span><div>Evaluate ∑<sub>k=0</sub><sup>4</sup> C(k + 2, 2)(5 − k) using Corollary 3.2(iii), and check by direct addition.</div></li><li><span class="mk">(c)</span><div>Show that ∑ₖ C(1/2, k) C(1/2, n − k) = 0 for n ≥ 2 and verify it for n = 2.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(13, 5) = 1287. (b) Here 5 − k = C(1 + (4 − k), 4 − k), so a = 2, b = 1, n = 4 and the sum is C(2 + 1 + 4 + 1, 4) = C(8, 4) = 70; directly, 1·5 + 3·4 + 6·3 + 10·2 + 15·1 = 5 + 12 + 18 + 20 + 15 = 70. (c) By Theorem 3.1 the sum is C(1, n) = 0 for n ≥ 2. For n = 2: 2 C(1/2, 0) C(1/2, 2) + C(1/2, 1)² = 2(−1/8) + 1/4 = 0.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

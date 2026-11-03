@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: The Riemann Integral via Darboux Sums — Calculus (Advanced)</title>
+<meta name="description" content="Real analysis from the completeness of ℝ to the Lebesgue integral, with multivariable calculus and full proofs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../calculus/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Calculus</a> › Lesson 7</p>
+    <h1>The Riemann Integral via Darboux Sums</h1>
+    <p class="kicker">Lesson 7 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Real Numbers and Completeness">1</a><a href="lesson-2.html" title="Lesson 2: Sequences, Cauchy Sequences and lim sup">2</a><a href="lesson-3.html" title="Lesson 3: Infinite Series and Convergence Tests">3</a><a href="lesson-4.html" title="Lesson 4: Limits, Continuity and Uniform Continuity">4</a><a href="lesson-5.html" title="Lesson 5: Differentiation and the Mean Value Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Taylor's Theorem and the Remainder">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: The Riemann Integral via Darboux Sums">7</a><a href="lesson-8.html" title="Lesson 8: The Fundamental Theorem of Calculus">8</a><a href="lesson-9.html" title="Lesson 9: Improper Integrals">9</a><a href="lesson-10.html" title="Lesson 10: Uniform Convergence and the Interchange of Limits">10</a><a href="lesson-11.html" title="Lesson 11: Power Series">11</a><a href="lesson-12.html" title="Lesson 12: Differentiation in Several Variables">12</a><a href="lesson-13.html" title="Lesson 13: Multiple Integrals and Change of Variables">13</a><a href="lesson-14.html" title="Lesson 14: The Lebesgue Integral — An Overview">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">L(f, P) = ∑ mᵢ Δxᵢ  ≤  ∫ₐᵇ f  ≤  U(f, P) = ∑ Mᵢ Δxᵢ
+f is integrable  ⇔  ∀ε &gt; 0 ∃ partition P : U(f, P) − L(f, P) &lt; ε</pre></div>
+<h3>Upper and lower sums</h3>
+<p>Riemann defined his integral in his 1854 Habilitationsschrift on trigonometric series; the cleaner formulation with upper and lower sums is due to Darboux (1875). Let f be bounded on [a, b]. A partition P is a finite set a = x₀ &lt; x₁ &lt; ... &lt; xₙ = b, with Δxᵢ = xᵢ − xᵢ₋₁. On the i-th subinterval put mᵢ = inf f and Mᵢ = sup f. The lower and upper sums are</p>
+<pre class="math">L(f, P) = ∑ᵢ₌₁ⁿ mᵢ Δxᵢ,     U(f, P) = ∑ᵢ₌₁ⁿ Mᵢ Δxᵢ.</pre>
+<p><strong>Lemma 7.1</strong>. If Q ⊇ P (Q refines P) then L(f, P) ≤ L(f, Q) ≤ U(f, Q) ≤ U(f, P). Consequently L(f, P₁) ≤ U(f, P₂) for any two partitions.</p>
+<p><strong>Proof</strong>. It suffices to add one point x* to the subinterval [xᵢ₋₁, xᵢ]. The infimum over each half is at least mᵢ, so the lower sum can only increase; similarly the upper sum can only decrease. For two partitions, compare both with their common refinement P₁ ∪ P₂. ∎</p>
+<p>Define the lower integral as sup over P of L(f, P) and the upper integral as inf over P of U(f, P). By the lemma, lower integral ≤ upper integral. f is Riemann integrable if they are equal, and the common value is ∫ₐᵇ f.</p>
+<p><strong>Theorem 7.2 (Riemann's criterion)</strong>. A bounded f is integrable on [a, b] iff for every ε &gt; 0 there is a partition P with U(f, P) − L(f, P) &lt; ε.</p>
+<p><strong>Proof</strong>. If the condition holds, upper integral − lower integral ≤ U(f, P) − L(f, P) &lt; ε for every ε. Conversely, if f is integrable, choose P₁ with L(f, P₁) &gt; ∫f − ε/2 and P₂ with U(f, P₂) &lt; ∫f + ε/2, and take P = P₁ ∪ P₂. ∎</p>
+<h3><strong>Worked example</strong>: f(x) = x² on [0, 1]</h3>
+<p>With the uniform partition into n pieces, f is increasing, so mᵢ = ((i − 1)/n)² and Mᵢ = (i/n)². Using ∑ i² = n(n + 1)(2n + 1)/6,</p>
+<pre class="math">U(f, Pₙ) = (1/n³) ∑ᵢ₌₁ⁿ i² = (n + 1)(2n + 1)/(6n²),
+L(f, Pₙ) = (1/n³) ∑ᵢ₌₀ⁿ⁻¹ i² = (n − 1)(2n − 1)/(6n²),
+U − L = [(2n² + 3n + 1) − (2n² − 3n + 1)]/(6n²) = 1/n.</pre>
+<p>Both sums tend to 1/3, and U − L → 0, so ∫₀¹ x² dx = 1/3.</p>
+<h3>Which functions are integrable</h3>
+<p><strong>Theorem 7.3</strong>. Every continuous function on [a, b] is integrable.</p>
+<p><strong>Proof</strong>. By Heine–Cantor, f is uniformly continuous: given ε &gt; 0 there is δ with |f(x) − f(y)| &lt; ε/(b − a) when |x − y| &lt; δ. For any partition with all Δxᵢ &lt; δ, the extreme value theorem gives Mᵢ − mᵢ &lt; ε/(b − a), so U − L &lt; ε. ∎</p>
+<p><strong>Theorem 7.4</strong>. Every monotone function on [a, b] is integrable.</p>
+<p><strong>Proof</strong>. For increasing f and the uniform partition into n parts, Mᵢ = f(xᵢ) and mᵢ = f(xᵢ₋₁), so U − L telescopes to (f(b) − f(a))(b − a)/n. ∎</p>
+<p>A monotone function can have infinitely many discontinuities (at most countably many), so Theorem 7.4 already goes beyond continuity. Dirichlet's function is not integrable on [0, 1]: every subinterval contains rationals and irrationals, so L(f, P) = 0 and U(f, P) = 1 for every P. Thomae's function, on the other hand, is integrable with integral 0, although it is discontinuous at every rational: for ε &gt; 0, only finitely many points have t(x) ≥ ε/2, and they can be enclosed in subintervals of total length less than ε/2.</p>
+<p>The complete answer was found by Lebesgue in 1902. A set Z ⊆ ℝ has measure zero if for every ε &gt; 0 it can be covered by countably many intervals of total length less than ε. Every countable set has measure zero (cover the n-th point by an interval of length ε/2ⁿ⁺¹), and so does the Cantor set, which is uncountable.</p>
+<p><strong>Theorem 7.5 (Lebesgue's criterion)</strong>. A bounded function on [a, b] is Riemann integrable iff its set of discontinuities has measure zero.</p>
+<p>This criterion explains all the examples at once: continuous and monotone functions have countably many discontinuities, Thomae's function has countably many, and Dirichlet's function is discontinuous everywhere.</p>
+<h3>Properties</h3>
+<p>The integral is linear and monotone; if f is integrable, so is |f|, and |∫f| ≤ ∫|f|; products of integrable functions are integrable; if f is integrable and φ is continuous, then φ ∘ f is integrable. Finally, Riemann's original definition with tagged sums agrees with Darboux's: f is integrable with integral I iff for every ε &gt; 0 there is δ &gt; 0 such that |∑ f(tᵢ)Δxᵢ − I| &lt; ε for every partition with mesh max Δxᵢ &lt; δ and every choice of tags tᵢ ∈ [xᵢ₋₁, xᵢ].</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>For f(x) = x³ on [0, 2] with the uniform partition into n parts, compute U − L exactly, and find the least n for which U − L &lt; 0.01.</div></li><li><span class="mk">(b)</span><div>Let f(x) = 1 if x = 1/n for some n ∈ ℕ, and f(x) = 0 otherwise, on [0, 1]. Is f integrable? If so, find ∫₀¹ f.</div></li><li><span class="mk">(c)</span><div>Show directly from the definition that a function which is 0 except at one point is integrable with integral 0.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) U − L = (f(2) − f(0))(2/n) = 16/n; we need n &gt; 1600, so n = 1601. (b) Yes: the discontinuities are the points 1/n and 0, a countable set. Every lower sum is 0 (every subinterval contains points where f = 0), so the integral is 0. (c) If f = c at x* and 0 elsewhere, take a partition in which x* lies in subintervals of total length less than ε/|c|; then U − L &lt; ε and every lower or upper sum lies within ε of 0.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

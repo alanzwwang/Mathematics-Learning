@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Egyptian Fractions — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 11</p>
+    <h1>Egyptian Fractions</h1>
+    <p class="kicker">Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every positive rational is a finite sum of distinct unit fractions 1/n.
+Erdős–Straus conjecture (open): 4/n = 1/x + 1/y + 1/z is solvable for every n ≥ 2.</pre></div>
+<h3>Historical background</h3>
+<p>The scribes of Middle Kingdom Egypt wrote every fraction other than 2/3 as a sum of distinct unit fractions. The Rhind Mathematical Papyrus, copied by the scribe Ahmes around 1550 BC from an older text, opens with a table expressing 2/n as such a sum for every odd n from 5 to 101; for example</p>
+<pre class="math">2/5 = 1/3 + 1/15,     2/7 = 1/4 + 1/28,     2/101 = 1/101 + 1/202 + 1/303 + 1/606.</pre>
+<p>The principles by which the scribes chose their decompositions are still debated; they generally prefer few terms, small and even denominators. An expression of a rational number as a sum of distinct unit fractions is now called an Egyptian fraction.</p>
+<h3>The greedy algorithm</h3>
+<p><strong>Theorem 11.1 (Fibonacci, 1202; Sylvester, 1880)</strong>. Let 0 &lt; a/b &lt; 1 in lowest terms. Repeatedly subtract the largest unit fraction not exceeding the remainder. This process terminates after at most a steps and produces an Egyptian fraction with strictly increasing denominators.</p>
+<p><strong>Proof</strong>. The largest unit fraction not exceeding a/b is 1/n with n = ⌈b/a⌉, so n − 1 &lt; b/a ≤ n. The remainder is</p>
+<pre class="math">a/b − 1/n = (an − b)/(bn).</pre>
+<p>Its numerator satisfies 0 ≤ an − b &lt; a, because a(n − 1) &lt; b. Hence the numerators, even before reduction, strictly decrease, and the process stops after at most a steps. For distinctness, the remainder is less than 1/(n − 1) − 1/n = 1/(n(n − 1)) ≤ 1/n when n ≥ 2, because a/b &lt; 1/(n − 1); so the next denominator is strictly larger than n. ∎</p>
+<p>For example, for 4/13 we find ⌈13/4⌉ = 4, 4/13 − 1/4 = 3/52, then ⌈52/3⌉ = 18, 3/52 − 1/18 = 2/936 = 1/468, so</p>
+<pre class="math">4/13 = 1/4 + 1/18 + 1/468.</pre>
+<p>The greedy algorithm is simple but can be very inefficient. For 5/121 it produces</p>
+<pre class="math">5/121 = 1/25 + 1/757 + 1/763309 + 1/873960180913 + 1/1527612795642093418846225,</pre>
+<p>whereas 5/121 = 1/33 + 1/121 + 1/363 has only three terms. Other algorithms do much better; for example, Vose (1985) proved that every a/b with 0 &lt; a &lt; b has an Egyptian representation with O(√(log b)) terms.</p>
+<h3>Sylvester's sequence</h3>
+<p>Define s₁ = 2 and s<sub>n+1</sub> = s<sub>n²</sub> − s<sub>n</sub> + 1, giving 2, 3, 7, 43, 1807, 3263443, …. Then s<sub>n+1</sub> − 1 = s<sub>n</sub>(s<sub>n</sub> − 1), so</p>
+<pre class="math">1/(s<sub>n</sub> − 1) − 1/(s<sub>n+1</sub> − 1) = 1/(s<sub>n</sub> − 1) − 1/(s<sub>n</sub>(s<sub>n</sub> − 1)) = 1/s<sub>n</sub>,</pre>
+<p>and the sum telescopes:</p>
+<pre class="math">1/s₁ + 1/s₂ + ⋯ + 1/s<sub>n</sub> = 1 − 1/(s<sub>n+1</sub> − 1).</pre>
+<p>For instance 1/2 + 1/3 + 1/7 + 1/43 = 1 − 1/1806, and so 1 = 1/2 + 1/3 + 1/7 + 1/43 + 1/1806. The terms are exactly the denominators produced by the greedy algorithm applied to 1 when at each stage the strict inequality 1/n &lt; remainder is enforced, and Curtiss (1922) proved that 1/s₁ + ⋯ + 1/s<sub>n</sub> is the closest approximation to 1 from below by a sum of n unit fractions. The sequence grows doubly exponentially, s<sub>n</sub> ≈ E<sup>2<sup>n</sup></sup> with E ≈ 1.2640.</p>
+<h3>The Erdős–Straus conjecture</h3>
+<p>In 1948 Erdős and Straus conjectured that for every integer n ≥ 2,</p>
+<pre class="math">4/n = 1/x + 1/y + 1/z</pre>
+<p>has a solution in positive integers x, y, z (not necessarily distinct). Several reductions are elementary. If the equation holds for n with solution (x, y, z), it holds for every multiple kn with solution (kx, ky, kz); so it suffices to treat prime n. For n = 2, 4/2 = 1/1 + 1/2 + 1/2. Congruence classes yield identities:</p>
+<pre class="math">n = 4k − 1:   4/n = 1/k + 1/(kn),                 since (n + 1)/(kn) = 4k/(kn)
+n = 3k − 1:   4/n = 1/n + 1/k + 1/(kn),           since 3/n = (n + 1)/(kn)</pre>
+<p>and in the two-term case one splits a unit fraction using 1/m = 1/(m + 1) + 1/(m(m + 1)). Every prime p &gt; 3 not covered by these two identities satisfies p ≡ 1 (mod 12). Mordell showed with further identities that the conjecture holds for all n except possibly those with</p>
+<pre class="math">n ≡ 1, 121, 169, 289, 361, 529   (mod 840),</pre>
+<p>which are the squares 1, 11², 13², 17², 19², 23² modulo 840. Polynomial identities of this kind can never cover all residue classes of squares, which is a structural reason why the conjecture is hard. Computations have verified it for all n ≤ 10¹⁷ (Salez, 2014), and Elsholtz and Tao (2013) obtained precise estimates for the average number of solutions. The conjecture remains open, as does Sierpiński's analogous conjecture for 5/n.</p>
+<h3>Density and colouring results</h3>
+<p>Erdős and Graham asked many questions about representations of 1 as a sum of distinct unit fractions. Graham (1964) proved that every integer greater than 77 can be written as a sum of distinct positive integers whose reciprocals sum to 1, and that 77 cannot. Croot (2003) proved that in any colouring of the integers ≥ 2 with finitely many colours there is a monochromatic finite set whose reciprocals sum to 1. Bloom (2021) strengthened this to a density statement: every set of positive integers with positive upper density contains a finite subset whose reciprocals sum to 1.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Apply the greedy algorithm to 3/7.</div></li><li><span class="mk">(b)</span><div>Find a solution of the Erdős–Straus equation for n = 5.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) ⌈7/3⌉ = 3 and 3/7 − 1/3 = 2/21; ⌈21/2⌉ = 11 and 2/21 − 1/11 = (22 − 21)/231 = 1/231. So 3/7 = 1/3 + 1/11 + 1/231. (b) n = 5 = 3·2 − 1, so the second identity with k = 2 gives 4/5 = 1/5 + 1/2 + 1/10; check: (2 + 5 + 1)/10 = 8/10 = 4/5. Another solution is 4/5 = 1/2 + 1/4 + 1/20.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

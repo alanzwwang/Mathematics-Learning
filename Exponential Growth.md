@@ -180,7 +180,7 @@ In general:  1 + 2 + 4 + ... + 2ⁿ = 2^(n + 1) − 1.  Keep this in your pocket
 
 A word from history
 
-Legend says the inventor of chess asked a king for rice: 1 grain on square 1, 2 on square 2, 4 on square 3, doubling across all 64 squares. The king laughed — until his treasurers computed. Square n holds 2^(n − 1) grains, so square 64 alone wants 2⁶³ grains. How huge is that? With a clever estimate from Lesson 1's laws (problem 86), you'll show it's about 8 × 10¹⁸ grains — more rice than any kingdom could ever grow. Doubling starts like a joke and ends like a flood.
+Legend says the inventor of chess asked a king for rice: 1 grain on square 1, 2 on square 2, 4 on square 3, doubling across all 64 squares. The king laughed — until his treasurers computed. Square n holds 2^(n − 1) grains, so square 64 alone wants 2⁶³ grains. How huge is that? With a clever estimate from Lesson 1's laws (problem 86), you'll show it's at least 8 × 10¹⁸ grains (the exact number is about 9.2 × 10¹⁸ — our estimate comes out a bit low because 1,024 is a bit more than 1,000) — more rice than any kingdom could ever grow. Doubling starts like a joke and ends like a flood.
 
 ✏️ Your Turn
 
@@ -389,7 +389,7 @@ Same destination. The table is the local train; the formula is the express. Hono
 
 A word from science
 
-In 1965, engineer Gordon Moore noticed computer chips were doubling in power roughly every two years — and predicted it would continue. It did, for decades: about 25 doublings between his prediction and the phone in your pocket. That's why one phone outmuscles a room-sized 1960s computer by a factor of 2²⁵ — more than 33 million. Moore's "law" is f(x) = a × 2^x wearing a lab coat.
+In 1965, engineer Gordon Moore noticed that the number of tiny switches (transistors) on a computer chip was doubling about every year. In 1975 he updated his guess to about every two years — and predicted it would continue. It did, for decades: about 25 doublings between his prediction and the phone in your pocket. That's why one phone outmuscles a room-sized 1960s computer by a factor of 2²⁵ — more than 33 million. Moore's "law" is f(x) = a × 2^x wearing a lab coat.
 
 ✏️ Your Turn
 
@@ -508,7 +508,7 @@ Does decay ever reach zero? Compute f(10) for the ball: 64 × (1/2)¹⁰ = 64/1,
 
 A word from science
 
-Every living thing carries a trace of radioactive carbon-14, which halves about every 5,700 years. When something dies, the clock starts: half left after 5,700 years, a quarter after 11,400, an eighth after 17,100. In the 1940s, Willard Libby turned that halving machine into a stopwatch for archaeologists — carbon dating — and won a Nobel Prize. Fossils tell their age by how much has decayed: measure the fraction left, count the halvings, multiply by 5,700.
+Every living thing carries a trace of radioactive carbon-14, which halves about every 5,700 years. When something dies, the clock starts: half left after 5,700 years, a quarter after 11,400, an eighth after 17,100. In the 1940s, Willard Libby turned that halving machine into a stopwatch for archaeologists — carbon dating — and won a Nobel Prize. Bones, wood and other remains up to about 50,000 years old tell their age by how much has decayed (after that, too little carbon-14 is left to measure — so most dinosaur fossils need other clocks): measure the fraction left, count the halvings, multiply by 5,700.
 
 ✏️ Your Turn
 
@@ -607,7 +607,7 @@ Say it out loud three times. Seriously!
 
 Why this matters
 
-You can now read the math inside bacteria colonies, viral videos, savings accounts, computer chips, and ancient fossils — and you can do more than read it: you can solve for the time, the start, and the factor, translate percents, and prove why exponential beats linear and quadratic in the long run. One question remains open: what if 2^x = 75, where 75 isn't a clean power of 2? Later math hands you the machine for that — logarithms, the ultimate backwards button — and everything you practiced in Lesson 6 is the foundation. The door is open.
+You can now read the math inside bacteria colonies, viral videos, savings accounts, computer chips, and ancient bones — and you can do more than read it: you can solve for the time, the start, and the factor, translate percents, and prove why exponential beats linear and quadratic in the long run. One question remains open: what if 2^x = 75, where 75 isn't a clean power of 2? Later math hands you the machine for that — logarithms, the ultimate backwards button — and everything you practiced in Lesson 6 is the foundation. The door is open.
 
 Now it's time to prove it — with 100 practice problems! 💪
 

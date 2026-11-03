@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Intersection Multiplicity and Bézout's Theorem — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 9</p>
+    <h1>Intersection Multiplicity and Bézout's Theorem</h1>
+    <p class="kicker">Lesson 9 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">deg F = m, deg G = n, no common component:   ∑<sub>P ∈ F ∩ G</sub> I<sub>P</sub>(F, G) = mn   in ℙ²(k̄)</pre></div>
+<h3>Intersection multiplicity</h3>
+<p>Let f, g ∈ k[x, y] with k algebraically closed and P ∈ 𝔸². Let 𝒪<sub>P</sub> = k[x, y]<sub>𝔪<sub>P</sub></sub> be the local ring of 𝔸² at P, consisting of rational functions defined at P. The intersection multiplicity of f and g at P is</p>
+<pre class="math">I<sub>P</sub>(f, g) = dim<sub>k</sub> 𝒪<sub>P</sub> / ⟨f, g⟩</pre>
+<p>This algebraic definition captures exactly the intuitive notion of &quot;how many intersection points have come together at P&quot;. Fulton (Algebraic Curves, §3.3) shows that I<sub>P</sub> is the unique function satisfying the following properties, which in practice are how one computes it:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>I<sub>P</sub>(f, g) is a nonnegative integer if f and g have no common component through P, and ∞ otherwise.</div></li><li><span class="mk">2.</span><div>I<sub>P</sub>(f, g) = 0 if and only if P ∉ V(f) ∩ V(g).</div></li><li><span class="mk">3.</span><div>I<sub>P</sub> is invariant under affine changes of coordinates.</div></li><li><span class="mk">4.</span><div>I<sub>P</sub>(f, g) = I<sub>P</sub>(g, f).</div></li><li><span class="mk">5.</span><div>I<sub>P</sub>(f, g) ≥ m<sub>P</sub>(f) m<sub>P</sub>(g), with equality if and only if f and g have no tangent line in common at P.</div></li><li><span class="mk">6.</span><div>I<sub>P</sub>(f, gh) = I<sub>P</sub>(f, g) + I<sub>P</sub>(f, h).</div></li><li><span class="mk">7.</span><div>I<sub>P</sub>(f, g) = I<sub>P</sub>(f, g + af) for every a ∈ k[x, y].</div></li></ul>
+<p>A useful consequence: if g is smooth at P = (0, 0) and of the form y − h(x) with h(0) = 0, then I<sub>P</sub>(f, g) is the order of vanishing at x = 0 of the one-variable polynomial f(x, h(x)). Indeed, by property 7 we may replace f by f(x, h(x)) = xʳ u(x) with u(0) ≠ 0, then use property 6, and I<sub>P</sub>(x, y − h(x)) = 1 by property 5, while I<sub>P</sub>(u, ·) = 0 by property 2.</p>
+<p>Examples. The parabola and its tangent line: I₀(y − x², y) = ord₀(x²) = 2, matching the dimension count 𝒪₀/⟨x², y⟩ with basis 1, x. The cusp and its tangent line: I₀(y² − x³, y) = ord₀(x³) = 3. The cusp and the parabola: I₀(y² − x³, y − x²) = ord₀(x⁴ − x³) = 3, strictly greater than m₀ · m₀ = 2 · 1 because the parabola's tangent y = 0 is the cusp's tangent. The cusp and the node: f = y² − x³ and g = y² − x³ − x² have tangent cones y² and (y − x)(y + x), with no common tangent, so I₀(f, g) = 2 · 2 = 4. Directly: ⟨f, g⟩ = ⟨y² − x³, x²⟩ = ⟨x², y²⟩ (since x³ ∈ ⟨x²⟩), and 𝒪₀/⟨x², y²⟩ has basis 1, x, y, xy.</p>
+<p>For projective curves F, G and P ∈ ℙ², define I<sub>P</sub>(F, G) by dehomogenizing with respect to any coordinate that is nonzero at P; the result does not depend on the choice.</p>
+<h3>Bézout's theorem</h3>
+<p><strong>Theorem (Bézout)</strong>. Let F and G be projective plane curves of degrees m and n over an algebraically closed field, with no common component. Then</p>
+<pre class="math">∑<sub>P</sub> I<sub>P</sub>(F, G) = mn</pre>
+<p>the sum running over the finitely many points of F ∩ G. In particular two such curves meet in at least one and at most mn points.</p>
+<p>The statement goes back to Newton and Maclaurin, appears in Bézout's Théorie générale des équations algébriques (1779), and was proved rigorously only in the nineteenth century, once complex points, points at infinity and multiplicities had all been properly defined.</p>
+<p><strong>Proof sketch (via resultants)</strong>. Choose coordinates so that [0 : 1 : 0] lies on neither curve and on no line joining two points of F ∩ G (possible because F ∩ G is finite). Write F and G as polynomials in Y with coefficients in k[X, Z]; since [0 : 1 : 0] ∉ F ∪ G, the leading coefficients are nonzero constants. Their resultant R(X, Z) = Res<sub>Y</sub>(F, G) is a homogeneous polynomial of degree mn (a standard property of the Sylvester determinant), nonzero because F and G have no common factor. A point [a : c] ∈ ℙ¹ is a root of R iff the line through [a : 0 : c] and [0 : 1 : 0] contains a common point of F and G; by the choice of coordinates such a line contains exactly one point P of F ∩ G, and one shows that the multiplicity of [a : c] as a root of R equals I<sub>P</sub>(F, G). Summing over the roots of R, which number mn with multiplicity because k is algebraically closed, gives the theorem. A complete proof by a different route, computing dim k[X, Y, Z]<sub>d</sub>/⟨F, G⟩_d = mn for large d, is in Fulton, Algebraic Curves, Chapter 5. ∎</p>
+<p>Each hypothesis is necessary. Over ℝ a line can miss a circle. In 𝔸² parallel lines do not meet. Without multiplicities a tangent line meets a conic only once. And curves with a common component meet in infinitely many points.</p>
+<h3>Worked examples</h3>
+<p>Two circles. x² + y² = 1 and (x − 1)² + y² = 1 meet in the affine plane at (1/2, ±√3/2), obtained by subtracting the equations (2x − 1 = 0). Bézout predicts 2 · 2 = 4 intersections, and the remaining two are the circular points [1 : ±i : 0], through which every circle passes. Each has multiplicity 1, since the circles X² + Y² = Z² and X² + Y² − 2XZ = 0 have different tangent lines there (the gradients at [1 : i : 0] are (2, 2i, 0) and (2, 2i, −2), which are not proportional).</p>
+<p>Concentric circles. x² + y² = 1 and x² + y² = 4 have no affine intersection. Projectively, X² + Y² = Z² and X² + Y² = 4Z² give 3Z² = 0, so the intersection consists of the two circular points, each with multiplicity 2. To verify at [1 : i : 0], dehomogenize with X = 1: the ideal ⟨1 + y² − z², 1 + y² − 4z²⟩ = ⟨1 + y², z²⟩, and since 1 + y² = (y − i)(y + i) with y + i a unit near y = i, the local ring is k[y, z]/⟨y − i, z²⟩ localized, of dimension 2. Total 2 + 2 = 4.</p>
+<p>The parabola and the cubic. y = x² and y = x³ (degrees 2 and 3) should meet 6 times. In the affine plane, x² = x³ gives x²(1 − x) = 0: the origin with I₀ = ord₀(x² − x³) = 2, and (1, 1) with multiplicity 1. At infinity, YZ = X² and YZ² = X³ with Z = 0 force X = 0, so the only point is [0 : 1 : 0]. In the chart Y = 1 the curves are z = x² and z² = x³, and I = ord₀(x⁴ − x³) = 3. Total 2 + 1 + 3 = 6.</p>
+<p>The cusp and the node again. For F = Y²Z − X³ and G = Y²Z − X³ − X²Z we found I = 4 at the origin. There are no other affine intersections (subtracting gives x² = 0, hence x = 0 and then y = 0). At infinity Z = 0 forces X = 0, the point [0 : 1 : 0]. In the chart Y = 1 the curves are z = x³ and z = x³ + x²z; substituting, x²z = x⁵ = 0 on the first curve, so I = 5. Total 4 + 5 = 9 = 3 · 3.</p>
+<h3>First consequences</h3>
+<ul class="steps"><li><span class="mk">(1)</span><div>A line L and a curve F of degree d not containing L meet in exactly d points counted with multiplicity (Problem 52).</div></li><li><span class="mk">(2)</span><div>Two conics without a common component meet in at most four points, so five points of which no four are collinear lie on a unique conic.</div></li><li><span class="mk">(3)</span><div>An irreducible conic is smooth, and a cubic with two singular points is reducible (Problems 48 and 49).</div></li><li><span class="mk">(4)</span><div>An irreducible curve of degree d has at most (d − 1)(d − 2)/2 singular points (Problem 50).</div></li></ul>
+<p><strong>Theorem (Cayley–Bacharach for cubics)</strong>. Let C₁ and C₂ be two plane cubics meeting in exactly nine distinct points. Then every cubic passing through eight of these points passes through the ninth.</p>
+<p>This classical theorem, proved by counting conditions on the 10-dimensional space of cubic forms together with Bézout's theorem (see Fulton, Algebraic Curves, Chapter 5, or Eisenbud–Green–Harris, &quot;Cayley–Bacharach theorems and conjectures&quot;, 1996), implies Pascal's theorem on hexagons inscribed in a conic and gives the associativity of the group law in Lesson 11.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute I₀(y² − x³, x² − y³) and find all other intersection points of the two projective cubics, checking Bézout.</div></li><li><span class="mk">(b)</span><div>Find all intersection points, with multiplicities, of the projective closures of y = x² and x = 0.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The tangent cones at the origin are y² and x², with no common tangent, so I₀ = 2 · 2 = 4. Away from the origin, y² = x³ and x² = y³ give x⁴ = y⁶ = x⁹, so x⁵ = 1, and then y = y³/y² = x²/x³ = 1/x; conversely each fifth root of unity x with y = 1/x satisfies both equations. These five points are transverse intersections (multiplicity 1, since Bézout leaves no room for more). At infinity, Y²Z = X³ and X²Z = Y³ with Z = 0 force X = Y = 0, which is not a point. Total 4 + 5 = 9. (b) Affine: x = 0 gives y = 0, the origin, with I = 1 (the line x = 0 is not tangent to the parabola there). At infinity: YZ = X² and X = 0 with Z = 0 give [0 : 1 : 0]; in the chart Y = 1 the curves are z = x² and x = 0, meeting with multiplicity 1. Total 2 = 2 · 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

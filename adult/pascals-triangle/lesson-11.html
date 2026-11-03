@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Gaussian Binomial Coefficients — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 11</p>
+    <h1>Gaussian Binomial Coefficients</h1>
+    <p class="kicker">Lesson 11 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">[n]<sub>q</sub> = 1 + q + ⋯ + qⁿ⁻¹,   [n k]<sub>q</sub> = [n]<sub>q</sub>! / ([k]<sub>q</sub>! [n − k]<sub>q</sub>!)
+[n k]<sub>q</sub> = ∑ over 0-1 words with k ones of q<sup>inv(w)</sup> = #{k-dimensional subspaces of F<sub>qⁿ</sub>}
+∏<sub>i=0</sub><sup>n−1</sup> (1 + qⁱx) = ∑ₖ q<sup>k(k−1)/2</sup> [n k]<sub>q</sub> xᵏ</pre></div>
+<h3>Definition and the two q-Pascal rules</h3>
+<p>For an indeterminate q, put [n]<sub>q</sub> = 1 + q + ⋯ + qⁿ⁻¹ = (1 − qⁿ)/(1 − q), [n]<sub>q</sub>! = [1]<sub>q</sub> [2]<sub>q</sub> ⋯ [n]<sub>q</sub>, and for 0 ≤ k ≤ n define the Gaussian (or q-binomial) coefficient [n k]<sub>q</sub> = [n]<sub>q</sub>!/([k]<sub>q</sub>! [n − k]<sub>q</sub>!), with [n k]<sub>q</sub> = 0 if k &lt; 0 or k &gt; n. At q = 1 it reduces to C(n, k). We usually suppress the subscript q.</p>
+<p><strong>Proposition 11.1</strong>. For 1 ≤ k ≤ n,</p>
+<pre class="math">[n k] = [n − 1  k − 1] + qᵏ [n − 1  k]
+[n k] = qⁿ⁻ᵏ [n − 1  k − 1] + [n − 1  k]</pre>
+<p><strong>Proof</strong>. Factor out [n − 1]!/([k]! [n − k]!) from the right-hand side of the first rule; what remains is [k] + qᵏ[n − k] = (1 + ⋯ + qᵏ⁻¹) + (qᵏ + ⋯ + qⁿ⁻¹) = [n]. The second rule is the same computation with [n − k] + qⁿ⁻ᵏ[k] = [n]. ∎</p>
+<p>By induction on n, [n k] is a polynomial in q of degree k(n − k) with nonnegative integer coefficients, palindromic since [n k] = [n  n − k] and the definition is invariant under q ↦ q⁻¹ up to the factor q<sup>k(n−k)</sup>.</p>
+<pre class="math">[4 2] = 1 + q + 2q² + q³ + q⁴             [5 2] = 1 + q + 2q² + 2q³ + 2q⁴ + q⁵ + q⁶</pre>
+<h3>Combinatorial meaning: inversions and partitions in a box</h3>
+<p>For a word w ∈ {0, 1}ⁿ, an inversion is a pair i &lt; j with wᵢ = 1 and wⱼ = 0. Theorem 11.2. ∑ q<sup>inv(w)</sup>, over words with k ones and n − k zeros, equals [n k]. Proof. Let W(n, k) be the sum. If the last letter is 1 it is involved in no inversion, contributing W(n − 1, k − 1); if it is 0, each of the k ones forms an inversion with it, contributing qᵏ W(n − 1, k). This is the first q-Pascal rule, and the initial values agree. ∎</p>
+<p>Reading a word as a lattice path (1 = step east, 0 = step north), inv(w) is the area of the region between the path and the bottom-right corner of the k × (n − k) box, so [n k] is also the generating function of integer partitions whose Young diagram fits in a k × (n − k) box, counted by size. The coefficients of [5 2] above, 1, 1, 2, 2, 2, 1, 1, count partitions of 0, …, 6 with at most 2 parts, each at most 3.</p>
+<h3>Subspaces of vector spaces over finite fields</h3>
+<p><strong>Theorem 11.3</strong>. If q is a prime power, the number of k-dimensional subspaces of F<sub>qⁿ</sub> is [n k]<sub>q</sub>.</p>
+<p><strong>Proof</strong>. An ordered k-tuple of linearly independent vectors can be chosen in (qⁿ − 1)(qⁿ − q)⋯(qⁿ − qᵏ⁻¹) ways, since the ith vector must avoid the span of the previous ones, which has qⁱ⁻¹ elements. Each k-dimensional subspace has (qᵏ − 1)(qᵏ − q)⋯(qᵏ − qᵏ⁻¹) ordered bases. Dividing and cancelling the powers of q gives ∏<sub>i=0</sub><sup>k−1</sup> (qⁿ⁻ⁱ − 1)/(qᵏ⁻ⁱ − 1) = [n k]<sub>q</sub>. ∎</p>
+<pre class="math">[4 2]₂ = (15 · 14)/(3 · 2) = 35        [4 2]₃ = (80 · 78)/(8 · 6) = 130
+subspaces of F₂⁴ of all dimensions: 1 + 15 + 35 + 15 + 1 = 67</pre>
+<p>This is the basis of the slogan that combinatorics of sets is linear algebra over the field with one element: subsets correspond to subspaces, and C(n, k) is the q → 1 limit of [n k]<sub>q</sub>. The q-Pascal rules count subspaces according to whether they lie in a fixed hyperplane.</p>
+<h3>The q-binomial theorem</h3>
+<p><strong>Theorem 11.4 (Cauchy; Rothe)</strong>. ∏<sub>i=0</sub><sup>n−1</sup> (1 + qⁱ x) = ∑<sub>k=0</sub><sup>n</sup> q<sup>k(k−1)/2</sup> [n k] xᵏ.</p>
+<p><strong>Proof</strong>. Induction on n; the case n = 0 is trivial. Multiplying the identity for n by (1 + qⁿx), the coefficient of xᵏ becomes q<sup>k(k−1)/2</sup>[n k] + qⁿ q<sup>(k−1)(k−2)/2</sup>[n  k − 1]. Since (k − 1)(k − 2)/2 + n = k(k − 1)/2 + (n + 1 − k), this equals q<sup>k(k−1)/2</sup>([n k] + q<sup>n+1−k</sup>[n  k − 1]) = q<sup>k(k−1)/2</sup>[n + 1  k] by the second q-Pascal rule. ∎</p>
+<p>Further results (cited): the q-Vandermonde identity [m + n  k] = ∑ⱼ q<sup>(m−j)(k−j)</sup> [m j][n  k − j]; Gauss's evaluation ∑ₖ (−1)ᵏ [n k] = 0 for odd n and (1 − q)(1 − q³)⋯(1 − qⁿ⁻¹) for even n; and the unimodality of the coefficient sequence of [n k], proved by Sylvester (1878) by invariant-theoretic methods (in modern terms, the representation theory of sl₂) and combinatorially by O'Hara (1990). For n = 4, Gauss's sum is 1 − [4 1] + [4 2] − [4 3] + 1 = 1 − q − q³ + q⁴ = (1 − q)(1 − q³).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Verify q-Vandermonde for m = n = 1, k = 1.</div></li><li><span class="mk">(b)</span><div>How many 2-dimensional subspaces does F₃⁴ have?</div></li><li><span class="mk">(c)</span><div>How many 3-dimensional subspaces does F₂⁵ have?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) [2 1] = 1 + q; the right side is q<sup>1·1</sup>[1 0][1 1] + q⁰[1 1][1 0] = q + 1. (b) [4 2]₃ = 130 (also 1 + 3 + 2·9 + 27 + 81 = 130). (c) [5 3]₂ = [5 2]₂ = (31 · 30)/(3 · 2) = 155.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Kernel, Image and the Rank–Nullity Theorem — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 3</p>
+    <h1>Kernel, Image and the Rank–Nullity Theorem</h1>
+    <p class="kicker">Lesson 3 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For T : V → W linear with dim V finite,
+dim V = dim ker T + dim im T        (nullity + rank)</pre></div>
+<h3>Kernel and image</h3>
+<p>For a linear map T : V → W, the kernel ker T = {v ∈ V : T(v) = 0} is a subspace of V, and the image im T = {T(v) : v ∈ V} is a subspace of W. Their dimensions are the nullity and the rank of T. The kernel measures failure of injectivity: T(x) = T(y) if and only if x − y ∈ ker T, so T is injective exactly when ker T = {0}. The full solution set of T(x) = w, when non-empty, is x₀ + ker T for any particular solution x₀. This is the abstract form of the familiar statement that the general solution of a linear system or linear differential equation is &quot;particular solution plus general homogeneous solution&quot;.</p>
+<h3>Theorem 3.1 (Rank–nullity)</h3>
+<p>Let V be finite-dimensional and T : V → W linear. Then dim V = dim ker T + dim im T.</p>
+<p><strong>Proof</strong>. Choose a basis u₁, …, uₖ of ker T and extend it (Theorem 2.2) to a basis u₁, …, uₖ, v₁, …, vᵣ of V, so dim V = k + r. We claim that T(v₁), …, T(vᵣ) is a basis of im T, which gives rank T = r. Spanning: any w ∈ im T is w = T(Σaᵢuᵢ + Σbⱼvⱼ) = ΣbⱼT(vⱼ), since T(uᵢ) = 0. Independence: if ΣbⱼT(vⱼ) = 0, then T(Σbⱼvⱼ) = 0, so Σbⱼvⱼ ∈ ker T and Σbⱼvⱼ = Σaᵢuᵢ for some aᵢ. Then Σaᵢuᵢ − Σbⱼvⱼ = 0 is a dependence among basis vectors of V, forcing all bⱼ = 0. ∎</p>
+<p>An equivalent formulation is the first isomorphism theorem: T induces an isomorphism V/ker T ≅ im T, and dim(V/U) = dim V − dim U for any subspace U.</p>
+<h3>Corollaries</h3>
+<ul class="steps"><li><span class="mk">1.</span><div>If dim V = dim W &lt; ∞, then T is injective ⇔ T is surjective ⇔ T is bijective.</div></li><li><span class="mk">2.</span><div>If dim V &gt; dim W, then T has a nontrivial kernel: a homogeneous system with more unknowns than equations has a nonzero solution.</div></li><li><span class="mk">3.</span><div>If dim V &lt; dim W, then T is not surjective.</div></li><li><span class="mk">4.</span><div>For matrices, rank(AB) ≤ min(rank A, rank B) (Problem 22), and Sylvester's inequality rank A + rank B − n ≤ rank(AB) holds for A of size m × n and B of size n × p (Problem 23).</div></li></ul>
+<p>Corollary 1 is false in infinite dimensions: on the space of all polynomials, multiplication by x is injective but not surjective, and differentiation is surjective but not injective (Problem 59). Fredholm theory recovers a version of the statement for compact perturbations of the identity on Banach spaces: for such an operator I − K, injectivity and surjectivity are again equivalent (the Fredholm alternative).</p>
+<h3>Row rank equals column rank</h3>
+<p>For a real m × n matrix A, the column rank is the dimension of the column space im A ⊆ ℝᵐ, and the row rank is the dimension of the row space R ⊆ ℝⁿ spanned by the rows. A vector x lies in ker A exactly when it is orthogonal to every row, so ker A = R⊥. Since dim R + dim R⊥ = n, rank–nullity gives column rank = n − dim ker A = n − dim R⊥ = dim R. Hence the two ranks agree. (Over an arbitrary field the same argument works with the annihilator of Lesson 5 in place of the orthogonal complement.)</p>
+<p><strong>Worked example</strong>. Consider the matrix A shown below.</p>
+<pre class="math">A = [ 1  2  3 ]
+    [ 2  4  6 ]
+    [ 1  1  1 ]</pre>
+<p>The second row is twice the first, and the third is not a multiple of the first, so rank A = 2 and nullity = 3 − 2 = 1. To find the kernel, solve x + 2y + 3z = 0 and x + y + z = 0. Subtracting gives y + 2z = 0, so y = −2z and then x = −y − z = z. Hence ker A = span{(1, −2, 1)}. Check: 1 − 4 + 3 = 0, 2 − 8 + 6 = 0 and 1 − 2 + 1 = 0.</p>
+<p>A second example: differentiation D : Pₙ → Pₙ has kernel the constants (dimension 1) and image Pₙ₋₁ (dimension n), and indeed n + 1 = 1 + n.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Let T : P₃ → ℝ² be T(p) = (p(0), p(1)). Find the rank and nullity of T and a basis of ker T.</div></li><li><span class="mk">(b)</span><div>A is a 5 × 7 matrix. What is the smallest possible nullity of A?</div></li><li><span class="mk">(c)</span><div>For n ≥ 2, find the rank of the n × n matrix with entries aᵢⱼ = i + j.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) T is surjective (p = a + (b − a)x hits (a, b)), so rank 2 and nullity 4 − 2 = 2; a basis of the kernel is x² − x, x³ − x, since these vanish at 0 and 1 and are independent. (b) rank ≤ 5, so nullity = 7 − rank ≥ 2, and nullity 2 occurs when rank A = 5. (c) Row i equals i·(1, 1, …, 1) + (1, 2, …, n), so every row lies in the span of two independent vectors, and rows 1 and 2 are independent; the rank is 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

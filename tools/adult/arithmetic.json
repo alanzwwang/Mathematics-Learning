@@ -1,0 +1,13 @@
+{
+  "blurb": "Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.",
+  "pics": [
+    { "img": "img/adult/arithmetic-1.jpg", "alt": "Black-and-white photographic portrait of Giuseppe Peano, a bearded man in a dark jacket",
+      "caption": "Giuseppe Peano (1858–1932), whose Arithmetices principia (1889) set out the axioms for the natural numbers that bear his name. Together with Dedekind's work of 1888, it made arithmetic a deductive theory.",
+      "title": "Giuseppe Peano.jpg", "page": "https://commons.wikimedia.org/wiki/File:Giuseppe_Peano.jpg",
+      "license": "Public domain", "artist": "Unknown author" },
+    { "img": "img/adult/arithmetic-2.png", "alt": "Diagram of the 64 bits of an IEEE 754 double: 1 sign bit, 11 exponent bits and 52 fraction bits, numbered 63 down to 0",
+      "caption": "The IEEE 754 binary64 (double-precision) format: bit 63 is the sign, bits 62–52 the biased exponent and bits 51–0 the fraction. With the hidden leading bit, the significand has 53 bits of precision.",
+      "title": "IEEE 754 Double Floating Point Format.svg", "page": "https://commons.wikimedia.org/wiki/File:IEEE_754_Double_Floating_Point_Format.svg",
+      "license": "CC BY-SA 4.0", "artist": "Codekaizen" }
+  ]
+}

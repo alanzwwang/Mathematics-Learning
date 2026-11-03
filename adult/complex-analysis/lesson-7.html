@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Cauchy's Integral Formula and Its Consequences — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 7</p>
+    <h1>Cauchy's Integral Formula and Its Consequences</h1>
+    <p class="kicker">Lesson 7 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">If f is holomorphic on a neighbourhood of the closed disc |z − a| ≤ r and |w − a| &lt; r, then
+      f(w) = (1/2πi) ∮ f(z)/(z − w) dz,
+      f⁽ⁿ⁾(w) = (n!/2πi) ∮ f(z)/(z − w)<sup>n+1</sup> dz   (circle |z − a| = r).
+Holomorphic ⇒ analytic, Liouville, FTA, identity theorem, maximum principle.</pre></div>
+<h3>The integral formula</h3>
+<p><strong>Theorem 7.1 (Cauchy's integral formula)</strong>. Let f be holomorphic on an open set containing the closed disc D̄ = {|z − a| ≤ r}, and let C be its boundary circle. Then for every w with |w − a| &lt; r, f(w) = (1/2πi) ∮<sub>C</sub> f(z)/(z − w) dz.</p>
+<p><strong>Proof</strong>. Let g(z) = (f(z) − f(w))/(z − w) for z ≠ w and g(w) = f′(w). Then g is continuous on a slightly larger disc and holomorphic except possibly at w, so by the variant of Goursat's lemma and Theorem 6.2, ∮<sub>C</sub> g dz = 0. Hence ∮<sub>C</sub> f(z)/(z − w) dz = f(w) ∮<sub>C</sub> dz/(z − w) = 2πi f(w) · n(C, w) = 2πi f(w), since n(C, w) = 1 for w inside the circle (Theorem 5.2 and the fundamental computation at w = a).</p>
+<h3>Holomorphic functions are analytic</h3>
+<p><strong>Theorem 7.2</strong>. If f is holomorphic on U and D(a, r) ⊆ U, then f(w) = ∑ cₙ (w − a)ⁿ for all w ∈ D(a, r), with cₙ = (1/2πi) ∮ f(z)/(z − a)<sup>n+1</sup> dz over |z − a| = ρ, for any ρ &lt; r. In particular f is infinitely differentiable and the formula for f⁽ⁿ⁾ in the key idea holds.</p>
+<p><strong>Proof</strong>. Fix w with |w − a| &lt; ρ &lt; r. For z on the circle |z − a| = ρ, the geometric series</p>
+<pre class="math">1/(z − w) = 1/((z − a)(1 − (w − a)/(z − a))) = ∑ (w − a)ⁿ/(z − a)<sup>n+1</sup></pre>
+<p>converges uniformly in z, because the ratio |w − a|/ρ is less than 1. Multiply by f(z)/(2πi), integrate term by term (Lesson 5), and apply Theorem 7.1. The derivative formula follows from aₙ = f⁽ⁿ⁾(a)/n! (Lesson 4).</p>
+<p>Two consequences are worth isolating. First, the Taylor series at a converges on the largest open disc about a contained in U, which justifies the distance-to-the-nearest-singularity rule of Lesson 4. Second, the derivative of a holomorphic function is holomorphic, so the real and imaginary parts are C<sup>∞</sup> and the harmonicity argument of Lesson 3 needs no extra hypothesis.</p>
+<p><strong>Example</strong>. With f(z) = e<sup>z</sup> and n = 2, ∮ over |z| = 2 of e<sup>z</sup>/(z − 1)³ dz = (2πi/2!) · f″(1) = πi e.</p>
+<h3>Cauchy's estimates and Liouville's theorem</h3>
+<p>If |f| ≤ M on the circle |z − a| = r, the ML-inequality applied to the derivative formula gives Cauchy's estimates:</p>
+<pre class="math">|f⁽ⁿ⁾(a)| ≤ n! M / rⁿ.</pre>
+<p><strong>Theorem 7.3 (Liouville)</strong>. Every bounded entire function is constant. (The theorem carries the name of Liouville, who lectured on it in 1847, but Cauchy had already published it in 1844.)</p>
+<p><strong>Proof</strong>. If |f| ≤ M on ℂ, then |f′(a)| ≤ M/r for every r &gt; 0, so f′ ≡ 0 and f is constant.</p>
+<p>The same argument with n &gt; k shows that an entire function satisfying |f(z)| ≤ A + B|z|ᵏ is a polynomial of degree at most k.</p>
+<p><strong>Theorem 7.4 (fundamental theorem of algebra)</strong>. Every nonconstant polynomial p with complex coefficients has a zero in ℂ; hence p factors completely into linear factors.</p>
+<p><strong>Proof</strong>. If p(z) = aₙzⁿ + … + a₀ with n ≥ 1 and aₙ ≠ 0, then |p(z)| ≥ |aₙ||z|ⁿ/2 for |z| large, so |p(z)| → ∞. If p had no zero, 1/p would be entire and tend to 0 at infinity, hence bounded, hence constant by Liouville, which is absurd. Induction on the degree gives the factorisation.</p>
+<h3>Morera's theorem and uniform limits</h3>
+<p><strong>Theorem 7.5 (Morera)</strong>. If f is continuous on an open set U and ∮ over ∂T of f dz = 0 for every closed triangle T ⊂ U, then f is holomorphic on U.</p>
+<p><strong>Proof</strong>. On each disc in U the construction of Theorem 6.2 produces a holomorphic primitive F; then f = F′ is holomorphic by Theorem 7.2.</p>
+<p><strong>Corollary (Weierstrass)</strong>. If fₙ are holomorphic on U and fₙ → f uniformly on compact subsets of U, then f is holomorphic and fₙ⁽ᵏ⁾ → f⁽ᵏ⁾ uniformly on compact subsets for every k. Indeed, triangle integrals pass to the limit, so Morera applies, and Cauchy's estimates control the derivatives. This is in sharp contrast with real analysis, where every continuous function on [0, 1] is a uniform limit of polynomials.</p>
+<h3>The identity theorem</h3>
+<p><strong>Theorem 7.6</strong>. Let U be a domain and f holomorphic on U, not identically zero. Then the zeros of f are isolated: each zero a has an order m ≥ 1 with f(z) = (z − a)ᵐ g(z), g holomorphic and g(a) ≠ 0. Consequently, if two holomorphic functions on U agree on a set with an accumulation point in U, they agree everywhere on U.</p>
+<p><strong>Proof</strong>. Let A be the set of points of U at which all derivatives of f vanish. By Theorem 7.2, A is open (f vanishes on a disc around each of its points), and it is closed in U by continuity of the derivatives. Since U is connected and f ≢ 0, A is empty. So at each zero a some derivative is nonzero; if m is the least such order, the Taylor series gives f(z) = (z − a)ᵐ g(z) with g(a) = f⁽ᵐ⁾(a)/m! ≠ 0, and g is nonzero near a.</p>
+<p>The identity theorem is the source of the rigidity of holomorphic functions: identities like sin²z + cos²z = 1, valid on ℝ, extend automatically to ℂ, and a holomorphic function on a domain is determined by its values on any segment.</p>
+<h3>The mean value property and the maximum principle</h3>
+<p>Taking w = a and z = a + r e<sup>it</sup> in Theorem 7.1 gives the mean value property f(a) = (1/2π) ∫₀<sup>2π</sup> f(a + r e<sup>it</sup>) dt.</p>
+<p><strong>Theorem 7.7 (maximum modulus principle)</strong>. If f is holomorphic on a domain U and |f| attains a local maximum at some point of U, then f is constant. If U is bounded and f is continuous on the closure, then max |f| over the closure is attained on the boundary.</p>
+<p><strong>Proof</strong>. Suppose |f(a)| ≥ |f(z)| for |z − a| ≤ r. The mean value property gives |f(a)| ≤ (1/2π) ∫ |f(a + r e<sup>it</sup>)| dt ≤ |f(a)|, so equality holds throughout, forcing |f| = |f(a)| on every small circle about a, hence on a disc. A holomorphic function of constant modulus on a disc is constant (the Cauchy–Riemann equations, or the open mapping theorem of Lesson 11), and the identity theorem spreads this to U.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute ∮ over |z| = 3 of (z³ + 2z)/(z − 1)² dz.</div></li><li><span class="mk">(b)</span><div>Let f be entire with |f(z)| ≤ 5|z|² for all z. What can f be?</div></li><li><span class="mk">(c)</span><div>Find the maximum of |e<sup>z</sup>| on the closed unit disc and where it is attained.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) By the derivative formula with n = 1, the integral is 2πi f′(1) with f(z) = z³ + 2z, f′(1) = 5, so it equals 10πi. (b) By Cauchy's estimates f is a polynomial of degree at most 2; f(0) = 0 and f′(0) = 0 are forced (since |f(z)| ≤ 5|z|² near 0), so f(z) = c z² with |c| ≤ 5. (c) |e<sup>z</sup>| = e<sup>Re z</sup>, maximised on the boundary at z = 1, with value e.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

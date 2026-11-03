@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Vector Spaces, Bases and Dimension — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 2</p>
+    <h1>Vector Spaces, Bases and Dimension</h1>
+    <p class="kicker">Lesson 2 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every spanning set of V contains a basis; every independent set extends to one
+Steinitz exchange:  |independent set| ≤ |spanning set|
+Hence all bases have the same size, dim V</pre></div>
+<h3>Vector spaces and subspaces</h3>
+<p>A vector space over F is a set V with an addition and a scalar multiplication satisfying the familiar eight axioms (associativity and commutativity of addition, a zero vector, additive inverses, and the distributive and unital laws for scalars). A subset U ⊆ V is a subspace if it contains 0 and is closed under addition and scalar multiplication. Examples include ℝⁿ; the space Pₙ of real polynomials of degree at most n; the space M<sub>m×n</sub> of m × n matrices; the space C[0, 1] of continuous functions; and the solution set of any homogeneous linear system or homogeneous linear differential equation. The solution set of an inhomogeneous system Ax = b with b ≠ 0 is not a subspace but an affine subspace: a translate x₀ + ker A of a subspace, as we shall see in Lesson 6.</p>
+<h3>Span, independence, basis</h3>
+<p>The span of a set S ⊆ V is the set of all finite linear combinations of elements of S; it is the smallest subspace containing S. A set S is linearly independent if the only finite linear combination of distinct elements of S equal to 0 is the trivial one. A basis is an independent spanning set. Equivalently, B is a basis exactly when every v ∈ V can be written as a linear combination of elements of B in exactly one way; the coefficients are the coordinates of v with respect to B.</p>
+<h3>Lemma 2.1 (Steinitz exchange lemma)</h3>
+<p>Suppose u₁, …, uₖ are linearly independent in V and w₁, …, wₘ span V. Then k ≤ m, and after renumbering the wⱼ, the list u₁, …, uₖ, wₖ₊₁, …, wₘ also spans V.</p>
+<p><strong>Proof</strong>. Induct on k; the case k = 0 is trivial. Assume the statement for k − 1, so (after renumbering) u₁, …, uₖ₋₁, wₖ, …, wₘ spans V, and k − 1 ≤ m. Write uₖ = a₁u₁ + ⋯ + aₖ₋₁uₖ₋₁ + bₖwₖ + ⋯ + bₘwₘ. If all the bⱼ were zero (including the case where there are no w's left, that is k − 1 = m), uₖ would be a combination of u₁, …, uₖ₋₁, contradicting independence. Hence k ≤ m and some bⱼ ≠ 0; renumber so that bₖ ≠ 0. Solving for wₖ expresses it as a combination of u₁, …, uₖ, wₖ₊₁, …, wₘ, so this new list spans everything the old list spanned, namely V. ∎</p>
+<h3>Theorem 2.2 (Dimension)</h3>
+<p>If V has a finite spanning set, then V has a finite basis, and all bases of V have the same number of elements, called the dimension dim V. Moreover any independent set in V extends to a basis, and any spanning set contains a basis.</p>
+<p><strong>Proof</strong>. A spanning set can be pruned to a basis: repeatedly discard a vector that is a combination of the others; the process stops at an independent spanning set. If B and B′ are bases, Lemma 2.1 applied in both directions gives |B| ≤ |B′| and |B′| ≤ |B|. If u₁, …, uₖ is independent and w₁, …, wₘ is a basis, the lemma produces a spanning list u₁, …, uₖ, wₖ₊₁, …, wₘ of length m = dim V; a spanning list of length dim V is a basis (otherwise pruning would give a basis that is too short). ∎</p>
+<h3>Examples of dimension</h3>
+<pre class="math">dim ℝⁿ = n                  dim Pₙ = n + 1     (basis 1, x, …, xⁿ)
+dim M<sub>m×n</sub> = mn             dim of symmetric n × n matrices = n(n + 1)/2
+dim {y : y″ + y = 0} = 2     (basis cos t, sin t)
+dim of ℝ over ℚ = the cardinality of the continuum (infinite)</pre>
+<p>For spaces without a finite spanning set, Zorn's lemma shows that every vector space has a basis and that any two bases have the same cardinality. These infinite-dimensional &quot;algebraic&quot; bases are rarely useful in analysis, where one prefers topological notions such as Schauder bases or orthonormal bases of a Hilbert space, in which infinite convergent sums are allowed.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the dimension of U = {p ∈ P₃ : p(1) = 0}.</div></li><li><span class="mk">(b)</span><div>Are (1, 2, 3), (4, 5, 6), (7, 8, 9) linearly independent in ℝ³? If not, give an explicit dependence.</div></li><li><span class="mk">(c)</span><div>Find the dimension of the space of 3 × 3 symmetric matrices and of 3 × 3 skew-symmetric matrices.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) dim U = 3: U is the kernel of the nonzero functional p ↦ p(1) on the 4-dimensional space P₃ (rank–nullity, Lesson 3), and a basis is x − 1, x² − 1, x³ − 1. (b) No: (7, 8, 9) = 2(4, 5, 6) − (1, 2, 3), that is (1, 2, 3) − 2(4, 5, 6) + (7, 8, 9) = 0. (c) Symmetric: 3·4/2 = 6. Skew-symmetric: 3·2/2 = 3. Together 6 + 3 = 9 = dim M₃ₓ₃, reflecting the decomposition A = ½(A + Aᵀ) + ½(A − Aᵀ).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

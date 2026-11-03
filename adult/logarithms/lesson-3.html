@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: The Logarithm as a Group Isomorphism — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 3</p>
+    <h1>The Logarithm as a Group Isomorphism</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ln: (ℝ₊, ×) → (ℝ, +) is an isomorphism of topological groups
+Every continuous homomorphism (ℝ₊, ×) → (ℝ, +) has the form x ↦ c ln x
+log<sub>b</sub> x = ln x / ln b</pre></div>
+<h3>The structural statement</h3>
+<p>Let ℝ₊ = (0, ∞). Theorem 1.3 and Proposition 1.5 say that ln is a bijective group homomorphism from the multiplicative group (ℝ₊, ×) to the additive group (ℝ, +), and ln and exp are both continuous. Hence ln is an isomorphism of topological groups. Every rule for manipulating logarithms is an instance of &quot;a homomorphism turns the group operation of the source into that of the target&quot;: products become sums, quotients become differences, powers become multiples, 1 becomes 0. The historical motive for logarithms, Napier's 1614 Mirifici Logarithmorum Canonis Descriptio and Briggs' base-10 tables of 1617 and 1624, was exactly this: to replace multiplication, which is hard by hand, with addition, which is easy.</p>
+<h3>Classification of the homomorphisms</h3>
+<p><strong>Theorem 3.1</strong>. Let φ: ℝ₊ → ℝ satisfy φ(xy) = φ(x) + φ(y) for all x, y &gt; 0. If φ is continuous at a single point, or monotone, then φ(x) = c ln x where c = φ(e).</p>
+<p><strong>Proof</strong>. Put ψ(u) = φ(eᵘ). Then ψ: ℝ → ℝ satisfies Cauchy's equation ψ(u + v) = ψ(u) + ψ(v). By induction ψ(nu) = nψ(u) for n ∈ ℕ; also ψ(0) = 0 and ψ(−u) = −ψ(u), so ψ(nu) = nψ(u) for n ∈ ℤ. If q = m/n then nψ(q) = ψ(m) = mψ(1), so ψ(q) = cq with c = ψ(1) = φ(e). Thus ψ is linear on ℚ. If ψ is continuous at one point u₀, then the identity ψ(u) = ψ(u − u₀ + u₀) = ψ(u − u₀) + ψ(u₀) shows that ψ is continuous at 0 and hence, by the same identity, everywhere; a continuous function agreeing with cu on the dense set ℚ equals cu. If ψ is monotone, say non-decreasing, take rationals q &lt; u &lt; q′ to get cq ≤ ψ(u) ≤ cq′ and let q, q′ → u (the non-increasing case is identical). Translating back, φ(x) = ψ(ln x) = c ln x. ∎</p>
+<p>Boundedness of φ on some interval also suffices (Darboux), and so does Lebesgue measurability (Fréchet, Banach, Sierpiński). Without any regularity hypothesis the conclusion fails. Regard ℝ as a vector space over ℚ and choose a Hamel basis B (this needs the axiom of choice). Any function B → ℝ extends uniquely to a ℚ-linear map ℝ → ℝ, and a ℚ-linear map that is not ℝ-linear is additive but discontinuous everywhere; its graph is dense in the plane, and it is not Lebesgue measurable. Composing with ln yields pathological &quot;logarithms&quot;. Any of the regularity hypotheses above excludes these monsters.</p>
+<h3>Change of base</h3>
+<p><strong>Definition 3.2</strong>. For b &gt; 0 with b ≠ 1, the logarithm to base b is log<sub>b</sub> x := ln x / ln b.</p>
+<p>By Theorem 3.1, log<sub>b</sub> is the unique continuous homomorphism with log<sub>b</sub>(b) = 1, and it is the inverse of the function u ↦ bᵘ, since log<sub>b</sub>(bᵘ) = u ln b / ln b = u. The change-of-base formula log<sub>a</sub> x = log<sub>b</sub> x / log<sub>b</sub> a is now merely the statement that two nonzero multiples of ln differ by a constant factor. In particular</p>
+<pre class="math">log₁₀ x = ln x / ln 10 ≈ 0.4342944819 ln x,
+log₂ x = ln x / ln 2 ≈ 1.4426950409 ln x,
+log<sub>a</sub> b · log<sub>b</sub> a = 1,   log<sub>a</sub> b · log<sub>b</sub> c = log<sub>a</sub> c.</pre>
+<p>The scalar c in Theorem 3.1 is therefore only a choice of unit. Natural logarithms are distinguished by the normalisation φ′(1) = 1, equivalently by the fact that ln is the antiderivative of 1/x with no constant factor. This is why calculus favours base e, information theory base 2, and engineering base 10.</p>
+<h3>Haar measure on the multiplicative group</h3>
+<p>The integral definition of ln is an instance of a general principle. On a locally compact group there is, up to scale, a unique translation-invariant measure, the Haar measure. On (ℝ, +) it is Lebesgue measure du; on (ℝ₊, ×) it is dt/t, since for every a &gt; 0 and every interval [x, y] ⊂ ℝ₊,</p>
+<pre class="math">∫ₐₓᵃʸ dt/t = ∫ₓʸ ds/s   (substitute t = as).</pre>
+<p>The logarithm is then simply the map that measures the Haar distance from 1 to x: ln x = μ([1, x]) for x ≥ 1. The isomorphism ln transports dt/t to du. This viewpoint generalises: on the multiplicative group of a local field one uses dx/|x|, and Mellin transforms ∫₀<sup>∞</sup> f(t) tˢ dt/t are the Fourier transforms of the group (ℝ₊, ×).</p>
+<h3>Other characterisations</h3>
+<p>The logarithm admits many characterisations, each useful in different contexts. We list three, all equivalent to Definition 1.1 by the preceding results. (1) ln is the unique differentiable function f on ℝ₊ with f(1) = 0 and f′(x) = 1/x. (2) ln is the unique continuous homomorphism (ℝ₊, ×) → (ℝ, +) with derivative 1 at the identity. (3) ln is the inverse of the unique solution of y′ = y, y(0) = 1. A fourth characterisation, through the entropy axioms, is given in Lesson 11, and a fifth, through monotone additive arithmetic functions, is Erdős's theorem in the same lesson.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Prove that log₂ 3 is irrational.</div></li><li><span class="mk">(b)</span><div>Simplify log₂ 3 · log₃ 4 · log₄ 5 · … · log₆₃ 64.</div></li><li><span class="mk">(c)</span><div>Show that if φ: ℝ₊ → ℝ is a differentiable homomorphism, then φ(x) = φ′(1) ln x, without using Theorem 3.1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) If log₂ 3 = m/n with positive integers m, n, then 3 = 2<sup>m/n</sup>, so 3ⁿ = 2ᵐ, which is impossible since the left side is odd and the right side is even. (b) Each factor is ln(k + 1)/ln k, so the product telescopes to ln 64 / ln 2 = log₂ 64 = 6. (c) Differentiate φ(xy) = φ(x) + φ(y) with respect to y and set y = 1: xφ′(x) = φ′(1). So φ′(x) = φ′(1)/x, and since φ(1) = 0, φ(x) = φ′(1) ln x.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

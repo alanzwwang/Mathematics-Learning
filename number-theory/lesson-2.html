@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#0891b2">
+<body id="top" class="mode-kid" style="--topic:#0891b2">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/number-theory/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">If n is composite, some prime ≤ √n divides it.
 So the test list ends where p² &gt; n — and we can PROVE why.</pre></div>
@@ -41,7 +42,7 @@ So the test list ends where p² &gt; n — and we can PROVE why.</pre></div>
 <p>The trap composites still lurk, and they've recruited bigger friends: 91 = 7 × 13, 119 = 7 × 17, 133 = 7 × 19, 161 = 7 × 23, 187 = 11 × 17, 221 = 13 × 17. Every one of them looks prime. Guessers get caught — detectives prove.</p>
 <h3>The key theorem: a composite number can't hide its factors past √n</h3>
 <p>Recall that √n (the square root of n) is the number that multiplies by itself to give n: √81 = 9 because 9 × 9 = 81. Now the claim.</p>
-<p>Claim: if n is composite, then some prime p ≤ √n divides n.</p>
+<p><strong>Claim</strong>: if n is composite, then some prime p ≤ √n divides n.</p>
 <p>Proof, with every step earning its place:</p>
 <ul class="steps"><li><span class="mk">1.</span><div>n is composite, so n = a × b with 1 &lt; a ≤ b. (That's the definition of composite; call the smaller partner a.)</div></li><li><span class="mk">2.</span><div>Suppose — just to see what happens — that a &gt; √n. Then b ≥ a &gt; √n as well, since b is the bigger partner.</div></li><li><span class="mk">3.</span><div>Multiplying the inequalities: a × b &gt; √n × √n = n. Two factors each bigger than √n must multiply to more than n.</div></li><li><span class="mk">4.</span><div>But a × b = n exactly. Step 3 says a × b &gt; n and step 1 says a × b = n — contradiction! Our supposition in step 2 is impossible, so a ≤ √n.</div></li><li><span class="mk">5.</span><div>Now, the smallest factor of n that's bigger than 1 is always prime. Why? If it split into smaller pieces, one piece would be an even SMALLER factor of n — contradicting &quot;smallest.&quot; Apply this to a: some prime p ≤ a divides a, and anything dividing a also divides n = a × b.</div></li><li><span class="mk">6.</span><div>Conclusion: p ≤ a ≤ √n, and p divides n. That finishes the proof. ∎</div></li></ul>
 <p>That little square ∎ is the mathematician's &quot;ta-da, proof complete&quot; symbol. And here is the flip side of the theorem, which is the entire prime test: if NO prime ≤ √n divides n, then n cannot be composite — so n is prime.</p>
@@ -65,7 +66,7 @@ So the test list ends where p² &gt; n — and we can PROVE why.</pre></div>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

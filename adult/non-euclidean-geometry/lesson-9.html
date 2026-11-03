@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Area and Angle Defect — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 9</p>
+    <h1>Area and Angle Defect</h1>
+    <p class="kicker">Lesson 9 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">dA = dx dy / y²   in H
+Area(triangle) = π − (α + β + γ)
+Area(geodesic n-gon) = (n − 2)π − (θ₁ + ⋯ + θₙ)</pre></div>
+<h3>The area form</h3>
+<p>The Riemannian area element of ds² = (dx² + dy²)/y² is dA = dx dy / y². It is invariant under PSL(2,ℝ): a holomorphic map multiplies Euclidean area by |g′|², and |g′(z)|² = (Im g(z)/Im z)². Area is thus an isometry invariant, and all triangles congruent under isometries have equal area.</p>
+<h3>Ideal triangles</h3>
+<p>An ideal triangle has its three vertices on ∂H. Since PSL(2,ℝ) together with z ↦ −z̄ acts transitively on triples of distinct boundary points, all ideal triangles are congruent. The ideal triangle with vertices −1, 1, ∞ is bounded by x = −1, x = 1 and the unit semicircle, so</p>
+<pre class="math">Area = ∫ from −1 to 1 of ∫ from √(1 − x²) to ∞ of dy/y² dx = ∫ from −1 to 1 of dx/√(1 − x²) = π.</pre>
+<p>Its angles are all 0, so the formula Area = π − (angle sum) holds. Two remarkable metric facts about this triangle: its inscribed circle has centre i√3 and radius ½ ln 3 ≈ 0.5493 (the distances from i√3 to the side |z| = 1 and to the side x = 1 are ln √3 and arsinh(1/√3) = ln √3); and the point i on the side |z| = 1 is at distance arsinh 1 = ln(1 + √2) ≈ 0.8814 from both other sides, which is the maximum distance from a point on one side to the union of the other two. Every geodesic triangle in H² is therefore δ-thin with δ = ln(1 + √2): this is the prototype of Gromov hyperbolicity.</p>
+<p><strong>Theorem 9.1 (Lambert, Gauss)</strong>. A hyperbolic triangle with angles α, β, γ has area π − α − β − γ.</p>
+<p><strong>Proof</strong>. Step 1: triangles with two finite vertices and one ideal vertex. Place the ideal vertex at ∞ and the finite vertices on the unit circle at e<sup>i(π − α)</sup> and e<sup>iβ</sup>, with vertical sides going up from them. The angle between the vertical line x = cos β and the unit circle at e<sup>iβ</sup> equals the angle between the radius and the horizontal, which is β; similarly the angle at e<sup>i(π − α)</sup> is α. Every triangle with angles α, β, 0 is congruent to this one. Its area is</p>
+<pre class="math">∫ from cos(π − α) to cos β of dx/√(1 − x²) = arccos(cos(π − α)) − arccos(cos β) = (π − α) − β.</pre>
+<p><strong>Step 2</strong>: a general triangle ABC. Extend the side AC beyond C to its ideal endpoint P. The triangle ABP has angles α, β + δ and 0, where δ = ∠CBP, and the triangle CBP has angles π − γ, δ and 0. Since ABC = ABP minus CBP,</p>
+<pre class="math">Area(ABC) = (π − α − β − δ) − (π − (π − γ) − δ) = π − α − β − γ. ∎</pre>
+<p><strong>Corollary 9.2</strong>. Every hyperbolic triangle has area less than π; a convex geodesic n-gon with angles θ₁, …, θₙ has area (n − 2)π − Σθᵢ (triangulate from a vertex: n − 2 triangles whose angles add up to Σθᵢ). Two triangles with the same angles have the same area, and indeed are congruent; there are no similarities of the hyperbolic plane except isometries.</p>
+<p><strong>Corollary 9.3</strong>. On the plane of curvature −1/R², the area of a triangle is R²(π − α − β − γ). Comparing with Girard's theorem R²(α + β + γ − π) on the sphere of curvature 1/R², both are special cases of the single statement: the integral of the curvature over a geodesic triangle equals α + β + γ − π. That statement is the Gauss–Bonnet theorem of Lesson 12.</p>
+<h3>Regular polygons</h3>
+<p>A regular hyperbolic n-gon with interior angle θ exists for every θ with 0 ≤ θ &lt; (n − 2)π/n (the Euclidean value), and is unique up to congruence; its area is (n − 2)π − nθ. Its circumradius ρ is determined from the right triangle formed by the centre, a vertex and the midpoint of a side, with angles π/n at the centre and θ/2 at the vertex: cosh ρ = cot(π/n) cot(θ/2).</p>
+<p><strong>Worked example</strong>. The regular octagon with all angles π/4 has area 6π − 2π = 4π, and its circumradius satisfies cosh ρ = cot(π/8) cot(π/8) = (1 + √2)² = 3 + 2√2, so ρ = arccosh(3 + 2√2) ≈ 2.4485. Identifying opposite sides of this octagon produces a closed surface of genus 2 (Lesson 10), whose area is 4π in accordance with Gauss–Bonnet: −2πχ = −2π(2 − 4) = 4π.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the area of a hyperbolic quadrilateral with angles 30°, 45°, 60°, 90°.</div></li><li><span class="mk">(b)</span><div>Show that a hyperbolic triangle with angles π/2, π/4, π/6 has area π/12, and find its hypotenuse.</div></li><li><span class="mk">(c)</span><div>An ideal quadrilateral has four vertices on ∂H. What is its area?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 2π − (π/6 + π/4 + π/3 + π/2) = 2π − 5π/4 = 3π/4. (b) π − π/2 − π/4 − π/6 = π/12. With γ = π/2, cosh c = cot α cot β = cot(π/4) cot(π/6) = √3, so c = arccosh √3 ≈ 1.1462. (c) A diagonal splits it into two ideal triangles, so its area is 2π, which agrees with (4 − 2)π − 0.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -18,19 +18,29 @@
   "name": "Mathematics Learning",
   "emoji": "📐",
   "accent": "#4fd1a5",
-  "version": "V.3.0",
-  "previous": "V.2.9",
+  "version": "V.3.1",
+  "previous": "V.3.0",
   "date": "2 November 2026",
-  "lead": "Big update: every topic now has a quiz!",
+  "lead": "Big update: a whole new Adult Mode!",
   "changes": [
-    "NEW!!! A 🏆 Quiz for every topic: 10 questions each time",
-    "Every quiz is brand-new: the computer makes up fresh questions with new numbers, so there is nothing to memorise",
-    "You only see your score and the right answers AFTER you submit the whole quiz",
-    "Each answer comes with an explanation of how to get it",
-    "Your best score for each topic is saved on your device",
-    "The answer keys are gone from the website, so no more peeking!"
+    "NEW!!! Adult Mode: press \"Switch to adult mode\" at the top of the home page",
+    "The same 20 fields of mathematics, rewritten at a PhD/graduate level, with definitions, theorems and full proofs",
+    "Longer courses: 12–14 lessons per field, 60 problems each, and harder randomly generated assessments",
+    "A calm, compact design in Arial for grown-up readers, with new pictures of famous mathematicians and historic manuscripts",
+    "Kid Mode is still the default, and you can switch back any time"
   ],
   "earlier": [
+    {
+      "version": "V.3.0",
+      "items": [
+        "NEW!!! A 🏆 Quiz for every topic: 10 questions each time",
+        "Every quiz is brand-new: the computer makes up fresh questions with new numbers, so there is nothing to memorise",
+        "You only see your score and the right answers AFTER you submit the whole quiz",
+        "Each answer comes with an explanation of how to get it",
+        "Your best score for each topic is saved on your device",
+        "The answer keys are gone from the website, so no more peeking!"
+      ]
+    },
     {
       "version": "V.2.9",
       "items": [
@@ -59,13 +69,13 @@
     }
   ],
   "fun": [
-    "There are 20 quizzes with more than 130 kinds of questions",
-    "Fractions can be typed like 3/4 and negatives like -5",
-    "Get 10 out of 10 for a PERFECT SCORE celebration!"
+    "The adult edition has 255 lessons and 1,200 problems",
+    "Every adult assessment makes up brand-new questions too, just like the kid quizzes",
+    "Adult pictures include Cardano's 1545 Ars Magna, Gauss's Disquisitiones and Kolmogorov's 1933 book on probability"
   ],
   "funTitle": "Fun facts",
-  "tip": "Read the lessons and try the practice problems first, then take the quiz. Got some wrong? Read the explanations and try a brand-new quiz!",
-  "button": "Take a quiz! 🏆"
+  "tip": "Kids: start in Kid Mode. Adults and advanced students: switch to Adult Mode for graduate-level courses.",
+  "button": "Let's go! ▶"
 };
   try {
     var KEY = "whatsNew." + C.id;
@@ -97,8 +107,8 @@
     "padding:22px 22px 16px;animation:pop .35s cubic-bezier(.2,1.4,.4,1)}" +
     ".body{overflow:auto;min-height:0;flex:1 1 auto;margin-right:-8px;padding-right:8px;scrollbar-color:ACCENT88 transparent}" +
     ".foot-bar{flex:0 0 auto;padding-top:4px}" +
-    ".x{position:absolute;top:10px;right:10px;width:36px;height:36px;border-radius:50%;border:0;cursor:pointer;" +
-    "background:rgba(255,255,255,.08);color:#fff;font:700 18px/36px system-ui,sans-serif}" +
+    ".x{position:absolute;top:10px;right:10px;z-index:2;width:36px;height:36px;border-radius:50%;border:0;cursor:pointer;" +
+    "background:#262e4a;color:#fff;font:700 18px/36px system-ui,sans-serif}" +
     ".x:hover,.x:focus-visible{background:rgba(255,255,255,.18);outline:2px solid ACCENT}" +
     ".new{display:inline-block;font:900 13px/1 system-ui,sans-serif;letter-spacing:2px;color:#111;" +
     "background:linear-gradient(90deg,#ffe066,ACCENT,#ffe066);background-size:200% 100%;" +
@@ -165,6 +175,16 @@
         // closed with a key: swallow that key's keyup too, then step aside for good
         if (e.type === "keyup") unguard();
       } else if (e.type === "keydown" && (e.key === "Escape" || e.key === "Esc")) { e.preventDefault(); close(true); }
+      else if (e.type === "keydown" && e.key === "Tab") {
+        // keep focus inside the pop-up: Tab / Shift+Tab cycle between ✕ and the big button
+        e.preventDefault();
+        var x = root.querySelector(".x"), go = root.querySelector(".go"), cur = root.activeElement;
+        try { (cur === go ? (e.shiftKey ? x : x) : (e.shiftKey ? go : go)).focus({ preventScroll: true }); } catch (er) { /* fine */ }
+      } else if (e.type === "keydown" && document.activeElement !== host && !(e.ctrlKey || e.metaKey || e.altKey)) {
+        // focus somehow left the pop-up: don't let the key type into the page behind it
+        e.preventDefault();
+        try { root.querySelector(".go").focus({ preventScroll: true }); } catch (er) { /* fine */ }
+      }
       e.stopImmediatePropagation();
       e.stopPropagation();
     }

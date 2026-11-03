@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Hyperbolic Trigonometry — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 8</p>
+    <h1>Hyperbolic Trigonometry</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">cosh c = cosh a cosh b − sinh a sinh b cos γ        (first law of cosines)
+cos γ = −cos α cos β + sin α sin β cosh c           (second law of cosines)
+sin α / sinh a = sin β / sinh b = sin γ / sinh c    (law of sines)</pre></div>
+<h3>The laws of cosines</h3>
+<p><strong>Theorem 8.1</strong>. In a hyperbolic triangle (curvature −1) with sides a, b, c opposite angles α, β, γ,</p>
+<pre class="math">cosh c = cosh a cosh b − sinh a sinh b cos γ.</pre>
+<p><strong>Proof</strong>. Work in the hyperboloid model and use an isometry to place C at p₀ = (0, 0, 1) with side CA leaving C in the direction e₁. The geodesic from p₀ in the unit direction (cos θ, sin θ, 0) is t ↦ (sinh t cos θ, sinh t sin θ, cosh t), so A = (sinh b, 0, cosh b) and B = (sinh a cos γ, sinh a sin γ, cosh a). By Theorem 4.3, cosh c = −⟨A, B⟩ = cosh a cosh b − sinh a sinh b cos γ. ∎</p>
+<p>The proof is word for word the proof of the spherical law in Lesson 3 with sin and cos of sides replaced by sinh and cosh; formally, the hyperbolic formulas are obtained from the spherical ones by the substitution a ↦ ia (so cos a ↦ cosh a and sin a ↦ i sinh a) — Lambert's imaginary sphere made exact.</p>
+<p><strong>Theorem 8.2 (second law of cosines)</strong>. cos γ = −cos α cos β + sin α sin β cosh c.</p>
+<p><strong>Proof</strong>. Solve Theorem 8.1 and its cyclic permutations for the cosines of the angles, cos γ = (cosh a cosh b − cosh c)/(sinh a sinh b) and so on, and substitute into the right-hand side; after clearing denominators both sides reduce to the same expression in cosh a, cosh b, cosh c. (Alternatively, apply Theorem 8.1 to the polar configuration in de Sitter space, the one-sheeted hyperboloid ⟨x, x⟩ = 1.) ∎</p>
+<p>As on the sphere, the second law shows that a hyperbolic triangle is determined up to congruence by its three angles (AAA congruence).</p>
+<p><strong>Theorem 8.3 (law of sines)</strong>. sin α / sinh a = sin β / sinh b = sin γ / sinh c.</p>
+<p><strong>Proof</strong>. From Theorem 8.1, sin²γ · sinh²a sinh²b = sinh²a sinh²b − (cosh a cosh b − cosh c)², which expands to 1 − cosh²a − cosh²b − cosh²c + 2 cosh a cosh b cosh c. This is symmetric in a, b, c, so sin²γ / sinh²c is symmetric. ∎</p>
+<h3>Right triangles</h3>
+<p>Let γ = π/2 and let c be the hypotenuse. Then:</p>
+<pre class="math">cosh c = cosh a cosh b                     (hyperbolic Pythagoras)
+sin α = sinh a / sinh c                    cos α = tanh b / tanh c
+tan α = tanh a / sinh b                    cos α = cosh a sin β
+cosh c = cot α cot β</pre>
+<p>These follow from Theorems 8.1–8.3 by short calculations; for example, from the law of cosines for α, cos α = (cosh b cosh c − cosh a)/(sinh b sinh c), and substituting cosh a = cosh c / cosh b gives cos α = cosh c (cosh²b − 1)/(cosh b sinh b sinh c) = tanh b · cosh c / sinh c = tanh b / tanh c.</p>
+<p><strong>Worked example</strong>. A right triangle has legs with cosh a = cosh b = 2. Then cosh c = 4, so c = arccosh 4 ≈ 2.0634. Since sinh b = √3 and tanh a = √3/2, tan α = (√3/2)/√3 = 1/2, so α = β = arctan(1/2) ≈ 26.565°. Check: cot α cot β = 2 · 2 = 4 = cosh c. The angle sum is about 143.13°, so the defect is about 36.87° ≈ 0.6435 rad; by Lesson 9 this is the area.</p>
+<h3>The Euclidean limit</h3>
+<p>On the hyperbolic plane of curvature −1/R², Pythagoras reads cosh(c/R) = cosh(a/R) cosh(b/R). Expanding as in Lesson 3,</p>
+<pre class="math">c² = a² + b² + a²b²/(3R²) + O(R⁻⁴),</pre>
+<p>so hyperbolic hypotenuses are longer than Euclidean ones, the opposite of the spherical correction −a²b²/(3R²). The sign of the correction detects the sign of the curvature.</p>
+<h3>The angle of parallelism</h3>
+<p>Fix a line ℓ and a point P at distance a from ℓ, with foot F. The angle of parallelism Π(a) is the angle at P between PF and either of the two asymptotic parallels to ℓ through P. Let Q move along ℓ away from F, with FQ = x. In the right triangle PFQ (right angle at F), the leg PF = a is adjacent to the angle at P, so the right-triangle formula cos α = tanh b / tanh c gives cos(∠FPQ) = tanh a / tanh(PQ). As x → ∞, PQ → ∞ and tanh(PQ) → 1, so</p>
+<pre class="math">cos Π(a) = tanh a,     sin Π(a) = 1/cosh a,     tan(Π(a)/2) = e⁻ᵃ.</pre>
+<p>The last identity is Lobachevsky's formula; it follows from tan(θ/2) = sin θ/(1 + cos θ) = (1/cosh a)/(1 + tanh a) = 1/(cosh a + sinh a). Thus Π(a) decreases from π/2 (as a → 0, the Euclidean value) to 0 (as a → ∞). Example: Π(ln 3) has cos Π = tanh(ln 3) = 8/10 = 4/5, so Π(ln 3) = arccos(4/5) = 2 arctan(1/3) ≈ 36.87°. Lobachevsky and Bolyai both made Π(a) central; Bolyai noted that it ties the unit of length to the geometry — in hyperbolic geometry there is an absolute unit of length, for example the length a with Π(a) = π/4, namely a = artanh(1/√2) = ln(1 + √2) ≈ 0.8814.</p>
+<h3>Equilateral triangles</h3>
+<p>For an equilateral triangle with side s and angles α, the second law of cosines gives cos α = −cos²α + sin²α cosh s, so</p>
+<pre class="math">cosh s = cos α (1 + cos α) / sin²α = cos α / (1 − cos α).</pre>
+<p>This is positive and greater than 1 exactly when 0 &lt; α &lt; π/3. For α = π/4, cosh s = (√2/2)/(1 − √2/2) = √2 + 1 and s = arccosh(1 + √2) ≈ 1.5286; for α → π/3, s → 0; for α → 0, s → ∞ and the triangle tends to an ideal triangle.</p>
+<h3>Right-angled hexagons</h3>
+<p>A right-angled hexagon has six geodesic sides meeting at right angles. For any three positive numbers a, b, c there is, up to isometry, exactly one right-angled hexagon with alternate sides a, b, c, and the opposite sides a′, b′, c′ are given by the hexagon law of cosines</p>
+<pre class="math">cosh c′ = (cosh a cosh b + cosh c) / (sinh a sinh b).</pre>
+<p>Gluing two copies of such a hexagon along the sides a′, b′, c′ gives a pair of pants with boundary geodesics of lengths 2a, 2b, 2c. Since every closed hyperbolic surface of genus g ≥ 2 decomposes into 2g − 2 pairs of pants along 3g − 3 curves, this yields the Fenchel–Nielsen coordinates on Teichmüller space: 3g − 3 lengths and 3g − 3 twist parameters, for a total real dimension 6g − 6.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A right hyperbolic triangle has legs a, b with cosh a = 3 and cosh b = 2. Find cosh c and the angle α opposite a, to the nearest 0.01°.</div></li><li><span class="mk">(b)</span><div>Find Π(a) when a = ln 2.</div></li><li><span class="mk">(c)</span><div>Find the side of an equilateral hyperbolic triangle with angles π/5, and compare its area with that of the triangle in the text with angles π/4.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) cosh c = 6. sinh a = √8, sinh c = √35, so sin α = √8/√35 = √(8/35) ≈ 0.47809 and α ≈ 28.56°. (Check with tan α = tanh a / sinh b = (√8/3)/√3 ≈ 0.54433, arctan ≈ 28.56°.) (b) tan(Π/2) = 1/2, so Π = 2 arctan(1/2) ≈ 53.13°; equivalently cos Π = tanh(ln 2) = (4 − 1)/(4 + 1) = 3/5. (c) cos(π/5) = (1 + √5)/4 ≈ 0.80902, so cosh s ≈ 0.80902/0.19098 ≈ 4.2361 = 2 + √5, and s = arccosh(2 + √5) ≈ 2.1225. Its area is π − 3π/5 = 2π/5 ≈ 1.2566, larger than π − 3π/4 = π/4 ≈ 0.7854.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

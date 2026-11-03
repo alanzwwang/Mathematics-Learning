@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Logarithms — Mathematics Learning (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Logarithms</span></p>
+    <h1>Logarithms</h1>
+    <p class="kicker">Algebra · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>The elementary definition of a logarithm, &quot;the power to which the base must be raised&quot;, presupposes that we already know what bˣ means for an arbitrary real exponent x. For rational x this is algebra, but for x = √2 or x = π it requires a limiting process, and the cleanest way to supply that process runs in the opposite direction: define the natural logarithm first, as an integral, and obtain the exponential function as its inverse. This course takes that route and then follows the logarithm wherever it leads, which turns out to be almost everywhere in mathematics.</p>
+<p>The logarithm is, at heart, a single structural fact: the positive reals under multiplication and the reals under addition are isomorphic as topological groups, and the isomorphism is unique up to a scalar. Every &quot;log law&quot; is a restatement of this fact. The same idea, transplanted to the punctured complex plane, produces a multi-valued function whose failure to be single-valued is measured by the integer winding number, the seed of the argument principle and of covering-space theory. Transplanted to a finite cyclic group, it produces the discrete logarithm, a function that is trivially well defined but apparently very hard to compute, and on whose difficulty a large part of public-key cryptography rests.</p>
+<p>The logarithm is also the natural measure of size for multiplicative phenomena. It counts digits, measures information in bits and nats, sets the scale for decibels and stellar magnitudes, and governs the distribution of prime numbers: the density of primes near x is 1/ln x, which is the content of the prime number theorem. The constant γ = lim (Hₙ − ln n) records the discrepancy between the discrete sum ∑ 1/k and the integral ∫ dt/t, and Benford's law explains why the leading digits of real-world data are logarithmically, not uniformly, distributed.</p>
+<p>We assume a working knowledge of real analysis (the Riemann integral, uniform convergence, the mean value theorem), basic complex analysis (holomorphic functions, contour integrals) and elementary group theory. Proofs are given in full except where a result, such as the prime number theorem itself, needs machinery beyond the scope of the course; in those cases we prove the strongest elementary statement available and state the rest precisely.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Define ln x = ∫₁ˣ dt/t and derive every property of the logarithm and of exp, e and real powers from this definition alone.</div></li><li><span class="mk">2.</span><div>Prove that the continuous homomorphisms (ℝ₊, ×) → (ℝ, +) are exactly the maps c·ln x, and understand change of base as a change of scalar.</div></li><li><span class="mk">3.</span><div>Establish the sharp inequalities and growth rates of ln, including ln x = o(xᵋ) and Stirling's estimate for ln n!.</div></li><li><span class="mk">4.</span><div>Derive the power series of ln(1 + x), determine its exact domain of convergence, and accelerate it to compute logarithms efficiently.</div></li><li><span class="mk">5.</span><div>Use logarithmic differentiation and logarithmic derivatives, including p′/p for polynomials and products.</div></li><li><span class="mk">6.</span><div>Construct the complex logarithm, its branches and branch cuts, the principal value Log z, and complex powers.</div></li><li><span class="mk">7.</span><div>Prove that Hₙ − ln n converges to Euler's constant γ, and that ∑ 1/p diverges like ln ln x.</div></li><li><span class="mk">8.</span><div>State the prime number theorem precisely, prove Chebyshev's bounds, and compare x/ln x with li(x).</div></li><li><span class="mk">9.</span><div>Treat entropy, bits, decibels and other logarithmic scales rigorously, including Gibbs' inequality and the characterisation of log by additivity.</div></li><li><span class="mk">10.</span><div>Explain Benford's law through equidistribution modulo 1.</div></li><li><span class="mk">11.</span><div>Study the discrete logarithm problem, the Diffie–Hellman protocol, and the algorithms that attack it.</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/logarithms-1.png" alt="Plot of the ratios π(x)/(x/ln x) and π(x)/Li(x) against x on a logarithmic axis from 1 to 10^24" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> The prime number theorem in pictures: both π(x)/(x/ln x) and π(x)/∫₂ˣ dt/ln t tend to 1, but the logarithmic-integral approximation converges far faster. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/logarithms-2.png" alt="Helicoidal Riemann surface of the complex logarithm, coloured by argument" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> The Riemann surface of log z: the imaginary part arg z rises by 2π each time z circles the origin, so the sheets stack into an infinite helicoid over the punctured plane. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>The Natural Logarithm as an Integral</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>The Exponential Function, e, and Real Powers</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>The Logarithm as a Group Isomorphism</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Inequalities, Growth Rates and Stirling's Estimate</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>The Series for ln(1 + x) and the Computation of Logarithms</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Logarithmic Differentiation and the Logarithmic Derivative</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>The Complex Logarithm</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Logarithms in Integration</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>Harmonic Numbers, Euler's Constant and the Primes</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>The Prime Number Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Information, Entropy and Logarithmic Scales</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Benford's Law</strong></span></a>
+    <a class="lesson-card" href="lesson-13.html"><span><span class="lc-num">Lesson 13</span><br><strong>Discrete Logarithms and Cryptography</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Prime number theorem ratio convergence. By Dcoetzee. CC0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Prime_number_theorem_ratio_convergence.svg">https://commons.wikimedia.org/wiki/File:Prime_number_theorem_ratio_convergence.svg</a></li><li><strong>Figure 2</strong> · Riemann surface log. By Leonid 2. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Riemann_surface_log.svg">https://commons.wikimedia.org/wiki/File:Riemann_surface_log.svg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

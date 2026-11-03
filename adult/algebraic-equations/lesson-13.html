@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Numerical Solution — Newton's Method and Its Convergence — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 13</p>
+    <h1>Numerical Solution — Newton's Method and Its Convergence</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">xₙ₊₁ = xₙ − f(xₙ)/f′(xₙ)
+xₙ₊₁ − r = (f″(ξₙ) / (2f′(xₙ))) (xₙ − r)²          (quadratic convergence at a simple root)</pre></div>
+<p>When the roots of an equation have no expression by radicals, or when the expression is unusable, we compute them. Every serious root-finder rests on a few ideas: bracketing (bisection), local linearization (Newton), counting (Sturm), and linear algebra (eigenvalues of the companion matrix).</p>
+<h3>Newton's method</h3>
+<p>Replace f near xₙ by its tangent line f(xₙ) + f′(xₙ)(x − xₙ) and take the zero of the tangent as the next approximation. The idea goes back to Newton (1669, for polynomials, in a different form) and Raphson (1690); the modern formulation with derivatives is due to Simpson (1740).</p>
+<p><strong>Theorem 13.1 (Local quadratic convergence)</strong>. Let f be twice continuously differentiable near r with f(r) = 0 and f′(r) ≠ 0. Then there is δ &gt; 0 such that for every x₀ ∈ [r − δ, r + δ], the Newton iterates stay in this interval, converge to r, and satisfy |xₙ₊₁ − r| ≤ C|xₙ − r|² for a constant C. Moreover (xₙ₊₁ − r)/(xₙ − r)² → f″(r)/(2f′(r)).</p>
+<p><strong>Proof</strong>. Choose δ &gt; 0 so that on I = [r − δ, r + δ] we have |f′| ≥ m &gt; 0 and |f″| ≤ M, and so that Cδ &lt; 1, where C = M/(2m). For xₙ ∈ I, Taylor's theorem with Lagrange remainder gives 0 = f(r) = f(xₙ) + f′(xₙ)(r − xₙ) + ½f″(ξₙ)(r − xₙ)² for some ξₙ between r and xₙ. Dividing by f′(xₙ) and rearranging,</p>
+<pre class="math">xₙ₊₁ − r = xₙ − r − f(xₙ)/f′(xₙ) = (f″(ξₙ)/(2f′(xₙ))) (xₙ − r)²</pre>
+<p>so |xₙ₊₁ − r| ≤ C|xₙ − r|² ≤ Cδ|xₙ − r| &lt; |xₙ − r|, and xₙ₊₁ ∈ I. By induction all iterates lie in I, and C|xₙ − r| ≤ (C|x₀ − r|)<sup>2ⁿ</sup> → 0, a doubly exponential decay. As xₙ → r, also ξₙ → r, giving the limit. ∎</p>
+<p>In practice, quadratic convergence means that the number of correct digits roughly doubles at each step. For f = x² − 2 the iteration is xₙ₊₁ = (xₙ + 2/xₙ)/2, the ancient Babylonian (Heron's) method, and xₙ₊₁ − √2 = (xₙ − √2)²/(2xₙ) exactly. From x₀ = 1:</p>
+<pre class="math">x₁ = 1.5
+x₂ = 1.416666666667
+x₃ = 1.414215686275
+x₄ = 1.414213562375          (√2 = 1.41421356237…)</pre>
+<p>The ratio (xₙ₊₁ − √2)/(xₙ − √2)² tends to 1/(2√2) ≈ 0.3536, which is f″(r)/(2f′(r)) = 2/(4√2).</p>
+<h3>Multiple roots</h3>
+<p>If r is a root of multiplicity m ≥ 2, write f = (x − r)ᵐ g with g(r) ≠ 0. The Newton map N(x) = x − f(x)/f′(x) has f/f′ = (x − r)g/(mg + (x − r)g′), so N′(r) = 1 − 1/m ≠ 0. Convergence is merely linear, with ratio (m − 1)/m. For f = (x − 1)²(x + 2) from x₀ = 2, the errors are 0.5556, 0.2979, 0.1554, 0.0796, 0.0403: each roughly half the previous one, as m = 2 predicts. The modified iteration xₙ₊₁ = xₙ − m f(xₙ)/f′(xₙ) restores quadratic convergence (iterates 1.1111, 1.00195, 1.0000006), and Newton's method applied to f/f′, whose roots are all simple, avoids needing to know m.</p>
+<h3>Global behaviour, cycles and fractals</h3>
+<p>Newton's method is local. For f = x³ − 2x + 2 and x₀ = 0, one finds x₁ = 0 − 2/(−2) = 1 and x₂ = 1 − 1/1 = 0, so the iteration cycles forever between 0 and 1, while the only real root is r ≈ −1.7693. The cycle is attracting: the Newton map has N′(x) = f(x)f″(x)/f′(x)², which vanishes at 0 because f″(0) = 0, so the derivative of N∘N along the cycle is N′(0)N′(1) = 0, and an open interval of starting points around 0 is trapped. In the complex plane, Cayley (1879) asked for the basins of attraction of Newton's method for z³ − 1. The answer, understood only with the development of complex dynamics by Fatou and Julia (1918–1920) and visualized by computer in the 1980s, is that the three basins share a common fractal boundary, the Julia set of the Newton map: every boundary point of one basin is a boundary point of all three. Despite this, Hubbard, Schleicher and Sutherland (2001) showed that for every polynomial of degree d, suitably normalized, an explicit set of O(d log² d) starting points finds all the roots.</p>
+<h3>Bisection and Sturm sequences</h3>
+<p>If f is continuous with f(a)f(b) &lt; 0, halving the interval and keeping the half with a sign change gains one binary digit per step, regardless of f′. Robust solvers (Brent's method) combine guaranteed bisection with fast interpolation steps. To find intervals with exactly one root, one counts roots.</p>
+<p><strong>Theorem 13.2 (Sturm, 1829)</strong>. Let f ∈ ℝ[x] be square-free. Define p₀ = f, p₁ = f′, and pᵢ₊₁ = −(remainder of pᵢ₋₁ divided by pᵢ), until a constant pₖ is reached. For x not a root of f, let V(x) be the number of sign changes in p₀(x), p₁(x), …, pₖ(x), ignoring zeros. Then for a &lt; b, neither a root, the number of distinct real roots of f in (a, b) is V(a) − V(b).</p>
+<p><strong>Idea of proof</strong>. V can change only where some pᵢ vanishes. Consecutive pᵢ have no common zero (their gcd is gcd(f, f′) = 1), and if pᵢ(c) = 0 with 0 &lt; i &lt; k then pᵢ₋₁(c) = −pᵢ₊₁(c), so the pair around pᵢ contributes exactly one sign change on both sides of c, and V does not change. At a root c of f, f and f′ have opposite signs just to the left of c and equal signs just to the right, so V drops by exactly one. ∎</p>
+<p><strong>Example</strong>. For f = x³ − 3x + 1: p₁ = 3x² − 3; dividing, f = (x/3)p₁ + (−2x + 1), so p₂ = 2x − 1; then p₁ evaluated at x = 1/2 gives the remainder −9/4, so p₃ = 9/4. At x = 0 the signs are (+, −, −, +), with V(0) = 2. At x = 2 the values are (3, 9, 3, 9/4), with V(2) = 0. So f has exactly two roots in (0, 2) (they are 2cos(4π/9) ≈ 0.3473 and 2cos(2π/9) ≈ 1.5321). As x → −∞ the signs are (−, +, −, +), with V = 3, and as x → +∞ they are all +, so f has three real roots in total.</p>
+<h3>Linear algebra and conditioning</h3>
+<p>The roots of the monic polynomial xⁿ + cₙ₋₁xⁿ⁻¹ + ⋯ + c₀ are the eigenvalues of its companion matrix, the n × n matrix with ones on the subdiagonal and last column (−c₀, −c₁, …, −cₙ₋₁)ᵀ. Computing them by the QR algorithm, which is backward stable, is how standard numerical libraries compute polynomial roots. Simultaneous iterations such as Weierstrass's (Durand–Kerner) method and the Aberth–Ehrlich method approximate all n roots at once.</p>
+<p>Backward stability does not mean that roots are well determined by the coefficients. Wilkinson's polynomial w(x) = (x − 1)(x − 2)⋯(x − 20) became the classic warning: changing the coefficient −210 of x¹⁹ by 2⁻²³ (about 10⁻⁷) moves the roots 10 to 19 dramatically, five pairs becoming complex with imaginary parts of size up to about 2.8. The condition number of a simple root r with respect to a coefficient aₖ is |aₖ rᵏ| / |r f′(r)|, which is enormous for w. The lesson is that representing a polynomial by its monomial coefficients can itself be the ill-conditioned step; this is why the problem is often posed in other bases or as an eigenvalue problem from the start.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Apply two steps of Newton's method to x² − 3 starting from x₀ = 2.</div></li><li><span class="mk">(b)</span><div>Show that the Newton map for f = (x − r)ᵐ is linear, and find its fixed-point ratio.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) xₙ₊₁ = (xₙ + 3/xₙ)/2. Then x₁ = (2 + 1.5)/2 = 1.75 and x₂ = (1.75 + 1.714285…)/2 = 1.732142857…, compared with √3 = 1.732050808…; the error went from 0.268 to 0.018 to 0.000092. (b) f/f′ = (x − r)/m, so N(x) = x − (x − r)/m and N(x) − r = (1 − 1/m)(x − r). Each step multiplies the error by exactly (m − 1)/m.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

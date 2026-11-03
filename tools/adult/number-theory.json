@@ -1,0 +1,23 @@
+{
+  "blurb": "Congruences, primitive roots, quadratic reciprocity, arithmetic functions, the primes, Pell's equation and RSA.",
+  "pics": [
+    {
+      "img": "img/adult/number-theory-1.jpg",
+      "alt": "Title page of Gauss's Disquisitiones Arithmeticae, Leipzig 1801",
+      "caption": "Title page of Carl Friedrich Gauss's Disquisitiones Arithmeticae (Leipzig, 1801). The book introduced congruence notation and gave the first complete proof of quadratic reciprocity.",
+      "title": "Disqvisitiones-800.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Disqvisitiones-800.jpg",
+      "license": "Public domain",
+      "artist": "Carl Friedrich Gauss"
+    },
+    {
+      "img": "img/adult/number-theory-2.jpg",
+      "alt": "Portrait of Pierre de Fermat",
+      "caption": "Pierre de Fermat (1601–1665), a lawyer in Toulouse, stated the little theorem, the two-square theorem for primes p ≡ 1 (mod 4) and his famous Last Theorem, and posed the challenge x² − 61y² = 1.",
+      "title": "Pierre de Fermat.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Pierre_de_Fermat.jpg",
+      "license": "Public domain",
+      "artist": "Unknown author"
+    }
+  ]
+}

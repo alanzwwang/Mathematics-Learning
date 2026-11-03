@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Exponential Generating Functions and the Exponential Formula — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 6</p>
+    <h1>Exponential Generating Functions and the Exponential Formula</h1>
+    <p class="kicker">Lesson 6 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Â(x) = ∑ₙ aₙ xⁿ/n!   for labelled structures
+labelled product ↔ Â·B̂,   set of components ↔ exp(Ĉ),   cycles ↔ log 1/(1 − Â)</pre></div>
+<h3>Labelled classes</h3>
+<p>In a labelled class, an object of size n carries the labels 1, …, n on its atoms (a permutation, a set partition, a graph on vertex set [n]). Its exponential generating function (EGF) is Â(x) = ∑ aₙ xⁿ/n!. The labelled product of two classes consists of pairs (α, β) together with a relabelling: if α has size k and β has size n − k, we choose which k of the labels [n] go to α, in C(n, k) ways, and relabel order-preservingly. Hence the number of labelled products of size n is ∑ₖ C(n, k) aₖ bₙ₋ₖ, which is exactly n! [xⁿ] Â(x)B̂(x). This binomial convolution is the reason for the factorials.</p>
+<h3>Sets, sequences and cycles</h3>
+<p>Taking a labelled product of k copies of 𝒞 and forgetting the order of the factors (which, since labels are distinct, produces each unordered set exactly k! times) shows that the class of sets of k components has EGF Ĉ(x)ᵏ/k!, and the class of all sets of components has EGF exp(Ĉ(x)), provided c₀ = 0. Similarly, sequences have EGF 1/(1 − Ĉ) and cycles (sequences up to rotation) have EGF log(1/(1 − Ĉ)), since a cycle of k components arises from exactly k sequences.</p>
+<p><strong>Theorem 6.1 (The exponential formula)</strong>. If every object of a labelled class 𝒜 decomposes uniquely as a set of connected components belonging to a class 𝒞 (with c₀ = 0), then Â(x) = exp(Ĉ(x)).</p>
+<h3>Examples</h3>
+<p>A permutation is a set of disjoint cycles. There are (k − 1)! cyclic orders on a k-set, so the EGF of a single cycle is ∑ (k − 1)! xᵏ/k! = ∑ xᵏ/k = log 1/(1 − x), and the exponential formula returns exp(log 1/(1 − x)) = 1/(1 − x) = ∑ n! xⁿ/n!, as it must. Removing 1-cycles gives the derangements: exp(log 1/(1 − x) − x) = e⁻ˣ/(1 − x), whose coefficients are the partial sums found in Lesson 3. Allowing only cycles of length 1 and 2 gives the involutions, with EGF exp(x + x²/2); differentiating, I′(x) = (1 + x)I(x), which translates into the recurrence Iₙ = Iₙ₋₁ + (n − 1)Iₙ₋₂, so I₀, …, I₈ = 1, 1, 2, 4, 10, 26, 76, 232, 764.</p>
+<p>A set partition is a set of nonempty blocks, and a block of size k is a single structure, so blocks have EGF eˣ − 1 and set partitions have EGF exp(eˣ − 1), the EGF of the Bell numbers (Lesson 7). Forbidding singleton blocks gives exp(eˣ − 1 − x), with coefficients 1, 0, 1, 1, 4, 11, 41, 162, …</p>
+<h3>Connected graphs</h3>
+<p>Let gₙ = 2<sup>C(n,2)</sup> be the number of labelled graphs on [n] and cₙ the number of connected ones. Every graph is a set of connected components, so ∑ gₙ xⁿ/n! = exp(∑ cₙ xⁿ/n!), and therefore Ĉ(x) = log Ĝ(x) as formal power series, although Ĝ has radius of convergence 0. Extracting coefficients is equivalent to the recurrence gₙ = ∑ₖ C(n − 1, k − 1) cₖ gₙ₋ₖ, obtained by classifying graphs according to the component containing vertex n. It gives c₁, …, c₅ = 1, 1, 4, 38, 728.</p>
+<h3>Lagrange inversion and Cayley's formula</h3>
+<p><strong>Theorem 6.2 (Lagrange inversion)</strong>. Let φ(t) be a formal power series with φ(0) ≠ 0, and let T(x) be the unique formal power series with T(0) = 0 satisfying T = x φ(T). Then for n ≥ 1, [xⁿ] T(x) = (1/n) [tⁿ⁻¹] φ(t)ⁿ.</p>
+<p>A rooted labelled tree is a root together with a set of rooted subtrees attached to it, so the EGF T(x) of rooted labelled trees satisfies T = x exp(T). Lagrange inversion with φ = eᵗ gives [xⁿ] T = (1/n) nⁿ⁻¹/(n − 1)! = nⁿ⁻¹/n!. Hence there are nⁿ⁻¹ rooted labelled trees on [n], and, since each unrooted tree can be rooted in n ways, nⁿ⁻² labelled trees: Cayley's formula (1889), first found by Borchardt in 1860 and given a bijective proof by Prüfer in 1918 (Lesson 12). More generally, [xⁿ] H(T(x)) = (1/n) [tⁿ⁻¹] H′(t)φ(t)ⁿ; taking H(t) = tᵏ/k! shows that there are C(n − 1, k − 1) nⁿ⁻ᵏ forests of k rooted trees on [n].</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many partitions of [6] have all blocks of even size?</div></li><li><span class="mk">(b)</span><div>How many permutations of [6] have only cycles of odd length?</div></li><li><span class="mk">(c)</span><div>Use the recurrence for involutions to compute I₉ and I₁₀.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The EGF is exp(cosh x − 1); directly, block-size patterns {6}, {4, 2} and {2, 2, 2} give 1 + 15 + 15 = 31. (b) The EGF is exp(∑ over odd k of xᵏ/k) = √((1 + x)/(1 − x)); the count is 225 (the sequence is 1, 1, 1, 3, 9, 45, 225, …). (c) I₉ = 764 + 8·232 = 2620 and I₁₀ = 2620 + 9·764 = 9496.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

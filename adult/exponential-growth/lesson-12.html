@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 12</p>
+    <h1>Growth Rates in General — Fekete's Lemma, Groups and Entropy</h1>
+    <p class="kicker">Lesson 12 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">aₘ₊ₙ ≤ aₘ + aₙ   ⟹   lim aₙ/n = inf aₙ/n;    xₘ₊ₙ ≤ xₘxₙ   ⟹   lim xₙ<sup>1/n</sup> exists</pre></div>
+<p>We have met exponential growth rates in many disguises: the rate k of an ODE, the spectral abscissa of a matrix, the Perron root of a Leslie matrix, the mean offspring number of a branching process, the base of an exponential algorithm. In many combinatorial and geometric problems one cannot compute the sequence explicitly and must first prove that an exponential growth rate exists at all. The standard tool is a lemma of Michael Fekete (1923).</p>
+<h3>Fekete's lemma</h3>
+<p><strong>Lemma 12.1</strong>. Let (aₙ)<sub>n≥1</sub> be a real sequence with aₘ₊ₙ ≤ aₘ + aₙ for all m, n ≥ 1 (subadditivity). Then lim aₙ/n exists in [−∞, ∞) and equals inf<sub>n≥1</sub> aₙ/n.</p>
+<p><strong>Proof</strong>. Let L = inf aₙ/n. Clearly liminf aₙ/n ≥ L, so it suffices to show limsup aₙ/n ≤ aₘ/m for every fixed m. Write n = qm + r with 0 ≤ r &lt; m (and set a₀ = 0 for the case r = 0). Subadditivity gives aₙ ≤ q aₘ + aᵣ. Dividing by n and letting n → ∞ with m fixed, q/n → 1/m and aᵣ/n → 0 because aᵣ takes only finitely many values. Hence limsup aₙ/n ≤ aₘ/m. Taking the infimum over m, limsup aₙ/n ≤ L ≤ liminf aₙ/n. ∎</p>
+<p>Applying the lemma to aₙ = ln xₙ gives the multiplicative version: a positive submultiplicative sequence (xₘ₊ₙ ≤ xₘxₙ) has a well-defined exponential growth rate lim xₙ<sup>1/n</sup> = inf xₙ<sup>1/n</sup>.</p>
+<h3>Three applications</h3>
+<p>First, Gelfand's spectral radius formula. For a square matrix (or a bounded operator on a Banach space), ‖Aᵐ⁺ⁿ‖ ≤ ‖Aᵐ‖‖Aⁿ‖, so lim ‖Aⁿ‖<sup>1/n</sup> exists; Gelfand's theorem identifies it with the spectral radius ρ(A) = max |λ|. This is the discrete analogue of Theorem 7.1 and explains why the dominant eigenvalue of Lesson 8 is the growth rate of Lⁿ.</p>
+<p>Second, self-avoiding walks. Let cₙ be the number of n-step self-avoiding walks on the square lattice ℤ² starting at the origin. Cutting an (m + n)-step walk into its first m and last n steps gives an injection into pairs of walks, so cₘ₊ₙ ≤ cₘcₙ. Hence the connective constant μ = lim cₙ<sup>1/n</sup> exists; for ℤ² it is known numerically to be μ ≈ 2.638, with 2 &lt; μ &lt; 3 elementary (walks that only go up or right show cₙ ≥ 2ⁿ, and forbidding immediate reversals gives cₙ ≤ 4 · 3<sup>n−1</sup>). For the hexagonal lattice, Duminil-Copin and Smirnov proved in 2012 that μ = √(2 + √2) ≈ 1.848, as Nienhuis had predicted in 1982.</p>
+<p>Third, topological entropy. For a set of admissible words closed under taking subwords, let Nₙ be the number of admissible words of length n. Splitting a word of length m + n gives Nₘ₊ₙ ≤ NₘNₙ, so the entropy h = lim (1/n) ln Nₙ exists. For the golden mean shift (binary words with no two consecutive 1s), Nₙ = Fₙ₊₂, so h = ln φ ≈ 0.4812; in general for a shift of finite type with irreducible transition matrix, h is the logarithm of the Perron root.</p>
+<h3>Growth of groups</h3>
+<p>Let G be a group generated by a finite symmetric set S, and let β(n) be the number of elements expressible as words of length at most n in S. Every element of length at most m + n is a product of one of length at most m and one of length at most n, so β(m + n) ≤ β(m)β(n), and the growth rate ω = lim β(n)<sup>1/n</sup> ≥ 1 exists. Changing the generating set changes β only up to a linear rescaling of n, so the distinction between exponential growth (ω &gt; 1) and subexponential growth (ω = 1) is an invariant of the group.</p>
+<p>For the free group F<sub>k</sub> on k generators with S = {a₁<sup>±1</sup>, …, a<sub>k</sub><sup>±1</sup>}, reduced words of length n ≥ 1 number 2k(2k − 1)<sup>n−1</sup> (2k choices for the first letter, then 2k − 1 avoiding cancellation), so</p>
+<pre class="math">β(n) = 1 + ∑<sub>j=1</sub><sup>n</sup> 2k(2k − 1)<sup>j−1</sup> = (k(2k − 1)ⁿ − 1)/(k − 1)   (k ≥ 2),   ω = 2k − 1</pre>
+<p>For F₂ this is β(n) = 2 · 3ⁿ − 1. At the other extreme, ℤ² with the standard generators has β(n) = 2n² + 2n + 1, polynomial of degree 2; more generally ℤᵈ has polynomial growth of degree d, and the discrete Heisenberg group has growth of degree 4 (Bass–Guivarc'h formula).</p>
+<p>The structure theory is deep. Milnor and Wolf (1968) showed that a finitely generated solvable group has either polynomial or exponential growth, the former exactly when it is virtually nilpotent. Milnor asked whether intermediate growth (faster than every polynomial but slower than every exponential) can occur at all. Gromov (1981) proved that a finitely generated group has polynomial growth if and only if it is virtually nilpotent, a theorem whose proof introduced the Gromov–Hausdorff limit of metric spaces. Grigorchuk (1984) answered Milnor's question by constructing a group of intermediate growth, with exp(n<sup>α</sup>) ≲ β(n) ≲ exp(n<sup>β</sup>) for some 0 &lt; α &lt; β &lt; 1. A group of exponential growth also has an exponential growth rate in its Cayley graph geometry, and growth rates of fundamental groups of compact manifolds are tied to volume entropy and curvature (Milnor's original motivation: the fundamental group of a compact manifold of negative curvature has exponential growth).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Use Fekete's lemma to show that if xₙ &gt; 0 satisfies xₘ₊ₙ ≥ xₘxₙ then lim xₙ<sup>1/n</sup> exists in (0, ∞].</div></li><li><span class="mk">(b)</span><div>Compute β(3) for F₂ and for ℤ², and the sphere size of F₃ at radius 2.</div></li><li><span class="mk">(c)</span><div>Show that ρ(A) ≤ ‖Aⁿ‖<sup>1/n</sup> for every n.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) aₙ = −ln xₙ is subadditive, so lim aₙ/n = inf aₙ/n ∈ [−∞, ∞); hence lim (1/n) ln xₙ = sup (1/n) ln xₙ ∈ (−∞, ∞], and xₙ<sup>1/n</sup> converges to a limit in (0, ∞]. (b) F₂: 2 · 27 − 1 = 53; ℤ²: 2 · 9 + 6 + 1 = 25; F₃ sphere of radius 2: 6 · 5 = 30. (c) If Av = λv with v ≠ 0, then Aⁿv = λⁿv, so |λ|ⁿ ≤ ‖Aⁿ‖; take n-th roots and the maximum over λ.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

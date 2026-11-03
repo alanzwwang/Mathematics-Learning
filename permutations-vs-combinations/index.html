@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#e11d48">
+<body id="top" class="mode-kid" style="--topic:#e11d48">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,18 +22,19 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/permutations-vs-combinations/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
 <section class="hero topic-hero">
   <div class="container">
-    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🔐 Permutations vs Combinations</a></p>
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <span aria-current="page">🔐 Permutations vs Combinations</span></p>
     <h1>🔐 Permutations vs Combinations</h1>
     <p class="kicker">🚀 Advanced · A Complete Lesson</p>
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Counting Principle — The Multiplication Machine">1</a><a href="lesson-2.html" title="Lesson 2: Factorials — The Line-Up Machine">2</a><a href="lesson-3.html" title="Lesson 3: Permutations — When Order Matters">3</a><a href="lesson-4.html" title="Lesson 4: Combinations — When Order Doesn't Matter">4</a><a href="lesson-5.html" title="Lesson 5: The Big Decision — Permutation or Combination?">5</a><a href="lesson-6.html" title="Lesson 6: Watch Out! Common Mistakes">6</a><a href="lesson-7.html" title="Lesson 7: Review — The Big Picture">7</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <div class="welcome"><pre class="math">5! = 5 × 4 × 3 × 2 × 1 = 120
 P(5, 2) = 5 × 4 = 20        ← order MATTERS
@@ -44,12 +45,12 @@ C(5, 2) = 20 ÷ 2 = 10       ← order DOESN'T matter</pre>
 <ul class="steps"><li><span class="mk">1.</span><div>Count with the multiplication machine — choices × choices × choices</div></li><li><span class="mk">2.</span><div>Line up whole groups with factorials — and cancel them like a pro</div></li><li><span class="mk">3.</span><div>Count ordered picks with permutations — gold, silver, bronze</div></li><li><span class="mk">4.</span><div>Count unordered picks with combinations — and the un-scramble trick</div></li><li><span class="mk">5.</span><div>Tell them apart with the one-question swap test</div></li><li><span class="mk">6.</span><div>Learn the common mistakes so you never make them</div></li><li><span class="mk">7.</span><div>Practice with 100 problems at the end — including backwards puzzles, <br>restriction twists, and design-your-own challenges!</div></li></ul>
 <p>How to use this lesson: Read the sections in order. Each section starts with the key idea you'll learn in it. Take your time, and try every &quot;Your Turn&quot; box with a pencil and paper. Ready? Let's go!</p></div><h2>📸 Pictures</h2><div class="picture-row">
     <figure class="picture">
-      <img src="../img/permutations-vs-combinations-1.jpg" alt="A black padlock with a number dial" loading="lazy">
+      <img src="../img/permutations-vs-combinations-1.jpg" alt="A silver padlock with a blue number dial" loading="lazy">
       <figcaption><span class="photo-badge">📷 Picture 1</span><br>Fun fact: a &quot;combination&quot; lock should really be called a PERMUTATION lock, because the order of the numbers matters! <a href="#sources">See source ↓</a></figcaption>
     </figure>
     <figure class="picture">
       <img src="../img/permutations-vs-combinations-2.jpg" alt="A hand holding an ice-cream cone with two different scoops stacked on top" loading="lazy">
-      <figcaption><span class="photo-badge">📷 Picture 2</span><br>Picking 2 flavours for a cup is a combination, but on a cone, which flavour goes on top matters. That's a permutation! <a href="#sources">See source ↓</a></figcaption>
+      <figcaption><span class="photo-badge">📷 Picture 2</span><br>Picking 2 flavors for a cup is a combination, but on a cone, which flavor goes on top matters. That's a permutation! <a href="#sources">See source ↓</a></figcaption>
     </figure></div><h2>🗺️ Your lesson map</h2><div class="lesson-list">
     <a class="lesson-card" href="lesson-1.html"><span class="lc-emoji">🚀</span><span><span class="lc-num">Lesson 1</span><br><strong>The Counting Principle — The Multiplication Machine</strong></span></a>
     <a class="lesson-card" href="lesson-2.html"><span class="lc-emoji">🧩</span><span><span class="lc-num">Lesson 2</span><br><strong>Factorials — The Line-Up Machine</strong></span></a>
@@ -69,7 +70,7 @@ C(5, 2) = 20 ÷ 2 = 10       ← order DOESN'T matter</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

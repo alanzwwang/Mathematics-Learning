@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: The Gauss–Markov Theorem — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 9</p>
+    <h1>The Gauss–Markov Theorem</h1>
+    <p class="kicker">Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Model:  y = Xβ + ε,   E[ε] = 0,   Cov(ε) = σ²I,   X of full column rank p
+OLS:    β̂ = (XᵀX)⁻¹Xᵀy,   E[β̂] = β,   Cov(β̂) = σ²(XᵀX)⁻¹
+Gauss–Markov:  β̂ is the Best Linear Unbiased Estimator (BLUE)</pre></div>
+<h3>The linear model</h3>
+<p>Lesson 8 treated least squares as geometry. Statistics asks why it is a good idea. In the linear model an n-vector of observations y is generated as y = Xβ + ε, where X is a known n × p design matrix of full column rank, β ∈ ℝᵖ is an unknown parameter, and ε is a random error vector. The Gauss–Markov assumptions are that the errors have mean zero, E[ε] = 0, and are uncorrelated with common variance, Cov(ε) = E[εεᵀ] = σ²I (homoscedasticity). No normality is assumed.</p>
+<p>An estimator β̃ of β is linear if β̃ = Cy for a fixed p × n matrix C, and unbiased if E[β̃] = β for every β. Since E[Cy] = CXβ, a linear estimator is unbiased exactly when CX = I. The ordinary least squares (OLS) estimator β̂ = (XᵀX)⁻¹Xᵀy is linear, with C₀ = (XᵀX)⁻¹Xᵀ, and unbiased because C₀X = I. Its covariance is</p>
+<pre class="math">Cov(β̂) = C₀ Cov(y) C₀ᵀ = σ² (XᵀX)⁻¹XᵀX(XᵀX)⁻¹ = σ²(XᵀX)⁻¹.</pre>
+<p>For symmetric matrices write M ⪰ N if M − N is positive semidefinite. This is the natural order on covariance matrices: M ⪰ N means that every linear combination aᵀβ̃ has at least as large a variance under M as under N.</p>
+<h3>Theorem 9.1 (Gauss–Markov)</h3>
+<p>Under the Gauss–Markov assumptions, every linear unbiased estimator β̃ = Cy satisfies Cov(β̃) ⪰ Cov(β̂). Consequently, for every vector a, the estimator aᵀβ̂ has the smallest variance among all linear unbiased estimators of aᵀβ.</p>
+<p><strong>Proof</strong>. Write C = C₀ + D. Unbiasedness gives CX = I = C₀X, so DX = 0. Then</p>
+<pre class="math">Cov(β̃) = σ²CCᵀ = σ²(C₀C₀ᵀ + C₀Dᵀ + DC₀ᵀ + DDᵀ).</pre>
+<p>Now DC₀ᵀ = DX(XᵀX)⁻¹ = 0, and C₀Dᵀ is its transpose, so Cov(β̃) = σ²(XᵀX)⁻¹ + σ²DDᵀ. The matrix DDᵀ is positive semidefinite, since aᵀDDᵀa = ‖Dᵀa‖² ≥ 0. Hence Cov(β̃) − Cov(β̂) = σ²DDᵀ ⪰ 0, with equality only if D = 0, that is β̃ = β̂. The second statement follows because Var(aᵀβ̃) = aᵀCov(β̃)a. ∎</p>
+<h3>Estimating the error variance</h3>
+<p>The fitted values are ŷ = Hy with H = X(XᵀX)⁻¹Xᵀ, and the residual vector is e = (I − H)y. Since (I − H)X = 0, we have e = (I − H)ε, and the residual sum of squares is RSS = eᵀe = εᵀ(I − H)ε, because I − H is symmetric and idempotent.</p>
+<h3>Theorem 9.2</h3>
+<p>The estimator σ̂² = RSS/(n − p) is unbiased for σ².</p>
+<p><strong>Proof</strong>. For any fixed matrix M, E[εᵀMε] = E[tr(Mεεᵀ)] = tr(M E[εεᵀ]) = σ² tr M. With M = I − H we get E[RSS] = σ²(n − tr H) = σ²(n − p), since tr H = tr((XᵀX)⁻¹XᵀX) = tr I<sub>p</sub> = p. ∎</p>
+<p>The divisor n − p, the degrees of freedom, is the dimension of the orthogonal complement of the column space into which the residual is projected. For the worked example of Lesson 8 (n = 4, p = 2, RSS = 4.2) the estimate is σ̂² = 2.1. In simple regression the slope has variance σ²/S<sub>xx</sub>, so its estimated standard error is √(2.1/5) = √0.42 ≈ 0.648.</p>
+<h3>Beyond Gauss–Markov</h3>
+<p>Each hypothesis of the theorem is essential, and relaxing each leads to an important theory.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Correlated or heteroscedastic errors. If Cov(ε) = σ²Ω with Ω known and positive definite, OLS is still unbiased but no longer best. The best linear unbiased estimator is the generalised least squares estimator β̂<sub>GLS</sub> = (XᵀΩ⁻¹X)⁻¹XᵀΩ⁻¹y (Aitken, 1935), obtained by applying OLS after transforming by the inverse square root of Ω (Problem 52).</div></li><li><span class="mk">2.</span><div>Normality. If in addition ε is Gaussian, then β̂ is the maximum-likelihood estimator and, by the Lehmann–Scheffé theorem, it is the minimum-variance unbiased estimator among all unbiased estimators, linear or not. Gauss's own 1809 argument went in the reverse direction: he asked which error law makes the arithmetic mean the most probable value, and found the normal distribution.</div></li><li><span class="mk">3.</span><div>Unbiasedness. Dropping unbiasedness can reduce the mean squared error. Ridge regression (XᵀX + λI)⁻¹Xᵀy trades bias for variance, and the James–Stein phenomenon (1956, 1961) shows that when estimating three or more means simultaneously, the obvious unbiased estimator is inadmissible under squared-error loss.</div></li><li><span class="mk">4.</span><div>Linearity. Without normality there can be nonlinear unbiased estimators that beat OLS; the restriction to linear estimators is what makes the theorem hold under only second-moment assumptions.</div></li></ul>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A regression has n = 10 observations and p = 3 parameters. What is tr H, and what is the divisor in σ̂²?</div></li><li><span class="mk">(b)</span><div>In simple regression σ² = 4 and S<sub>xx</sub> = 16. Find the variance of the OLS slope.</div></li><li><span class="mk">(c)</span><div>In the model yᵢ = μ + εᵢ (i = 1, …, n), identify X and show that the BLUE of μ is the sample mean.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) tr H = p = 3, and the divisor is n − p = 7. (b) σ²/S<sub>xx</sub> = 4/16 = 1/4. (c) X is the n × 1 column of ones, XᵀX = n and Xᵀy = Σyᵢ, so β̂ = (1/n)Σyᵢ = ȳ, which by Gauss–Markov has variance σ²/n, the smallest among linear unbiased estimators.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

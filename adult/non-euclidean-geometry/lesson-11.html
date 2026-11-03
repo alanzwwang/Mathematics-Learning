@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Gaussian Curvature and the Theorema Egregium — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 11</p>
+    <h1>Gaussian Curvature and the Theorema Egregium</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">K = det(shape operator) = (LN − M²) / (EG − F²)
+Theorema Egregium: K depends only on E, F, G
+Conformal metric λ²(dx² + dy²):   K = −Δ(ln λ) / λ²</pre></div>
+<h3>Curvature of a surface in space</h3>
+<p>Let x(u, v) be a regular parametrised surface in ℝ³ with unit normal N. The first fundamental form I = E du² + 2F du dv + G dv², with E = x<sub>u</sub> · x<sub>u</sub>, F = x<sub>u</sub> · x<sub>v</sub>, G = x<sub>v</sub> · x<sub>v</sub>, is the induced Riemannian metric. The second fundamental form II = L du² + 2M du dv + N dv², with L = x<sub>uu</sub> · N, M = x<sub>uv</sub> · N, N = x<sub>vv</sub> · N, measures how the surface bends in space. The shape operator (Weingarten map) S = −dN is a self-adjoint endomorphism of each tangent plane; its eigenvalues κ₁, κ₂ are the principal curvatures, and</p>
+<pre class="math">K = κ₁κ₂ = det S = (LN − M²)/(EG − F²),        H = (κ₁ + κ₂)/2.</pre>
+<p>Equivalently, K is the limiting ratio of the area swept out by the Gauss map N on the unit sphere to the area of a small region of the surface (with sign). Examples: a sphere of radius R has κ₁ = κ₂ = 1/R and K = 1/R²; a cylinder of radius R has κ₁ = 1/R, κ₂ = 0, K = 0; at the origin the saddle z = x² − y² has κ₁ = 2, κ₂ = −2, K = −4.</p>
+<h3>The Theorema Egregium</h3>
+<p><strong>Theorem 11.1 (Gauss 1827)</strong>. The Gaussian curvature can be expressed entirely in terms of E, F, G and their first and second derivatives. Consequently K is invariant under local isometries.</p>
+<p><strong>Proof sketch</strong>. Write the derivatives of the frame (x<sub>u</sub>, x<sub>v</sub>, N) in terms of the frame: x<sub>uu</sub> = Γ¹₁₁x<sub>u</sub> + Γ²₁₁x<sub>v</sub> + LN, and similarly for x<sub>uv</sub>, x<sub>vv</sub>, where the Christoffel symbols Γᵏᵢⱼ are determined by E, F, G (they solve linear equations obtained by dotting with x<sub>u</sub> and x<sub>v</sub>; for instance x<sub>uu</sub> · x<sub>u</sub> = ½E<sub>u</sub>). Equate the tangential components of (x<sub>uu</sub>)<sub>v</sub> and (x<sub>uv</sub>)<sub>u</sub>. The terms involving N contribute products of the coefficients of II, and the outcome is the Gauss equation</p>
+<pre class="math">E · K = (Γ²₁₁)<sub>v</sub> − (Γ²₁₂)<sub>u</sub> + Γ¹₁₁Γ²₁₂ + Γ²₁₁Γ²₂₂ − Γ¹₁₂Γ²₁₁ − (Γ²₁₂)²,</pre>
+<p>whose right-hand side involves only the metric. ∎</p>
+<p>For orthogonal coordinates (F = 0) the formula becomes:</p>
+<pre class="math">K = −(1/(2√(EG))) [ ∂_u( G<sub>u</sub> / √(EG) ) + ∂_v( E<sub>v</sub> / √(EG) ) ].</pre>
+<p>Conformal metrics. If E = G = λ² and F = 0, then √(EG) = λ² and G<sub>u</sub>/√(EG) = 2λ<sub>u</sub>/λ = 2(ln λ)<sub>u</sub>, so K = −Δ(ln λ)/λ², where Δ = ∂²<sub>u</sub> + ∂²<sub>v</sub>. Examples:</p>
+<pre class="math">Upper half-plane, λ = 1/y:        Δ ln λ = Δ(−ln y) = 1/y²,                K = −(1/y²)·y² = −1
+Poincaré disk, λ = 2/(1 − r²):    Δ ln λ = −Δ ln(1 − r²) = 4/(1 − r²)²,     K = −1
+Stereographic sphere, λ = 2/(1 + r²):  Δ ln λ = −4/(1 + r²)²,              K = +1</pre>
+<p>(For radial functions Δf = f″ + f′/r; with f = ln(1 + r²) one finds f′ = 2r/(1 + r²) and Δf = 4/(1 + r²)².) The Theorema Egregium explains a basic fact of cartography: since the sphere has K = 1/R² and the plane has K = 0, no map of any region of the Earth can preserve all distances. A cylinder or cone, in contrast, can be unrolled without distortion.</p>
+<h3>Geodesic polar coordinates</h3>
+<p>Around any point p of a surface, exponential coordinates (r, θ) give a metric of the form ds² = dr² + G(r, θ) dθ², with √G = r − (K(p)/6) r³ + O(r⁴). The orthogonal formula reduces to</p>
+<pre class="math">K = −(√G)<sub>rr</sub> / √G.</pre>
+<p>On the unit sphere √G = sin r and on the hyperbolic plane √G = sinh r, giving K = +1 and −1. Integrating, the circumference and area of a small geodesic circle are</p>
+<pre class="math">C(r) = 2πr − (π/3) K r³ + o(r³),        A(r) = πr² − (π/12) K r⁴ + o(r⁴),</pre>
+<p>the Bertrand–Diguet–Puiseux formulas (1848). They give an intrinsic recipe for measuring K: K = lim (3/π)(2πr − C(r))/r³. Check on the unit sphere: 2π sin r = 2πr − πr³/3 + ⋯.</p>
+<h3>Surfaces of revolution and the pseudosphere</h3>
+<p>A surface of revolution with unit-speed profile curve (f(v), h(v)), f &gt; 0, has metric ds² = dv² + f(v)² du², so by the polar formula K = −f″/f. Taking f(v) = e⁻ᵛ for v ≥ 0, with h′ = √(1 − e⁻²ᵛ), gives the pseudosphere, the surface of revolution of the tractrix, with K ≡ −1. The substitution y = eᵛ transforms its metric into</p>
+<pre class="math">ds² = dv² + e⁻²ᵛ du² = (du² + dy²)/y²,     y ≥ 1,  u ∈ ℝ/2πℤ.</pre>
+<p>So the pseudosphere is isometric to the region {Im z ≥ 1} of H modulo the parabolic translation z ↦ z + 2π: it is a cusp. Its area is ∫ from 1 to ∞ of 2π dy/y² = 2π. Beltrami used this surface in 1868 to give a concrete (local) realisation of Lobachevsky's planimetry; geodesics on the pseudosphere correspond to semicircles and vertical lines in H.</p>
+<h3>Hilbert's theorem</h3>
+<p><strong>Theorem 11.2 (Hilbert 1901)</strong>. There is no complete smooth surface of constant negative curvature isometrically immersed in ℝ³. In particular the whole hyperbolic plane cannot be realised as a smooth surface in Euclidean 3-space; every realisation, like the pseudosphere, has a singular edge or is incomplete. Efimov (1964) strengthened this: no complete surface with K ≤ −δ &lt; 0 can be C² immersed in ℝ³. By contrast the Nash–Kuiper theorem gives C¹ isometric embeddings of H² into ℝ³, and H² embeds isometrically (smoothly) in ℝⁿ for larger n by Nash's theorem; crocheted models of hyperbolic planes (Taimina, 1997) give physical local approximations.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute K for the metric ds² = (dx² + dy²)/(4y²).</div></li><li><span class="mk">(b)</span><div>Compute K for ds² = dr² + cosh²r dθ² (on ℝ × ℝ).</div></li><li><span class="mk">(c)</span><div>A small geodesic circle of radius 0.1 on a surface has circumference 0.62852. Estimate K at its centre.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) λ = 1/(2y), ln λ = −ln 2 − ln y, Δ ln λ = 1/y², so K = −(1/y²)/(1/(4y²)) = −4. (Scaling a metric by c² multiplies K by 1/c².) (b) √G = cosh r, (√G)<sub>rr</sub> = cosh r, so K = −1. (This is the hyperbolic plane in Fermi coordinates along a geodesic.) (c) 2π(0.1) = 0.628319, so K ≈ (3/π)(0.628319 − 0.62852)/0.001 = (3/π)(−0.000201)/0.001 ≈ −0.19.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#f59e0b">
+<body id="top" class="mode-kid" style="--topic:#f59e0b">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/probability/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is Probability?">1</a><a href="lesson-2.html" title="Lesson 2: The Probability Formula — Forward AND Backward">2</a><a href="lesson-3.html" title="Lesson 3: Counting Every Outcome">3</a><a href="lesson-4.html" title="Lesson 4: The &quot;Not&quot; Rule — Complements, Algebra, and an Inequality">4</a><a href="lesson-5.html" title="Lesson 5: The &quot;Or&quot; Rule — Overlaps and Backward Detective Work">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: The &quot;And&quot; Rule — Independent, Dependent, and the Power of Powers">6</a><a href="lesson-7.html" title="Lesson 7: What Probability Really Means — Expected Value">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Formulas of this section</p><pre class="math">P(A and then B) = P(A) × P(B)              when the events are INDEPENDENT
 P(A and then B) = P(A) × P(B after A)      when DEPENDENT (no replacement!)
@@ -82,7 +83,7 @@ f(4) = 1 − 1/16 = 15/16</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

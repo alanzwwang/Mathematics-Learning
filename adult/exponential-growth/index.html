@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exponential Growth — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Exponential Growth</span></p>
+    <h1>Exponential Growth</h1>
+    <p class="kicker">Algebra · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>The elementary theory of exponential growth begins and ends with the rule &quot;multiply by the same factor at every step&quot;. That rule is correct, but it is only the visible surface of a structure that runs through nearly every branch of mathematics. The exponential function is the unique solution of the simplest linear differential equation, the unique continuous homomorphism from the additive reals to the multiplicative reals, the limit of compound interest, the law of radioactive decay, the generic behaviour of linear systems near equilibrium, the mean behaviour of branching processes, the early phase of every epidemic, and the dividing line between tractable and intractable computation.</p>
+<p>This course treats exponential growth and decay at the level of a graduate course in applied analysis. We state definitions precisely, prove the theorems we use, and track the hypotheses that make them true. The emphasis is on three recurring themes. The first is characterization: why the exponential is forced upon us by very weak assumptions (linearity, memorylessness, additivity). The second is comparison: how exponential rates dominate polynomial rates, how they are measured (growth exponents, spectral radii, Malthusian parameters, entropy), and how they are bounded (Grönwall). The third is saturation: how nonlinear feedback (logistic regulation, depletion of susceptibles, extinction) bends exponential curves and what survives of the exponential law when it does.</p>
+<p><strong>Notation</strong>. Throughout, exp(x) = eˣ, ln is the natural logarithm, ℝ₊ = [0, ∞), and for real functions f(x) ~ g(x) means f(x)/g(x) → 1. We write e<sup>kt</sup> when the exponent is a compound expression. A matrix norm ‖·‖ is always an operator norm, so that ‖AB‖ ≤ ‖A‖‖B‖. Probabilities are written P(·) and expectations E[·].</p>
+<p>Prerequisites are a first course in real analysis (uniform convergence, the mean value theorem), linear algebra (eigenvalues, Jordan form) and elementary probability (generating functions, conditional probability).</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Prove that y′ = ky has exactly one solution through each initial point, and characterize the exponential by its functional equation</div></li><li><span class="mk">2.</span><div>Construct e as a limit, prove the compound-interest inequalities, and quantify continuous compounding</div></li><li><span class="mk">3.</span><div>Model radioactive decay as a memoryless random process and solve decay chains</div></li><li><span class="mk">4.</span><div>Prove that exponentials dominate every polynomial and organize growth rates into a hierarchy</div></li><li><span class="mk">5.</span><div>Solve the inhomogeneous linear equation and prove Grönwall's inequality</div></li><li><span class="mk">6.</span><div>Analyse the logistic equation: explicit solution, equilibria, stability and harvesting bifurcations</div></li><li><span class="mk">7.</span><div>Build the matrix exponential and read stability of x′ = Ax from the spectrum</div></li><li><span class="mk">8.</span><div>Study discrete models, linear recurrences and the Leslie matrix through Perron–Frobenius theory</div></li><li><span class="mk">9.</span><div>Compute extinction probabilities of Galton–Watson branching processes</div></li><li><span class="mk">10.</span><div>Derive the threshold, peak and final-size results of the SIR epidemic model</div></li><li><span class="mk">11.</span><div>Separate polynomial, subexponential and exponential complexity in algorithms</div></li><li><span class="mk">12.</span><div>Define exponential growth rates in general via Fekete's lemma, with applications to groups and entropy</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/exponential-growth-1.jpg" alt="Title page of the 1798 first edition of An Essay on the Principle of Population" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Title page of the first edition of Thomas Robert Malthus's An Essay on the Principle of Population (London: J. Johnson, 1798), published anonymously. Its contrast between geometric growth of population and arithmetic growth of subsistence motivated the logistic models of Verhulst and later demographers. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/exponential-growth-2.png" alt="Early twentieth-century table of the thorium, actinium and radium decay series with half-lives and radiations" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> Table of the thorium, actinium and radium decay series after Ernest Rutherford, from Popular Science Monthly, volume 73 (1908), listing each product's time to be half transformed (its half-life) and its radiations. The values reflect the knowledge of the time; radium's half-life, given here as 1,200 years, is now known to be about 1,600 years. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>The Equation y′ = ky — Existence, Uniqueness and Characterization</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>The Number e — Compound Interest and Continuous Compounding</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Half-Life, Radioactive Decay and the Exponential Distribution</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Exponential versus Polynomial — A Hierarchy of Growth Rates</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Inhomogeneous Linear Equations and Grönwall's Inequality</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>The Logistic Equation — Saturation, Equilibria and Stability</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Linear Systems and the Matrix Exponential</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>Branching Processes — Exponential Growth or Extinction</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Epidemics — the SIR Model, R₀ and the Final Size</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Exponential and Subexponential Complexity</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Growth Rates in General — Fekete's Lemma, Groups and Entropy</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · An Essay on the Principle of Population. By Thomas Robert Malthus. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:An_Essay_on_the_Principle_of_Population.jpg">https://commons.wikimedia.org/wiki/File:An_Essay_on_the_Principle_of_Population.jpg</a></li><li><strong>Figure 2</strong> · PSM V73 D062 Half life and radiation chart by rutherford. By Unknown author. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:PSM_V73_D062_Half_life_and_radiation_chart_by_rutherford.png">https://commons.wikimedia.org/wiki/File:PSM_V73_D062_Half_life_and_radiation_chart_by_rutherford.png</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

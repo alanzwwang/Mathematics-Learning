@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#3b82f6">
+<body id="top" class="mode-kid" style="--topic:#3b82f6">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/calculus/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">∫ₐᵇ f(x) dx = F(b) − F(a),   where F is any antiderivative of f.
 Area-adding and slope-taking undo each other.</pre></div>
@@ -67,7 +68,7 @@ Step 3: 150 − 2 = 148</pre>
 <p>The other direction — velocity into distance. Since the odometer is an antiderivative of the speedometer:</p>
 <pre class="math">∫ₐᵇ v(t) dt = s(b) − s(a) = the net change in position.</pre>
 <p>Warning — the integral counts area BELOW the axis as NEGATIVE. If v(t) = 3t² − 12 on [0, 3], then ∫₀³ v dt = [ t³ − 12t ]₀³ = (27 − 36) − 0 = −9: the particle ends 9 meters behind where it started. That is the net displacement, not the total travel — challenge problem 85 splits the trip into forward and backward parts to get the true distance.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the antiderivative family of 4x³. (b) Compute ∫₀² (2x + 1) dx.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) x⁴ + C (check: d/dx of x⁴ = 4x³ ✅). (b) F(x) = x² + x; F(2) = 4 + 2 = 6; F(0) = 0; answer 6.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the antiderivative family of 4x³.</div></li><li><span class="mk">(b)</span><div>Compute ∫₀² (2x + 1) dx.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) x⁴ + C (check: d/dx of x⁴ = 4x³ ✅). (b) F(x) = x² + x; F(2) = 4 + 2 = 6; F(0) = 0; answer 6.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">⬅️ Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 ➡️</a></nav>
 </main>
 
@@ -77,7 +78,7 @@ Step 3: 150 − 2 = 148</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

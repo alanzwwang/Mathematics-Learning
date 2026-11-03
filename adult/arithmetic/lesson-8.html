@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Positional Numeral Systems — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 8</p>
+    <h1>Positional Numeral Systems</h1>
+    <p class="kicker">Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For every base b ≥ 2, each n ≥ 1 has a unique representation
+n = dₖbᵏ + ⋯ + d₁b + d₀  with digits 0 ≤ dᵢ &lt; b and dₖ ≠ 0, where k = ⌊log<sub>b</sub> n⌋.
+A rational number has an eventually periodic base-b expansion,
+and for gcd(q, b) = 1 the period of 1/q is ord<sub>q</sub>(b).</pre></div>
+<h3>History in brief</h3>
+<p>Positional notation is the single most consequential invention in the history of computation. Babylonian scribes used a sexagesimal place-value system from about 2000 BC, without a true zero until a placeholder sign appeared in the late period; the Maya used a vigesimal system with zero. The decimal system with a zero digit developed in India: Brahmagupta's Brāhmasphuṭasiddhānta (628 AD) gives rules for arithmetic with zero and negative numbers. Al-Khwārizmī's treatise on Hindu reckoning (c. 825) carried the system to the Islamic world (his name gives us the word algorithm), and Fibonacci's Liber Abaci (1202) introduced it to Europe. Leibniz studied binary arithmetic in detail in his Explication de l'arithmétique binaire (1703).</p>
+<h3>Existence and uniqueness</h3>
+<p><strong>Theorem 8.1</strong>. Let b ≥ 2. Every integer n ≥ 1 has exactly one representation n = Σ (i = 0 to k) dᵢ bⁱ with dᵢ ∈ {0, 1, …, b − 1} and dₖ ≠ 0. Moreover bᵏ ≤ n &lt; bᵏ⁺¹, so the number of digits is ⌊log<sub>b</sub> n⌋ + 1.</p>
+<p><strong>Proof</strong>. Existence by strong induction: if n &lt; b, take k = 0 and d₀ = n. Otherwise divide: n = qb + d₀ with 0 ≤ d₀ &lt; b and 1 ≤ q &lt; n; represent q by induction and shift. Uniqueness: reducing any representation modulo b gives d₀ ≡ n, so d₀ is the remainder of n on division by b and is determined; then (n − d₀)/b has a representation with digits d₁, d₂, …, which is unique by induction. The bounds: n ≥ dₖbᵏ ≥ bᵏ and n ≤ (b − 1)(1 + b + ⋯ + bᵏ) = bᵏ⁺¹ − 1. ∎</p>
+<p>The proof is itself the conversion algorithm: the digits of n in base b are the successive remainders of repeated division by b, read in reverse. Conversely, the value of a digit string is computed by Horner's scheme, n = (⋯((dₖ b + dₖ₋₁) b + dₖ₋₂) b + ⋯) b + d₀, which uses k multiplications and k additions.</p>
+<p><strong>Worked Example 8.2</strong> — 2026 in several bases. Repeated division by 2 gives remainders 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, so</p>
+<pre class="math">2026 = 11111101010₂ = 3752₈ = 7EA₁₆ = 5623₇</pre>
+<p>Octal and hexadecimal digits are read off by grouping binary digits in threes and fours from the right: 011 111 101 010 and 0111 1110 1010. As a check on the base-7 form, Horner's scheme gives ((5·7 + 6)·7 + 2)·7 + 3 = (41·7 + 2)·7 + 3 = 289·7 + 3 = 2026.</p>
+<h3>Divisibility tests</h3>
+<p>Since b ≡ 1 (mod b − 1), every power bⁱ ≡ 1, so n ≡ d₀ + d₁ + ⋯ + dₖ (mod b − 1); since b ≡ −1 (mod b + 1), n ≡ d₀ − d₁ + d₂ − ⋯ (mod b + 1). In decimal these are the tests for 9 (and 3) and for 11. More generally n ≡ d₀ (mod b), and the last j digits determine n modulo bʲ, which gives the tests for 2, 4, 5, 8 and 10ʲ.</p>
+<h3>Expansions of real numbers</h3>
+<p>Every real x ∈ [0, 1) has a base-b expansion x = Σ (i ≥ 1) dᵢ b⁻ⁱ, produced by the digit map dᵢ = ⌊b xᵢ⌋, xᵢ₊₁ = b xᵢ − dᵢ, starting from x₁ = x. The expansion is unique except for numbers of the form m/bʲ, which have two: one ending in repeated 0s and one ending in repeated (b − 1)s. Thus 0.999… = 1 in decimal and 0.0111…₂ = 0.1₂ = 1/2. The identity 0.999… = 1 is not a paradox but a theorem about limits: the partial sums 1 − 10⁻ⁿ converge to 1.</p>
+<p><strong>Theorem 8.3</strong>. Let x = a/q with 0 &lt; a &lt; q and gcd(a, q) = 1.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>The base-b expansion of x terminates if and only if every prime factor of q divides b.</div></li><li><span class="mk">2.</span><div>If gcd(q, b) = 1, the expansion is purely periodic with period exactly ord<sub>q</sub>(b).</div></li><li><span class="mk">3.</span><div>In general, writing q = q₁q₂ where every prime of q₁ divides b and gcd(q₂, b) = 1, the expansion has a pre-period of length min{j : q₁ | bʲ} followed by a period of length ord<sub>q₂</sub>(b).</div></li></ul>
+<p><strong>Proof of (2)</strong>. The digit map applied to a/q produces xᵢ₊₁ = rᵢ/q with rᵢ = a bⁱ mod q, and each digit is determined by the current remainder, so the expansion is periodic with period p whenever a bᵖ ≡ a (mod q), that is, whenever bᵖ ≡ 1 (mod q), since a is invertible modulo q. Conversely, if the digits repeat with period p, then bᵖx − x is an integer, so q | a(bᵖ − 1) and bᵖ ≡ 1 (mod q). The least such p is ord<sub>q</sub>(b). Part (1) is the case where x · bʲ is an integer for some j, and (3) combines the two. ∎</p>
+<p>Examples: 1/7 = 0.(142857) with period ord₇(10) = 6; 1/13 has period 6; 1/37 = 0.(027) has period 3 because 999 = 27 · 37; 1/17 has period 16, the maximum possible, so 10 is a primitive root modulo 17. Whether 10 is a primitive root modulo infinitely many primes (so that infinitely many 1/p have the maximal period p − 1) is a special case of Artin's primitive root conjecture (1927), which remains open, although Hooley proved it in 1967 assuming the generalised Riemann hypothesis.</p>
+<h3>Non-standard bases</h3>
+<p>Two variants are important in computing and in theory.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Balanced ternary uses digits −1, 0, 1 (written T, 0, 1). Every integer, positive or negative, has a unique representation, and negation is just digit-wise sign change. For example 25 = 27 − 3 + 1 = 10T1 and 2026 = 10T10001, since 2187 − 243 + 81 + 1 = 2026. The Soviet Setun computer (Moscow State University, 1958) used balanced ternary.</div></li><li><span class="mk">2.</span><div>Base −2 with digits 0 and 1 also represents every integer uniquely without a sign: 6 = 16 − 8 − 2 = 11010 in base −2.</div></li></ul>
+<p>Two's complement, the representation of signed integers in essentially all modern processors, can be viewed as arithmetic in ℤ/2ʷℤ for word size w with the representatives −2ʷ⁻¹, …, 2ʷ⁻¹ − 1; the bit pattern of −x is that of 2ʷ − x. Integer overflow is therefore not an error of the hardware but simply arithmetic modulo 2ʷ.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Convert 0.6875 to binary and 0.1 to binary, and say which terminates.</div></li><li><span class="mk">(b)</span><div>Determine the pre-period and period of the decimal expansion of 1/12 and of 1/56.</div></li><li><span class="mk">(c)</span><div>Use the alternating digit sum to decide whether 918082 is divisible by 11.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 0.6875 = 11/16 = 0.1011₂ (doubling gives 1.375, 0.75, 1.5, 1.0, so the digits are 1, 0, 1, 1). 0.1 = 1/10 has the prime factor 5 in its denominator, which does not divide 2, so it does not terminate: 0.1 = 0.0(0011)₂ = 0.000110011001100…₂. (b) 1/12 = 0.08(3): q₁ = 4 needs j = 2 and q₂ = 3 has ord₃(10) = 1, so pre-period 2 and period 1. 1/56 = 0.017(857142): q₁ = 8 needs j = 3, q₂ = 7 has ord₇(10) = 6, so pre-period 3 and period 6. (c) Reading from the right, 2 − 8 + 0 − 8 + 1 − 9 = −22, which is divisible by 11, so 11 | 918082 (indeed 918082 = 11 · 83462).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

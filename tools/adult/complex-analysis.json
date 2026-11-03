@@ -1,0 +1,13 @@
+{
+  "blurb": "Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).",
+  "pics": [
+    { "img": "img/adult/complex-analysis-1.jpg", "alt": "Lithograph portrait of the mathematician Augustin-Louis Cauchy",
+      "caption": "Augustin-Louis Cauchy (1789–1857), who founded complex function theory: his integral theorem (1825) and integral formula are the backbone of the subject.",
+      "title": "Augustin-Louis Cauchy 1901.jpg", "page": "https://commons.wikimedia.org/wiki/File:Augustin-Louis_Cauchy_1901.jpg",
+      "license": "Public domain", "artist": "Unknown author" },
+    { "img": "img/adult/complex-analysis-2.jpg", "alt": "Domain-colouring plot of the Riemann zeta function in the complex plane",
+      "caption": "A domain-colouring plot of the analytically continued Riemann zeta function ζ(s) for −40 ≤ Re s, Im s ≤ 40, with colour showing the argument of ζ(s). The colour cycles close up at the pole s = 1 and at the non-trivial zeros on the line Re s = 1/2, the first near Im s = ±14.13.",
+      "title": "Complex zeta.jpg", "page": "https://commons.wikimedia.org/wiki/File:Complex_zeta.jpg",
+      "license": "Public domain", "artist": "Jan Homann" }
+  ]
+}

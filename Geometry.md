@@ -1203,7 +1203,7 @@ Problems 75–80 — Counting. (Lesson 11)
       Prove it a second way: slice the trapezoid along a diagonal into two
       triangles of heights h, compute both areas, and add. Which proof do you
       find clearer, and why? (One or two honest sentences.)
-  98. Clock calculus. At 2:30, the minute hand points at the 6 — but the hour
+  98. Clock challenge. At 2:30, the minute hand points at the 6 — but the hour
       hand has crept halfway from 2 to 3. (a) Each hour mark is 360° ÷ 12 = 30°.
       Where exactly is the hour hand, measured from 12? (b) Find the angle
       between the hands. (c) Why would answering 90° reveal Mistake 1 thinking?

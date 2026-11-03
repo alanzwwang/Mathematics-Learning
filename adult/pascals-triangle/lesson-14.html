@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 14: Multiplicities and Singmaster's Conjecture — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 14</p>
+    <h1>Multiplicities and Singmaster's Conjecture</h1>
+    <p class="kicker">Lesson 14 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" class="here" aria-current="page" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">N(a) = #{(n, k) : C(n, k) = a}  (a ≥ 2);   N(a) ≤ 2 log₂ a,   conjecturally N(a) = O(1)
+N(3003) = 8:  C(3003, 1) = C(78, 2) = C(15, 5) = C(14, 6) = 3003, with their mirror images</pre></div>
+<h3>The multiplicity function</h3>
+<p>For an integer a ≥ 2 let N(a) be the number of pairs (n, k) with 0 ≤ k ≤ n and C(n, k) = a. Always N(a) ≥ 2, because of C(a, 1) = C(a, a − 1), and N(a) is finite, because C(n, k) ≥ n for 1 ≤ k ≤ n − 1 forces n ≤ a.</p>
+<p><strong>Proposition 14.1 (Singmaster, 1971)</strong>. N(a) ≤ 2 log₂ a for a ≥ 2. Proof. By symmetry it suffices to count solutions with 1 ≤ k ≤ n/2, each giving at most two solutions (n, k), (n, n − k). For fixed k ≥ 1, C(n, k) is strictly increasing in n ≥ k, so each k contributes at most one n. If k ≤ n/2 then a = C(n, k) ≥ C(2k, k) = ∏<sub>i=1</sub><sup>k</sup> (k + i)/i ≥ 2ᵏ, so k ≤ log₂ a. Hence there are at most log₂ a admissible values of k, and N(a) ≤ 2 log₂ a. ∎</p>
+<pre class="math">a = 3003:   bound 2 log₂ 3003 ≈ 23.1;   actual N(3003) = 8</pre>
+<p>Singmaster conjectured in 1971 that N(a) is bounded, and suggested that the bound might be as small as 10 or 12. The best unconditional bounds are only slightly better than logarithmic: Abbott, Erdős and Hanson (1974) proved N(a) = O(log a / log log a), and Kane (2007) proved N(a) = O(log a · log log log a / (log log a)³). In the interior of the triangle much more is known: Matomäki, Radziwiłł, Shao, Tao and Teräväinen (2022) proved that for fixed ε &gt; 0 and a sufficiently large, the equation C(n, k) = a has at most four solutions in the region exp((log n)<sup>2/3+ε</sup>) ≤ k ≤ n − exp((log n)<sup>2/3+ε</sup>), at most two in each half.</p>
+<h3>Small multiplicities</h3>
+<p>The numbers below 10⁵ that occur exactly six times are 120, 210, 1540, 7140, 11628 and 24310:</p>
+<pre class="math">120 = C(120, 1) = C(16, 2) = C(10, 3)          210 = C(210, 1) = C(21, 2) = C(10, 4)
+1540 = C(1540, 1) = C(56, 2) = C(22, 3)        7140 = C(7140, 1) = C(120, 2) = C(36, 3)
+11628 = C(11628, 1) = C(153, 2) = C(19, 5)     24310 = C(24310, 1) = C(221, 2) = C(17, 8)</pre>
+<p>each together with its mirror image C(n, n − k). The equation C(n, 2) = C(m, 3) defines an elliptic curve, and its complete solution (Avanesov, 1966) shows that apart from 10 = C(5, 2) = C(5, 3), the only common values are 120, 1540 and 7140. The number 3003 is the only integer greater than 1 known to occur eight times, and no integer is known to occur more often.</p>
+<h3>An infinite family with six occurrences</h3>
+<p><strong>Theorem 14.2 (Lind 1968; Singmaster 1975)</strong>. Let F₀ = 0, F₁ = 1, … be the Fibonacci numbers and, for i ≥ 1, put n = F<sub>2i+2</sub>F<sub>2i+3</sub> − 1 and k = F<sub>2i</sub>F<sub>2i+3</sub> − 1. Then C(n + 1, k + 1) = C(n, k + 2). Consequently infinitely many integers occur at least six times in Pascal's triangle.</p>
+<p><strong>Proof sketch</strong>. Dividing, C(n + 1, k + 1)/C(n, k + 2) = (n + 1)(k + 2)/((n − k)(n − k − 1)), so the equation is equivalent to the quadratic Diophantine equation (n + 1)(k + 2) = (n − k)(n − k − 1). Substituting the Fibonacci expressions reduces it to standard Fibonacci identities of Cassini type; we verify the first two cases numerically. For i = 1: n = 3 · 5 − 1 = 14, k = 1 · 5 − 1 = 4, and 15 · 6 = 90 = 10 · 9, giving C(15, 5) = C(14, 6) = 3003. For i = 2: n = 8 · 13 − 1 = 103, k = 3 · 13 − 1 = 38, and 104 · 40 = 4160 = 65 · 64, giving C(104, 39) = C(103, 40) ≈ 6.12 × 10²⁸. The value a = C(n + 1, k + 1) then occurs at (n + 1, k + 1), (n + 1, n − k), (n, k + 2), (n, n − k − 2), (a, 1) and (a, a − 1), six distinct positions since 2 ≤ k + 1 &lt; (n + 1)/2. ∎</p>
+<h3>Related arithmetic results</h3>
+<p>Two classical theorems illustrate how rigid the arithmetic of the triangle is. Sylvester (1892; the result was rediscovered by Schur in 1929) proved that for n ≥ 2k ≥ 2 the coefficient C(n, k) has a prime factor greater than k; for n = 2k this is Bertrand's postulate. Erdős (1951) proved that C(n, k) is never a perfect ℓth power (ℓ ≥ 2) when 4 ≤ k ≤ n − 4; for k = 2 and k = 3 there are squares, such as C(50, 3) = 19600 = 140² and C(9, 2) = 36 = 6². Both proofs combine the size estimates of Lesson 13 with the p-adic information of Lesson 8, which is also the strategy behind every known bound on N(a): a binomial coefficient is determined to a large extent by its prime factorization, and Kummer's theorem constrains that factorization severely.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find all occurrences of 120 in Pascal's triangle.</div></li><li><span class="mk">(b)</span><div>Using Proposition 14.1, give an upper bound for N(10⁶).</div></li><li><span class="mk">(c)</span><div>Verify that n = 103, k = 38 satisfies (n + 1)(k + 2) = (n − k)(n − k − 1).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(120, 1), C(120, 119), C(16, 2), C(16, 14), C(10, 3), C(10, 7): six occurrences. (b) The proof forces k ≤ log₂ 10⁶ ≈ 19.93, so k ≤ 19 and N(10⁶) ≤ 2 · 19 = 38. (c) 104 · 40 = 4160 and 65 · 64 = 4160.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-13.html">← Lesson 13</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

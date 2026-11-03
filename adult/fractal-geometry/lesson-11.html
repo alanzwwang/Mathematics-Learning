@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 11</p>
+    <h1>The Logistic Map, Period Doubling and Feigenbaum Universality</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">g<sub>r</sub>(x) = r x(1 − x) on [0, 1] is conjugate to f<sub>c</sub>(z) = z² + c with c = r/2 − r²/4.
+Period-doubling parameters r<sub>k</sub> accumulate at r<sub>∞</sub> ≈ 3.5699456 geometrically:
+(r<sub>k</sub> − r<sub>k−1</sub>)/(r<sub>k+1</sub> − r<sub>k</sub>) → δ = 4.6692016…</pre></div>
+<h3>Conjugacy with the quadratic family</h3>
+<p>Let g<sub>r</sub>(x) = r x(1 − x) with 0 &lt; r ≤ 4, which maps [0, 1] into itself. Put z = h(x) = r(1/2 − x). Then</p>
+<pre class="math">h(g<sub>r</sub>(x)) = r/2 − r² x(1 − x)
+h(x)² + c = r²/4 − r² x + r² x² + c</pre>
+<p>and these agree for all x exactly when c = r/2 − r²/4. So g<sub>r</sub> is affinely conjugate to f<sub>c</sub> with c = r/2 − r²/4, which runs from 1/4 (at r = 1) down to −2 (at r = 4) as r increases from 1 to 4. Everything known about the real quadratic family transfers.</p>
+<h3>Fixed points and the first bifurcation</h3>
+<p>The fixed points of g<sub>r</sub> are 0 and x* = 1 − 1/r (in [0, 1] for r ≥ 1). The multipliers are g<sub>r</sub>′(0) = r and g<sub>r</sub>′(x*) = r(1 − 2x*) = 2 − r. Thus for 1 &lt; r &lt; 3 the point x* is attracting, and in fact attracts every x ∈ (0, 1). At r = 3 the multiplier passes through −1, and a period-doubling (flip) bifurcation occurs.</p>
+<h3>The 2-cycle</h3>
+<p><strong>Proposition 11.1</strong>. For r &gt; 3, g<sub>r</sub> has a unique 2-cycle {x₊, x₋},</p>
+<pre class="math">x± = ( r + 1 ± √((r − 3)(r + 1)) ) / (2r)</pre>
+<p>with multiplier (g<sub>r²</sub>)′ = −r² + 2r + 4. The cycle is attracting for 3 &lt; r &lt; 1 + √6 ≈ 3.449490.</p>
+<p><strong>Proof</strong>. Dividing g<sub>r²</sub>(x) − x by the fixed-point factor x(rx − r + 1) leaves the quadratic r²x² − r(r + 1)x + (r + 1), whose roots are x±; they are real and distinct exactly when (r − 3)(r + 1) &gt; 0. Their sum is (r + 1)/r and product (r + 1)/r². The multiplier is</p>
+<pre class="math">g<sub>r</sub>′(x₊)g<sub>r</sub>′(x₋) = r²(1 − 2x₊)(1 − 2x₋) = r²[1 − 2(x₊ + x₋) + 4x₊x₋]
+                = r² − 2r(r + 1) + 4(r + 1) = −r² + 2r + 4</pre>
+<p>This equals 1 at r = 3 and −1 when r² − 2r − 5 = 0, i.e. r = 1 + √6, and lies strictly between −1 and 1 in between. ∎</p>
+<p>The 2-cycle is superattracting, multiplier 0, when r² − 2r − 4 = 0, i.e. r = 1 + √5 ≈ 3.2361; then x₋ = 1/2, the critical point. Under the conjugacy, r = 3 corresponds to c = −3/4 and r = 1 + √6 to c = 3/2 + √6/2 − (7 + 2√6)/4 = −5/4, the two real boundary points of the period-2 disc |c + 1| &lt; 1/4.</p>
+<h3>The cascade and the Feigenbaum constants</h3>
+<p>As r increases, the attracting 2-cycle loses stability at r₂ = 1 + √6, giving birth to an attracting 4-cycle, which gives way to an 8-cycle at r₃, and so on. Numerically:</p>
+<pre class="math">k     r<sub>k</sub> (period 2ᵏ born)    (r<sub>k</sub> − r<sub>k−1</sub>)/(r<sub>k+1</sub> − r<sub>k</sub>)
+1     3.000000
+2     3.449490                4.7515
+3     3.544090                4.6562
+4     3.564407                4.6684
+5     3.568759
+∞     3.569946</pre>
+<h3>Feigenbaum (1978) observed that the ratios converge to</h3>
+<pre class="math">δ = 4.669201609102990…</pre>
+<p>and, crucially, that the same constant appears for every smooth unimodal family with a quadratic maximum — for instance r sin(πx), or the real quadratic family itself — and in physical experiments (Libchaber's convection experiments, 1980). A second constant α = 2.502907875… governs the spatial scaling: the signed distance from the critical point to its nearest neighbour on the superstable 2ᵏ-cycle changes by a factor approaching −1/α at each doubling.</p>
+<h3>Renormalisation</h3>
+<p>The explanation is a fixed point of an infinite-dimensional operator. For a unimodal map g with critical point at 0 normalised by g(0) = 1, define the period-doubling renormalisation</p>
+<pre class="math">(𝓡g)(x) = −α g(g(−x/α)),   α = −1/g(1)</pre>
+<p>which rescales the second iterate restricted to a small interval around the critical point. The Feigenbaum–Cvitanović equation g* = 𝓡g* has a unique even analytic solution with a quadratic maximum, g*(x) = 1 − 1.5276330… x² + 0.1048152… x⁴ + ⋯. The constant α is −1/g*(1), and δ is the unique eigenvalue of modulus greater than 1 of the derivative D𝓡 at g*. The existence of g* and the hyperbolicity of 𝓡 were proved by Lanford (1982) with computer assistance; conceptual proofs were given by Sullivan, McMullen and Lyubich (Lyubich, 1999, proved hyperbolicity of renormalisation for the full quadratic family). Universality is thus a theorem: every family crossing the stable manifold of g* transversally has period-doubling ratios converging to δ.</p>
+<h3>The Feigenbaum attractor</h3>
+<p>At r = r<sub>∞</sub> the attractor of g<sub>r</sub> is a Cantor set, the closure of the critical orbit, on which g<sub>r</sub> acts as an adding machine (odometer). Its Hausdorff dimension is approximately 0.538 (Grassberger, 1981). It is not exactly self-similar, but it is asymptotically self-similar with the scaling factors α and α² governing the two halves of each piece — an early example of a &quot;dynamically defined&quot; Cantor set.</p>
+<h3>Beyond the accumulation point</h3>
+<p>For r<sub>∞</sub> &lt; r ≤ 4 the dynamics is a mixture of windows of periodic attraction and chaotic parameters. The most visible window opens with a saddle-node (tangent) bifurcation at r = 1 + √8 ≈ 3.828427, where an attracting 3-cycle appears; by the conjugacy this is c = −7/4. Two theorems frame this region.</p>
+<p><strong>Theorem 11.2 (Sharkovskii, 1964)</strong>. Order the positive integers as</p>
+<pre class="math">3 ▷ 5 ▷ 7 ▷ ⋯ ▷ 2·3 ▷ 2·5 ▷ ⋯ ▷ 2²·3 ▷ 2²·5 ▷ ⋯ ▷ 2³ ▷ 2² ▷ 2 ▷ 1</pre>
+<p>If a continuous map of an interval has a periodic point of period m and m ▷ n, then it has a periodic point of period n.</p>
+<p>In particular a period-3 orbit forces orbits of every period (Li and Yorke, 1975, &quot;Period three implies chaos&quot;). For the logistic family, the order in which periods appear as r increases is consistent with the Sharkovskii order, and the cascade 1, 2, 4, 8, … is the tail of that order.</p>
+<p><strong>Theorem 11.3 (Jakobson 1981; Graczyk–Świątek and Lyubich 1997; Lyubich 2002)</strong>. The set of r for which g<sub>r</sub> has an absolutely continuous invariant probability measure has positive Lebesgue measure; the set of r for which g<sub>r</sub> has an attracting cycle is open and dense in [0, 4]; and for Lebesgue-almost every r one of these two alternatives holds.</p>
+<h3>The case r = 4</h3>
+<p>Writing x = sin²(πθ),</p>
+<pre class="math">g₄(sin² πθ) = 4 sin²(πθ) cos²(πθ) = sin²(2πθ)</pre>
+<p>so g₄ is semiconjugate to the doubling map θ ↦ 2θ mod 1, and conjugate via x = sin²(πθ/2) to the tent map T(θ) = 1 − |1 − 2θ|. Pushing Lebesgue measure forward, g₄ has the invariant density ρ(x) = 1/(π√(x(1 − x))), and its Lyapunov exponent, lim (1/n) log|(g₄ⁿ)′(x)|, equals log 2 for almost every x.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the 2-cycle multiplier at r = 3.2 and decide stability.</div></li><li><span class="mk">(b)</span><div>Find the 2-cycle explicitly at r = 10/3.</div></li><li><span class="mk">(c)</span><div>Use δ to predict r₆ from r₄ and r₅, and compare with the true value r₆ ≈ 3.569692.</div></li><li><span class="mk">(d)</span><div>Verify that r = 1 + √8 corresponds to c = −7/4.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) −(3.2)² + 2(3.2) + 4 = −10.24 + 6.4 + 4 = 0.16, which lies in (−1, 1): attracting. (b) (r − 3)(r + 1) = (1/3)(13/3) = 13/9, so x± = (13/3 ± √13/3)/(20/3) = (13 ± √13)/20, i.e. x₊ ≈ 0.8303 and x₋ ≈ 0.4697. (c) r₆ ≈ r₅ + (r₅ − r₄)/δ = 3.568759 + 0.004352/4.669202 ≈ 3.568759 + 0.000932 = 3.569691, agreeing with the true value to about 10⁻⁶. (d) c = r/2 − r²/4 with r = 1 + 2√2: r² = 9 + 4√2, so c = (2 + 4√2 − 9 − 4√2)/4 = −7/4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

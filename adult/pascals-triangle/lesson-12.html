@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Catalan Numbers, Reflection and the Ballot Problem — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 12</p>
+    <h1>Catalan Numbers, Reflection and the Ballot Problem</h1>
+    <p class="kicker">Lesson 12 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Cₙ = C(2n, n) − C(2n, n + 1) = C(2n, n)/(n + 1) = C(2n + 1, n)/(2n + 1)
+P(A strictly ahead throughout | a votes for A, b for B, a &gt; b) = (a − b)/(a + b)</pre></div>
+<h3>Dyck paths and the reflection principle</h3>
+<p>A Dyck path of semilength n is a sequence of n up-steps (+1) and n down-steps (−1) whose partial sums are all nonnegative. Let Cₙ be their number.</p>
+<p><strong>Theorem 12.1</strong>. Cₙ = C(2n, n) − C(2n, n + 1) = C(2n, n)/(n + 1).</p>
+<p><strong>Proof</strong>. Among all C(2n, n) paths from height 0 to height 0, call a path bad if it reaches height −1. Reflect the portion of a bad path after its first visit to −1 in the line y = −1. This produces a path from 0 to −2, i.e. with n − 1 ups and n + 1 downs, and the map is a bijection onto all such paths (every path ending at −2 visits −1, and reflecting after the first visit inverts the map). Hence the number of bad paths is C(2n, n + 1), and C(2n, n) − C(2n, n + 1) = C(2n, n)(1 − n/(n + 1)) = C(2n, n)/(n + 1). ∎</p>
+<p>The reflection argument is traditionally credited to Désiré André (1887), though André's own published argument was a different bijection.</p>
+<h3>The ballot theorem</h3>
+<p><strong>Theorem 12.2 (Whitworth 1878; Bertrand 1887)</strong>. If candidate A receives a votes and B receives b &lt; a votes, and the ballots are counted in uniformly random order, the probability that A is strictly ahead throughout the count is (a − b)/(a + b).</p>
+<p><strong>Proof</strong>. Encode a count as a lattice path with up-steps for A. A good path starts with an up-step and stays strictly above 0 afterwards; it is a path from (1, 1) to (a + b, a − b) avoiding the axis. There are C(a + b − 1, a − 1) paths from (1, 1) to (a + b, a − b) in total. Those touching the axis are, by reflecting their initial segment up to the first touch, in bijection with paths from (1, −1) to (a + b, a − b), which have a ups and b − 1 downs: there are C(a + b − 1, a) of them. Hence the number of good paths is C(a + b − 1, a − 1) − C(a + b − 1, a) = C(a + b, a)(a/(a + b) − b/(a + b)), and dividing by C(a + b, a) gives the claim. ∎</p>
+<p>Prepending an extra vote for A converts &quot;never behind&quot; into &quot;strictly ahead&quot;: the number of paths from (0, 0) to (a, b) with unit east and north steps that never go above the diagonal (a ≥ b) is the ballot number</p>
+<pre class="math">((a − b + 1)/(a + 1)) C(a + b, b)        (a = b = n:  Cₙ;   a = 8, b = 5:  (4/9) · 1287 = 572)</pre>
+<h3>The cycle lemma</h3>
+<p><strong>Lemma 12.3 (Dvoretzky–Motzkin, 1947)</strong>. Let s be a sequence of a terms +1 and b terms −1 with a &gt; b. Exactly a − b of the a + b cyclic rotations of s have all partial sums positive (counting rotations by their starting position).</p>
+<p><strong>Proof sketch</strong>. Call a starting position good if the rotation beginning there has all partial sums positive. A +1 immediately followed cyclically by a −1 can be deleted without changing which of the remaining starting positions are good, and neither deleted position is good (the −1 position starts with a negative sum, and the +1 position reaches 0 after two steps). After b such deletions only a − b terms +1 remain, all of them good. ∎</p>
+<p>Applied to sequences of n + 1 ups and n downs (all rotations distinct because gcd(2n + 1, n) = 1), each rotation class of size 2n + 1 contains exactly one good sequence, and a good sequence is an up-step followed by a Dyck path. Hence Cₙ = C(2n + 1, n)/(2n + 1), a second proof of Theorem 12.1. More generally the cycle lemma gives the Fuss–Catalan numbers C(mn + 1, n)/(mn + 1) counting m-ary trees with n internal nodes.</p>
+<h3>Generating function and asymptotics</h3>
+<p>Decomposing a nonempty Dyck path at its first return to 0 gives Cₙ₊₁ = ∑<sub>k=0</sub><sup>n</sup> Cₖ Cₙ₋ₖ, so C(x) = ∑ Cₙ xⁿ satisfies C(x) = 1 + x C(x)². Solving and choosing the branch regular at 0, C(x) = (1 − √(1 − 4x))/(2x). Newton's series for (1 − 4x)<sup>1/2</sup> recovers Cₙ = C(2n, n)/(n + 1), and the central asymptotics of Lesson 13 give</p>
+<pre class="math">Cₙ ~ 4ⁿ / (√π n<sup>3/2</sup>)</pre>
+<p>The sequence begins 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796. Stanley's monograph Catalan Numbers (2015) lists over two hundred families of objects counted by Cₙ, including triangulations of a convex (n + 2)-gon, binary trees with n internal nodes, noncrossing partitions of [n] and 231-avoiding permutations.</p>
+<h3>Parity</h3>
+<p><strong>Proposition 12.4</strong>. v₂(Cₙ) = s₂(n + 1) − 1. In particular Cₙ is odd if and only if n = 2ᵐ − 1. Proof. v₂(Cₙ) = v₂ C(2n, n) − v₂(n + 1) = s₂(n) − v₂(n + 1) by Corollary 8.3. If n ends in exactly j binary ones, then v₂(n + 1) = j and adding 1 replaces these j ones by a single one, so s₂(n + 1) = s₂(n) − j + 1. Hence v₂(Cₙ) = s₂(n + 1) − 1, which vanishes exactly when n + 1 is a power of 2. ∎</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute C₁₀.</div></li><li><span class="mk">(b)</span><div>With a = 7 and b = 4, find the probability that A is strictly ahead throughout.</div></li><li><span class="mk">(c)</span><div>Find v₂(C₃₀) and decide whether C₃₁ is odd.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(20, 10)/11 = 184756/11 = 16796. (b) (7 − 4)/(7 + 4) = 3/11. (c) v₂(C₃₀) = s₂(31) − 1 = 5 − 1 = 4; C₃₁ is odd since 32 is a power of 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+{
+  "blurb": "Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.",
+  "pics": [
+    {
+      "img": "img/adult/fractal-geometry-1.jpg",
+      "alt": "Sepia oval portrait photograph of Felix Hausdorff in profile, wearing a suit and tie",
+      "caption": "Felix Hausdorff, photographed between 1913 and 1921. In 1918 he introduced the measures and the notion of dimension now named after him, which assign non-integer dimensions such as log 2 / log 3 to the Cantor set.",
+      "title": "Hausdorff 1913-1921.jpg",
+      "page": "https://commons.wikimedia.org/wiki/File:Hausdorff_1913-1921.jpg",
+      "license": "Public domain",
+      "artist": "Unknown photographer"
+    },
+    {
+      "img": "img/adult/fractal-geometry-2.png",
+      "alt": "Bifurcation diagram of the logistic map, plotting long-run values of x against the parameter r from 2.4 to 4",
+      "caption": "Bifurcation diagram of the logistic map x ↦ r x(1 − x) for 2.4 ≤ r ≤ 4. The attracting fixed point splits into a 2-cycle at r = 3 and a 4-cycle at r = 1 + √6 ≈ 3.449; the doublings accumulate near r ≈ 3.5699, beyond which chaotic bands alternate with periodic windows such as the period-3 window opening at r = 1 + √8 ≈ 3.828.",
+      "title": "LogisticMap BifurcationDiagram.png",
+      "page": "https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png",
+      "license": "Public domain",
+      "artist": "PAR"
+    }
+  ]
+}

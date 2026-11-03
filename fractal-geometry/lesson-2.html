@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#10b981">
+<body id="top" class="mode-kid" style="--topic:#10b981">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry" class="active">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/fractal-geometry/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A fractal is built by ONE rule, applied over and over.
 Each round is called an ITERATION (or stage). The start is stage 0.
@@ -61,8 +62,8 @@ f(f(f(x))) = 8x               (three iterations)
 f applied n times = 2ⁿ · x    (n iterations)</pre>
 <p>Same math, new outfit: the n-th stage is the n-th composition of the rule-function.</p>
 <p>Now count the TOTAL branches: 1, then 1 + 2 = 3, then 1 + 2 + 4 = 7, then 1 + 2 + 4 + 8 = 15. Look closely: 1, 3, 7, 15 — each total is exactly 1 less than the next power of 2 (2, 4, 8, 16). Let's PROVE that pattern instead of trusting it.</p>
-<p>Theorem: 1 + 2 + 4 + ... + 2ⁿ = 2ⁿ⁺¹ − 1.</p>
-<p>Proof (every step justified):</p>
+<p><strong>Theorem</strong>: 1 + 2 + 4 + ... + 2ⁿ = 2ⁿ⁺¹ − 1.</p>
+<p><strong>Proof (every step justified)</strong>:</p>
 <pre class="math">Let S = 1 + 2 + 4 + ... + 2ⁿ        (name the sum so we can work with it)
    2S =     2 + 4 + ... + 2ⁿ + 2ⁿ⁺¹  (multiply BOTH sides by 2; every term shifts one place right)
 2S − S = 2ⁿ⁺¹ − 1                    (subtract the equations: 2 cancels 2, 4 cancels 4, ..., 2ⁿ cancels 2ⁿ)
@@ -97,7 +98,7 @@ a = 2                                 (add 1 to both sides)
 Formula: Tₙ = 2·2ⁿ − 1 = 2ⁿ⁺¹ − 1     (combine: 2·2ⁿ = 2ⁿ⁺¹)</pre>
 <p>Matches the theorem. Two methods, one answer — that's how you know you're right.</p>
 <p>In math, the iterations never stop. A true fractal has infinitely many stages — zoom in forever, and there's always more detail. Nature's fractals stop after a few rounds (a real tree splits maybe five or six times before the twigs end). But the RULE — and the formulas — are exactly the same.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>A rule says: every square becomes 4 smaller squares. Start with 1 square. Write the recursive and explicit formulas for the count, and find the count at stage 2. (b) A tree's rule is: every branch splits into 3. Write the explicit formula for new tips at stage n, and list stages 1–3. (c) Use the series formula to find the total branches of a doubling tree through stage 5 — then check by adding.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Recursive: S₀ = 1, Sₙ = 4·Sₙ₋₁. Explicit: Sₙ = 4ⁿ. Stage 2: 16. (b) Tₙ = 3ⁿ: 3, 9, 27. (c) a = 1, r = 2, n = 6 terms (stages 0 through 5): S = (2⁶ − 1)/(2 − 1) = 63. Check: 1 + 2 + 4 + 8 + 16 + 32 = 63 ✓.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>A rule says: every square becomes 4 smaller squares. Start with 1 square. Write the recursive and explicit formulas for the count, and find the count at stage 2.</div></li><li><span class="mk">(b)</span><div>A tree's rule is: every branch splits into 3. Write the explicit formula for new tips at stage n, and list stages 1–3.</div></li><li><span class="mk">(c)</span><div>Use the series formula to find the total branches of a doubling tree through stage 5 — then check by adding.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) Recursive: S₀ = 1, Sₙ = 4·Sₙ₋₁. Explicit: Sₙ = 4ⁿ. Stage 2: 16. (b) Tₙ = 3ⁿ: 3, 9, 27. (c) a = 1, r = 2, n = 6 terms (stages 0 through 5): S = (2⁶ − 1)/(2 − 1) = 63. Check: 1 + 2 + 4 + 8 + 16 + 32 = 63 ✓.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
 </main>
 
@@ -107,7 +108,7 @@ Formula: Tₙ = 2·2ⁿ − 1 = 2ⁿ⁺¹ − 1     (combine: 2·2ⁿ = 2ⁿ⁺�
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Affine Geometry — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 6</p>
+    <h1>Affine Geometry</h1>
+    <p class="kicker">Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Affine combination: λ₁p₁ + ⋯ + λₖpₖ with λ₁ + ⋯ + λₖ = 1
+Affine maps preserve affine combinations, parallelism and ratios along lines
+Aff(n) = { x ↦ Ax + b : A ∈ GL(n) },   dim Aff(n) = n² + n</pre></div>
+<h3>Points versus vectors</h3>
+<p>Affine geometry is the geometry of a space with no preferred origin. Its objects are points; the difference of two points is a vector; and a point plus a vector is a point. One cannot meaningfully add two points, but one can form an affine combination λ₁p₁ + ⋯ + λₖpₖ with Σλᵢ = 1, because it equals p₁ + Σ<sub>i≥2</sub> λᵢ(pᵢ − p₁), an expression involving only a point and vectors. The midpoint ½p + ½q and the centroid (p + q + r)/3 are affine combinations; the &quot;sum&quot; p + q is not.</p>
+<p>An affine subspace of ℝⁿ is a set of the form x₀ + U with U a linear subspace (the direction of the affine subspace, uniquely determined); equivalently, a non-empty set closed under affine combinations. Its dimension is dim U. Points, lines and planes are affine subspaces of dimensions 0, 1, 2; the solution set of a consistent system Ax = b is the affine subspace x₀ + ker A; and an affine hyperplane is a set {x : aᵀx = c} with a ≠ 0, a level set of a nonzero linear functional.</p>
+<h3>Affine independence and barycentric coordinates</h3>
+<p>Points p₀, …, pₖ are affinely independent if the vectors p₁ − p₀, …, pₖ − p₀ are linearly independent; equivalently, if Σλᵢpᵢ = 0 with Σλᵢ = 0 forces all λᵢ = 0. In ℝⁿ at most n + 1 points can be affinely independent, and n + 1 affinely independent points form an affine frame. Every point x then has unique barycentric coordinates (λ₀, …, λₙ), Σλᵢ = 1, with x = Σλᵢpᵢ. For a triangle the barycentric coordinates are ratios of signed areas: λ<sub>A</sub> = area(PBC)/area(ABC), and so on. The point lies inside the triangle exactly when all three coordinates are positive, and the centroid has coordinates (1/3, 1/3, 1/3). Barycentric coordinates are the workhorse of the finite element method and of computer graphics, where colours and textures are interpolated across triangles.</p>
+<p><strong>Worked example</strong>. Find the barycentric coordinates of P = (1, 1) with respect to A = (0, 0), B = (4, 0), C = (0, 2). Writing P = αA + βB + γC with α + β + γ = 1 gives 4β = 1 and 2γ = 1, so β = 1/4, γ = 1/2 and α = 1 − 1/4 − 1/2 = 1/4. All are positive, so P is interior. Check with areas: area(ABC) = 4, area(PBC) = ½|(4 − 1)(2 − 1) − (0 − 1)(0 − 1)| = ½|3 − 1| = 1, and 1/4 = α as claimed.</p>
+<h3>Affine maps</h3>
+<p>A map f between affine spaces is affine if it preserves affine combinations; by Theorem 1.1, on ℝⁿ this means f(x) = Ax + b. Affine maps send affine subspaces to affine subspaces, send parallel lines to parallel lines (or to points), and preserve ratios of lengths along a line (Problem 31), but in general they do not preserve angles, lengths or areas. Areas, and n-dimensional volumes, are all multiplied by the same factor |det A|. An affine map is determined by its values on an affine frame, and those values may be prescribed arbitrarily (Problem 32). Hence any triangle can be mapped onto any other, which is why every &quot;affine&quot; theorem about triangles (for example, the medians are concurrent at the point dividing each in the ratio 2 : 1) need only be proved for one convenient triangle, such as an equilateral one.</p>
+<h3>The affine group</h3>
+<p>The invertible affine maps of ℝⁿ form a group Aff(n) under composition: (A, b)∘(A′, b′) = (AA′, Ab′ + b). It is the semidirect product ℝⁿ ⋊ GL(n), and it embeds in GL(n + 1) through the homogeneous-coordinate trick</p>
+<pre class="math">x ↦ Ax + b    ⇔    [ x ]  ↦  [ A  b ] [ x ]
+                    [ 1 ]      [ 0  1 ] [ 1 ]</pre>
+<p>which converts affine maps into linear ones in one higher dimension (Problem 33). Every computer graphics pipeline works in these coordinates. As a Lie group, Aff(n) has dimension n² + n: n² parameters for A and n for b.</p>
+<p>Felix Klein's Erlangen programme of 1872 defined a geometry as the study of invariants of a group action. Euclidean geometry studies invariants of the isometry group (x ↦ Qx + b, Q orthogonal); affine geometry those of Aff(n); projective geometry those of the projective group. Each enlargement of the group discards invariants: lengths and angles are not affine invariants, but parallelism, midpoints and ratios of areas are.</p>
+<h3>Theorem 6.1 (Fundamental theorem of affine geometry, real case)</h3>
+<p>Let n ≥ 2. A bijection f : ℝⁿ → ℝⁿ that maps every line onto a line is affine.</p>
+<p>We do not give the proof, which is a careful but elementary argument: such an f preserves parallelism, hence (by parallelogram constructions) it is additive after translating so that f(0) = 0, and it is ℚ-linear; a further argument shows that the induced map on scalars is a field automorphism of ℝ, and the only such automorphism is the identity, because it must preserve squares and hence the order. Over ℂ the analogous theorem allows semilinear maps such as complex conjugation.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the barycentric coordinates of (2, 1) with respect to (0, 0), (4, 0), (0, 4).</div></li><li><span class="mk">(b)</span><div>What is the dimension of the group Aff(3)?</div></li><li><span class="mk">(c)</span><div>An affine map sends A = (0, 0) to (1, 1) and B = (2, 0) to (5, 3). Where does it send the midpoint of AB?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 4β = 2 and 4γ = 1 give β = 1/2, γ = 1/4, α = 1/4. (b) 3² + 3 = 12. (c) Affine maps preserve midpoints, so the image is the midpoint of (1, 1) and (5, 3), namely (3, 2).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

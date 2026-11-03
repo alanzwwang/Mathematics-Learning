@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Projective Space and Projective Closure — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 8</p>
+    <h1>Projective Space and Projective Closure</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ℙⁿ = (kⁿ⁺¹ ∖ {0}) / k*  =  𝔸ⁿ ⊔ ℙⁿ⁻¹,    f(x, y) ↦ Fʰ(X, Y, Z) = Zᵈ f(X/Z, Y/Z)</pre></div>
+<h3>Why projective space</h3>
+<p>In the affine plane two distinct lines meet in one point, unless they are parallel; a line meets a circle in two points, unless it misses it or is tangent. Counting theorems in affine space are full of exceptions. Some exceptions disappear when k is algebraically closed (complex intersection points), some when multiplicities are counted (tangency), and the rest disappear when points at infinity are added. Projective space is the setting in which all three repairs can be made at once, and Bézout's theorem (Lesson 9) is the reward.</p>
+<p><strong>Definition</strong>. Projective n-space ℙⁿ = ℙⁿ(k) is the set of lines through the origin in kⁿ⁺¹, i.e. the set of equivalence classes of nonzero vectors (x₀, …, xₙ) under (x₀, …, xₙ) ∼ (λx₀, …, λxₙ) for λ ∈ k*. The class of (x₀, …, xₙ) is written [x₀ : ⋯ : xₙ]; these are homogeneous coordinates. The subset Uᵢ = { xᵢ ≠ 0 } is identified with 𝔸ⁿ via [x₀ : ⋯ : xₙ] ↦ (x₀/xᵢ, …, x̂ᵢ, …, xₙ/xᵢ), omitting the i-th entry. The n + 1 standard charts U₀, …, Uₙ cover ℙⁿ, and the complement of Uₙ is the hyperplane at infinity { xₙ = 0 } ≅ ℙⁿ⁻¹. So ℙⁿ = 𝔸ⁿ ⊔ ℙⁿ⁻¹, and by induction ℙⁿ = 𝔸ⁿ ⊔ 𝔸ⁿ⁻¹ ⊔ ⋯ ⊔ 𝔸⁰; over 𝔽<sub>q</sub> this gives #ℙⁿ(𝔽<sub>q</sub>) = qⁿ + qⁿ⁻¹ + ⋯ + 1.</p>
+<p>In the projective plane ℙ² with coordinates [X : Y : Z] we use the chart Z ≠ 0 with x = X/Z, y = Y/Z as &quot;the&quot; affine plane, and call Z = 0 the line at infinity. A point at infinity [a : b : 0] is a direction (a, b) in the affine plane, up to scaling. Two parallel lines y = mx + c and y = mx + c′ become Y = mX + cZ and Y = mX + c′Z, which meet at the point [1 : m : 0] at infinity; vertical lines meet at [0 : 1 : 0]. Over ℝ, ℙ²(ℝ) is a compact non-orientable surface, and over ℂ, ℙⁿ(ℂ) is a compact complex manifold; ℙ¹(ℂ) is the Riemann sphere.</p>
+<h3>Projective algebraic sets</h3>
+<p>A polynomial F does not define a function on ℙⁿ, but if F is homogeneous of degree d then F(λx) = λᵈF(x), so the condition F(x) = 0 is well defined. For a set S of homogeneous polynomials, V(S) ⊆ ℙⁿ is the set of points where all of them vanish; these are the projective algebraic sets and the closed sets of the Zariski topology on ℙⁿ. An ideal J is homogeneous if it is generated by homogeneous polynomials, equivalently if every homogeneous component of every element of J lies in J; for X ⊆ ℙⁿ, the ideal I(X) generated by the homogeneous polynomials vanishing on X is homogeneous.</p>
+<p><strong>Theorem (projective Nullstellensatz)</strong>. Let k be algebraically closed and J ⊆ k[x₀, …, xₙ] a homogeneous ideal. Then V(J) = ∅ in ℙⁿ if and only if √J ⊇ ⟨x₀, …, xₙ⟩, and if V(J) ≠ ∅ then I(V(J)) = √J.</p>
+<p><strong>Proof</strong>. Let C(V) ⊆ 𝔸ⁿ⁺¹ be the affine cone, the zero set of J in kⁿ⁺¹. Because J is homogeneous, C(V) is a union of lines through the origin together with the origin itself (if J is proper), and V(J) = ∅ in ℙⁿ iff C(V) ⊆ {0}. By the affine Nullstellensatz, C(V) ⊆ {0} iff √J ⊇ I({0}) = ⟨x₀, …, xₙ⟩. If V(J) ≠ ∅, a homogeneous F vanishes on V(J) iff it vanishes on C(V), iff F ∈ √J by the affine Nullstellensatz; and the radical of a homogeneous ideal is homogeneous. ∎</p>
+<p>The ideal ⟨x₀, …, xₙ⟩ is called the irrelevant ideal: it defines the empty set although it is a proper ideal.</p>
+<h3>Homogenization and projective closure</h3>
+<p>For f ∈ k[x, y] of degree d, its homogenization is Fʰ(X, Y, Z) = Zᵈ f(X/Z, Y/Z), a homogeneous polynomial of degree d; dehomogenization sets Z = 1. The projective closure of an affine curve C = V(f) is the projective curve V(Fʰ), which is the Zariski closure of C in ℙ². Its points at infinity are found by setting Z = 0, which kills everything except the top-degree part f<sub>d</sub>: the points at infinity are the zeros of f<sub>d</sub>(X, Y) on the line Z = 0, i.e. the asymptotic directions of C.</p>
+<p><strong>Example (the parabola)</strong>. y = x² homogenizes to YZ = X². At Z = 0 we get X² = 0: the single point [0 : 1 : 0], with multiplicity 2, so the line at infinity is tangent to the projective parabola there.</p>
+<p><strong>Example (the hyperbola)</strong>. xy = 1 becomes XY = Z², with points at infinity [1 : 0 : 0] and [0 : 1 : 0], the directions of the two asymptotes. The projective closures of the parabola and the hyperbola are projectively equivalent to each other and to the circle: the classification of Lesson 6 is about how a single projective conic meets the line at infinity.</p>
+<p><strong>Example (the circle and the circular points)</strong>. x² + y² = r² becomes X² + Y² = r²Z². At Z = 0, X² + Y² = 0 gives [1 : i : 0] and [1 : −i : 0]. Every circle (x − a)² + (y − b)² = r², homogenized, has top-degree part X² + Y², so every circle passes through these two points, the circular points at infinity. A conic is a circle iff it passes through both of them (for a real conic, iff its top-degree part is a multiple of X² + Y²).</p>
+<p>For varieties of higher codimension, homogenizing a set of generators is not enough. The projective closure of an affine algebraic set V(I) is V(Iʰ), where Iʰ is generated by the homogenizations of all elements of I.</p>
+<p><strong>Example (the twisted cubic)</strong>. C = V(y − x², z − x³) ⊂ 𝔸³ is the image of t ↦ (t, t², t³). In ℙ³ with coordinates [X : Y : Z : W] and W = 0 at infinity, the points [t : t² : t³ : 1] tend to [0 : 0 : 1 : 0] as t → ∞, which is the only point at infinity of the closure (Problem 33). Homogenizing the two generators gives YW − X² and ZW² − X³, whose common zeros at W = 0 are all [0 : Y : Z : 0], an entire line. The missing equation is y² − xz, which lies in I (both y² and xz equal x⁴ on C) and homogenizes to Y² − XZ; it cuts the line down to the single point [0 : 0 : 1 : 0].</p>
+<h3>Projective transformations and linear systems</h3>
+<p>The group PGL(n + 1, k) of invertible (n + 1) × (n + 1) matrices modulo scalars acts on ℙⁿ by projective transformations, and these are exactly the automorphisms of ℙⁿ as a variety. Any n + 2 points in general position (no n + 1 on a hyperplane) can be moved to any other such configuration by a unique projective transformation; for n = 1 this is the classical fact that a Möbius transformation is determined by the images of three points, and the cross-ratio of four points of ℙ¹ is the basic invariant.</p>
+<p>A plane curve of degree d is given by a homogeneous polynomial of degree d up to a scalar. There are (d + 1)(d + 2)/2 monomials of degree d in X, Y, Z, so the curves of degree d form a projective space of dimension</p>
+<pre class="math">N(d) = (d + 1)(d + 2)/2 − 1 = d(d + 3)/2</pre>
+<p>Passing through a given point is one linear condition on the coefficients, so through any N(d) points there passes at least one curve of degree d. Thus through any 2 points passes a line, through any 5 points passes a conic, and through any 9 points passes a cubic.</p>
+<p>Regular functions on projective varieties are constant: a regular function on ℙⁿ is given on each chart by a polynomial, and compatibility on overlaps forces it to be a homogeneous polynomial of degree 0. Over ℂ this mirrors compactness and Liouville's theorem. Consequently projective varieties are not described by their rings of global functions, and one works instead with the homogeneous coordinate ring k[x₀, …, xₙ]/I(X), with line bundles and with sheaves.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the points at infinity of y² = x³ − x.</div></li><li><span class="mk">(b)</span><div>Homogenize x²y + y³ − x + 2.</div></li><li><span class="mk">(c)</span><div>Find the conic through (0, 0), (1, 0), (0, 1), (1, 1) and (2, 3), and determine its type.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The projective closure is Y²Z = X³ − XZ². At Z = 0 we get X³ = 0, so the only point at infinity is [0 : 1 : 0], where the line Z = 0 meets the curve with multiplicity 3. (b) The degree is 3: X²Y + Y³ − XZ² + 2Z³. (c) Write Ax² + Bxy + Cy² + Dx + Ey + F = 0. The point (0, 0) gives F = 0; (1, 0) gives A + D = 0; (0, 1) gives C + E = 0; (1, 1) then gives B = 0; and (2, 3) gives 4A + 9C + 2D + 3E = 2A + 6C = 0, so A = −3C. With C = −1 the conic is 3x² − y² − 3x + y = 0, i.e. 3x(x − 1) = y(y − 1). Its matrix has determinant 3·(−1·0 − 1/4) + (−3/2)·(0·(1/2) − (−1)(−3/2)) = −3/4 + 9/4 = 3/2 ≠ 0, so it is nondegenerate, and B² − 4AC = 0 − 4·3·(−1) = 12 &gt; 0 makes it a hyperbola.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

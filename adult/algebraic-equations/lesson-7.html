@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Symmetric Polynomials and Vieta's Formulas — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 7</p>
+    <h1>Symmetric Polynomials and Vieta's Formulas</h1>
+    <p class="kicker">Lesson 7 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">every symmetric polynomial is a unique polynomial in e₁, …, eₙ
+Newton:  k eₖ = ∑<sub>j=1</sub><sup>k</sup> (−1)<sup>j−1</sup> eₖ₋ⱼ pⱼ</pre></div>
+<p>Let R be a commutative ring and x₁, …, xₙ indeterminates. The symmetric group Sₙ acts on R[x₁, …, xₙ] by permuting the variables, and a polynomial is symmetric if it is fixed by every permutation. The elementary symmetric polynomials eₖ are defined by the generating identity</p>
+<pre class="math">(1 + x₁t)(1 + x₂t)⋯(1 + xₙt) = 1 + e₁t + e₂t² + ⋯ + eₙtⁿ</pre>
+<p>so e₁ = ∑ xᵢ, e₂ = ∑<sub>i&lt;j</sub> xᵢxⱼ, …, eₙ = x₁x₂⋯xₙ. Equivalently, (X − x₁)⋯(X − xₙ) = Xⁿ − e₁Xⁿ⁻¹ + e₂Xⁿ⁻² − ⋯ + (−1)ⁿeₙ.</p>
+<h3>Vieta's formulas</h3>
+<p>If f = aₙxⁿ + aₙ₋₁xⁿ⁻¹ + ⋯ + a₀ factors over some field as aₙ(x − α₁)⋯(x − αₙ), comparing coefficients gives Vieta's formulas (Viète, 1591, in partial form; Girard, 1629, in general):</p>
+<pre class="math">eₖ(α₁, …, αₙ) = (−1)ᵏ aₙ₋ₖ / aₙ,   k = 1, …, n</pre>
+<p>So the elementary symmetric functions of the roots are known rationally from the coefficients, even when the roots themselves are not. The next theorem extends this to every symmetric expression.</p>
+<p><strong>Theorem 7.1 (Fundamental theorem on symmetric polynomials)</strong>. Every symmetric f ∈ R[x₁, …, xₙ] can be written as g(e₁, …, eₙ) for a unique g ∈ R[y₁, …, yₙ].</p>
+<p><strong>Proof</strong>. Order monomials x<sup>α</sup> = x₁<sup>α₁</sup>⋯xₙ<sup>αₙ</sup> lexicographically: x<sup>α</sup> &gt; x<sup>β</sup> if the first nonzero entry of α − β is positive. This is a total order compatible with multiplication, and it is a well-order on ℕⁿ. Existence: let f ≠ 0 be symmetric with leading monomial c x<sup>α</sup>. Since f is symmetric, every permutation of α is also an exponent of f, and since x<sup>α</sup> is the largest, α₁ ≥ α₂ ≥ ⋯ ≥ αₙ. The leading monomial of eₖ is x₁x₂⋯xₖ, so the leading monomial of</p>
+<pre class="math">e₁<sup>α₁−α₂</sup> e₂<sup>α₂−α₃</sup> ⋯ eₙ₋₁<sup>αₙ₋₁−αₙ</sup> eₙ<sup>αₙ</sup></pre>
+<p>is x₁<sup>α₁</sup> x₂<sup>α₂</sup> ⋯ xₙ<sup>αₙ</sup> = x<sup>α</sup> with coefficient 1. Subtracting c times this product from f gives a symmetric polynomial whose leading monomial is strictly smaller. Every monomial that appears has total degree at most deg f, and there are only finitely many such monomials, so the process terminates, expressing f as a polynomial in the eₖ. Uniqueness: it suffices to show that g(e₁, …, eₙ) ≠ 0 whenever g ≠ 0. The monomial y<sup>β</sup> of g contributes a product of the eₖ whose leading monomial is x<sup>α</sup> with αᵢ = βᵢ + βᵢ₊₁ + ⋯ + βₙ. This map β ↦ α is injective, so among the monomials of g, the one producing the lex-largest α contributes a leading term that nothing else cancels. ∎</p>
+<p>The proof is an algorithm. Example, n = 3: f = ∑<sub>i≠j</sub> xᵢ²xⱼ (six terms) has leading monomial x₁²x₂, exponent (2, 1, 0), so we subtract e₁<sup>1</sup> e₂<sup>1</sup>. Since e₁e₂ = ∑<sub>i≠j</sub> xᵢ²xⱼ + 3x₁x₂x₃, we find f = e₁e₂ − 3e₃. Check at (1, 2, 3): f = 2 + 3 + 4 + 12 + 9 + 18 = 48 and e₁e₂ − 3e₃ = 6 · 11 − 18 = 48.</p>
+<p><strong>Corollary 7.2</strong>. If f ∈ K[x] has roots α₁, …, αₙ in an extension field and h ∈ K[x₁, …, xₙ] is symmetric, then h(α₁, …, αₙ) ∈ K.</p>
+<p>This corollary is the algebraic heart of many classical arguments. Kronecker used it to show that sums and products of algebraic integers are algebraic integers: if α has conjugates αᵢ and β has conjugates βⱼ, the polynomial ∏<sub>i,j</sub>(x − αᵢ − βⱼ) has coefficients symmetric in each set of conjugates, hence integers. It also proves that the discriminant of a polynomial over K lies in K, and it is the key step of the algebraic proof of the fundamental theorem of algebra sketched in Lesson 9.</p>
+<h3>Power sums and Newton's identities</h3>
+<p>The power sums pₖ = x₁ᵏ + ⋯ + xₙᵏ are symmetric, and Newton's identities give them recursively. Write E(t) = ∏(1 + xᵢt). Taking the logarithmic derivative, which is legitimate in the formal power series ring R[[t]] since each 1 + xᵢt is a unit,</p>
+<pre class="math">t E′(t) / E(t) = ∑ᵢ xᵢt/(1 + xᵢt) = ∑<sub>k≥1</sub> (−1)<sup>k−1</sup> pₖ tᵏ</pre>
+<p>Multiplying by E(t) and comparing coefficients of tᵏ yields:</p>
+<pre class="math">k eₖ = eₖ₋₁p₁ − eₖ₋₂p₂ + ⋯ + (−1)<sup>k−1</sup> e₀pₖ,   with e₀ = 1 and eₖ = 0 for k &gt; n</pre>
+<p>The first cases are p₁ = e₁, p₂ = e₁p₁ − 2e₂ = e₁² − 2e₂, and p₃ = e₁p₂ − e₂p₁ + 3e₃ = e₁³ − 3e₁e₂ + 3e₃. Example: the roots of x³ − 6x² + 11x − 6 are 1, 2, 3, and e₁ = 6, e₂ = 11, e₃ = 6 give p₂ = 36 − 22 = 14 = 1 + 4 + 9 and p₃ = 6 · 14 − 11 · 6 + 18 = 36 = 1 + 8 + 27. Over ℚ the identities can be inverted, so the pₖ with k ≤ n also generate the ring of symmetric polynomials with rational coefficients; over ℤ they do not (e₂ = (p₁² − p₂)/2 requires dividing by 2). In characteristic p, Newton's identities cannot be solved for eₖ when p divides k.</p>
+<h3>Rational symmetric functions of roots</h3>
+<p>Corollary 7.2 also covers symmetric rational functions. For the roots of t³ + pt + q (so e₁ = 0, e₂ = p, e₃ = −q):</p>
+<pre class="math">∑ 1/tᵢ = e₂/e₃ = −p/q,     ∑ 1/tᵢ² = (e₂² − 2e₁e₃)/e₃² = p²/q²</pre>
+<p>Lagrange's 1770 analysis, the bridge from Vieta to Galois, studied rational functions of the roots that are not symmetric, and counted how many distinct values each takes under permutations. A function taking k values satisfies an equation of degree k over the coefficient field, whose coefficients are symmetric functions of those values. Galois's theory turns this counting into the correspondence between subgroups and intermediate fields.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Let α, β, γ be the roots of x³ − 2x² + 3x − 5. Compute α² + β² + γ².</div></li><li><span class="mk">(b)</span><div>Let α, β, γ be the roots of x³ − x − 1. Compute α⁴ + β⁴ + γ⁴.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) e₁ = 2 and e₂ = 3, so p₂ = e₁² − 2e₂ = 4 − 6 = −2. (A negative sum of squares shows that two of the roots are non-real.) (b) Here e₁ = 0, e₂ = −1, e₃ = 1. Then p₁ = 0, p₂ = 0 − 2(−1) = 2, p₃ = e₁p₂ − e₂p₁ + 3e₃ = 3, and p₄ = e₁p₃ − e₂p₂ + e₃p₁ − 4e₄ = 0 + 2 + 0 − 0 = 2. Alternatively, x⁴ = x² + x for each root, so p₄ = p₂ + p₁ = 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

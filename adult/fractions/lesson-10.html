@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Partial Fractions over an Arbitrary Field — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 10</p>
+    <h1>Partial Fractions over an Arbitrary Field</h1>
+    <p class="kicker">Lesson 10 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">If Q = q₁<sup>e₁</sup> ⋯ q<sub>r</sub><sup>e<sub>r</sub></sup> with distinct monic irreducibles q<sub>i</sub> and deg P &lt; deg Q, then
+P/Q = ∑<sub>i</sub> ∑<sub>j=1</sub><sup>e<sub>i</sub></sup> A<sub>ij</sub> / q<sub>i</sub><sup>j</sup>  uniquely, with deg A<sub>ij</sub> &lt; deg q<sub>i</sub>.</pre></div>
+<h3>The setting</h3>
+<p>Let K be a field. The field of fractions of the polynomial ring K[x] is the field K(x) of rational functions (Lesson 1). Because K[x] is a Euclidean domain, like ℤ, every rational function can be written uniquely as P/Q with Q monic and gcd(P, Q) = 1, and division with remainder writes P/Q = S + R/Q with deg R &lt; deg Q. A rational function with deg P &lt; deg Q is called proper. The partial fraction decomposition expresses every proper rational function as a sum of simple pieces whose denominators are powers of irreducible polynomials.</p>
+<p><strong>Theorem 10.1</strong>. Let Q ∈ K[x] be monic with factorisation Q = q₁<sup>e₁</sup> ⋯ q<sub>r</sub><sup>e<sub>r</sub></sup> into distinct monic irreducible polynomials, and let P ∈ K[x] with deg P &lt; deg Q. Then there are unique polynomials A<sub>ij</sub> (1 ≤ i ≤ r, 1 ≤ j ≤ e<sub>i</sub>) with deg A<sub>ij</sub> &lt; deg q<sub>i</sub> and</p>
+<pre class="math">P/Q = ∑<sub>i=1</sub><sup>r</sup> ∑<sub>j=1</sub><sup>e<sub>i</sub></sup> A<sub>ij</sub> / q<sub>i</sub><sup>j</sup>.</pre>
+<p><strong>Proof of existence</strong>. Step 1: splitting coprime factors. Suppose Q = Q₁Q₂ with gcd(Q₁, Q₂) = 1. By Bézout's identity in K[x] there are U, V with UQ₁ + VQ₂ = 1, hence</p>
+<pre class="math">P/Q = P(UQ₁ + VQ₂)/(Q₁Q₂) = PV/Q₁ + PU/Q₂.</pre>
+<p>Divide: PV = S₁Q₁ + R₁ and PU = S₂Q₂ + R₂ with deg R<sub>k</sub> &lt; deg Q<sub>k</sub>. Then P/Q − R₁/Q₁ − R₂/Q₂ = S₁ + S₂ is a polynomial which is also a proper rational function, so it is 0. Repeating, P/Q is a sum of proper fractions R<sub>i</sub>/q<sub>i</sub><sup>e<sub>i</sub></sup>. Step 2: prime powers. Given R/q<sup>e</sup> with deg R &lt; e·deg q, expand R in base q (repeated division by q): R = B₁q<sup>e−1</sup> + B₂q<sup>e−2</sup> + ⋯ + B<sub>e</sub> with deg B<sub>j</sub> &lt; deg q. Dividing by q<sup>e</sup> gives R/q<sup>e</sup> = ∑<sub>j</sub> B<sub>j</sub>/q<sup>j</sup>.</p>
+<p><strong>Proof of uniqueness</strong>. Let n = deg Q. The proper rational functions with denominator dividing Q form the K-vector space V = {P/Q : deg P &lt; n}, of dimension n. The tuples (A<sub>ij</sub>) with deg A<sub>ij</sub> &lt; deg q<sub>i</sub> form a K-vector space W of dimension ∑<sub>i</sub> e<sub>i</sub> deg q<sub>i</sub> = n. The map W → V sending a tuple to the sum ∑ A<sub>ij</sub>/q<sub>i</sub><sup>j</sup> is linear and, by existence, surjective; a surjective linear map between spaces of the same finite dimension is injective. ∎</p>
+<p>The analogy with ℤ is exact: the same proof shows that every rational number a/n with n = ∏ p<sup>e<sub>p</sub></sup> can be written uniquely as k + ∑<sub>p</sub> ∑<sub>j</sub> c<sub>pj</sub>/p<sup>j</sup> with k ∈ ℤ and digits 0 ≤ c<sub>pj</sub> &lt; p. For example 1/12 = −1 + 1/2 + 1/4 + 1/3, which reflects the decomposition ℚ/ℤ ≅ ⊕_p ℚ<sub>p</sub>/ℤ<sub>p</sub> of the group ℚ/ℤ into its p-primary parts.</p>
+<h3>Computing the coefficients</h3>
+<p>Simple roots (the cover-up rule). If r ∈ K is a simple root of Q, the coefficient of 1/(x − r) is</p>
+<pre class="math">A = P(r)/Q′(r),</pre>
+<p>because writing Q = (x − r)Q₁ gives Q′(r) = Q₁(r), and multiplying the decomposition by (x − r) and setting x = r leaves A = P(r)/Q₁(r). For example, with Q = x³ − x and Q′ = 3x² − 1,</p>
+<pre class="math">1/(x³ − x) = −1/x + (1/2)/(x − 1) + (1/2)/(x + 1),</pre>
+<p>since Q′(0) = −1 and Q′(±1) = 2.</p>
+<p>Repeated roots. If Q = (x − r)<sup>e</sup> Q₁ with Q₁(r) ≠ 0, the coefficients of (x − r)<sup>−e</sup>, …, (x − r)<sup>−1</sup> are the Taylor coefficients of P/Q₁ at r: the coefficient of (x − r)<sup>−(e−k)</sup> is (1/k!)·(d/dx)<sup>k</sup> (P/Q₁) evaluated at r. When Q₁ = 1 this is simply the Taylor expansion of P at r. For instance x² + 1 = (x − 1)² + 2(x − 1) + 2, so</p>
+<pre class="math">(x² + 1)/(x − 1)³ = 1/(x − 1) + 2/(x − 1)² + 2/(x − 1)³.</pre>
+<p>Irreducible quadratics over ℝ. Over ℝ the irreducible polynomials have degree 1 or 2, so numerators are constants or linear. For example x³ + 1 = (x + 1)(x² − x + 1), and the cover-up rule at x = −1 gives the coefficient 1/Q′(−1) = 1/3; the remaining numerator follows by subtraction:</p>
+<pre class="math">1/(x³ + 1) = (1/3)/(x + 1) + (−x + 2)/(3(x² − x + 1)).</pre>
+<p><strong>Check</strong>: (x² − x + 1) + (−x + 2)(x + 1) = x² − x + 1 − x² + x + 2 = 3.</p>
+<h3>Consequences</h3>
+<p>Integration. Over ℂ every proper rational function is a sum of terms c/(x − r)<sup>j</sup>, and over ℝ of such terms together with (Ax + B)/(x² + bx + c)<sup>j</sup>. Since all of these have elementary antiderivatives, the integral of every real rational function is a rational function plus a linear combination of logarithms and arctangents. The Hermite–Ostrogradsky method computes the rational part without factoring Q, and the Rothstein–Trager algorithm computes the logarithmic part using only the field generated by the residues; this is the starting point of the Risch algorithm in computer algebra.</p>
+<p>The logarithmic derivative. If Q = ∏ (x − r<sub>i</sub>)<sup>e<sub>i</sub></sup> splits over K, then Q′/Q = ∑ e<sub>i</sub>/(x − r<sub>i</sub>). Expanding each term as a geometric series in 1/x yields Newton's identities between power sums and elementary symmetric functions of the roots.</p>
+<p>Generating functions. Linear recurrences have rational generating functions, and partial fractions turn them into closed forms. If F(x) = ∑ F<sub>n</sub> xⁿ is the Fibonacci generating function, then F(x) = x/(1 − x − x²) = x/((1 − φx)(1 − ψx)), and the decomposition (1/√5)(1/(1 − φx) − 1/(1 − ψx)) gives Binet's formula F<sub>n</sub> = (φⁿ − ψⁿ)/√5.</p>
+<p>Telescoping. Partial fractions convert many series into telescoping sums. Since 1/(n(n + 1)) = 1/n − 1/(n + 1), the series ∑<sub>n ≥ 1</sub> 1/(n(n + 1)) has partial sums 1 − 1/(N + 1) and sum 1.</p>
+<p>Infinite partial fractions. For meromorphic functions, the Mittag-Leffler theorem provides infinite analogues; the most famous is</p>
+<pre class="math">π cot(πz) = 1/z + ∑<sub>n ≥ 1</sub> 2z/(z² − n²),</pre>
+<p>from which comparison of Taylor coefficients at 0 gives Euler's evaluations ζ(2) = π²/6, ζ(4) = π⁴/90 and, in general, ζ(2k) as a rational multiple of π<sup>2k</sup>.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Decompose (3x + 5)/((x + 1)(x + 3)).</div></li><li><span class="mk">(b)</span><div>Evaluate ∑<sub>n ≥ 1</sub> 1/(n(n + 2)).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Cover-up: at x = −1 the coefficient is (−3 + 5)/(−1 + 3) = 1, and at x = −3 it is (−9 + 5)/(−3 + 1) = 2. So the decomposition is 1/(x + 1) + 2/(x + 3); check: (x + 3) + 2(x + 1) = 3x + 5. (b) 1/(n(n + 2)) = (1/2)(1/n − 1/(n + 2)), and the sum telescopes to (1/2)(1 + 1/2) = 3/4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

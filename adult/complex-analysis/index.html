@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Complex Analysis — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Complex Analysis</span></p>
+    <h1>Complex Analysis</h1>
+    <p class="kicker">Advanced · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>Complex analysis is the study of functions of one complex variable that are differentiable in the complex sense. The definition looks innocent: it is the same difference quotient as in real calculus, except that the increment h is allowed to approach 0 from every direction in the plane. That single change has astonishing consequences. A function that is complex differentiable once on an open set is automatically differentiable infinitely often, equals its Taylor series on every disc it contains, is determined everywhere by its values on any small arc, satisfies a maximum principle, and has integrals over closed curves that depend only on topology and on a finite list of local numbers called residues. Nothing remotely like this is true for real differentiable functions.</p>
+<p>The subject was built in the nineteenth century by Cauchy, who proved the integral theorem (1825) and the integral formula (1831), by Riemann, who introduced the geometric point of view of conformal maps and Riemann surfaces and, in an eight-page paper of 1859, extended the zeta function to the whole plane and stated the most famous open problem in mathematics, and by Weierstrass, who rebuilt the theory on power series with full rigour. In the twentieth century it became the language of analytic number theory, of potential theory and fluid flow, of quantum field theory and signal processing, and it remains the model case for several complex variables, complex geometry and modern dynamics.</p>
+<p>This course assumes a working knowledge of real analysis (sequences, uniform convergence, compactness, the Riemann integral, Green's theorem) and of the arithmetic of complex numbers. Each lesson states definitions precisely, proves the main theorems, and works examples in full. The exercises in the Exercise boxes are meant to be done with pencil and paper before you read the answers.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Treat ℂ as a field, a metric space and, via the Riemann sphere, a compact surface</div></li><li><span class="mk">2.</span><div>Master the polar form, Euler's formula, roots of unity and the multivalued logarithm</div></li><li><span class="mk">3.</span><div>Characterise complex differentiability by the Cauchy–Riemann equations</div></li><li><span class="mk">4.</span><div>Develop the theory of power series and analytic functions</div></li><li><span class="mk">5.</span><div>Define contour integrals and prove Cauchy's theorem through Goursat's lemma</div></li><li><span class="mk">6.</span><div>Derive Cauchy's integral formula and its consequences: Liouville, the fundamental theorem of algebra, the identity theorem and the maximum principle</div></li><li><span class="mk">7.</span><div>Classify isolated singularities using Laurent series</div></li><li><span class="mk">8.</span><div>Prove the residue theorem and use it to evaluate real integrals and infinite sums</div></li><li><span class="mk">9.</span><div>Count zeros with the argument principle and Rouché's theorem</div></li><li><span class="mk">10.</span><div>Study conformal maps, Möbius transformations, the Schwarz lemma and the Riemann mapping theorem</div></li><li><span class="mk">11.</span><div>Continue functions analytically, and meet the Gamma function, the Riemann zeta function and the Riemann hypothesis</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/complex-analysis-1.jpg" alt="Lithograph portrait of the mathematician Augustin-Louis Cauchy" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Augustin-Louis Cauchy (1789–1857), who founded complex function theory: his integral theorem (1825) and integral formula are the backbone of the subject. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/complex-analysis-2.jpg" alt="Domain-colouring plot of the Riemann zeta function in the complex plane" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> A domain-colouring plot of the analytically continued Riemann zeta function ζ(s) for −40 ≤ Re s, Im s ≤ 40, with colour showing the argument of ζ(s). The colour cycles close up at the pole s = 1 and at the non-trivial zeros on the line Re s = 1/2, the first near Im s = ±14.13. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>The Complex Field and Its Topology</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Polar Form, Euler's Formula and Roots of Unity</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Complex Differentiability and the Cauchy–Riemann Equations</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Power Series and Analytic Functions</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Contour Integrals</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Cauchy's Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Cauchy's Integral Formula and Its Consequences</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Laurent Series and Isolated Singularities</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>The Residue Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Evaluating Real Integrals and Infinite Sums</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>The Argument Principle and Rouché's Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-13.html"><span><span class="lc-num">Lesson 13</span><br><strong>Analytic Continuation, the Gamma Function and the Riemann Zeta Function</strong></span></a>
+    <a class="lesson-card" href="lesson-14.html"><span><span class="lc-num">Lesson 14</span><br><strong>Synthesis and Common Pitfalls</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Augustin-Louis Cauchy 1901. By Unknown author. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Augustin-Louis_Cauchy_1901.jpg">https://commons.wikimedia.org/wiki/File:Augustin-Louis_Cauchy_1901.jpg</a></li><li><strong>Figure 2</strong> · Complex zeta. By Jan Homann. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Complex_zeta.jpg">https://commons.wikimedia.org/wiki/File:Complex_zeta.jpg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

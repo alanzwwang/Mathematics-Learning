@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Power Series — Calculus (Advanced)</title>
+<meta name="description" content="Real analysis from the completeness of ℝ to the Lebesgue integral, with multivariable calculus and full proofs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../calculus/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Calculus</a> › Lesson 11</p>
+    <h1>Power Series</h1>
+    <p class="kicker">Lesson 11 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Real Numbers and Completeness">1</a><a href="lesson-2.html" title="Lesson 2: Sequences, Cauchy Sequences and lim sup">2</a><a href="lesson-3.html" title="Lesson 3: Infinite Series and Convergence Tests">3</a><a href="lesson-4.html" title="Lesson 4: Limits, Continuity and Uniform Continuity">4</a><a href="lesson-5.html" title="Lesson 5: Differentiation and the Mean Value Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Taylor's Theorem and the Remainder">6</a><a href="lesson-7.html" title="Lesson 7: The Riemann Integral via Darboux Sums">7</a><a href="lesson-8.html" title="Lesson 8: The Fundamental Theorem of Calculus">8</a><a href="lesson-9.html" title="Lesson 9: Improper Integrals">9</a><a href="lesson-10.html" title="Lesson 10: Uniform Convergence and the Interchange of Limits">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Power Series">11</a><a href="lesson-12.html" title="Lesson 12: Differentiation in Several Variables">12</a><a href="lesson-13.html" title="Lesson 13: Multiple Integrals and Change of Variables">13</a><a href="lesson-14.html" title="Lesson 14: The Lebesgue Integral — An Overview">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∑ cₙ(x − a)ⁿ has radius of convergence R with  1/R = lim sup |cₙ|<sup>1/n</sup>
+Inside (a − R, a + R) it may be differentiated and integrated term by term</pre></div>
+<h3>Radius of convergence</h3>
+<p><strong>Theorem 11.1 (Cauchy–Hadamard)</strong>. Let 1/R = lim sup |cₙ|<sup>1/n</sup>, with the conventions 1/0 = ∞ and 1/∞ = 0. Then ∑ cₙ(x − a)ⁿ converges absolutely for |x − a| &lt; R and diverges for |x − a| &gt; R. Moreover, it converges uniformly on every interval [a − r, a + r] with r &lt; R.</p>
+<p><strong>Proof</strong>. Apply the root test: lim sup |cₙ(x − a)ⁿ|<sup>1/n</sup> = |x − a|/R, which is &lt; 1 or &gt; 1 as stated. For uniformity on |x − a| ≤ r &lt; R, choose r &lt; ρ &lt; R; then |cₙ| ≤ ρ⁻ⁿ for large n, and the M-test applies with Mₙ = (r/ρ)ⁿ. ∎</p>
+<p>The formula was stated by Cauchy in 1821 and rediscovered by Hadamard in 1888. When the ratio |cₙ/cₙ₊₁| has a limit, that limit is R, which is often easier to compute. Examples: ∑ xⁿ/n! has R = ∞; ∑ n! xⁿ has R = 0; ∑ (2ⁿ/n) xⁿ has R = 1/2; ∑ ((n!)²/(2n)!) xⁿ has R = 4, since the ratio of consecutive coefficients is (n + 1)²/((2n + 1)(2n + 2)) → 1/4.</p>
+<p>On the boundary |x − a| = R anything can happen. ∑ xⁿ diverges at both endpoints of (−1, 1); ∑ xⁿ/n converges at −1 (alternating harmonic) and diverges at 1; ∑ xⁿ/n² converges at both.</p>
+<h3>Termwise differentiation and integration</h3>
+<p><strong>Theorem 11.2</strong>. Let f(x) = ∑ cₙ(x − a)ⁿ with radius R &gt; 0. Then f is differentiable on (a − R, a + R) with f′(x) = ∑ ncₙ(x − a)ⁿ⁻¹, and this series also has radius R. Consequently f is C<sup>∞</sup> there, cₙ = f⁽ⁿ⁾(a)/n!, and f is the sum of its own Taylor series.</p>
+<p><strong>Proof</strong>. Since n<sup>1/n</sup> → 1, the differentiated series has the same lim sup and hence the same radius. It converges uniformly on compact subintervals by Theorem 11.1, so Theorem 10.4 applies. Iterating gives all derivatives, and evaluating the k-th derivative at a gives f⁽ᵏ⁾(a) = k! cₖ. ∎</p>
+<p>This turns power series into a calculus of their own. From 1/(1 − x) = ∑ xⁿ (|x| &lt; 1):</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Differentiating: ∑ₙ₌₁<sup>∞</sup> nxⁿ⁻¹ = 1/(1 − x)², so ∑ nxⁿ = x/(1 − x)² and ∑ n/2ⁿ = 2.</div></li><li><span class="mk">2.</span><div>Differentiating again: ∑ n²xⁿ = x(1 + x)/(1 − x)³, so ∑ n²/2ⁿ = (1/2)(3/2)/(1/8) = 6.</div></li><li><span class="mk">3.</span><div>Integrating: −ln(1 − x) = ∑ₙ₌₁<sup>∞</sup> xⁿ/n for |x| &lt; 1.</div></li><li><span class="mk">4.</span><div>Replacing x by −x² and integrating: arctan x = ∑ₙ₌₀<sup>∞</sup> (−1)ⁿx²ⁿ⁺¹/(2n + 1) for |x| &lt; 1.</div></li></ul>
+<h3>Abel's theorem</h3>
+<p>The arctangent series converges at x = 1 by the Leibniz test. Does it converge to arctan 1 = π/4? Theorem 11.2 says nothing at the boundary. The answer is given by:</p>
+<p><strong>Theorem 11.3 (Abel, 1826)</strong>. If ∑ cₙ converges, then ∑ cₙxⁿ converges uniformly on [0, 1], and hence lim (x → 1⁻) ∑ cₙxⁿ = ∑ cₙ.</p>
+<p><strong>Proof sketch</strong>. Let rₙ = ∑ (k &gt; n) cₖ be the tails, which tend to 0. Summation by parts expresses ∑ₖ₌ₘⁿ cₖxᵏ in terms of the rₖ and the decreasing nonnegative numbers xᵏ, and gives |∑ₖ₌ₘⁿ cₖxᵏ| ≤ 2 max over k ≥ m − 1 of |rₖ|, uniformly in x ∈ [0, 1]. ∎</p>
+<p>Consequently:</p>
+<pre class="math">1 − 1/3 + 1/5 − 1/7 + ... = π/4,     1 − 1/2 + 1/3 − 1/4 + ... = ln 2.</pre>
+<p>The first identity was found by Madhava of Sangamagrama (c. 1400) and rediscovered by Gregory (1671) and Leibniz (1674). The converse of Abel's theorem fails: ∑ (−1)ⁿxⁿ = 1/(1 + x) → 1/2 as x → 1⁻, but ∑ (−1)ⁿ diverges. Partial converses with extra hypotheses (such as cₙ = O(1/n), Littlewood 1911) are called Tauberian theorems and are deep.</p>
+<h3>Why the radius is what it is</h3>
+<p>The function 1/(1 + x²) is smooth on all of ℝ, yet its series ∑ (−1)ⁿx²ⁿ has radius 1. The explanation is invisible on the real line: as a function of a complex variable, 1/(1 + z²) has poles at z = ±i, at distance 1 from the origin. In general the radius of the Taylor series of an analytic function at a is the distance from a to the nearest complex singularity. This is one of the first places where real analysis points to complex analysis.</p>
+<h3>The binomial series</h3>
+<p>For real α and |x| &lt; 1, (1 + x)<sup>α</sup> = ∑ₙ₌₀<sup>∞</sup> C(α, n) xⁿ, where C(α, n) = α(α − 1)...(α − n + 1)/n!. The ratio test gives R = 1 when α is not a nonnegative integer. To prove the series converges to (1 + x)<sup>α</sup>, let g(x) be its sum; termwise differentiation gives (1 + x)g′(x) = αg(x), so g(x)/(1 + x)<sup>α</sup> has zero derivative and equals its value 1 at x = 0.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the radius of convergence of ∑ (n²/3ⁿ) xⁿ.</div></li><li><span class="mk">(b)</span><div>Find the radius of convergence of ∑ x²ⁿ/4ⁿ, and its sum.</div></li><li><span class="mk">(c)</span><div>Use ∑ n²xⁿ = x(1 + x)/(1 − x)³ to evaluate ∑ₙ₌₁<sup>∞</sup> n²/3ⁿ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) |cₙ|<sup>1/n</sup> = n<sup>2/n</sup>/3 → 1/3, so R = 3. (b) It is the geometric series in x²/4, so it converges iff x² &lt; 4: R = 2, with sum 1/(1 − x²/4) = 4/(4 − x²). (c) At x = 1/3: (1/3)(4/3)/(2/3)³ = (4/9)(27/8) = 3/2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

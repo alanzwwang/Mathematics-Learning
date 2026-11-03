@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Factorization over ℤ and ℚ — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 3</p>
+    <h1>Factorization over ℤ and ℚ</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">rational root r/s in lowest terms of aₙxⁿ + ⋯ + a₀ ∈ ℤ[x]:  r | a₀ and s | aₙ
+Gauss: content(fg) = content(f) · content(g)
+Eisenstein: p | aᵢ (i &lt; n), p ∤ aₙ, p² ∤ a₀  ⟹  f irreducible over ℚ</pre></div>
+<p>Over ℚ, irreducibility is subtle: there are irreducible polynomials of every degree, and deciding irreducibility is a genuine algorithmic problem. The tools of this lesson pass between ℚ[x] and ℤ[x], where divisibility of integers gives traction.</p>
+<h3>The rational root theorem</h3>
+<p><strong>Theorem 3.1</strong>. Let f = aₙxⁿ + ⋯ + a₀ ∈ ℤ[x] with aₙa₀ ≠ 0. If r/s is a root with gcd(r, s) = 1, then r divides a₀ and s divides aₙ.</p>
+<p><strong>Proof</strong>. Multiply f(r/s) = 0 by sⁿ: aₙrⁿ + aₙ₋₁rⁿ⁻¹s + ⋯ + a₀sⁿ = 0. Every term except a₀sⁿ is divisible by r, so r | a₀sⁿ, and since gcd(r, s) = 1, r | a₀. Similarly every term except aₙrⁿ is divisible by s, so s | aₙ. ∎</p>
+<p>In particular a monic integer polynomial has only integer rational roots; this is why √2, ∛5 and in general ᵏ√N for a positive integer N that is not a perfect k-th power are irrational. Example: the candidates for 2x³ − 3x² − 3x + 2 are ±1, ±2, ±1/2. Testing gives roots 2, −1 and 1/2, so 2x³ − 3x² − 3x + 2 = (x − 2)(x + 1)(2x − 1).</p>
+<p>A polynomial of degree 2 or 3 over a field is irreducible if and only if it has no root in that field, since any factorization would include a linear factor. For degree 2 and 3 over ℚ, the rational root theorem therefore decides irreducibility. For degree 4 this is no longer enough: (x² + 1)² has no rational root but is reducible.</p>
+<h3>Content and Gauss's lemma</h3>
+<p>The content c(f) of a nonzero f ∈ ℤ[x] is the gcd of its coefficients; f is primitive if c(f) = 1. Every nonzero f ∈ ℚ[x] can be written as f = c · f₀ with c ∈ ℚ positive and f₀ ∈ ℤ[x] primitive, uniquely.</p>
+<p><strong>Lemma 3.2 (Gauss)</strong>. The product of two primitive polynomials is primitive. Hence c(fg) = c(f)c(g).</p>
+<p><strong>Proof</strong>. Suppose f, g are primitive but a prime p divides every coefficient of fg. Reduce modulo p: the map ℤ[x] → 𝔽ₚ[x] is a ring homomorphism, so f̄ ḡ = 0 in 𝔽ₚ[x]. As 𝔽ₚ[x] is an integral domain, f̄ = 0 or ḡ = 0, meaning p divides all coefficients of f or of g, a contradiction. The formula for contents follows by writing f = c(f)f₀, g = c(g)g₀. ∎</p>
+<p><strong>Theorem 3.3</strong>. If a primitive f ∈ ℤ[x] factors in ℚ[x] as f = gh with deg g, deg h ≥ 1, then it factors in ℤ[x] as f = g₁h₁ with g₁, h₁ rational multiples of g, h. Consequently ℤ[x] is a unique factorization domain, whose irreducible elements are the primes of ℤ and the primitive polynomials irreducible in ℚ[x] (up to sign).</p>
+<p><strong>Proof</strong>. Write g = αg₀ and h = βh₀ with α, β ∈ ℚ positive and g₀, h₀ primitive. Then f = αβ g₀h₀, and by Gauss's lemma g₀h₀ is primitive. Writing αβ = r/s in lowest terms, s f = r g₀h₀, and comparing contents gives s = r, so αβ = 1 and f = g₀h₀. The statement about unique factorization follows by combining unique factorization in ℚ[x] with that in ℤ. ∎</p>
+<p>The same argument works for any UFD R in place of ℤ, with its field of fractions in place of ℚ; inductively, R[x₁, …, xₙ] is a UFD whenever R is. This is how one knows, for instance, that ℤ[x, y] and K[x₁, …, xₙ] have unique factorization.</p>
+<h3>Eisenstein's criterion</h3>
+<p><strong>Theorem 3.4 (Eisenstein, 1850; Schönemann, 1846)</strong>. Let f = aₙxⁿ + ⋯ + a₀ ∈ ℤ[x] and p a prime with p | aᵢ for all i &lt; n, p ∤ aₙ and p² ∤ a₀. Then f is irreducible in ℚ[x].</p>
+<p><strong>Proof</strong>. Dividing by the content (which is prime to p) we may assume f primitive, and by Theorem 3.3 it suffices to rule out a factorization f = gh in ℤ[x] with deg g = k, deg h = n − k, both at least 1. Reduce modulo p: f̄ = āₙxⁿ with āₙ ≠ 0. The degrees of g and h do not drop, because their leading coefficients multiply to aₙ, which p does not divide. Since 𝔽ₚ[x] has unique factorization and x is irreducible, ḡ = bxᵏ and h̄ = cxⁿ⁻ᵏ with b, c ≠ 0. As k, n − k ≥ 1, the constant terms of g and h are both divisible by p, so p² divides their product a₀, a contradiction. ∎</p>
+<p>Eisenstein's criterion shows that xⁿ − p is irreducible over ℚ for every n ≥ 1 and every prime p, so ℚ has extensions of every degree. It often applies after a change of variable x ↦ x + c, which preserves irreducibility. The classical example is the cyclotomic polynomial Φₚ(x) = xᵖ⁻¹ + ⋯ + x + 1 = (xᵖ − 1)/(x − 1) for p prime:</p>
+<pre class="math">Φₚ(x + 1) = ((x + 1)ᵖ − 1)/x = xᵖ⁻¹ + C(p, p−1)xᵖ⁻² + ⋯ + C(p, 2)x + p</pre>
+<p>All binomial coefficients C(p, k) with 0 &lt; k &lt; p are divisible by p, and the constant term is p, so Eisenstein applies with the prime p.</p>
+<h3>Reduction modulo p</h3>
+<p>If f ∈ ℤ[x] is primitive, p ∤ lc(f), and the reduction f̄ ∈ 𝔽ₚ[x] is irreducible, then f is irreducible over ℚ (a factorization in ℤ[x] would reduce to one with the same degrees). The converse fails badly: x⁴ + 1 is irreducible over ℚ (apply Eisenstein to (x + 1)⁴ + 1 = x⁴ + 4x³ + 6x² + 4x + 2 with p = 2) but it is reducible modulo every prime. Modulo 2 it is (x + 1)⁴, and modulo 3 it is (x² + x + 2)(x² + 2x + 2). The underlying reason is that its Galois group is the Klein four-group, which has no element of order 4 (Lesson 11). Practical factoring algorithms (Berlekamp, Cantor–Zassenhaus, then Hensel lifting and the lattice-based method of van Hoeij) factor modulo a prime, lift the factorization p-adically, and recombine the lifted factors; the Lenstra–Lenstra–Lovász algorithm (1982) made this provably polynomial-time.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find all rational roots of 3x³ − x² − 12x + 4.</div></li><li><span class="mk">(b)</span><div>Prove that Φ₅(x) = x⁴ + x³ + x² + x + 1 is irreducible over ℚ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Grouping, 3x³ − x² − 12x + 4 = x²(3x − 1) − 4(3x − 1) = (3x − 1)(x² − 4), so the rational roots are 1/3, 2 and −2 (all of which appear in the list ±1, ±2, ±4, ±1/3, ±2/3, ±4/3 of candidates). (b) Φ₅(x + 1) = ((x + 1)⁵ − 1)/x = x⁴ + 5x³ + 10x² + 10x + 5, which is Eisenstein at p = 5; hence Φ₅(x + 1), and therefore Φ₅(x), is irreducible.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

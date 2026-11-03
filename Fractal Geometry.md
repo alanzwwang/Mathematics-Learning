@@ -47,7 +47,7 @@ Mathematicians call this SELF-SIMILARITY: the shape is similar to itself. Not ju
 
 Two flavors of self-similarity are worth naming now, because we'll use them all lesson:
 
-  · EXACT self-similarity: the small parts are perfect scaled-down copies of the whole — same shape, same angles, just shrunk. The Koch snowflake and Sierpinski triangle (coming in Lessons 3 and 4) are exactly self-similar, because they are built by precise rules.
+  · EXACT self-similarity: the small parts are perfect scaled-down copies of the whole — same shape, same angles, just shrunk. The Koch curve (the snowflake's crinkly edge) and the Sierpinski triangle (coming in Lessons 3 and 4) are exactly self-similar, because they are built by precise rules.
 
   · APPROXIMATE (statistical) self-similarity: the small parts look ROUGHLY like the whole — same style of wiggliness, never identical. Ferns, coastlines, and lightning are like this. Nature never draws exactly; it doodles with a consistent style.
 
@@ -421,7 +421,7 @@ Read those answers slowly — they're the payoff of the entire lesson:
   · The Koch edge has dimension ≈ 1.262: too crinkly to be a mere line, too skinny to cover any area.
   · The Cantor set has dimension ≈ 0.631: between a scattering of points (0) and a line (1). Dust with structure.
 
-Shapes whose dimension lands between whole numbers are called FRACTALS — from "fractional dimension." That's where the name comes from! And notice the square from Lesson 1: exactly self-similar, but its dimension computes to exactly 2 — self-similar yet not fractional, so not a true fractal. The mystery from Lesson 1, resolved.
+Shapes whose dimension lands between whole numbers are the classic FRACTALS. The name comes from the Latin word "fractus," meaning "broken" — Mandelbrot picked it for these broken-up, crinkly shapes. (Fun bonus: "fraction" comes from the same Latin root!) And notice the square from Lesson 1: exactly self-similar, but its dimension computes to exactly 2 — self-similar yet not fractional, so not a true fractal. The mystery from Lesson 1, resolved.
 
 ✏️ Your Turn
 
@@ -447,11 +447,11 @@ Once you know the zoom test, you start seeing fractals everywhere:
   · LIGHTNING: each fork zigzags and branches the way the whole bolt does.
   · RIVERS and their tributaries: every small stream branches like the great river it feeds.
   · COASTLINES: bays within bays within bays, at every scale of map.
-  · YOUR OWN BODY: the airways in your lungs split and split again (about 15–20 levels!), and your blood vessels branch from big highways down to tiny capillaries.
+  · YOUR OWN BODY: the airways in your lungs split and split again (about 20–23 levels!), and your blood vessels branch from big highways down to tiny capillaries.
 
-Why does nature keep choosing fractal rules? Because fractal branching PACKS A LOT INTO A LITTLE — and now you can say that quantitatively. Splitting n rounds with ratio 2 produces 2ⁿ tips: after just 10 rounds you have 2¹⁰ = 1024 ends from ONE trunk. Exponential growth is nature's shortcut to huge numbers. A tree catches sunlight over a huge area while taking up a small patch of ground. Your lungs fold an enormous surface — about the size of a tennis court — inside your chest, so oxygen can pass into your blood quickly. One splitting rule, repeated, solves a giant packing problem.
+Why does nature keep choosing fractal rules? Because fractal branching PACKS A LOT INTO A LITTLE — and now you can say that quantitatively. Splitting n rounds with ratio 2 produces 2ⁿ tips: after just 10 rounds you have 2¹⁰ = 1024 ends from ONE trunk. Exponential growth is nature's shortcut to huge numbers. A tree catches sunlight over a huge area while taking up a small patch of ground. Your lungs fold an enormous surface — about half the size of a tennis court — inside your chest, so oxygen can pass into your blood quickly. One splitting rule, repeated, solves a giant packing problem.
 
-But remember the difference from Lesson 2: nature's fractals are APPROXIMATELY self-similar and they STOP. Twigs end in buds, airways end in tiny sacs. Real-world fractals zoom only a limited number of levels deep — a handful for a fern, about 15–20 for your lungs. Only in math does the zoom go on forever — and about 20 levels of self-similarity is enough to pack a tennis court into your chest.
+But remember the difference from Lesson 2: nature's fractals are APPROXIMATELY self-similar and they STOP. Twigs end in buds, airways end in tiny sacs. Real-world fractals zoom only a limited number of levels deep — a handful for a fern, about 20–23 for your lungs. Only in math does the zoom go on forever — and about 23 levels of self-similarity is enough to pack half a tennis court into your chest.
 
 Now the coastline, with real math. Measure a coast with a ruler of length ε: you count some number of steps N(ε), and your measured length is L(ε) = N(ε)·ε. For a fractal coast of dimension D, the copy-count law from Lesson 5 runs backwards: finer rulers reveal copies in proportion N(ε) ≈ C·ε⁻ᴰ for some constant C. Multiply by ε:
 

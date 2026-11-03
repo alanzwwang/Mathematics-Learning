@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Contractions and Iterated Function Systems — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 2</p>
+    <h1>Contractions and Iterated Function Systems</h1>
+    <p class="kicker">Lesson 2 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">If f₁, …, f<sub>N</sub> are contractions of a complete space X,
+the Hutchinson operator  T(A) = f₁(A) ∪ ⋯ ∪ f<sub>N</sub>(A)
+is a contraction of (𝒦(X), h), so there is a unique compact F with F = T(F).</pre></div>
+<h3>The Banach fixed point theorem</h3>
+<p>A map f : X → X is a contraction if there is c &lt; 1 with d(f(x), f(y)) ≤ c d(x, y) for all x, y; the least such c is the contraction ratio (or Lipschitz constant) of f. If equality holds for all x, y, f is a similarity with ratio c.</p>
+<p><strong>Theorem 2.1 (Banach, 1922)</strong>. Let (X, d) be a complete metric space and f a contraction with ratio c &lt; 1. Then f has a unique fixed point x*, and for every x₀ ∈ X the iterates xₙ = fⁿ(x₀) converge to x*, with</p>
+<pre class="math">d(xₙ, x*) ≤ cⁿ/(1 − c) · d(x₀, x₁)          (a priori bound)
+d(xₙ, x*) ≤ c/(1 − c) · d(xₙ₋₁, xₙ)          (a posteriori bound)</pre>
+<p><strong>Proof</strong>. By induction d(x<sub>k</sub>, x<sub>k+1</sub>) ≤ c<sup>k</sup> d(x₀, x₁). For m &gt; n, the triangle inequality gives</p>
+<pre class="math">d(xₙ, x<sub>m</sub>) ≤ ∑<sub>k=n</sub><sup>m−1</sup> c<sup>k</sup> d(x₀, x₁) &lt; cⁿ/(1 − c) · d(x₀, x₁)</pre>
+<p>so (xₙ) is Cauchy, and converges to some x* by completeness. As f is continuous, f(x*) = lim f(xₙ) = lim xₙ₊₁ = x*. If y* were another fixed point, d(x*, y*) = d(f(x*), f(y*)) ≤ c d(x*, y*) forces d(x*, y*) = 0. Letting m → ∞ in the displayed inequality gives the a priori bound; applying that bound with xₙ₋₁ as the starting point gives the a posteriori bound. ∎</p>
+<p><strong>Worked example</strong>. The map f(x) = cos x is not a contraction of ℝ, but it maps [0, 1] into [cos 1, 1] ⊂ [0, 1], and |f′(x)| = |sin x| ≤ sin 1 ≈ 0.8415 there. Banach's theorem therefore applies on [0, 1] with c = sin 1, and iteration from any starting point converges to the unique solution x* ≈ 0.739085 of cos x = x (the Dottie number). With x₀ = 0, x₁ = 1, the a priori bound says that n iterations suffice for an error below 10⁻⁶ once 0.8415ⁿ/(1 − 0.8415) &lt; 10⁻⁶, that is n ≥ 91. The bound is pessimistic: |f′(x*)| = sin x* ≈ 0.674, so the actual error decays roughly like 0.674ⁿ.</p>
+<h3>Iterated function systems</h3>
+<p><strong>Definition</strong>. An iterated function system (IFS) on a complete metric space X is a finite family {f₁, …, f<sub>N</sub>} of contractions, N ≥ 2. Its Hutchinson operator is T : 𝒦(X) → 𝒦(X),</p>
+<pre class="math">T(A) = ⋃<sub>i=1</sub><sup>N</sup> f<sub>i</sub>(A)</pre>
+<p><strong>Theorem 2.2 (Hutchinson, 1981)</strong>. Let c<sub>i</sub> be the ratio of f<sub>i</sub> and c = max c<sub>i</sub>. Then T is a contraction of (𝒦(X), h) with ratio c. Consequently there is a unique F ∈ 𝒦(X), the attractor of the IFS, with</p>
+<pre class="math">F = f₁(F) ∪ ⋯ ∪ f<sub>N</sub>(F)</pre>
+<p>and Tⁿ(A) → F in the Hausdorff metric for every A ∈ 𝒦(X).</p>
+<p><strong>Proof</strong>. By Lemma 1.3 (extended to N sets by induction) and Lemma 1.4,</p>
+<pre class="math">h(T(A), T(B)) ≤ max<sub>i</sub> h(f<sub>i</sub>(A), f<sub>i</sub>(B)) ≤ max<sub>i</sub> c<sub>i</sub> h(A, B) = c·h(A, B)</pre>
+<p>Since 𝒦(X) is complete (Theorem 1.2), Banach's theorem applies. ∎</p>
+<p>The theorem explains why the pictures in an elementary treatment look the same no matter what initial shape is used: begin with a square, a single point or a picture of a cat, and the iterates Tⁿ(A) converge to the same attractor. If A is chosen with T(A) ⊂ A — for instance a large enough ball — the iterates are nested, Tⁿ⁺¹(A) ⊂ Tⁿ(A), and F = ⋂ₙ Tⁿ(A). This is the classical &quot;remove the middle third&quot; description of the Cantor set.</p>
+<h3>Examples</h3>
+<p>The middle-third Cantor set C is the attractor of f₁(x) = x/3, f₂(x) = x/3 + 2/3 on ℝ. The Sierpinski triangle with vertices p₁, p₂, p₃ ∈ ℝ² is the attractor of f<sub>i</sub>(x) = (x + p<sub>i</sub>)/2. The von Koch curve is the attractor of four similarities of ratio 1/3, two of which involve rotations by ±60°. The unit interval itself is the attractor of x ↦ x/2, x ↦ x/2 + 1/2 — so &quot;having an IFS&quot; does not make a set fractal in any interesting sense.</p>
+<p>Barnsley's fern is the attractor of four affine maps of ℝ² of the form x ↦ Ax + b. The fern makes a point that will recur: affine maps that are not similarities produce sets whose dimension theory is considerably harder (Lesson 8).</p>
+<h3>The collage theorem</h3>
+<p><strong>Theorem 2.3 (Barnsley)</strong>. If T is the Hutchinson operator of an IFS with ratio c and A ∈ 𝒦(X) is arbitrary, then</p>
+<pre class="math">h(A, F) ≤ h(A, T(A)) / (1 − c)</pre>
+<p><strong>Proof</strong>. h(A, F) ≤ h(A, T(A)) + h(T(A), T(F)) ≤ h(A, T(A)) + c h(A, F), and rearrange. ∎</p>
+<p>The collage theorem is the basis of fractal image compression: to approximate a target set A by an attractor, it suffices to find a few contractions whose images &quot;cover A by small copies of itself&quot; — that is, make h(A, T(A)) small. It is the a posteriori bound of Theorem 2.1 in disguise.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that x ↦ x/2 + 1/2 and x ↦ x/2 have attractor [0, 1] by checking the fixed point equation.</div></li><li><span class="mk">(b)</span><div>For a contraction with c = 1/3 and d(x₀, x₁) = 2, find the least n for which the a priori bound guarantees d(xₙ, x*) &lt; 10⁻³.</div></li><li><span class="mk">(c)</span><div>Let T be the Hutchinson operator of the Cantor IFS and A = [0, 1]. Compute h(A, T(A)), and use the collage theorem to bound h([0, 1], C). Is the bound sharp?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) f₁([0, 1]) ∪ f₂([0, 1]) = [0, 1/2] ∪ [1/2, 1] = [0, 1], and the attractor is unique. (b) We need 3⁻ⁿ · 2/(2/3) = 3<sup>1−n</sup> &lt; 10⁻³, i.e. 3<sup>n−1</sup> &gt; 1000; since 3⁶ = 729 and 3⁷ = 2187, n − 1 = 7, so n = 8. (c) T([0, 1]) = [0, 1/3] ∪ [2/3, 1]; the point 1/2 is at distance 1/6 from it, so h = 1/6 and the bound is (1/6)/(2/3) = 1/4. The true value is h([0, 1], C) = 1/6, attained at x = 1/2 (all other gaps are smaller), so the collage bound is not sharp.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

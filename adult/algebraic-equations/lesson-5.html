@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 5</p>
+    <h1>The Cubic — Cardano's Formula and the Casus Irreducibilis</h1>
+    <p class="kicker">Lesson 5 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">t³ + pt + q = 0,   D = q²/4 + p³/27
+t = ∛(−q/2 + √D) + ∛(−q/2 − √D),   with the two cube roots chosen so that their product is −p/3</pre></div>
+<p>The solution of the cubic is the great achievement of Renaissance algebra. Scipione del Ferro (c. 1515) solved the depressed cubic but kept the method secret; Niccolò Tartaglia rediscovered it in 1535; Gerolamo Cardano, having obtained it from Tartaglia under a promise of secrecy, published it in the Ars Magna (1545) after learning of del Ferro's priority. Since negative numbers were then distrusted, the sixteenth-century authors treated a dozen separate cases such as &quot;cube and things equal to number&quot;. We treat them all at once, over ℂ.</p>
+<h3>Depressing the cubic</h3>
+<p>Let ax³ + bx² + cx + d = 0 with a ≠ 0, over a field of characteristic not 2 or 3. The substitution x = t − b/(3a) removes the quadratic term (the Tschirnhaus translation), leaving the depressed cubic</p>
+<pre class="math">t³ + pt + q = 0,   p = (3ac − b²)/(3a²),   q = (2b³ − 9abc + 27a²d)/(27a³)</pre>
+<p>The translation shifts every root by b/(3a), so it changes neither the differences of the roots nor the discriminant. In general, a translation removes the term of degree n − 1 from any polynomial of degree n; Tschirnhaus (1683) hoped that more elaborate substitutions y = g(x) would remove further terms and eventually solve every equation. For the quintic one can indeed reach the Bring–Jerrard form y⁵ + ay + b, but no further simplification yields a solution, for reasons that Lesson 12 makes precise.</p>
+<h3>Cardano's formula</h3>
+<p>Try t = u + v. Then t³ = u³ + v³ + 3uv(u + v), so</p>
+<pre class="math">t³ − 3uv · t − (u³ + v³) = 0</pre>
+<p>This matches t³ + pt + q = 0 if 3uv = −p and u³ + v³ = −q. Then u³ and v³ have sum −q and product −p³/27, so they are the two roots of the resolvent quadratic z² + qz − p³/27 = 0:</p>
+<pre class="math">u³, v³ = −q/2 ± √D,   D = q²/4 + p³/27</pre>
+<p>Each of u³ and v³ has three cube roots in ℂ. If u is one cube root of u³, the condition uv = −p/3 fixes v, and the three solutions are</p>
+<pre class="math">t₁ = u + v,   t₂ = ωu + ω²v,   t₃ = ω²u + ωv,   ω = e<sup>2πi/3</sup> = (−1 + i√3)/2</pre>
+<p>(Replacing u by ωu forces v to be replaced by ω²v to keep uv fixed.) A direct check using 1 + ω + ω² = 0 confirms that t₁ + t₂ + t₃ = 0 and that these three numbers are the roots.</p>
+<p><strong>Worked example (Cardano's own)</strong>. Solve x³ + 6x = 20. Here p = 6, q = −20, D = 100 + 8 = 108, and</p>
+<pre class="math">x = ∛(10 + √108) + ∛(10 − √108) = ∛(10 + 6√3) + ∛(10 − 6√3)</pre>
+<p>Since (1 + √3)³ = 1 + 3√3 + 9 + 3√3 = 10 + 6√3, and similarly (1 − √3)³ = 10 − 6√3, this is (1 + √3) + (1 − √3) = 2. Dividing, x³ + 6x − 20 = (x − 2)(x² + 2x + 10), and the other roots are −1 ± 3i. The formula delivered the integer 2 in a disguise that takes some effort to remove: denesting radicals is itself a nontrivial problem (Landau, 1992, gave an algorithm).</p>
+<h3>The discriminant and the nature of the roots</h3>
+<p>The discriminant of t³ + pt + q, defined by Δ = (t₁ − t₂)²(t₁ − t₃)²(t₂ − t₃)², equals</p>
+<pre class="math">Δ = −4p³ − 27q² = −108 D</pre>
+<p>For the full cubic ax³ + bx² + cx + d one has Δ = b²c² − 4ac³ − 4b³d − 27a²d² + 18abcd. For real coefficients the sign of Δ classifies the roots. If Δ &gt; 0 the three roots are real and distinct. If Δ = 0 there is a repeated root, and all roots are real. If Δ &lt; 0 there is one real root and a pair of non-real complex conjugate roots. Proof: if the roots are real and distinct, every factor (tᵢ − tⱼ)² is positive. If t₁ is real and t₂, t₃ = σ ± iτ with τ ≠ 0, then (t₂ − t₃)² = −4τ² &lt; 0 while (t₁ − t₂)(t₁ − t₃) = |t₁ − t₂|² &gt; 0, so Δ &lt; 0.</p>
+<h3>The casus irreducibilis</h3>
+<p>Since Δ = −108D, three distinct real roots occur exactly when D &lt; 0, and then √D is imaginary: Cardano's formula expresses real numbers through cube roots of non-real numbers. Rafael Bombelli (L'Algebra, 1572) confronted this with x³ = 15x + 4, which has the obvious root 4. Here p = −15, q = −4 and D = 4 − 125 = −121, so</p>
+<pre class="math">x = ∛(2 + 11i) + ∛(2 − 11i)</pre>
+<p>Bombelli observed that (2 + i)³ = 8 + 12i − 6 − i = 2 + 11i, so with u = 2 + i, v = 2 − i (and uv = 5 = −p/3, as required) the formula gives x = 4. The other roots are ωu + ω²v = −2 − √3 and ω²u + ωv = −2 + √3. This calculation is commonly regarded as the moment complex numbers became unavoidable. In Bombelli's example the cube root could be found because the cubic has a rational root. When it does not, the complex numbers cannot be avoided at all:</p>
+<p><strong>Theorem 5.1 (Casus irreducibilis; Wantzel 1843, Hölder 1891)</strong>. Let f ∈ ℚ[x] be an irreducible cubic with three real roots. Then no root of f lies in any field obtained from ℚ by successively adjoining real radicals; that is, there is no tower ℚ = F₀ ⊆ F₁ ⊆ ⋯ ⊆ Fₖ ⊆ ℝ with Fᵢ₊₁ = Fᵢ(αᵢ), αᵢ<sup>nᵢ</sup> ∈ Fᵢ, such that Fₖ contains a root of f.</p>
+<p><strong>Proof</strong>. Suppose such a tower exists. Refining it, we may assume each nᵢ is a prime, and we may prepend the step F₀ = ℚ(√Δ), which is real since Δ &gt; 0. Choose k minimal with Fₖ containing a root r of f, and put F = Fₖ₋₁, α = αₖ₋₁, p = nₖ₋₁, a = αᵖ ∈ F. Since f has no root in F, it is irreducible over F (a reducible cubic has a linear factor). If a were a p-th power, a = bᵖ with b ∈ F ⊆ ℝ, then α ∈ F: for p odd, b is the only real p-th root of a, and for p = 2, α = ±b. This contradicts minimality, so a is not a p-th power in F, and then xᵖ − a is irreducible over F (a standard lemma: for p prime, xᵖ − a is irreducible over F unless a is a p-th power in F). Hence [F(α) : F] = p. Since F ⊊ F(r) ⊆ F(α) and [F(r) : F] = 3 divides p, we get p = 3 and F(α) = F(r). Now √Δ ∈ F, so the Galois group of f over F lies in A₃ (Lesson 11) and has order 3; hence F(r) is already the splitting field of f over F and is a normal extension of F. A normal extension containing one root of the irreducible polynomial x³ − a contains all of them, including ωα, which is not real. But F(r) ⊆ ℝ. This contradiction proves the theorem. ∎</p>
+<p>So for an irreducible cubic with three real roots, every expression of a root by radicals must pass through non-real numbers. The way out is trigonometric, discovered by Viète around 1591. When p &lt; 0, put t = 2√(−p/3) cos φ. The identity 4cos³φ − 3cos φ = cos 3φ turns the cubic into</p>
+<pre class="math">cos 3φ = (3q/(2p)) √(−3/p)</pre>
+<p>and the right-hand side lies in [−1, 1] exactly when D ≤ 0. Then the roots are tₖ = 2√(−p/3) cos(φ₀ − 2πk/3), k = 0, 1, 2, with 3φ₀ = arccos((3q/(2p))√(−3/p)). For Bombelli's cubic: √(−p/3) = √5 and cos 3φ₀ = (12/30)/√5 = 2√5/25 ≈ 0.178885, so φ₀ ≈ 0.463648 and t₀ = 2√5 cos φ₀ ≈ 4.000000. In effect, the trigonometric method replaces the cube root of a complex number by trisection of an angle, which is the same operation in polar form.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show by Cardano's formula that ∛(2 + √5) + ∛(2 − √5) = 1.</div></li><li><span class="mk">(b)</span><div>Depress x³ + 6x² + 9x + 4 and solve it.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The number is a root of t³ + pt + q with u³ + v³ = 4 = −q and uv = ∛(4 − 5) = −1 = −p/3, so p = 3, q = −4: t³ + 3t − 4 = 0. This factors as (t − 1)(t² + t + 4), whose quadratic factor has no real root; since the given real number is a real root, it equals 1. (b) With x = t − 2: (t − 2)³ + 6(t − 2)² + 9(t − 2) + 4 = t³ − 3t + 2 = (t − 1)²(t + 2). So t = 1 (double) or t = −2, giving x = −1 (double) and x = −4. Check: (x + 1)²(x + 4) = x³ + 6x² + 9x + 4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 5</p>
+    <h1>Inhomogeneous Linear Equations and Grönwall's Inequality</h1>
+    <p class="kicker">Lesson 5 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">y′ = k(t) y + b(t)   ⟹   y(t) = e<sup>K(t)</sup> [ y₀ + ∫₀ᵗ e<sup>−K(s)</sup> b(s) ds ],   K(t) = ∫₀ᵗ k(s) ds</pre></div>
+<p>Real systems are rarely closed: populations receive immigrants, bodies exchange heat with their surroundings, loans receive payments. The simplest open model adds a forcing term to exponential growth. The resulting theory has two halves: an exact solution formula (variation of constants, or Duhamel's principle), and an inequality (Grönwall's) that says exponential growth is the worst that a linear feedback can do.</p>
+<h3>Variation of constants</h3>
+<p><strong>Theorem 5.1</strong>. Let k and b be continuous on an interval I ∋ 0. The problem y′ = k(t) y + b(t), y(0) = y₀ has the unique solution displayed above.</p>
+<p><strong>Proof</strong>. Multiply by the integrating factor e<sup>−K(t)</sup>, which is positive and satisfies (e<sup>−K</sup>)′ = −k e<sup>−K</sup>. Then (y e<sup>−K</sup>)′ = (y′ − k y) e<sup>−K</sup> = b e<sup>−K</sup>. Integrate from 0 to t. Uniqueness follows because the difference of two solutions solves the homogeneous equation with zero initial value, and is therefore 0 by Theorem 1.1 (in its time-dependent form). ∎</p>
+<p>For constant k ≠ 0 and constant b the formula reduces to:</p>
+<pre class="math">y(t) = −b/k + (y₀ + b/k) e<sup>kt</sup></pre>
+<p>The constant −b/k is the unique equilibrium. When k &lt; 0 every solution converges to it exponentially fast with rate |k|; when k &gt; 0 every solution other than the equilibrium diverges from it exponentially.</p>
+<h3>Newton's law of cooling</h3>
+<p>A body at temperature T(t) in surroundings at constant temperature Tₐ obeys T′ = −c(T − Tₐ) with c &gt; 0, an empirical law that is accurate when the heat transfer is dominated by convection and the temperature difference is moderate. The excess temperature T − Tₐ decays exponentially. Example: coffee at 90 °C is placed in a room at 20 °C and is 60 °C after 10 minutes. Then 40 = 70 e<sup>−10c</sup>, so c = ln(7/4)/10 ≈ 0.05596 per minute. It reaches 40 °C when 70 e<sup>−ct</sup> = 20, at t = ln(3.5)/c = 10 ln 3.5/ln 1.75 ≈ 22.39 minutes.</p>
+<h3>Continuous amortization</h3>
+<p>A loan of A₀ at force of interest δ repaid continuously at rate c obeys A′ = δA − c. The balance is A(t) = c/δ + (A₀ − c/δ) e<sup>δt</sup>, and the loan is repaid at time T exactly when A(T) = 0, that is</p>
+<pre class="math">c = δ A₀ / (1 − e<sup>−δT</sup>)</pre>
+<p>For A₀ = 200,000, δ = 0.05 and T = 30 years, c = 10,000/(1 − e<sup>−1.5</sup>) ≈ 12,872 per year, for a total of about 386,165 repaid. The formula also shows that a payment rate c ≤ δA₀ never repays the loan: the interest alone is δA₀.</p>
+<h3>Grönwall's inequality</h3>
+<p><strong>Theorem 5.2 (Grönwall, integral form)</strong>. Let u and β be continuous and nonnegative on [0, T], let α ≥ 0 be a constant, and suppose</p>
+<pre class="math">u(t) ≤ α + ∫₀ᵗ β(s) u(s) ds    for all t ∈ [0, T].</pre>
+<p>Then u(t) ≤ α exp( ∫₀ᵗ β(s) ds ) for all t ∈ [0, T].</p>
+<p><strong>Proof</strong>. Let v(t) = α + ∫₀ᵗ β(s) u(s) ds, so that u ≤ v and v′ = βu ≤ βv. Put B(t) = ∫₀ᵗ β. Then (v e<sup>−B</sup>)′ = (v′ − βv) e<sup>−B</sup> ≤ 0, so v(t) e<sup>−B(t)</sup> ≤ v(0) = α. Hence u(t) ≤ v(t) ≤ α e<sup>B(t)</sup>. ∎</p>
+<p>The differential form is simpler still: if u′ ≤ β(t) u then u(t) ≤ u(0) e<sup>B(t)</sup>, with no sign condition on u, by the same computation applied to u e<sup>−B</sup>. Note that the integral form needs β ≥ 0; the multiplication step u ≤ v ⟹ βu ≤ βv uses it.</p>
+<h3>Consequences for differential equations</h3>
+<p>Grönwall's inequality converts a Lipschitz condition into exponential control. Let F be Lipschitz in x with constant L, and let x(t), z(t) solve x′ = F(t, x) with initial values x₀ and z₀. Then</p>
+<pre class="math">|x(t) − z(t)| ≤ |x₀ − z₀| + ∫₀ᵗ L |x(s) − z(s)| ds   ⟹   |x(t) − z(t)| ≤ |x₀ − z₀| e<sup>Lt</sup></pre>
+<p>This single line proves uniqueness (take x₀ = z₀) and continuous dependence on initial data. It also shows that nearby trajectories can separate at most exponentially fast; chaotic systems are those in which they actually do separate at an exponential rate, the maximal Lyapunov exponent. The limited range of weather forecasts is usually explained in these terms: small errors in the initial state grow roughly exponentially, with doubling times often quoted as one to two days.</p>
+<h3>Sharpness</h3>
+<p>Grönwall's bound is attained: equality holds for u(t) = α e<sup>B(t)</sup>, the solution of the corresponding equation. In this sense exponential growth is the extremal behaviour of linear feedback: any quantity whose rate of increase is bounded by a multiple of its own size grows at most exponentially, and the exponential itself shows the bound cannot be improved.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Solve y′ = 2y − 6 with y(0) = 5, and find the equilibrium and its stability.</div></li><li><span class="mk">(b)</span><div>In the cooling example, at what time was the coffee at 75 °C?</div></li><li><span class="mk">(c)</span><div>Suppose u is continuous, nonnegative, and u(t) ≤ 3 + ∫₀ᵗ 2s u(s) ds. Bound u(t).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The equilibrium is y = 3, and y(t) = 3 + 2e<sup>2t</sup>; since k = 2 &gt; 0 the equilibrium is unstable. (b) 55 = 70 e<sup>−ct</sup> gives t = ln(70/55)/c = 10 ln(14/11)/ln(7/4) ≈ 4.31 minutes. (c) With α = 3 and β(s) = 2s, u(t) ≤ 3 e<sup>t²</sup>.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

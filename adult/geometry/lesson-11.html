@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem — Geometry (Advanced)</title>
+<meta name="description" content="Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Geometry</a> › Lesson 11</p>
+    <h1>Dissections, Bolyai–Gerwien and Hilbert's Third Problem</h1>
+    <p class="kicker">Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Hilbert's Axioms and the Foundations of Geometry">1</a><a href="lesson-2.html" title="Lesson 2: Isometries of the Euclidean Plane">2</a><a href="lesson-3.html" title="Lesson 3: Classification of Plane Isometries">3</a><a href="lesson-4.html" title="Lesson 4: Symmetry Groups, Lattices and the Crystallographic Restriction">4</a><a href="lesson-5.html" title="Lesson 5: Triangle Centres, the Euler Line and the Nine-Point Circle">5</a><a href="lesson-6.html" title="Lesson 6: Ceva, Menelaus and Routh">6</a><a href="lesson-7.html" title="Lesson 7: Power of a Point, Radical Axes and Inversion">7</a><a href="lesson-8.html" title="Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus">8</a><a href="lesson-9.html" title="Lesson 9: The Euler Characteristic and Angular Defect">9</a><a href="lesson-10.html" title="Lesson 10: Regular Polytopes and the Platonic Solids">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem">11</a><a href="lesson-12.html" title="Lesson 12: Constructibility with Straightedge and Compass">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Polygons: equal area ⇔ scissors congruent (Bolyai–Gerwien).
+Polyhedra: the Dehn invariant D(P) = ∑ ℓ(e) ⊗ θ(e) ∈ ℝ ⊗_ℚ (ℝ/ℚπ) is also preserved,
+and the regular tetrahedron has D ≠ 0 = D(cube): equal volume is not enough.</pre></div>
+<h3>Scissors congruence</h3>
+<p>Two polygons P and Q are scissors congruent, written P ∼ Q, if P can be cut into finitely many polygons P₁, …, Pₙ (meeting only along edges) and Q into Q₁, …, Qₙ with Pᵢ congruent to Qᵢ for each i. The same definition, with polyhedra, applies in space. Area (or volume) is an obvious invariant. Scissors congruence is an equivalence relation: for transitivity, if P ∼ Q and Q ∼ R, superimpose the two dissections of Q; the common refinement consists of finitely many convex pieces, each congruent to a piece in P and to a piece in R.</p>
+<h3>The Bolyai–Gerwien theorem</h3>
+<p><strong>Theorem 11.1 (Wallace 1807, Bolyai 1832, Gerwien 1833)</strong>. Two polygons of equal area are scissors congruent.</p>
+<p><strong>Proof</strong>. Let A be the common area. It suffices to show that every polygon P of area A is scissors congruent to the rectangle 1 × A.</p>
+<p>Step 1. Triangulate P into triangles T₁, …, Tₘ.</p>
+<p>Step 2. Each triangle is scissors congruent to a rectangle. Let the triangle have a longest side as base b with height h, so the foot of the altitude lies on the base. Cut along the midline parallel to the base; the top small triangle is then cut along its altitude into two right triangles, which are rotated by 180° about the midpoints of the slanted sides to fill the two corners. The result is a rectangle b × h/2.</p>
+<p>Step 3. Two parallelograms with a common base AB lying between the same pair of parallel lines are scissors congruent. If the offset between their top sides is at most |AB|, the two parallelograms are each the union of their common part with one of two congruent triangles, so a single cut suffices; in general, insert finitely many intermediate parallelograms whose offsets increase by at most |AB| at each step and use transitivity.</p>
+<p>Step 3′. Every rectangle of area A is scissors congruent to the rectangle 1 × A. Cutting a rectangle in half and stacking the halves shows x × y ∼ 2x × (y/2), so we may assume the rectangle is x × y with y ≤ 1. By Step 3 (applied with base x) it is scissors congruent to a parallelogram with base x, height y and slanted sides of length 1, which exists because y ≤ 1. Regarding a side of length 1 as the base, this parallelogram has height A, and by Step 3 again it is scissors congruent to the rectangle 1 × A.</p>
+<p>Step 4. Each Tᵢ becomes a rectangle 1 × Area(Tᵢ); stacking them gives 1 × A. By transitivity, any two polygons of area A are scissors congruent. ∎</p>
+<p>Hadwiger and Glur (1951) showed that one can even require each piece to be moved by a translation or a half-turn only. By contrast, Tarski asked in 1925 whether a disc and a square of equal area are equidecomposable under translations with arbitrary (not necessarily polygonal) pieces; Laczkovich (1990) proved that they are, using about 10⁵⁰ non-measurable pieces. In three dimensions the Banach–Tarski paradox (1924) shows that without measurability, volume is not even an invariant.</p>
+<h3>Hilbert's third problem</h3>
+<p>In his address to the 1900 International Congress of Mathematicians in Paris, Hilbert asked, as the third of his 23 problems, whether two tetrahedra of equal base and equal height are always scissors congruent. Euclid's proof that the volume of a pyramid is one third of base times height uses an exhaustion argument, and Gauss had asked in 1844 whether this limiting process could be avoided. Max Dehn answered the question negatively in the same year, 1900, the first of Hilbert's problems to be solved.</p>
+<h3>The Dehn invariant</h3>
+<p>Let V = ℝ ⊗_ℚ (ℝ/ℚπ), the tensor product over ℚ of the ℚ-vector spaces ℝ and ℝ/ℚπ. For a polyhedron P with edges e of length ℓ(e) and dihedral angle θ(e), define</p>
+<pre class="math">D(P) = ∑<sub>e</sub> ℓ(e) ⊗ θ(e) ∈ V.</pre>
+<p><strong>Theorem 11.2 (Dehn)</strong>. If P ∼ Q then D(P) = D(Q).</p>
+<p><strong>Proof</strong>. It suffices to show that if P is cut into pieces P₁, …, Pₙ then D(P) = ∑ D(Pᵢ), since congruent polyhedra clearly have equal invariants. Subdivide all edges so that every edge segment of every piece and of P is a union of the same elementary segments; by bilinearity, ℓ ⊗ θ = ∑ ℓⱼ ⊗ θ when ℓ = ∑ ℓⱼ, so we may compare segment by segment. Consider one elementary segment s of length ℓ and the dihedral angles θ₁, …, θₖ of the pieces along s. If s lies on an edge of P with angle θ, the pieces fill that angle, so ∑ θᵢ = θ and ∑ ℓ ⊗ θᵢ = ℓ ⊗ θ. If s lies in the interior of a face of P, the angles sum to π and ∑ ℓ ⊗ θᵢ = ℓ ⊗ π = 0 in V. If s lies in the interior of P, the angles sum to 2π and the contribution is again 0. Summing over segments gives D(P) = ∑ D(Pᵢ). ∎</p>
+<h3>The angle of the regular tetrahedron</h3>
+<p><strong>Lemma 11.3</strong>. Let θ = arccos(1/3). Then θ/π is irrational.</p>
+<p><strong>Proof 1</strong>. Write cos(nθ) = aₙ/3ⁿ. From cos((n + 1)θ) = 2cos θ cos(nθ) − cos((n − 1)θ) we get aₙ₊₁ = 2aₙ − 9aₙ₋₁ with a₀ = a₁ = 1, so aₙ₊₁ ≡ 2aₙ (mod 3) and no aₙ is divisible by 3. If θ = πm/n with n ≥ 1, then cos(nθ) = ±1, so aₙ = ±3ⁿ, a contradiction.</p>
+<p><strong>Proof 2</strong>. If θ were a rational multiple of π, then e<sup>iθ</sup> would be a root of unity and 2cos θ = e<sup>iθ</sup> + e<sup>−iθ</sup> would be an algebraic integer; but 2cos θ = 2/3 is a rational non-integer. ∎</p>
+<p><strong>Theorem 11.4</strong>. The regular tetrahedron is not scissors congruent to a cube of the same volume.</p>
+<p><strong>Proof</strong>. The cube has 12 edges with angle π/2 ∈ ℚπ, so D(cube) = 0. The regular tetrahedron of edge a has six edges of angle θ = arccos(1/3), so D = 6a ⊗ θ = a ⊗ 6θ. Since a ≠ 0 in ℝ and 6θ ∉ ℚπ by Lemma 11.3, the element a ⊗ 6θ of a tensor product of ℚ-vector spaces is non-zero (choose ℚ-linear functionals on each factor that do not vanish on a and on 6θ; their product is a linear functional on V that does not vanish). ∎</p>
+<p>Dehn's method also produces pairs of tetrahedra with equal bases and equal heights but different Dehn invariants, which answers Hilbert's question in the negative. The converse problem was solved by Jean-Pierre Sydler in 1965: two polyhedra are scissors congruent if and only if they have the same volume and the same Dehn invariant. Børge Jessen simplified the proof (1968) and extended the result to dimension 4 (1972); for dimensions 5 and higher, whether volume and the generalised Dehn invariants are complete remains open.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that every right prism over a triangle has Dehn invariant 0.</div></li><li><span class="mk">(b)</span><div>Show that the regular octahedron is not scissors congruent to a cube.</div></li><li><span class="mk">(c)</span><div>Compute cos 2θ and cos 3θ for θ = arccos(1/3), and confirm the recursion aₙ₊₁ = 2aₙ − 9aₙ₋₁.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The base and top edges have dihedral angle π/2, contributing 0. The three lateral edges have length h and dihedral angles equal to the angles α, β, γ of the triangle, contributing h ⊗ α + h ⊗ β + h ⊗ γ = h ⊗ (α + β + γ) = h ⊗ π = 0. So every such prism, and hence every polyhedron that can be cut into prisms, has D = 0; such a prism is in fact scissors congruent to a cube. (b) Its 12 edges have dihedral angle arccos(−1/3) = π − θ, so D = 12a ⊗ (π − θ) = −12a ⊗ θ ≠ 0. (c) cos 2θ = 2/9 − 1 = −7/9 and cos 3θ = 4/27 − 1 = −23/27. The recursion gives a₂ = 2 − 9 = −7 and a₃ = 2(−7) − 9 = −23, matching.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

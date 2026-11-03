@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: The Complex Field and Its Topology — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 1</p>
+    <h1>The Complex Field and Its Topology</h1>
+    <p class="kicker">Lesson 1 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ℂ = ℝ² with (a, b)·(c, d) = (ac − bd, ad + bc) is a field.
+|zw| = |z|·|w|  and  |z + w| ≤ |z| + |w|.
+d(z, w) = |z − w| makes ℂ a complete metric space;
+adding one point ∞ makes it the compact Riemann sphere Ĉ.</pre></div>
+<h3>The algebraic construction</h3>
+<p>Define ℂ as the set ℝ² of ordered pairs with componentwise addition and the multiplication (a, b)(c, d) = (ac − bd, ad + bc). Writing 1 = (1, 0) and i = (0, 1), every element is uniquely a + bi with a, b ∈ ℝ, and i² = (0, 1)(0, 1) = (−1, 0) = −1. Commutativity, associativity and distributivity are routine verifications. The only axiom that needs an idea is the existence of inverses: if z = a + bi ≠ 0 then a² + b² &gt; 0 and</p>
+<pre class="math">z⁻¹ = (a − bi)/(a² + b²),   since (a + bi)(a − bi) = a² + b².</pre>
+<p>Two other models are worth knowing. Algebraically, ℂ ≅ ℝ[x]/(x² + 1), the quotient of the real polynomial ring by a maximal ideal; this is why ℂ is the splitting field of x² + 1 over ℝ. Linearly, the map a + bi ↦ the 2 × 2 real matrix with rows (a, −b) and (b, a) is an injective ring homomorphism, so complex numbers are exactly the real matrices of the form &quot;rotation times dilation&quot;. This matrix model reappears in Lesson 3, where it explains the Cauchy–Riemann equations.</p>
+<p><strong>Theorem 1.1</strong>. There is no ordering of ℂ compatible with its field operations.</p>
+<p><strong>Proof</strong>. In an ordered field every nonzero square is positive. Both 1 = 1² and −1 = i² would be positive, so 0 = 1 + (−1) would be positive, a contradiction.</p>
+<h3>Conjugation, modulus and the triangle inequality</h3>
+<p>The conjugate of z = a + bi is z̄ = a − bi. Conjugation is a field automorphism of ℂ fixing ℝ (in fact the only nontrivial continuous one), and Re z = (z + z̄)/2, Im z = (z − z̄)/(2i). The modulus is |z| = √(a² + b²), so that z z̄ = |z|². From this identity, |zw|² = zw·z̄w̄ = |z|²|w|², so the modulus is multiplicative.</p>
+<p><strong>Theorem 1.2 (triangle inequality)</strong>. For all z, w ∈ ℂ, |z + w| ≤ |z| + |w|, with equality if and only if one of them is a nonnegative real multiple of the other.</p>
+<p><strong>Proof</strong>. Expand |z + w|² = (z + w)(z̄ + w̄) = |z|² + 2 Re(z w̄) + |w|². Since Re(z w̄) ≤ |z w̄| = |z||w|, the right side is at most (|z| + |w|)². Equality forces Re(z w̄) = |z w̄|, that is z w̄ ≥ 0, which means z and w point in the same direction.</p>
+<p>Replacing z by z − w gives the reverse triangle inequality ||z| − |w|| ≤ |z − w|, which will be used constantly to bound denominators from below: for example, on the circle |z| = R &gt; 1 one has |z² + 1| ≥ R² − 1.</p>
+<h3>Topology of the plane</h3>
+<p>The function d(z, w) = |z − w| is the Euclidean metric of ℝ², so ℂ inherits all of the topology of the plane. A sequence converges if and only if its real and imaginary parts converge, so ℂ is complete; closed bounded sets are compact (Heine–Borel); every bounded sequence has a convergent subsequence (Bolzano–Weierstrass). We write D(a, r) = {z : |z − a| &lt; r} for the open disc and 𝔻 = D(0, 1) for the unit disc. A domain (or region) is a nonempty open connected subset of ℂ. For open sets, connected and path-connected are equivalent, and any two points of a domain can be joined by a polygonal path with segments parallel to the axes; this elementary fact is behind every &quot;a function with zero derivative on a domain is constant&quot; argument.</p>
+<h3>The Riemann sphere</h3>
+<p>Let S² = {(x₁, x₂, x₃) ∈ ℝ³ : x₁² + x₂² + x₃² = 1} and N = (0, 0, 1). Stereographic projection from N sends a point X ≠ N of the sphere to the point where the line NX meets the plane x₃ = 0, identified with ℂ:</p>
+<pre class="math">X = (x₁, x₂, x₃)  ↦  z = (x₁ + i x₂)/(1 − x₃),
+z = x + iy  ↦  X = (2x, 2y, |z|² − 1)/(|z|² + 1).</pre>
+<p>This is a homeomorphism from S² \ {N} onto ℂ. Sending N to a new point ∞ defines the extended plane Ĉ = ℂ ∪ {∞}, a compact space homeomorphic to the sphere: the neighbourhoods of ∞ are the complements of compact subsets of ℂ, so z → ∞ means exactly |z| → ∞. The distance between the corresponding points of the sphere gives the chordal metric</p>
+<pre class="math">χ(z, w) = 2|z − w| / √((1 + |z|²)(1 + |w|²)),   χ(z, ∞) = 2/√(1 + |z|²).</pre>
+<p>Stereographic projection maps circles on S² to circles or lines in ℂ (lines being the images of circles through N) and preserves angles. Both facts will matter when we study Möbius transformations in Lesson 12, where Ĉ is the natural home of rational functions.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Write (3 + 4i)⁻¹ in the form a + bi.</div></li><li><span class="mk">(b)</span><div>Prove the parallelogram law |z + w|² + |z − w|² = 2|z|² + 2|w|².</div></li><li><span class="mk">(c)</span><div>Find the point of S² that corresponds to z = 1 + i under stereographic projection, and compute χ(0, 1 + i).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (3 − 4i)/25 = 3/25 − (4/25)i. (b) Expanding, |z ± w|² = |z|² ± 2 Re(z w̄) + |w|²; adding the two cancels the middle terms. (c) |z|² = 2, so X = (2, 2, 1)/3 = (2/3, 2/3, 1/3); χ(0, 1 + i) = 2√2/√(1·3) = 2√2/√3 = 2√6/3, which is indeed the distance from the south pole (0, 0, −1) to X.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fractal Geometry — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Fractal Geometry</span></p>
+    <h1>Fractal Geometry</h1>
+    <p class="kicker">Geometry · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>Fractal geometry is the study of sets whose structure persists under magnification and whose size is not adequately described by length, area or volume. The elementary picture — the Koch curve has infinite length and zero area, the Sierpinski triangle has zero area and infinite perimeter, and a &quot;dimension&quot; such as log 4 / log 3 measures something in between — is the starting point of this course, not its goal. Here we make that picture rigorous and then push it into the territory where the subject meets analysis, probability and dynamical systems.</p>
+<p>The mathematical backbone is threefold. First, a fractal is usually a compact set, and the space of compact sets carries a natural complete metric, the Hausdorff metric; in that space, a finite family of contractions defines a contraction, and Banach's fixed point theorem produces the self-similar sets as attractors. Second, the notion of dimension splits into several inequivalent definitions — similarity dimension, box-counting dimension and Hausdorff dimension, together with packing and affinity dimensions — and much of the theory consists of deciding when they agree and computing them when they do not. Third, fractals arise not only by design but by dynamics: Julia sets and the Mandelbrot set from iterating z ↦ z² + c, strange attractors and period-doubling cascades from the logistic map, and random fractals from Brownian motion.</p>
+<p>The prerequisites are a first course in real analysis (metric spaces, compactness, uniform convergence), a working knowledge of Lebesgue measure, and elementary complex analysis. Probability enters only in the lesson on Brownian motion, where standard facts are quoted with references to their proofs. Throughout, log denotes the natural logarithm unless a base is indicated, |U| denotes the diameter sup{|x − y| : x, y ∈ U} of a set U ⊂ ℝⁿ, and B(x, r) is the closed ball of centre x and radius r.</p>
+<p>The historical arc is worth keeping in view. Cantor's ternary set (1883), von Koch's curve (1904) and Sierpinski's gasket (1915) were constructed as counterexamples in analysis and topology. Carathéodory (1914) and Hausdorff (1918) supplied the measure theory that assigns fractional dimensions; Besicovitch and his school developed it from the 1920s to the 1950s. Fatou and Julia (1918–1920) founded complex dynamics without ever seeing a computer picture of a Julia set. Mandelbrot's books of 1975–1982 unified these strands, named them, and showed their reach into the sciences; Hutchinson (1981) and Barnsley (1988) gave the iterated function system formalism; Douady and Hubbard (1982–1985) proved the first deep theorems on the Mandelbrot set; Feigenbaum (1978) discovered universality in period doubling. The subject remains an active research area, with major problems such as the local connectivity of the Mandelbrot set still open.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Work in the complete metric space of compact sets equipped with the Hausdorff metric</div></li><li><span class="mk">2.</span><div>Prove the contraction mapping theorem and use it to construct attractors of iterated function systems</div></li><li><span class="mk">3.</span><div>Code self-similar sets by infinite words and analyse the chaos game</div></li><li><span class="mk">4.</span><div>Derive the similarity dimension from the Moran equation and understand the open set condition</div></li><li><span class="mk">5.</span><div>Define and compute box-counting dimensions, and see where they fail</div></li><li><span class="mk">6.</span><div>Build Hausdorff measures by the Carathéodory construction and define Hausdorff dimension</div></li><li><span class="mk">7.</span><div>Prove that the Cantor set has Hausdorff dimension log 2 / log 3, using the mass distribution principle</div></li><li><span class="mk">8.</span><div>Prove the Moran–Hutchinson theorem and meet self-affine sets, where dimensions genuinely differ</div></li><li><span class="mk">9.</span><div>Study Julia sets: escape radius, complete invariance and the Fatou–Julia dichotomy</div></li><li><span class="mk">10.</span><div>Study the Mandelbrot set as the connectedness locus, with its cardioid, bulbs and open problems</div></li><li><span class="mk">11.</span><div>Analyse the logistic map, period doubling and the Feigenbaum constants</div></li><li><span class="mk">12.</span><div>Compute the dimensions of Brownian paths and graphs, and of Weierstrass-type functions</div></li><li><span class="mk">13.</span><div>Meet multifractal measures, the τ-spectrum and the Legendre transform</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/fractal-geometry-1.jpg" alt="Sepia oval portrait photograph of Felix Hausdorff in profile, wearing a suit and tie" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Felix Hausdorff, photographed between 1913 and 1921. In 1918 he introduced the measures and the notion of dimension now named after him, which assign non-integer dimensions such as log 2 / log 3 to the Cantor set. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/fractal-geometry-2.png" alt="Bifurcation diagram of the logistic map, plotting long-run values of x against the parameter r from 2.4 to 4" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> Bifurcation diagram of the logistic map x ↦ r x(1 − x) for 2.4 ≤ r ≤ 4. The attracting fixed point splits into a 2-cycle at r = 3 and a 4-cycle at r = 1 + √6 ≈ 3.449; the doublings accumulate near r ≈ 3.5699, beyond which chaotic bands alternate with periodic windows such as the period-3 window opening at r = 1 + √8 ≈ 3.828. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>Metric Spaces and the Hausdorff Metric</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Contractions and Iterated Function Systems</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Coding, Addresses and the Chaos Game</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Similarity Dimension, the Moran Equation and the Open Set Condition</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Box-Counting Dimension</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Hausdorff Measure and Hausdorff Dimension</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>Julia Sets of Quadratic Polynomials</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>The Mandelbrot Set</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>The Logistic Map, Period Doubling and Feigenbaum Universality</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Brownian Motion and Random Fractals</strong></span></a>
+    <a class="lesson-card" href="lesson-13.html"><span><span class="lc-num">Lesson 13</span><br><strong>Multifractal Measures</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Hausdorff 1913-1921. By Unknown photographer. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Hausdorff_1913-1921.jpg">https://commons.wikimedia.org/wiki/File:Hausdorff_1913-1921.jpg</a></li><li><strong>Figure 2</strong> · LogisticMap BifurcationDiagram. By PAR. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png">https://commons.wikimedia.org/wiki/File:LogisticMap_BifurcationDiagram.png</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

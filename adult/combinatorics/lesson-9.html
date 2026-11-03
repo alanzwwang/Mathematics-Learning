@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Catalan Numbers and Lattice Paths — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 9</p>
+    <h1>Catalan Numbers and Lattice Paths</h1>
+    <p class="kicker">Lesson 9 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Cₙ = C(2n, n)/(n + 1) = C(2n, n) − C(2n, n + 1)
+C(x) = 1 + x C(x)²,   C(x) = (1 − √(1 − 4x))/(2x)</pre></div>
+<h3>Dyck paths and the reflection principle</h3>
+<p>A Dyck path of semilength n is a lattice path from (0, 0) to (2n, 0) with steps U = (1, 1) and D = (1, −1) that never goes below the x-axis. Let Cₙ be the number of them.</p>
+<p><strong>Theorem 9.1</strong>. Cₙ = C(2n, n) − C(2n, n + 1) = C(2n, n)/(n + 1).</p>
+<p><strong>Proof (André's reflection principle, 1887)</strong>. There are C(2n, n) paths with n up-steps and n down-steps. A bad path touches the line y = −1; reflect the part of the path after its first such touch in that line. This produces a path from (0, 0) to (2n, −2), that is, one with n − 1 up-steps and n + 1 down-steps; conversely every such path must cross y = −1 and reflecting after its first touch recovers a bad path. So there are C(2n, n + 1) bad paths, and C(2n, n) − C(2n, n + 1) = C(2n, n)[1 − n/(n + 1)] = C(2n, n)/(n + 1). ∎</p>
+<p>The same argument shows that the number of lattice paths from (0, 0) to (a, b), with unit east and north steps and a ≥ b, that never rise above the line y = x is C(a + b, b) − C(a + b, b − 1) = ((a − b + 1)/(a + 1)) C(a + b, b).</p>
+<h3>The recursive decomposition</h3>
+<p>A nonempty Dyck path decomposes uniquely by its first return to the axis as U P D Q, where P and Q are Dyck paths, of semilengths k and n − 1 − k. Hence C₀ = 1 and Cₙ = ∑ₖ CₖCₙ₋₁₋ₖ, so the OGF satisfies C(x) = 1 + xC(x)². Solving the quadratic and choosing the root that is a power series gives C(x) = (1 − √(1 − 4x))/(2x). Expanding √(1 − 4x) by the binomial series recovers Theorem 9.1 independently, since [xⁿ⁺¹] √(1 − 4x) = C(1/2, n + 1)(−4)ⁿ⁺¹ = −2Cₙ.</p>
+<p>The values are C₀, …, C₁₂ = 1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012. From Stirling's formula, Cₙ ~ 4ⁿ/(n<sup>3/2</sup>√π); the factor n<sup>−3/2</sup> is the fingerprint of the square-root singularity of C(x) at x = 1/4.</p>
+<h3>A family of interpretations</h3>
+<p>Each of the following is counted by Cₙ, by a bijection with Dyck paths or by the same recursive decomposition: binary trees with n internal nodes; plane (ordered) trees with n + 1 vertices; full parenthesizations of a product of n + 1 factors; triangulations of a convex (n + 2)-gon (fix a side; the triangle on it splits the polygon in two); noncrossing partitions of [n]; permutations of [n] avoiding any fixed pattern of length 3 (Knuth for 231, Simion–Schmidt in general); and standard Young tableaux of shape (n, n). Stanley's monograph Catalan Numbers (2015) lists 214 such families.</p>
+<p>The last of these is an instance of the hook length formula of Frame, Robinson and Thrall (1954): the number of standard Young tableaux of shape λ ⊢ n is n!/∏ h(c), the product over cells c of the hook length h(c), which is the number of cells to the right of c in its row, below c in its column, and c itself. For λ = (n, n) the hooks in the first row are n + 1, n, …, 2 and in the second row n, n − 1, …, 1, giving (2n)!/((n + 1)! n!) = Cₙ.</p>
+<h3>The ballot problem and the cycle lemma</h3>
+<p><strong>Theorem 9.2 (Bertrand's ballot theorem, 1887)</strong>. If candidate A receives a votes and candidate B receives b &lt; a votes, and the ballots are counted in uniformly random order, the probability that A is strictly ahead throughout the count is (a − b)/(a + b).</p>
+<p><strong>Proof (cycle lemma of Dvoretzky and Motzkin, 1947)</strong>. Write each ballot sequence as a word in +1 (for A) and −1 (for B) with sum a − b = m &gt; 0. Among the a + b cyclic rotations of any such word, exactly m have all partial sums positive. Indeed, cancel adjacent pairs (+1, −1), cyclically, until only m copies of +1 remain; a rotation has positive partial sums exactly when it starts at one of the original positions of those m surviving +1's. Since rotation partitions the a + b positions into classes in which the fraction of good starting points is m/(a + b), the probability is (a − b)/(a + b). ∎</p>
+<p>Applying the cycle lemma to words with n + 1 copies of +1 and n copies of −1 gives a third proof of Cₙ = C(2n + 1, n)/(2n + 1), which equals C(2n, n)/(n + 1).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute C₇ from the formula.</div></li><li><span class="mk">(b)</span><div>How many east–north lattice paths from (0, 0) to (6, 4) never rise above y = x?</div></li><li><span class="mk">(c)</span><div>In an election A receives 9 votes and B receives 6. What is the probability that A is strictly ahead throughout the count?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(14, 7)/8 = 3432/8 = 429. (b) (3/7) · C(10, 4) = (3/7) · 210 = 90. (c) (9 − 6)/15 = 1/5.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

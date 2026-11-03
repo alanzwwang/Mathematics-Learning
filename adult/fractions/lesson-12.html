@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: p-adic Absolute Values and the Completions of ℚ — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 12</p>
+    <h1>p-adic Absolute Values and the Completions of ℚ</h1>
+    <p class="kicker">Lesson 12 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">|x|<sub>p</sub> = p<sup>−v<sub>p</sub>(x)</sup> satisfies |x + y|<sub>p</sub> ≤ max(|x|<sub>p</sub>, |y|<sub>p</sub>).
+Product formula: |x|<sub>∞</sub> · ∏<sub>p</sub> |x|<sub>p</sub> = 1 for every x ∈ ℚ<sup>×</sup>.
+Ostrowski: every nontrivial absolute value on ℚ is equivalent to |·|<sub>∞</sub> or to some |·|<sub>p</sub>.</pre></div>
+<h3>Absolute values</h3>
+<p>An absolute value on a field K is a function |·|: K → [0, ∞) with |x| = 0 only for x = 0, |xy| = |x||y| and |x + y| ≤ |x| + |y|. It is non-archimedean if it satisfies the stronger ultrametric inequality |x + y| ≤ max(|x|, |y|), and archimedean otherwise. Two absolute values are equivalent if they define the same topology; equivalently, one is a positive power of the other. The trivial absolute value has |x| = 1 for all x ≠ 0.</p>
+<p>For a prime p, the p-adic absolute value on ℚ is |x|<sub>p</sub> = p<sup>−v<sub>p</sub>(x)</sup>, with |0|<sub>p</sub> = 0. Multiplicativity is v<sub>p</sub>(xy) = v<sub>p</sub>(x) + v<sub>p</sub>(y), and the ultrametric inequality is v<sub>p</sub>(x + y) ≥ min(v<sub>p</sub>(x), v<sub>p</sub>(y)) from Proposition 3.1. In this metric a number is small when it is divisible by a high power of p: |p<sup>k</sup>|<sub>p</sub> = p<sup>−k</sup> → 0, while |1/p<sup>k</sup>|<sub>p</sub> = p<sup>k</sup>. We write |·|<sub>∞</sub> for the usual absolute value.</p>
+<h3>Ultrametric geometry</h3>
+<p>Ultrametric spaces look strange to archimedean eyes. If |x|<sub>p</sub> ≠ |y|<sub>p</sub> then |x + y|<sub>p</sub> = max(|x|<sub>p</sub>, |y|<sub>p</sub>) exactly, the equality case of Proposition 3.1; consequently every triangle is isosceles, with its two longest sides equal. Every point of an open ball is a centre of that ball, two balls are either disjoint or one contains the other, and every ball is both open and closed, so ℚ with |·|<sub>p</sub> is totally disconnected. A series ∑ c<sub>k</sub> converges in a complete ultrametric field if and only if c<sub>k</sub> → 0, a dramatic simplification compared with real analysis.</p>
+<h3>The product formula</h3>
+<p><strong>Theorem 12.1</strong>. For every x ∈ ℚ<sup>×</sup>, |x|<sub>∞</sub> · ∏<sub>p</sub> |x|<sub>p</sub> = 1, where the product is over all primes and has only finitely many factors different from 1.</p>
+<p><strong>Proof</strong>. Both sides are multiplicative in x, so it suffices to check x = −1 and x = q prime. For −1 every factor is 1. For x = q we have |q|<sub>∞</sub> = q, |q|<sub>q</sub> = 1/q and |q|<sub>p</sub> = 1 for p ≠ q. ∎</p>
+<p>The product formula expresses the unique factorisation of integers analytically. It is the prototype of the adelic point of view, in which all the completions of ℚ are treated simultaneously, and of the theory of heights in Diophantine geometry.</p>
+<h3>Ostrowski's theorem</h3>
+<p><strong>Theorem 12.2 (Ostrowski, 1916)</strong>. Every nontrivial absolute value on ℚ is equivalent either to |·|<sub>∞</sub> or to |·|<sub>p</sub> for exactly one prime p.</p>
+<p><strong>Proof of the non-archimedean case</strong>. Suppose |·| is non-archimedean and nontrivial. Then |n| = |1 + ⋯ + 1| ≤ 1 for every integer n. If |n| = 1 for all nonzero integers, multiplicativity would make |·| trivial on ℚ; so the set I = {n ∈ ℤ : |n| &lt; 1} is a nonzero ideal of ℤ (closed under addition by the ultrametric inequality, and under multiplication by integers because |m| ≤ 1). It is proper since |1| = 1, and prime since |ab| = |a||b| &lt; 1 forces |a| &lt; 1 or |b| &lt; 1. Hence I = pℤ for a prime p. Writing n = p<sup>v</sup> m with p ∤ m, we have |m| = 1 and |n| = |p|<sup>v</sup>. Setting |p| = p<sup>−α</sup> with α &gt; 0, |n| = (p<sup>−v</sup>)<sup>α</sup> = |n|<sub>p</sub><sup>α</sup> for every integer n, and by multiplicativity for every rational. ∎</p>
+<p>Sketch of the archimedean case. Let m, n ≥ 2 be integers. Writing m<sup>k</sup> in base n with at most 1 + k log m/log n digits, each of absolute value at most n, gives |m|<sup>k</sup> ≤ (1 + k log m/log n)·n·max(1, |n|)<sup>k log m/log n</sup>. Taking k-th roots and letting k → ∞,</p>
+<pre class="math">|m| ≤ max(1, |n|)<sup>log m / log n</sup>.</pre>
+<p>If |·| is archimedean, some integer has |n| &gt; 1 (otherwise the ultrametric inequality would hold), and the inequality then forces |n| &gt; 1 for all n ≥ 2; applying it in both directions gives |m|<sup>1/log m</sup> = |n|<sup>1/log n</sup>. Hence |n| = n<sup>α</sup> for a constant 0 &lt; α ≤ 1, so |·| = |·|<sub>∞</sub><sup>α</sup>.</p>
+<h3>The completions ℚ<sub>p</sub></h3>
+<p>Completing ℚ with respect to |·|<sub>∞</sub> gives ℝ. Completing with respect to |·|<sub>p</sub> gives the field ℚ<sub>p</sub> of p-adic numbers, introduced by Hensel in 1897. By Ostrowski's theorem these are all the completions of ℚ. The closed unit ball ℤ<sub>p</sub> = {x ∈ ℚ<sub>p</sub> : |x|<sub>p</sub> ≤ 1} is a ring, the p-adic integers, isomorphic to the inverse limit of the rings ℤ/p<sup>kℤ</sup>. Every x ∈ ℚ<sub>p</sub> has a unique expansion</p>
+<pre class="math">x = ∑<sub>k ≥ −N</sub> d<sub>k</sub> p<sup>k</sup>,    d<sub>k</sub> ∈ {0, 1, …, p − 1},</pre>
+<p>convergent because its terms tend to 0. Familiar identities hold in a new form:</p>
+<pre class="math">1/(1 − p) = 1 + p + p² + p³ + ⋯,        −1 = (p − 1) + (p − 1)p + (p − 1)p² + ⋯.</pre>
+<p>In ℚ₂ the geometric series gives −1/3 = 1/(1 − 4) = 1 + 4 + 16 + ⋯, that is, the 2-adic digits of −1/3 are …010101, and 1/3 = 1 + (−2/3) = 1 + 2 + 2³ + 2⁵ + ⋯ has digits …101011. As promised in Lesson 4, a p-adic number is rational if and only if its digit sequence is eventually periodic.</p>
+<h3>Hensel's lemma and local–global principles</h3>
+<p><strong>Theorem 12.3 (Hensel's lemma)</strong>. Let f ∈ ℤ<sub>p</sub>[x] and a ∈ ℤ<sub>p</sub> with f(a) ≡ 0 (mod p) and f′(a) ≢ 0 (mod p). Then there is a unique α ∈ ℤ<sub>p</sub> with f(α) = 0 and α ≡ a (mod p).</p>
+<p>The proof is Newton's method: α<sub>k+1</sub> = α<sub>k</sub> − f(α<sub>k</sub>)/f′(α<sub>k</sub>) converges p-adically, the error being squared at every step. For example, −1 is a square modulo 5 (2² = 4 ≡ −1) and f′(2) = 4 ≢ 0, so √−1 exists in ℤ₅; the successive approximations are 2, 7, 57, … modulo 5, 25, 125, …, because 7² + 1 = 50 and 57² + 1 = 3250 = 26·125. By contrast √2 ∉ ℚ₅, since 2 is not a square modulo 5, while √2 ∈ ℚ₇ because 3² ≡ 2 (mod 7).</p>
+<p>The p-adic fields are the setting for local–global principles. The Hasse–Minkowski theorem states that a quadratic form over ℚ represents 0 nontrivially over ℚ if and only if it does so over ℝ and over every ℚ<sub>p</sub>. For cubic equations the principle fails: Selmer (1951) showed that 3x³ + 4y³ + 5z³ = 0 has nontrivial solutions in ℝ and in every ℚ<sub>p</sub> but none in ℚ. The study of this failure leads to Tate–Shafarevich groups and to the deepest open problems about rational points, such as the conjecture of Birch and Swinnerton-Dyer.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute |x|<sub>v</sub> for x = 63/550 at v = ∞, 2, 3, 5, 7, 11, and verify the product formula.</div></li><li><span class="mk">(b)</span><div>Find the 2-adic expansion of −1/3 and check it by adding 1/3.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 63 = 3²·7 and 550 = 2·5²·11, so |x|<sub>∞</sub> = 63/550, |x|<sub>2</sub> = 2, |x|<sub>3</sub> = 1/9, |x|<sub>5</sub> = 25, |x|<sub>7</sub> = 1/7, |x|<sub>11</sub> = 11, and all other factors are 1. The product is (63/550)·2·(1/9)·25·(1/7)·11 = (63/550)·(550/63) = 1. (b) −1/3 = 1/(1 − 4) = 1 + 4 + 4² + ⋯, with digits …010101. Adding 1/3, with digits …101011, digit by digit with carries: 1 + 1 = 10 gives 0 carry 1; then 0 + 1 + 1 = 10 gives 0 carry 1; and so on, every digit becoming 0 with a carry that runs off to infinity. The sum is 0, as it should be.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

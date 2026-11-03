@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Propositional Logic — Syntax and Semantics — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 1</p>
+    <h1>Propositional Logic — Syntax and Semantics</h1>
+    <p class="kicker">Lesson 1 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Formulas are generated from atoms by the connectives; every formula is read in exactly one way.
+A valuation v : At → {0, 1} extends uniquely to all formulas.
+Γ ⊨ φ means: every valuation satisfying all of Γ satisfies φ.</pre></div>
+<h3>The language</h3>
+<p>Fix a set At of propositional atoms (or variables), usually At = {p₀, p₁, p₂, …}. The set Form of propositional formulas is the smallest set of finite strings over the alphabet At ∪ {¬, ∧, ∨, →, ↔, (, )} ∪ {⊤, ⊥} such that every atom, ⊤ and ⊥ belong to Form, and whenever φ, ψ ∈ Form, the strings ¬φ, (φ ∧ ψ), (φ ∨ ψ), (φ → ψ) and (φ ↔ ψ) belong to Form. Equivalently, Form is the union of the sets Form₀ ⊆ Form₁ ⊆ … where Form₀ consists of the atoms and constants and Formₙ₊₁ adds all strings obtained from members of Formₙ by one application of a connective. The second description shows that every formula has a finite construction sequence, and it justifies proof by induction on formulas: if a property holds of the atoms and constants and is preserved by each connective, it holds of every formula.</p>
+<p>In practice we drop outermost brackets and adopt the conventions that ¬ binds most tightly, then ∧ and ∨, then → and ↔, and that → associates to the right. These are abbreviations only; the official objects are fully bracketed strings.</p>
+<h3>Unique readability</h3>
+<p>To define anything by recursion on formulas we need to know that a formula cannot be built in two different ways. This is the content of the unique readability theorem.</p>
+<p>For a string s let b(s) be the number of left brackets in s minus the number of right brackets.</p>
+<p><strong>Lemma 1.1</strong>. (i) Every formula φ has b(φ) = 0 and every initial segment of φ has b ≥ 0. (ii) Every proper nonempty initial segment of a formula that begins with a left bracket has b ≥ 1. (iii) No formula is a proper initial segment of another formula.</p>
+<p><strong>Proof</strong>. (i) and (ii) are proved together by induction on φ. Atoms and constants contain no brackets. The initial segments of ¬φ are the empty string and ¬t with t an initial segment of φ, so the claims pass from φ to ¬φ. The proper nonempty initial segments of (φ ∗ ψ) are &quot;(&quot; t with t an initial segment of φ, and &quot;(&quot; φ ∗ t′ with t′ an initial segment of ψ (t′ may be all of ψ). By induction these have b = 1 + b(t) ≥ 1 and b = 1 + 0 + b(t′) ≥ 1, and the whole formula has b = 1 + 0 + 0 − 1 = 0. For (iii), suppose the formula ψ is a proper initial segment of the formula φ, and induct on φ. An atom or constant has no proper nonempty initial segment. If φ begins with a left bracket, so does ψ, and then b(ψ) = 0 by (i) but b(ψ) ≥ 1 by (ii), a contradiction. If φ = ¬φ′, then ψ = ¬ψ′ with ψ′ a formula that is a proper initial segment of φ′, contradicting the induction hypothesis. ∎</p>
+<p><strong>Theorem 1.2 (Unique readability)</strong>. Every formula φ is exactly one of: an atom, a constant, ¬ψ for a unique ψ, or (ψ ∗ χ) for a unique binary connective ∗ and unique formulas ψ, χ.</p>
+<p><strong>Proof</strong>. The first symbol of φ determines which case occurs. If ¬ψ = ¬ψ′, then ψ = ψ′ trivially. Suppose (ψ ∗ χ) = (ψ′ ∗′ χ′). Then ψ and ψ′ are both initial segments of the same string, so one is an initial segment of the other, and by Lemma 1.1(iii) they are equal. Deleting them, the next symbol gives ∗ = ∗′, and what remains, minus the final bracket, gives χ = χ′. ∎</p>
+<h3>Semantics</h3>
+<p>A valuation is a function v : At → {0, 1}. By unique readability v extends to a unique function v̄ : Form → {0, 1} satisfying v̄(⊤) = 1, v̄(⊥) = 0, v̄(¬φ) = 1 − v̄(φ), and</p>
+<pre class="math">v̄(φ ∧ ψ) = min(v̄(φ), v̄(ψ))          v̄(φ ∨ ψ) = max(v̄(φ), v̄(ψ))
+v̄(φ → ψ) = max(1 − v̄(φ), v̄(ψ))      v̄(φ ↔ ψ) = 1 exactly when v̄(φ) = v̄(ψ)</pre>
+<p>We write v ⊨ φ when v̄(φ) = 1. A formula is a tautology (⊨ φ) if every valuation satisfies it, satisfiable if some valuation does, and a contradiction if none does. For a set Γ of formulas, Γ ⊨ φ (φ is a semantic consequence of Γ) means that every valuation satisfying every member of Γ also satisfies φ. Formulas φ and ψ are logically equivalent, φ ≡ ψ, if φ ⊨ ψ and ψ ⊨ φ, that is, if φ ↔ ψ is a tautology.</p>
+<p><strong>Lemma 1.3 (Coincidence)</strong>. If v and w agree on the atoms occurring in φ, then v̄(φ) = w̄(φ).</p>
+<p><strong>Proof</strong>. Induction on φ; the inductive steps use only the values on immediate subformulas. ∎</p>
+<p>The coincidence lemma means that a formula in n atoms has only 2ⁿ relevant valuations, which is why truth tables decide tautologyhood. Two elementary but constantly used facts follow directly from the definitions.</p>
+<p><strong>Proposition 1.4</strong>. (i) Γ ⊨ φ → ψ if and only if Γ ∪ {φ} ⊨ ψ (the semantic deduction theorem). (ii) Γ ⊨ φ if and only if Γ ∪ {¬φ} is unsatisfiable.</p>
+<p><strong>Proof</strong>. (i) If Γ ⊨ φ → ψ and v satisfies Γ ∪ {φ}, then v̄(φ → ψ) = 1 and v̄(φ) = 1 force v̄(ψ) = 1. Conversely, if Γ ∪ {φ} ⊨ ψ and v satisfies Γ, either v̄(φ) = 0, making φ → ψ true, or v̄(φ) = 1, so v̄(ψ) = 1. (ii) A valuation satisfying Γ ∪ {¬φ} is exactly a valuation satisfying Γ but not φ. ∎</p>
+<h3>Substitution</h3>
+<p>If φ is a formula in the atoms p₁, …, pₙ and ψ₁, …, ψₙ are formulas, write φ[ψ₁/p₁, …, ψₙ/pₙ] for the result of simultaneously replacing each pᵢ by ψᵢ. A straightforward induction proves the substitution lemma: v̄(φ[ψ⃗/p⃗]) = w̄(φ), where w is the valuation with w(pᵢ) = v̄(ψᵢ). Consequently every substitution instance of a tautology is a tautology, and replacing a subformula by a logically equivalent one preserves logical equivalence. These two facts license all the algebraic manipulation of formulas that follows.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many distinct formulas of length exactly 4 (counting every symbol, brackets included) can be built from the single atom p using only ¬ and the official bracketing?</div></li><li><span class="mk">(b)</span><div>Show that p → (q → p) is a tautology and that (p → q) → p is not.</div></li><li><span class="mk">(c)</span><div>Is {p ∨ q, ¬p ∨ r, ¬q ∨ r} ⊨ r true?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Only ¬¬¬p. With ¬ alone every formula is ¬ᵏp, of length k + 1, so length 4 forces k = 3. (b) p → (q → p) can only be false if p = 1 and q → p = 0, which needs p = 0, impossible. For (p → q) → p take p = 0: then p → q = 1 and the whole formula is 0. (c) Yes. If v satisfies all three and v(r) = 0, then ¬p ∨ r and ¬q ∨ r force v(p) = v(q) = 0, contradicting p ∨ q. This is the pattern of proof by cases, and also a single resolution step (Lesson 5).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

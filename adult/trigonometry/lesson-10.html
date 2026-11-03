@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Parseval's Identity and the Gibbs Phenomenon — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 10</p>
+    <h1>Parseval's Identity and the Gibbs Phenomenon</h1>
+    <p class="kicker">Lesson 10 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">(1/π) ∫₋π<sup>π</sup> |f|² = a₀²/2 + ∑ₙ₌₁<sup>∞</sup> (aₙ² + bₙ²)        for every f ∈ L²(−π, π)
+Near a jump of size J, the partial sums overshoot by about 0.0895 J, however many terms are taken.</pre></div>
+<h3>Completeness and Parseval's identity</h3>
+<p><strong>Theorem 10.1</strong>. The system {1, cos nx, sin nx : n ≥ 1} is complete in L²(−π, π): if f ∈ L² has all Fourier coefficients zero, then f = 0 almost everywhere. Consequently Sₙf → f in L² and Parseval's identity holds.</p>
+<p><strong>Proof</strong>. By Fejér's theorem, every continuous periodic function is a uniform limit of trigonometric polynomials; continuous periodic functions are dense in L²; hence trigonometric polynomials are dense in L². If f is orthogonal to all of them it is orthogonal to a dense subspace, so f = 0. For an orthonormal basis of a Hilbert space, the partial sums of the expansion converge in norm, and Bessel's inequality becomes an equality. ∎</p>
+<p>In the language of harmonic analysis, the map f ↦ (f̂(n))ₙ∈ℤ with f̂(n) = (1/(2π))∫ f e<sup>−inx</sup> dx is a unitary isomorphism L²(𝕋) → ℓ²(ℤ), and Parseval reads (1/(2π))∫|f|² = ∑ |f̂(n)|². The polarised form (1/π)∫ fg = a₀α₀/2 + ∑ (aₙαₙ + bₙβₙ) holds for two functions with coefficients (aₙ, bₙ) and (αₙ, βₙ).</p>
+<h3>Evaluating series</h3>
+<p>Applied to the sawtooth f(x) = x, with bₙ = 2(−1)ⁿ⁺¹/n:</p>
+<pre class="math">(1/π) ∫₋π<sup>π</sup> x² dx = 2π²/3 = ∑ 4/n²,   so  ∑ 1/n² = π²/6.</pre>
+<p>Applied to f(x) = x², with a₀ = 2π²/3 and aₙ = 4(−1)ⁿ/n²:</p>
+<pre class="math">(1/π) ∫₋π<sup>π</sup> x⁴ dx = 2π⁴/5 = (2π²/3)²/2 + ∑ 16/n⁴ = 2π⁴/9 + 16 ∑ 1/n⁴,</pre>
+<p>so 16 ζ(4) = 2π⁴/5 − 2π⁴/9 = 8π⁴/45 and ζ(4) = π⁴/90. Continuing with x⁴, x⁶, … (or using the cotangent series of Lesson 8) yields Euler's formula ζ(2k) = (−1)ᵏ⁺¹ B₂ₖ (2π)²ᵏ/(2(2k)!), with Bernoulli numbers B₂ₖ. By contrast, nothing comparable is known for ζ(3); Apéry proved in 1978 that ζ(3) is irrational.</p>
+<h3>The isoperimetric inequality</h3>
+<p>Hurwitz's proof (1901) is a famous application of Parseval. Let a closed C¹ curve of length 2π be parametrised by arc length as z(s) = x(s) + iy(s), 0 ≤ s ≤ 2π, with Fourier coefficients cₙ. Then |z′| = 1 gives (1/(2π))∫ |z′|² = ∑ n²|cₙ|² = 1, while the enclosed area is A = (1/2) Im ∫ z̄ z′ ds = π ∑ n|cₙ|². Hence</p>
+<pre class="math">π − A = π ∑ (n² − n)|cₙ|² ≥ 0,</pre>
+<p>with equality only if cₙ = 0 for all n ∉ {0, 1}, that is, only for a circle. Scaling, every closed curve of length L encloses area at most L²/(4π).</p>
+<h3>The Gibbs phenomenon</h3>
+<p>Let f be the 2π-periodic square wave equal to 1 on (0, π) and −1 on (−π, 0). Its coefficients are bₙ = (2/π)∫₀<sup>π</sup> sin nx dx = 2(1 − (−1)ⁿ)/(πn), so</p>
+<pre class="math">f(x) ∼ (4/π) (sin x + sin 3x/3 + sin 5x/5 + ⋯).</pre>
+<p>By Dirichlet's theorem the partial sums converge to f at every x ≠ kπ and to 0 at the jumps. The convergence, however, is not uniform, and in a striking way. Consider the partial sum with the first N odd harmonics,</p>
+<pre class="math">S(x) = (4/π) ∑ₖ₌₁ᴺ sin((2k − 1)x)/(2k − 1).</pre>
+<p>Its derivative is S′(x) = (4/π) ∑ cos((2k−1)x) = (2/π) sin(2Nx)/sin x, so the first positive critical point is x = π/(2N). There, putting tₖ = (2k − 1)π/(2N),</p>
+<pre class="math">S(π/(2N)) = (2/π) ∑ₖ₌₁ᴺ (sin tₖ/tₖ) · (π/N),</pre>
+<p>which is a midpoint Riemann sum for an integral, so</p>
+<pre class="math">S(π/(2N)) → (2/π) ∫₀<sup>π</sup> (sin t)/t dt = (2/π) Si(π) = 1.17897974…</pre>
+<p>as N → ∞, where Si(π) = 1.85193705… is the sine integral. The partial sums therefore overshoot the value 1 by about 0.179, which is 8.95% of the jump of size 2, and the overshoot does not shrink: it only moves closer to the discontinuity. This is the Gibbs phenomenon, first observed by Henry Wilbraham in 1848 and rediscovered and explained by J. Willard Gibbs in 1898–99 after A. A. Michelson's harmonic analyser displayed the overshoot. By localisation, the same overshoot, (1/π) Si(π) − 1/2 ≈ 0.0895 times the jump, occurs at every jump discontinuity of a piecewise smooth function.</p>
+<p>The Gibbs phenomenon matters in signal processing (ringing artefacts in truncated spectra, JPEG compression around sharp edges). It disappears under Fejér summation: since the Fejér kernel is non-negative with integral 1, the Cesàro means of a function with values in [−1, 1] stay in [−1, 1]. Smoother summation methods (Lanczos σ-factors, Riesz means) are used in practice for the same reason.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Use Parseval for f(x) = |x| to evaluate ∑ₖ₌₁<sup>∞</sup> 1/(2k − 1)⁴.</div></li><li><span class="mk">(b)</span><div>Let g be 1 on [−1, 1] and 0 on the rest of [−π, π]. Use Parseval to show ∑ₙ₌₁<sup>∞</sup> sin²n/n² = (π − 1)/2.</div></li><li><span class="mk">(c)</span><div>Compute the limit of the overshoot percentage at the jump of the sawtooth f(x) = x at x = π.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (1/π)∫x² = 2π²/3 = π²/2 + ∑ 16/(π²(2k−1)⁴), so ∑ 1/(2k−1)⁴ = (π²/6) · (π²/16) = π⁴/96. (b) a₀ = 2/π and aₙ = 2 sin n/(πn), so 2/π = 2/π² + (4/π²)∑ sin²n/n²; multiply by π²/4 to get π/2 = 1/2 + ∑ sin²n/n². (c) The jump is 2π, and the overshoot tends to 0.0895 × 2π ≈ 0.562 above π: again about 8.95% of the jump, as for any jump.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

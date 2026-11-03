@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#0891b2">
+<body id="top" class="mode-kid" style="--topic:#0891b2">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/number-theory/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Every number breaks into primes in EXACTLY ONE way.   84 = 2² × 3 × 7
 f(n) = the number of factors of n = (exponent + 1)s multiplied.  f(84) = 12</pre></div>
@@ -67,7 +68,7 @@ p² × q:  2² × 3 = 12</pre>
 <h3>Perfect squares: the odd-factor-count theorem</h3>
 <p>When is f(n) ODD? Only when every (exponent + 1) is odd — which means every exponent is even — which means n is a perfect square! Here's the &quot;why&quot; with algebra. Factors come in pairs: whenever d is a factor of n, so is its partner n ÷ d, and the pair multiplies to n. Two cases:</p>
 <ul class="steps"><li><span class="mk">·</span><div>n is NOT a square: then d ≠ n ÷ d always (equality would mean d × d = n), so every factor has a DIFFERENT partner → the factors pair up cleanly → f(n) is even.</div></li><li><span class="mk">·</span><div>n IS a square, say n = k²: the factor k is its own partner (k × k = n), so one factor sits unpaired while the rest pair off → f(n) is odd.</div></li></ul>
-<p>Example: 36 = 6² has f(36) = (2+1)(2+1) = 9 factors, and 6 pairs with itself. Keep this in your pocket — a certain locker mystery in the challenge problems depends on it.</p>
+<p><strong>Example</strong>: 36 = 6² has f(36) = (2+1)(2+1) = 9 factors, and 6 pairs with itself. Keep this in your pocket — a certain locker mystery in the challenge problems depends on it.</p>
 <p>One more square trick. Problem: find the smallest k that makes 72 × k a perfect square.</p>
 <pre class="math">72 = 2³ × 3²             fingerprint first
 exponents: 3 is ODD, 2 is even
@@ -94,7 +95,7 @@ so supply one more 2:  k = 2</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

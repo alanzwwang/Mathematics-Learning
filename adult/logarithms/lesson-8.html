@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Logarithms in Integration — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 8</p>
+    <h1>Logarithms in Integration</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∫ dx/x = ln |x| + C   (separately on (−∞, 0) and (0, ∞))
+∫₀¹ ln x dx = −1,   ∫₀<sup>π/2</sup> ln sin x dx = −(π/2) ln 2,   ∫₀<sup>∞</sup> (e⁻ᵃˣ − e⁻ᵇˣ)/x dx = ln(b/a)</pre></div>
+<h3>The antiderivative of 1/x</h3>
+<p>On (0, ∞) an antiderivative of 1/x is ln x; on (−∞, 0) it is ln(−x), whose derivative is −1/(−x) = 1/x. Hence ∫ dx/x = ln |x| + C, with the warning that the constant may differ on the two intervals: the general antiderivative on ℝ∖{0} is ln |x| + C₁ for x &gt; 0 and ln |x| + C₂ for x &lt; 0. The power rule ∫ xᵃ dx = xᵃ⁺¹/(a + 1) fails exactly at a = −1, and the logarithm fills the gap continuously in the sense that (xᵃ⁺¹ − 1)/(a + 1) → ln x as a → −1, because (e<sup>h ln x</sup> − 1)/h → ln x as h = a + 1 → 0.</p>
+<h3>Standard integrals produced by logarithms</h3>
+<p>Every rational function has an elementary antiderivative consisting of a rational function, logarithms and arctangents; this is the partial-fraction theorem. For example</p>
+<pre class="math">∫ dx/(x² − a²) = (1/(2a)) ln |(x − a)/(x + a)| + C,
+∫ tan x dx = −ln |cos x| + C,
+∫ sec x dx = ln |sec x + tan x| + C.</pre>
+<p>The last integral has a notable history. Edward Wright's 1599 tables for the Mercator projection were in effect numerical values of ∫ sec φ dφ; around 1645 Henry Bond noticed, by comparing tables, that they matched ln tan(π/4 + φ/2), and the identity was proved by James Gregory in 1668. One checks that ln tan(π/4 + φ/2) = ln(sec φ + tan φ).</p>
+<p>Integration by parts gives ∫ ln x dx = x ln x − x + C and, more generally, ∫ xᵃ ln x dx = xᵃ⁺¹ ln x/(a + 1) − xᵃ⁺¹/(a + 1)² + C for a ≠ −1. As x → 0⁺, xᵃ⁺¹ ln x → 0 when a &gt; −1, by Theorem 4.1, so</p>
+<pre class="math">∫₀¹ xᵃ ln x dx = −1/(a + 1)²   (a &gt; −1),   in particular ∫₀¹ ln x dx = −1.</pre>
+<h3>The integral of ln sin</h3>
+<p><strong>Theorem 8.1 (Euler)</strong>. ∫₀<sup>π/2</sup> ln sin x dx = −(π/2) ln 2.</p>
+<p><strong>Proof</strong>. The integral I converges because ln sin x ~ ln x near 0. By the substitution x ↦ π/2 − x, I = ∫₀<sup>π/2</sup> ln cos x dx. So 2I = ∫₀<sup>π/2</sup> ln(sin x cos x) dx = ∫₀<sup>π/2</sup> ln(sin 2x) dx − (π/2) ln 2. With u = 2x, ∫₀<sup>π/2</sup> ln sin 2x dx = ½ ∫₀<sup>π</sup> ln sin u du = I, by the symmetry of sin about π/2. Hence 2I = I − (π/2) ln 2. ∎</p>
+<h3>Frullani integrals</h3>
+<p><strong>Theorem 8.2</strong>. For 0 &lt; a &lt; b, ∫₀<sup>∞</sup> (e⁻ᵃˣ − e⁻ᵇˣ)/x dx = ln(b/a).</p>
+<p><strong>Proof</strong>. (e⁻ᵃˣ − e⁻ᵇˣ)/x = ∫ₐᵇ e⁻ᵗˣ dt. The integrand e⁻ᵗˣ is non-negative, so Tonelli's theorem allows interchanging the integrals: ∫₀<sup>∞</sup> ∫ₐᵇ e⁻ᵗˣ dt dx = ∫ₐᵇ ∫₀<sup>∞</sup> e⁻ᵗˣ dx dt = ∫ₐᵇ dt/t = ln(b/a). ∎</p>
+<p>The same argument proves Frullani's general formula ∫₀<sup>∞</sup> (f(ax) − f(bx))/x dx = (f(0) − f(∞)) ln(b/a) for suitable f. The logarithm appears because the measure dx/x is invariant under dilations (Lesson 3): dilating by a and by b and subtracting leaves only the &quot;Haar length&quot; ln(b/a) of the interval between the scales.</p>
+<h3>Integrals that define new functions</h3>
+<p>Liouville's theory of elementary functions (1830s), made algorithmic by Risch (1969), shows that some innocent integrands have no elementary antiderivative. The most important example for us is 1/ln x. We define the logarithmic integral</p>
+<pre class="math">li(x) = PV ∫₀ˣ dt/ln t,   Li(x) = ∫₂ˣ dt/ln t = li(x) − li(2),   li(2) = 1.04516… ,</pre>
+<p>where PV denotes the Cauchy principal value at the singularity t = 1. Integration by parts repeatedly gives the asymptotic (divergent) expansion</p>
+<pre class="math">li(x) ~ (x/ln x)(1 + 1!/ln x + 2!/(ln x)² + 3!/(ln x)³ + …).</pre>
+<p>These functions return in Lesson 10 as the best simple approximations to the prime-counting function.</p>
+<h3>Convergence tests calibrated by logarithms</h3>
+<p>Repeated logarithms give an infinite scale of convergence. For p real,</p>
+<pre class="math">∫₂<sup>∞</sup> dx/(x (ln x)ᵖ) converges if and only if p &gt; 1,</pre>
+<p>since the substitution u = ln x turns it into ∫<sub>ln 2</sub><sup>∞</sup> u⁻ᵖ du. For p &gt; 1 the value is (ln 2)¹⁻ᵖ/(p − 1). Similarly ∑ 1/(n ln n) diverges (like ln ln N) while ∑ 1/(n (ln n)²) converges, and one can continue with ∑ 1/(n ln n (ln ln n)ᵖ). Cauchy's condensation test, ∑ aₙ &lt; ∞ ⟺ ∑ 2ᵏa<sub>2ᵏ</sub> &lt; ∞ for decreasing positive aₙ, is the discrete counterpart of the substitution u = ln x.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Evaluate ∫₀¹ x² ln x dx.</div></li><li><span class="mk">(b)</span><div>Evaluate ∫₀<sup>∞</sup> (e⁻ˣ − e⁻³ˣ)/x dx.</div></li><li><span class="mk">(c)</span><div>Decide whether ∑<sub>n≥3</sub> 1/(n ln n ln ln n) converges.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) By the formula with a = 2, the value is −1/9. (b) By Frullani with a = 1, b = 3, the value is ln 3 ≈ 1.0986. (c) It diverges: the integral test with u = ln ln x gives ∫ du/u = ln ln ln x → ∞, very slowly.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

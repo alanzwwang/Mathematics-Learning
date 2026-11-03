@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Multifractal Measures — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 13</p>
+    <h1>Multifractal Measures</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For a measure μ, the local dimension α(x) = lim<sub>r→0</sub> log μ(B(x, r)) / log r varies with x.
+The multifractal spectrum f(α) = dim_H{ x : α(x) = α }
+is the Legendre transform of the moment scaling exponent τ(q):  f(α) = inf<sub>q</sub> ( qα − τ(q) ).</pre></div>
+<p>So far each fractal set has carried a single dimension. Measures supported on fractals — the self-similar measures of the chaos game, harmonic measure on a fractal boundary, the energy dissipation in a turbulent fluid — are typically far less homogeneous: they concentrate with different intensities at different points. Multifractal analysis decomposes the support into level sets of the local intensity and measures each level set's dimension.</p>
+<h3>Local dimension</h3>
+<p>For a finite Borel measure μ on ℝⁿ and x in its support, the lower and upper local dimensions are the lim inf and lim sup of log μ(B(x, r))/log r as r → 0; if they agree, the common value is the local dimension dim<sub>loc</sub> μ(x). A measure is exact-dimensional if the local dimension exists and equals a constant d for μ-almost every x; then d = dim<sub>H</sub> μ, the infimum of dim<sub>H</sub> E over sets E of full measure. The mass distribution principle (Lesson 7) is the statement that sets where the lower local dimension is everywhere at least s have dimension at least s; its converse (the &quot;Billingsley lemma&quot;) gives the matching upper bound.</p>
+<h3>The binomial measure</h3>
+<p>Fix 0 &lt; p &lt; 1/2 and let μ<sub>p</sub> be the self-similar measure for the IFS x ↦ x/2, x ↦ x/2 + 1/2 with probabilities (p, 1 − p). Equivalently, μ<sub>p</sub> gives the dyadic interval I(w) of the binary word w = w₁…w<sub>k</sub> the mass</p>
+<pre class="math">μ<sub>p</sub>(I(w)) = p<sup>N₀(w)</sup> (1 − p)<sup>N₁(w)</sup></pre>
+<p>where N₀ and N₁ count the zeros and ones of w. If x has binary digits with asymptotic frequency η of zeros, then</p>
+<pre class="math">α(x) = lim (−1/k) log₂ μ<sub>p</sub>(I<sub>k</sub>(x)) = −η log₂ p − (1 − η) log₂(1 − p)</pre>
+<p>and α(x) ranges over [α<sub>min</sub>, α<sub>max</sub>] = [−log₂(1 − p), −log₂ p]. By the Besicovitch–Eggleston theorem (Theorem 7.5), the set of points with zero-frequency η has dimension H(η) = −η log₂ η − (1 − η) log₂(1 − η). Hence the multifractal spectrum is given parametrically by</p>
+<pre class="math">α(η) = −η log₂ p − (1 − η) log₂(1 − p),     f(α(η)) = H(η),     0 ≤ η ≤ 1</pre>
+<p>The maximum f = 1 occurs at η = 1/2 (typical points for Lebesgue measure), and f(α) = α at η = p (typical points for μ<sub>p</sub> itself, which therefore has dimension H(p)).</p>
+<h3>Moment scaling and the Legendre transform</h3>
+<p>Define the partition function at scale 2<sup>−k</sup> by summing over the dyadic intervals of length 2<sup>−k</sup>:</p>
+<pre class="math">S<sub>k</sub>(q) = ∑<sub>|w|=k</sub> μ<sub>p</sub>(I(w))<sup>q</sup> = (p<sup>q</sup> + (1 − p)<sup>q</sup>)<sup>k</sup></pre>
+<h3>The moment scaling exponent τ(q) is defined by S<sub>k</sub>(q) ≈ (2<sup>−k</sup>)<sup>τ(q)</sup>, so</h3>
+<pre class="math">τ(q) = −log₂( p<sup>q</sup> + (1 − p)<sup>q</sup> )</pre>
+<p>τ is real-analytic, increasing and strictly concave, with τ(0) = −1 (the negative of the dimension of the support) and τ(1) = 0 (total mass 1). Its Legendre transform recovers the spectrum.</p>
+<p>Theorem 13.1 (multifractal formalism for self-similar measures; Cawley–Mauldin 1992, Arbeiter–Patzschke 1996). For a self-similar measure satisfying the open set condition, for every α ∈ [α<sub>min</sub>, α<sub>max</sub>],</p>
+<pre class="math">f(α) = inf<sub>q∈ℝ</sub> ( qα − τ(q) )</pre>
+<p>and the infimum is attained at the q with τ′(q) = α.</p>
+<p>Heuristic derivation. Group the 2ᵏ intervals according to their local exponent: about 2<sup>k f(α)</sup> intervals have mass about 2<sup>−kα</sup>. Then S<sub>k</sub>(q) ≈ ∑<sub>α</sub> 2<sup>k f(α)</sup> 2<sup>−kqα</sup> ≈ 2<sup>−k inf<sub>α</sub> (qα − f(α))</sup> by Laplace's method, so τ(q) = inf<sub>α</sub> (qα − f(α)); since f is concave, Legendre duality inverts this to f(α) = inf<sub>q</sub> (qα − τ(q)). ∎</p>
+<p>Verification for the binomial measure. Differentiate τ:</p>
+<pre class="math">τ′(q) = −( p<sup>q</sup> log₂ p + (1 − p)<sup>q</sup> log₂(1 − p) ) / ( p<sup>q</sup> + (1 − p)<sup>q</sup> )</pre>
+<p>which is α(η) with η = p<sup>q</sup>/(p<sup>q</sup> + (1 − p)<sup>q</sup>). A direct computation shows qτ′(q) − τ(q) = H(η) for this η, confirming Theorem 13.1. At q = 0, η = 1/2 and f = 1; at q = 1, η = p and f = α = H(p); as q → +∞ the larger weight 1 − p dominates, η → 0 and α → α<sub>min</sub> = −log₂(1 − p); as q → −∞, η → 1 and α → α<sub>max</sub> = −log₂ p, with f → 0 at both ends.</p>
+<h3>Generalised dimensions</h3>
+<p>The Rényi (or generalised) dimensions are D<sub>q</sub> = τ(q)/(q − 1) for q ≠ 1, with D<sub>1</sub> = τ′(1) by continuity. D<sub>0</sub> is the box dimension of the support, D<sub>1</sub> is the information dimension (the dimension of the measure), and D<sub>2</sub> is the correlation dimension, estimated in practice by the Grassberger–Procaccia algorithm (1983) from the fraction of pairs of points at distance less than r. For the binomial measure with p = 1/3:</p>
+<pre class="math">α<sub>min</sub> = log₂(3/2) ≈ 0.5850,   α<sub>max</sub> = log₂ 3 ≈ 1.5850
+D<sub>0</sub> = 1,   D<sub>1</sub> = H(1/3) ≈ 0.9183,   D<sub>2</sub> = −log₂(5/9) = log₂(9/5) ≈ 0.8480
+the peak f = 1 occurs at α = −(1/2) log₂(p(1 − p)) = (1/2) log₂(9/2) ≈ 1.0850</pre>
+<h3>Applications and further theory</h3>
+<p>Multifractal ideas entered physics through turbulence: Frisch and Parisi (1985) explained the anomalous scaling of velocity structure functions by a spectrum of singularities, and Halsey, Jensen, Kadanoff, Procaccia and Shraiman (1986) introduced the f(α) formalism for strange attractors and diffusion-limited aggregation. In complex analysis, Makarov (1985) proved that harmonic measure on the boundary of any simply connected planar domain has dimension exactly 1, however fractal the boundary — a striking rigidity theorem — while its multifractal spectrum carries deep information about the domain (the universal integral means spectrum, with conjectures of Brennan and Kraetzer still open). In probability, the multifractal analysis of Brownian occupation measures, of Gaussian multiplicative chaos and of Liouville quantum gravity is an active research field.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>For p = 1/4, find α<sub>min</sub> and α<sub>max</sub>.</div></li><li><span class="mk">(b)</span><div>For p = 1/4, compute D<sub>2</sub> and D<sub>1</sub>.</div></li><li><span class="mk">(c)</span><div>Show that f(α) = 0 at α<sub>min</sub> and α<sub>max</sub>, and f = 1 at α = −(1/2) log₂(p(1 − p)).</div></li><li><span class="mk">(d)</span><div>Explain why τ(0) = −1 for every probability measure on [0, 1] whose support is all of [0, 1].</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) α<sub>min</sub> = −log₂(3/4) = log₂(4/3) ≈ 0.4150 and α<sub>max</sub> = −log₂(1/4) = 2. (b) D<sub>2</sub> = −log₂(1/16 + 9/16) = −log₂(5/8) = log₂ 1.6 ≈ 0.6781. D<sub>1</sub> = H(1/4) = (1/4)·2 + (3/4) log₂(4/3) ≈ 0.5 + 0.3113 = 0.8113. (c) At η = 0 and η = 1 the entropy H(η) is 0, and these give α = −log₂(1 − p) and α = −log₂ p; at η = 1/2, H = 1 and α = −(1/2)(log₂ p + log₂(1 − p)). (d) S<sub>k</sub>(0) counts the dyadic intervals of length 2<sup>−k</sup> with positive mass, which is 2ᵏ when the support is [0, 1]; so 2ᵏ = (2<sup>−k</sup>)<sup>τ(0)</sup> gives τ(0) = −1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

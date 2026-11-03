@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#d946ef">
+<body id="top" class="mode-kid" style="--topic:#d946ef">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/exponential-growth/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Exponent Power-Ups — Zero, Negatives, and the Three Laws">1</a><a href="lesson-2.html" title="Lesson 2: The Doubling Machine Gets a Name — f(x) = a × 2^x">2</a><a href="lesson-3.html" title="Lesson 3: Three Families — Linear, Exponential, and (Peek!) Quadratic">3</a><a href="lesson-4.html" title="Lesson 4: The Growth Factor — and the Percent Connection">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Formula f(x) = a × b^x — Predict, Then SOLVE">5</a><a href="lesson-6.html" title="Lesson 6: Time Travel — Dividing Backwards, and Why f(−2) Makes Sense">6</a><a href="lesson-7.html" title="Lesson 7: The Halving Machine — Exponential Decay with Honest Fractions">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Six Classic Mistakes (Honors Edition)">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">f(x) = a × b^x      a = the start (the value at x = 0),  b = the growth factor
 To solve for x: peel the equation down to  b^x = b^(something), then match exponents.</pre></div>
@@ -78,7 +79,7 @@ landing spots the function can hit.</pre>
 <p>Method 2 (formula):  f(4) = 2 × 3⁴ = 2 × 81 = 162.</p>
 <p>Same destination. The table is the local train; the formula is the express. Honors students ride both and check that they agree.</p>
 <h3>A word from science</h3>
-<p>In 1965, engineer Gordon Moore noticed computer chips were doubling in power roughly every two years — and predicted it would continue. It did, for decades: about 25 doublings between his prediction and the phone in your pocket. That's why one phone outmuscles a room-sized 1960s computer by a factor of 2²⁵ — more than 33 million. Moore's &quot;law&quot; is f(x) = a × 2^x wearing a lab coat.</p>
+<p>In 1965, engineer Gordon Moore noticed that the number of tiny switches (transistors) on a computer chip was doubling about every year. In 1975 he updated his guess to about every two years — and predicted it would continue. It did, for decades: about 25 doublings between his prediction and the phone in your pocket. That's why one phone outmuscles a room-sized 1960s computer by a factor of 2²⁵ — more than 33 million. Moore's &quot;law&quot; is f(x) = a × 2^x wearing a lab coat.</p>
 <div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>f(x) = 4 × 3^x. Find f(3).</div></li><li><span class="mk">(b)</span><div>Solve 2 × 5^x = 250.</div></li><li><span class="mk">(c)</span><div>f(0) = 5 and f(2) = 45. Find a and b.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) f(3) = 4 × 3³ = 4 × 27 = 108.</p><ul class="steps"><li><span class="mk">(b)</span><div>5^x = 125 (divide by 2), and 125 = 5³, so x = 3. Check: 2 × 125 = 250 ✅.</div></li><li><span class="mk">(c)</span><div>a = 5 from the first clue; then 5b² = 45 → b² = 9 → b = 3. So f(x) = 5 × 3^x.</div></li></ul></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
 </main>
@@ -89,7 +90,7 @@ landing spots the function can hit.</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

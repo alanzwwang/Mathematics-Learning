@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Valuations, Reduced Forms and Rational Roots — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 3</p>
+    <h1>Valuations, Reduced Forms and Rational Roots</h1>
+    <p class="kicker">Lesson 3 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every x ∈ ℚ<sup>×</sup> has a unique factorisation x = ±∏ p<sup>v<sub>p</sub>(x)</sup> with v<sub>p</sub>(x) ∈ ℤ,
+and v<sub>p</sub>(xy) = v<sub>p</sub>(x) + v<sub>p</sub>(y),  v<sub>p</sub>(x + y) ≥ min(v<sub>p</sub>(x), v<sub>p</sub>(y)).</pre></div>
+<h3>The p-adic valuation</h3>
+<p>By the fundamental theorem of arithmetic, every nonzero integer n factors uniquely as ±∏ p<sup>e<sub>p</sub></sup>. Set v<sub>p</sub>(n) = e<sub>p</sub>, the exponent of the prime p in n. For x = a/b ∈ ℚ<sup>×</sup> define v<sub>p</sub>(x) = v<sub>p</sub>(a) − v<sub>p</sub>(b). This is well defined, because a/b = a′/b′ gives ab′ = a′b and hence v<sub>p</sub>(a) + v<sub>p</sub>(b′) = v<sub>p</sub>(a′) + v<sub>p</sub>(b). By convention v<sub>p</sub>(0) = +∞.</p>
+<p><strong>Proposition 3.1</strong>. For all x, y ∈ ℚ: (i) v<sub>p</sub>(xy) = v<sub>p</sub>(x) + v<sub>p</sub>(y); (ii) v<sub>p</sub>(x + y) ≥ min(v<sub>p</sub>(x), v<sub>p</sub>(y)), with equality whenever v<sub>p</sub>(x) ≠ v<sub>p</sub>(y).</p>
+<p><strong>Proof</strong>. Part (i) is additivity of exponents. For (ii) we may assume x, y, x + y ≠ 0. Let m = min(v<sub>p</sub>(x), v<sub>p</sub>(y)) and write x = p<sup>m</sup>·a/b and y = p<sup>m</sup>·c/d with p ∤ bd. Then x + y = p<sup>m(ad + bc)</sup>/(bd) and p ∤ bd, so v<sub>p</sub>(x + y) ≥ m. If, say, v<sub>p</sub>(x) = m &lt; v<sub>p</sub>(y), then p ∤ a but p | c, so p ∤ ad + bc and equality holds. ∎</p>
+<p>The map v<sub>p</sub>: ℚ<sup>×</sup> → ℤ is a surjective group homomorphism, a discrete valuation. Its valuation ring {x : v<sub>p</sub>(x) ≥ 0} is exactly the localisation ℤ₍ₚ₎ of Lesson 1, and x ∈ ℤ if and only if v<sub>p</sub>(x) ≥ 0 for every prime p. Collecting all primes gives the structure theorem</p>
+<pre class="math">ℚ<sup>×</sup>  ≅  {±1} × ⊕_p ℤ,     x ↦ (sign x, (v<sub>p</sub>(x))<sub>p</sub>),</pre>
+<p>so the multiplicative group of ℚ is a free abelian group on the primes, times a group of order 2.</p>
+<h3>Reduced forms</h3>
+<p><strong>Proposition 3.2</strong>. Every x ∈ ℚ has a unique representation x = a/b with b &gt; 0 and gcd(a, b) = 1. If x = c/d is any representation, then c = ka and d = kb for some nonzero integer k.</p>
+<p><strong>Proof</strong>. Existence: divide any representation by the gcd and fix the sign. If a/b = c/d with gcd(a, b) = 1, then ad = bc, so b | ad and, being coprime to a, b | d (Euclid's lemma). Writing d = kb gives akb = ad = bc, and cancelling b ≠ 0 gives c = ka. Uniqueness of the reduced form follows because two reduced representations divide each other's denominators. ∎</p>
+<p>The same proof works in any unique factorisation domain, so in Frac(D) for a UFD D every element has a reduced representation, unique up to multiplication of numerator and denominator by a common unit.</p>
+<h3>The rational root theorem</h3>
+<p><strong>Theorem 3.3</strong>. Let f(x) = a<sub>n</sub> xⁿ + ⋯ + a₁x + a₀ ∈ ℤ[x] with a<sub>n</sub> a₀ ≠ 0. If r/s is a root of f with gcd(r, s) = 1, then r | a₀ and s | a<sub>n</sub>.</p>
+<p><strong>Proof</strong>. Multiply f(r/s) = 0 by sⁿ:</p>
+<pre class="math">a<sub>n</sub> rⁿ + a<sub>n−1</sub> r<sup>n−1</sup> s + ⋯ + a₁ r s<sup>n−1</sup> + a₀ sⁿ = 0.</pre>
+<p>Every term except a₀sⁿ is divisible by r, so r | a₀sⁿ, and since gcd(r, s) = 1, r | a₀. Similarly every term except a<sub>n</sub> rⁿ is divisible by s, so s | a<sub>n</sub>. ∎</p>
+<p><strong>Corollary 3.4</strong>. A monic polynomial in ℤ[x] has no rational roots other than integers; in particular, for a positive integer N and k ≥ 2, the number N<sup>1/k</sup> is rational only if N is a perfect k-th power. In the language of algebraic number theory, ℤ is integrally closed in ℚ.</p>
+<p>For example, the rational roots of 6x³ − 11x² + 6x − 1 lie among ±1, ±1/2, ±1/3, ±1/6, and testing shows that they are 1, 1/2 and 1/3; indeed 6x³ − 11x² + 6x − 1 = (x − 1)(2x − 1)(3x − 1).</p>
+<h3>Gauss's lemma</h3>
+<p>Call f ∈ ℤ[x] primitive if the gcd of its coefficients is 1. Gauss's lemma states that the product of primitive polynomials is primitive. Proof: if a prime p divided every coefficient of fg, then in 𝔽<sub>p</sub>[x] we would have f̄ ḡ = 0 with f̄, ḡ ≠ 0, impossible because 𝔽<sub>p</sub>[x] is a domain. Consequently a primitive polynomial is irreducible in ℤ[x] if and only if it is irreducible in ℚ[x]: any factorisation over ℚ can be rescaled, by clearing denominators and extracting contents, into a factorisation over ℤ with factors of the same degrees. This is the bridge from the field of fractions back to the ring, and it is the reason why ℤ[x] is a unique factorisation domain.</p>
+<h3>Harmonic numbers are not integers</h3>
+<p>Valuations give slick proofs of non-integrality. Let H<sub>n</sub> = 1 + 1/2 + ⋯ + 1/n.</p>
+<p><strong>Theorem 3.5</strong>. For n ≥ 2, v<sub>2</sub>(H<sub>n</sub>) = −⌊log₂ n⌋. In particular H<sub>n</sub> is not an integer.</p>
+<p><strong>Proof</strong>. Let 2<sup>k</sup> be the largest power of 2 not exceeding n, so k = ⌊log₂ n⌋ ≥ 1. Among 1, …, n the integer 2<sup>k</sup> is the only one divisible by 2<sup>k</sup>, since 2·2<sup>k</sup> &gt; n. Thus v<sub>2</sub>(1/2<sup>k</sup>) = −k while v<sub>2</sub>(1/j) &gt; −k for every other j ≤ n. Group the remaining terms into a sum T with v<sub>2</sub>(T) &gt; −k (by part (ii) of Proposition 3.1). Then by the equality case, v<sub>2</sub>(H<sub>n</sub>) = v<sub>2</sub>(1/2<sup>k</sup> + T) = −k &lt; 0. ∎</p>
+<p>For example H<sub>10</sub> = 7381/2520, where 2520 = 2³·3²·5·7 and 7381 = 11²·61, so v<sub>2</sub>(H<sub>10</sub>) = −3 = −⌊log₂ 10⌋, in agreement with the theorem. Wolstenholme's theorem, which asserts that the numerator of H<sub>p−1</sub> is divisible by p² for primes p ≥ 5, is a deeper statement of the same flavour.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute v<sub>2</sub>, v<sub>3</sub>, v<sub>5</sub>, v<sub>7</sub> and v<sub>11</sub> of x = −540/77.</div></li><li><span class="mk">(b)</span><div>Find v<sub>3</sub>(H<sub>10</sub>) and explain why it is negative.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 540 = 2²·3³·5 and 77 = 7·11, so v<sub>2</sub>(x) = 2, v<sub>3</sub>(x) = 3, v<sub>5</sub>(x) = 1, v<sub>7</sub>(x) = −1 and v<sub>11</sub>(x) = −1; the sign plays no role. (b) From H<sub>10</sub> = 7381/2520 with 7381 = 11²·61 and v<sub>3</sub>(2520) = 2, v<sub>3</sub>(H<sub>10</sub>) = −2. The reason: 9 is the only j ≤ 10 with v<sub>3</sub>(j) = 2, so the term 1/9 has strictly smallest 3-adic valuation and dominates the sum.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

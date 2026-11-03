@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Stirling Numbers and Bell Numbers — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 7</p>
+    <h1>Stirling Numbers and Bell Numbers</h1>
+    <p class="kicker">Lesson 7 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">xⁿ = ∑ₖ S(n, k) (x)ₖ          x⁽ⁿ⁾ = ∑ₖ c(n, k) xᵏ
+Bₙ = ∑ₖ S(n, k) = (1/e) ∑ₘ≥₀ mⁿ/m!</pre></div>
+<h3>Stirling numbers of the second kind</h3>
+<p>S(n, k) is the number of partitions of [n] into k nonempty blocks; by convention S(0, 0) = 1 and S(n, 0) = 0 for n ≥ 1. Classifying partitions of [n] according to whether n forms a singleton block gives</p>
+<pre class="math">S(n, k) = S(n − 1, k − 1) + k S(n − 1, k),</pre>
+<p>because otherwise n is inserted into one of the k blocks of a partition of [n − 1]. From Lessons 1 and 3 we also have the explicit formula S(n, k) = (1/k!) ∑ⱼ (−1)ʲ C(k, j)(k − j)ⁿ. Row n = 6 is 1, 31, 90, 65, 15, 1, and row n = 7 is 1, 63, 301, 350, 140, 21, 1. Special values: S(n, 2) = 2ⁿ⁻¹ − 1 and S(n, n − 1) = C(n, 2).</p>
+<p><strong>Theorem 7.1</strong>. For every n ≥ 0, xⁿ = ∑ₖ S(n, k)(x)ₖ as polynomials.</p>
+<p><strong>Proof</strong>. For a positive integer x, count functions [n] → [x]. Directly there are xⁿ. Alternatively, classify a function by its image: the kernel partition (the nonempty fibres) has some number k of blocks, which may be chosen in S(n, k) ways, and the blocks are then mapped injectively into [x] in (x)ₖ ways. Both sides are polynomials in x agreeing at infinitely many points, so they are equal. ∎</p>
+<h3>Stirling numbers of the first kind</h3>
+<p>The unsigned Stirling number c(n, k) is the number of permutations of [n] with exactly k cycles. Inserting n into a permutation of [n − 1], either as a fixed point or immediately after one of the n − 1 elements in its cycle, gives c(n, k) = c(n − 1, k − 1) + (n − 1)c(n − 1, k). Row n = 5 is 24, 50, 35, 10, 1, summing to 5! = 120.</p>
+<p><strong>Theorem 7.2</strong>. x⁽ⁿ⁾ = x(x + 1)⋯(x + n − 1) = ∑ₖ c(n, k) xᵏ.</p>
+<p><strong>Proof</strong>. Both sides equal 1 for n = 0, and multiplying by (x + n − 1) reproduces the recurrence for c(n, k): x⁽ⁿ⁾ = x⁽ⁿ⁻¹⁾(x + n − 1) = ∑ₖ [c(n − 1, k − 1) + (n − 1)c(n − 1, k)] xᵏ. ∎</p>
+<p>The signed numbers s(n, k) = (−1)ⁿ⁻ᵏ c(n, k) satisfy (x)ₙ = ∑ₖ s(n, k) xᵏ, obtained by replacing x by −x. Since {xⁿ} and {(x)ₙ} are both bases of ℂ[x], Theorems 7.1 and 7.2 say that the infinite lower-triangular matrices [S(n, k)] and [s(n, k)] are mutually inverse: ∑ₖ S(n, k) s(k, m) = [n = m].</p>
+<h3>Generating functions</h3>
+<p>Column generating functions follow from the symbolic method: a partition into k blocks is a set of k nonempty sets, so ∑ₙ S(n, k) xⁿ/n! = (eˣ − 1)ᵏ/k!. Ordinarily, iterating the recurrence gives ∑ₙ S(n, k) xⁿ = xᵏ/((1 − x)(1 − 2x)⋯(1 − kx)). For the first kind, ∑ₙ,ₖ c(n, k) uᵏ xⁿ/n! = (1 − x)⁻ᵘ, which is the exponential formula with each cycle weighted by u.</p>
+<h3>Bell numbers</h3>
+<p>The Bell number Bₙ = ∑ₖ S(n, k) counts all partitions of [n]: B₀, …, B₁₀ = 1, 1, 2, 5, 15, 52, 203, 877, 4140, 21147, 115975. Classifying a partition of [n + 1] by the block containing n + 1, which consists of n + 1 together with some k of the other elements, gives Bₙ₊₁ = ∑ₖ C(n, k) Bₙ₋ₖ = ∑ₖ C(n, k) Bₖ. The EGF is exp(eˣ − 1).</p>
+<p><strong>Theorem 7.3 (Dobinski, 1877)</strong>. Bₙ = (1/e) ∑ₘ≥₀ mⁿ/m!.</p>
+<p><strong>Proof</strong>. Let X be a Poisson random variable of mean 1, so Pr(X = m) = e⁻¹/m!. Its factorial moments are E[(X)ₖ] = ∑ₘ (m)ₖ e⁻¹/m! = e⁻¹ ∑ₘ≥ₖ 1/(m − k)! = 1. Taking expectations in Theorem 7.1 gives E[Xⁿ] = ∑ₖ S(n, k) · 1 = Bₙ, and E[Xⁿ] is the stated series. ∎</p>
+<p>So Bₙ is the n-th moment of the Poisson(1) distribution. A further arithmetic property is Touchard's congruence Bₚ₊ₙ ≡ Bₙ + Bₙ₊₁ (mod p) for primes p; for example B₅ = 52 ≡ B₀ + B₁ = 2 (mod 5). Asymptotically, log Bₙ = n(log n − log log n − 1 + o(1)), which grows faster than any exponential but slower than n!.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute S(7, 3) from the explicit formula.</div></li><li><span class="mk">(b)</span><div>Compute c(5, 2) and check that the row c(5, k) sums to 5!.</div></li><li><span class="mk">(c)</span><div>Compute B₆ from B₀, …, B₅.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (3⁷ − 3·2⁷ + 3)/6 = (2187 − 384 + 3)/6 = 301. (b) c(5, 2) = c(4, 1) + 4c(4, 2) = 6 + 4·11 = 50, and 24 + 50 + 35 + 10 + 1 = 120. (c) B₆ = 1·1 + 5·1 + 10·2 + 10·5 + 5·15 + 1·52 = 203.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

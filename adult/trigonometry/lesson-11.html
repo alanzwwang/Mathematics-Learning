@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Hyperbolic Functions — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 11</p>
+    <h1>Hyperbolic Functions</h1>
+    <p class="kicker">Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">cosh x = (eˣ + e⁻ˣ)/2 = cos(ix),        sinh x = (eˣ − e⁻ˣ)/2 = −i sin(ix)
+cosh²x − sinh²x = 1:  (cosh t, sinh t) parametrises the hyperbola x² − y² = 1</pre></div>
+<h3>Definitions and Osborn's rule</h3>
+<p>The hyperbolic functions are the even and odd parts of the exponential: cosh x = (eˣ + e⁻ˣ)/2, sinh x = (eˣ − e⁻ˣ)/2, tanh x = sinh x/cosh x. Their power series are those of cos and sin without the alternating signs, and they solve y″ = y with the initial data (1, 0) and (0, 1). Since cos(iz) = cosh z and sin(iz) = i sinh z, every trigonometric identity yields a hyperbolic one by substituting z ↦ iz:</p>
+<pre class="math">cosh²x − sinh²x = 1,   sinh(x + y) = sinh x cosh y + cosh x sinh y,   cosh(x + y) = cosh x cosh y + sinh x sinh y,
+cosh 2x = 2cosh²x − 1,   tanh(x + y) = (tanh x + tanh y)/(1 + tanh x tanh y).</pre>
+<p>Osborn's rule (1902) summarises this: replace each trigonometric function by its hyperbolic counterpart and then change the sign of every term containing a product (or implied product, as in tanh²) of two hyperbolic sines. The rule is a mnemonic; the theorem behind it is the identity theorem for analytic functions.</p>
+<h3>The hyperbolic angle</h3>
+<p>The point (cosh t, sinh t) lies on the right branch of the hyperbola x² − y² = 1, and as t runs over ℝ it traces this branch once. The parameter t is not an arc length; instead it equals twice the area of the hyperbolic sector from (1, 0) to (cosh t, sinh t), just as t is twice the area of the circular sector from (1, 0) to (cos t, sin t). This analogy is exact: in both cases the sector area is (1/2)∫₀ᵗ (x y′ − y x′) ds, and x y′ − y x′ equals cos² + sin² = 1 in one case and cosh² − sinh² = 1 in the other. In special relativity the hyperbolic angle is the rapidity, and the composition law of tanh is the relativistic addition of velocities (in units with c = 1).</p>
+<h3>Inverse hyperbolic functions</h3>
+<p>Since the hyperbolic functions are built from eˣ, their inverses are logarithms:</p>
+<pre class="math">arsinh x = ln(x + √(x² + 1)),   arcosh x = ln(x + √(x² − 1)) (x ≥ 1),   artanh x = (1/2) ln((1 + x)/(1 − x)) (|x| &lt; 1).</pre>
+<p>For example, cosh x = 3 has the solutions x = ±ln(3 + 2√2) = ±2 ln(1 + √2), since 3 + 2√2 = (1 + √2)². The derivatives (arsinh x)′ = 1/√(1 + x²) and (arcosh x)′ = 1/√(x² − 1) make these functions the standard antiderivatives in integration, complementing arcsin and arctan.</p>
+<h3>The Gudermannian</h3>
+<p>The function gd(x) = ∫₀ˣ dt/cosh t = arctan(sinh x) = 2 arctan(tanh(x/2)) relates circular and hyperbolic functions without complex numbers. If θ = gd(x), then</p>
+<pre class="math">tan θ = sinh x,   sec θ = cosh x,   sin θ = tanh x.</pre>
+<p>Indeed tan θ = sinh x by definition, sec θ = √(1 + sinh²x) = cosh x (θ ∈ (−π/2, π/2) so sec θ &gt; 0), and sin θ = tan θ/sec θ = tanh x. The inverse function gd⁻¹(φ) = ln tan(π/4 + φ/2) = artanh(sin φ) is the vertical coordinate of the Mercator projection at latitude φ, since that coordinate is ∫₀<sup>φ</sup> sec t dt. Mercator published his chart in 1569, and Edward Wright computed its spacing in 1599 by summing secants numerically, in effect integrating sec φ decades before calculus.</p>
+<h3>Hyperbolic trigonometry</h3>
+<p>In the hyperbolic plane of curvature −1, the hyperbolic functions play the role that circular functions play on the unit sphere. A geodesic triangle with sides a, b, c and angles A, B, C satisfies</p>
+<pre class="math">cosh c = cosh a cosh b − sinh a sinh b cos C,        sin A/sinh a = sin B/sinh b = sin C/sinh c,</pre>
+<p>and its area is π − (A + B + C), the angle defect (Gauss–Bonnet again, with curvature −1). Formally these laws are obtained from the spherical ones by the substitution a ↦ ia, reflecting the fact that the hyperbolic plane is a &quot;sphere of imaginary radius&quot;. In the hyperboloid model {x₀² − x₁² − x₂² = 1, x₀ &gt; 0}, the proof of the law of cosines is the same vector computation as in Lesson 6 with the Euclidean inner product replaced by the Minkowski form.</p>
+<h3>The catenary</h3>
+<p>A uniform flexible chain hanging under gravity takes the shape y = a cosh(x/a). Indeed, balancing the horizontal tension H and the weight of the arc above [0, x] gives y′(x) = (w/H) · (arc length from 0 to x), and differentiating, y″ = (1/a)√(1 + y′²) with a = H/w. With p = y′ this separates to dp/√(1 + p²) = dx/a, so arsinh p = x/a and y = a cosh(x/a) + const. The arc length from 0 to x is a sinh(x/a).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute cosh(ln 2), sinh(ln 2) and tanh(ln 2).</div></li><li><span class="mk">(b)</span><div>Evaluate gd(ln(2 + √3)).</div></li><li><span class="mk">(c)</span><div>Find the angles and area of an equilateral triangle in the hyperbolic plane whose sides satisfy cosh a = 2.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) cosh(ln 2) = (2 + 1/2)/2 = 5/4, sinh(ln 2) = (2 − 1/2)/2 = 3/4, tanh(ln 2) = 3/5. (b) sinh(ln(2 + √3)) = ((2 + √3) − (2 − √3))/2 = √3, so gd = arctan √3 = π/3. (c) From the law of cosines, cos A = (cosh²a − cosh a)/sinh²a = cosh a/(cosh a + 1) = 2/3, so A = arccos(2/3) ≈ 48.19°, and the area is π − 3 arccos(2/3) ≈ 0.6184.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

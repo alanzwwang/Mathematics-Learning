@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: The Spectral Theorem — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 8</p>
+    <h1>The Spectral Theorem</h1>
+    <p class="kicker">Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A normal (AA* = A*A)   ⇔   A = U Λ U*  with U unitary, Λ diagonal
+λ<sub>k</sub>(A) = max<sub>dim S = k</sub> min<sub>x ∈ S, x ≠ 0</sub> x*Ax / x*x</pre></div>
+<h3>Adjoints and special classes of matrices</h3>
+<p>With the standard inner product, ⟨Ax, y⟩ = ⟨x, A*y⟩ for all x, y, so the conjugate transpose is the adjoint of A. A matrix is Hermitian (real symmetric, in the real case) if A* = A, unitary (real orthogonal) if U*U = I, skew-Hermitian if A* = −A, and normal if AA* = A*A. Hermitian, skew-Hermitian and unitary matrices are all normal. Unitary matrices preserve inner products, ⟨Ux, Uy⟩ = ⟨x, y⟩, hence lengths and angles; their eigenvalues have modulus 1.</p>
+<p><strong>Lemma 8.1</strong>. The eigenvalues of a Hermitian matrix are real, and eigenvectors belonging to distinct eigenvalues are orthogonal.</p>
+<p><strong>Proof</strong>. If Av = λv with v ≠ 0, then λ‖v‖² = ⟨Av, v⟩ = ⟨v, Av⟩ = λ̄‖v‖², so λ is real. If also Aw = μw with μ ≠ λ, then λ⟨v, w⟩ = ⟨Av, w⟩ = ⟨v, Aw⟩ = μ⟨v, w⟩ (μ is real), so ⟨v, w⟩ = 0. ∎</p>
+<h3>Schur triangularization</h3>
+<p><strong>Theorem 8.2 (Schur, 1909)</strong>. Every A ∈ ℂ<sup>n×n</sup> is unitarily similar to an upper triangular matrix: A = UTU* with U unitary and T upper triangular. The diagonal of T consists of the eigenvalues of A, in any prescribed order.</p>
+<p><strong>Proof</strong>. Induct on n. Let u₁ be a unit eigenvector, Au₁ = λ₁u₁, and extend it to a unitary matrix U₁ = [ u₁ U′ ]. Then U₁*AU₁ = [ λ₁ w* ; 0 A′ ] for some vector w and some (n − 1) × (n − 1) matrix A′, because the first column of U₁*AU₁ is U₁*λ₁u₁ = λ₁e₁. By induction A′ = U₂T′U₂*, and U = U₁(1 ⊕ U₂) triangularizes A. ∎</p>
+<p>Unlike the Jordan form, the Schur form is computed stably: it is the output of the QR algorithm of Lesson 12. If A is real with real eigenvalues, U may be taken real orthogonal; for general real A there is a real Schur form, quasi-triangular with 2 × 2 diagonal blocks for complex conjugate pairs.</p>
+<h3>The spectral theorem</h3>
+<p><strong>Theorem 8.3 (Spectral theorem)</strong>. A matrix A ∈ ℂ<sup>n×n</sup> is normal if and only if A = UΛU* for some unitary U and diagonal Λ. In particular every Hermitian matrix is unitarily diagonalizable with real Λ, and every real symmetric matrix is orthogonally diagonalizable: A = QΛQᵀ with Q real orthogonal and Λ real.</p>
+<p><strong>Proof</strong>. If A = UΛU*, then AA* = UΛΛ̄U* = UΛ̄ΛU* = A*A. Conversely, let A be normal and write A = UTU* by Schur. Then T is normal as well. Compare the (1, 1) entries of TT* and T*T: the first is ∑<sub>j</sub> |t<sub>1j</sub>|² and the second is |t₁₁|², because the first column of T is t₁₁e₁. Hence t<sub>1j</sub> = 0 for j &gt; 1. Deleting the first row and column leaves a normal upper triangular matrix, and induction shows T is diagonal. For Hermitian A, Λ = U*AU is Hermitian and diagonal, hence real. For real symmetric A the eigenvalues are real, so at each step of the Schur induction one may choose a real unit eigenvector and real orthogonal completions; the resulting real triangular T is symmetric, hence diagonal. ∎</p>
+<p>Writing the columns of U as q₁, …, qₙ, the spectral theorem reads A = ∑ λ<sub>i</sub> q<sub>i</sub> q<sub>i</sub>*: a Hermitian matrix is a real combination of orthogonal rank-one projections. This yields a functional calculus, f(A) = ∑ f(λ<sub>i</sub>) q<sub>i</sub> q<sub>i</sub>*, which defines √A, log A or exp A for Hermitian A consistently with the power-series definitions wherever those apply. The theorem has a long history: Cauchy proved in 1829 that the eigenvalues of a real symmetric matrix are real, in connection with quadric surfaces and principal axes, and Hilbert's work on integral equations (1904–1910) extended the theory to infinite dimensions and introduced the word spectrum.</p>
+<p><strong>Worked example</strong>: A = [ 2 1 ; 1 2 ] has eigenvalues 3 and 1 with unit eigenvectors (1, 1)/√2 and (1, −1)/√2, so A = QΛQᵀ with Q = (1/√2) [ 1 1 ; 1 −1 ] and Λ = diag(3, 1); equivalently A = 3 · (1/2)[ 1 1 ; 1 1 ] + 1 · (1/2)[ 1 −1 ; −1 1 ].</p>
+<h3>Variational characterization of eigenvalues</h3>
+<p>For Hermitian A let λ₁ ≥ λ₂ ≥ ⋯ ≥ λₙ be its eigenvalues with orthonormal eigenvectors q₁, …, qₙ. The Rayleigh quotient is R(x) = x*Ax/x*x for x ≠ 0. Expanding x = ∑ c<sub>i</sub> q<sub>i</sub> gives R(x) = ∑ λ<sub>i</sub> |c<sub>i</sub>|² / ∑ |c<sub>i</sub>|², a weighted average of eigenvalues; hence max R = λ₁ and min R = λₙ.</p>
+<p><strong>Theorem 8.4 (Courant–Fischer min-max)</strong>. For k = 1, …, n,</p>
+<pre class="math">λ<sub>k</sub> = max<sub>dim S = k</sub>  min<sub>x ∈ S, x ≠ 0</sub> R(x)  =  min<sub>dim S = n−k+1</sub>  max<sub>x ∈ S, x ≠ 0</sub> R(x)</pre>
+<p><strong>Proof</strong>. Let S have dimension k. The subspace T = span(q<sub>k</sub>, …, qₙ) has dimension n − k + 1, so dim(S ∩ T) ≥ k + (n − k + 1) − n = 1. For nonzero x ∈ S ∩ T, R(x) is a weighted average of λ<sub>k</sub>, …, λₙ, so R(x) ≤ λ<sub>k</sub>; thus min over S of R is at most λ<sub>k</sub>. For S = span(q₁, …, q<sub>k</sub>) the minimum equals λ<sub>k</sub>. This proves the first formula; the second follows in the same way, or by applying the first to −A. ∎</p>
+<p><strong>Corollary 8.5 (Weyl's inequalities)</strong>. For Hermitian A and B, λ<sub>k</sub>(A) + λₙ(B) ≤ λ<sub>k</sub>(A + B) ≤ λ<sub>k</sub>(A) + λ₁(B). Consequently |λ<sub>k</sub>(A + E) − λ<sub>k</sub>(A)| ≤ ‖E‖₂ for every Hermitian perturbation E.</p>
+<p><strong>Proof</strong>. For every x ≠ 0, R<sub>A</sub>(x) + λₙ(B) ≤ R<sub>A+B</sub>(x) ≤ R<sub>A</sub>(x) + λ₁(B). Taking the minimum over a k-dimensional S and then the maximum over S preserves these inequalities. For the second statement note that ‖E‖₂ = max(|λ₁(E)|, |λₙ(E)|). ∎</p>
+<p>Weyl's inequalities say that the eigenvalues of Hermitian matrices are perfectly conditioned: a perturbation of norm ε moves each eigenvalue by at most ε. Another consequence of Courant–Fischer is the Cauchy interlacing theorem: if B is the (n − 1) × (n − 1) matrix obtained from Hermitian A by deleting row and column i, then λ<sub>k</sub>(A) ≥ λ<sub>k</sub>(B) ≥ λ<sub>k+1</sub>(A) for 1 ≤ k ≤ n − 1 (Practice Problem 60).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the eigenvalues of A = [ 0 1 1 ; 1 0 1 ; 1 1 0 ].</div></li><li><span class="mk">(b)</span><div>Find the maximum of 2x² + 2xy + 2y² on the unit circle x² + y² = 1, and where it is attained.</div></li><li><span class="mk">(c)</span><div>Show that N = [ 0 1 ; 0 0 ] is not normal, and explain why this is consistent with Theorem 8.3.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) A = J − I where J is the all-ones matrix with eigenvalues 3, 0, 0, so A has eigenvalues 2, −1, −1. (b) The form is xᵀAx with A = [ 2 1 ; 1 2 ], so the maximum is λ₁ = 3, attained at ±(1, 1)/√2. (c) NN* = [ 1 0 ; 0 0 ] while N*N = [ 0 0 ; 0 1 ]. Indeed N is not even diagonalizable, being the Jordan block J₂(0), so it cannot be unitarily diagonalizable.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

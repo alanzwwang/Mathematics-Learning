@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Chebyshev Polynomials and Multiple Angles — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 7</p>
+    <h1>Chebyshev Polynomials and Multiple Angles</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Tₙ(cos θ) = cos nθ,        Uₙ₋₁(cos θ) = sin nθ / sin θ
+Tₙ₊₁(x) = 2x Tₙ(x) − Tₙ₋₁(x),     and 2¹⁻ⁿTₙ is the monic polynomial of least sup norm on [−1, 1]</pre></div>
+<h3>Definition and recurrence</h3>
+<p>By the expansion of cos nθ in Lesson 3, cos nθ is a polynomial in cos θ (only even powers of sin θ occur, and sin²θ = 1 − cos²θ). The Chebyshev polynomial of the first kind Tₙ is defined by Tₙ(cos θ) = cos nθ. The sum formula cos(n+1)θ + cos(n−1)θ = 2 cos θ cos nθ gives the three-term recurrence</p>
+<pre class="math">T₀ = 1,  T₁ = x,  Tₙ₊₁ = 2x Tₙ − Tₙ₋₁,</pre>
+<p>and therefore:</p>
+<pre class="math">T₂ = 2x² − 1,   T₃ = 4x³ − 3x,   T₄ = 8x⁴ − 8x² + 1,   T₅ = 16x⁵ − 20x³ + 5x,
+T₆ = 32x⁶ − 48x⁴ + 18x² − 1.</pre>
+<p>By induction Tₙ has degree n, leading coefficient 2ⁿ⁻¹ for n ≥ 1, integer coefficients, and the parity of n. The polynomials of the second kind are defined by Uₙ₋₁(cos θ) = sin nθ/sin θ; they satisfy the same recurrence with U₀ = 1, U₁ = 2x, so U₂ = 4x² − 1, U₃ = 8x³ − 4x, U₄ = 16x⁴ − 12x² + 1. Two further identities follow from the trigonometric definition at once:</p>
+<pre class="math">Tₙ(x) = ((x + √(x² − 1))ⁿ + (x − √(x² − 1))ⁿ)/2,        Tₘ(Tₙ(x)) = Tₘₙ(x),</pre>
+<p>the first from cos nθ = Re(cos θ + i sin θ)ⁿ, valid for all x by polynomial identity, the second because Tₘ(Tₙ(cos θ)) = Tₘ(cos nθ) = cos mnθ. Also Tₙ′ = n Uₙ₋₁.</p>
+<h3>Zeros, extrema and orthogonality</h3>
+<p>From cos nθ = 0 ⇔ θ = (2k − 1)π/(2n), the n zeros of Tₙ are the Chebyshev nodes:</p>
+<pre class="math">xₖ = cos((2k − 1)π/(2n)),     k = 1, …, n,</pre>
+<p>all simple and in (−1, 1). On [−1, 1] we have |Tₙ| ≤ 1, and Tₙ attains ±1 alternately at the n + 1 points yₖ = cos(kπ/n), k = 0, …, n, with Tₙ(yₖ) = (−1)ᵏ. With the substitution x = cos θ, dx/√(1 − x²) = −dθ, so</p>
+<pre class="math">∫₋₁¹ Tₘ(x) Tₙ(x) dx/√(1 − x²) = ∫₀<sup>π</sup> cos mθ cos nθ dθ = 0 (m ≠ n),  π/2 (m = n ≥ 1),  π (m = n = 0).</pre>
+<p>Thus the Tₙ are the orthogonal polynomials for the weight (1 − x²)<sup>−1/2</sup> on (−1, 1), and expansion in Chebyshev polynomials is nothing but the Fourier cosine series of θ ↦ f(cos θ). This is why Chebyshev expansions converge geometrically for analytic f, and why they are the basis of modern numerical function approximation.</p>
+<h3>The minimax property</h3>
+<p><strong>Theorem 7.1 (Chebyshev)</strong>. Let n ≥ 1. Among all monic real polynomials p of degree n, the quantity max over [−1, 1] of |p| is minimised uniquely by p = 2¹⁻ⁿ Tₙ, and the minimum is 2¹⁻ⁿ.</p>
+<p><strong>Proof</strong>. Let q = 2¹⁻ⁿTₙ, which is monic with sup norm 2¹⁻ⁿ, attained with alternating signs at y₀ &gt; y₁ &gt; ⋯ &gt; yₙ. Suppose p is monic of degree n with |p| ≤ 2¹⁻ⁿ on [−1, 1] and p ≠ q. Then d = q − p has degree at most n − 1, and (−1)ᵏ d(yₖ) = 2¹⁻ⁿ − (−1)ᵏ p(yₖ) ≥ 0 for k = 0, …, n. A polynomial of degree ≤ n − 1 that weakly alternates in sign at n + 1 ordered points has at least n zeros counted with multiplicity (a standard counting argument: on each interval [yₖ₊₁, yₖ] there is a zero, and a zero at an interior node yₖ where d does not change sign is a double zero). Hence d ≡ 0, a contradiction. ∎</p>
+<p>The theorem has a striking consequence for interpolation: if f ∈ Cⁿ⁺¹[−1, 1] is interpolated at nodes x₀, …, xₙ, the error is f⁽ⁿ⁺¹⁾(ξ)/(n+1)! · ∏(x − xⱼ), and the node polynomial ∏(x − xⱼ) has the smallest possible sup norm, 2⁻ⁿ, exactly when the xⱼ are the zeros of Tₙ₊₁. Equally spaced nodes, by contrast, give the Runge phenomenon. More generally, the Chebyshev equioscillation theorem states that a polynomial of degree ≤ n is the best uniform approximation to a continuous f on [a, b] if and only if the error equioscillates at n + 2 points.</p>
+<p><strong>Example</strong>. The best uniform approximation to x⁴ on [−1, 1] by polynomials of degree at most 3 is x⁴ − T₄(x)/8 = x² − 1/8, with error T₄/8 equioscillating at 5 points with amplitude 1/8.</p>
+<h3>Exact values from Chebyshev polynomials</h3>
+<p><strong>Example</strong>: cos 36°. Put c = cos(π/5). Then T₅(c) = cos π = −1, so 16c⁵ − 20c³ + 5c + 1 = 0. This factors as</p>
+<pre class="math">16c⁵ − 20c³ + 5c + 1 = (c + 1)(4c² − 2c − 1)²,</pre>
+<p>and since c ≠ −1, 4c² − 2c − 1 = 0, so c = (1 + √5)/4 (the positive root). Hence cos 36° = φ/2 where φ is the golden ratio, and sin 18° = cos 72° = 2c² − 1 = (√5 − 1)/4.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute T₇ from the recurrence.</div></li><li><span class="mk">(b)</span><div>Find the zeros of T₄ in closed form.</div></li><li><span class="mk">(c)</span><div>Find the monic cubic with least sup norm on [−1, 1] and its norm.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) T₇ = 2xT₆ − T₅ = 64x⁷ − 112x⁵ + 56x³ − 7x. (b) cos(π/8), cos(3π/8), cos(5π/8), cos(7π/8), that is ±√(2 + √2)/2 and ±√(2 − √2)/2. (c) T₃/4 = x³ − (3/4)x, with sup norm 1/4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

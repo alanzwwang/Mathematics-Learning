@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Linear Functions — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Linear Functions</span></p>
+    <h1>Linear Functions</h1>
+    <p class="kicker">Algebra · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>In school a linear function is a formula, y = mx + b, whose graph is a straight line. In advanced mathematics the same idea is split into two precise notions and then generalised enormously. A map is linear when it respects addition and scalar multiplication; it is affine when it is a linear map followed by a translation. The school function y = mx + b is affine, and it is linear only when b = 0. This distinction, which looks like pedantry on the real line, becomes the organising principle of linear algebra, multivariable calculus, statistics and optimisation.</p>
+<p>The reason linear maps occupy such a central place is that they are the only maps we understand completely. A linear map between finite-dimensional spaces is determined by a finite table of numbers, its matrix; its behaviour is controlled by a handful of invariants such as rank, determinant and eigenvalues; and the equations it produces can be solved by finite algorithms. Almost every other part of analysis proceeds by reducing a nonlinear problem to a linear one. The derivative of a function is, by definition, the linear map that best approximates it near a point. A least-squares fit is an orthogonal projection, which is linear. A linear programme asks for the best vertex of a polyhedron cut out by affine inequalities. Even modern neural networks are compositions of affine maps with one very simple piecewise-linear function.</p>
+<p>This course assumes fluency with the material of the school lesson (slope, intercepts, composition, inverses, systems of two equations) and some familiarity with matrices. It proceeds at the level of a first graduate course: every definition is stated precisely, the central theorems are proved, and the history and research connections are indicated where they illuminate the mathematics. Proofs end with the symbol ∎.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Distinguish linear from affine maps and characterise both, including the Cauchy functional equation and its pathological solutions</div></li><li><span class="mk">2.</span><div>Work with abstract vector spaces, bases and dimension, and prove the Steinitz exchange lemma</div></li><li><span class="mk">3.</span><div>Prove the rank–nullity theorem and use it to derive the basic structure theory of linear maps</div></li><li><span class="mk">4.</span><div>Represent linear maps by matrices and understand change of basis and similarity invariants</div></li><li><span class="mk">5.</span><div>Study dual spaces, dual bases, annihilators and transposes, with applications to numerical integration</div></li><li><span class="mk">6.</span><div>Develop affine geometry: affine combinations, barycentric coordinates and the affine group</div></li><li><span class="mk">7.</span><div>Understand the derivative as the best linear approximation, the Jacobian, and Newton's method</div></li><li><span class="mk">8.</span><div>Derive the normal equations of least squares and interpret them as an orthogonal projection</div></li><li><span class="mk">9.</span><div>Prove the Gauss–Markov theorem and the unbiasedness of the residual variance estimator</div></li><li><span class="mk">10.</span><div>Solve linear programmes geometrically and by the simplex method</div></li><li><span class="mk">11.</span><div>Prove weak duality, state strong duality and Farkas' lemma, and use complementary slackness</div></li><li><span class="mk">12.</span><div>Study Lipschitz and piecewise-linear functions, operator norms, contractions and ReLU representations</div></li></ul>
+<p>Throughout, F denotes a field (usually ℝ), vectors in ℝⁿ are columns, Aᵀ is the transpose of A, eⱼ is the j-th standard basis vector, and ⟨x, y⟩ = xᵀy is the standard inner product.</p></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/linear-functions-1.png" alt="Four red data points with a blue least-squares line and green vertical residual segments" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> A least-squares fit to the data (1, 6), (2, 5), (3, 7), (4, 10): the blue line y = 3.5 + 1.4x minimises the sum of the squared vertical residuals shown in green. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/linear-functions-2.png" alt="A green three-dimensional polytope with a red path running along its edges" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> The feasible region of a linear programme in three variables is a polytope; the red path shows how the simplex method can move along edges from vertex to vertex towards an optimum. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>Linear Versus Affine Maps</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Vector Spaces, Bases and Dimension</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Kernel, Image and the Rank–Nullity Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Matrices, Change of Basis and Similarity</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Dual Spaces and Linear Functionals</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Affine Geometry</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>The Derivative as the Best Linear Approximation</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Least Squares and Orthogonal Projection</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>The Gauss–Markov Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Linear Programming and the Simplex Method</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Duality, Farkas' Lemma and Complementary Slackness</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Lipschitz and Piecewise-Linear Functions</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Linear least squares example2. By Krishnavedala. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Linear_least_squares_example2.svg">https://commons.wikimedia.org/wiki/File:Linear_least_squares_example2.svg</a></li><li><strong>Figure 2</strong> · Simplex-method-3-dimensions. By Sdo. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Simplex-method-3-dimensions.png">https://commons.wikimedia.org/wiki/File:Simplex-method-3-dimensions.png</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

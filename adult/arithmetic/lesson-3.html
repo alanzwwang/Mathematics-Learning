@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Constructing the Integers — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 3</p>
+    <h1>Constructing the Integers</h1>
+    <p class="kicker">Lesson 3 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ℤ = (ℕ × ℕ)/∼,   where (a, b) ∼ (c, d)  ⟺  a + d = b + c
+[(a, b)] + [(c, d)] = [(a + c, b + d)]
+[(a, b)] · [(c, d)] = [(ac + bd, ad + bc)]
+The pair (a, b) is a formal name for the difference a − b.</pre></div>
+<h3>Why a construction is needed</h3>
+<p>Subtraction is only partially defined on ℕ: b − a exists if and only if a ≤ b. One could simply postulate new symbols −1, −2, …, and define the operations by cases, but verifying the ring axioms case by case is long and unenlightening. The construction below, which goes back to the late nineteenth century and is standard since Landau's Grundlagen der Analysis (1930), is cleaner. The idea is to represent the integer a − b by the pair (a, b), and to identify two pairs when they &quot;should&quot; represent the same difference, a − b = c − d, a condition that can be written without subtraction as a + d = b + c.</p>
+<p><strong>Lemma 3.1</strong>. The relation ∼ is an equivalence relation on ℕ × ℕ.</p>
+<p><strong>Proof</strong>. Reflexivity and symmetry are immediate. For transitivity, suppose a + d = b + c and c + f = d + e. Adding, a + d + c + f = b + c + d + e, and cancelling c + d gives a + f = b + e, that is, (a, b) ∼ (e, f). ∎</p>
+<p>Note that transitivity uses cancellation in ℕ in an essential way. The same construction applied to a commutative monoid without cancellation (the Grothendieck construction, used to build K-groups in topology and algebraic geometry) needs a modified relation: (a, b) ∼ (c, d) if a + d + k = b + c + k for some k.</p>
+<p><strong>Theorem 3.2</strong>. The operations above are well defined, and (ℤ, +, ·) is a commutative ring with zero 0 = [(0, 0)] and identity 1 = [(1, 0)]. The additive inverse is −[(a, b)] = [(b, a)].</p>
+<p><strong>Proof</strong>. Well-definedness of addition: if (a, b) ∼ (a′, b′), so a + b′ = b + a′, then (a + c) + (b′ + d) = (b + d) + (a′ + c), so (a + c, b + d) ∼ (a′ + c, b′ + d). By symmetry the same holds in the second argument.</p>
+<p>Well-definedness of multiplication in the first argument: suppose a + b′ = b + a′. We need (ac + bd) + (a′d + b′c) = (ad + bc) + (a′c + b′d). Group the left side as c(a + b′) + d(b + a′) and the right side as c(b + a′) + d(a + b′); both equal c(a + b′) + d(a + b′) by hypothesis. The second argument follows by commutativity of the formula.</p>
+<p>The ring axioms reduce to identities in ℕ. For example, [(a, b)] + [(b, a)] = [(a + b, a + b)] = [(0, 0)], and associativity of multiplication reduces to an identity between two quadruples of sums of triple products, which is checked by expanding with the laws of Lesson 2. ∎</p>
+<h3>Embedding and normal forms</h3>
+<p>The map ι : ℕ → ℤ, n ↦ [(n, 0)], is injective (since (m, 0) ∼ (n, 0) means m = n) and preserves 0, 1, + and ·. Identify n with ι(n) and write −n for [(0, n)]. Every class has exactly one representative of the form (n, 0) or (0, n): given (a, b), if a ≥ b then (a, b) ∼ (a − b, 0), and otherwise (a, b) ∼ (0, b − a). Thus ℤ = ℕ ∪ (−ℕ) with ℕ ∩ (−ℕ) = {0}, which recovers the informal picture.</p>
+<p>The rule of signs is now a computation, not a convention:</p>
+<pre class="math">(−1)(−1) = [(0, 1)] · [(0, 1)] = [(0·0 + 1·1, 0·1 + 1·0)] = [(1, 0)] = 1</pre>
+<p>More conceptually, in any ring x · 0 = x(0 + 0) = x·0 + x·0, so x · 0 = 0; then 0 = (−1)(1 + (−1)) = −1 + (−1)(−1), so (−1)(−1) = 1. The sign rules are forced by distributivity; the construction shows that a ring satisfying them exists.</p>
+<p><strong>Theorem 3.3</strong>. Define [(a, b)] ≤ [(c, d)] if a + d ≤ b + c. This is a well-defined total order making ℤ an ordered integral domain: x ≤ y implies x + z ≤ y + z, and x ≤ y with 0 ≤ z implies xz ≤ yz. The ring ℤ has no zero divisors.</p>
+<p><strong>Proof</strong>. Well-definedness and the order axioms follow from those of ℕ via cancellation. For zero divisors, use normal forms: up to sign both factors lie in ℕ, and ℕ has none. ∎</p>
+<h3>Universal property</h3>
+<p><strong>Theorem 3.4</strong>. For every ring A (with identity) there is exactly one ring homomorphism ℤ → A. That is, ℤ is the initial object in the category of rings.</p>
+<p><strong>Proof</strong>. A homomorphism must send 1 to 1<sub>A</sub>, hence n = 1 + ⋯ + 1 to n · 1<sub>A</sub> and −n to −(n · 1<sub>A</sub>); conversely this formula defines a homomorphism. ∎</p>
+<p>The kernel of ℤ → A is an ideal nℤ with n ≥ 0; this n is the characteristic of A. This single observation links the construction of ℤ to modular arithmetic (Lesson 7) and to the classification of fields by characteristic.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the normal form of [(3, 11)] · [(9, 2)] and interpret it.</div></li><li><span class="mk">(b)</span><div>Verify directly from the definitions that [(a, b)] · [(1, 0)] = [(a, b)].</div></li><li><span class="mk">(c)</span><div>Show that [(a, b)] = [(c, d)] if and only if [(a, b)] + [(d, c)] = 0.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) [(3·9 + 11·2, 3·2 + 11·9)] = [(27 + 22, 6 + 99)] = [(49, 105)] = [(0, 56)] = −56, consistent with (3 − 11)(9 − 2) = (−8)(7) = −56. (b) [(a·1 + b·0, a·0 + b·1)] = [(a, b)]. (c) The sum is [(a + d, b + c)], which equals [(0, 0)] exactly when a + d = b + c, the definition of (a, b) ∼ (c, d).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

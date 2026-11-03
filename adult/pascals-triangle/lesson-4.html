@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 4</p>
+    <h1>Generating Functions, the Binomial Transform and the Pascal Matrix</h1>
+    <p class="kicker">Lesson 4 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">rows: (1 + x)ⁿ     columns: xᵏ/(1 − x)<sup>k+1</sup>     whole triangle: 1/(1 − y − xy)
+bₙ = ∑ₖ C(n, k) aₖ   ⟺   aₙ = ∑ₖ (−1)ⁿ⁻ᵏ C(n, k) bₖ</pre></div>
+<h3>Rows, columns and the bivariate series</h3>
+<p>The nth row has generating function ∑ₖ C(n, k) xᵏ = (1 + x)ⁿ. For the kth column we need ∑ₙ C(n, k) xⁿ. Writing n = m + k and using upper negation, C(m + k, m) = (−1)ᵐ C(−k − 1, m), so</p>
+<pre class="math">∑ₙ C(n, k) xⁿ = xᵏ ∑ₘ C(−k − 1, m)(−x)ᵐ = xᵏ / (1 − x)<sup>k+1</sup></pre>
+<p>by the formal identity B<sub>α</sub>(−x) = (1 − x)<sup>α</sup> with α = −k − 1 (Lesson 3). Summing the row generating functions against yⁿ gives the generating function of the whole triangle,</p>
+<pre class="math">∑<sub>n,k</sub> C(n, k) xᵏ yⁿ = ∑ₙ (y(1 + x))ⁿ = 1 / (1 − y − xy)</pre>
+<p>from which every row and column series can be extracted. Shallow diagonals are obtained by substituting: the sums dₙ = ∑ₖ C(n − k, k) along the lines of slope one in the left-justified triangle have generating function ∑ₙ yⁿ ∑ₖ C(n − k, k) = 1/(1 − y − y²), obtained from the bivariate series by the substitution that weights C(m, k) by y<sup>m+k</sup>, namely x ↦ y and y ↦ y in 1/(1 − y − xy). Since 1/(1 − y − y²) = ∑ Fₙ₊₁ yⁿ with F₁ = F₂ = 1, we get dₙ = Fₙ₊₁: the shallow diagonal sums are Fibonacci numbers.</p>
+<pre class="math">n = 4:  C(4, 0) + C(3, 1) + C(2, 2) = 1 + 3 + 1 = 5 = F₅</pre>
+<h3>The central binomial coefficients</h3>
+<p>From C(−1/2, n) = (−1/4)ⁿ C(2n, n) (Lesson 1) we obtain:</p>
+<pre class="math">∑ₙ C(2n, n) xⁿ = ∑ₙ C(−1/2, n)(−4x)ⁿ = (1 − 4x)<sup>−1/2</sup></pre>
+<p>Squaring gives (1 − 4x)<sup>−1</sup> = ∑ 4ⁿ xⁿ, hence the striking identity ∑<sub>k=0</sub><sup>n</sup> C(2k, k) C(2n − 2k, n − k) = 4ⁿ. For n = 3 the terms are 20, 12, 12, 20, with sum 64. Bijective proofs of this identity exist but are considerably more intricate than the two-line generating-function argument, which illustrates how far ahead the algebra can be.</p>
+<h3>Exponential generating functions and the binomial transform</h3>
+<p>For sequences (aₙ), (bₙ) with exponential generating functions A(x) = ∑ aₙ xⁿ/n! and B(x) = ∑ bₙ xⁿ/n!, the product rule for exponential series reads</p>
+<pre class="math">A(x) B(x) = ∑ₙ ( ∑ₖ C(n, k) aₖ bₙ₋ₖ ) xⁿ/n!</pre>
+<p>so binomial convolution corresponds to multiplication. In particular bₙ = ∑ₖ C(n, k) aₖ means B(x) = eˣ A(x), and therefore A(x) = e⁻ˣ B(x), that is aₙ = ∑ₖ (−1)ⁿ⁻ᵏ C(n, k) bₖ. This is binomial inversion, a special case of Möbius inversion on the Boolean lattice.</p>
+<p><strong>Example (derangements)</strong>. Every permutation of [n] fixes some set of k points and deranges the remaining n − k, so n! = ∑ₖ C(n, k) D<sub>n−k</sub> = ∑ₖ C(n, k) Dₖ. Binomial inversion gives Dₙ = ∑ₖ (−1)ⁿ⁻ᵏ C(n, k) k! = n! ∑<sub>j=0</sub><sup>n</sup> (−1)ʲ/j!.</p>
+<pre class="math">D₄ = 1 − 4 + 12 − 24 + 24 = 9          D₅ = 44          D₆ = 265</pre>
+<h3>The Pascal matrix</h3>
+<p>Let Lₙ be the (n + 1) × (n + 1) lower-triangular matrix with entries (Lₙ)ᵢⱼ = C(i, j), 0 ≤ i, j ≤ n. Binomial inversion says precisely that Lₙ⁻¹ has entries (−1)<sup>i−j</sup> C(i, j). More generally the matrix with entries C(i, j) t<sup>i−j</sup> represents the substitution f(x) ↦ f(x + t) on polynomials of degree at most n in the basis 1, x, …, xⁿ (up to transposition), so these matrices form a one-parameter group: their product for parameters s and t is the matrix for s + t. Its infinitesimal generator is the matrix S with S<sub>i,i−1</sub> = i and zeros elsewhere (the matrix of d/dx), and Lₙ = exp(S), the series terminating because S is nilpotent.</p>
+<p>The symmetric Pascal matrix Pₙ has entries C(i + j, i). By Corollary 3.2(ii), ∑ₖ C(i, k) C(j, k) = C(i + j, i), which says Pₙ = Lₙ Lₙᵀ. This is the Cholesky (LU) factorization of Pₙ, and since Lₙ is unitriangular, det Pₙ = 1 for every n. Thus Pₙ is a positive-definite integer matrix of determinant 1 whose entries grow exponentially.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the coefficient of x¹⁰ in 1/(1 − x)⁴.</div></li><li><span class="mk">(b)</span><div>Evaluate ∑ₖ C(10 − k, k).</div></li><li><span class="mk">(c)</span><div>Compute D₅ by binomial inversion.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) This is column k = 3 shifted: [x¹⁰] 1/(1 − x)⁴ = C(10 + 3, 3) = C(13, 3) = 286. (b) F₁₁ = 89 (terms 1 + 9 + 28 + 35 + 15 + 1). (c) D₅ = ∑ₖ (−1)⁵⁻ᵏ C(5, k) k! = −1 + 5 − 20 + 60 − 120 + 120 = 44.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

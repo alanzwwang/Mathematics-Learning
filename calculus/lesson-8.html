@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#3b82f6">
+<body id="top" class="mode-kid" style="--topic:#3b82f6">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/calculus/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: The Two Big Questions — Rate and Accumulation">1</a><a href="lesson-2.html" title="Lesson 2: Average Rate of Change and the Secant Line">2</a><a href="lesson-3.html" title="Lesson 3: Limits — The Tolerance Game">3</a><a href="lesson-4.html" title="Lesson 4: The Derivative — Defined and Derived">4</a><a href="lesson-5.html" title="Lesson 5: Tangent Lines — and Where Derivatives Fail">5</a><a href="lesson-6.html" title="Lesson 6: The Rules Toolkit — Product, Quotient, Chain">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative's Diary — Reading f' and f''">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Optimization — Finding the Best Possible Answer">8</a><a href="lesson-9.html" title="Lesson 9: Area Under a Curve — Sigma Sums and the Rectangle Limit">9</a><a href="lesson-10.html" title="Lesson 10: The Fundamental Theorem of Calculus">10</a><a href="lesson-11.html" title="Lesson 11: Watch Out! Six Classic Calculus Mistakes">11</a><a href="lesson-12.html" title="Lesson 12: Review — The Big Picture">12</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">To maximize or minimize: build ONE formula for the quantity,
 solve its derivative = 0, and VERIFY — check the second
@@ -59,7 +60,7 @@ Step 4: verify: A''(x) = −4 &lt; 0 → a cap → a MAX ✅.
 Harvest: L = 2,400 − 2×600 = 1,200 m, and
         A = 600 × 1,200 = 720,000 m²</pre>
 <pre class="math">That is 72 hectares of pen from 2,400 m of fence — and the proof
-that no other shape beats it is the derivative, not a guess.</pre>
+that no other rectangle beats it is the derivative, not a guess.</pre>
 <p><strong>Worked example 2</strong> — the open box. From a 36 cm square sheet of cardboard, cut equal squares of side x from the four corners and fold up the flaps to make an open-top box. Which x gives the biggest volume?</p>
 <pre class="math">Step 1: the base becomes (36 − 2x) by (36 − 2x), the height is x.
         Maximize V(x) = x(36 − 2x)² on 0 ≤ x ≤ 18.
@@ -98,7 +99,7 @@ Neighbor check: P(190) = −2×36,100 + 152,000 − 45,000 = $34,800 &lt; $35,00
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

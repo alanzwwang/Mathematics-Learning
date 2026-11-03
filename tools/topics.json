@@ -18,7 +18,7 @@
       "slug": "fractions", "file": "Fractions.md", "name": "Fractions", "emoji": "🍕", "group": "foundations", "color": "#ef4444",
       "blurb": "Fractions are just division in disguise. Add, multiply, divide and solve with them!",
       "pics": [
-        { "alt": "A round pizza split into four parts, each with different toppings", "caption": "A \"four seasons\" pizza has 4 parts with different toppings, so each part is 1/4 of the pizza. Two parts together make 2/4, which is the same as 1/2!" },
+        { "alt": "A round pizza split into four parts, each with different toppings", "caption": "A \"four seasons\" pizza has 4 parts with different toppings, so each part is about 1/4 of the pizza. Two parts together make 2/4, which is the same as 1/2!" },
         { "alt": "Eleven circles, each cut into equal slices with one slice shaded green", "caption": "Fraction circles from 1/2 all the way to 1/12. Notice that the more slices you cut, the smaller each slice gets!" }
       ]
     },
@@ -27,7 +27,7 @@
       "blurb": "AND, OR, NOT and IF-THEN: think like a detective and solve knights-and-knaves puzzles!",
       "pics": [
         { "alt": "A marble bust of a bearded man from ancient Greece", "caption": "A marble bust of Aristotle (384–322 BC), the ancient Greek thinker who wrote down some of the very first rules of logic." },
-        { "alt": "A black-and-white portrait photo of a man in a jacket", "caption": "George Boole (1815–1864) turned logic into algebra with just TRUE and FALSE. Every computer today runs on his \"Boolean logic\"!" }
+        { "alt": "A hand-coloured engraving of a man in a dark jacket and bow tie", "caption": "George Boole (1815–1864) turned logic into algebra with just TRUE and FALSE. Every computer today runs on his \"Boolean logic\"!" }
       ]
     },
     {
@@ -35,7 +35,7 @@
       "blurb": "Keep the balance! Crack equations with fractions, negatives, x on both sides and more.",
       "pics": [
         { "alt": "A metal balance scale with two pans", "caption": "A balance scale stays level only when both sides weigh the same, just like the two sides of an equation. That's the Golden Rule of algebra!" },
-        { "alt": "A page of old Arabic handwriting", "caption": "A page from al-Khwarizmi's famous book about solving equations, written in Baghdad around 820 AD. The word \"algebra\" comes from \"al-jabr\" in its title!" }
+        { "alt": "A printed page of Arabic text", "caption": "A printed page from an 1831 edition of al-Khwarizmi's famous book about solving equations, which he wrote in Baghdad around 820 AD. The word \"algebra\" comes from \"al-jabr\" in its title!" }
       ]
     },
     {
@@ -50,7 +50,7 @@
       "slug": "logarithms", "file": "Logarithms.md", "name": "Logarithms", "emoji": "🪵", "group": "algebra", "color": "#a855f7",
       "blurb": "The backwards question: what power do I need? Logs turn multiplying into adding!",
       "pics": [
-        { "alt": "An old painted portrait of a man with a beard and a ruff collar", "caption": "John Napier (1550–1617) of Scotland invented logarithms and published them in 1614 to make huge multiplications much easier." },
+        { "alt": "Portrait of John Napier, a bearded man with a ruff collar", "caption": "John Napier (1550–1617) of Scotland invented logarithms and published them in 1614 to make huge multiplications much easier." },
         { "alt": "A long slide rule covered in number scales", "caption": "A slide rule. Before calculators, scientists and engineers multiplied numbers by sliding logarithm scales against each other!" }
       ]
     },
@@ -66,7 +66,7 @@
       "slug": "pascals-triangle", "file": "Pascal's Triangle.md", "name": "Pascal's Triangle", "emoji": "🔺", "group": "algebra", "color": "#ec4899",
       "blurb": "A simple triangle of numbers that hides counting secrets, powers of 2 and the hockey stick!",
       "pics": [
-        { "alt": "An old painted portrait of a man with long hair", "caption": "Blaise Pascal (1623–1662), the French mathematician the triangle is named after. As a teenager he also built one of the first mechanical calculators!" },
+        { "alt": "Portrait of Blaise Pascal, a man with long hair", "caption": "Blaise Pascal (1623–1662), the French mathematician the triangle is named after. As a teenager he also built one of the first mechanical calculators!" },
         { "alt": "An old Chinese drawing of a triangle of numbers made of circles", "caption": "The same triangle in a Chinese book from 1303. Chinese mathematicians like Yang Hui knew about it hundreds of years before Pascal was born!" }
       ]
     },
@@ -82,7 +82,7 @@
       "slug": "algebraic-geometry", "file": "Algebraic Geometry.md", "name": "Algebraic Geometry", "emoji": "🗺️", "group": "geometry", "color": "#06b6d4",
       "blurb": "Give every point an address (x, y) and watch equations draw lines, circles and parabolas!",
       "pics": [
-        { "alt": "An old painted portrait of a man with long dark hair and a moustache", "caption": "René Descartes (1596–1650) had the idea of giving every point an address (x, y). That's why it's called the Cartesian plane!" },
+        { "alt": "Portrait of René Descartes, a man with long dark hair and a moustache", "caption": "René Descartes (1596–1650) had the idea of giving every point an address (x, y). That's why it's called the Cartesian plane!" },
         { "alt": "A coordinate plane with x and y axes and four coloured points", "caption": "The coordinate plane: two number lines that cross at zero. Every point has its own (x, y) address, like (2, 3) or (−3, 1)!" }
       ]
     },
@@ -106,15 +106,15 @@
       "slug": "calculus", "file": "Calculus.md", "name": "Calculus", "emoji": "♾️", "group": "advanced", "color": "#3b82f6",
       "blurb": "The math of change: limits, derivatives, areas and the Fundamental Theorem.",
       "pics": [
-        { "alt": "An old painted portrait of a man with long grey hair", "caption": "Isaac Newton (1643–1727), painted in 1689. He invented calculus to explain how planets and falling apples move." },
-        { "alt": "An old painted portrait of a man in a huge curly wig", "caption": "Gottfried Wilhelm Leibniz (1646–1716) invented calculus too, at about the same time. We still use his dy/dx and ∫ symbols today!" }
+        { "alt": "Portrait of Isaac Newton, a man with long grey hair", "caption": "Isaac Newton (1643–1727), painted in 1689. He invented calculus to explain how planets and falling apples move." },
+        { "alt": "Portrait of Gottfried Wilhelm Leibniz in a huge curly wig", "caption": "Gottfried Wilhelm Leibniz (1646–1716) invented calculus too, at about the same time. We still use his dy/dx and ∫ symbols today!" }
       ]
     },
     {
       "slug": "complex-analysis", "file": "Complex Analysis.md", "name": "Complex Analysis", "emoji": "🌀", "group": "advanced", "color": "#7c3aed",
       "blurb": "Meet i, the number whose square is −1, and see how multiplying can spin and stretch!",
       "pics": [
-        { "alt": "An old painted portrait of a man wearing a cloth cap", "caption": "Leonhard Euler (1707–1783), one of the greatest mathematicians ever. He was the first to use the letter i for √−1!" },
+        { "alt": "Portrait of Leonhard Euler wearing a cloth cap", "caption": "Leonhard Euler (1707–1783), one of the greatest mathematicians ever. He was the first to use the letter i for √−1!" },
         { "alt": "A square picture full of rainbow colours swirling around several points", "caption": "A picture of a complex function. Each colour shows the direction of a complex number, so the rainbow swirls show where the function spins around!" }
       ]
     },
@@ -131,7 +131,7 @@
       "blurb": "Primes, divisibility rules, GCF, LCM and Euclid's amazing 2,300-year-old algorithm.",
       "pics": [
         { "alt": "An animated grid of numbers where multiples get crossed out and the primes stay", "caption": "The Sieve of Eratosthenes: cross out the multiples of 2, 3, 5 and 7, and the numbers left over are the primes!" },
-        { "alt": "An old painted portrait of a man in a black velvet cap", "caption": "Carl Friedrich Gauss (1777–1855) called number theory \"the queen of mathematics\"." }
+        { "alt": "Portrait of Carl Friedrich Gauss in a black velvet cap", "caption": "Carl Friedrich Gauss (1777–1855) called number theory \"the queen of mathematics\"." }
       ]
     },
     {
@@ -154,8 +154,8 @@
       "slug": "permutations-vs-combinations", "file": "Permutations vs Combinations.md", "name": "Permutations vs Combinations", "emoji": "🔐", "group": "advanced", "color": "#e11d48",
       "blurb": "Does order matter? Learn the big decision that every counting problem asks.",
       "pics": [
-        { "alt": "A black padlock with a number dial", "caption": "Fun fact: a \"combination\" lock should really be called a PERMUTATION lock, because the order of the numbers matters!" },
-        { "alt": "A hand holding an ice-cream cone with two different scoops stacked on top", "caption": "Picking 2 flavours for a cup is a combination, but on a cone, which flavour goes on top matters. That's a permutation!" }
+        { "alt": "A silver padlock with a blue number dial", "caption": "Fun fact: a \"combination\" lock should really be called a PERMUTATION lock, because the order of the numbers matters!" },
+        { "alt": "A hand holding an ice-cream cone with two different scoops stacked on top", "caption": "Picking 2 flavors for a cup is a combination, but on a cone, which flavor goes on top matters. That's a permutation!" }
       ]
     },
     {
@@ -168,7 +168,7 @@
     }
   ],
   "artists": {
-    "img/logic-2.jpg": "Unknown photographer",
+    "img/logic-2.jpg": "Unknown artist",
     "img/logarithms-1.jpg": "Unknown artist",
     "img/logarithms-2.png": "Roger McLassus (derivative work by Beao)",
     "img/pascals-triangle-1.jpg": "Unknown artist, copying a painting by François II Quesnel",
@@ -180,7 +180,7 @@
     "img/matrix-math-2.png": "ed g2s",
     "img/combinatorics-1.png": "Booyabazooka",
     "img/permutations-vs-combinations-1.jpg": "Raysonho",
-    "img/probability-1.jpg": "Exhibit by Estes Objethos Atelier, photo by Rodrigo.Argenton",
+    "img/probability-1.jpg": "Estes Objethos Atelier (exhibit), photo by Rodrigo.Argenton",
     "img/probability-2.png": "Francis Galton"
   }
 }

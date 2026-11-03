@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Gray Codes for Subsets, Permutations and Combinations — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 11</p>
+    <h1>Gray Codes for Subsets, Permutations and Combinations</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A Gray code lists a family of objects so that consecutive objects differ minimally.
+Binary reflected Gray code: g(i) = i ⊕ ⌊i/2⌋; the bit flipped at step i → i+1 is ν₂(i+1).
+Steinhaus–Johnson–Trotter: all of Sₙ by adjacent transpositions; revolving door for k-subsets.</pre></div>
+<h3>Subsets: the binary reflected Gray code</h3>
+<p>Identify subsets of [n] with binary words of length n. The binary reflected Gray code (BRGC) is defined recursively by Γ₁ = 0, 1 and Γₙ = 0Γₙ₋₁, 1Γₙ₋₁ᴿ, where ᴿ denotes the list in reverse order and 0Γ means prefix 0 to every word. Thus</p>
+<pre class="math">Γ₂ = 00, 01, 11, 10
+Γ₃ = 000, 001, 011, 010, 110, 111, 101, 100</pre>
+<p>Consecutive words differ in one bit (within each half by induction, and across the middle because the two halves meet at the same word of Γₙ₋₁), and the last word 10⋯0 differs from the first in one bit, so Γₙ is a Hamiltonian cycle on the hypercube graph Qₙ. The code is named after Frank Gray of Bell Laboratories, whose patent (filed 1947, granted 1953) used it to reduce errors in analogue-to-digital conversion; it had appeared earlier in Baudot's telegraph codes and in the solution of the Chinese rings puzzle.</p>
+<p><strong>Theorem 11.1</strong>. The i-th word of Γₙ (counting from 0) is the binary expansion of g(i) = i ⊕ ⌊i/2⌋, where ⊕ is bitwise exclusive or. The word changes between positions i and i + 1 in bit ν₂(i + 1), the exponent of 2 in i + 1 (bits numbered from 0 at the right).</p>
+<p><strong>Proof</strong>. For the second statement, i ⊕ (i + 1) = 2<sup>t+1</sup> − 1 where t = ν₂(i + 1) (adding 1 turns the t trailing ones of i into zeros and the next zero into a one). Hence g(i) ⊕ g(i + 1) = (2<sup>t+1</sup> − 1) ⊕ (2ᵗ − 1) = 2ᵗ. For the first statement, induct on n, the case n = 1 being clear; for n ≥ 2 and i &lt; 2ⁿ⁻¹ the leading bit is 0 on both sides. For i = 2ⁿ⁻¹ + j with 0 ≤ j &lt; 2ⁿ⁻¹, the reflected half places at position i the word 1 followed by entry 2ⁿ⁻¹ − 1 − j = j̄ (the bitwise complement of j in n − 1 bits) of Γₙ₋₁. Using M ⊕ ⌊M/2⌋ = 2ⁿ⁻² for M = 2ⁿ⁻¹ − 1, one computes g(j̄) = g(j) ⊕ 2ⁿ⁻² and g(i) = 2ⁿ⁻¹ ⊕ 2ⁿ⁻² ⊕ g(j) = 2ⁿ⁻¹ ⊕ g(j̄), as required. ∎</p>
+<p>The sequence ν₂(1), ν₂(2), ν₂(3), … = 0, 1, 0, 2, 0, 1, 0, 3, … (the ruler sequence) is also the sequence of discs moved in the optimal solution of the Tower of Hanoi, which is no coincidence: the Tower of Hanoi state graph and the BRGC are two encodings of the same recursion. The inverse map is the prefix exclusive or: if g has bits g<sub>n−1</sub>⋯g₀, then i has bits bₖ = g<sub>n−1</sub> ⊕ ⋯ ⊕ gₖ.</p>
+<h3>Permutations: plain changes</h3>
+<p><strong>Theorem 11.2 (Steinhaus–Johnson–Trotter)</strong>. The permutations of [n] can be listed so that each is obtained from the previous one by swapping two adjacent entries, and the last differs from the first by an adjacent swap.</p>
+<p><strong>Proof</strong>. Induct on n. Given such a list for Sₙ₋₁, replace its j-th permutation by the n permutations obtained by inserting n into each of the n gaps, sweeping from right to left when j is odd and from left to right when j is even. Within a block, consecutive permutations differ by moving n one place, an adjacent swap. Between blocks, n is at the same end of both consecutive permutations, and the remaining entries differ by an adjacent swap by induction. The number of blocks, (n − 1)!, is even for n ≥ 3, so the final block ends with n in the same position as at the beginning of the first block, and the cyclic closing step is again an adjacent swap (for n = 2 the list 12, 21 is trivially cyclic). ∎</p>
+<p>For n = 3 the list is 123, 132, 312, 321, 231, 213, and for n = 4 it begins 1234, 1243, 1423, 4123, 4132, 1432, 1342, 1324, 3124, …. This method, known as plain changes, was used by English change ringers in the seventeenth century, three hundred years before its rediscovery by Johnson and Trotter (1962–63) for computers. In graph-theoretic language, it is a Hamiltonian cycle in the Cayley graph of Sₙ with respect to the adjacent transpositions, the 1-skeleton of the permutohedron. Since each step changes the sign, consecutive permutations alternate in parity, giving another proof that exactly half of Sₙ is even. More generally, Kompel'maher and Liskovets (1975) proved that the Cayley graph of Sₙ with respect to any generating set of transpositions is Hamiltonian; whether every connected Cayley graph of a finite group with at least three elements has a Hamiltonian cycle remains open.</p>
+<h3>Combinations: the revolving door</h3>
+<p><strong>Theorem 11.3</strong>. The k-subsets of [n] can be listed so that each is obtained from the previous one by removing one element and inserting another.</p>
+<p><strong>Proof</strong>. Define lists R(n, k) recursively by R(n, 0) = (∅), R(n, n) = ([n]), and for 0 &lt; k &lt; n, R(n, k) = R(n − 1, k) followed by the reverse of R(n − 1, k − 1) with n added to each set. Within each part consecutive sets differ by one exchange by induction. For k = 1 the list is 1, 2, …, n and there is nothing to prove, so let k ≥ 2. One shows by induction that R(n, k) begins with [k] and ends with {1, …, k − 1, n} (for k ≥ 1); hence the junction joins the last set {1, …, k − 1, n − 1} of R(n − 1, k) to the first set of the reversed second part, {1, …, k − 2, n − 1, n} (the last set of R(n − 1, k − 1) is {1, …, k − 2, n − 1}), which differ by exchanging k − 1 for n. ∎</p>
+<p>For n = 4, k = 2 the revolving door order is 12, 23, 13, 34, 24, 14, and the last set 14 also differs from the first set 12 by a single exchange. Knuth's The Art of Computer Programming, Volume 4A, treats these and many refinements, including loopless algorithms, which produce each successor in a bounded number of operations, with no loops at all.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the 4-bit BRGC word with index 13, and the index of the word 1101.</div></li><li><span class="mk">(b)</span><div>Which bit changes between the 5-bit BRGC words of indices 23 and 24?</div></li><li><span class="mk">(c)</span><div>Write down R(4, 2) using the recursion and verify that it is the list given above.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 13 ⊕ 6 = 1101 ⊕ 0110 = 1011. For 1101 the prefix exclusive or gives bits 1, 1 ⊕ 1 = 0, 0 ⊕ 0 = 0, 0 ⊕ 1 = 1, so the index is 1001 = 9; check: 9 ⊕ 4 = 1001 ⊕ 0100 = 1101. (b) ν₂(24) = 3, so bit 3 (the second from the left in a 5-bit word) changes: g(23) = 10111 ⊕ 01011 = 11100 and g(24) = 11000 ⊕ 01100 = 10100, which differ in bit 3. (c) R(3, 2) = 12, 23, 13 and R(3, 1) = 1, 2, 3, so R(4, 2) = 12, 23, 13 followed by 34, 24, 14.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

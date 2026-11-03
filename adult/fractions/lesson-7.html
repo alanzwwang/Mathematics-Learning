@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Continued Fractions and Their Convergents — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 7</p>
+    <h1>Continued Fractions and Their Convergents</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">x = [a₀; a₁, a₂, …],   p<sub>n</sub> = a<sub>n</sub> p<sub>n−1</sub> + p<sub>n−2</sub>,   q<sub>n</sub> = a<sub>n</sub> q<sub>n−1</sub> + q<sub>n−2</sub>,
+p<sub>n</sub> q<sub>n−1</sub> − p<sub>n−1</sub> q<sub>n</sub> = (−1)<sup>n−1</sup>,   x − p<sub>n</sub>/q<sub>n</sub> = (−1)<sup>n</sup> / (q<sub>n</sub>(x<sub>n+1</sub> q<sub>n</sub> + q<sub>n−1</sub>)).</pre></div>
+<h3>The continued fraction algorithm</h3>
+<p>For a real number x, set x₀ = x and define recursively:</p>
+<pre class="math">a<sub>n</sub> = ⌊x<sub>n</sub>⌋,     x<sub>n+1</sub> = 1/(x<sub>n</sub> − a<sub>n</sub>)   (if x<sub>n</sub> ≠ a<sub>n</sub>).</pre>
+<p>The integers a<sub>n</sub> are the partial quotients and the x<sub>n</sub> the complete quotients. Then a₀ ∈ ℤ, a<sub>n</sub> ≥ 1 for n ≥ 1, and</p>
+<pre class="math">x = a₀ + 1/(a₁ + 1/(a₂ + ⋯)) =: [a₀; a₁, a₂, …].</pre>
+<p>If x = h/k is rational, the algorithm is precisely the Euclidean algorithm applied to h and k: the partial quotients are the successive quotients. It therefore stops, and every rational number has a finite continued fraction. For example, for 67/29:</p>
+<pre class="math">67 = 2·29 + 9,   29 = 3·9 + 2,   9 = 4·2 + 1,   2 = 2·1,</pre>
+<p>so 67/29 = [2; 3, 4, 2]. A finite expansion whose last partial quotient exceeds 1 can be rewritten using [… , a<sub>r</sub>] = [… , a<sub>r</sub> − 1, 1]; apart from this ambiguity the expansion of a rational is unique. Conversely the algorithm never stops when x is irrational, since every complete quotient is then irrational.</p>
+<h3>Convergents and the matrix formalism</h3>
+<p>Define p₋₂ = 0, p₋₁ = 1, q₋₂ = 1, q₋₁ = 0, and:</p>
+<pre class="math">p<sub>n</sub> = a<sub>n</sub> p<sub>n−1</sub> + p<sub>n−2</sub>,     q<sub>n</sub> = a<sub>n</sub> q<sub>n−1</sub> + q<sub>n−2</sub>    (n ≥ 0).</pre>
+<p><strong>Proposition 7.1</strong>. For every n ≥ 0,</p>
+<pre class="math">( a₀ 1 ; 1 0 )( a₁ 1 ; 1 0 ) ⋯ ( a<sub>n</sub> 1 ; 1 0 )  =  ( p<sub>n</sub>  p<sub>n−1</sub> ; q<sub>n</sub>  q<sub>n−1</sub> ),</pre>
+<p>and for any real t &gt; 0, [a₀; a₁, …, a<sub>n</sub>, t] = (t p<sub>n</sub> + p<sub>n−1</sub>)/(t q<sub>n</sub> + q<sub>n−1</sub>). In particular [a₀; a₁, …, a<sub>n</sub>] = p<sub>n</sub>/q<sub>n</sub>.</p>
+<p><strong>Proof</strong>. The matrix identity follows by induction, since multiplying (p<sub>n−1</sub> p<sub>n−2</sub>; q<sub>n−1</sub> q<sub>n−2</sub>) on the right by (a<sub>n</sub> 1; 1 0) produces exactly the recurrences. The second statement is also proved by induction on n: [a₀; a₁, …, a<sub>n</sub>, t] = [a₀; a₁, …, a<sub>n−1</sub>, a<sub>n</sub> + 1/t], and by the inductive hypothesis this equals ((a<sub>n</sub> + 1/t)p<sub>n−1</sub> + p<sub>n−2</sub>)/((a<sub>n</sub> + 1/t)q<sub>n−1</sub> + q<sub>n−2</sub>); multiplying through by t gives (t p<sub>n</sub> + p<sub>n−1</sub>)/(t q<sub>n</sub> + q<sub>n−1</sub>). ∎</p>
+<p>Taking determinants in the matrix identity, each factor having determinant −1, gives the fundamental identity</p>
+<pre class="math">p<sub>n</sub> q<sub>n−1</sub> − p<sub>n−1</sub> q<sub>n</sub> = (−1)<sup>n−1</sup>.</pre>
+<p>Consequences: gcd(p<sub>n</sub>, q<sub>n</sub>) = 1, so the convergents p<sub>n</sub>/q<sub>n</sub> are automatically in lowest terms, and consecutive convergents are Farey neighbours. Also p<sub>n</sub> q<sub>n−2</sub> − p<sub>n−2</sub> q<sub>n</sub> = (−1)<sup>n</sup> a<sub>n</sub>, which shows that the even convergents increase and the odd convergents decrease.</p>
+<h3>The error formula</h3>
+<p>Applying Proposition 7.1 with t = x<sub>n+1</sub> gives x = (x<sub>n+1</sub>p<sub>n</sub> + p<sub>n−1</sub>)/(x<sub>n+1</sub>q<sub>n</sub> + q<sub>n−1</sub>), and subtracting p<sub>n</sub>/q<sub>n</sub> yields</p>
+<pre class="math">x − p<sub>n</sub>/q<sub>n</sub> = (−1)<sup>n</sup> / ( q<sub>n</sub> (x<sub>n+1</sub> q<sub>n</sub> + q<sub>n−1</sub>) ).</pre>
+<p>Since a<sub>n+1</sub> &lt; x<sub>n+1</sub> &lt; a<sub>n+1</sub> + 1 for irrational x, the denominator lies strictly between q<sub>n</sub> q<sub>n+1</sub> and q<sub>n</sub>(q<sub>n+1</sub> + q<sub>n</sub>). Hence:</p>
+<p><strong>Theorem 7.2</strong>. For irrational x the convergents alternate around x, and</p>
+<pre class="math">1/(q<sub>n</sub>(q<sub>n</sub> + q<sub>n+1</sub>))  &lt;  |x − p<sub>n</sub>/q<sub>n</sub>|  &lt;  1/(q<sub>n</sub> q<sub>n+1</sub>)  ≤  1/q<sub>n²</sub>.</pre>
+<p>In particular p<sub>n</sub>/q<sub>n</sub> → x, so every infinite sequence a₀ ∈ ℤ, a₁, a₂, … ≥ 1 defines a real number, and the correspondence between irrational numbers and such sequences is a bijection.</p>
+<p>Since q<sub>n</sub> ≥ q<sub>n−1</sub> + q<sub>n−2</sub>, the denominators grow at least as fast as the Fibonacci numbers: q<sub>n</sub> ≥ F<sub>n+1</sub>. Hence the convergence is at least geometric, with ratio governed by the golden ratio.</p>
+<h3>Classical expansions</h3>
+<p>The simplest infinite continued fraction is the golden ratio, φ = (1 + √5)/2 = [1; 1, 1, 1, …], because φ = 1 + 1/φ. Its convergents are ratios of consecutive Fibonacci numbers, 1, 2, 3/2, 5/3, 8/5, 13/8, … , and since all partial quotients are as small as possible, φ is in a precise sense the irrational number hardest to approximate by rationals (Lesson 8). Similarly √2 = [1; 2, 2, 2, …], since √2 + 1 = 2 + 1/(√2 + 1), with convergents 1, 3/2, 7/5, 17/12, 41/29, 99/70, …. Euler found the regular pattern</p>
+<pre class="math">e = [2; 1, 2, 1, 1, 4, 1, 1, 6, 1, 1, 8, …],</pre>
+<p>whose convergents are 2, 3, 8/3, 11/4, 19/7, 87/32, 106/39, 193/71, …. No pattern is known for π:</p>
+<pre class="math">π = [3; 7, 15, 1, 292, 1, 1, 1, 2, 1, 3, …],</pre>
+<p>with convergents 3, 22/7, 333/106, 355/113, 103993/33102, …. The large partial quotient 292 explains why 355/113, found by Zu Chongzhi in the fifth century, is so good: by Theorem 7.2 its error is less than 1/(113·33102) ≈ 2.67·10⁻⁷, and in fact π − 355/113 ≈ −2.668·10⁻⁷.</p>
+<h3>Metric theory</h3>
+<p>For almost every real number x with respect to Lebesgue measure, the partial quotients have the Gauss–Kuzmin distribution: the asymptotic frequency of the value k is log₂(1 + 1/(k(k + 2))). Thus about 41.5% of the partial quotients are 1. Khinchin proved that the geometric mean (a₁a₂⋯a<sub>n</sub>)<sup>1/n</sup> tends almost surely to a universal constant K₀ ≈ 2.6854, and Lévy proved that q<sub>n</sub><sup>1/n</sup> tends almost surely to e<sup>π²/(12 ln 2)</sup> ≈ 3.2758. It is not known whether π satisfies Khinchin's law; e does not, because its partial quotients grow.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the continued fraction expansion of 157/68.</div></li><li><span class="mk">(b)</span><div>List its convergents and verify the determinant identity for the last two.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 157 = 2·68 + 21, 68 = 3·21 + 5, 21 = 4·5 + 1, 5 = 5·1, so 157/68 = [2; 3, 4, 5]. (b) The numerators are 2, 3·2 + 1 = 7, 4·7 + 2 = 30, 5·30 + 7 = 157, and the denominators 1, 3, 13, 5·13 + 3 = 68, so the convergents are 2, 7/3, 30/13, 157/68. Check: 157·13 − 30·68 = 2041 − 2040 = 1 = (−1)<sup>3−1</sup>.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Conditioning, Bayes' Theorem and Independence — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 2</p>
+    <h1>Conditioning, Bayes' Theorem and Independence</h1>
+    <p class="kicker">Lesson 2 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P(A | B) = P(A ∩ B) / P(B),     P(Bₖ | A) = P(A | Bₖ) P(Bₖ) / ∑ⱼ P(A | Bⱼ) P(Bⱼ)
+A, B independent  ⇔  P(A ∩ B) = P(A) P(B)</pre></div>
+<h3>Conditional probability as a new measure</h3>
+<p><strong>Definition 2.1</strong>. If P(B) &gt; 0, the conditional probability of A given B is P(A | B) = P(A ∩ B) / P(B).</p>
+<p>For fixed B, the map A ↦ P(A | B) is itself a probability measure on (Ω, 𝓕), concentrated on B. Thus every theorem about probability measures applies to conditional probabilities. The definition rearranges to the multiplication rule P(A ∩ B) = P(A | B) P(B), and by induction</p>
+<pre class="math">P(A₁ ∩ ⋯ ∩ Aₙ) = P(A₁) P(A₂ | A₁) P(A₃ | A₁ ∩ A₂) ⋯ P(Aₙ | A₁ ∩ ⋯ ∩ Aₙ₋₁)</pre>
+<p>whenever the conditioning events have positive probability.</p>
+<p><strong>Theorem 2.2 (law of total probability and Bayes' theorem)</strong>. Let B₁, B₂, … be a finite or countable partition of Ω into events of positive probability. Then for every event A,</p>
+<pre class="math">P(A) = ∑ⱼ P(A | Bⱼ) P(Bⱼ)</pre>
+<p>and, if P(A) &gt; 0,</p>
+<pre class="math">P(Bₖ | A) = P(A | Bₖ) P(Bₖ) / ∑ⱼ P(A | Bⱼ) P(Bⱼ)</pre>
+<p><strong>Proof</strong>. A is the disjoint union of the sets A ∩ Bⱼ, so countable additivity and the multiplication rule give the first formula. The second is P(Bₖ ∩ A)/P(A) with numerator and denominator rewritten by the multiplication rule and the first formula. ∎</p>
+<p>In Bayesian language, P(Bₖ) is the prior, P(A | Bₖ) the likelihood and P(Bₖ | A) the posterior. Bayes' theorem is often clearest in odds form: posterior odds equal prior odds times the likelihood ratio,</p>
+<pre class="math">P(B | A) / P(Bᶜ | A) = [P(B) / P(Bᶜ)] · [P(A | B) / P(A | Bᶜ)]</pre>
+<p><strong>Worked example 2.3</strong>. A condition has prevalence 1%. A test detects it with probability 0.99 (sensitivity) and gives a false positive with probability 0.05. Given a positive test, the probability of the condition is</p>
+<pre class="math">P(D | +) = (0.99)(0.01) / [(0.99)(0.01) + (0.05)(0.99)] = 0.0099 / 0.0594 = 1/6 ≈ 0.167</pre>
+<p>The prior odds 1 : 99 multiplied by the likelihood ratio 0.99/0.05 = 19.8 give posterior odds 19.8 : 99 = 1 : 5, the same answer. The low posterior despite an accurate test is the base-rate effect, and ignoring it is the base-rate fallacy.</p>
+<h3>Independence of events</h3>
+<p><strong>Definition 2.4</strong>. Events A₁, …, Aₙ are (mutually) independent if P(⋂<sub>i∈S</sub> Aᵢ) = ∏<sub>i∈S</sub> P(Aᵢ) for every subset S ⊆ {1, …, n}. An infinite family is independent if every finite subfamily is.</p>
+<p>Pairwise independence is strictly weaker. Toss two fair coins and let A = {first is heads}, B = {second is heads}, C = {the two coins agree}. Each event has probability 1/2 and each pair intersects in a single outcome of probability 1/4, so the three are pairwise independent. But A ∩ B ∩ C = A ∩ B has probability 1/4 ≠ 1/8, so they are not mutually independent. Note also that if A and B are independent then so are A and Bᶜ, Aᶜ and B, and Aᶜ and Bᶜ.</p>
+<h3>Independence of σ-algebras</h3>
+<p><strong>Definition 2.5</strong>. Sub-σ-algebras 𝓖₁, …, 𝓖ₙ of 𝓕 are independent if P(G₁ ∩ ⋯ ∩ Gₙ) = P(G₁) ⋯ P(Gₙ) whenever Gᵢ ∈ 𝓖ᵢ. Random variables are independent when the σ-algebras they generate are.</p>
+<p>Checking the definition on every set of a σ-algebra is impractical. The π–λ theorem reduces it to generators.</p>
+<p><strong>Lemma 2.6</strong>. If 𝓟₁, …, 𝓟ₙ are π-systems with Ω ∈ 𝓟ᵢ and P(P₁ ∩ ⋯ ∩ Pₙ) = ∏ P(Pᵢ) whenever Pᵢ ∈ 𝓟ᵢ, then σ(𝓟₁), …, σ(𝓟ₙ) are independent.</p>
+<p><strong>Proof</strong>. Fix P₂, …, Pₙ. Both sides of the product identity, regarded as functions of the first set, are finite measures that agree on 𝓟₁; the sets where they agree form a λ-system, so by Dynkin's theorem they agree on σ(𝓟₁). Repeat for each coordinate in turn. ∎</p>
+<p>In particular, real random variables X₁, …, Xₙ are independent if and only if P(X₁ ≤ x₁, …, Xₙ ≤ xₙ) = ∏ P(Xᵢ ≤ xᵢ) for all real x₁, …, xₙ. A further consequence is grouping: if a family of independent σ-algebras is split into disjoint blocks, the σ-algebras generated by the blocks are independent. Functions of disjoint groups of independent variables are therefore independent.</p>
+<h3>The Borel–Cantelli lemmas</h3>
+<p>For a sequence of events, the event that infinitely many occur is:</p>
+<pre class="math">{Aₙ i.o.} = lim sup Aₙ = ⋂<sub>m≥1</sub> ⋃<sub>n≥m</sub> Aₙ</pre>
+<p><strong>Theorem 2.7 (first Borel–Cantelli lemma)</strong>. If ∑ₙ P(Aₙ) &lt; ∞, then P(Aₙ i.o.) = 0.</p>
+<p><strong>Proof</strong>. For every m, P(lim sup Aₙ) ≤ P(⋃<sub>n≥m</sub> Aₙ) ≤ ∑<sub>n≥m</sub> P(Aₙ), the tail of a convergent series, which tends to 0. ∎</p>
+<p><strong>Theorem 2.8 (second Borel–Cantelli lemma)</strong>. If the Aₙ are independent and ∑ₙ P(Aₙ) = ∞, then P(Aₙ i.o.) = 1.</p>
+<p><strong>Proof</strong>. It suffices to show that P(⋂<sub>n≥m</sub> Aₙᶜ) = 0 for every m. By independence and continuity from above, and the inequality 1 − x ≤ e<sup>−x</sup>,</p>
+<pre class="math">P(⋂<sub>n=m</sub><sup>N</sup> Aₙᶜ) = ∏<sub>n=m</sub><sup>N</sup> (1 − P(Aₙ)) ≤ exp(−∑<sub>n=m</sub><sup>N</sup> P(Aₙ)) → 0 as N → ∞</pre>
+<p>so the intersection over all n ≥ m is null. A countable union of null events is null, so P(⋃ₘ ⋂<sub>n≥m</sub> Aₙᶜ) = 0, which is the complement of {Aₙ i.o.}. ∎</p>
+<p>Together the lemmas give a zero–one law: for independent events, P(Aₙ i.o.) is 0 or 1 according as ∑ P(Aₙ) converges or diverges. For example, in an infinite sequence of fair coin tosses, let Bₖ = {tosses 2ᵏ through 2ᵏ + k − 1 are all heads}. The blocks of tosses are disjoint, so the Bₖ are independent, and P(Bₖ) = 2⁻ᵏ is summable: almost surely only finitely many Bₖ occur. If instead the block starting at toss 2ᵏ has length ⌊log₂ k⌋, its probability 2<sup>−⌊log₂ k⌋</sup> is at least 1/k, the series diverges, and such runs of heads occur infinitely often almost surely. Independence cannot be dropped in Theorem 2.8: with A₁ = A₂ = ⋯ = A and P(A) = 1/2 the series diverges but P(Aₙ i.o.) = 1/2.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Urn I contains 3 red and 2 blue balls; urn II contains 1 red and 4 blue. An urn is chosen by a fair coin and a ball drawn from it is red. Find the posterior probability that urn I was chosen.</div></li><li><span class="mk">(b)</span><div>Let Aₙ be independent with P(Aₙ) = 1/n. What is P(Aₙ i.o.)? What if P(Aₙ) = 1/n² (independence no longer needed)?</div></li><li><span class="mk">(c)</span><div>Show that an event A is independent of itself if and only if P(A) ∈ {0, 1}.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) P(I | red) = (1/2)(3/5) / [(1/2)(3/5) + (1/2)(1/5)] = 3/4. (b) ∑ 1/n = ∞, so P(Aₙ i.o.) = 1 by the second lemma; ∑ 1/n² = π²/6 &lt; ∞, so P(Aₙ i.o.) = 0 by the first. (c) Independence of A with itself means P(A) = P(A)², whose only solutions are 0 and 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

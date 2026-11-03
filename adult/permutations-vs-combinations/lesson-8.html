@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 8</p>
+    <h1>Multisets, Combinations with Repetition and the Twelvefold Way</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A k-multiset on n types: ((n k)) = C(n + k − 1, k) = (−1)ᵏ C(−n, k).
+∑ₖ ((n k)) xᵏ = (1 − x)<sup>−n</sup>.
+Twelve ways to distribute k balls into n boxes: the twelvefold way.</pre></div>
+<h3>Multisets</h3>
+<p>A multiset of size k on an n-element set N is a function m : N → ℤ<sub>≥0</sub> with ∑ m(y) = k; m(y) is the multiplicity of y. Equivalently, it is a combination with repetition. Write ((n k)) for the number of such multisets.</p>
+<p><strong>Theorem 8.1</strong>. ((n k)) = C(n + k − 1, k).</p>
+<p>First proof (stars and bars). Encode a multiset on N = {y₁, …, yₙ} as a word of k stars and n − 1 bars: m(y₁) stars, a bar, m(y₂) stars, a bar, and so on. This is a bijection onto words of length n + k − 1 with k stars, of which there are C(n + k − 1, k). ∎</p>
+<p>Second proof (shifting). A k-multiset on [n] is a weakly increasing sequence 1 ≤ a₁ ≤ a₂ ≤ ⋯ ≤ a<sub>k</sub> ≤ n. The map aᵢ ↦ bᵢ = aᵢ + i − 1 sends it to a strictly increasing sequence 1 ≤ b₁ &lt; b₂ &lt; ⋯ &lt; b<sub>k</sub> ≤ n + k − 1, that is, to a k-subset of [n + k − 1], and the map is invertible. ∎</p>
+<p>The same shifting idea counts k-subsets of [n] with no two consecutive elements: subtracting i − 1 from the i-th smallest element gives an arbitrary k-subset of [n − k + 1], so there are C(n − k + 1, k). For n = 12 and k = 4 this gives C(9, 4) = 126.</p>
+<h3>Reciprocity and generating functions</h3>
+<p>Expanding (1 − x)<sup>−n</sup> = (1 + x + x² + ⋯)ⁿ, the coefficient of xᵏ counts the ways to write k = e₁ + ⋯ + eₙ with eᵢ ≥ 0, which is ((n k)). Comparing with Newton's series gives the reciprocity law</p>
+<pre class="math">((n k)) = (−1)ᵏ C(−n, k),</pre>
+<p>which says that counting multisets is counting subsets &quot;of a set of size −n&quot;. This is the simplest instance of combinatorial reciprocity, a phenomenon developed systematically by Stanley in the theory of Ehrhart polynomials and P-partitions.</p>
+<h3>Compositions and bounded solutions</h3>
+<p>The number of solutions of x₁ + ⋯ + xₙ = k in nonnegative integers is ((n k)) = C(n + k − 1, n − 1), and in positive integers (compositions of k into n parts) it is C(k − 1, n − 1), by substituting xᵢ = yᵢ + 1. Lower bounds are handled by substitution and upper bounds by inclusion–exclusion. For example, the solutions of x₁ + x₂ + x₃ = 10 with 0 ≤ xᵢ ≤ 4 number C(12, 2) − 3C(7, 2) + 3C(2, 2) = 66 − 63 + 3 = 6: we subtract, for each i, the solutions with xᵢ ≥ 5 (substitute xᵢ = 5 + yᵢ, leaving sum 5), and add back the solutions with two variables at least 5 (leaving sum 0). The six solutions are the rearrangements of (4, 4, 2) and (4, 3, 3).</p>
+<h3>Stirling numbers of the second kind</h3>
+<p>The Stirling number of the second kind S(k, n) is the number of partitions of [k] into n nonempty unlabelled blocks. It satisfies S(k + 1, n) = n S(k, n) + S(k, n − 1) (the element k + 1 joins one of the n blocks or forms a block alone), and the inclusion–exclusion of Lesson 1 gives</p>
+<pre class="math">S(k, n) = (1/n!) ∑ⱼ₌₀ⁿ (−1)ʲ C(n, j)(n − j)ᵏ.</pre>
+<p>For instance S(5, 3) = (243 − 3 · 32 + 3 · 1)/6 = 25 and S(6, 3) = (729 − 192 + 3)/6 = 90. Counting all functions [k] → X with |X| = x according to the partition of [k] into nonempty fibres gives xᵏ = ∑ₙ S(k, n)(x)ₙ, the identity used in Lesson 5. The total B<sub>k</sub> = ∑ₙ S(k, n) is the Bell number: 1, 1, 2, 5, 15, 52, 203, ….</p>
+<h3>The twelvefold way</h3>
+<p>Consider distributions of k balls into n boxes. The balls may be distinguishable (labelled) or not; the boxes may be distinguishable or not; and the distribution may be arbitrary, injective (at most one ball per box) or surjective (no empty box). This gives twelve counting problems, organised by Rota into the twelvefold way. With labelled balls and labelled boxes a distribution is a function from balls to boxes; forgetting the labels of the balls means passing to orbits under S<sub>k</sub>, forgetting the labels of the boxes means passing to orbits under Sₙ.</p>
+<pre class="math">balls      boxes      arbitrary           injective        surjective
+labelled   labelled   nᵏ                  (n)ₖ             n! S(k, n)
+unlabelled labelled   C(n + k − 1, k)     C(n, k)          C(k − 1, n − 1)
+labelled   unlabelled ∑ⱼ≤ₙ S(k, j)       1 if k ≤ n       S(k, n)
+unlabelled unlabelled ∑ⱼ≤ₙ pⱼ(k)         1 if k ≤ n       pₙ(k)</pre>
+<p>Here pⱼ(k) denotes the number of partitions of k into exactly j parts, and the injective entries in the last two rows are 0 when k &gt; n. The four entries in the arbitrary and injective columns of the first two rows are the subject of this course: the permutations (injections) and the combinations (injections modulo S<sub>k</sub>), together with their versions with repetition (functions, and functions modulo S<sub>k</sub>, that is, multisets). The rows with unlabelled boxes lead to set partitions and integer partitions, whose theory is much harder: there is no closed formula for p(n), and the Hardy–Ramanujan asymptotic p(n) ∼ exp(π√(2n/3))/(4n√3) is a deep theorem of analytic number theory.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many multisets of size 6 can be formed from 4 types?</div></li><li><span class="mk">(b)</span><div>In how many ways can 12 identical coins be given to 4 people so that each receives at least 2?</div></li><li><span class="mk">(c)</span><div>How many surjections are there from [6] onto [3]?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(9, 6) = 84. (b) Give each person 2 coins first; the remaining 4 coins are distributed arbitrarily: C(4 + 3, 3) = 35. (c) 3! · S(6, 3) = 6 · 90 = 540, which agrees with 3⁶ − 3 · 2⁶ + 3 · 1⁶ = 729 − 192 + 3 = 540.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

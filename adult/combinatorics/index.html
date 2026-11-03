@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Combinatorics — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Combinatorics</span></p>
+    <h1>Combinatorics</h1>
+    <p class="kicker">Advanced · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>Enumerative combinatorics asks a deceptively simple question: given a finite set described by some rule, how many elements does it have? The elementary answer — multiply independent choices, divide out the order you do not care about — is where the subject begins, not where it ends. Almost every interesting counting problem resists a closed formula, and the real work consists of finding the right structure: a bijection that converts one family into another, an algebraic object (a generating function, a group action, an inverse matrix) that encodes the whole sequence at once, or an asymptotic estimate when exact answers are out of reach.</p>
+<p>This course treats combinatorics as a graduate text would. We assume fluency with permutations and combinations, mathematical induction, basic linear algebra, power series, and elementary group theory. We begin with the twelvefold way, Rota's systematic classification of distribution problems, and with the algebra of binomial and multinomial coefficients. We then develop the three great general methods of enumeration: inclusion–exclusion (and its generalization, Möbius inversion), linear recurrences, and generating functions, both ordinary and exponential. These tools are applied to the classical number families — Stirling, Bell, partition and Catalan numbers — whose theory culminates in results such as Euler's pentagonal number theorem and the Hardy–Ramanujan asymptotic formula.</p>
+<p>The second half of the course turns to existence and structure. Burnside's lemma and Pólya's theorem count objects up to symmetry. The pigeonhole principle leads to Ramsey theory, one of the deepest parts of modern combinatorics, where the exact value of R(5, 5) is still unknown. We prove the foundational theorems of graph theory that every combinatorialist uses — Euler's theorem, Hall's marriage theorem and Cayley's formula, together with the statement of König's theorem — and we close with the probabilistic method of Erdős, which proves that objects exist without ever constructing them.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Classify distribution problems by the twelvefold way and solve each case</div></li><li><span class="mk">2.</span><div>Prove binomial and multinomial identities by double counting, and use Lucas's and Kummer's theorems</div></li><li><span class="mk">3.</span><div>Apply inclusion–exclusion and Möbius inversion on partially ordered sets</div></li><li><span class="mk">4.</span><div>Solve linear recurrences with constant coefficients by the characteristic polynomial</div></li><li><span class="mk">5.</span><div>Use ordinary and exponential generating functions as formal power series, including the exponential formula and Lagrange inversion</div></li><li><span class="mk">6.</span><div>Master the Stirling numbers of both kinds, the Bell numbers and Dobinski's formula</div></li><li><span class="mk">7.</span><div>Study integer partitions, Euler's pentagonal number theorem and the asymptotics of p(n)</div></li><li><span class="mk">8.</span><div>Derive the Catalan numbers by the reflection principle and the cycle lemma</div></li><li><span class="mk">9.</span><div>Count orbits under group actions with Burnside's lemma and the Pólya enumeration theorem</div></li><li><span class="mk">10.</span><div>Prove Ramsey-type theorems and the classical bounds on Ramsey numbers</div></li><li><span class="mk">11.</span><div>Prove the theorems of Euler, Hall and Cayley, and state König's theorem</div></li><li><span class="mk">12.</span><div>Use the probabilistic method: expectation, alteration and the Lovász local lemma</div></li></ul>
+<p>Notation used throughout: [n] = {1, 2, …, n}; (x)ₖ = x(x − 1)⋯(x − k + 1) is the falling factorial and x⁽ᵏ⁾ = x(x + 1)⋯(x + k − 1) the rising factorial; C(n, k) is the binomial coefficient; [xⁿ] F(x) denotes the coefficient of xⁿ in a power series F(x); |A| is the cardinality of a finite set A.</p></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/combinatorics-1.jpg" alt="Seventeenth-century engraved bird's-eye view of Königsberg with the river Pregel and its bridges" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Königsberg in an engraving published by the heirs of Matthäus Merian in 1652, showing the river Pregel, its islands and bridges. Euler's 1736 proof that no walk crosses each of the city's seven bridges exactly once is regarded as the first theorem of graph theory. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/combinatorics-2.png" alt="Complete graph on five vertices with the outer pentagon in red and the inner pentagram in blue" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> A red–blue colouring of the edges of K₅ with no monochromatic triangle: both colour classes are 5-cycles. It shows R(3, 3) &gt; 5, and together with the pigeonhole argument for K₆ it proves R(3, 3) = 6. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>The Twelvefold Way</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Binomial and Multinomial Coefficients</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Inclusion–Exclusion and Möbius Inversion</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Linear Recurrence Relations</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Ordinary Generating Functions</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Exponential Generating Functions and the Exponential Formula</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Stirling Numbers and Bell Numbers</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Integer Partitions</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>Catalan Numbers and Lattice Paths</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Burnside's Lemma and Pólya Enumeration</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>The Pigeonhole Principle and Ramsey Theory</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Graph Theory Essentials</strong></span></a>
+    <a class="lesson-card" href="lesson-13.html"><span><span class="lc-num">Lesson 13</span><br><strong>The Probabilistic Method</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Image-Koenigsberg, Map by Merian-Erben 1652. By Merian-Erben. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Image-Koenigsberg,_Map_by_Merian-Erben_1652.jpg">https://commons.wikimedia.org/wiki/File:Image-Koenigsberg,_Map_by_Merian-Erben_1652.jpg</a></li><li><strong>Figure 2</strong> · RamseyTheory K5 no mono K3. By Richtom80. CC BY-SA 3.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:RamseyTheory_K5_no_mono_K3.svg">https://commons.wikimedia.org/wiki/File:RamseyTheory_K5_no_mono_K3.svg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

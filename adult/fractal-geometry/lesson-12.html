@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Brownian Motion and Random Fractals — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 12</p>
+    <h1>Brownian Motion and Random Fractals</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Almost surely: the graph of linear Brownian motion has dim<sub>H</sub> = dim<sub>B</sub> = 3/2,
+the path of d-dimensional Brownian motion (d ≥ 2) has dim<sub>H</sub> = 2,
+and the zero set of linear Brownian motion has dim<sub>H</sub> = 1/2.</pre></div>
+<h3>Brownian motion</h3>
+<p>A standard linear Brownian motion is a stochastic process (B(t))<sub>t≥0</sub> with B(0) = 0, independent increments, B(t) − B(s) normally distributed with mean 0 and variance t − s for s &lt; t, and continuous sample paths (Wiener, 1923). A d-dimensional Brownian motion has d independent linear Brownian motions as coordinates.</p>
+<p>Brownian motion is statistically self-similar: for every c &gt; 0, the process c<sup>−1/2</sup> B(ct) is again a standard Brownian motion. A random set is not a fixed point of a deterministic IFS, but its law is invariant under rescaling, and the dimension is read off from the scaling exponent: time scales by c, space by c<sup>1/2</sup>.</p>
+<h3>Regularity</h3>
+<p><strong>Theorem 12.1</strong>. Almost surely, B is α-Hölder continuous on [0, 1] for every α &lt; 1/2, and for no α &gt; 1/2. Moreover, almost surely B is nowhere differentiable (Paley, Wiener and Zygmund, 1933).</p>
+<p>The Hölder statement follows from the Kolmogorov–Chentsov criterion, since E|B(t) − B(s)|<sup>2m</sup> = C<sub>m</sub> |t − s|<sup>m</sup> for every m; Lévy's modulus of continuity sharpens it to lim sup<sub>h→0</sub> sup<sub>|t−s|≤h</sub> |B(t) − B(s)|/√(2h log(1/h)) = 1 almost surely.</p>
+<p><strong>Lemma 12.2</strong>. If f : [0, 1] → ℝ satisfies |f(t) − f(s)| ≤ c|t − s|<sup>α</sup>, then the graph Γ<sub>f</sub> has dim<sub>B</sub>̄ Γ<sub>f</sub> ≤ 2 − α.</p>
+<p><strong>Proof</strong>. Let 0 &lt; δ &lt; 1 and divide [0, 1] into ⌈1/δ⌉ columns of width δ. Over each column f oscillates by at most cδ<sup>α</sup>, so the part of the graph above that column is covered by at most cδ<sup>α−1</sup> + 2 squares of side δ. Hence N<sub>δ</sub>(Γ<sub>f</sub>) ≤ (1/δ + 1)(cδ<sup>α−1</sup> + 2) ≤ C δ<sup>α−2</sup>, and the claim follows. ∎</p>
+<h3>The graph of Brownian motion</h3>
+<p><strong>Theorem 12.3 (Taylor, 1953)</strong>. Almost surely, the graph Γ = {(t, B(t)) : 0 ≤ t ≤ 1} has dim<sub>H</sub> Γ = dim<sub>B</sub> Γ = 3/2.</p>
+<p><strong>Proof</strong>. Upper bound: by Theorem 12.1 and Lemma 12.2, dim<sub>B</sub>̄ Γ ≤ 2 − α for every α &lt; 1/2, so dim<sub>H</sub> Γ ≤ dim<sub>B</sub>̄ Γ ≤ 3/2.</p>
+<p>Lower bound by the energy method: let μ be the image of Lebesgue measure on [0, 1] under t ↦ (t, B(t)). For 1 &lt; s &lt; 3/2,</p>
+<pre class="math">E I<sub>s</sub>(μ) = ∫₀¹∫₀¹ E[ (|t − u|² + |B(t) − B(u)|²)<sup>−s/2</sup> ] dt du</pre>
+<p>With h = |t − u|, B(t) − B(u) has the law of √h Z with Z standard normal, so the integrand is E[(h² + hZ²)<sup>−s/2</sup>]. Split according to |Z| ≤ √h or not. On the first event the integrand is at most h<sup>−s</sup>, and the event has probability at most √h; on the second it is at most h<sup>−s/2</sup>|Z|<sup>−s</sup>, and E[|Z|<sup>−s</sup>; |Z| &gt; √h] ≤ C(1 + h<sup>(1−s)/2</sup>). Hence, for small h,</p>
+<pre class="math">E[(h² + hZ²)<sup>−s/2</sup>] ≤ h<sup>1/2 − s</sup> + C h<sup>−s/2</sup> + C h<sup>1/2 − s</sup> ≤ C′ h<sup>1/2 − s</sup></pre>
+<p>because 1/2 − s &lt; −s/2 when s &gt; 1. The function h<sup>1/2−s</sup> is integrable over [0, 1]² exactly when s − 1/2 &lt; 1, i.e. s &lt; 3/2. So E I<sub>s</sub>(μ) &lt; ∞, hence I<sub>s</sub>(μ) &lt; ∞ almost surely, and dim<sub>H</sub> Γ ≥ s by Theorem 7.4. Letting s ↑ 3/2 along a sequence gives dim<sub>H</sub> Γ ≥ 3/2 almost surely. ∎</p>
+<h3>Brownian paths in higher dimensions</h3>
+<p><strong>Theorem 12.4 (Lévy; Taylor 1953)</strong>. For d ≥ 2, almost surely dim<sub>H</sub> B[0, 1] = 2.</p>
+<p><strong>Proof</strong>. Upper bound: B is α-Hölder for α &lt; 1/2, so by Theorem 6.3(v), dim<sub>H</sub> B[0, 1] ≤ (1/α) dim<sub>H</sub> [0, 1] = 1/α for every α &lt; 1/2. Lower bound: let μ be the occupation measure, the image of Lebesgue measure under B. For s &lt; 2 ≤ d,</p>
+<pre class="math">E I<sub>s</sub>(μ) = ∫₀¹∫₀¹ E|B(t) − B(u)|<sup>−s</sup> dt du = E|Z|<sup>−s</sup> ∫₀¹∫₀¹ |t − u|<sup>−s/2</sup> dt du</pre>
+<p>where Z is a standard normal vector in ℝᵈ. Here E|Z|<sup>−s</sup> &lt; ∞ because s &lt; d, and the time integral is finite because s/2 &lt; 1. ∎</p>
+<p>So the planar Brownian path has Hausdorff dimension 2 — the dimension of the plane — yet Lévy proved it has Lebesgue measure zero almost surely. The exact gauge function for which the Hausdorff measure is positive and finite is r² log(1/r) log log log(1/r) in the plane (Ray 1963, Taylor 1964) and r² log log(1/r) in dimensions d ≥ 3 (Ciesielski and Taylor, 1962). The outer boundary (frontier) of the planar path has dimension 4/3, as Mandelbrot conjectured from simulations and Lawler, Schramm and Werner proved in 2001 using the Schramm–Loewner evolution; this work contributed to Werner's Fields Medal in 2006.</p>
+<h3>Zero sets and level sets</h3>
+<p>The zero set Z = {t ∈ [0, 1] : B(t) = 0} is almost surely a closed, perfect, Lebesgue-null set of Hausdorff dimension 1/2: a random Cantor set. The upper bound comes from counting the dyadic intervals of length 2<sup>−k</sup> meeting Z, whose expected number is of order 2<sup>k/2</sup>; the lower bound uses the local time at zero as a mass distribution.</p>
+<h3>Fractional Brownian motion and Weierstrass functions</h3>
+<p>Fractional Brownian motion B<sub>H</sub> with Hurst index H ∈ (0, 1) is the centred Gaussian process with covariance E[B<sub>H</sub>(t)B<sub>H</sub>(s)] = (|t|<sup>2H</sup> + |s|<sup>2H</sup> − |t − s|<sup>2H</sup>)/2; H = 1/2 is ordinary Brownian motion. It is H-self-similar and has stationary increments, which are positively correlated for H &gt; 1/2 and negatively correlated for H &lt; 1/2. The same proofs give, almost surely,</p>
+<pre class="math">dim<sub>H</sub> graph(B<sub>H</sub>) = 2 − H,     dim<sub>H</sub> B<sub>H</sub>[0, 1] = min{d, 1/H} in ℝᵈ</pre>
+<p>Mandelbrot and van Ness (1968) introduced fractional Brownian motion as a model for long-range dependence in hydrology (the Hurst phenomenon in Nile flood data) and finance.</p>
+<h3>The deterministic analogue is the Weierstrass function</h3>
+<pre class="math">W(t) = ∑<sub>k≥0</sub> aᵏ cos(2π bᵏ t),   0 &lt; a &lt; 1,  ab &gt; 1</pre>
+<p>which is continuous and nowhere differentiable (Weierstrass 1872 under stronger hypotheses; Hardy 1916 in this generality). Its graph has box dimension 2 + log a / log b (Kaplan, Mallet-Paret and Yorke, 1984). That the Hausdorff dimension takes the same value was a long-standing problem: it was proved for many parameters by Barański, Bárány and Romanowska (2014) and for every integer b ≥ 2 by Shen (2018).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>What are the dimensions of the graph of fractional Brownian motion with H = 0.3, and of its path in ℝ² and ℝ⁴?</div></li><li><span class="mk">(b)</span><div>Compute the box dimension of the graph of W with a = 1/2 and b = 4.</div></li><li><span class="mk">(c)</span><div>Show that Lemma 12.2 is not sharp in general by considering f(t) = √t.</div></li><li><span class="mk">(d)</span><div>Use the energy method to show that the path of 3-dimensional Brownian motion has dimension at least s for every s &lt; 2, and explain why the argument cannot give more than 2.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Graph: 2 − 0.3 = 1.7. Path in ℝ²: min{2, 1/0.3} = 2. Path in ℝ⁴: min{4, 10/3} = 10/3 ≈ 3.333. (b) 2 + log(1/2)/log 4 = 2 − 1/2 = 3/2. (c) √t is 1/2-Hölder on [0, 1], so Lemma 12.2 gives dim<sub>B</sub>̄ ≤ 3/2, but its graph is a smooth monotone curve of finite length, of dimension 1. (d) E I<sub>s</sub>(μ) = E|Z|<sup>−s</sup> ∫∫|t − u|<sup>−s/2</sup> dt du with Z standard normal in ℝ³; E|Z|<sup>−s</sup> &lt; ∞ for s &lt; 3 and the time integral is finite for s &lt; 2. For s ≥ 2 the time integral diverges, reflecting the true dimension 2 of the path.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

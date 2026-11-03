@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#ec4899">
+<body id="top" class="mode-kid" style="--topic:#ec4899">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/pascals-triangle/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,18 +34,18 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Everything, one last time</p><pre class="math">Build: each entry = sum of the two above; edges are 1; number from 0
 Choose: C(n, k) = n! / (k!(n − k)!) = entry k of row n
-Identities: C(n,k) = C(n,n−k) · C(n,k) = C(n−1,k−1) + C(n−1,k)
+Identities: C(n,k) = C(n,n−k);  C(n,k) = C(n−1,k−1) + C(n−1,k)
 Sums: row n totals 2ⁿ; alternating signs give 0; halves are 2ⁿ⁻¹
-Diagonals: C(n,1) = n · T_n = C(n+1,2) = n(n+1)/2 · C(n+2,3) tetrahedral
+Diagonals: C(n,1) = n;  T_n = C(n+1,2) = n(n+1)/2;  tetrahedral = C(n+2,3)
 Hockey stick: C(r,r) + ... + C(n,r) = C(n+1, r+1)
 Binomial: (a + b)ⁿ = Σ C(n,k) aⁿ⁻ᵏbᵏ — mind inside coefficients and signs
 Paths: C(m+n, n); through a corner multiply; around a block subtract
 Vandermonde: C(m+n, k) = Σ C(m,i)C(n,k−i) → row squares sum to C(2n, n)
-Patterns: P(k heads) = C(n,k)/2ⁿ · odds = 2^(binary 1s) · prime rows ÷ p</pre></div>
+Patterns: P(k heads) = C(n,k)/2ⁿ;  odd entries = 2^(binary 1s);  prime rows ÷ p</pre></div>
 <h3>The recap list</h3>
 <ul class="steps"><li><span class="mk">·</span><div>Build and index: Pascal's rule with 1s on the edges; row n has entries C(n, 0) through C(n, n), all numbered from 0. Row 10: 1 10 45 120 210 252 210 120 45 10 1.</div></li><li><span class="mk">·</span><div>Choose function: ordered picks are n!/(n − k)!; each unordered group was counted k! times; divide and get C(n, k) = n!/(k!(n − k)!). Don't forget 0! = 1.</div></li><li><span class="mk">·</span><div>Pascal's rule: proved by committee casework (Maya in or out) AND by factorial algebra with a common denominator. This is what makes the triangle equal the choose function.</div></li><li><span class="mk">·</span><div>Row sums: 2ⁿ by the doubling mechanism, by counting all subsets, and by setting a = b = 1 in the binomial theorem. Alternating sums: 0, by (1 − 1)ⁿ; so even and odd positions each total 2ⁿ⁻¹.</div></li><li><span class="mk">·</span><div>Diagonals: counting numbers C(n, 1) = n; triangulars T_n = C(n + 1, 2) = n(n + 1)/2 (Gauss pairing proof); tetrahedrals C(n + 2, 3). The hockey stick turns &quot;running totals&quot; into a theorem via telescoping peels.</div></li><li><span class="mk">·</span><div>Binomial theorem: coefficients are row n because expanding means choosing which factors supply the b. Hunt coefficients term-by-term; carry the inside coefficient's power; alternate signs for (a − b)ⁿ; always sanity-check at x = 1. And 11ⁿ = (10 + 1)ⁿ — digit trick explained.</div></li><li><span class="mk">·</span><div>Paths: m + n steps, choose the Downs: C(m + n, n). Through a corner: multiply. Around a block: subtract (complementary counting).</div></li><li><span class="mk">·</span><div>Vandermonde: split a committee by how many come from each group; the cases multiply within and add across. Corollary: row squares sum to C(2n, n).</div></li><li><span class="mk">·</span><div>Probability and patterns: P(k heads in n flips) = C(n, k)/2ⁿ; &quot;at least one&quot; = 1 − P(none). Odd census: powers of 2 from binary digits; all-odd rows are 2ᵐ − 1. Prime rows: p divides every interior entry of row p — and composites fail. Shallow diagonals generate Fibonacci.</div></li></ul>
 <h3>The magic sentence</h3>
@@ -64,7 +65,7 @@ and the Binomial Theorem lets the whole triangle do algebra.</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

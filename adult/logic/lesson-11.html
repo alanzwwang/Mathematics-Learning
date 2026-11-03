@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Gödel's Incompleteness Theorems — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 11</p>
+    <h1>Gödel's Incompleteness Theorems</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Syntax can be coded by numbers, and provability becomes a Σ₁ property of numbers.
+Diagonal lemma: for every φ(x) there is σ with T ⊢ σ ↔ φ(⌜σ⌝).
+G1: a consistent, c.e. theory containing Q is incomplete. G2: it does not prove Con(T).</pre></div>
+<h3>Arithmetic and its axioms</h3>
+<p>Work in the language L<sub>A</sub> = {0, S, +, ·, &lt;}. Write n̄ for the numeral S(S(…S(0)…)) with n copies of S. Robinson arithmetic Q (1950) consists of the seven axioms</p>
+<pre class="math">S(x) ≠ 0                        S(x) = S(y) → x = y
+x ≠ 0 → ∃y (x = S(y))           x + 0 = x            x + S(y) = S(x + y)
+x · 0 = 0                       x · S(y) = x · y + x</pre>
+<p>(universally closed), with x &lt; y defined as ∃z (S(z) + x = y) or taken as primitive with a suitable axiom. Peano arithmetic PA adds the induction scheme: for every formula φ(x, y⃗), the universal closure of φ(0) ∧ ∀x (φ(x) → φ(S(x))) → ∀x φ(x). Q is very weak — it does not prove x + y = y + x — but it is strong enough for incompleteness.</p>
+<p>A formula is Δ₀ (bounded) if all its quantifiers are bounded, ∀x &lt; t or ∃x &lt; t; Σ₁ if it is ∃x⃗ ψ with ψ bounded.</p>
+<p><strong>Theorem 11.1 (Σ₁-completeness of Q)</strong>. Every Σ₁ sentence true in 𝔑 is provable in Q.</p>
+<p><strong>Proof sketch</strong>. Q proves every true atomic and negated atomic sentence about numerals (by computing with the recursion axioms), and Q ⊢ ∀x (x &lt; n̄ ↔ x = 0̄ ∨ … ∨ x = k̄), where k = n − 1, so bounded quantifiers reduce to finite conjunctions and disjunctions. A true ∃x ψ(x) has a true instance ψ(m̄), which Q proves, and ∃I finishes. ∎</p>
+<h3>Gödel numbering</h3>
+<p>Assign each symbol of L<sub>A</sub> a code number, and code a finite sequence (a₁, …, aₖ) of numbers by 2<sup>a₁+1</sup> · 3<sup>a₂+1</sup> · … · pₖ<sup>aₖ+1</sup>, where pₖ is the k-th prime. Then formulas, and finite sequences of formulas such as derivations, receive Gödel numbers ⌜φ⌝ and ⌜D⌝. Inside formulas we write ⌜φ⌝ also for the numeral of the number ⌜φ⌝. The key point is that all the syntactic operations — &quot;x codes a formula&quot;, &quot;x codes the negation of the formula coded by y&quot;, &quot;the substitution of the numeral for z into the formula coded by y has code x&quot;, &quot;d codes a derivation from T of the formula coded by x&quot; — are computable relations on numbers, indeed primitive recursive when T has a primitive recursive set of axioms.</p>
+<p><strong>Theorem 11.2 (Representability)</strong>. Every computable relation R ⊆ ℕᵏ is representable in Q by a Σ₁ formula ρ(x⃗): if R(n⃗) then Q ⊢ ρ(n̄⃗), and if not R(n⃗) then Q ⊢ ¬ρ(n̄⃗). Every computable function f is represented by a formula ψ<sub>f</sub>(x⃗, y) with Q ⊢ ∀y (ψ<sub>f</sub>(n̄⃗, y) ↔ y = m̄), where m = f(n⃗).</p>
+<p>The proof codes Turing machine computations (or, following Gödel, the recursive definitions of primitive recursive functions) using Gödel's β-function lemma: for every finite sequence a₀, …, aₙ there are c, d with aᵢ = c mod (1 + (i + 1)d) for all i ≤ n, by the Chinese remainder theorem. This lets a single pair of numbers code a sequence, using only + and ·.</p>
+<p>Let T be a c.e. theory extending Q. Then &quot;d codes a T-derivation of x&quot; is a computable relation Prf<sub>T</sub>(d, x), and Prov<sub>T</sub>(x) := ∃d Prf<sub>T</sub>(d, x) is a Σ₁ formula with T ⊢ σ ⟹ 𝔑 ⊨ Prov<sub>T</sub>(⌜σ⌝) ⟹ Q ⊢ Prov<sub>T</sub>(⌜σ⌝).</p>
+<h3>The diagonal lemma</h3>
+<p><strong>Lemma 11.3 (Diagonal or fixed-point lemma; Gödel, Carnap)</strong>. For every formula φ(x) with one free variable there is a sentence σ such that Q ⊢ σ ↔ φ(⌜σ⌝).</p>
+<p><strong>Proof</strong>. Let diag be the computable function sending the code of a formula χ(x) to the code of χ(⌜χ⌝), and let δ(x, y) represent it. Put ψ(x) := ∃y (δ(x, y) ∧ φ(y)), let m = ⌜ψ⌝, and let σ := ψ(m̄). Then diag(m) = ⌜σ⌝, so Q ⊢ ∀y (δ(m̄, y) ↔ y = ⌜σ⌝), and therefore Q ⊢ σ ↔ ∃y (y = ⌜σ⌝ ∧ φ(y)) ↔ φ(⌜σ⌝). ∎</p>
+<p>The sentence σ says, in a precise arithmetical sense, &quot;I have property φ&quot;. It is a formalised version of the liar sentence, but with provability in place of truth there is no paradox, only incompleteness.</p>
+<h3>The first incompleteness theorem</h3>
+<p><strong>Theorem 11.4 (Gödel 1931, Rosser 1936)</strong>. Let T be a consistent, computably axiomatisable theory extending Q. Then there is a sentence G<sub>T</sub> such that T ⊬ G<sub>T</sub> and T ⊬ ¬G<sub>T</sub>.</p>
+<p><strong>Proof (Gödel's version, under the assumption that T is ω-consistent, or simply sound)</strong>. Apply the diagonal lemma to ¬Prov<sub>T</sub>(x) to get G with T ⊢ G ↔ ¬Prov<sub>T</sub>(⌜G⌝). If T ⊢ G, then T ⊢ Prov<sub>T</sub>(⌜G⌝) by Σ₁-completeness and T ⊢ ¬Prov<sub>T</sub>(⌜G⌝) by the fixed point, so T is inconsistent. Hence T ⊬ G. Therefore no n is the code of a derivation of G, so T ⊢ ¬Prf<sub>T</sub>(n̄, ⌜G⌝) for every n by representability. If T ⊢ ¬G, then T ⊢ ∃d Prf<sub>T</sub>(d, ⌜G⌝), so T would prove an existential statement while refuting each instance: T would be ω-inconsistent, contradicting the assumption. ∎</p>
+<p>Rosser's trick removes ω-consistency: diagonalise instead on the formula &quot;for every derivation of x there is a shorter derivation of the negation of x&quot;. Then for consistent T neither the Rosser sentence nor its negation is provable. Note also that G is true in 𝔑 whenever T is consistent, since it asserts its own unprovability, which holds.</p>
+<h3>A computability-theoretic proof</h3>
+<p>A proof of a weaker form via Lesson 10 is instructive. Suppose T is c.e., sound (all its theorems true in 𝔑) and contains Q. The set K is Σ₁-definable: e ∈ K iff 𝔑 ⊨ κ(ē) for a Σ₁ formula κ. If T decided every sentence κ(ē), then, being sound, T ⊢ ¬κ(ē) iff e ∉ K, so the complement of K would be c.e. (enumerate the theorems of T), contradicting Theorem 10.2. Hence there is some e ∉ K with T ⊬ ¬κ(ē): a true Π₁ sentence that T does not prove. Moreover the set of true sentences of arithmetic is not c.e., and not even arithmetically definable.</p>
+<h3>Tarski's undefinability theorem</h3>
+<p><strong>Theorem 11.5 (Tarski 1933/36)</strong>. There is no formula True(x) of L<sub>A</sub> such that 𝔑 ⊨ True(⌜σ⌝) ↔ σ for every sentence σ.</p>
+<p><strong>Proof</strong>. Apply the diagonal lemma to ¬True(x): we obtain λ with 𝔑 ⊨ λ ↔ ¬True(⌜λ⌝), and with True this gives 𝔑 ⊨ λ ↔ ¬λ. ∎</p>
+<p>Truth is not arithmetically definable, whereas provability is (it is Σ₁). Since the two notions have different definability properties, they cannot coincide: this is the shortest route to the incompleteness of every arithmetically definable sound theory.</p>
+<h3>The second incompleteness theorem</h3>
+<p>Let Con(T) be the sentence ¬Prov<sub>T</sub>(⌜0 = 1⌝). The Hilbert–Bernays–Löb derivability conditions, valid for PA and for every c.e. theory containing it (with the natural formalisation of Prov<sub>T</sub>), are:</p>
+<pre class="math">D1:  if T ⊢ φ, then T ⊢ Prov(⌜φ⌝)
+D2:  T ⊢ Prov(⌜φ → ψ⌝) → (Prov(⌜φ⌝) → Prov(⌜ψ⌝))
+D3:  T ⊢ Prov(⌜φ⌝) → Prov(⌜Prov(⌜φ⌝)⌝)</pre>
+<p>D3 is formalised Σ₁-completeness, and its verification is the technical heart of the theorem.</p>
+<p><strong>Theorem 11.6 (Gödel 1931)</strong>. If T is a consistent c.e. extension of PA, then T ⊬ Con(T).</p>
+<p><strong>Proof</strong>. Let G satisfy T ⊢ G ↔ ¬Prov(⌜G⌝). From T ⊢ G → ¬Prov(⌜G⌝) and D1, D2 one gets T ⊢ Prov(⌜G⌝) → Prov(⌜¬Prov(⌜G⌝)⌝). By D3, T ⊢ Prov(⌜G⌝) → Prov(⌜Prov(⌜G⌝)⌝). Since T proves that a formula and its negation together yield 0 = 1, D1 and D2 give T ⊢ Prov(⌜G⌝) → Prov(⌜0 = 1⌝), that is, T ⊢ Con(T) → ¬Prov(⌜G⌝), hence T ⊢ Con(T) → G. If T ⊢ Con(T), then T ⊢ G, contradicting the first theorem. ∎</p>
+<p>The theorem ended Hilbert's programme in its original form: a consistency proof for arithmetic or analysis cannot be carried out in a weaker, finitary system that is itself formalisable in PA. Gentzen (1936) proved Con(PA) in primitive recursive arithmetic augmented by transfinite induction up to the ordinal ε₀ = sup{ω, ω<sup>ω</sup>, ω<sup>ω<sup>ω</sup></sup>, …}, which locates exactly the strength of PA.</p>
+<p>Löb's theorem (1955), proved by the same method, says that if T ⊢ Prov(⌜φ⌝) → φ, then T ⊢ φ. It answers Henkin's question about the sentence asserting its own provability: such a sentence is provable.</p>
+<h3>Natural independent statements</h3>
+<p>For two decades the only known independent statements of arithmetic were metamathematical. Paris and Harrington (1977) found a strengthened finite Ramsey theorem that is true but unprovable in PA, and Kirby and Paris (1982) showed the same for Goodstein's theorem, that every Goodstein sequence (write n in hereditary base b, replace b by b + 1, subtract 1, repeat) eventually reaches 0. Both are proved by transfinite induction up to ε₀.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the Gödel number of the sequence (1, 0, 2) under the coding 2<sup>a₁+1</sup> · 3<sup>a₂+1</sup> · 5<sup>a₃+1</sup>.</div></li><li><span class="mk">(b)</span><div>Why does the first incompleteness theorem not apply to Th(𝔑), the set of all true sentences?</div></li><li><span class="mk">(c)</span><div>Does the second incompleteness theorem show that PA might be inconsistent?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 2² · 3¹ · 5³ = 4 · 3 · 125 = 1500. (b) Th(𝔑) is consistent and complete, but it is not computably enumerable, so the hypothesis &quot;computably axiomatisable&quot; fails. (c) No. It shows only that the consistency of PA cannot be proved by means formalisable in PA itself. PA is consistent because 𝔑 is a model of it, an argument that uses the set ℕ and the notion of truth in 𝔑, which go beyond PA.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

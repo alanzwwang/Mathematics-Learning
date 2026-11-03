@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Power of a Point, Radical Axes and Inversion — Geometry (Advanced)</title>
+<meta name="description" content="Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Geometry</a> › Lesson 7</p>
+    <h1>Power of a Point, Radical Axes and Inversion</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Hilbert's Axioms and the Foundations of Geometry">1</a><a href="lesson-2.html" title="Lesson 2: Isometries of the Euclidean Plane">2</a><a href="lesson-3.html" title="Lesson 3: Classification of Plane Isometries">3</a><a href="lesson-4.html" title="Lesson 4: Symmetry Groups, Lattices and the Crystallographic Restriction">4</a><a href="lesson-5.html" title="Lesson 5: Triangle Centres, the Euler Line and the Nine-Point Circle">5</a><a href="lesson-6.html" title="Lesson 6: Ceva, Menelaus and Routh">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Power of a Point, Radical Axes and Inversion">7</a><a href="lesson-8.html" title="Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus">8</a><a href="lesson-9.html" title="Lesson 9: The Euler Characteristic and Angular Defect">9</a><a href="lesson-10.html" title="Lesson 10: Regular Polytopes and the Platonic Solids">10</a><a href="lesson-11.html" title="Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem">11</a><a href="lesson-12.html" title="Lesson 12: Constructibility with Straightedge and Compass">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">pow(P, ω) = |PO|² − r² = PA · PB  for every line through P meeting ω at A, B.
+Inversion P ↦ P*, |OP| · |OP*| = k²: circles and lines ↔ circles and lines, angles preserved,
+|P*Q*| = k² |PQ| / (|OP| |OQ|).</pre></div>
+<h3>Power of a point</h3>
+<p>Let ω be a circle with centre O and radius r. The power of a point P is pow(P, ω) = |PO|² − r². It is positive outside ω, zero on ω, negative inside.</p>
+<p><strong>Theorem 7.1</strong>. If a line through P meets ω at A and B, then PA · PB = pow(P, ω), where PA · PB is the signed product (positive if P is outside the segment AB). If P is outside, the tangent length t satisfies t² = pow(P, ω).</p>
+<p><strong>Proof</strong>. Parametrise the line as P + λu with |u| = 1. The intersection parameters satisfy |P − O + λu|² = r², a quadratic λ² + 2λ⟨P − O, u⟩ + (|P − O|² − r²) = 0. By Vieta the product of the roots, which is PA · PB in signed form, equals |PO|² − r², independently of u. For a tangent the two roots coincide and the product is t². ∎</p>
+<p>This single statement contains the intersecting chords theorem, the secant–secant theorem and the tangent–secant theorem of the elementary course.</p>
+<h3>Radical axis and radical centre</h3>
+<p>For two non-concentric circles ω₁, ω₂ the locus {P : pow(P, ω₁) = pow(P, ω₂)} is a line perpendicular to the line of centres, the radical axis. With centres (0, 0) and (d, 0) and radii r₁, r₂, the condition x² + y² − r₁² = (x − d)² + y² − r₂² reduces to</p>
+<pre class="math">x = (d² + r₁² − r₂²) / (2d).</pre>
+<p>If the circles meet, the radical axis is their common chord line; if they are tangent, it is the common tangent. For three circles with non-collinear centres the three radical axes are concurrent at the radical centre, because a point with equal power with respect to ω₁, ω₂ and ω₂, ω₃ has equal power with respect to ω₁, ω₃. The set of circles orthogonal to two given circles, and the pencil of circles sharing a radical axis, form the coaxal systems of classical geometry.</p>
+<h3>Inversion</h3>
+<p>Fix a circle ω with centre O and radius k. Inversion in ω is the map ι : ℝ² \ {O} → ℝ² \ {O} sending P to the point P* on ray OP with |OP| · |OP*| = k², that is, P* = O + k²(P − O)/|P − O|². It is an involution fixing ω pointwise and exchanging the inside and the outside. In complex notation, with O = 0, ι(z) = k²/z̄. Extending by O ↔ ∞ makes ι a bijection of the extended plane ℝ² ∪ {∞}.</p>
+<p><strong>Lemma 7.2 (distance formula)</strong>. For P, Q ≠ O, the triangles OPQ and OQ*P* are similar, and |P*Q*| = k² |PQ| / (|OP| |OQ|).</p>
+<p><strong>Proof</strong>. |OP|/|OQ| = |OQ*|/|OP*|, since both products |OP||OP*| and |OQ||OQ*| equal k², and the angle at O is common. By SAS similarity, triangle OPQ is similar to triangle OQ*P* with ratio |OQ*|/|OP| = k²/(|OP||OQ|). ∎</p>
+<p><strong>Theorem 7.3</strong>. Inversion maps (i) lines through O to themselves; (ii) lines not through O to circles through O, and conversely; (iii) circles not through O to circles not through O. It preserves the magnitude of angles between curves and reverses orientation (it is anticonformal).</p>
+<p><strong>Proof</strong>. (i) is clear. For (ii), let ℓ be a line not through O, F the foot of the perpendicular from O to ℓ, and X any point of ℓ. By Lemma 7.2 (or directly by similar triangles), triangle OFX is similar to triangle OX*F*, so ∠OX*F* = ∠OFX = 90°. Hence X* lies on the circle with diameter OF*. Conversely every point of that circle other than O arises. For (iii), write the circle as |x|² − 2⟨x, c⟩ + (|c|² − ρ²) = 0 with p = |c|² − ρ² ≠ 0 the power of O. Substituting x = k²y/|y|² gives k⁴/|y|² − 2k²⟨y, c⟩/|y|² + p = 0, and multiplying by |y|²/p gives |y|² − 2(k²/p)⟨y, c⟩ + k⁴/p = 0, again a circle, with centre k²c/p and radius k²ρ/|p|. Conformality follows because ι is smooth with derivative at x equal to (k²/|x|²) times a reflection, in fact the reflection in the line perpendicular to x. ∎</p>
+<p>Inversion sends a circle orthogonal to ω to itself; this is the basis of the Poincaré disc model, where reflections in hyperbolic lines are inversions in circles orthogonal to the boundary. The group generated by inversions and reflections is the Möbius group of the extended plane, isomorphic to PGL(2, ℂ) extended by complex conjugation.</p>
+<h3>Ptolemy's inequality</h3>
+<p><strong>Theorem 7.4</strong>. For any four points A, B, C, D in the plane, AB · CD + BC · DA ≥ AC · BD, with equality if and only if A, B, C, D lie in this order on a circle (or on a line).</p>
+<p><strong>Proof</strong>. Invert with centre A and radius 1. By Lemma 7.2, B*C* = BC/(AB · AC), C*D* = CD/(AC · AD) and B*D* = BD/(AB · AD). The triangle inequality B*C* + C*D* ≥ B*D*, multiplied by AB · AC · AD, gives BC · AD + CD · AB ≥ BD · AC. Equality holds iff C* lies on segment B*D*, i.e. iff B*, C*, D* are collinear in that order, i.e. iff B, C, D lie on a circle through A with C on the arc BD not containing A. ∎</p>
+<h3>Feuerbach's theorem by inversion (sketch)</h3>
+<p>Let the incircle and the A-excircle touch BC at X and X′. One checks BX = s − b and BX′ = s − c, so the midpoint M<sub>a</sub> of BC is also the midpoint of XX′ and M<sub>aX</sub> = |b − c|/2. Invert in the circle with centre M<sub>a</sub> and radius |b − c|/2. This circle is orthogonal to the incircle and to the A-excircle (the tangent length from M<sub>a</sub> to each equals the radius), so both are mapped to themselves. The nine-point circle passes through M<sub>a</sub>, so it is mapped to a line; a calculation with Lemma 7.2 identifies this line as the reflection of BC in the bisector AI, which is the fourth common tangent of the incircle and the excircle. A line tangent to both circles inverts back to a circle tangent to both, proving that the nine-point circle touches the incircle and the A-excircle; by symmetry it touches all three excircles.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Invert the point (3, 4) in the unit circle.</div></li><li><span class="mk">(b)</span><div>Find the radical axis of x² + y² = 9 and (x − 8)² + y² = 49.</div></li><li><span class="mk">(c)</span><div>Find the image of the circle (x − 5)² + y² = 9 under inversion in x² + y² = 4.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) |P|² = 25, so P* = (3, 4)/25 = (3/25, 4/25). (b) x = (64 + 9 − 49)/16 = 24/16 = 3/2. (c) Here k² = 4, c = (5, 0), ρ = 3, p = 25 − 9 = 16, so the image has centre 4 · (5, 0)/16 = (5/4, 0) and radius 4 · 3/16 = 3/4. Check: the diameter endpoints (2, 0) and (8, 0) go to (2, 0) and (1/2, 0), whose midpoint is (5/4, 0) and half-distance 3/4.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

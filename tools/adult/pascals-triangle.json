@@ -1,0 +1,13 @@
+{
+  "blurb": "Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.",
+  "pics": [
+    { "img": "img/adult/pascals-triangle-1.png", "alt": "The first 32 rows of Pascal's triangle, with odd entries shaded black and even entries white, forming a Sierpinski triangle pattern",
+      "caption": "Rows 0 to 31 of Pascal's triangle with the odd coefficients shaded black: by Lucas' theorem the odd entries form a discrete approximation of the Sierpinski triangle. The colour of each numeral records the coefficient modulo 4: black for 0, white for 1, red for 2 and yellow for 3.",
+      "title": "Sierpinski Pascal triangle.svg", "page": "https://commons.wikimedia.org/wiki/File:Sierpinski_Pascal_triangle.svg",
+      "license": "CC BY-SA 4.0", "artist": "Cmglee" },
+    { "img": "img/adult/pascals-triangle-2.jpg", "alt": "Black-and-white photographic portrait of the German mathematician Ernst Eduard Kummer",
+      "caption": "Ernst Eduard Kummer (1810–1893), whose 1852 theorem states that the power of a prime p dividing C(n, k) equals the number of carries when k and n − k are added in base p.",
+      "title": "Ernst Eduard Kummer.jpg", "page": "https://commons.wikimedia.org/wiki/File:Ernst_Eduard_Kummer.jpg",
+      "license": "Public domain", "artist": "Unknown photographer" }
+  ]
+}

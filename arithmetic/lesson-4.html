@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#f97316">
+<body id="top" class="mode-kid" style="--topic:#f97316">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/arithmetic/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Undoing Operations — How to Solve an Equation">1</a><a href="lesson-2.html" title="Lesson 2: Order of Operations with Variables — and f(x)">2</a><a href="lesson-3.html" title="Lesson 3: The Laws of Exponents">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Distribute, Combine, Factor — The Properties at Work">4</a><a href="lesson-5.html" title="Lesson 5: Negative Numbers — The Rules, With Proofs">5</a><a href="lesson-6.html" title="Lesson 6: Fractions Are Division — Exact Answers and Clearing">6</a><a href="lesson-7.html" title="Lesson 7: Variables on Both Sides — and Two Mysteries at Once">7</a><a href="lesson-8.html" title="Lesson 8: Inequalities — Same Moves, One Dark Twist">8</a><a href="lesson-9.html" title="Lesson 9: Quadratics Peek In — Two Answers Are Better Than One">9</a><a href="lesson-10.html" title="Lesson 10: Watch Out! Common Mistakes">10</a><a href="lesson-11.html" title="Lesson 11: Review — The Big Picture">11</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Distributive: a(x + b) = ax + ab        3(x + 4) = 3x + 12
 Like terms: same letter, same power — combine their numbers.
@@ -69,7 +70,7 @@ Road 2 (distribute first):  3x + 12 = 3(5) + 12 = 15 + 12 = 27</pre>
 = x² + 3x + 2x + 6
 = x² + 5x + 6           (combine like terms)</pre>
 <p>A 4-box area picture proves it: split an (x + 2)-by-(x + 3) rectangle into x², 3x, 2x, and 6. The result is a quadratic — an expression with x² as its highest power. You'll meet them again in Lesson 9, where we run this machine backwards.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Distribute: 4(x − 3).  (b) Combine like terms: 5x + 2 − x + 6.  (c) Factor: 8x + 12.  (d) Expand: (x + 1)(x + 4).</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 4x − 12. (b) (5x − x) + (2 + 6) = 4x + 8. (c) 4(2x + 3) — check: 4 · 2x + 4 · 3 = 8x + 12 ✅. (d) x² + 4x + x + 4 = x² + 5x + 4.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Distribute: 4(x − 3).</div></li><li><span class="mk">(b)</span><div>Combine like terms: 5x + 2 − x + 6.</div></li><li><span class="mk">(c)</span><div>Factor: 8x + 12.</div></li><li><span class="mk">(d)</span><div>Expand: (x + 1)(x + 4).</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 4x − 12. (b) (5x − x) + (2 + 6) = 4x + 8. (c) 4(2x + 3) — check: 4 · 2x + 4 · 3 = 8x + 12 ✅. (d) x² + 4x + x + 4 = x² + 5x + 4.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">⬅️ Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 ➡️</a></nav>
 </main>
 
@@ -79,7 +80,7 @@ Road 2 (distribute first):  3x + 12 = 3(5) + 12 = 15 + 12 = 27</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

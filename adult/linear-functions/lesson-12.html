@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Lipschitz and Piecewise-Linear Functions — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 12</p>
+    <h1>Lipschitz and Piecewise-Linear Functions</h1>
+    <p class="kicker">Lesson 12 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">f is L-Lipschitz  ⇔  ‖f(x) − f(y)‖ ≤ L‖x − y‖ for all x, y
+Lip(x ↦ Ax + b) = ‖A‖ = σ<sub>max</sub>(A) = √λ<sub>max</sub>(AᵀA)
+Continuous piecewise-linear f on ℝ:  f(x) = α + βx + Σ dᵢ ReLU(x − tᵢ)</pre></div>
+<h3>Lipschitz functions</h3>
+<p>A function f between normed spaces is Lipschitz with constant L if ‖f(x) − f(y)‖ ≤ L‖x − y‖ for all x and y; the smallest such L is the Lipschitz constant Lip(f). Lipschitz continuity is the quantitative form of continuity that is closest to linearity: an affine map is Lipschitz, a composition of Lipschitz maps is Lipschitz with Lip(g∘f) ≤ Lip(g)Lip(f), and by the mean value inequality a C¹ function on a convex set with ‖Df(x)‖ ≤ L everywhere is L-Lipschitz. Conversely, Rademacher's theorem (1919) states that a Lipschitz function ℝⁿ → ℝᵐ is differentiable almost everywhere, so a Lipschitz function is &quot;linear on infinitesimal scales&quot; at almost every point.</p>
+<h3>Theorem 12.1 (The operator norm)</h3>
+<p>For a real m × n matrix A and Euclidean norms, Lip(x ↦ Ax + b) = ‖A‖ := max<sub>‖x‖=1</sub> ‖Ax‖ = √λ<sub>max</sub>(AᵀA), the largest singular value of A.</p>
+<p><strong>Proof</strong>. ‖(Ax + b) − (Ay + b)‖ = ‖A(x − y)‖, so the Lipschitz constant is sup<sub>h≠0</sub> ‖Ah‖/‖h‖ = ‖A‖. The matrix AᵀA is symmetric positive semidefinite; by the spectral theorem it has an orthonormal eigenbasis v₁, …, vₙ with eigenvalues λ₁ ≥ ⋯ ≥ λₙ ≥ 0. For x = Σcᵢvᵢ with ‖x‖ = 1, ‖Ax‖² = xᵀAᵀAx = Σλᵢcᵢ² ≤ λ₁Σcᵢ² = λ₁, with equality at x = v₁. ∎</p>
+<p><strong>Worked example</strong>. For A with rows (3, 0) and (4, 5), the matrix AᵀA has rows (25, 20) and (20, 25), with eigenvalues 45 and 5 (eigenvectors (1, 1) and (1, −1)). So ‖A‖ = √45 = 3√5 ≈ 6.708. Note that the largest entry, 5, and the largest eigenvalue of A itself, also 5, both underestimate the stretching. Unless A is normal, its eigenvalues do not determine ‖A‖.</p>
+<h3>Contractions</h3>
+<h3>Theorem 12.2 (Banach fixed-point theorem, 1922)</h3>
+<p>Let X be a complete metric space and f : X → X Lipschitz with constant q &lt; 1. Then f has exactly one fixed point x*, and for any x₀ the iterates xₖ₊₁ = f(xₖ) converge to x* with d(xₖ, x*) ≤ qᵏ d(x₀, x₁)/(1 − q).</p>
+<p><strong>Proof</strong>. By induction d(xₖ, xₖ₊₁) ≤ qᵏ d(x₀, x₁), so for j &gt; k the triangle inequality and the geometric series give d(xₖ, xⱼ) ≤ (qᵏ + ⋯ + qʲ⁻¹) d(x₀, x₁) ≤ qᵏ d(x₀, x₁)/(1 − q). Thus (xₖ) is Cauchy and converges to some x*, and continuity of f gives f(x*) = x*. If x* and y* are fixed points, d(x*, y*) = d(f(x*), f(y*)) ≤ q d(x*, y*) forces d(x*, y*) = 0. The error bound follows by letting j → ∞. ∎</p>
+<p>For an affine map f(x) = Ax + b with ‖A‖ &lt; 1, the fixed point is x* = (I − A)⁻¹b, and the iteration reproduces the Neumann series (I − A)⁻¹ = I + A + A² + ⋯. This is the principle behind the Jacobi and Gauss–Seidel iterations for linear systems and behind Picard's existence theorem for ordinary differential equations. In one variable: x ↦ x/2 + 3 has fixed point 6, and from x₀ = 0 the iterates 3, 4.5, 5.25, … close half the remaining gap each step.</p>
+<h3>Piecewise-linear functions</h3>
+<p>A continuous function f : ℝ → ℝ is piecewise linear (PL) if there are finitely many breakpoints t₁ &lt; ⋯ &lt; tₖ such that f is affine on each of the intervals (−∞, t₁], [t₁, t₂], …, [tₖ, ∞). Let dᵢ be the jump in slope at tᵢ (slope to the right minus slope to the left), and let ReLU(u) = max(u, 0) be the rectified linear unit.</p>
+<h3>Theorem 12.3 (Representation on ℝ)</h3>
+<p>Every continuous PL function on ℝ can be written as f(x) = α + βx + Σᵢ dᵢ ReLU(x − tᵢ), where β is the slope on the leftmost piece. Equivalently f(x) = α′ + β′x + Σᵢ (dᵢ/2)|x − tᵢ|. The function f is convex if and only if every dᵢ ≥ 0, and then f is the maximum of its affine pieces.</p>
+<p><strong>Proof</strong>. The function g(x) = f(x) − Σdᵢ ReLU(x − tᵢ) is continuous and PL, and at each tᵢ the slope jump of g is dᵢ − dᵢ = 0. So g has the same slope on every piece, and being continuous, it is a single affine function α + βx; for x &lt; t₁ all the ReLU terms vanish, so β is the leftmost slope. The absolute-value form follows from ReLU(u) = (u + |u|)/2. A function with nondecreasing slopes is convex, and decreasing slope somewhere violates convexity. A convex function lies above each of its tangent lines, and on each piece it coincides with one of them, so it equals the maximum of the pieces. ∎</p>
+<p><strong>Example</strong>. The hat function h(x) that is 0 for x ≤ 0, rises with slope 1 to h(1) = 1, falls with slope −1 to h(2) = 0, and is 0 afterwards, has slope jumps +1, −2, +1 at 0, 1, 2. Hence h(x) = ReLU(x) − 2ReLU(x − 1) + ReLU(x − 2). Check on [1, 2]: x − 2(x − 1) = 2 − x. On [2, ∞): x − 2(x − 1) + (x − 2) = 0. Its Lipschitz constant is the largest absolute slope, 1.</p>
+<h3>Piecewise-linear functions in higher dimensions and neural networks</h3>
+<p>On ℝⁿ, a continuous function is PL if ℝⁿ can be covered by finitely many polyhedra on each of which it is affine. Every convex PL function is a maximum of finitely many affine functions, and every continuous PL function is a difference of two convex ones, or equivalently a max–min of finitely many affine functions (results of Tarela and Martínez, and Ovchinnikov, around 2000). Since max(a, b) = b + ReLU(a − b), maxima can be computed with ReLU units. A feedforward ReLU network is precisely a composition of affine maps and coordinatewise ReLUs, so it computes a continuous PL function; conversely, Arora, Basu, Mianjy and Mukherjee (2018) proved that every continuous PL function on ℝⁿ is computed by a ReLU network with at most ⌈log₂(n + 1)⌉ hidden layers. Because ReLU is 1-Lipschitz, Theorem 12.1 bounds the Lipschitz constant of a network by the product of the operator norms of its weight matrices. This bound underlies spectral normalisation and certified robustness of neural networks.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the Lipschitz constant of f(x) = max(2x − 1, −x + 3, x/2) on ℝ.</div></li><li><span class="mk">(b)</span><div>Find the fixed point of f(x) = x/2 + 3 and the operator norm of the diagonal matrix diag(3, −7).</div></li><li><span class="mk">(c)</span><div>Write g(x) = |x − 1| + |x + 1| in ReLU form and state its Lipschitz constant.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The piece x/2 is never the largest: it exceeds 2x − 1 only for x &lt; 2/3 and exceeds −x + 3 only for x &gt; 2. So f(x) = −x + 3 for x ≤ 4/3 and f(x) = 2x − 1 for x ≥ 4/3, and the Lipschitz constant is the largest absolute slope, 2. (b) x = x/2 + 3 gives x = 6; ‖diag(3, −7)‖ = max(|3|, |−7|) = 7. (c) The slopes are −2, 0, 2 on (−∞, −1], [−1, 1], [1, ∞), with jumps 2 at −1 and 2 at 1, so g(x) = −2x + 2ReLU(x + 1) + 2ReLU(x − 1). Check: at x = 0 this gives 0 + 2 + 0 = 2 = |−1| + |1|, and at x = 2 it gives −4 + 6 + 2 = 4 = 1 + 3. The Lipschitz constant is 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

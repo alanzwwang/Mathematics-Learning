@@ -1,0 +1,13 @@
+{
+  "blurb": "Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.",
+  "pics": [
+    { "img": "img/adult/fractions-1.png", "alt": "Ford circles drawn above the fractions 0, 1/5, 1/4, 1/3, 2/5, 1/2, 3/5, 2/3, 3/4, 4/5 and 1 on the number line",
+      "caption": "Ford circles: above each reduced fraction p/q sits a circle of radius 1/(2q²). Two circles touch exactly when their fractions are Farey neighbours, and otherwise they are disjoint.",
+      "title": "Ford circles.svg", "page": "https://commons.wikimedia.org/wiki/File:Ford_circles.svg",
+      "license": "Public domain", "artist": "Michael Hardy, Joriki and AnonMoos" },
+    { "img": "img/adult/fractions-2.jpg", "alt": "A section of the Rhind Mathematical Papyrus with hieratic text and triangle diagrams",
+      "caption": "A section of the Rhind Mathematical Papyrus (British Museum, EA 10057), copied by the scribe Ahmes around 1550 BC. The papyrus opens with a table writing 2/n as a sum of unit fractions and does all its arithmetic in Egyptian fractions.",
+      "title": "Rhind Mathematical Papyrus.jpg", "page": "https://commons.wikimedia.org/wiki/File:Rhind_Mathematical_Papyrus.jpg",
+      "license": "Public domain", "artist": "Ahmes (scribe); photograph British Museum" }
+  ]
+}

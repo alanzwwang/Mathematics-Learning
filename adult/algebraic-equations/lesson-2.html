@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: Polynomial Rings over a Field — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 2</p>
+    <h1>Polynomial Rings over a Field</h1>
+    <p class="kicker">Lesson 2 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">f = qg + r with deg r &lt; deg g          (division with remainder)
+f(a) = 0  ⟺  (x − a) divides f       (factor theorem)
+a nonzero f ∈ K[x] has at most deg f roots in K</pre></div>
+<p>A polynomial over K is a finite formal sum f = aₙxⁿ + ⋯ + a₁x + a₀ with aᵢ ∈ K. Formally, f is the sequence (a₀, a₁, …) with only finitely many nonzero terms; the indeterminate x is not a number but a symbol, and two polynomials are equal precisely when their coefficient sequences agree. This distinction matters over finite fields: over 𝔽ₚ the polynomials xᵖ and x are different (their coefficients differ), although by Fermat's little theorem they define the same function 𝔽ₚ → 𝔽ₚ.</p>
+<h3>Degree and integral domains</h3>
+<p>If f, g ≠ 0 then lc(fg) = lc(f) lc(g) ≠ 0, because a field has no zero divisors. Hence deg(fg) = deg f + deg g, K[x] is an integral domain, and its units are exactly the nonzero constants. With the convention deg 0 = −∞ the degree formula holds for all f, g.</p>
+<p><strong>Theorem 2.1 (Division with remainder)</strong>. Let g ∈ K[x] be nonzero. For every f ∈ K[x] there are unique q, r ∈ K[x] with f = qg + r and deg r &lt; deg g.</p>
+<p><strong>Proof</strong>. Existence, by induction on deg f. If deg f &lt; deg g take q = 0, r = f. Otherwise let deg f = n ≥ m = deg g and put f₁ = f − (lc(f)/lc(g)) xⁿ⁻ᵐ g. The leading terms cancel, so deg f₁ &lt; n, and by induction f₁ = q₁g + r with deg r &lt; m; then f = (q₁ + (lc(f)/lc(g))xⁿ⁻ᵐ)g + r. Uniqueness: if qg + r = q′g + r′, then (q − q′)g = r′ − r. The right side has degree &lt; m, while the left side has degree ≥ m unless q = q′. Hence q = q′ and r = r′. ∎</p>
+<p>The only place a division by a coefficient occurs is by lc(g). So the same argument works over any commutative ring provided g is monic (or lc(g) is a unit). This remark is what makes the factor theorem valid over every commutative ring.</p>
+<p><strong>Worked example</strong>. Divide f = x⁴ − 3x³ + 2x − 5 by g = x² + x − 1. The first quotient term is x²; f − x²g = −4x³ + x² + 2x − 5. Next −4x: adding 4xg gives 5x² − 2x − 5. Next 5: subtracting 5g gives −7x. Hence</p>
+<pre class="math">x⁴ − 3x³ + 2x − 5 = (x² + x − 1)(x² − 4x + 5) − 7x</pre>
+<p><strong>Check</strong>: (x² + x − 1)(x² − 4x + 5) = x⁴ − 3x³ + 9x − 5, and subtracting 7x gives the original polynomial.</p>
+<h3>The factor theorem and counting roots</h3>
+<p><strong>Theorem 2.2 (Factor theorem)</strong>. Let R be a commutative ring, f ∈ R[x], a ∈ R. Then f = (x − a)q + f(a) for some q ∈ R[x]. In particular f(a) = 0 if and only if (x − a) divides f.</p>
+<p><strong>Proof</strong>. Divide by the monic polynomial x − a: f = (x − a)q + r with r a constant. Evaluating at a gives r = f(a). ∎</p>
+<p><strong>Corollary 2.3</strong>. Over an integral domain, a nonzero polynomial of degree n has at most n roots.</p>
+<p><strong>Proof</strong>. Induction on n. If f(a) = 0 then f = (x − a)q with deg q = n − 1. If f(b) = 0 with b ≠ a, then (b − a)q(b) = 0 and, since there are no zero divisors and b − a ≠ 0, q(b) = 0. So every root other than a is a root of q, which has at most n − 1 roots. ∎</p>
+<p>The hypothesis is essential. In ℤ/8ℤ, which has zero divisors, the polynomial x² − 1 has four roots: 1, 3, 5, 7. Over the noncommutative ring of quaternions, x² + 1 has infinitely many roots (every unit pure quaternion). The corollary has a famous consequence: a finite subgroup of the multiplicative group of a field is cyclic. (If the group G had exponent e &lt; |G|, all of its elements would be roots of xᵉ − 1, more than e roots; and a finite abelian group whose exponent equals its order is cyclic.) In particular 𝔽ₚˣ is cyclic of order p − 1: primitive roots exist.</p>
+<h3>The Euclidean algorithm and ideals</h3>
+<p>Because of division with remainder, K[x] is a Euclidean domain, hence a principal ideal domain and a unique factorization domain. The greatest common divisor of f and g is the monic generator of the ideal (f, g), and the Euclidean algorithm computes it together with Bézout coefficients u, v with uf + vg = gcd(f, g). A nonconstant polynomial is irreducible if it is not a product of two polynomials of smaller degree. Every nonconstant polynomial is a product of irreducibles, uniquely up to order and constant factors.</p>
+<p><strong>Theorem 2.4</strong>. For p ∈ K[x] nonconstant, the quotient ring K[x]/(p) is a field if and only if p is irreducible.</p>
+<p><strong>Proof</strong>. If p = gh with g, h of smaller degree, the classes of g and h are nonzero but multiply to zero, so the quotient is not a domain. Conversely, if p is irreducible and p does not divide f, then gcd(f, p) = 1, so uf + vp = 1 and the class of u inverts the class of f. ∎</p>
+<p><strong>Worked example</strong>. In ℚ[x], compute gcd(x⁴ − 1, x³ + 2x² + 2x + 1). Dividing, x⁴ − 1 = (x − 2)(x³ + 2x² + 2x + 1) + (2x² + 3x + 1). Then x³ + 2x² + 2x + 1 = ((1/2)x + 1/4)(2x² + 3x + 1) + (3/4)(x + 1), and 2x² + 3x + 1 = (2x + 1)(x + 1). The last nonzero remainder, made monic, is x + 1. Indeed x⁴ − 1 = (x − 1)(x + 1)(x² + 1) and x³ + 2x² + 2x + 1 = (x + 1)(x² + x + 1).</p>
+<h3>Multiple roots and the formal derivative</h3>
+<p>Define the formal derivative D(∑ aᵢxⁱ) = ∑ i aᵢ xⁱ⁻¹. It is K-linear and satisfies the Leibniz rule, with no analysis involved. A root a of f is multiple if (x − a)² divides f.</p>
+<p><strong>Proposition 2.5</strong>. a is a multiple root of f if and only if f(a) = f′(a) = 0. Consequently f has a multiple root in some extension field if and only if gcd(f, f′) ≠ 1.</p>
+<p><strong>Proof</strong>. Write f = (x − a)ᵐ g with g(a) ≠ 0 and m ≥ 1. Then f′ = (x − a)ᵐ⁻¹(mg + (x − a)g′), so if m ≥ 2 then f′(a) = 0, while if m = 1 then f′(a) = g(a) ≠ 0. For the second statement, note that the gcd of f and f′ does not change when the field is enlarged, since it is computed by the Euclidean algorithm inside K[x]. ∎</p>
+<p>The proposition makes a polynomial's multiple roots detectable without finding any roots, and it shows that an irreducible f over a field of characteristic 0 has distinct roots: gcd(f, f′) is a divisor of the irreducible f of smaller degree than f, hence 1. In characteristic p this can fail, because f′ may vanish identically: over the field 𝔽ₚ(t), the polynomial xᵖ − t is irreducible yet has a single root of multiplicity p in its splitting field. Fields in which this pathology cannot occur are called perfect; ℚ and all finite fields are perfect.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the remainder when x¹⁰⁰ is divided by x² − 1.</div></li><li><span class="mk">(b)</span><div>Find all multiple roots of f = x⁴ − 2x³ + 2x − 1 by computing gcd(f, f′).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Write x¹⁰⁰ = q(x)(x² − 1) + ax + b. Substituting x = 1 and x = −1 gives a + b = 1 and −a + b = 1, so a = 0, b = 1: the remainder is 1. (b) f′ = 4x³ − 6x² + 2 = 2(x − 1)²(2x + 1). Since f = (x − 1)³(x + 1), gcd(f, f′) = (x − 1)², so 1 is the only multiple root (of multiplicity 3).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: The Probabilistic Method — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 13</p>
+    <h1>The Probabilistic Method</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">If Pr(a random object has property P) &gt; 0, an object with property P exists.
+Some value of a random variable is at least its expectation.</pre></div>
+<h3>Erdős's lower bound for Ramsey numbers</h3>
+<p><strong>Theorem 13.1 (Erdős, 1947)</strong>. If C(n, k) 2<sup>1 − C(k, 2)</sup> &lt; 1, then R(k, k) &gt; n. In particular R(k, k) &gt; ⌊2<sup>k/2</sup>⌋ for every k ≥ 3.</p>
+<p><strong>Proof</strong>. Colour each edge of Kₙ red or blue independently with probability 1/2. A fixed set of k vertices is monochromatic with probability 2 · 2<sup>−C(k,2)</sup>. By the union bound, the probability that some k-set is monochromatic is at most C(n, k) 2<sup>1 − C(k,2)</sup> &lt; 1, so some colouring has no monochromatic Kₖ. For n = ⌊2<sup>k/2</sup>⌋, use C(n, k) &lt; nᵏ/k! ≤ 2<sup>k²/2</sup>/k!, so the bound is less than 2<sup>k²/2</sup> · 2<sup>1 − k²/2 + k/2</sup>/k! = 2<sup>1 + k/2</sup>/k!, which is less than 1 for k ≥ 3 (it equals 2<sup>2.5</sup>/6 ≈ 0.94 at k = 3, and each increase of k multiplies it by √2/(k + 1) &lt; 1). ∎</p>
+<p>The remarkable feature is that no explicit construction is known achieving R(k, k) &gt; (1 + ε)ᵏ for any ε &gt; 0. Finding one is a central open problem (Erdős offered $100), and explicit &quot;Ramsey graphs&quot; are closely related to randomness extractors in theoretical computer science.</p>
+<h3>Linearity of expectation</h3>
+<p>Expectation is linear even for dependent random variables, which makes it the method's most powerful tool.</p>
+<p><strong>Theorem 13.2</strong>. Every graph with m edges has a bipartite subgraph with at least m/2 edges.</p>
+<p><strong>Proof</strong>. Put each vertex independently on side A or B with probability 1/2. Each edge crosses with probability 1/2, so the expected number of crossing edges is m/2, and some partition achieves at least that. ∎</p>
+<p><strong>Theorem 13.3 (Szele, 1943)</strong>. There is a tournament on n vertices with at least n!/2ⁿ⁻¹ Hamiltonian paths.</p>
+<p><strong>Proof</strong>. Orient each edge of Kₙ randomly. Each of the n! orderings of the vertices is a directed path with probability 2<sup>−(n−1)</sup>, so the expected number of Hamiltonian paths is n!/2ⁿ⁻¹. ∎</p>
+<p><strong>Theorem 13.4 (Caro 1979, Wei 1981)</strong>. Every graph G has an independent set of size at least ∑ᵥ 1/(deg(v) + 1).</p>
+<p><strong>Proof</strong>. Order the vertices uniformly at random, and let I be the set of vertices that precede all of their neighbours. I is independent, and v ∈ I with probability 1/(deg(v) + 1), since each of the deg(v) + 1 vertices of the closed neighbourhood is equally likely to come first. Take expectations. ∎ Applied to the complement, this implies Turán's theorem: a graph on n vertices with no Kᵣ₊₁ has at most (1 − 1/r)n²/2 edges.</p>
+<h3>The alteration method</h3>
+<p>Sometimes a random object is nearly good and can be repaired. For any n, colour Kₙ randomly as above and delete one vertex from each monochromatic k-set. The expected number deleted is C(n, k) 2<sup>1 − C(k,2)</sup>, so R(k, k) &gt; n − C(n, k) 2<sup>1 − C(k,2)</sup> for every n. Optimizing n improves Erdős's bound by a factor of about √2.</p>
+<h3>Property B</h3>
+<p>A hypergraph is 2-colourable (has property B) if its vertices can be coloured red and blue with no monochromatic edge. Erdős (1963) showed that every k-uniform hypergraph with fewer than 2<sup>k−1</sup> edges is 2-colourable: in a random colouring each edge is monochromatic with probability 2<sup>1−k</sup>, so the expected number of monochromatic edges is less than 1. The least number m(k) of edges in a non-2-colourable k-uniform hypergraph satisfies m(2) = 3 (a triangle) and m(3) = 7 (the Fano plane).</p>
+<h3>The Lovász local lemma</h3>
+<p>Union bounds waste information when bad events are rare and mostly independent. The local lemma exploits this.</p>
+<p><strong>Theorem 13.5 (Erdős–Lovász, 1975, symmetric form)</strong>. Let A₁, …, Aₙ be events, each with Pr(Aᵢ) ≤ p, such that each Aᵢ is mutually independent of all but at most d of the others. If e p (d + 1) ≤ 1, then Pr(no Aᵢ occurs) &gt; 0.</p>
+<p>Applied to the monochromatic k-sets of a random colouring, the local lemma gives Spencer's bound R(k, k) &gt; (√2/e)(1 + o(1)) k 2<sup>k/2</sup>, still the best known lower bound up to the constant factor. Applied to k-SAT, it shows that a formula in which every clause has exactly k literals and shares variables with at most 2ᵏ/e − 1 other clauses is satisfiable. Moser and Tardos (2010) made the lemma algorithmic: resampling the variables of violated events terminates quickly in expectation, so the objects it promises can actually be found.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>In a uniformly random 2-colouring of the edges of K₁₀, what is the expected number of monochromatic K₄'s?</div></li><li><span class="mk">(b)</span><div>Use the Caro–Wei bound to find a lower bound for the independence number of the 5-cycle C₅.</div></li><li><span class="mk">(c)</span><div>Show that some tournament on 6 vertices has at least 23 Hamiltonian paths.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(10, 4) · 2<sup>1−6</sup> = 210/32 = 105/16 = 6.5625. (b) ∑ 1/3 over five vertices gives 5/3, so α(C₅) ≥ 2, which is the true value. (c) The expectation is 6!/2⁵ = 720/32 = 22.5, so some tournament has at least 22.5 and hence, being an integer count, at least 23.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

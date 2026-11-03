@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 6</p>
+    <h1>Logarithmic Differentiation and the Logarithmic Derivative</h1>
+    <p class="kicker">Lesson 6 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">(ln |f|)′ = f′/f   wherever f ≠ 0
+f = ∏ fᵢ<sup>aᵢ</sup>   ⟹   f′/f = ∑ aᵢ fᵢ′/fᵢ</pre></div>
+<h3>The method</h3>
+<p>If f is differentiable and nonzero on an interval, then ln |f| is differentiable there, and the chain rule gives (ln |f|)′ = f′/f. (For f &lt; 0 we have ln |f| = ln(−f), whose derivative is −f′/(−f) = f′/f.) The expression f′/f is the logarithmic derivative of f. It turns products into sums and powers into multiples, exactly as the logarithm does: if f = g·h then f′/f = g′/g + h′/h, and if f = gᵃ then f′/f = a g′/g. This is the cleanest proof of the product rule for many factors and of the power rule for real exponents.</p>
+<h3>Worked example A</h3>
+<p>Let y = (x² + 1)³ √(x − 1) / (x + 2)⁴ for x &gt; 1. Then</p>
+<pre class="math">ln y = 3 ln(x² + 1) + ½ ln(x − 1) − 4 ln(x + 2),
+y′/y = 6x/(x² + 1) + 1/(2(x − 1)) − 4/(x + 2).</pre>
+<p>At x = 2: y′/y = 12/5 + 1/2 − 1 = 19/10, and y(2) = 125/256, so y′(2) = (19/10)(125/256) = 475/512.</p>
+<h3>Variable exponents</h3>
+<p>Logarithmic differentiation is indispensable when the variable appears in both base and exponent. For y = u(x)ᵛ⁽ˣ⁾ with u &gt; 0 we have ln y = v ln u, hence</p>
+<pre class="math">y′ = u<sup>v</sup> (v′ ln u + v u′/u).</pre>
+<p>For example (xˣ)′ = xˣ(ln x + 1) and (x<sup>sin x</sup>)′ = x<sup>sin x</sup>(cos x · ln x + (sin x)/x).</p>
+<h3>Polynomials and the Gauss–Lucas theorem</h3>
+<p>If p(z) = c ∏ⱼ₌₁ⁿ (z − rⱼ) is a complex polynomial with roots rⱼ (listed with multiplicity), then away from the roots</p>
+<pre class="math">p′(z)/p(z) = ∑ⱼ₌₁ⁿ 1/(z − rⱼ).</pre>
+<p><strong>Theorem 6.1 (Gauss–Lucas)</strong>. Every root of p′ lies in the convex hull of the roots of p.</p>
+<p><strong>Proof</strong>. Let p′(w) = 0. If w is a root of p there is nothing to prove. Otherwise ∑ 1/(w − rⱼ) = 0. Since 1/(w − rⱼ) = (w̄ − r̄ⱼ)/|w − rⱼ|², taking complex conjugates gives ∑ (w − rⱼ)/|w − rⱼ|² = 0. With weights λⱼ = |w − rⱼ|⁻² &gt; 0, this says w = ∑ λⱼrⱼ / ∑ λⱼ, a convex combination of the roots. ∎</p>
+<h3>Logarithmic derivatives of infinite products</h3>
+<p>The logarithmic derivative converts a convergent infinite product into a series. Euler's product sin πz = πz ∏<sub>n≥1</sub> (1 − z²/n²), which converges locally uniformly on ℂ, gives on differentiating logarithmically</p>
+<pre class="math">π cot πz = 1/z + ∑<sub>n≥1</sub> 2z/(z² − n²),</pre>
+<p>valid for z ∉ ℤ. (At z = 0.3 both sides equal 2.28250… .) Similarly, the Weierstrass product for the gamma function, 1/Γ(z) = z eᵞᶻ ∏ (1 + z/n)e<sup>−z/n</sup>, leads to the digamma function ψ = Γ′/Γ:</p>
+<pre class="math">ψ(z) = −γ − 1/z + ∑<sub>n≥1</sub> (1/n − 1/(n + z)),   so   ψ(n + 1) = Hₙ − γ.</pre>
+<p>Here Hₙ = 1 + 1/2 + … + 1/n and γ is Euler's constant, studied in Lesson 9.</p>
+<h3>Elasticity and log–log scales</h3>
+<p>In economics and the physical sciences one often studies the elasticity E = d(ln y)/d(ln x) = (x/y)(dy/dx), the percentage change of y per percentage change of x. A power law y = Cxᵏ has constant elasticity k, which is why power laws plot as straight lines of slope k on log–log axes, while exponential laws y = Ceᵏˣ are straight lines of slope k on semi-log axes (ln y against x). Kepler's third law, T² ∝ a³, appears on log–log axes as a line of slope 3/2.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Differentiate y = (ln x)<sup>ln x</sup> for x &gt; 1.</div></li><li><span class="mk">(b)</span><div>Let p(z) = z³ − 3z + 1. Compute ∑ 1/(2 − rⱼ) over the roots rⱼ of p, without finding the roots.</div></li><li><span class="mk">(c)</span><div>For f(x) = x⁴ e²ˣ / (1 + x²)², find the values of x at which f′(x) = 0.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) ln y = ln x · ln ln x, so y′/y = (ln ln x)/x + (ln x)·1/(x ln x) = (ln ln x + 1)/x, and y′ = (ln x)<sup>ln x</sup>(1 + ln ln x)/x. (b) ∑ 1/(2 − rⱼ) = p′(2)/p(2) = (3·4 − 3)/(8 − 6 + 1) = 9/3 = 3. (c) f′/f = 4/x + 2 − 4x/(1 + x²) for x ≠ 0. Setting this to 0 and multiplying by x(1 + x²): 4(1 + x²) + 2x(1 + x²) − 4x² = 2x³ + 2x + 4 = 2(x + 1)(x² − x + 2), so the only nonzero real critical point is x = −1. In addition f′(0) = 0, since f has a zero of order 4 at 0. The critical points are x = −1 and x = 0.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

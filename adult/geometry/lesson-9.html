@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: The Euler Characteristic and Angular Defect — Geometry (Advanced)</title>
+<meta name="description" content="Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Geometry</a> › Lesson 9</p>
+    <h1>The Euler Characteristic and Angular Defect</h1>
+    <p class="kicker">Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Hilbert's Axioms and the Foundations of Geometry">1</a><a href="lesson-2.html" title="Lesson 2: Isometries of the Euclidean Plane">2</a><a href="lesson-3.html" title="Lesson 3: Classification of Plane Isometries">3</a><a href="lesson-4.html" title="Lesson 4: Symmetry Groups, Lattices and the Crystallographic Restriction">4</a><a href="lesson-5.html" title="Lesson 5: Triangle Centres, the Euler Line and the Nine-Point Circle">5</a><a href="lesson-6.html" title="Lesson 6: Ceva, Menelaus and Routh">6</a><a href="lesson-7.html" title="Lesson 7: Power of a Point, Radical Axes and Inversion">7</a><a href="lesson-8.html" title="Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: The Euler Characteristic and Angular Defect">9</a><a href="lesson-10.html" title="Lesson 10: Regular Polytopes and the Platonic Solids">10</a><a href="lesson-11.html" title="Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem">11</a><a href="lesson-12.html" title="Lesson 12: Constructibility with Straightedge and Compass">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For every convex polyhedron:  V − E + F = 2.
+The total angular defect ∑ (2π − angles at v) equals 4π = 2π · χ.
+A spherical triangle with angles α, β, γ on the unit sphere has area α + β + γ − π.</pre></div>
+<h3>History</h3>
+<p>Descartes, in a manuscript from about 1630 known only through a copy made by Leibniz, observed that the total angular defect of a convex polyhedron is 4π (eight right angles). Euler stated V − E + F = 2 in a letter to Goldbach in 1750 and published an incomplete proof in 1758. Legendre gave the first correct proof in 1794 using spherical geometry, and Cauchy (1813) gave a combinatorial proof by flattening the polyhedron into a planar graph. Imre Lakatos's Proofs and Refutations (1976) dramatises the long history of counterexamples, such as the &quot;picture frame&quot; with V − E + F = 0, which forced mathematicians to say exactly which polyhedra the theorem covers. The modern view, due to Poincaré, is that χ = V − E + F is a topological invariant of the surface of the polyhedron, independent of the subdivision.</p>
+<h3>Spherical area: Girard's theorem</h3>
+<p>On the unit sphere S² (area 4π), a lune of angle θ, the region between two great semicircles meeting at angle θ, has area 2θ, being the fraction θ/(2π) of the sphere.</p>
+<p><strong>Theorem 9.1 (Harriot 1603, Girard 1629)</strong>. A spherical triangle with angles α, β, γ has area α + β + γ − π.</p>
+<p><strong>Proof</strong>. The three great circles bounding triangle T divide the sphere into eight triangles: T, its antipode T′ (congruent to T), and six others. Each pair of great circles through a vertex of T produces a lune containing T and an antipodal lune containing T′. The six lunes of angles α, α, β, β, γ, γ cover the sphere, with every point of T and of T′ covered three times and every other point covered once. Therefore 2(2α + 2β + 2γ) = 4π + 2 · 2 · Area(T), which gives Area(T) = α + β + γ − π. ∎</p>
+<p>For a spherical polygon with n sides and angles θ₁, …, θₙ, triangulating from one vertex gives area ∑ θᵢ − (n − 2)π. Spherical geometry thus satisfies all of Hilbert's incidence axioms only after identifying antipodal points (the elliptic plane), and it violates the Saccheri–Legendre theorem: angle sums exceed π.</p>
+<h3>Legendre's proof of Euler's formula</h3>
+<p><strong>Theorem 9.2</strong>. For every convex polyhedron with V vertices, E edges and F faces, V − E + F = 2.</p>
+<p><strong>Proof</strong>. Choose a point O in the interior and radially project the boundary from O onto the unit sphere centred at O; convexity guarantees that this projection is a bijection, sending vertices to points, edges to arcs of great circles and faces to spherical polygons that tile the sphere. Let face f have n<sub>f</sub> sides. Then</p>
+<pre class="math">4π = ∑<sub>f</sub> Area(f) = ∑<sub>f</sub> (∑ angles of f − (n<sub>f</sub> − 2)π)
+   = (sum of all angles) − π ∑<sub>f</sub> n<sub>f</sub> + 2πF
+   = 2πV − 2πE + 2πF,</pre>
+<p>because the angles around each vertex on the sphere sum to 2π, and ∑<sub>f</sub> n<sub>f</sub> = 2E since each edge borders exactly two faces. Dividing by 2π gives V − E + F = 2. ∎</p>
+<h3>Descartes's theorem</h3>
+<p>The angular defect at a vertex v of a convex polyhedron is δ(v) = 2π − (sum of the face angles at v), positive by convexity. Then ∑<sub>v</sub> δ(v) = 2πV − ∑<sub>f</sub> (n<sub>f</sub> − 2)π = 2πV − 2πE + 2πF = 4π. For a cube each vertex has defect 2π − 3 · π/2 = π/2, and 8 · π/2 = 4π. This is the polyhedral Gauss–Bonnet theorem: the defect is a concentrated curvature, and the general theorem ∫ K dA = 2πχ for closed surfaces reduces to Descartes's formula when the curvature is concentrated at the vertices.</p>
+<h3>Beyond convexity</h3>
+<p>For a polyhedral surface topologically equivalent to a closed orientable surface of genus g, χ = 2 − 2g; for a non-orientable surface with k cross-caps, χ = 2 − k. The torus has χ = 0, as the picture frame shows. In higher dimensions the Euler–Poincaré formula for a convex d-polytope is f₀ − f₁ + f₂ − ⋯ + (−1)<sup>d−1</sup> f<sub>d−1</sub> = 1 − (−1)<sup>d</sup>, which equals 2 for d = 3 and 0 for d = 4.</p>
+<h3>Combinatorial consequences</h3>
+<p><strong>Theorem 9.3</strong>. (i) Every convex polyhedron has a face with at most five sides and a vertex of degree at most five. (ii) E ≤ 3V − 6 and E ≤ 3F − 6. (iii) If every face is a pentagon or a hexagon and every vertex has degree 3, there are exactly 12 pentagons.</p>
+<p><strong>Proof</strong>. (i) If every face had at least six sides, then 2E ≥ 6F; since every vertex has degree at least 3, 2E ≥ 3V. Then 2 = V − E + F ≤ 2E/3 − E + E/3 = 0, a contradiction. The vertex statement is dual. (ii) Each face has at least three sides, so 2E ≥ 3F, and V − E + F = 2 gives 2 ≤ V − E + 2E/3, i.e. E ≤ 3V − 6; the other bound is dual. (iii) Let there be p pentagons and h hexagons. Then 2E = 5p + 6h and 3V = 2E. So V − E + F = (5p + 6h)/3 − (5p + 6h)/2 + p + h = −(5p + 6h)/6 + p + h = p/6, and p/6 = 2 gives p = 12. ∎</p>
+<p>Part (iii) explains why every fullerene molecule, such as buckminsterfullerene C₆₀ (12 pentagons, 20 hexagons), has exactly twelve pentagonal rings, and part (ii) is the same inequality that shows the complete graph K₅ is not planar.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Verify Euler's formula for the truncated icosahedron (the C₆₀ shape), which has 12 pentagonal and 20 hexagonal faces with 3 faces at every vertex.</div></li><li><span class="mk">(b)</span><div>A fullerene has 70 carbon atoms (vertices). How many hexagonal faces and how many edges does it have?</div></li><li><span class="mk">(c)</span><div>Compute the angular defect at each vertex of a regular icosahedron and check Descartes's theorem.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) F = 32, E = (12 · 5 + 20 · 6)/2 = 90, V = 2E/3 = 60, and 60 − 90 + 32 = 2. (b) V = (60 + 6h)/3 = 20 + 2h = 70 gives h = 25, so F = 37 and E = 3V/2 = 105; check 70 − 105 + 37 = 2. (c) Five equilateral triangles meet at each vertex, so δ = 2π − 5π/3 = π/3, and 12 · π/3 = 4π.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

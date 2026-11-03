@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Matrices as Linear Maps — Matrix Math (Advanced)</title>
+<meta name="description" content="A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#2563eb">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../matrix-math/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Matrix Math</a> › Lesson 1</p>
+    <h1>Matrices as Linear Maps</h1>
+    <p class="kicker">Lesson 1 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Matrices as Linear Maps">1</a><a href="lesson-2.html" title="Lesson 2: Row Reduction, Rank and LU Factorization">2</a><a href="lesson-3.html" title="Lesson 3: Determinants">3</a><a href="lesson-4.html" title="Lesson 4: Inverses, Cramer's Rule and Block Matrices">4</a><a href="lesson-5.html" title="Lesson 5: Eigenvalues and the Cayley–Hamilton Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Diagonalization and the Jordan Normal Form">6</a><a href="lesson-7.html" title="Lesson 7: Inner Products, Gram–Schmidt and QR">7</a><a href="lesson-8.html" title="Lesson 8: The Spectral Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Positive Definite Matrices and Quadratic Forms">9</a><a href="lesson-10.html" title="Lesson 10: The Singular Value Decomposition">10</a><a href="lesson-11.html" title="Lesson 11: Nonnegative Matrices, Markov Chains and Perron–Frobenius">11</a><a href="lesson-12.html" title="Lesson 12: Norms, Conditioning and Numerical Stability">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">[S ∘ T] = [S] [T]          dim V = dim ker T + dim im T
+a change of basis replaces A by P⁻¹ A P</pre></div>
+<h3>Linear maps and their matrices</h3>
+<p>Let V and W be vector spaces over 𝔽 with dim V = n and dim W = m. A map T : V → W is linear if T(αx + βy) = αT(x) + βT(y) for all vectors x, y and scalars α, β. Fix ordered bases B = (v₁, …, vₙ) of V and C = (w₁, …, w<sub>m</sub>) of W. Since C is a basis, each T(v<sub>j</sub>) has a unique expansion T(v<sub>j</sub>) = a<sub>1j</sub> w₁ + ⋯ + a<sub>mj</sub> w<sub>m</sub>. The m × n array A = (a<sub>ij</sub>) is the matrix of T with respect to B and C, written [T]<sub>C←B</sub>. In words: column j of A holds the C-coordinates of the image of the j-th basis vector.</p>
+<p>If x has B-coordinate vector [x]<sub>B</sub> = (c₁, …, cₙ)ᵀ, then by linearity T(x) = ∑<sub>j</sub> c<sub>j</sub> T(v<sub>j</sub>) = ∑<sub>i</sub> (∑<sub>j</sub> a<sub>ij</sub> c<sub>j</sub>) w<sub>i</sub>, so [T(x)]<sub>C</sub> = A [x]<sub>B</sub>. Matrix-vector multiplication is therefore nothing more than linearity written in coordinates. The assignment T ↦ [T]<sub>C←B</sub> is a vector-space isomorphism from the space Hom(V, W) of linear maps onto 𝔽<sup>m×n</sup>, so dim Hom(V, W) = mn.</p>
+<p><strong>Theorem 1.1 (Composition is multiplication)</strong>. Let T : U → V and S : V → W be linear, with bases B, C, D of U, V, W. Then [S ∘ T]<sub>D←B</sub> = [S]<sub>D←C</sub> [T]<sub>C←B</sub>, where the product on the right is the usual row-by-column product.</p>
+<p><strong>Proof</strong>. For every u ∈ U, [S(T(u))]<sub>D</sub> = [S]<sub>D←C</sub> [T(u)]<sub>C</sub> = [S]<sub>D←C</sub> [T]<sub>C←B</sub> [u]<sub>B</sub>. Taking u to be the j-th vector of B, the left side is column j of [S ∘ T]<sub>D←B</sub> and the right side is column j of the product. ∎</p>
+<p>This is the real reason the product is defined row by column. Two consequences follow without any computation. Matrix multiplication is associative, because composition of functions is associative. It is not commutative, because composition is not: rotating the plane by 90° and then reflecting in the x-axis is a different map from reflecting first and rotating second.</p>
+<p>Two further views of the product are indispensable. Writing A by columns as [a₁ ⋯ aₙ], the product Ax = x₁a₁ + ⋯ + xₙaₙ is a linear combination of the columns, so the column space col(A) is exactly the image of x ↦ Ax. Writing A by columns and B by rows b₁ᵀ, …, bₙᵀ, the product is a sum of outer products:</p>
+<pre class="math">AB = a₁ b₁ᵀ + a₂ b₂ᵀ + ⋯ + aₙ bₙᵀ        (each term has rank at most 1)</pre>
+<p>The outer-product form is the starting point for low-rank approximation in Lesson 10.</p>
+<h3>Change of basis and similarity</h3>
+<p>Let B and B′ be two bases of V, and let P be the matrix whose j-th column is the B-coordinate vector of the j-th vector of B′. Then [x]<sub>B</sub> = P [x]<sub>B′</sub>, P is invertible, and for an operator T : V → V,</p>
+<pre class="math">[T]<sub>B′</sub> = P⁻¹ [T]<sub>B</sub> P</pre>
+<p>Square matrices A and A′ are similar if A′ = P⁻¹AP for some invertible P; similar matrices represent the same operator in different bases. Any quantity defined in terms of the operator alone, such as its rank, determinant, trace, characteristic polynomial or eigenvalues, is a similarity invariant. A recurring theme of this course is the search for a basis in which [T]<sub>B</sub> is as simple as possible.</p>
+<p><strong>Worked example</strong>: let T(x, y) = (2x + y, x + 2y), so that in the standard basis T has matrix A = [ 2 1 ; 1 2 ]. Take the new basis b₁ = (1, 1), b₂ = (1, −1). Then T(b₁) = (3, 3) = 3b₁ and T(b₂) = (1, −1) = b₂, so in the new basis T is simply diag(3, 1). In matrix form, with P = [ 1 1 ; 1 −1 ],</p>
+<pre class="math">P⁻¹ A P = (1/2) [ 1   1 ] [ 2  1 ] [ 1   1 ]  =  [ 3  0 ]
+                [ 1  −1 ] [ 1  2 ] [ 1  −1 ]     [ 0  1 ]</pre>
+<h3>The rank–nullity theorem</h3>
+<p>The kernel ker T = {x : T(x) = 0} and image im T = {T(x) : x ∈ V} are subspaces. Their dimensions are the nullity and the rank of T.</p>
+<p><strong>Theorem 1.2 (Rank–nullity)</strong>. If V is finite-dimensional and T : V → W is linear, then dim V = dim ker T + dim im T.</p>
+<p><strong>Proof</strong>. Choose a basis u₁, …, u<sub>k</sub> of ker T and extend it to a basis u₁, …, u<sub>k</sub>, v₁, …, v<sub>r</sub> of V, so dim V = k + r. Every vector of im T has the form T(∑ α<sub>i</sub> u<sub>i</sub> + ∑ β<sub>j</sub> v<sub>j</sub>) = ∑ β<sub>j</sub> T(v<sub>j</sub>), so T(v₁), …, T(v<sub>r</sub>) span im T. They are independent: if ∑ β<sub>j</sub> T(v<sub>j</sub>) = 0, then ∑ β<sub>j</sub> v<sub>j</sub> lies in ker T, hence equals some ∑ α<sub>i</sub> u<sub>i</sub>, and independence of the extended basis forces every β<sub>j</sub> = 0. Therefore dim im T = r. ∎</p>
+<p><strong>Corollary 1.3</strong>. For a linear operator T on a finite-dimensional space, T is injective if and only if T is surjective if and only if T is invertible. For square matrices, a one-sided inverse is automatically two-sided: if AB = I then BA = I.</p>
+<p><strong>Proof</strong>. Injective means dim ker T = 0, surjective means dim im T = dim V, and these are equivalent by Theorem 1.2. If AB = I then B is injective (Bx = 0 implies x = ABx = 0), hence invertible, and A = AB B⁻¹ = B⁻¹, so BA = I. ∎</p>
+<p>The corollary is false in infinite dimensions: on the space of all sequences, the right shift (x₁, x₂, …) ↦ (0, x₁, x₂, …) is injective but not surjective. Finite dimensionality is doing real work.</p>
+<p>For A ∈ 𝔽<sup>m×n</sup> of rank r, the four fundamental subspaces are the column space col(A) ⊆ 𝔽<sup>m</sup> of dimension r, the null space null(A) ⊆ 𝔽ⁿ of dimension n − r, the row space col(Aᵀ) ⊆ 𝔽ⁿ of dimension r, and the left null space null(Aᵀ) ⊆ 𝔽<sup>m</sup> of dimension m − r. That row space and column space have the same dimension is a genuine theorem, proved in Lesson 2. Over ℝ the row space and null space are orthogonal complements in ℝⁿ, because Ax = 0 says exactly that x is orthogonal to every row.</p>
+<h3>How fast can matrices be multiplied</h3>
+<p>The definition uses n³ multiplications for two n × n matrices. In 1969 Strassen found a way to multiply 2 × 2 block matrices with 7 block products instead of 8; applied recursively this gives O(n<sup>log₂ 7</sup>) ≈ O(n<sup>2.807</sup>) operations. The infimum ω of exponents for which O(n<sup>ω</sup>) multiplication is possible is one of the central open problems of algebraic complexity theory: it is known that 2 ≤ ω, and a sequence of improvements since Coppersmith and Winograd (1990) has pushed the upper bound below 2.372. Whether ω = 2 is unknown.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A is a 5 × 7 real matrix of rank 3. Give the dimensions of its four fundamental subspaces.</div></li><li><span class="mk">(b)</span><div>Find the dimension of the space of 3 × 3 matrices X that commute with D = diag(1, 2, 3).</div></li><li><span class="mk">(c)</span><div>Let V be the space of real polynomials of degree at most 3 with basis 1, x, x², x³, and let T = d/dx. Write [T] and state its rank and nullity.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) col(A) has dimension 3, null(A) has dimension 7 − 3 = 4, the row space has dimension 3, and null(Aᵀ) has dimension 5 − 3 = 2. (b) (DX − XD)<sub>ij</sub> = (d<sub>i</sub> − d<sub>j</sub>) x<sub>ij</sub>, which vanishes for all i, j exactly when x<sub>ij</sub> = 0 for i ≠ j, so the commutant is the diagonal matrices: dimension 3. (c) T(1) = 0, T(x) = 1, T(x²) = 2x, T(x³) = 3x², so [T] = [ 0 1 0 0 ; 0 0 2 0 ; 0 0 0 3 ; 0 0 0 0 ]; the rank is 3 and the nullity is 1 (the kernel is the constants).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

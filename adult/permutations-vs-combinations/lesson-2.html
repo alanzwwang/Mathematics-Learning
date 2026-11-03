@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: The Cycle Decomposition — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 2</p>
+    <h1>The Cycle Decomposition</h1>
+    <p class="kicker">Lesson 2 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Every σ ∈ Sₙ is a product of disjoint cycles, unique up to order.
+The cycle type of σ is a partition λ of n; the order of σ is lcm(λ₁, λ₂, …).</pre></div>
+<h3>Cycles</h3>
+<p><strong>Definition 2.1</strong>. Let a₁, …, a<sub>ℓ</sub> be distinct elements of [n], with ℓ ≥ 1. The cycle (a₁ a₂ ⋯ a<sub>ℓ</sub>) is the permutation sending a₁ ↦ a₂ ↦ ⋯ ↦ a<sub>ℓ</sub> ↦ a₁ and fixing every element not among the aᵢ. Its length is ℓ. A cycle of length 2 is a transposition. Two cycles are disjoint if their underlying sets of moved points are disjoint.</p>
+<p>The same cycle has ℓ names: (a₁ a₂ ⋯ a<sub>ℓ</sub>) = (a₂ ⋯ a<sub>ℓ</sub> a₁), and so on by rotation. A 1-cycle (a) is the identity; we write it only when we wish to record fixed points explicitly. Disjoint cycles commute, because each acts as the identity on the points moved by the other.</p>
+<h3>The decomposition theorem</h3>
+<p><strong>Theorem 2.2 (Cycle decomposition)</strong>. Every permutation σ ∈ Sₙ can be written as a product of disjoint cycles. The decomposition is unique up to the order of the factors and the inclusion or omission of 1-cycles.</p>
+<p><strong>Proof</strong>. Define a relation on [n] by i ∼ j if j = σᵐ(i) for some integer m. This is an equivalence relation: reflexivity uses m = 0, symmetry uses −m, and transitivity adds exponents. Its classes are the orbits of the cyclic subgroup ⟨σ⟩ on [n]. Fix an orbit O and a point i ∈ O. The sequence i, σ(i), σ²(i), … takes values in the finite set O, so some value repeats; let ℓ ≥ 1 be the least positive integer with σ<sup>ℓ(i)</sup> = σ<sup>m(i)</sup> for some 0 ≤ m &lt; ℓ. Applying σ⁻ᵐ gives σ<sup>ℓ−m</sup>(i) = i, and minimality of ℓ forces m = 0. Thus i, σ(i), …, σ<sup>ℓ−1</sup>(i) are distinct and σ<sup>ℓ(i)</sup> = i. Every element σᵐ(i) of O equals σ<sup>r(i)</sup> where r is the residue of m modulo ℓ, so O = {i, σ(i), …, σ<sup>ℓ−1</sup>(i)}, and σ acts on O as the cycle (i σ(i) ⋯ σ<sup>ℓ−1</sup>(i)). Since [n] is the disjoint union of the orbits, σ equals the product of these cycles, one for each orbit. For uniqueness, observe that if σ = γ₁⋯γ<sub>r</sub> is any product of disjoint cycles (including 1-cycles for the fixed points), then the support of each γⱼ is invariant under σ and σ acts on it transitively, so the supports are exactly the orbits of ⟨σ⟩, and on each orbit the cycle is determined by σ itself. ∎</p>
+<p><strong>Example 2.3</strong>. Let σ = 4 7 1 3 2 8 5 6 in one-line notation. Following 1: 1 ↦ 4 ↦ 3 ↦ 1. Following the least unused point 2: 2 ↦ 7 ↦ 5 ↦ 2. Then 6 ↦ 8 ↦ 6. Hence σ = (1 4 3)(2 7 5)(6 8).</p>
+<h3>Cycle type and order</h3>
+<p><strong>Definition 2.4</strong>. The cycle type of σ ∈ Sₙ is the multiset of its cycle lengths (including 1-cycles), written as a partition λ = (λ₁ ≥ λ₂ ≥ ⋯ ≥ λ<sub>r</sub>) of n, or in multiplicity notation 1<sup>m₁</sup> 2<sup>m₂</sup> ⋯ n<sup>mₙ</sup>, where mᵢ is the number of cycles of length i. The number of cycles is κ(σ) = r = m₁ + ⋯ + mₙ.</p>
+<p><strong>Proposition 2.5</strong>. The order of σ is the least common multiple of its cycle lengths.</p>
+<p><strong>Proof</strong>. Write σ = γ₁⋯γ<sub>r</sub> with disjoint cycles of lengths λ₁, …, λ<sub>r</sub>. Because the γⱼ commute, σᵐ = γ₁ᵐ⋯γ<sub>rᵐ</sub>, and because they have disjoint supports, σᵐ is the identity exactly when each γⱼᵐ is. An ℓ-cycle has order ℓ (the proof of Theorem 2.2 shows γ<sup>m</sup> fixes a point of its support only when ℓ divides m). Hence σᵐ = 1 if and only if every λⱼ divides m, that is, if and only if lcm(λ₁, …, λ<sub>r</sub>) divides m. ∎</p>
+<p>The permutation of Example 2.3 has cycle type (3, 3, 2) and order lcm(3, 3, 2) = 6. The maximal order of an element of Sₙ is Landau's function g(n) = max lcm(λ) over partitions λ of n; its first values are g(5) = 6, g(6) = 6, g(7) = 12, g(8) = 15, g(9) = 20, g(10) = 30. Landau proved in 1903 that ln g(n) ∼ √(n ln n), so the maximal order grows faster than any polynomial but much more slowly than n!.</p>
+<h3>Powers and inverses</h3>
+<p><strong>Proposition 2.6</strong>. Let γ be an ℓ-cycle and k an integer, and put d = gcd(ℓ, k). Then γᵏ is a product of d disjoint cycles, each of length ℓ/d.</p>
+<p><strong>Proof</strong>. Identify the support of γ with ℤ/ℓℤ so that γ acts as x ↦ x + 1. Then γᵏ acts as x ↦ x + k, whose orbits are the cosets of the subgroup generated by k in ℤ/ℓℤ. That subgroup is dℤ/ℓℤ, of order ℓ/d, and it has d cosets. ∎</p>
+<p>For example, (1 2 3 4 5 6)⁴ has gcd(6, 4) = 2 cycles of length 3: it sends 1 ↦ 5 ↦ 3 ↦ 1 and 2 ↦ 6 ↦ 4 ↦ 2, so it equals (1 5 3)(2 6 4). The inverse of a cycle is the reversed cycle, (a₁ a₂ ⋯ a<sub>ℓ</sub>)⁻¹ = (a<sub>ℓ</sub> ⋯ a₂ a₁), and the inverse of a product of disjoint cycles is obtained by reversing each cycle. In particular σ and σ⁻¹ always have the same cycle type.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Write σ = 2 3 1 5 4 in cycle notation and find its order.</div></li><li><span class="mk">(b)</span><div>Compute (1 2 3 4 5 6)⁴ by Proposition 2.6 and check it directly.</div></li><li><span class="mk">(c)</span><div>Find Landau's value g(7) and a permutation in S₇ attaining it.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 1 ↦ 2 ↦ 3 ↦ 1 and 4 ↦ 5 ↦ 4, so σ = (1 2 3)(4 5), of order lcm(3, 2) = 6. (b) d = 2 cycles of length 3: (1 5 3)(2 6 4), since the fourth power adds 4 modulo 6. (c) g(7) = 12, attained by cycle type (4, 3), for example (1 2 3 4)(5 6 7); the other partitions of 7 give lcm at most 10 (cycle type (5, 2)).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

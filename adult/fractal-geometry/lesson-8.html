@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 8</p>
+    <h1>The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Under the open set condition, a self-similar set has dim<sub>H</sub> = dim<sub>B</sub> = s, where ∑ r<sub>iˢ</sub> = 1.
+For self-affine carpets the dimensions can differ:
+dim<sub>H</sub> = log<sub>m</sub> ∑<sub>j</sub> t<sub>j</sub><sup>log m/log n</sup>   versus   dim<sub>B</sub> = log<sub>m</sub> r + log<sub>n</sub>(N/r)</pre></div>
+<h3>A packing lemma</h3>
+<p><strong>Lemma 8.1</strong>. Let {V<sub>i</sub>} be a collection of disjoint open subsets of ℝⁿ such that each V<sub>i</sub> contains a ball of radius a₁ρ and is contained in a ball of radius a₂ρ. Then any ball B of radius ρ meets at most q = (1 + 2a₂)ⁿ a₁<sup>−n</sup> of the closures V̄<sub>i</sub>.</p>
+<p><strong>Proof</strong>. If V̄<sub>i</sub> meets B = B(x, ρ), then V̄<sub>i</sub> ⊂ B(x, (1 + 2a₂)ρ), because V̄<sub>i</sub> has diameter at most 2a₂ρ. If q′ of the closures meet B, then the corresponding disjoint balls of radius a₁ρ all lie in B(x, (1 + 2a₂)ρ), and comparing volumes, q′ (a₁ρ)ⁿ ≤ ((1 + 2a₂)ρ)ⁿ. ∎</p>
+<h3>Proof of the Moran–Hutchinson theorem</h3>
+<p>Recall the setting: similarities f₁, …, f<sub>N</sub> of ℝⁿ with ratios r<sub>i</sub>, attractor F, similarity dimension s, and an open set V witnessing the OSC. Write r<sub>w</sub> = r<sub>w₁</sub>⋯r<sub>w<sub>k</sub></sub> for a word w = w₁…w<sub>k</sub>, and r<sub>min</sub> = min r<sub>i</sub>.</p>
+<p>Step 1 (stopping sets). For 0 &lt; ρ &lt; 1 let Q<sub>ρ</sub> be the set of finite words w = w₁…w<sub>k</sub> with r<sub>w</sub> ≤ ρ &lt; r<sub>w₁…w<sub>k−1</sub></sub> (the empty word has ratio 1). Every infinite word has exactly one prefix in Q<sub>ρ</sub>, so the cylinders [w], w ∈ Q<sub>ρ</sub>, partition Σ. Consequently ∑<sub>w∈Q<sub>ρ</sub></sub> r<sub>wˢ</sub> = 1. Indeed, ∑<sub>|w|=k</sub> r<sub>wˢ</sub> = (∑ r<sub>iˢ</sub>)<sup>k</sup> = 1, and a finite partition of Σ into cylinders can be refined to the partition by all words of length k by repeatedly replacing a word w by its N children, which preserves the sum since ∑<sub>i</sub> (r<sub>w</sub> r<sub>i</sub>)ˢ = r<sub>wˢ</sub>. Also r<sub>min</sub> ρ &lt; r<sub>w</sub> ≤ ρ for w ∈ Q<sub>ρ</sub>.</p>
+<p>Step 2 (upper bound). F = ⋃<sub>w∈Q<sub>ρ</sub></sub> F<sub>w</sub>, and |F<sub>w</sub>| = r<sub>w</sub>|F| ≤ ρ|F|. Hence 𝓗ˢ<sub>ρ|F|</sub>(F) ≤ ∑<sub>w∈Q<sub>ρ</sub></sub> r<sub>wˢ</sub> |F|ˢ = |F|ˢ, so 𝓗ˢ(F) ≤ |F|ˢ &lt; ∞ and dim<sub>H</sub> F ≤ s. Also #Q<sub>ρ</sub> · (r<sub>min</sub> ρ)ˢ &lt; ∑ r<sub>wˢ</sub> = 1, so N<sub>ρ|F|</sub>(F) ≤ #Q<sub>ρ</sub> &lt; (r<sub>min</sub> ρ)<sup>−s</sup>, and dim<sub>B</sub>̄ F ≤ s. Step 2 does not use the OSC.</p>
+<p>Step 3 (disjointness). If w, v ∈ Q<sub>ρ</sub> are distinct, then neither is a prefix of the other, so they first differ at some position: w = u i w′, v = u j v′ with i ≠ j. Then f<sub>w</sub>(V) ⊂ f<sub>u</sub>(f<sub>i</sub>(V)) and f<sub>v</sub>(V) ⊂ f<sub>u</sub>(f<sub>j</sub>(V)), and these are disjoint because f<sub>i</sub>(V) ∩ f<sub>j</sub>(V) = ∅ and f<sub>u</sub> is injective. Thus {f<sub>w</sub>(V) : w ∈ Q<sub>ρ</sub>} is a disjoint family of open sets.</p>
+<p>Step 4 (lower bound). Choose a₁, a₂ such that V contains a ball of radius a₁ and is contained in a ball of radius a₂. Then f<sub>w</sub>(V) contains a ball of radius r<sub>w</sub> a₁ ≥ r<sub>min</sub> a₁ ρ and is contained in a ball of radius r<sub>w</sub> a₂ ≤ a₂ ρ. By Lemma 8.1 (with a₁ replaced by r<sub>min</sub> a₁), any ball of radius ρ meets at most q = (1 + 2a₂)ⁿ (r<sub>min</sub> a₁)<sup>−n</sup> of the closures f<sub>w</sub>(V̄). Since T(V̄) ⊂ V̄, iterating gives F ⊂ V̄, hence F<sub>w</sub> ⊂ f<sub>w</sub>(V̄).</p>
+<p>Let ν be the Bernoulli measure on Σ with weights r<sub>iˢ</sub>, so ν([w]) = r<sub>wˢ</sub>, and let μ = ν ∘ π⁻¹, a probability measure on F. Let U be a set with |U| = ρ &lt; 1, and B a ball of radius ρ containing U. If π(i) ∈ U, the prefix w of i in Q<sub>ρ</sub> has π(i) ∈ F<sub>w</sub> ⊂ f<sub>w</sub>(V̄), so f<sub>w</sub>(V̄) meets B. Hence</p>
+<pre class="math">μ(U) ≤ ∑{ ν([w]) : w ∈ Q<sub>ρ</sub>, f<sub>w</sub>(V̄) ∩ B ≠ ∅ } ≤ q ρˢ = q|U|ˢ</pre>
+<p>By the mass distribution principle, 𝓗ˢ(F) ≥ 1/q &gt; 0, so dim<sub>H</sub> F ≥ s. Combining with Step 2 and dim<sub>H</sub> ≤ dim<sub>B</sub>̲ ≤ dim<sub>B</sub>̄, all three dimensions equal s. ∎</p>
+<h3>Overlaps</h3>
+<p>Without separation, dim<sub>H</sub> F ≤ min{s, n} always holds and may be strict. Consider the IFS on ℝ</p>
+<pre class="math">f₁(x) = λx,   f₂(x) = λx + 1,   f₃(x) = λx + t</pre>
+<p>with similarity dimension log 3 / log(1/λ). For t = λ we have f₁ ∘ f₂(x) = λ²x + λ = f₃ ∘ f₁(x): two distinct words of length 2 give the same map. Such an exact overlap reduces the effective number of pieces, and the dimension of the attractor is then strictly less than s (hence less than min{1, s} whenever s ≤ 1; for s &gt; 1 it can equal 1, e.g. λ = t = 1/2 gives the attractor [0, 2]). A breakthrough of Hochman (2014) shows that in ℝ exact overlaps are essentially the only obstruction: if the IFS satisfies an exponential separation condition — which holds, for instance, whenever all parameters are algebraic and there are no exact overlaps — then dim<sub>H</sub> F = min{1, s}. Whether exact overlaps are the only obstruction for all self-similar sets on the line is the exact overlaps conjecture, still open in general.</p>
+<h3>Self-affine carpets</h3>
+<p>Replace similarities by affine maps x ↦ A<sub>i</sub> x + b<sub>i</sub>. The simplest non-conformal examples are the Bedford–McMullen carpets (Bedford 1984, McMullen 1984). Fix integers n &gt; m ≥ 2, divide the unit square into a grid of n columns and m rows, so each rectangle has width 1/n and height 1/m, and choose a set D of N of these rectangles. The maps (x, y) ↦ (x/n, y/m) + (a/n, b/m), one for each chosen rectangle (a, b), generate a carpet F. Let t<sub>j</sub> be the number of chosen rectangles in row j and r the number of rows with t<sub>j</sub> ≥ 1.</p>
+<p><strong>Theorem 8.2 (McMullen, 1984)</strong>. With θ = log m / log n,</p>
+<pre class="math">dim<sub>H</sub> F = log<sub>m</sub> ( ∑<sub>j=1</sub><sup>m</sup> t<sub>j</sub><sup>θ</sup> )
+dim<sub>B</sub> F = log<sub>m</sub> r + log<sub>n</sub> (N/r)</pre>
+<p>and dim<sub>H</sub> F &lt; dim<sub>B</sub> F unless all non-zero t<sub>j</sub> are equal.</p>
+<p><strong>Proof of the box formula</strong>. Let l ≥ 1, δ = m<sup>−l</sup>, and k = ⌊θl⌋, so that n<sup>−k</sup> is comparable to m<sup>−l</sup> = δ. An approximate square of level l is the set of points of F whose first k column digits and first l row digits are prescribed; it is contained in a rectangle of width n<sup>−k</sup> and height m<sup>−l</sup>, both comparable to δ. Choosing such a square amounts to choosing k chosen rectangles (N<sup>k</sup> possibilities, which fix both digits at levels 1, …, k) and then l − k rows (r possibilities each). The approximate squares are disjoint pieces of F of size comparable to δ, so N<sub>δ</sub>(F) ≍ N<sup>k</sup> r<sup>l−k</sup>, and</p>
+<pre class="math">log N<sub>δ</sub> / (−log δ) = [k log N + (l − k) log r] / (l log m)
+                   → θ log N / log m + (1 − θ) log r / log m
+                   = log<sub>n</sub> N + log<sub>m</sub> r − log<sub>n</sub> r = log<sub>m</sub> r + log<sub>n</sub>(N/r)</pre>
+<p>using θ/log m = 1/log n. The Hausdorff formula requires the McMullen measure, the Bernoulli measure giving each rectangle in row j weight t<sub>j</sub><sup>θ−1</sup>/∑<sub>i</sub> t<sub>i</sub><sup>θ</sup>, together with a law of large numbers along approximate squares. ∎</p>
+<p><strong>Worked example</strong>. Take n = 3, m = 2, one rectangle in the top row and two in the bottom row (N = 3, r = 2, t = (1, 2)). Then θ = log 2 / log 3 ≈ 0.6309 and</p>
+<pre class="math">dim<sub>H</sub> F = log₂(1 + 2<sup>0.6309</sup>) = log₂(2.5486) ≈ 1.3497
+dim<sub>B</sub> F = log₂ 2 + log₃(3/2) = 1 + 0.3691 ≈ 1.3691</pre>
+<p>The Hausdorff dimension is strictly smaller, a phenomenon impossible for self-similar sets with the OSC. Moreover, when the non-zero t<sub>j</sub> are not all equal, the Hausdorff measure of the carpet in its own dimension is infinite (Peres, 1994).</p>
+<h3>Affinity dimension</h3>
+<p>For a general self-affine IFS, Falconer (1988) introduced the singular value function: if σ₁ ≥ ⋯ ≥ σₙ are the singular values of a matrix A and 0 ≤ s ≤ n, write s = k + η with k an integer and 0 ≤ η &lt; 1, and set φˢ(A) = σ₁⋯σ<sub>k</sub> σ<sub>k+1</sub><sup>η</sup>. The affinity dimension is the unique d with</p>
+<pre class="math">lim<sub>k→∞</sub> ( ∑<sub>|w|=k</sub> φᵈ(A<sub>w</sub>) )<sup>1/k</sup> = 1</pre>
+<p>where A<sub>w</sub> = A<sub>w₁</sub>⋯A<sub>w<sub>k</sub></sub>; for similarities it reduces to Moran's equation.</p>
+<p><strong>Theorem 8.3 (Falconer 1988; Solomyak 1998)</strong>. If ‖A<sub>i</sub>‖ &lt; 1/2 for all i, then for Lebesgue-almost every choice of translations (b₁, …, b<sub>N</sub>), the attractor satisfies dim<sub>H</sub> F = dim<sub>B</sub> F = min{d, n}.</p>
+<p>Falconer proved this with the bound 1/3, and Solomyak observed that 1/2 suffices; the bound cannot be relaxed to 1. The carpets show that &quot;almost every&quot; cannot be dropped: their translations are special, aligned to a grid. Bárány, Hochman and Rapaport (2019) proved that for planar self-affine sets satisfying strong separation and an irreducibility condition on the linear parts, the Hausdorff dimension equals the affinity dimension.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Verify Step 1 for the Cantor set: what is Q<sub>ρ</sub> when ρ = 1/9?</div></li><li><span class="mk">(b)</span><div>Compute dim<sub>H</sub> and dim<sub>B</sub> of the carpet with n = 4, m = 2, two rectangles in the top row and one in the bottom row.</div></li><li><span class="mk">(c)</span><div>Show that if all non-zero t<sub>j</sub> equal t, then both McMullen formulas reduce to log<sub>m</sub> r + log<sub>n</sub> t.</div></li><li><span class="mk">(d)</span><div>For a Bedford–McMullen carpet with N = n·m (all rectangles chosen), what are the dimensions?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Q<sub>1/9</sub> consists of the 4 words of length 2, since r<sub>w</sub> = 1/9 ≤ 1/9 &lt; 1/3 = r<sub>w₁</sub>; and ∑ r<sub>wˢ</sub> = 4·(1/9)ˢ = 4·(1/4) = 1. (b) θ = log 2/log 4 = 1/2; dim<sub>H</sub> = log₂(2<sup>1/2</sup> + 1) = log₂(2.4142) ≈ 1.2716; dim<sub>B</sub> = log₂ 2 + log₄(3/2) = 1 + 0.2925 ≈ 1.2925. (c) ∑ t<sub>j</sub><sup>θ</sup> = r t<sup>θ</sup>, so dim<sub>H</sub> = log<sub>m</sub> r + θ log<sub>m</sub> t = log<sub>m</sub> r + log t/log n = log<sub>m</sub> r + log<sub>n</sub> t; and N = rt, so dim<sub>B</sub> = log<sub>m</sub> r + log<sub>n</sub> t as well. (d) The carpet is the whole square: t<sub>j</sub> = n for all m rows, and both formulas give log<sub>m</sub> m + log<sub>n</sub> n = 2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

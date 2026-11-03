@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 5</p>
+    <h1>The Series for ln(1 + x) and the Computation of Logarithms</h1>
+    <p class="kicker">Lesson 5 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ln(1 + x) = x − x²/2 + x³/3 − x⁴/4 + …   exactly for −1 &lt; x ≤ 1
+ln((1 + y)/(1 − y)) = 2(y + y³/3 + y⁵/5 + …)   for |y| &lt; 1</pre></div>
+<h3>Derivation with an exact remainder</h3>
+<p>The series is due to Nicholas Mercator (Logarithmotechnia, 1668), and was found independently by Newton in 1665; two decades earlier Grégoire de Saint-Vincent and Alphonse Antonio de Sarasa had observed that areas under the hyperbola y = 1/x behave like logarithms. We derive it with an exact remainder. For t ≠ −1 and n ≥ 1 the finite geometric sum gives</p>
+<pre class="math">1/(1 + t) = 1 − t + t² − … + (−t)ⁿ⁻¹ + (−t)ⁿ/(1 + t).</pre>
+<p>Integrating from 0 to x &gt; −1 and using ln(1 + x) = ∫₀ˣ dt/(1 + t),</p>
+<pre class="math">ln(1 + x) = ∑ₖ₌₁ⁿ (−1)ᵏ⁺¹ xᵏ/k + Rₙ(x),   Rₙ(x) = (−1)ⁿ ∫₀ˣ tⁿ/(1 + t) dt.</pre>
+<p><strong>Theorem 5.1</strong>. The series ∑<sub>k≥1</sub> (−1)ᵏ⁺¹ xᵏ/k converges to ln(1 + x) if and only if −1 &lt; x ≤ 1. Its radius of convergence is 1; it converges absolutely for |x| &lt; 1, conditionally at x = 1, and diverges at x = −1.</p>
+<p><strong>Proof</strong>. For 0 ≤ x ≤ 1, 1 + t ≥ 1 on [0, x], so |Rₙ(x)| ≤ ∫₀ˣ tⁿ dt = xⁿ⁺¹/(n + 1) → 0. For −1 &lt; x &lt; 0, write x = −r with 0 &lt; r &lt; 1; on [x, 0] we have 1 + t ≥ 1 − r, so |Rₙ(x)| ≤ rⁿ⁺¹/((n + 1)(1 − r)) → 0. At x = −1 the series is −∑ 1/k, which diverges; for |x| &gt; 1 the terms do not tend to 0. Absolute convergence for |x| &lt; 1 follows from the ratio test, and at x = 1 the series ∑ (−1)ᵏ⁺¹/k is not absolutely convergent. ∎</p>
+<p>At x = 1 we obtain the alternating harmonic series:</p>
+<pre class="math">ln 2 = 1 − 1/2 + 1/3 − 1/4 + … ,</pre>
+<p>with error at most 1/(n + 1) after n terms. It converges far too slowly for computation: a million terms give only six correct decimals.</p>
+<h3>Rearrangements</h3>
+<p>Because the convergence at x = 1 is conditional, the Riemann rearrangement theorem says that the terms can be reordered to converge to any prescribed real number. A classical example takes one positive term followed by two negative terms:</p>
+<pre class="math">1 − 1/2 − 1/4 + 1/3 − 1/6 − 1/8 + 1/5 − 1/10 − 1/12 + … = ½ ln 2.</pre>
+<p><strong>Proof</strong>. Group the terms in threes. The k-th group is 1/(2k − 1) − 1/(4k − 2) − 1/(4k) = 1/(4k − 2) − 1/(4k) = ½(1/(2k − 1) − 1/(2k)). Summing over k gives ½ ln 2 for the grouped series, and since the individual terms tend to 0, the ungrouped series has the same sum. ∎</p>
+<p>More generally (Pringsheim), taking p positive terms followed by q negative terms produces ln 2 + ½ ln(p/q).</p>
+<h3>Acceleration by the inverse hyperbolic tangent</h3>
+<p>Subtracting the series for ln(1 − y) from that for ln(1 + y) cancels the even powers:</p>
+<pre class="math">ln((1 + y)/(1 − y)) = 2 ∑<sub>k≥0</sub> y²ᵏ⁺¹/(2k + 1) = 2 artanh y,   |y| &lt; 1.</pre>
+<p>Every x &gt; 0 can be written as (1 + y)/(1 − y) with y = (x − 1)/(x + 1) ∈ (−1, 1), so this single series computes every natural logarithm. For x = 2 we get y = 1/3, and</p>
+<pre class="math">ln 2 = 2(1/3 + 1/81 + 1/1215 + 1/15309 + …).</pre>
+<p>Four terms give 0.6931348, with error about 1.24·10⁻⁵. Each further term gains roughly a factor of 9 = 1/y² in accuracy. The truncation error after the term with y²ⁿ⁻¹ is bounded by 2y²ⁿ⁺¹/((2n + 1)(1 − y²)).</p>
+<h3>Machin-type formulas</h3>
+<p>To make y even smaller one writes ln 2 as a combination of logarithms of rationals very close to 1. Since artanh(1/26) = ½ ln(27/25), artanh(1/4801) = ½ ln(2401/2400) and artanh(1/8749) = ½ ln(4375/4374), and these ratios factor over the primes 2, 3, 5, 7, one can solve for ln 2 and obtain, for instance,</p>
+<pre class="math">ln 2 = 18 artanh(1/26) − 2 artanh(1/4801) + 8 artanh(1/8749),</pre>
+<p>a formula of the same kind as Machin's formula for π, and used in record computations of ln 2. Here 1/26 makes each term gain a factor of 676, so a few dozen terms deliver dozens of digits. Once ln 2, ln 3, ln 5 and ln 7 are known, ln x for any x can be obtained by range reduction: write x = 2ᵐ·u with u near 1 and evaluate ln u by the artanh series.</p>
+<h3>The arithmetic–geometric mean method</h3>
+<p>For very high precision a quadratically convergent method is used. The arithmetic–geometric mean M(a, b) of a, b &gt; 0 is the common limit of aₙ₊₁ = (aₙ + bₙ)/2, bₙ₊₁ = √(aₙbₙ), and the error roughly squares at each step. A theorem going back to Gauss and made effective by Salamin, Brent and the Borweins states that for large s,</p>
+<pre class="math">ln s = π / (2 M(1, 4/s)) + O(ln s / s²).</pre>
+<p>Choosing s = 2ᵐ·x with m large, and subtracting m ln 2, yields ln x to N digits in O(log N) AGM iterations. This is how arbitrary-precision libraries compute logarithms of millions of digits.</p>
+<h3>The logarithm in floating-point hardware</h3>
+<p>A practical libm logarithm does three things: it extracts the binary exponent m and mantissa u ∈ [1, 2) from the floating-point representation, so that ln x = m ln 2 + ln u; it reduces u further using a small table of values ln cᵢ with u/cᵢ close to 1; and it evaluates ln(u/cᵢ) by a short minimax polynomial. The constant ln 2 is stored in two pieces (a high part with trailing zero bits and a low correction) so that m·ln 2 is computed without rounding error. Correctly rounded logarithms, as in the CORE-MATH project, additionally need to rule out hard-to-round cases.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many terms of the alternating harmonic series are needed to guarantee an error below 10⁻⁴ for ln 2?</div></li><li><span class="mk">(b)</span><div>Use the artanh series with x = 3/2 (so y = 1/5) to compute ln(3/2) to five decimal places, and deduce ln 3 from ln 2 = 0.693147.</div></li><li><span class="mk">(c)</span><div>Find the radius and interval of convergence of ∑<sub>k≥1</sub> xᵏ/(k·3ᵏ), and its sum.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The remainder bound |Rₙ(1)| ≤ 1/(n + 1) guarantees an error below 10⁻⁴ once n + 1 &gt; 10⁴, that is, for n ≥ 10000. (The true error is close to 1/(2n), so in fact about 5000 terms come close to this accuracy.) (b) 2(1/5 + 1/375 + 1/15625 + 1/546875) = 2(0.2 + 0.0026667 + 0.000064 + 0.0000018) = 0.405465, and ln(3/2) = 0.405465…; then ln 3 = ln 2 + ln(3/2) ≈ 0.693147 + 0.405465 = 1.098612. (c) The series is −ln(1 − x/3). The radius is 3; it converges for −3 ≤ x &lt; 3 (conditionally at x = −3, where the sum is −ln 2) and diverges at x = 3.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

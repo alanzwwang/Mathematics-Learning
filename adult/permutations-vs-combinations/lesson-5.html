@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 5</p>
+    <h1>Counting Permutations by Cycles — Stirling Numbers of the First Kind</h1>
+    <p class="kicker">Lesson 5 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">c(n, k) = #{σ ∈ Sₙ : κ(σ) = k}, the unsigned Stirling numbers of the first kind.
+c(n+1, k) = n·c(n, k) + c(n, k−1)
+∑ₖ c(n, k) xᵏ = x(x+1)(x+2)⋯(x+n−1) = x⁽ⁿ⁾</pre></div>
+<h3>The recurrence</h3>
+<p><strong>Definition 5.1</strong>. For integers n, k ≥ 0, the unsigned Stirling number of the first kind c(n, k) is the number of permutations of [n] with exactly k cycles. By convention c(0, 0) = 1, and c(n, 0) = 0 for n ≥ 1.</p>
+<p><strong>Theorem 5.2</strong>. For n ≥ 0 and k ≥ 1, c(n+1, k) = n·c(n, k) + c(n, k−1).</p>
+<p><strong>Proof</strong>. Classify the permutations of [n+1] with k cycles according to the role of n+1. If n+1 is a fixed point, deleting it leaves a permutation of [n] with k − 1 cycles, and this is a bijection; this contributes c(n, k−1). Otherwise n+1 lies in a cycle of length at least 2; deleting it from its cycle (so that its predecessor now maps to its successor) gives a permutation of [n] with k cycles. Conversely, from a permutation of [n] with k cycles we can insert n+1 immediately after any one of the n symbols in its cycle, and each insertion gives a distinct permutation of [n+1] with k cycles. Hence this case contributes n·c(n, k). ∎</p>
+<p>The table for small n follows immediately:</p>
+<pre class="math">n \ k    1     2     3     4     5     6
+1        1
+2        1     1
+3        2     3     1
+4        6    11     6     1
+5       24    50    35    10     1
+6      120   274   225    85    15     1</pre>
+<p>Each row sums to n!, as it must. Some entries have closed forms: c(n, n) = 1; c(n, 1) = (n − 1)!, the number of n-cycles; c(n, n−1) = C(n, 2), since a permutation with n − 1 cycles is a single transposition; and c(n, 2) = (n − 1)! Hₙ₋₁, where Hₘ = 1 + 1/2 + ⋯ + 1/m. (For n = 5 this gives 24 · 25/12 = 50.) A slightly harder count gives c(n, n−2) = 2C(n, 3) + 3C(n, 4) = (3n − 1)C(n, 3)/4, the two terms counting permutations of type (3, 1, …) and (2, 2, 1, …).</p>
+<h3>The generating function</h3>
+<p><strong>Theorem 5.3</strong>. For every n ≥ 0, ∑ₖ c(n, k) xᵏ = x(x + 1)⋯(x + n − 1).</p>
+<p><strong>Proof</strong>. Let Fₙ(x) be the left side. The recurrence of Theorem 5.2 says exactly Fₙ₊₁(x) = (x + n)Fₙ(x), and F₀ = 1. ∎</p>
+<p>A second proof, which explains the factors, constructs a permutation of [n] by inserting the symbols 1, 2, …, n one at a time. When symbol j is inserted, it may start a new cycle (1 way, contributing a factor x to record the new cycle) or be placed after one of the j − 1 symbols already present (j − 1 ways). The j-th factor of the product is therefore x + (j − 1).</p>
+<p>Setting x = −1 shows ∑ₖ (−1)ᵏ c(n, k) = 0 for n ≥ 2, which is the statement that Sₙ has equally many even and odd permutations, since sgn(σ) = (−1)<sup>n − κ(σ)</sup>. The signed Stirling numbers s(n, k) = (−1)<sup>n−k</sup> c(n, k) satisfy</p>
+<pre class="math">(x)ₙ = x(x − 1)⋯(x − n + 1) = ∑ₖ s(n, k) xᵏ,</pre>
+<p>obtained by replacing x by −x in Theorem 5.3. Together with the identity xⁿ = ∑ₖ S(n, k)(x)ₖ for the Stirling numbers of the second kind (Lesson 8), this shows that the lower-triangular matrices [s(n, k)] and [S(n, k)] are mutually inverse: they are the change-of-basis matrices between the bases {xⁿ} and {(x)ₙ} of the polynomial ring ℚ[x].</p>
+<h3>The exponential formula</h3>
+<p>The bivariate exponential generating function packages the whole table:</p>
+<pre class="math">∑ₙ ∑ₖ c(n, k) yᵏ xⁿ/n!  =  (1 − x)<sup>−y</sup>  =  exp( y · ln(1/(1 − x)) ).</pre>
+<p>The first equality is Theorem 5.3, since x⁽ⁿ⁾ evaluated at y is the n-th coefficient of (1 − x)<sup>−y</sup> = ∑ y⁽ⁿ⁾ xⁿ/n!. The second form is an instance of the exponential formula of species theory: a permutation is a set of cycles, the exponential generating function of cycles is ∑ₘ (m − 1)! xᵐ/m! = ∑ₘ xᵐ/m = ln(1/(1 − x)), and taking sets of a structure corresponds to exponentiating, with y marking each cycle. The same formula with restricted cycle lengths gives, for instance, the permutations all of whose cycles have length in a set A: their exponential generating function is exp(∑<sub>m∈A</sub> xᵐ/m).</p>
+<h3>Foata's fundamental transformation</h3>
+<p><strong>Theorem 5.4 (Foata)</strong>. There is a bijection Φ : Sₙ → Sₙ such that the number of cycles of σ equals the number of left-to-right maxima (records) of the word Φ(σ). Consequently the number of permutations of [n] with exactly k records is c(n, k).</p>
+<p><strong>Proof</strong>. Given σ, write each cycle with its largest element first, and order the cycles by increasing first elements. Erase the parentheses to obtain a word Φ(σ). The first element of each cycle is larger than everything before it in the word (it exceeds every element of its own cycle and the leaders of earlier cycles, which in turn exceed every element of their cycles), and every other element is smaller than the leader of its own cycle, which precedes it. So the records of Φ(σ) are exactly the cycle leaders. Conversely, given a word, cut it immediately before each record; the pieces are the cycles, written in standard form, and this inverts Φ. ∎</p>
+<p>For σ = (1 4 3)(2 7 5)(6 8), the standard forms are (4 3 1), (7 5 2), (8 6), and Φ(σ) = 4 3 1 7 5 2 8 6, whose records are 4, 7, 8 — three records for three cycles. Foata's transformation is the prototype of a large family of bijections in permutation statistics that convert cyclic structure (cycles, excedances) into linear structure (records, descents).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find c(6, 3) from the table, and check it against the recurrence.</div></li><li><span class="mk">(b)</span><div>Use the closed form for c(n, n−2) to compute c(7, 5).</div></li><li><span class="mk">(c)</span><div>Compute Φ((1 3)(2 5 4)) and count its records.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) c(6, 3) = 5·c(5, 3) + c(5, 2) = 5 · 35 + 50 = 225. (b) c(7, 5) = (3 · 7 − 1) · C(7, 3)/4 = 20 · 35/4 = 175. (c) Standard forms (3 1) and (5 4 2); ordered by leaders, Φ = 3 1 5 4 2, with records 3 and 5: two records, matching two cycles.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

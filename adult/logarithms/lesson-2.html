@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: The Exponential Function, e, and Real Powers — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 2</p>
+    <h1>The Exponential Function, e, and Real Powers</h1>
+    <p class="kicker">Lesson 2 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">exp := ln⁻¹: ℝ → (0, ∞),   exp′ = exp,   exp(x + y) = exp x · exp y
+e := exp(1) = lim (1 + 1/n)ⁿ = ∑ 1/k! = 2.718281828…
+aˣ := exp(x ln a)   (a &gt; 0, x ∈ ℝ)</pre></div>
+<h3>The inverse function</h3>
+<p>By Proposition 1.5, ln is a strictly increasing differentiable bijection (0, ∞) → ℝ whose derivative never vanishes. By the inverse function theorem its inverse exp: ℝ → (0, ∞) is differentiable, and</p>
+<pre class="math">exp′(x) = 1 / ln′(exp x) = 1 / (1/exp x) = exp x.</pre>
+<p><strong>Proposition 2.1</strong>. exp(0) = 1, exp is strictly increasing and convex, exp′ = exp, and exp(x + y) = exp(x)·exp(y) for all real x, y.</p>
+<p><strong>Proof</strong>. Only the last statement needs comment. Put u = exp x and v = exp y. Then ln(uv) = ln u + ln v = x + y, so uv = exp(x + y). ∎</p>
+<p><strong>Definition 2.2</strong>. The number e is exp(1), the unique real number with ln e = 1.</p>
+<p>Since ln 2 &lt; 1 and ln 4 = 2 ln 2 &gt; 1, we have 2 &lt; e &lt; 4. Sharper information follows below.</p>
+<h3>Real powers</h3>
+<p>For a &gt; 0 and rational r, Corollary 1.4 gives ln(aʳ) = r ln a, so aʳ = exp(r ln a). The right-hand side makes sense for all real r, which motivates the following.</p>
+<p><strong>Definition 2.3</strong>. For a &gt; 0 and x ∈ ℝ, aˣ := exp(x ln a).</p>
+<p>By Corollary 1.4 this agrees with the algebraic definition for rational x, and it is the unique continuous extension of that function from ℚ to ℝ. In particular eˣ = exp(x ln e) = exp(x), so the notation eˣ is now justified. The laws of exponents follow at once: aˣ⁺ʸ = aˣaʸ, (aˣ)ʸ = aˣʸ, (ab)ˣ = aˣbˣ, and ln(aˣ) = x ln a for all real x. Differentiating, (aˣ)′ = aˣ ln a and, for fixed real r and x &gt; 0, (xʳ)′ = (exp(r ln x))′ = xʳ · r/x = r xʳ⁻¹. The power rule for arbitrary real exponents is thus a corollary of the logarithm.</p>
+<h3>The number e as a limit</h3>
+<p><strong>Theorem 2.4</strong>. For every real x, lim<sub>n→∞</sub> (1 + x/n)ⁿ = eˣ.</p>
+<p><strong>Proof</strong>. For x = 0 there is nothing to prove. Otherwise, for n &gt; |x| the base is positive and ln((1 + x/n)ⁿ) = n ln(1 + x/n) = x · [ln(1 + h) − ln 1]/h with h = x/n. As n → ∞, h → 0, and the difference quotient tends to ln′(1) = 1. So the logarithm tends to x, and by continuity of exp the sequence tends to eˣ. ∎</p>
+<p>The convergence is slow. From ln(1 + 1/n) = 1/n − 1/(2n²) + O(1/n³) (Lesson 5) we get n ln(1 + 1/n) = 1 − 1/(2n) + O(1/n²), hence (1 + 1/n)ⁿ = e(1 − 1/(2n) + O(1/n²)). For n = 1000 the value is 2.716923932…, which is short of e = 2.718281828… by 0.001358, close to the predicted e/2000 ≈ 0.001359.</p>
+<h3>The number e as a series</h3>
+<p><strong>Theorem 2.5</strong>. For every real x, eˣ = ∑ₖ₌₀<sup>∞</sup> xᵏ/k!, the series converging absolutely and uniformly on compact sets.</p>
+<p><strong>Proof</strong>. Fix x and n. Since exp is its own derivative, every derivative of exp is exp, so Taylor's theorem with Lagrange remainder gives eˣ = ∑ₖ₌₀ⁿ xᵏ/k! + e<sup>ξ</sup> xⁿ⁺¹/(n + 1)! for some ξ between 0 and x. The remainder is bounded by e<sup>|x|</sup>|x|ⁿ⁺¹/(n + 1)!, which tends to 0 because factorials outgrow geometric sequences. Uniformity on [−A, A] follows from the same bound with |x| replaced by A. ∎</p>
+<p>At x = 1 the series converges very fast: the error after the term 1/n! is less than 3/(n + 1)!. Summing to 1/10! gives 2.7182818011, within 3·10⁻⁸ of e.</p>
+<p><strong>Theorem 2.6 (Euler, 1737; Fourier's proof)</strong>. e is irrational.</p>
+<p><strong>Proof</strong>. Suppose e = a/b with positive integers a, b. Let x = b!(e − ∑ₖ₌₀ᵇ 1/k!). Then x is an integer, because b!e = a(b − 1)! and b!/k! is an integer for k ≤ b. On the other hand</p>
+<pre class="math">x = ∑<sub>k&gt;b</sub> b!/k! = 1/(b+1) + 1/((b+1)(b+2)) + … &lt; ∑<sub>j≥1</sub> 1/(b+1)ʲ = 1/b ≤ 1,</pre>
+<p>and x &gt; 0. An integer strictly between 0 and 1 cannot exist. ∎</p>
+<p>Much more is true: e is transcendental (Hermite, 1873), and Lindemann (1882) extended Hermite's method to show that e<sup>α</sup> is transcendental for every nonzero algebraic α. Taking α = iπ, where e<sup>iπ</sup> = −1 is algebraic, yields the transcendence of π. The Lindemann–Weierstrass theorem also implies that ln a is transcendental for every algebraic a ≠ 0, 1.</p>
+<h3>Uniqueness of exp as a solution of y′ = y</h3>
+<p><strong>Proposition 2.7</strong>. If f: ℝ → ℝ is differentiable with f′ = f and f(0) = c, then f(x) = c eˣ.</p>
+<p><strong>Proof</strong>. (f(x)e⁻ˣ)′ = f′(x)e⁻ˣ − f(x)e⁻ˣ = 0, so f(x)e⁻ˣ is constant, equal to its value c at 0. ∎</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Prove that (1 + 1/n)ⁿ &lt; e &lt; (1 + 1/n)ⁿ⁺¹ for every n ≥ 1, using Proposition 1.6.</div></li><li><span class="mk">(b)</span><div>Compute lim<sub>n→∞</sub> (1 − 3/n)²ⁿ.</div></li><li><span class="mk">(c)</span><div>Show that xˣ = exp(x ln x) has a unique minimum on (0, ∞) and find it.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Apply Proposition 1.6 with x = 1 + 1/n: 1 − n/(n + 1) = 1/(n + 1) &lt; ln(1 + 1/n) &lt; 1/n. Multiplying by n gives n ln(1 + 1/n) &lt; 1, so (1 + 1/n)ⁿ &lt; e; multiplying by n + 1 gives (n + 1) ln(1 + 1/n) &gt; 1, so (1 + 1/n)ⁿ⁺¹ &gt; e. (b) (1 − 3/n)²ⁿ = ((1 − 3/n)ⁿ)² → (e⁻³)² = e⁻⁶ ≈ 0.00248. (c) (x ln x)′ = ln x + 1 vanishes only at x = 1/e, where the second derivative 1/x is positive; the minimum value is (1/e)<sup>1/e</sup> = e<sup>−1/e</sup> ≈ 0.6922.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

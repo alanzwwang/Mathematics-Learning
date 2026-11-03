@@ -1,0 +1,13 @@
+{
+  "blurb": "Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.",
+  "pics": [
+    { "img": "img/adult/non-euclidean-geometry-1.jpg", "alt": "Oil portrait of Nikolai Lobachevsky in a dark coat with a decoration at his collar",
+      "caption": "Nikolai Lobachevsky (1792–1856), portrait by Lev Kryukov from the first half of the 19th century. Lobachevsky presented his hyperbolic geometry at Kazan University in 1826 and published it in 1829–1830.",
+      "title": "Lobachevsky.jpg", "page": "https://commons.wikimedia.org/wiki/File:Lobachevsky.jpg",
+      "license": "Public domain", "artist": "Lev Kryukov" },
+    { "img": "img/adult/non-euclidean-geometry-2.png", "alt": "Poincaré disk with many thin circular arcs through one point, none of which meets a thick blue arc",
+      "caption": "The Poincaré disk model: geodesics are arcs of circles orthogonal to the boundary circle. Infinitely many geodesics (thin arcs) pass through one point without meeting the blue geodesic, so the parallel postulate fails.",
+      "title": "Poincare disc hyperbolic parallel lines.svg", "page": "https://commons.wikimedia.org/wiki/File:Poincare_disc_hyperbolic_parallel_lines.svg",
+      "license": "Public domain", "artist": "Trevorgoodchild" }
+  ]
+}

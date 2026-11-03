@@ -582,7 +582,7 @@ Worked example 1 — the fence against the wall. A farmer has 2,400 m of fencing
                 A = 600 × 1,200 = 720,000 m²
 
         That is 72 hectares of pen from 2,400 m of fence — and the proof
-        that no other shape beats it is the derivative, not a guess.
+        that no other rectangle beats it is the derivative, not a guess.
 
 Worked example 2 — the open box. From a 36 cm square sheet of cardboard, cut equal squares of side x from the four corners and fold up the flaps to make an open-top box. Which x gives the biggest volume?
 

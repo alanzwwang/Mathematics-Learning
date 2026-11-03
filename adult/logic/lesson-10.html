@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Computability — Turing Machines and the Halting Problem — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 10</p>
+    <h1>Computability — Turing Machines and the Halting Problem</h1>
+    <p class="kicker">Lesson 10 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A Turing machine is a finite control acting on an unbounded tape; it formalises &quot;algorithm&quot;.
+The halting problem K = {e : φₑ(e) halts} is computably enumerable but not computable.
+Church–Turing: validity of first-order sentences is undecidable.</pre></div>
+<h3>Turing machines</h3>
+<p>A Turing machine M consists of a finite set Q of states with a start state q₀ and a halting state q<sub>h</sub>, a finite tape alphabet Γ containing a blank symbol ␣ and the input alphabet, and a transition function δ : (Q − {q<sub>h</sub>}) × Γ → Q × Γ × {L, R}. A configuration records the state, the tape contents (finitely many nonblank cells) and the head position; δ determines a unique successor configuration. M halts on input w if, started in q₀ with w on the tape and the head on its first symbol, it eventually enters q<sub>h</sub>. A partial function f : ℕ ⇀ ℕ is computable (Turing computable, partial recursive) if some machine, on input the binary representation of n, halts with f(n) on the tape when f(n) is defined and runs forever otherwise. A set is computable (decidable, recursive) if its characteristic function is computable, and computably enumerable (c.e., recursively enumerable) if it is the domain of a computable partial function, equivalently the range of a computable function or empty.</p>
+<p>Turing introduced the machines in 1936 by analysing what a human computer does with pencil and paper. Independently, Church defined the λ-definable functions and Gödel and Kleene the general recursive functions; all three classes were shown to coincide. The Church–Turing thesis asserts that this class is exactly the class of functions computable by any effective procedure. It is not a theorem, since &quot;effective&quot; is informal, but it is universally accepted.</p>
+<h3>Universality and enumeration</h3>
+<p>Machines are finite objects and can be coded by natural numbers. Fix such a coding and let φₑ be the partial function computed by the machine with code e (φₑ undefined everywhere if e codes nothing). When the index is a compound expression we use Kleene's notation {e}(n) for φₑ(n).</p>
+<p><strong>Theorem 10.1 (Universal machine)</strong>. There is a single machine U such that U(e, n) ≃ φₑ(n) for all e and n, meaning both sides are undefined or both are defined and equal.</p>
+<p>U simply decodes e and simulates the coded machine step by step. This is the theoretical origin of the stored-program computer. A second fundamental fact is Kleene's s-m-n theorem: there is a computable total function s such that {s(e, m)}(n) ≃ φₑ(m, n), which lets one hard-wire parameters into programs.</p>
+<h3>The halting problem</h3>
+<p><strong>Theorem 10.2 (Turing 1936)</strong>. The set K = {e : φₑ(e) is defined} is c.e. but not computable. Hence the halting set H = {(e, n) : φₑ(n) is defined} is not computable.</p>
+<p><strong>Proof</strong>. K is c.e.: run U(e, e) and accept if it halts. Suppose K were computable. Then the function g(e) = 0 if e ∉ K, undefined if e ∈ K, would be computable: decide whether e ∈ K and, if so, enter an infinite loop. Let g = φ<sub>d</sub>. Then d ∈ K iff φ<sub>d</sub>(d) is defined iff g(d) is defined iff d ∉ K, a contradiction. ∎</p>
+<p>The argument is Cantor's diagonal argument applied to the list φ₀, φ₁, φ₂, … of computable functions. A set A is computable iff both A and its complement are c.e. (Post): run the two enumerations in parallel. So the complement of K is not c.e.</p>
+<h3>Reductions and Rice's theorem</h3>
+<p>A many-one reduction from A to B is a total computable f with x ∈ A iff f(x) ∈ B. If A reduces to B and B is computable, so is A. Using the s-m-n theorem one reduces K to many natural problems.</p>
+<p><strong>Theorem 10.3 (Rice 1953)</strong>. Let 𝒞 be a set of partial computable functions that is neither empty nor all of them. Then {e : φₑ ∈ 𝒞} is not computable.</p>
+<p><strong>Proof</strong>. We may assume the nowhere-defined function ∅ is not in 𝒞 (otherwise use the complement). Fix ψ ∈ 𝒞. By s-m-n there is a computable f with {f(e)}(n) ≃ ψ(n) if φₑ(e) halts and undefined otherwise (first run φₑ(e), then ψ(n)). Then e ∈ K iff the function computed by f(e) is ψ iff f(e) ∈ {e : φₑ ∈ 𝒞}. ∎</p>
+<p>So no algorithm decides, for an arbitrary program, whether it computes a total function, whether it ever outputs 7, or whether it is equivalent to a given program. This is the theoretical reason why perfect static analysis of software is impossible.</p>
+<h3>Undecidability of first-order logic</h3>
+<p><strong>Theorem 10.4 (Church 1936, Turing 1936)</strong>. For a suitable finite language L, the set of valid L-sentences is not computable.</p>
+<p>Proof idea. Given a machine M and input w, effectively write a sentence σ(M, w) that describes the computation of M: a binary relation symbol for the successor of time steps, predicate symbols Tape<sub>a</sub>(t, x) (at time t, cell x holds a), State<sub>q</sub>(t) and Head(t, x), and axioms stating that the initial configuration is correct and that each configuration follows from the previous one by δ. Let σ(M, w) be the conjunction of these axioms implies ∃t State<sub>h</sub>(t), with h the halting state. If M halts, the axioms force the actual finite computation to be embedded in every model and σ(M, w) is valid; if M does not halt, the standard model of the computation falsifies it. So halting reduces to validity. ∎</p>
+<p>Thus Hilbert's Entscheidungsproblem has a negative answer. Validity is c.e. (by completeness) but not computable; satisfiability in the finite (Trakhtenbrot 1950) is c.e. but its complement is not, so validity in finite structures is not even c.e. — the completeness theorem fails for finite model theory. By contrast, many fragments are decidable: monadic first-order logic, Presburger arithmetic Th(ℕ, +), and the theory of real closed fields Th(ℝ, +, ·, &lt;) (Tarski).</p>
+<h3>Other undecidable problems</h3>
+<p>The same method yields undecidability in ordinary mathematics: the word problem for finitely presented groups (Novikov, Boone, 1950s); Hilbert's tenth problem, whether a polynomial equation with integer coefficients has an integer solution (Matiyasevich 1970, building on Davis, Putnam and Robinson: every c.e. set is Diophantine); the tiling problem for Wang tiles (Berger 1966); and the mortality problem for 3 × 3 integer matrices (Paterson 1970).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that the set Tot = {e : φₑ is total} is not computable.</div></li><li><span class="mk">(b)</span><div>Is the set {e : φₑ(0) halts within e² steps} computable?</div></li><li><span class="mk">(c)</span><div>Show that if A and its complement are both c.e., then A is computable.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Totality is a nontrivial property of the function φₑ (some computable functions are total, some are not), so Rice's theorem applies. (In fact Tot is not even c.e.: it is Π₂-complete.) (b) Yes. Simulate φₑ(0) for e² steps with the universal machine and check; this always terminates. (c) Given x, run enumerations of A and of its complement alternately, one step each; x appears in exactly one of them after finitely many steps, and the algorithm answers accordingly.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

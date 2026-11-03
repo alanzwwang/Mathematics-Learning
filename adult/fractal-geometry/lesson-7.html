@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 7</p>
+    <h1>Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle</h1>
+    <p class="kicker">Lesson 7 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Upper bounds come from exhibiting covers.
+Lower bounds come from measures:  μ(U) ≤ c|U|ˢ for all small U  ⇒  𝓗ˢ(F) ≥ μ(F)/c.</pre></div>
+<h3>Upper bounds are easy, lower bounds are hard</h3>
+<p>To show dim<sub>H</sub> F ≤ s it suffices to exhibit, for each δ, one δ-cover with ∑|U<sub>i</sub>|ˢ bounded. To show dim<sub>H</sub> F ≥ s one must control every cover, and covers can be cleverly shaped. The standard way around this is to construct a measure on F that is spread out evenly enough that no set can carry much of it relative to its size.</p>
+<p><strong>Theorem 7.1 (Mass distribution principle)</strong>. Let μ be a finite Borel measure with μ(F) &gt; 0, and suppose there are c &gt; 0 and δ₀ &gt; 0 such that μ(U) ≤ c|U|ˢ for all sets U with |U| ≤ δ₀. Then 𝓗ˢ(F) ≥ μ(F)/c, and in particular dim<sub>H</sub> F ≥ s.</p>
+<p><strong>Proof</strong>. If {U<sub>i</sub>} is any δ-cover of F with δ ≤ δ₀, then μ(F) ≤ μ(⋃U<sub>i</sub>) ≤ ∑ μ(U<sub>i</sub>) ≤ c ∑|U<sub>i</sub>|ˢ (replacing each U<sub>i</sub> by its closure if necessary, so that it is Borel, without changing its diameter). Taking the infimum, 𝓗ˢ<sub>δ</sub>(F) ≥ μ(F)/c for all δ ≤ δ₀, and letting δ → 0 gives the claim. ∎</p>
+<h3>The middle-third Cantor set</h3>
+<p>Let C = ⋂<sub>k</sub> C<sub>k</sub>, where C<sub>k</sub> is the union of the 2<sup>k</sup> closed intervals of length 3<sup>−k</sup> remaining after k steps of removing open middle thirds. Put s = log 2 / log 3, so that 3ˢ = 2 and 2<sup>k</sup> (3<sup>−k</sup>)ˢ = 1.</p>
+<p><strong>Theorem 7.2</strong>. 1/2 ≤ 𝓗ˢ(C) ≤ 1. In particular dim<sub>H</sub> C = dim<sub>B</sub> C = log 2 / log 3 ≈ 0.6309.</p>
+<p><strong>Proof</strong>. Upper bound: the 2<sup>k</sup> level-k intervals cover C and have diameter 3<sup>−k</sup>, so 𝓗ˢ<sub>3<sup>−k</sup></sub>(C) ≤ 2<sup>k</sup> 3<sup>−ks</sup> = 1. Letting k → ∞, 𝓗ˢ(C) ≤ 1.</p>
+<p>Lower bound: let μ be the Cantor measure, the unique Borel probability measure giving mass 2<sup>−k</sup> to each level-k interval (equivalently, the distribution of ∑ 2X<sub>k</sub> 3<sup>−k</sup> with X<sub>k</sub> independent fair bits, or the Lebesgue–Stieltjes measure of the Cantor function). Two facts about the geometry: level-k intervals have length 3<sup>−k</sup>, and any two distinct level-k intervals are separated by a gap of length at least 3<sup>−k</sup>, since the gaps created at step j ≤ k have length 3<sup>−j</sup> ≥ 3<sup>−k</sup>.</p>
+<p>Let U be a set with 0 &lt; |U| &lt; 1, and let k ≥ 0 be the integer with 3<sup>−(k+1)</sup> ≤ |U| &lt; 3<sup>−k</sup>. Because the gaps between level-k intervals are at least 3<sup>−k</sup> &gt; |U|, the set U meets at most one level-k interval. Hence</p>
+<pre class="math">μ(U) ≤ 2<sup>−k</sup> = (3<sup>−k</sup>)ˢ = 3ˢ (3<sup>−(k+1)</sup>)ˢ ≤ 3ˢ |U|ˢ = 2|U|ˢ</pre>
+<p>By the mass distribution principle with c = 2, 𝓗ˢ(C) ≥ μ(C)/2 = 1/2. Since 0 &lt; 𝓗ˢ(C) &lt; ∞, dim<sub>H</sub> C = s. The box dimension is squeezed between dim<sub>H</sub> C = s and the covering bound N<sub>3<sup>−k</sup></sub>(C) ≤ 2<sup>k</sup>, so it equals s too. ∎</p>
+<p>With more work one shows 𝓗ˢ(C) = 1 exactly: one reduces an arbitrary finite cover by intervals to a cover by level-k intervals without increasing ∑|U<sub>i</sub>|ˢ, using the concavity of t ↦ tˢ (Falconer, Fractal Geometry, Example 2.7, proves the bounds above and outlines the sharp value). Exact values of Hausdorff measures are known for few fractals; for the Sierpinski triangle only numerical bounds are known.</p>
+<h3>Frostman's lemma</h3>
+<p>The mass distribution principle has a converse, which makes it the universal method.</p>
+<p><strong>Theorem 7.3 (Frostman, 1935)</strong>. Let F ⊂ ℝⁿ be a Borel set with 𝓗ˢ(F) &gt; 0. Then there exist a compact E ⊂ F, a Borel probability measure μ supported on E, and a constant c, such that μ(B(x, r)) ≤ c rˢ for all x ∈ ℝⁿ and r &gt; 0.</p>
+<p>For compact F the proof builds μ on dyadic cubes: start at a fine scale 2<sup>−k</sup> with mass |Q|ˢ on each dyadic cube Q of side 2<sup>−k</sup> meeting F, then move up the dyadic tree, scaling down the mass in any cube Q whose total exceeds |Q|ˢ. The resulting measure satisfies μ(Q) ≤ |Q|ˢ for every dyadic cube, and the maximal cubes in which a scaling occurred, together with the unscaled fine cubes, cover F and carry their full allotted mass; so the total mass is at least a constant times the dyadic Hausdorff content of F, which is positive. A weak-* limit as k → ∞ gives the measure.</p>
+<h3>The energy method</h3>
+<h3>For a measure μ, the s-energy is</h3>
+<pre class="math">I<sub>s</sub>(μ) = ∫∫ |x − y|<sup>−s</sup> dμ(x) dμ(y)</pre>
+<p><strong>Theorem 7.4</strong>. If F supports a probability measure with I<sub>s</sub>(μ) &lt; ∞, then dim<sub>H</sub> F ≥ s. Conversely, if dim<sub>H</sub> F &gt; s, then F supports a probability measure with I<sub>s</sub>(μ) &lt; ∞. Hence dim<sub>H</sub> F = sup{ s : F supports μ with I<sub>s</sub>(μ) &lt; ∞ }, the capacitary characterisation of Hausdorff dimension.</p>
+<p><strong>Proof of the first statement</strong>. The potential φ(x) = ∫|x − y|<sup>−s</sup> dμ(y) is finite for μ-almost every x, so there is M with E = {x : φ(x) ≤ M} satisfying μ(E) &gt; 1/2. For x ∈ E and any r &gt; 0, μ(B(x, r)) r<sup>−s</sup> ≤ ∫<sub>B(x,r)</sub> |x − y|<sup>−s</sup> dμ(y) ≤ M. If U meets E and x ∈ U ∩ E, then U ⊂ B(x, |U|), so the restriction ν of μ to E satisfies ν(U) ≤ M|U|ˢ. The mass distribution principle applied to ν gives 𝓗ˢ(F) ≥ ν(E)/M &gt; 0. ∎</p>
+<p>For the converse, apply Frostman's lemma at a dimension t with s &lt; t &lt; dim<sub>H</sub> F: if μ(B(x, r)) ≤ c rᵗ, then ∫|x − y|<sup>−s</sup> dμ(y) = ∫₀<sup>∞</sup> μ{y : |x − y|<sup>−s</sup> &gt; u} du is bounded uniformly in x, since the integrand is at most min{1, c u<sup>−t/s</sup>} and t/s &gt; 1. The energy method is the main tool for random fractals, because the expected energy of a random measure is often computable by Fubini's theorem even when nothing about individual covers is. We use it for Brownian motion in Lesson 12.</p>
+<h3>Digit frequencies</h3>
+<p><strong>Theorem 7.5 (Besicovitch 1934, Eggleston 1949)</strong>. Let b ≥ 2 and let p₀, …, p<sub>b−1</sub> ≥ 0 sum to 1. The set of x ∈ [0, 1] whose base-b expansion contains each digit i with asymptotic frequency p<sub>i</sub> has Hausdorff dimension</p>
+<pre class="math">−∑<sub>i</sub> p<sub>i</sub> log p<sub>i</sub> / log b</pre>
+<p>that is, its entropy divided by log b. For example, the numbers whose binary digits have asymptotic frequency 1/3 of ones have dimension (log 3 − (2/3) log 2)/log 2 ≈ 0.9183. The proof of the lower bound applies a local form of the mass distribution principle, due to Billingsley, to the Bernoulli measure with weights p<sub>i</sub>, using the strong law of large numbers to estimate the measure of b-adic intervals.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that the middle-λ Cantor set (remove the open middle interval of relative length λ at each stage, 0 &lt; λ &lt; 1) has Hausdorff dimension log 2 / log(2/(1 − λ)). Evaluate it for λ = 1/2.</div></li><li><span class="mk">(b)</span><div>Find the Hausdorff dimension of the set of x ∈ [0, 1] whose decimal expansion never uses the digit 7.</div></li><li><span class="mk">(c)</span><div>Explain why the mass distribution principle is needed even though covers by level-k intervals give the correct exponent.</div></li><li><span class="mk">(d)</span><div>Show that the Cantor measure satisfies μ([0, x]) = xˢ for x of the form 3<sup>−k</sup>, and deduce that μ(B(0, r)) ≤ 2rˢ for all 0 &lt; r &lt; 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The set is generated by two similarities of ratio r = (1 − λ)/2 with disjoint images. The level-k intervals have length r<sup>k</sup> and are separated by gaps of length at least λ r<sup>k−1</sup> &gt; λ r<sup>k</sup>. Repeating the proof of Theorem 7.2 with this separation, a set U with λ r<sup>k+1</sup> ≤ |U| &lt; λ r<sup>k</sup> meets at most one level-k interval, so μ(U) ≤ 2<sup>−k</sup> = (r<sup>k</sup>)ˢ ≤ (λr)<sup>−s</sup>|U|ˢ, where s = log 2/log(1/r). Hence dim<sub>H</sub> = log 2 / log(2/(1 − λ)); for λ = 1/2 it is log 2 / log 4 = 1/2. (b) Nine similarities of ratio 1/10 satisfying the OSC with V = (0, 1), so log 9 / log 10 ≈ 0.9542. (c) Covers by level-k intervals give only an upper bound; an arbitrary cover might use sets of many different sizes and be more efficient. The measure controls every cover simultaneously. (d) [0, 3<sup>−k</sup>] is a level-k interval, of mass 2<sup>−k</sup> = (3<sup>−k</sup>)ˢ. For 0 &lt; r &lt; 1, choose k with 3<sup>−(k+1)</sup> ≤ r &lt; 3<sup>−k</sup>; the part of C in B(0, r) lies in [0, r] ⊂ [0, 3<sup>−k</sup>], so μ(B(0, r)) ≤ 2<sup>−k</sup> = 2·(3<sup>−(k+1)</sup>)ˢ ≤ 2rˢ.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

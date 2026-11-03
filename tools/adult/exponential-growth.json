@@ -1,0 +1,13 @@
+{
+  "blurb": "Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.",
+  "pics": [
+    { "img": "img/adult/exponential-growth-1.jpg", "alt": "Title page of the 1798 first edition of An Essay on the Principle of Population",
+      "caption": "Title page of the first edition of Thomas Robert Malthus's An Essay on the Principle of Population (London: J. Johnson, 1798), published anonymously. Its contrast between geometric growth of population and arithmetic growth of subsistence motivated the logistic models of Verhulst and later demographers.",
+      "title": "An Essay on the Principle of Population.jpg", "page": "https://commons.wikimedia.org/wiki/File:An_Essay_on_the_Principle_of_Population.jpg",
+      "license": "Public domain", "artist": "Thomas Robert Malthus" },
+    { "img": "img/adult/exponential-growth-2.png", "alt": "Early twentieth-century table of the thorium, actinium and radium decay series with half-lives and radiations",
+      "caption": "Table of the thorium, actinium and radium decay series after Ernest Rutherford, from Popular Science Monthly, volume 73 (1908), listing each product's time to be half transformed (its half-life) and its radiations. The values reflect the knowledge of the time; radium's half-life, given here as 1,200 years, is now known to be about 1,600 years.",
+      "title": "PSM V73 D062 Half life and radiation chart by rutherford.png", "page": "https://commons.wikimedia.org/wiki/File:PSM_V73_D062_Half_life_and_radiation_chart_by_rutherford.png",
+      "license": "Public domain", "artist": "Unknown author" }
+  ]
+}

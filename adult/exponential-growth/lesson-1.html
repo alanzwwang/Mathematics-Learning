@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 1</p>
+    <h1>The Equation y′ = ky — Existence, Uniqueness and Characterization</h1>
+    <p class="kicker">Lesson 1 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">y′ = ky,  y(0) = y₀   has the unique solution   y(t) = y₀ e<sup>kt</sup>  on all of ℝ</pre></div>
+<p>Exponential growth is, before anything else, a statement about rates: a quantity grows exponentially when its rate of change is proportional to its current size. The proportionality constant k is the relative (or per-capita) growth rate, since k = y′/y = (d/dt) ln|y|. The sign of k distinguishes growth (k &gt; 0) from decay (k &lt; 0).</p>
+<h3>Defining the exponential</h3>
+<p>There are several equivalent definitions of the exponential function. For definiteness we take the power series</p>
+<pre class="math">exp(x) = ∑<sub>n=0</sub><sup>∞</sup> xⁿ/n!</pre>
+<p>which converges absolutely for every real (indeed complex) x by the ratio test, since |x|<sup>n+1</sup>/(n+1)! divided by |x|ⁿ/n! equals |x|/(n+1) → 0. The convergence is uniform on bounded sets, so the series may be differentiated term by term, giving exp′ = exp and exp(0) = 1. The Cauchy product of two absolutely convergent series, together with the binomial theorem, gives the addition law</p>
+<pre class="math">exp(x) exp(y) = ∑<sub>n</sub> ∑<sub>j+k=n</sub> xʲ yᵏ/(j! k!) = ∑<sub>n</sub> (x + y)ⁿ/n! = exp(x + y)</pre>
+<p>From the addition law, exp(x) exp(−x) = exp(0) = 1, so exp never vanishes; being continuous with exp(0) = 1 it is therefore strictly positive. Since exp′ = exp &gt; 0 the function is strictly increasing, exp(x) ≥ 1 + x for x ≥ 0 shows it is unbounded above, and exp(−x) = 1/exp(x) shows it tends to 0 at −∞. Hence exp is a bijection ℝ → (0, ∞), and its inverse is the natural logarithm. We define e = exp(1) and, for a &gt; 0, aˣ = exp(x ln a); for rational x this agrees with the algebraic definition of powers, by the addition law.</p>
+<p><strong>Theorem 1.1 (uniqueness)</strong>. Let k ∈ ℝ and let y be a differentiable function on an interval I containing 0 with y′ = ky on I and y(0) = y₀. Then y(t) = y₀ e<sup>kt</sup> for every t ∈ I.</p>
+<p><strong>Proof</strong>. Put u(t) = y(t) e<sup>−kt</sup>. Then u is differentiable and u′(t) = y′(t) e<sup>−kt</sup> − k y(t) e<sup>−kt</sup> = (y′ − ky) e<sup>−kt</sup> = 0 on I. By the mean value theorem u is constant on I, so u(t) = u(0) = y₀ and y(t) = y₀ e<sup>kt</sup>. Conversely y₀ e<sup>kt</sup> is a solution, so a solution exists, is unique, and is defined on all of ℝ. ∎</p>
+<p>The integrating-factor argument is so short that it hides the general principle. The equation y′ = F(t, y) with F(t, y) = ky satisfies a global Lipschitz condition |F(t, y) − F(t, z)| ≤ |k| |y − z|, and the Picard–Lindelöf theorem guarantees a unique solution for every initial condition. It is instructive to see Picard iteration produce the exponential series. Write the problem as the integral equation y(t) = y₀ + ∫₀ᵗ k y(s) ds and iterate from φ₀(t) = y₀:</p>
+<pre class="math">φ₁(t) = y₀(1 + kt)
+φ₂(t) = y₀(1 + kt + k²t²/2)
+φₙ(t) = y₀ ∑<sub>j=0</sub><sup>n</sup> (kt)ʲ/j!</pre>
+<p>so the Picard iterates are exactly the partial sums of y₀ exp(kt). The standard estimate |φₙ₊₁(t) − φₙ(t)| ≤ |y₀| (|k||t|)<sup>n+1</sup>/(n+1)! is the error bound of the Taylor series.</p>
+<h3>Characterization by the functional equation</h3>
+<p>The addition law exp(x + y) = exp(x) exp(y) characterizes the exponential among well-behaved functions. This is the mathematical form of the statement that exponential growth is growth by a fixed factor over every interval of fixed length.</p>
+<p><strong>Theorem 1.2 (Cauchy)</strong>. Let f : ℝ → ℝ be continuous, not identically zero, with f(x + y) = f(x) f(y) for all x, y. Then a = f(1) &gt; 0 and f(x) = aˣ for all x.</p>
+<p><strong>Proof</strong>. If f(x₀) = 0 for some x₀ then f(x) = f(x₀) f(x − x₀) = 0 for all x, which is excluded. So f never vanishes, and f(x) = f(x/2)² &gt; 0. Then g = ln f is continuous and additive: g(x + y) = g(x) + g(y). Additivity gives g(nx) = n g(x) for integers n, hence g(m/n) = (m/n) g(1) for rationals, and continuity extends this to g(x) = x g(1) for all real x. Therefore f(x) = exp(x ln a) = aˣ with a = f(1). ∎</p>
+<p>Continuity can be weakened to measurability, or even to boundedness on some interval; without any regularity hypothesis, however, the axiom of choice produces additive functions g that are not linear (via a Hamel basis of ℝ over ℚ), and exp∘g is then a pathological solution of the multiplicative equation. Every such pathological solution is unbounded on every interval and has a graph dense in the upper half-plane {y &gt; 0}.</p>
+<h3>The relative rate as the invariant</h3>
+<p>If y &gt; 0 solves y′ = k(t) y with a continuous time-dependent rate, the same integrating-factor argument gives</p>
+<pre class="math">y(t) = y(0) exp( ∫₀ᵗ k(s) ds )</pre>
+<p>and the long-run exponential growth rate is lim (1/t) ln y(t) = lim (1/t) ∫₀ᵗ k(s) ds, the time average of the instantaneous rate, whenever that limit exists. The doubling time of a process with constant rate k &gt; 0 is T₂ = ln 2/k, and the half-life of a process with rate −λ &lt; 0 is T½ = ln 2/λ.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the solution of y′ = −3y with y(2) = 5, and state the time at which y = 5/e.</div></li><li><span class="mk">(b)</span><div>Show that the solution of y′ = (1 + cos t) y, y(0) = 1, satisfies lim (1/t) ln y(t) = 1.</div></li><li><span class="mk">(c)</span><div>Show that a differentiable f with f(x + y) = f(x) f(y) and f(0) = 1 satisfies f′ = f′(0) f, and deduce the form of f from Theorem 1.1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) y(t) = 5 e<sup>−3(t − 2)</sup>; y = 5/e when 3(t − 2) = 1, that is t = 7/3. (b) ln y(t) = t + sin t, so (1/t) ln y(t) = 1 + (sin t)/t → 1. (c) f′(x) = lim<sub>h→0</sub> (f(x + h) − f(x))/h = f(x) lim (f(h) − 1)/h = f(x) f′(0); by Theorem 1.1, f(x) = e<sup>cx</sup> with c = f′(0).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

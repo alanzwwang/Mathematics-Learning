@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Hilbert's Axioms and the Foundations of Geometry — Geometry (Advanced)</title>
+<meta name="description" content="Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#14b8a6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Geometry</a> › Lesson 1</p>
+    <h1>Hilbert's Axioms and the Foundations of Geometry</h1>
+    <p class="kicker">Lesson 1 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Hilbert's Axioms and the Foundations of Geometry">1</a><a href="lesson-2.html" title="Lesson 2: Isometries of the Euclidean Plane">2</a><a href="lesson-3.html" title="Lesson 3: Classification of Plane Isometries">3</a><a href="lesson-4.html" title="Lesson 4: Symmetry Groups, Lattices and the Crystallographic Restriction">4</a><a href="lesson-5.html" title="Lesson 5: Triangle Centres, the Euler Line and the Nine-Point Circle">5</a><a href="lesson-6.html" title="Lesson 6: Ceva, Menelaus and Routh">6</a><a href="lesson-7.html" title="Lesson 7: Power of a Point, Radical Axes and Inversion">7</a><a href="lesson-8.html" title="Lesson 8: Projective Geometry, Cross-Ratio, Desargues and Pappus">8</a><a href="lesson-9.html" title="Lesson 9: The Euler Characteristic and Angular Defect">9</a><a href="lesson-10.html" title="Lesson 10: Regular Polytopes and the Platonic Solids">10</a><a href="lesson-11.html" title="Lesson 11: Dissections, Bolyai–Gerwien and Hilbert's Third Problem">11</a><a href="lesson-12.html" title="Lesson 12: Constructibility with Straightedge and Compass">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Euclidean plane geometry = incidence + order + congruence + continuity + parallels.
+Its models are exactly the Cartesian planes F² over suitable ordered fields F,
+and with full continuity the model is unique: ℝ².</pre></div>
+<h3>Why Euclid needed repairing</h3>
+<p>Euclid's Elements (c. 300 BC) proves 465 propositions from five postulates and five common notions. Modern readers have found many hidden assumptions. In Proposition I.1, the construction of an equilateral triangle on a segment AB, two circles of radius AB centred at A and B are drawn and their intersection point C is used; nothing in Euclid's postulates guarantees that the circles meet. In several proofs Euclid uses the notion of a point lying &quot;between&quot; two others, or of a line entering a triangle and having to leave it, without any axiom governing betweenness. The superposition argument for SAS (Proposition I.4) moves one triangle onto another, but motion is not defined.</p>
+<p>Moritz Pasch (1882) first axiomatised betweenness. Giuseppe Peano, Mario Pieri and others offered systems in the 1890s, and David Hilbert's Grundlagen der Geometrie (1899) gave the system that became standard. Hilbert's primitive notions are points, lines and planes, and the relations &quot;lies on&quot; (incidence), &quot;between&quot; (order) and &quot;is congruent to&quot; (for segments and for angles). Nothing is assumed about what these objects are. As Hilbert is said to have remarked, one must be able to say &quot;tables, chairs and beer mugs&quot; in place of &quot;points, lines and planes&quot;.</p>
+<h3>The five groups of axioms</h3>
+<p>We restrict ourselves to plane geometry. The axioms fall into five groups.</p>
+<p>Group I, incidence. (I1) For any two distinct points A, B there is exactly one line containing both. (I2) Every line contains at least two points. (I3) There exist three points not on a common line.</p>
+<p>Group II, order. Betweenness is a ternary relation A∗B∗C (&quot;B lies between A and C&quot;). (II1) If A∗B∗C then A, B, C are distinct collinear points and C∗B∗A. (II2) For distinct points A, B there is a point C with A∗B∗C. (II3) Of three distinct collinear points, exactly one lies between the other two. (II4, Pasch's axiom) Let A, B, C be non-collinear and let ℓ be a line containing none of them. If ℓ passes through a point of the segment AB, then it also passes through a point of segment AC or of segment BC.</p>
+<p>Group III, congruence. Congruence ≅ is a relation on segments and on angles. (III1) Given a segment AB and a ray from C, there is a unique point D on the ray with CD ≅ AB. (III2) Congruence of segments is transitive and reflexive. (III3) Segment addition: if A∗B∗C, A′∗B′∗C′, AB ≅ A′B′ and BC ≅ B′C′, then AC ≅ A′C′. (III4) Angle laying-off: a given angle can be laid off uniquely on a given side of a given ray. (III5) Congruence of angles is an equivalence relation. (III6, SAS) If AB ≅ A′B′, AC ≅ A′C′ and ∠BAC ≅ ∠B′A′C′, then ∠ABC ≅ ∠A′B′C′. From III6 Hilbert derives the full SAS criterion; thus SAS is an axiom, not a theorem, and this is unavoidable.</p>
+<p>Group IV, parallels (Playfair's form). For every line ℓ and every point P not on ℓ there is at most one line through P that does not meet ℓ. Existence of at least one parallel follows from the other axioms by the alternate-angle construction.</p>
+<p>Group V, continuity. (V1, Archimedes) For segments AB and CD there is a natural number n such that n copies of CD laid off from A along ray AB pass beyond B. (V2, completeness) The points of a line admit no proper extension preserving the previous axioms. Many modern treatments replace Group V with Dedekind's axiom: if the points of a line are split into two non-empty sets with no point of either set lying between two points of the other, there is a unique point separating them.</p>
+<h3>First consequences: plane separation</h3>
+<p>Pasch's axiom is the engine of the order theory. From it one proves the plane separation theorem: every line ℓ divides the points not on ℓ into exactly two non-empty half-planes, such that A and B lie in the same half-plane if and only if segment AB does not meet ℓ. From plane separation follows the crossbar theorem: if D lies in the interior of ∠BAC, then ray AD meets segment BC. This is precisely the fact used silently by Euclid whenever a line drawn from a vertex into a triangle is assumed to reach the opposite side.</p>
+<h3>The Cartesian model and the role of the field</h3>
+<p>Let F be an ordered field. On F² define lines as solution sets of ax + by = c with (a, b) ≠ (0, 0), betweenness via the order of F along a line, and congruence of segments by equality of the squared distance (x₁ − x₂)² + (y₁ − y₂)². Then Groups I, II, IV and the angle axioms III4–III5 hold over any ordered field. Segment laying-off (III1) holds exactly when the field is Pythagorean: √(1 + a²) ∈ F for every a ∈ F, since laying off a unit length along the direction (1, a) needs the coordinate 1/√(1 + a²). The smallest such subfield of ℝ is the Hilbert field Ω, obtained from ℚ by closing under the operations +, −, ×, ÷ and a ↦ √(1 + a²).</p>
+<p>Conversely, every model of Groups I–IV is isomorphic to the Cartesian plane F² over some Pythagorean ordered field F; adding Archimedes forces F ⊆ ℝ, and adding completeness forces F = ℝ. In between sits a natural condition that Euclid really needed. The circle–circle intersection property says that if a circle passes through a point inside and a point outside another circle, the two circles meet. In F² this holds exactly when F is Euclidean: every positive element has a square root. The smallest Euclidean subfield of ℝ is the field of real constructible numbers, which reappears in Lesson 12. Since √2 ∉ ℚ, the line y = 0 and the circle x² + y² = 2 (centred at a rational point and passing through the rational point (1, 1)) do not meet in ℚ², even though the line passes through the centre; ℚ² therefore satisfies incidence and order but fails the intersection property.</p>
+<h3>Independence of the parallel postulate</h3>
+<p>An axiom is independent of the others if there is a model of the others in which it fails. The Beltrami–Klein model shows the independence of Playfair's axiom: take as points the interior of the unit disc in ℝ², as lines the open chords, with betweenness inherited from ℝ² and congruence defined by the Cayley–Klein metric d(P, Q) = ½ |ln (A, B; P, Q)|, where A, B are the endpoints of the chord through P, Q and (A, B; P, Q) is the cross-ratio of Lesson 8. All of Hilbert's axioms except Group IV hold, and through a point off a chord there pass infinitely many chords not meeting it. Hence the parallel postulate cannot be proved from the remaining axioms, a fact established by Beltrami (1868), completing the work of Lobachevsky (1829) and Bolyai (1832). Hilbert also proved relative consistency: any contradiction in Euclidean geometry would yield a contradiction in the arithmetic of ℝ.</p>
+<h3>Neutral geometry</h3>
+<p>The theorems that use only Groups I–III are called neutral or absolute geometry. They include the exterior angle theorem (an exterior angle exceeds each remote interior angle), the existence of parallels, and the Saccheri–Legendre theorem: in an Archimedean neutral plane the angle sum of every triangle is at most 180°. Equality for one triangle implies equality for all, and is equivalent to the parallel postulate. Lesson 9 will meet the spherical counterpart, where angle sums exceed 180° and the excess measures area.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that the four points (0, 0), (1, 0), (0, 1), (1, 1) with the six two-point sets as &quot;lines&quot; satisfy axioms I1–I3, and decide whether Playfair's axiom holds in this model.</div></li><li><span class="mk">(b)</span><div>In the Cartesian plane ℚ², find a circle with rational centre through a rational point and a line through its centre that do not meet.</div></li><li><span class="mk">(c)</span><div>Euclid's Proposition I.1 needs the apex (1/2, √3/2) of the equilateral triangle on (0, 0) and (1, 0). Show that this point exists in the plane Ω² over the Hilbert field.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Any two of the four points determine exactly one two-point line, each line has two points, and no three points are collinear because no line has three points, so I1–I3 hold. Given a line, say {(0,0), (1,0)}, and a point off it, say (0, 1), the lines through (0, 1) are {(0,1),(0,0)}, {(0,1),(1,0)} and {(0,1),(1,1)}; only the last misses the given line, so exactly one parallel exists and Playfair holds. This is the smallest affine plane, of order 2. (b) The circle x² + y² = 2 has centre (0, 0) and passes through (1, 1); the line y = 0 meets it only at x = ±√2, which is irrational. (c) √2 = √(1 + 1²) ∈ Ω, hence √3 = √(1 + (√2)²) ∈ Ω and √3/2 ∈ Ω. So the apex exists in Ω²; but the existence of such intersection points is a property of the field and must be argued from the axioms, not read off a diagram, which is exactly what Euclid omitted.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

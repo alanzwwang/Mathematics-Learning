@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Newton's Generalized Binomial Theorem — Pascal's Triangle (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Pascal's Triangle</a> › Lesson 5</p>
+    <h1>Newton's Generalized Binomial Theorem</h1>
+    <p class="kicker">Lesson 5 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">(1 + x)<sup>α</sup> = ∑ₖ C(α, k) xᵏ      for α ∈ ℂ and |x| &lt; 1   (principal branch)
+on |x| = 1:  converges absolutely ⟺ α ∈ ℕ or Re α &gt; 0</pre></div>
+<h3>History</h3>
+<p>Isaac Newton found the series for (1 + x)<sup>α</sup> with fractional α around 1665 by interpolating Wallis's tables of areas, and described it in two letters of 1676 (the epistola prior and epistola posterior) sent through Henry Oldenburg to Leibniz. Newton had no proof of convergence; the first rigorous treatment of the binomial series for general real and complex exponents was given by Niels Henrik Abel in 1826, in a paper that also contains Abel's theorem on power series at the boundary.</p>
+<h3>Radius of convergence and the analytic statement</h3>
+<p>If α ∈ ℕ the series is a polynomial. Otherwise no coefficient vanishes, and |C(α, k + 1)/C(α, k)| = |α − k|/(k + 1) → 1, so the radius of convergence is exactly 1.</p>
+<p><strong>Theorem 5.1 (Newton–Abel)</strong>. Let α ∈ ℂ and let (1 + x)<sup>α</sup> = exp(α Log(1 + x)) with the principal logarithm. Then (1 + x)<sup>α</sup> = ∑<sub>k≥0</sub> C(α, k) xᵏ for every complex x with |x| &lt; 1.</p>
+<p><strong>Proof</strong>. Let f(x) = ∑ C(α, k) xᵏ on the unit disc. Differentiating term by term and using absorption, f′(x) = ∑ₖ k C(α, k) xᵏ⁻¹ = α ∑ₖ C(α − 1, k − 1) xᵏ⁻¹. Hence (1 + x) f′(x) = α ∑ₖ [C(α − 1, k) + C(α − 1, k − 1)] xᵏ = α f(x) by Pascal's rule. Now let g(x) = f(x)(1 + x)<sup>−α</sup>, which is holomorphic on the disc since 1 + x has positive real part there. Then g′ = (1 + x)<sup>−α−1</sup>[(1 + x) f′ − α f] = 0, so g is constant, and g(0) = f(0) = 1. ∎</p>
+<h3>Size of the coefficients</h3>
+<p>For α ∉ ℕ, upper negation and the Gamma function give C(α, k) = (−1)ᵏ C(k − α − 1, k) = (−1)ᵏ Γ(k − α)/(Γ(−α) Γ(k + 1)). Since Γ(k + a)/Γ(k + b) ~ k<sup>a−b</sup> as k → ∞,</p>
+<pre class="math">C(α, k) ~ (−1)ᵏ k<sup>−α−1</sup> / Γ(−α)        (k → ∞, α ∉ ℕ)</pre>
+<p>For example, C(−1/2, k)(−1)ᵏ = C(2k, k)/4ᵏ ~ k<sup>−1/2</sup>/Γ(1/2) = 1/√(πk), which anticipates the central asymptotics of Lesson 13.</p>
+<h3>Behaviour on the boundary (real α)</h3>
+<p><strong>Proposition 5.2</strong>. Let α be real and not in ℕ. (i) The series converges absolutely on |x| = 1 if and only if α &gt; 0. (ii) At x = 1 it converges if and only if α &gt; −1, and then its sum is 2<sup>α</sup>. (iii) At x = −1 it converges if and only if α &gt; 0, and then its sum is 0.</p>
+<p><strong>Proof</strong>. By the asymptotic formula |C(α, k)| is comparable to k<sup>−α−1</sup>, which is summable if and only if α &gt; 0; this gives (i). At x = 1 the terms C(α, k) eventually alternate in sign, and |C(α, k + 1)/C(α, k)| = |k − α|/(k + 1) &lt; 1 once k &gt; α and α &gt; −1, so the terms decrease in modulus to 0 when α &gt; −1 and the series converges by the alternating series test; if α ≤ −1 the terms do not tend to 0. At x = −1 the terms C(α, k)(−1)ᵏ = Γ(k − α)/(Γ(−α)Γ(k + 1)) eventually have constant sign and size comparable to k<sup>−α−1</sup>, so they are summable exactly when α &gt; 0. In the convergent cases Abel's theorem identifies the sum with lim<sub>x→±1</sub> (1 + x)<sup>α</sup>, which is 2<sup>α</sup> and 0 respectively. ∎</p>
+<pre class="math">α = −1/2,  x = 1:   1 − 1/2 + 3/8 − 5/16 + 35/128 − ⋯ = 1/√2
+α = −1/2,  x = −1:  ∑ C(2k, k)/4ᵏ diverges (terms ~ 1/√(πk))</pre>
+<h3>Computation with the series</h3>
+<p>The series gives rapid algorithms for roots. Since 2 = (49/25) · (50/49), we have √2 = (7/5)(1 − 1/50)<sup>−1/2</sup>, and (1 − y)<sup>−1/2</sup> = ∑ C(2k, k)(y/4)ᵏ. With y = 1/50 the terms are 1, 1/100, 6/40000, 20/8000000, …, so</p>
+<pre class="math">√2 ≈ 1.4 × (1 + 0.01 + 0.00015 + 0.0000025) = 1.4142135</pre>
+<p>correct to seven decimal places (√2 = 1.41421356…). Each further term gains more than one and a half decimal digits, since the ratio of consecutive terms tends to y = 1/50.</p>
+<p>The generating function of the Catalan numbers, introduced in Lesson 12, is (1 − √(1 − 4x))/(2x), and its coefficients are obtained from the series for (1 − 4x)<sup>1/2</sup> exactly as above.</p>
+<h3>Formal versus analytic</h3>
+<p>Over an arbitrary ℚ-algebra, Lesson 3 already showed that B<sub>α</sub>(x) = ∑ C(α, k) xᵏ satisfies B<sub>α</sub> B<sub>β</sub> = B<sub>α+β</sub> and B<sub>n</sub> = (1 + x)ⁿ. In particular B<sub>1/m</sub>(x)ᵐ = 1 + x, so B<sub>1/m</sub> is the unique formal power series with constant term 1 whose mth power is 1 + x. Theorem 5.1 adds that this formal object converges and equals the principal branch. The formal statement is often all that is needed in combinatorics, where convergence is irrelevant.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the coefficient of x³ in (1 + x)<sup>1/3</sup>.</div></li><li><span class="mk">(b)</span><div>Find the coefficient of x⁴ in (1 − 4x)<sup>−1/2</sup>.</div></li><li><span class="mk">(c)</span><div>For which real α does ∑ₖ C(α, k) converge? What is the sum for α = −1/2?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(1/3, 3) = (1/3)(−2/3)(−5/3)/6 = (10/27)/6 = 5/81. (b) C(8, 4) = 70. (c) By Proposition 5.2(ii), for α &gt; −1 (and trivially for α ∈ ℕ), with sum 2<sup>α</sup>; for α = −1/2 the sum is 2<sup>−1/2</sup> = 1/√2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

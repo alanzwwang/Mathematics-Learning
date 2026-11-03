@@ -339,7 +339,8 @@ Perpendicular lines
 
         Two lines are perpendicular (meet at 90°) exactly when their slopes
         are negative reciprocals: m and −1/m. Equivalently: the slopes
-        multiply to −1.
+        multiply to −1. (One special pair breaks the rule: a flat line and
+        a vertical line also meet at 90°, but a vertical line has no slope!)
 
         Why the negative reciprocal: a slope-m line marches "over 1, up m" —
         picture that as an arrow. Rotate the arrow a quarter-turn (90°):
@@ -584,7 +585,8 @@ Do y = 2x + 1, y = −x + 7, and y = 3x − 1 all pass through one point? (Lines
 
         Step 1: meet of the first two:
                 2x + 1 = −x + 7
-                3x = 6         (add x to both sides)
+                3x + 1 = 7     (add x to both sides)
+                3x = 6         (subtract 1 from both sides)
                 x = 2          (divide by 3),  so y = 2 × 2 + 1 = 5.
         Step 2: test the third line at x = 2: 3 × 2 − 1 = 5 ✅.
         Yes — all three pass through (2, 5). Three lines concurrent.
@@ -780,7 +782,7 @@ Problems 31–34 — Slope through two points: slope = (y₂ − y₁) ÷ (x₂ 
   34. (−2, 5) and (2, 13)
 
 Problems 35–38 — Find BOTH intercepts: set x = 0 for the y-intercept,
-set y = 0 for the x-intercept. (Lesson 4)
+set y = 0 for the x-intercept. (Lessons 4 and 6)
 
   35. y = 3x − 12
   36. y = 2x + 10

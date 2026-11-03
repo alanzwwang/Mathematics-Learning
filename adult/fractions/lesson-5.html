@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Farey Sequences and the Stern–Brocot Tree — Fractions (Advanced)</title>
+<meta name="description" content="Fields of fractions, p-adic valuations, periodic expansions, Farey sequences, continued fractions and approximation.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ef4444">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractions</a> › Lesson 5</p>
+    <h1>Farey Sequences and the Stern–Brocot Tree</h1>
+    <p class="kicker">Lesson 5 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Field of Fractions of an Integral Domain">1</a><a href="lesson-2.html" title="Lesson 2: ℚ as an Ordered Field">2</a><a href="lesson-3.html" title="Lesson 3: Valuations, Reduced Forms and Rational Roots">3</a><a href="lesson-4.html" title="Lesson 4: Positional Expansions and the Order of 10">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Farey Sequences and the Stern–Brocot Tree">5</a><a href="lesson-6.html" title="Lesson 6: Ford Circles and the Modular Group">6</a><a href="lesson-7.html" title="Lesson 7: Continued Fractions and Their Convergents">7</a><a href="lesson-8.html" title="Lesson 8: Best Approximation, Quadratic Irrationals and Pell's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Irrationality and Diophantine Approximation">9</a><a href="lesson-10.html" title="Lesson 10: Partial Fractions over an Arbitrary Field">10</a><a href="lesson-11.html" title="Lesson 11: Egyptian Fractions">11</a><a href="lesson-12.html" title="Lesson 12: p-adic Absolute Values and the Completions of ℚ">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">If a/b &lt; c/d are consecutive in the Farey sequence F<sub>n</sub>, then bc − ad = 1,
+b + d &gt; n, and the first fraction to appear between them is the mediant (a + c)/(b + d).</pre></div>
+<h3>Definition and first examples</h3>
+<p>The Farey sequence of order n, F<sub>n</sub>, is the increasing list of all reduced fractions h/k with 0 ≤ h/k ≤ 1 and 1 ≤ k ≤ n. Thus</p>
+<pre class="math">F<sub>1</sub>:  0/1, 1/1
+F<sub>2</sub>:  0/1, 1/2, 1/1
+F<sub>3</sub>:  0/1, 1/3, 1/2, 2/3, 1/1
+F<sub>4</sub>:  0/1, 1/4, 1/3, 1/2, 2/3, 3/4, 1/1</pre>
+<p>Each F<sub>n</sub> arises from F<sub>n−1</sub> by inserting the fractions with denominator exactly n, and there are φ(n) of these, so</p>
+<pre class="math">|F<sub>n</sub>| = 1 + φ(1) + φ(2) + ⋯ + φ(n).</pre>
+<p>The sum of φ(k) for k ≤ n is asymptotic to 3n²/π², so |F<sub>n</sub>| ~ 3n²/π²; the constant 6/π² = 1/ζ(2) is the probability that two random integers are coprime.</p>
+<h3>The determinant property</h3>
+<p>The key algebraic fact is a lemma about fractions caught between a unimodular pair.</p>
+<p><strong>Lemma 5.1</strong>. Let a/b &lt; c/d with b, d &gt; 0 and bc − ad = 1. If h/k is a fraction with k &gt; 0 and a/b &lt; h/k &lt; c/d, then there are positive integers λ, μ with</p>
+<pre class="math">h = λa + μc,     k = λb + μd.</pre>
+<p>In particular k ≥ b + d, with equality only for the mediant (a + c)/(b + d).</p>
+<p><strong>Proof</strong>. The matrix M with columns (a, b) and (c, d) has determinant ad − bc = −1, so M⁻¹ has integer entries, and solving M·(λ, μ) = (h, k) gives</p>
+<pre class="math">λ = ck − dh,     μ = bh − ak.</pre>
+<p>Both are integers, and both are positive: ck − dh &gt; 0 because h/k &lt; c/d, and bh − ak &gt; 0 because h/k &gt; a/b. Since λ, μ ≥ 1, k = λb + μd ≥ b + d. ∎</p>
+<p><strong>Theorem 5.2</strong>. If a/b &lt; c/d are consecutive in F<sub>n</sub>, then bc − ad = 1 and b + d &gt; n.</p>
+<p><strong>Proof</strong>. Induct on n. For F<sub>1</sub> the pair 0/1 &lt; 1/1 has 1·1 − 0·1 = 1. Assume the statement for F<sub>n−1</sub>, and let a/b &lt; c/d be consecutive there. By Lemma 5.1, every fraction strictly between them has denominator at least b + d, which by induction exceeds n − 1. So if b + d &gt; n nothing is inserted between them in F<sub>n</sub>; if b + d = n then exactly one fraction is inserted, namely the mediant, since equality in k ≥ b + d forces λ = μ = 1. The new consecutive pairs a/b &lt; (a + c)/(b + d) and (a + c)/(b + d) &lt; c/d again satisfy the determinant condition, because b(a + c) − a(b + d) = bc − ad = 1 and similarly for the other pair. Every consecutive pair in F<sub>n</sub> is of one of these forms, which proves bc − ad = 1. Finally, if b + d ≤ n for neighbours in F<sub>n</sub>, the mediant would lie in F<sub>n</sub> strictly between them, a contradiction. ∎</p>
+<p>Note that bc − ad = 1 also shows that every fraction in F<sub>n</sub> is automatically reduced when obtained as a mediant: any common divisor of a + c and b + d divides b(a + c) − a(b + d) = 1.</p>
+<h3>Computing neighbours and successors</h3>
+<p>The determinant condition turns the search for neighbours into a congruence. The left neighbour of a reduced fraction h/k in F<sub>n</sub> (k ≤ n) is the a/b with hb − ka = 1 and b ≤ n as large as possible, so b is the largest integer ≤ n with b ≡ h⁻¹ (mod k). For instance the left neighbour of 5/12 in F<sub>12</sub> has b ≡ 5⁻¹ ≡ 5 (mod 12), so b = 5, a = (5·5 − 1)/12 = 2, giving 2/5. Similarly the right neighbour c/d satisfies 12c − 5d = 1, so d ≡ 7 (mod 12) and c/d = 3/7.</p>
+<p>Given two consecutive terms a/b &lt; c/d of F<sub>n</sub>, the next term e/f is:</p>
+<pre class="math">e = ⌊(n + b)/d⌋·c − a,     f = ⌊(n + b)/d⌋·d − b.</pre>
+<p>Indeed, by Theorem 5.2 the next term e/f satisfies de − cf = 1. Since bc − ad = 1, the pair (e, f) = (−a, −b) is one integer solution of this equation, so the general solution is (e, f) = (κc − a, κd − b) with κ ∈ ℤ. Each solution with 0 &lt; f ≤ n gives an element of F<sub>n</sub> to the right of c/d with e/f − c/d = 1/(df), so the nearest one, which is the next term, has the largest admissible f; that is κ = ⌊(n + b)/d⌋. This recurrence lets one generate F<sub>n</sub> in O(|F<sub>n</sub>|) arithmetic operations.</p>
+<h3>The Stern–Brocot tree</h3>
+<p>Start from the formal fractions 0/1 and 1/0 and repeatedly insert mediants between neighbours. The first stages are</p>
+<pre class="math">0/1, 1/0
+0/1, 1/1, 1/0
+0/1, 1/2, 1/1, 2/1, 1/0
+0/1, 1/3, 1/2, 2/3, 1/1, 3/2, 2/1, 3/1, 1/0</pre>
+<p>Arranging the inserted fractions as a binary tree, with 1/1 at the root, gives the Stern–Brocot tree (Stern 1858, Brocot 1861). By the argument of Theorem 5.2 every consecutive pair in every stage satisfies bc − ad = 1, so every fraction produced is reduced; and by Lemma 5.1 every positive reduced fraction h/k appears, at a stage bounded by h + k, exactly once. Locating h/k is a binary search: at each node move left (L) if h/k is smaller and right (R) if it is larger. For example 7/5 is reached by the path R L L R: 1/1 → 2/1 → 3/2 → 4/3 → 7/5.</p>
+<p>The path encodes the continued fraction of Lesson 7: if h/k = [a₀; a₁, …, a<sub>r</sub>] then the path is R<sup>a₀</sup> L<sup>a₁</sup> R<sup>a₂</sup> ⋯ with the final exponent reduced by one. Since 7/5 = [1; 2, 2], the path is R¹L²R¹, as found. Algebraically, the matrices L = (1 0; 1 1) and R = (1 1; 0 1) generate a free monoid, and the products of L and R are exactly the integer matrices of determinant 1 with nonnegative entries; the Stern–Brocot tree is a picture of this monoid.</p>
+<h3>Farey fractions and the Riemann hypothesis</h3>
+<p>The Farey fractions are remarkably evenly spread. Enumerate F<sub>n</sub> as f₁ &lt; f₂ &lt; ⋯ &lt; f<sub>N</sub> with N = |F<sub>n</sub>|, and compare f<sub>ν</sub> with the equally spaced points ν/N. Franel (1924) and Landau showed that the Riemann hypothesis is equivalent to the estimate</p>
+<pre class="math">∑<sub>ν=1</sub><sup>N</sup> |f<sub>ν</sub> − ν/N| = O(n<sup>1/2 + ε</sup>)   for every ε &gt; 0.</pre>
+<p>Thus one of the most famous open problems in mathematics can be phrased entirely in terms of the arrangement of fractions with bounded denominator.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>List F<sub>5</sub> and check its length against the totient formula.</div></li><li><span class="mk">(b)</span><div>Find the two neighbours of 3/7 in F<sub>7</sub> and verify the determinant property.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) F<sub>5</sub>: 0/1, 1/5, 1/4, 1/3, 2/5, 1/2, 3/5, 2/3, 3/4, 4/5, 1/1, which has 11 terms; and 1 + φ(1) + ⋯ + φ(5) = 1 + 1 + 1 + 2 + 2 + 4 = 11. (b) The left neighbour a/b needs 3b − 7a = 1, so b ≡ 5 (mod 7), b = 5, a = 2: it is 2/5. The right neighbour needs 7c − 3d = 1, so d ≡ 2 (mod 7), d = 2, c = 1: it is 1/2. Check: 3·5 − 7·2 = 1 and 7·1 − 3·2 = 1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Theorems of Fermat, Euler and Wilson — Number Theory (Advanced)</title>
+<meta name="description" content="Congruences, primitive roots, quadratic reciprocity, arithmetic functions, the primes, Pell's equation and RSA.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../number-theory/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Number Theory</a> › Lesson 4</p>
+    <h1>The Theorems of Fermat, Euler and Wilson</h1>
+    <p class="kicker">Lesson 4 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Divisibility, the Euclidean Algorithm and Bézout's Identity">1</a><a href="lesson-2.html" title="Lesson 2: Primes and the Fundamental Theorem of Arithmetic">2</a><a href="lesson-3.html" title="Lesson 3: Congruences and the Ring ℤ/nℤ">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The Theorems of Fermat, Euler and Wilson">4</a><a href="lesson-5.html" title="Lesson 5: The Chinese Remainder Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Primitive Roots and the Structure of (ℤ/nℤ)×">6</a><a href="lesson-7.html" title="Lesson 7: Quadratic Residues and the Legendre Symbol">7</a><a href="lesson-8.html" title="Lesson 8: The Law of Quadratic Reciprocity">8</a><a href="lesson-9.html" title="Lesson 9: Arithmetic Functions, Dirichlet Convolution and Möbius Inversion">9</a><a href="lesson-10.html" title="Lesson 10: The Distribution of Primes">10</a><a href="lesson-11.html" title="Lesson 11: Sums of Two Squares and Pythagorean Triples">11</a><a href="lesson-12.html" title="Lesson 12: Continued Fractions and Pell's Equation">12</a><a href="lesson-13.html" title="Lesson 13: Primality Testing and the RSA Cryptosystem">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">gcd(a, n) = 1  ⟹  a<sup>φ(n)</sup> ≡ 1 (mod n);     (p − 1)! ≡ −1 (mod p).</pre></div>
+<h3>Euler's theorem as group theory</h3>
+<p>The cleanest route to the classical congruences is Lagrange's theorem from group theory: in a finite group G, the order of every element divides |G|. (The cosets of the cyclic subgroup ⟨g⟩ partition G into blocks of equal size ord(g).) Applying it to G = (ℤ/nℤ)×, of order φ(n), gives at once the following.</p>
+<p><strong>Theorem 4.1 (Euler, 1763)</strong>. If gcd(a, n) = 1 then a<sup>φ(n)</sup> ≡ 1 (mod n).</p>
+<p><strong>Corollary 4.2 (Fermat's little theorem, 1640)</strong>. If p is prime then aᵖ ≡ a (mod p) for every integer a, and a<sup>p−1</sup> ≡ 1 (mod p) if p ∤ a.</p>
+<p>A proof that avoids group theory, and is essentially Euler's own: if r₁, …, r<sub>φ</sub>(n) are the residues coprime to n, then ar₁, …, ar<sub>φ</sub>(n) are the same residues in a different order (multiplication by a unit is a bijection), so ∏(arᵢ) ≡ ∏ rᵢ, and cancelling the unit ∏ rᵢ gives a<sup>φ(n)</sup> ≡ 1. A third proof of Fermat's theorem uses the binomial theorem: by Lesson 2, p | C(p, k) for 0 &lt; k &lt; p, so (a + 1)ᵖ ≡ aᵖ + 1 (mod p), and induction on a gives aᵖ ≡ a. The identity (x + y)ᵖ = xᵖ + yᵖ in characteristic p says that the Frobenius map x ↦ xᵖ is a ring homomorphism, a fact of enormous importance in algebraic geometry over finite fields.</p>
+<h3>Fast exponentiation</h3>
+<p>Euler's theorem reduces exponents modulo φ(n). Combined with repeated squaring, which computes aᵏ mod n with O(log k) multiplications, it makes huge powers easy. Worked example: 3¹⁰⁰ mod 7. Since 3⁶ ≡ 1 (mod 7) and 100 = 6 · 16 + 4, we get 3¹⁰⁰ ≡ 3⁴ = 81 ≡ 4 (mod 7). Worked example: 2¹⁰⁰⁰ mod 13. Here φ(13) = 12 and 1000 = 12 · 83 + 4, so 2¹⁰⁰⁰ ≡ 2⁴ = 16 ≡ 3 (mod 13).</p>
+<p>The exponent φ(n) is not always the best one. The Carmichael function λ(n) is the exponent of the group (ℤ/nℤ)×, the least m with aᵐ ≡ 1 for all units a. We will compute it in Lesson 6; for instance λ(15) = 4 while φ(15) = 8.</p>
+<h3>Wilson's theorem</h3>
+<p><strong>Theorem 4.3 (Wilson; first proved by Lagrange, 1771)</strong>. An integer n ≥ 2 is prime if and only if (n − 1)! ≡ −1 (mod n).</p>
+<p><strong>Proof</strong>. Let p be prime. In the field 𝔽ₚ, the equation x² = 1 has only the roots x = ±1 (Theorem 3.3), so every element of {2, 3, …, p − 2} is distinct from its inverse. These elements therefore split into pairs {x, x⁻¹} with product 1, and (p − 1)! ≡ 1 · (p − 1) ≡ −1 (mod p). (For p = 2 the statement is 1 ≡ −1, which is true.) Conversely, if n is composite with a divisor d, 1 &lt; d &lt; n, then d | (n − 1)!, so d cannot divide (n − 1)! + 1, and therefore n cannot either. ∎</p>
+<p>Wilson's theorem is a perfect primality criterion and a useless primality test: computing (n − 1)! mod n takes about n multiplications. It is nevertheless a powerful theoretical tool, as the next result shows.</p>
+<p><strong>Corollary 4.4</strong>. If p ≡ 1 (mod 4), then x = ((p − 1)/2)! satisfies x² ≡ −1 (mod p).</p>
+<p><strong>Proof</strong>. Pair k with p − k ≡ −k in the product (p − 1)!:</p>
+<pre class="math">−1 ≡ (p − 1)! = ∏ₖ₌₁<sup>(p−1)/2</sup> k(p − k) ≡ (−1)<sup>(p−1)/2</sup> (((p − 1)/2)!)²   (mod p).</pre>
+<p>When p ≡ 1 (mod 4) the exponent (p − 1)/2 is even, so the sign (−1)<sup>(p−1)/2</sup> is +1 and the congruence reads −1 ≡ (((p − 1)/2)!)². ∎</p>
+<p>For p = 13: 6! = 720 = 55 · 13 + 5, and 5² = 25 ≡ −1 (mod 13). Conversely, if x² ≡ −1 (mod p) for an odd prime p, then x has order 4 in 𝔽ₚ×, so 4 | p − 1. Hence −1 is a square modulo an odd prime p if and only if p ≡ 1 (mod 4), a result we will meet again as the first supplementary law of quadratic reciprocity.</p>
+<h3>Pseudoprimes and Carmichael numbers</h3>
+<p>The converse of Fermat's theorem is false. 341 = 11 · 31 is composite, yet 2¹⁰ = 1024 = 3 · 341 + 1, so 2³⁴⁰ = (2¹⁰)³⁴ ≡ 1 (mod 341). We call a composite n with a<sup>n−1</sup> ≡ 1 (mod n) a Fermat pseudoprime to base a. Worse, some composite numbers are pseudoprimes to every coprime base.</p>
+<p><strong>Definition 4.5</strong>. A Carmichael number is a composite n such that a<sup>n−1</sup> ≡ 1 (mod n) for every a coprime to n.</p>
+<p><strong>Theorem 4.6 (Korselt's criterion, 1899)</strong>. A composite n is a Carmichael number if and only if n is squarefree and p − 1 | n − 1 for every prime p | n.</p>
+<p><strong>Proof of sufficiency</strong>. Let a be coprime to n and p | n. Since p − 1 | n − 1, Fermat gives a<sup>n−1</sup> = (a<sup>p−1</sup>)<sup>(n−1)/(p−1)</sup> ≡ 1 (mod p). As n is squarefree it is the product of its distinct prime divisors, so a<sup>n−1</sup> ≡ 1 modulo their product n (Lesson 5). The converse uses primitive roots and is Problem 57. ∎</p>
+<p>The smallest Carmichael number is 561 = 3 · 11 · 17: 560 = 2⁴ · 5 · 7 is divisible by 2, 10 and 16. The next are 1105 = 5 · 13 · 17 and 1729 = 7 · 13 · 19. A Carmichael number is odd and has at least three prime factors. Alford, Granville and Pomerance proved in 1994 that there are infinitely many, indeed more than x<sup>2/7</sup> of them up to x for all large x. Carmichael numbers are the reason the Fermat test must be strengthened to the Miller–Rabin test of Lesson 13.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the last two digits of 3¹⁰⁰⁰.</div></li><li><span class="mk">(b)</span><div>Compute 15! mod 17 and 8! mod 17 using Wilson's theorem.</div></li><li><span class="mk">(c)</span><div>Prove that if p is an odd prime, then 1ᵖ⁻¹ + 2ᵖ⁻¹ + ⋯ + (p − 1)ᵖ⁻¹ ≡ −1 (mod p).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) φ(100) = 40 and 1000 = 25 · 40, so 3¹⁰⁰⁰ ≡ 1 (mod 100): the last two digits are 01. (b) 16! ≡ −1 and 16 ≡ −1, so 15! ≡ 1 (mod 17). For 8!: 16! = 8! · (9 · 10 ⋯ 16) ≡ 8! · ((−8)(−7)⋯(−1)) = 8! · (−1)⁸ · 8! = (8!)², so (8!)² ≡ −1 (mod 17), which pins 8! down to ±4. Direct computation decides the sign: 8! = 40320 = 2371 · 17 + 13, so 8! ≡ 13 ≡ −4, and indeed (−4)² = 16 ≡ −1. (c) Each of the p − 1 terms is ≡ 1 by Fermat, so the sum is ≡ p − 1 ≡ −1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

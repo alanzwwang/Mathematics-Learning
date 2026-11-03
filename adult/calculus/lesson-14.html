@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 14: The Lebesgue Integral — An Overview — Calculus (Advanced)</title>
+<meta name="description" content="Real analysis from the completeness of ℝ to the Lebesgue integral, with multivariable calculus and full proofs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../calculus/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Calculus</a> › Lesson 14</p>
+    <h1>The Lebesgue Integral — An Overview</h1>
+    <p class="kicker">Lesson 14 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Real Numbers and Completeness">1</a><a href="lesson-2.html" title="Lesson 2: Sequences, Cauchy Sequences and lim sup">2</a><a href="lesson-3.html" title="Lesson 3: Infinite Series and Convergence Tests">3</a><a href="lesson-4.html" title="Lesson 4: Limits, Continuity and Uniform Continuity">4</a><a href="lesson-5.html" title="Lesson 5: Differentiation and the Mean Value Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Taylor's Theorem and the Remainder">6</a><a href="lesson-7.html" title="Lesson 7: The Riemann Integral via Darboux Sums">7</a><a href="lesson-8.html" title="Lesson 8: The Fundamental Theorem of Calculus">8</a><a href="lesson-9.html" title="Lesson 9: Improper Integrals">9</a><a href="lesson-10.html" title="Lesson 10: Uniform Convergence and the Interchange of Limits">10</a><a href="lesson-11.html" title="Lesson 11: Power Series">11</a><a href="lesson-12.html" title="Lesson 12: Differentiation in Several Variables">12</a><a href="lesson-13.html" title="Lesson 13: Multiple Integrals and Change of Variables">13</a><a href="lesson-14.html" class="here" aria-current="page" title="Lesson 14: The Lebesgue Integral — An Overview">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Dominated convergence: fₙ → f a.e. and |fₙ| ≤ g with ∫g &lt; ∞  ⇒  ∫fₙ → ∫f
+Riemann integrable ⇒ Lebesgue integrable, with the same integral</pre></div>
+<h3>Why the Riemann integral is not enough</h3>
+<p>The Riemann integral has three serious defects. First, it is not closed under limits: enumerate the rationals in [0, 1] as q₁, q₂, ... and let fₙ be the indicator of {q₁, ..., qₙ}. Each fₙ is integrable with integral 0, fₙ increases to Dirichlet's function, and the limit is not Riemann integrable. Second, the convergence theorems require uniform convergence, which is rarely available in practice (for example in the theory of Fourier series or probability). Third, the space of Riemann integrable functions with the distance ∫|f − g| is not complete, so it cannot serve as a foundation for functional analysis. Lebesgue's 1902 thesis, &quot;Intégrale, longueur, aire&quot;, removed all three defects.</p>
+<p>The idea is to partition the range instead of the domain. Instead of asking for the value of f on small intervals of x, ask for the size of the set where f lies in a small interval of y. That requires assigning a size to sets far more complicated than intervals.</p>
+<h3>Lebesgue measure</h3>
+<p>The Lebesgue outer measure of A ⊆ ℝ is m*(A) = inf ∑ ℓ(Iₖ), the infimum over all countable covers of A by open intervals Iₖ. A set E is measurable if m*(A) = m*(A ∩ E) + m*(A \ E) for every A (Carathéodory's criterion). The measurable sets form a σ-algebra (closed under complements and countable unions) containing all intervals, and on it m = m* is countably additive: m(⋃ Eₖ) = ∑ m(Eₖ) for pairwise disjoint Eₖ. Countable sets have measure 0; the Cantor set is uncountable with measure 0. Assuming the axiom of choice, Vitali (1905) constructed a nonmeasurable subset of [0, 1], so some restriction to measurable sets is unavoidable.</p>
+<p>A function f is measurable if {x : f(x) &gt; c} is measurable for every c. A property holds almost everywhere (a.e.) if it fails only on a set of measure zero.</p>
+<h3>The integral</h3>
+<p>For a simple function s = ∑ cₖ 1(Eₖ) (finitely many values cₖ ≥ 0 on measurable sets Eₖ) define ∫s = ∑ cₖ m(Eₖ). For measurable f ≥ 0 define ∫f = sup{∫s : s simple, 0 ≤ s ≤ f}, a number in [0, ∞]. A measurable f is Lebesgue integrable if ∫|f| &lt; ∞, and then ∫f = ∫f⁺ − ∫f⁻. With this definition the integral of Dirichlet's function over [0, 1] is 0, because ℚ ∩ [0, 1] has measure 0.</p>
+<h3>The three convergence theorems</h3>
+<p><strong>Theorem 14.1 (Monotone convergence)</strong>. If 0 ≤ f₁ ≤ f₂ ≤ ... are measurable and fₙ → f pointwise, then ∫fₙ → ∫f.</p>
+<p><strong>Theorem 14.2 (Fatou's lemma)</strong>. If fₙ ≥ 0 are measurable, then ∫ lim inf fₙ ≤ lim inf ∫fₙ.</p>
+<p><strong>Theorem 14.3 (Dominated convergence)</strong>. If fₙ → f a.e., and |fₙ| ≤ g for all n with g integrable, then f is integrable and ∫|fₙ − f| → 0; in particular ∫fₙ → ∫f.</p>
+<p>Proof of 14.3 from Fatou. Apply Fatou's lemma to the nonnegative functions 2g − |fₙ − f|. Since |fₙ − f| → 0 a.e., this gives ∫2g ≤ ∫2g − lim sup ∫|fₙ − f|, so lim sup ∫|fₙ − f| ≤ 0. ∎</p>
+<p>The example fₙ = n·1((0, 1/n)) shows that domination cannot be omitted: fₙ → 0 everywhere, but ∫fₙ = 1 for every n. No integrable g dominates all fₙ, since sup fₙ ≥ 1/(2x) on (0, 1/2), which is not integrable.</p>
+<h3>Worked examples</h3>
+<p>By monotone convergence, since (1 − x/n)ⁿ·1([0, n]) increases to e⁻ˣ,</p>
+<pre class="math">lim (n → ∞) ∫₀ⁿ (1 − x/n)ⁿ dx = ∫₀<sup>∞</sup> e⁻ˣ dx = 1.</pre>
+<p>(Indeed the integral equals n/(n + 1) exactly.) By dominated convergence, with dominating function 1/(1 + x²) (since |sin u| ≤ |u|),</p>
+<pre class="math">lim (n → ∞) ∫₀<sup>∞</sup> n sin(x/n) / (x(1 + x²)) dx = ∫₀<sup>∞</sup> dx/(1 + x²) = π/2.</pre>
+<p>Differentiation under the integral sign is a corollary: if ∂f/∂t exists and |∂f/∂t(x, t)| ≤ g(x) with g integrable, then d/dt ∫f(x, t) dx = ∫ ∂f/∂t(x, t) dx, by dominated convergence applied to difference quotients and the mean value theorem.</p>
+<h3>Relation to the Riemann integral</h3>
+<p>Every Riemann integrable function on [a, b] is Lebesgue integrable with the same integral, so nothing is lost. Absolutely convergent improper Riemann integrals are Lebesgue integrals; conditionally convergent ones, such as ∫₀<sup>∞</sup> (sin x)/x dx, are not, since the Lebesgue integral requires ∫|f| &lt; ∞. The space L¹ of integrable functions, with functions equal a.e. identified, is complete with respect to ‖f‖₁ = ∫|f| (Riesz–Fischer), and the same holds for Lᵖ with 1 ≤ p ≤ ∞.</p>
+<h3>The fundamental theorem, revisited</h3>
+<p><strong>Theorem 14.4 (Lebesgue differentiation theorem)</strong>. If f is integrable on [a, b] and F(x) = ∫ₐˣ f, then F′(x) = f(x) for almost every x.</p>
+<p>The converse direction requires care. The Cantor function c: [0, 1] → [0, 1] is continuous and increasing, constant on each interval removed in constructing the Cantor set, so c′ = 0 a.e.; yet c(1) − c(0) = 1 ≠ 0 = ∫₀¹ c′. The correct class is the absolutely continuous functions: F(b) − F(a) = ∫ₐᵇ F′ holds iff F is absolutely continuous, which in particular covers every Lipschitz function and every everywhere-differentiable F with bounded derivative, such as Volterra's function. With this the two halves of the fundamental theorem, first discovered by Newton and Leibniz for smooth functions, attain their final and sharpest form.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute ∫₀¹ nx/(1 + n²x²) dx exactly, find its limit as n → ∞, and confirm the answer with dominated convergence.</div></li><li><span class="mk">(b)</span><div>Compute lim (n → ∞) ∫₀<sup>∞</sup> e<sup>−x</sup> cos(x/n) dx.</div></li><li><span class="mk">(c)</span><div>Is the indicator of the Cantor set Riemann integrable? Lebesgue integrable? What is its integral?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The integral equals ln(1 + n²)/(2n), which tends to 0. The integrands tend to 0 pointwise, and the maximum of nx/(1 + n²x²) is 1/2 (at x = 1/n), so the constant 1/2 is a dominating function on [0, 1] and dominated convergence also gives the limit 0. (b) The integrand is dominated by e⁻ˣ and tends to e⁻ˣ, so the limit is 1. (c) Both: its discontinuities are exactly the Cantor set, which has measure 0, so it is Riemann integrable (Lebesgue's criterion), and both integrals are 0.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-13.html">← Lesson 13</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

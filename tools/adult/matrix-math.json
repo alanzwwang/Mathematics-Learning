@@ -1,0 +1,13 @@
+{
+  "blurb": "A graduate course in linear algebra: determinants, Jordan form, the spectral theorem, SVD and conditioning.",
+  "pics": [
+    { "img": "img/adult/matrix-math-1.png", "alt": "Diagram of the singular value decomposition: a unit disc is rotated by V*, stretched by Sigma into an ellipse, then rotated by U",
+      "caption": "The singular value decomposition M = UΣV*: every real 2 × 2 matrix acts on the unit disc as a rotation or reflection, an axis-aligned stretch by the singular values σ₁ and σ₂, and a second rotation or reflection. The image of the disc is an ellipse whose semi-axes have lengths σ₁ and σ₂.",
+      "title": "Singular-Value-Decomposition.svg", "page": "https://commons.wikimedia.org/wiki/File:Singular-Value-Decomposition.svg",
+      "license": "CC BY-SA 3.0", "artist": "Georg-Johann" },
+    { "img": "img/adult/matrix-math-2.jpg", "alt": "Black-and-white photographic portrait of the mathematician Arthur Cayley",
+      "caption": "Arthur Cayley (1821–1895), photographed by Herbert Rose Barraud. His 1858 \"A Memoir on the Theory of Matrices\" treated matrices as algebraic objects in their own right and stated the Cayley–Hamilton theorem.",
+      "title": "Arthur Cayley.jpg", "page": "https://commons.wikimedia.org/wiki/File:Arthur_Cayley.jpg",
+      "license": "Public domain", "artist": "Herbert Rose Barraud" }
+  ]
+}

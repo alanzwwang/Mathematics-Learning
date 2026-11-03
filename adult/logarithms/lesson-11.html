@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Information, Entropy and Logarithmic Scales — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 11</p>
+    <h1>Information, Entropy and Logarithmic Scales</h1>
+    <p class="kicker">Lesson 11 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">H(p₁, …, pₙ) = −∑ pᵢ log₂ pᵢ bits,   0 ≤ H ≤ log₂ n
+D(p ‖ q) = ∑ pᵢ ln(pᵢ/qᵢ) ≥ 0   (Gibbs)
+level in dB = 10 log₁₀(P/P₀)</pre></div>
+<h3>Why information is a logarithm</h3>
+<p>Suppose we want a measure I(N) of the information gained when one of N equally likely possibilities is revealed. Two natural requirements are that I is non-decreasing in N and that independent choices add: choosing one of M and, independently, one of N is choosing one of MN, so I(MN) = I(M) + I(N). Hartley (1928) and Shannon (1948) took I(N) = log N; the following theorem shows there is no other choice.</p>
+<p><strong>Theorem 11.1</strong>. Let f: ℕ → ℝ be non-decreasing with f(mn) = f(m) + f(n) for all m, n ≥ 1. Then f(n) = c ln n for some c ≥ 0.</p>
+<p><strong>Proof</strong>. f(1) = 2f(1) gives f(1) = 0. If f(2) = 0 then f(2ᵏ) = 0 for all k, and monotonicity forces f ≡ 0, which is the case c = 0. Otherwise f(m) ≥ f(2) &gt; 0 for all m ≥ 2. Fix m, n ≥ 2 and k ≥ 1, and choose the integer j with mʲ ≤ nᵏ &lt; mʲ⁺¹. Applying the monotone, additive f and the increasing, additive ln to these inequalities gives</p>
+<pre class="math">j/k ≤ f(n)/f(m) ≤ (j + 1)/k   and   j/k ≤ ln n/ln m &lt; (j + 1)/k.</pre>
+<p>So |f(n)/f(m) − ln n/ln m| ≤ 1/k for every k, hence f(n)/ln n = f(m)/ln m. This common value is the constant c. ∎</p>
+<p>Erdős (1946) proved the stronger result in which additivity is required only for coprime m, n. The choice of c is the choice of unit: c = 1/ln 2 gives bits, c = 1 gives nats, and c = 1/ln 10 gives hartleys (also called bans or dits). Thus 1 nat = 1/ln 2 ≈ 1.4427 bits and 1 hartley = log₂ 10 ≈ 3.3219 bits.</p>
+<h3>Shannon entropy</h3>
+<p>For a probability distribution p = (p₁, …, pₙ), an outcome of probability pᵢ carries surprisal −log₂ pᵢ bits, and the entropy is the expected surprisal</p>
+<pre class="math">H(p) = −∑ pᵢ log₂ pᵢ,   with the convention 0 log 0 = 0 (justified by x ln x → 0).</pre>
+<p>Shannon showed that H is, up to the unit, the only function that is continuous, increasing in n on uniform distributions, and satisfies the grouping rule H(p₁, …, pₙ) = H(p₁ + p₂, p₃, …, pₙ) + (p₁ + p₂)H(p₁/(p₁ + p₂), p₂/(p₁ + p₂)); the uniform case is Theorem 11.1. Examples: a fair coin has H = 1 bit; a coin with P(heads) = 0.9 has H ≈ 0.4690 bits; the distribution (1/2, 1/4, 1/8, 1/8) has H = 1/2 + 2/4 + 3/8 + 3/8 = 1.75 bits; a uniformly shuffled deck has log₂ 52! ≈ 225.58 bits.</p>
+<h3>Gibbs' inequality</h3>
+<p><strong>Theorem 11.2</strong>. Let p, q be probability distributions on {1, …, n} with qᵢ &gt; 0 whenever pᵢ &gt; 0. Then the Kullback–Leibler divergence D(p ‖ q) = ∑ pᵢ ln(pᵢ/qᵢ) is non-negative, with equality if and only if p = q.</p>
+<p><strong>Proof</strong>. Sum over i with pᵢ &gt; 0 and use ln x ≤ x − 1 (Proposition 1.6): −D(p ‖ q) = ∑ pᵢ ln(qᵢ/pᵢ) ≤ ∑ pᵢ(qᵢ/pᵢ − 1) = ∑<sub>pᵢ&gt;0</sub> qᵢ − 1 ≤ 0. Equality in Proposition 1.6 requires qᵢ = pᵢ for every i with pᵢ &gt; 0, and then ∑<sub>pᵢ&gt;0</sub> qᵢ = 1 forces qᵢ = 0 elsewhere. ∎</p>
+<p><strong>Corollary 11.3</strong>. 0 ≤ H(p) ≤ log₂ n, with H = log₂ n exactly for the uniform distribution. Indeed log₂ n − H(p) = D(p ‖ u)/ln 2 for the uniform distribution u.</p>
+<h3>The source coding theorem</h3>
+<p>A prefix code assigns to symbol i a binary word of length ℓᵢ, no word being a prefix of another. Kraft's inequality says such a code exists if and only if ∑ 2<sup>−ℓᵢ</sup> ≤ 1.</p>
+<p><strong>Theorem 11.4 (Shannon, 1948)</strong>. Every prefix code has expected length L = ∑ pᵢℓᵢ ≥ H(p), and there is a prefix code with L &lt; H(p) + 1.</p>
+<p><strong>Proof</strong>. Let K = ∑ 2<sup>−ℓᵢ</sup> ≤ 1 and qᵢ = 2<sup>−ℓᵢ</sup>/K. Then L − H(p) = ∑ pᵢ log₂(pᵢ/2<sup>−ℓᵢ</sup>) = D(p ‖ q)/ln 2 − log₂ K ≥ 0. For the second statement take ℓᵢ = ⌈−log₂ pᵢ⌉; then ∑ 2<sup>−ℓᵢ</sup> ≤ ∑ pᵢ = 1, so a prefix code exists by Kraft, and ℓᵢ &lt; −log₂ pᵢ + 1 gives L &lt; H + 1. ∎</p>
+<p>Coding blocks of k symbols reduces the overhead to 1/k bit per symbol, so the entropy is exactly the optimal compression rate. The same quantity, with natural logarithms and Boltzmann's constant, is the thermodynamic entropy S = k<sub>B</sub> ln W of a system with W equally likely microstates.</p>
+<h3>Logarithmic scales</h3>
+<p>A logarithmic scale reports log(X/X₀) for a reference value X₀. It is the right choice whenever ratios, not differences, are meaningful, and whenever the quantity ranges over many orders of magnitude.</p>
+<pre class="math">decibel (power):       L = 10 log₁₀(P/P₀) dB;   doubling the power adds 10 log₁₀ 2 ≈ 3.0103 dB
+decibel (amplitude):   L = 20 log₁₀(A/A₀) dB,   since power ∝ amplitude²
+neper:                 ln(A/A₀) Np;   1 Np = 20/ln 10 dB ≈ 8.6859 dB
+stellar magnitude:     m₁ − m₂ = −2.5 log₁₀(F₁/F₂)   (5 magnitudes = factor 100, Pogson 1856)
+pH:                    pH = −log₁₀ a(H⁺)
+moment magnitude:      M<sub>w</sub> = (2/3)(log₁₀ M₀ − 9.1),   M₀ the seismic moment in N·m
+musical cents:         1200 log₂(f₂/f₁);   a just fifth 3/2 is 701.955 cents</pre>
+<p>Because the moment magnitude has slope 2/3, one magnitude unit corresponds to a factor 10<sup>1.5</sup> ≈ 31.6 in seismic moment, and roughly in radiated energy. The decibel scale for sound pressure uses P₀ corresponding to 20 μPa; adding n incoherent sources of equal level adds 10 log₁₀ n dB, while two coherent sources in phase add 20 log₁₀ 2 ≈ 6.02 dB. The Weber–Fechner law in psychophysics, that perceived intensity grows like the logarithm of stimulus intensity, is the empirical reason that loudness, brightness and pitch are reported on logarithmic scales.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the entropy in bits of the distribution (1/2, 1/4, 1/4), and D(p ‖ q) in bits for p = (1/2, 1/2), q = (1/4, 3/4).</div></li><li><span class="mk">(b)</span><div>A signal has power 0.5 mW and the reference is 1 mW. Express its level in dBm, and find the power at 27 dBm.</div></li><li><span class="mk">(c)</span><div>Prove that the cents value of an equal-tempered semitone is exactly 100, and that twelve just fifths exceed seven octaves by about 23.46 cents (the Pythagorean comma).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) H = 1/2·1 + 1/4·2 + 1/4·2 = 1.5 bits. D = ½ log₂(0.5/0.25) + ½ log₂(0.5/0.75) = ½ − ½ log₂ 1.5 ≈ 0.5 − 0.2925 = 0.2075 bits. (b) 10 log₁₀ 0.5 ≈ −3.01 dBm. 27 dBm corresponds to 10<sup>2.7</sup> ≈ 501.2 mW. (c) A semitone is the ratio 2<sup>1/12</sup>, and 1200 log₂ 2<sup>1/12</sup> = 100. Twelve fifths give 12 × 701.955 = 8423.46 cents, and seven octaves are 8400 cents, a difference of 23.46 cents; exactly, the comma is 3¹²/2¹⁹ ≈ 1.01364.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

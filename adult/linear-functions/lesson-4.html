@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Matrices, Change of Basis and Similarity — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 4</p>
+    <h1>Matrices, Change of Basis and Similarity</h1>
+    <p class="kicker">Lesson 4 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">[T]<sub>C←B</sub> has j-th column = C-coordinates of T(bⱼ)
+[S∘T] = [S][T]          (composition is matrix multiplication)
+Change of basis:  [T]<sub>B′</sub> = P⁻¹ [T]<sub>B</sub> P,  P = matrix whose columns are the B′ vectors in B-coordinates</pre></div>
+<h3>Coordinates and matrices</h3>
+<p>Fix an ordered basis B = (b₁, …, bₙ) of V. The coordinate map v ↦ [v]<sub>B</sub> ∈ Fⁿ is a linear isomorphism, so every n-dimensional space over F &quot;is&quot; Fⁿ once a basis is chosen. But the isomorphism depends on the choice, and much of linear algebra consists in choosing well. If C = (c₁, …, cₘ) is a basis of W and T : V → W is linear, the matrix of T is the m × n matrix [T]<sub>C←B</sub> whose j-th column is [T(bⱼ)]<sub>C</sub>. By construction [T(v)]<sub>C</sub> = [T]<sub>C←B</sub>[v]<sub>B</sub>.</p>
+<h3>Theorem 4.1 (Composition)</h3>
+<p>If T : U → V and S : V → W are linear and A, B, C are bases of U, V, W, then [S∘T]<sub>C←A</sub> = [S]<sub>C←B</sub>[T]<sub>B←A</sub>.</p>
+<p><strong>Proof</strong>. For any u ∈ U, [S(T(u))]<sub>C</sub> = [S]<sub>C←B</sub>[T(u)]<sub>B</sub> = [S]<sub>C←B</sub>[T]<sub>B←A</sub>[u]<sub>A</sub>. Applying this to the basis vectors of A identifies the columns of both sides. ∎</p>
+<p>This theorem is the reason matrix multiplication is defined the way it is: the row-by-column rule is forced by the requirement that composition of maps correspond to the product of matrices. In particular matrix multiplication is associative because composition of functions is, and it is noncommutative because composition generally is.</p>
+<h3>Change of basis</h3>
+<p>Let B and B′ be two bases of V and let P = [id]<sub>B←B′</sub> be the matrix whose j-th column is the B-coordinate vector of the j-th vector of B′. Then [v]<sub>B</sub> = P[v]<sub>B′</sub>, P is invertible, and for an operator T : V → V Theorem 4.1 gives</p>
+<pre class="math">[T]<sub>B′</sub> = [id]<sub>B′←B</sub> [T]<sub>B</sub> [id]<sub>B←B′</sub> = P⁻¹ [T]<sub>B</sub> P.</pre>
+<p>Two square matrices A and A′ are similar if A′ = P⁻¹AP for some invertible P; similar matrices represent the same operator in different bases. Any quantity defined in terms of the operator alone, rather than its matrix, is therefore a similarity invariant: the rank, the determinant, the trace, the characteristic polynomial det(λI − A), the eigenvalues with their algebraic and geometric multiplicities, and the minimal polynomial. The complete classification of matrices up to similarity is given by the Jordan normal form over an algebraically closed field, or the rational canonical form over any field.</p>
+<p><strong>Worked example (diagonalisation)</strong>. Let T : ℝ² → ℝ² have the standard matrix shown below.</p>
+<pre class="math">A = [ 3  1 ]
+    [ 0  2 ]</pre>
+<p>Its eigenvalues are 3 and 2 (it is triangular). Eigenvectors: A(1, 0) = (3, 0) and A(1, −1) = (3 − 1, −2) = (2, −2) = 2(1, −1). With B′ = ((1, 0), (1, −1)) we have</p>
+<pre class="math">P = [ 1   1 ]     P⁻¹ = P  (since P² = I)     P⁻¹AP = [ 3  0 ]
+    [ 0  −1 ]                                          [ 0  2 ]</pre>
+<p>Indeed AP has columns (3, 0) and (2, −2), and multiplying by P⁻¹ = P gives columns (3, 0) and (0, 2). In the eigenbasis the operator simply stretches the two axes by 3 and by 2. Trace 5 and determinant 6 are visible in both matrices.</p>
+<p><strong>Worked example (an operator on polynomials)</strong>. On P₂ with basis (1, x, x²), differentiation D sends 1 ↦ 0, x ↦ 1, x² ↦ 2x. Reading off coordinate columns,</p>
+<pre class="math">[D] = [ 0  1  0 ]
+      [ 0  0  2 ]
+      [ 0  0  0 ]</pre>
+<p>The matrix is nilpotent ([D]³ = 0, matching the fact that three derivatives kill any quadratic), its trace is 0 and its rank is 2.</p>
+<h3>Why the trace is special</h3>
+<p>The trace satisfies tr(AB) = tr(BA), which immediately implies tr(P⁻¹AP) = tr(APP⁻¹) = tr A. Conversely, any linear functional φ on n × n matrices with φ(AB) = φ(BA) for all A, B is a scalar multiple of the trace (Problem 26). A famous consequence: there are no n × n matrices with AB − BA = I, because the left side has trace 0 and the right side has trace n (Problem 48). In quantum mechanics the canonical commutation relation [x, p] = iħ therefore forces infinite-dimensional state spaces.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the matrix of T(p) = p′ + p on P₂ with respect to (1, x, x²), and its determinant.</div></li><li><span class="mk">(b)</span><div>A 2 × 2 matrix B is similar to a matrix A with trace 7 and determinant 10. Find the eigenvalues of B.</div></li><li><span class="mk">(c)</span><div>Let A have rows (4, −2) and (1, 1). Find an invertible P with P⁻¹AP diagonal.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) T(1) = 1, T(x) = 1 + x, T(x²) = 2x + x², so the matrix has rows (1, 1, 0), (0, 1, 2), (0, 0, 1); it is upper triangular with determinant 1. (b) B has characteristic polynomial λ² − 7λ + 10 = (λ − 2)(λ − 5), so eigenvalues 2 and 5. (c) The characteristic polynomial is λ² − 5λ + 6, with roots 2 and 3; eigenvectors are (1, 1) for 2 and (2, 1) for 3, so P with columns (1, 1) and (2, 1) gives P⁻¹AP = diag(2, 3).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

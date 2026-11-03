@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Integer Partitions — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 8</p>
+    <h1>Integer Partitions</h1>
+    <p class="kicker">Lesson 8 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∑ₙ p(n) xⁿ = ∏ₖ≥₁ 1/(1 − xᵏ)
+∏ₖ≥₁ (1 − xᵏ) = ∑ⱼ∈ℤ (−1)ʲ x<sup>j(3j−1)/2</sup></pre></div>
+<h3>Definitions and Ferrers diagrams</h3>
+<p>A partition of n is a weakly decreasing sequence λ = (λ₁ ≥ λ₂ ≥ ⋯ ≥ λₗ &gt; 0) of positive integers with sum n; we write λ ⊢ n and call l the length. Its Ferrers diagram is the array of left-justified rows of λ₁, λ₂, … cells. Reflecting the diagram in its main diagonal gives the conjugate partition λ′, where λ′ⱼ is the number of parts λᵢ ≥ j. Conjugation is an involution, and it exchanges &quot;the number of parts&quot; with &quot;the largest part.&quot; Consequently the number pₖ(n) of partitions of n into exactly k parts equals the number of partitions of n with largest part k, and the number of partitions with at most k parts equals the number with all parts at most k. Removing the first column of the diagram of a partition with exactly k parts shows pₖ(n) = p<sub>≤k</sub>(n − k), the number of partitions of n − k into at most k parts.</p>
+<h3>Generating functions</h3>
+<p>Choosing independently how many parts of each size k to use gives Euler's product ∑ p(n)xⁿ = ∏ₖ (1 − xᵏ)⁻¹; the product converges formally because only finitely many factors affect each coefficient. Restricting part sizes or multiplicities modifies the factors: partitions into parts at most k have generating function ∏ⱼ₌₁ᵏ (1 − xʲ)⁻¹, and partitions into distinct parts have ∏ₖ (1 + xᵏ). The first values of p(n) for n = 0, …, 20 are</p>
+<pre class="math">1, 1, 2, 3, 5, 7, 11, 15, 22, 30, 42, 56, 77, 101, 135, 176, 231, 297, 385, 490, 627,</pre>
+<p>and p(100) = 190,569,292. For at most three parts, partial fractions give the closed form p<sub>≤3</sub>(n) = the integer nearest to (n + 3)²/12; for instance p<sub>≤3</sub>(12) = 19.</p>
+<p><strong>Theorem 8.1 (Euler, 1748)</strong>. The number of partitions of n into distinct parts equals the number of partitions of n into odd parts.</p>
+<p><strong>Proof</strong>. As formal power series, ∏ₖ (1 + xᵏ) = ∏ₖ (1 − x²ᵏ)/(1 − xᵏ). The numerator cancels every factor with an even exponent in the denominator, leaving ∏ over odd k of (1 − xᵏ)⁻¹. ∎ A bijective proof was given by Glaisher (1883): write each odd part's multiplicity in binary and merge equal parts, so that m copies of the odd part a, with m = 2<sup>e₁</sup> + 2<sup>e₂</sup> + ⋯ (distinct eᵢ), become the distinct parts a·2<sup>e₁</sup>, a·2<sup>e₂</sup>, …; uniqueness of the factorization of an integer as odd times a power of 2 makes this invertible. For n = 10 both counts equal 10.</p>
+<h3>Euler's pentagonal number theorem</h3>
+<p>The numbers j(3j − 1)/2 for j ∈ ℤ are the generalized pentagonal numbers 0, 1, 2, 5, 7, 12, 15, 22, 26, 35, 40, …, obtained alternately from j = 1, −1, 2, −2, …</p>
+<p><strong>Theorem 8.2 (Euler)</strong>. ∏ₖ≥₁ (1 − xᵏ) = 1 + ∑ⱼ≥₁ (−1)ʲ [x<sup>j(3j−1)/2</sup> + x<sup>j(3j+1)/2</sup>] = 1 − x − x² + x⁵ + x⁷ − x¹² − x¹⁵ + ⋯</p>
+<p><strong>Proof (Franklin, 1881)</strong>. The coefficient of xⁿ on the left is E(n) − O(n), where E(n) and O(n) count partitions of n into an even and an odd number of distinct parts. We build a sign-reversing involution on most of these partitions. For a partition λ into distinct parts, let s be its smallest part and let t be the length of its &quot;slope,&quot; the maximal run λ₁, λ₁ − 1, …, λ₁ − t + 1 of consecutive integers starting with the largest part. If s ≤ t, remove the smallest part and add 1 to each of the s largest parts; if s &gt; t, subtract 1 from each of the t largest parts and append a new smallest part equal to t. Each move changes the number of parts by one and is inverse to the other, except when it is not defined: this happens precisely when the slope contains the smallest part and either s = t (then λ = (2j − 1, …, j), with n = j(3j − 1)/2) or s = t + 1 (then λ = (2j, …, j + 1), with n = j(3j + 1)/2), in each case with j parts. So E(n) − O(n) = 0 unless n is a generalized pentagonal number, in which case it is (−1)ʲ. ∎</p>
+<p><strong>Corollary 8.3</strong>. Multiplying Theorem 8.2 by ∑ p(n)xⁿ gives 1, so for n ≥ 1</p>
+<pre class="math">p(n) = p(n − 1) + p(n − 2) − p(n − 5) − p(n − 7) + p(n − 12) + p(n − 15) − ⋯,</pre>
+<p>with p(m) = 0 for m &lt; 0 and signs following the pattern + + − − + + − − ⋯. Since there are about √(8n/3) nonzero terms, this computes p(1), …, p(N) in O(N<sup>3/2</sup>) operations; MacMahon used it to tabulate p(n) for n ≤ 200, the table that Hardy and Ramanujan used to test their formula. For example, p(12) = p(11) + p(10) − p(7) − p(5) + p(0) = 56 + 42 − 15 − 7 + 1 = 77.</p>
+<h3>Asymptotics and arithmetic</h3>
+<p>Hardy and Ramanujan (1918) proved p(n) ~ e<sup>π√(2n/3)</sup>/(4n√3), using the modularity of Dedekind's eta function η(τ) = q<sup>1/24</sup> ∏(1 − qⁿ) and what became the circle method. Rademacher (1937) refined their series into a convergent exact formula. At n = 100 the leading term is about 1.993 × 10⁸, against the true value 1.906 × 10⁸, a relative error of about 4.6%. Ramanujan discovered the congruences p(5n + 4) ≡ 0 (mod 5), p(7n + 5) ≡ 0 (mod 7), and p(11n + 6) ≡ 0 (mod 11); for example p(4) = 5, p(5) = 7 and p(6) = 11, and p(17) = 297 = 27 · 11. Dyson's rank (1944) and the crank of Andrews and Garvan (1988) explain these combinatorially, and Ono (2000) showed that for every prime m ≥ 5 there are infinitely many congruences of the form p(An + B) ≡ 0 (mod m).</p>
+<h3>Gaussian binomial coefficients</h3>
+<p>The generating function, by size, of the partitions whose Ferrers diagram fits in a k × (n − k) box is the Gaussian binomial coefficient [n choose k]<sub>q</sub> = (1 − qⁿ)(1 − qⁿ⁻¹)⋯(1 − qⁿ⁻ᵏ⁺¹)/((1 − q)(1 − q²)⋯(1 − qᵏ)). It is a polynomial in q that reduces to C(n, k) at q = 1, and when q is a prime power it counts the k-dimensional subspaces of 𝔽<sub>qⁿ</sub>.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Use the pentagonal recurrence to compute p(15) from the table.</div></li><li><span class="mk">(b)</span><div>How many partitions of 9 into distinct parts are there?</div></li><li><span class="mk">(c)</span><div>How many partitions of 10 have largest part exactly 3?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) p(15) = p(14) + p(13) − p(10) − p(8) + p(3) + p(0) = 135 + 101 − 42 − 22 + 3 + 1 = 176. (b) 8: 9, 8+1, 7+2, 6+3, 5+4, 6+2+1, 5+3+1, 4+3+2. (c) By conjugation this equals p₃(10) = 8.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

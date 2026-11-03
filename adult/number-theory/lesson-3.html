@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Congruences and the Ring ℤ/nℤ — Number Theory (Advanced)</title>
+<meta name="description" content="Congruences, primitive roots, quadratic reciprocity, arithmetic functions, the primes, Pell's equation and RSA.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0891b2">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../number-theory/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Number Theory</a> › Lesson 3</p>
+    <h1>Congruences and the Ring ℤ/nℤ</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Divisibility, the Euclidean Algorithm and Bézout's Identity">1</a><a href="lesson-2.html" title="Lesson 2: Primes and the Fundamental Theorem of Arithmetic">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Congruences and the Ring ℤ/nℤ">3</a><a href="lesson-4.html" title="Lesson 4: The Theorems of Fermat, Euler and Wilson">4</a><a href="lesson-5.html" title="Lesson 5: The Chinese Remainder Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Primitive Roots and the Structure of (ℤ/nℤ)×">6</a><a href="lesson-7.html" title="Lesson 7: Quadratic Residues and the Legendre Symbol">7</a><a href="lesson-8.html" title="Lesson 8: The Law of Quadratic Reciprocity">8</a><a href="lesson-9.html" title="Lesson 9: Arithmetic Functions, Dirichlet Convolution and Möbius Inversion">9</a><a href="lesson-10.html" title="Lesson 10: The Distribution of Primes">10</a><a href="lesson-11.html" title="Lesson 11: Sums of Two Squares and Pythagorean Triples">11</a><a href="lesson-12.html" title="Lesson 12: Continued Fractions and Pell's Equation">12</a><a href="lesson-13.html" title="Lesson 13: Primality Testing and the RSA Cryptosystem">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">a has a multiplicative inverse modulo n  ⟺  gcd(a, n) = 1.</pre></div>
+<h3>Congruence</h3>
+<p>Fix a modulus n ≥ 1. We write a ≡ b (mod n) when n | a − b. This is an equivalence relation, and it respects both ring operations: if a ≡ a' and b ≡ b' then a + b ≡ a' + b' and ab ≡ a'b' (since ab − a'b' = a(b − b') + b'(a − a')). The equivalence classes ā = a + nℤ are the residue classes, and the set of n classes forms a commutative ring ℤ/nℤ, the quotient of ℤ by the ideal nℤ. Gauss introduced the notation ≡ in 1801, deliberately echoing =.</p>
+<p>Many classical facts are one-line congruence computations. Since 10 ≡ 1 (mod 9), any number is congruent to its digit sum mod 9; since 10 ≡ −1 (mod 11), it is congruent mod 11 to its alternating digit sum. Since every square is ≡ 0 or 1 (mod 4), no integer ≡ 3 (mod 4) is a sum of two squares. Since every odd square is ≡ 1 (mod 8), no integer ≡ 7 (mod 8) is a sum of three squares (Problem 55 completes this to Legendre's condition).</p>
+<h3>Units and zero divisors</h3>
+<p><strong>Theorem 3.1</strong>. The class ā is a unit in ℤ/nℤ if and only if gcd(a, n) = 1. If gcd(a, n) = d &gt; 1, then ā is a zero divisor (or zero).</p>
+<p><strong>Proof</strong>. ā is a unit iff ax ≡ 1 (mod n) is solvable iff ax + ny = 1 is solvable iff gcd(a, n) = 1, by Corollary 1.3. If d &gt; 1, then a · (n/d) = (a/d) · n ≡ 0 while n/d ≢ 0 (mod n). ∎</p>
+<p>The units form a group (ℤ/nℤ)× of order φ(n), Euler's totient: the number of integers in {1, …, n} coprime to n. In particular ℤ/nℤ is a field if and only if n is prime; we write 𝔽ₚ for ℤ/pℤ.</p>
+<p><strong>Worked example</strong>: the inverse of 17 modulo 43. The Euclidean algorithm gives 43 = 2·17 + 9, 17 = 1·9 + 8, 9 = 1·8 + 1. Back-substituting:</p>
+<pre class="math">1 = 9 − 8 = 9 − (17 − 9) = 2·9 − 17 = 2(43 − 2·17) − 17 = 2·43 − 5·17</pre>
+<p>so 17⁻¹ ≡ −5 ≡ 38 (mod 43). Check: 17 · 38 = 646 = 15 · 43 + 1.</p>
+<h3>Linear congruences</h3>
+<p><strong>Theorem 3.2</strong>. Let d = gcd(a, n). The congruence ax ≡ b (mod n) is solvable if and only if d | b, in which case it has exactly d solutions modulo n, forming a single residue class modulo n/d.</p>
+<p><strong>Proof</strong>. Solvability is Theorem 1.6 applied to ax − ny = b. If d | b, divide through: (a/d)x ≡ b/d (mod n/d), where a/d is now invertible modulo n/d, giving a unique class x₀ mod n/d. Its lifts x₀ + k(n/d), k = 0, 1, …, d − 1, are distinct mod n. ∎</p>
+<p><strong>Worked example</strong>: solve 35x ≡ 10 (mod 50). Here d = gcd(35, 50) = 5 divides 10, so there are 5 solutions. Dividing by 5: 7x ≡ 2 (mod 10). Since 7 · 3 = 21 ≡ 1 (mod 10), x ≡ 3 · 2 = 6 (mod 10). Modulo 50 the solutions are x ≡ 6, 16, 26, 36, 46. Check: 35 · 6 = 210 = 4 · 50 + 10.</p>
+<h3>Polynomial congruences</h3>
+<p>For a polynomial f ∈ ℤ[x], the number of solutions of f(x) ≡ 0 (mod n) is a basic arithmetic invariant. Over a field the situation is controlled by the following theorem.</p>
+<p><strong>Theorem 3.3 (Lagrange)</strong>. If p is prime and f ∈ ℤ[x] has degree d whose leading coefficient is not divisible by p, then f(x) ≡ 0 (mod p) has at most d solutions modulo p.</p>
+<p><strong>Proof</strong>. 𝔽ₚ is a field, so 𝔽ₚ[x] has a division algorithm: if f(r) = 0 then f(x) = (x − r)g(x) with deg g = d − 1. If s ≠ r is another root then (s − r)g(s) = 0 in 𝔽ₚ, and since 𝔽ₚ has no zero divisors g(s) = 0. Induction on d completes the proof. ∎</p>
+<p>The hypothesis that the modulus is prime is essential: x² ≡ 1 (mod 8) has four solutions 1, 3, 5, 7. For composite moduli one first reduces to prime powers by the Chinese remainder theorem (Lesson 5) and then to primes by Hensel's lemma.</p>
+<p><strong>Theorem 3.4 (Hensel's lemma, simple form)</strong>. Let p be prime, f ∈ ℤ[x], and suppose f(a) ≡ 0 (mod pᵏ) and f'(a) ≢ 0 (mod p), where k ≥ 1. Then there is a unique t modulo p such that f(a + tpᵏ) ≡ 0 (mod pᵏ⁺¹).</p>
+<p><strong>Proof</strong>. By Taylor expansion (valid over ℤ because f(a + h) − f(a) − f'(a)h is divisible by h², and 2k ≥ k + 1), f(a + tpᵏ) ≡ f(a) + tpᵏ f'(a) (mod pᵏ⁺¹). Writing f(a) = pᵏ m, the condition becomes m + t f'(a) ≡ 0 (mod p), which has exactly one solution t since f'(a) is invertible mod p. ∎</p>
+<p>Thus a simple root modulo p lifts uniquely to a root modulo every pᵏ, and in the limit to a root in the p-adic integers ℤₚ. This is Newton's method in the p-adic metric, where |x|ₚ = p<sup>−vₚ(x)</sup>.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Solve 91x ≡ 35 (mod 133).</div></li><li><span class="mk">(b)</span><div>Find all solutions of x² ≡ 2 (mod 49).</div></li><li><span class="mk">(c)</span><div>Show that x² ≡ 1 (mod 2ᵏ) has exactly four solutions for every k ≥ 3.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) gcd(91, 133) = 7 divides 35, so divide by 7: 13x ≡ 5 (mod 19). Since 13 · 3 = 39 ≡ 1 (mod 19), x ≡ 15 (mod 19), and modulo 133 the seven solutions are 15, 34, 53, 72, 91, 110, 129. Check: 91 · 15 = 1365 = 10 · 133 + 35. (b) Modulo 7, x² ≡ 2 has roots ±3. Lift x = 3 + 7t: (3 + 7t)² ≡ 9 + 42t (mod 49), and 9 + 42t ≡ 2 means 42t ≡ −7, i.e. 6t ≡ −1 ≡ 6 (mod 7), so t = 1 and x = 10. The other root is −10 ≡ 39. Check: 100 = 2·49 + 2. (c) x must be odd; (x − 1)(x + 1) ≡ 0 (mod 2ᵏ) with exactly one of x ± 1 divisible by 2 only once (they differ by 2 and both are even), so the other is divisible by 2ᵏ⁻¹. This gives x ≡ ±1 (mod 2ᵏ⁻¹), that is x ≡ 1, 1 + 2ᵏ⁻¹, −1, −1 + 2ᵏ⁻¹ (mod 2ᵏ), four distinct classes when k ≥ 3, and all four do satisfy x² ≡ 1 since (±1 + 2ᵏ⁻¹)² = 1 ± 2ᵏ + 2²ᵏ⁻² ≡ 1 (mod 2ᵏ).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

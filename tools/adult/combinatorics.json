@@ -1,0 +1,13 @@
+{
+  "blurb": "Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.",
+  "pics": [
+    { "img": "img/adult/combinatorics-1.jpg", "alt": "Seventeenth-century engraved bird's-eye view of Königsberg with the river Pregel and its bridges",
+      "caption": "Königsberg in an engraving published by the heirs of Matthäus Merian in 1652, showing the river Pregel, its islands and bridges. Euler's 1736 proof that no walk crosses each of the city's seven bridges exactly once is regarded as the first theorem of graph theory.",
+      "title": "Image-Koenigsberg, Map by Merian-Erben 1652.jpg", "page": "https://commons.wikimedia.org/wiki/File:Image-Koenigsberg,_Map_by_Merian-Erben_1652.jpg",
+      "license": "Public domain", "artist": "Merian-Erben" },
+    { "img": "img/adult/combinatorics-2.png", "alt": "Complete graph on five vertices with the outer pentagon in red and the inner pentagram in blue",
+      "caption": "A red–blue colouring of the edges of K₅ with no monochromatic triangle: both colour classes are 5-cycles. It shows R(3, 3) > 5, and together with the pigeonhole argument for K₆ it proves R(3, 3) = 6.",
+      "title": "RamseyTheory K5 no mono K3.svg", "page": "https://commons.wikimedia.org/wiki/File:RamseyTheory_K5_no_mono_K3.svg",
+      "license": "CC BY-SA 3.0", "artist": "Richtom80" }
+  ]
+}

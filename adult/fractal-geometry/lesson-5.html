@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Box-Counting Dimension — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 5</p>
+    <h1>Box-Counting Dimension</h1>
+    <p class="kicker">Lesson 5 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">dim<sub>B</sub> F = lim<sub>δ→0</sub> log N<sub>δ</sub>(F) / (−log δ),
+where N<sub>δ</sub>(F) is the least number of sets of diameter at most δ that cover F.
+Upper and lower box dimensions use lim sup and lim inf.</pre></div>
+<h3>Definitions</h3>
+<p>Let F ⊂ ℝⁿ be non-empty and bounded, and let N<sub>δ</sub>(F) be the smallest number of sets of diameter at most δ that cover F. The lower and upper box-counting dimensions are</p>
+<pre class="math">dim<sub>B</sub>̲ F = lim inf<sub>δ→0</sub> log N<sub>δ</sub>(F) / (−log δ)
+dim<sub>B</sub>̄ F = lim sup<sub>δ→0</sub> log N<sub>δ</sub>(F) / (−log δ)</pre>
+<p>and when they agree the common value is the box-counting (or box, or Minkowski–Bouligand) dimension dim<sub>B</sub> F. Informally, N<sub>δ</sub>(F) ≈ δ<sup>−d</sup> with d = dim<sub>B</sub> F: a curve of dimension 1 needs about δ⁻¹ boxes, a surface about δ⁻², and the Koch curve about δ<sup>−1.2619</sup>.</p>
+<h3>Equivalent forms</h3>
+<p><strong>Proposition 5.1</strong>. The box dimensions are unchanged if N<sub>δ</sub>(F) is replaced by any of: (i) the number of δ-mesh cubes [m₁δ, (m₁+1)δ] × ⋯ × [mₙδ, (mₙ+1)δ] that meet F; (ii) the smallest number of closed balls of radius δ that cover F; (iii) the largest number of disjoint closed balls of radius δ with centres in F.</p>
+<p><strong>Proof</strong>. Each count is bounded above and below by constant multiples of the others at comparable scales, and such constants disappear in the limit because log(cδ)/log δ → 1. For (i): a mesh cube of side δ has diameter δ√n, so N<sub>δ√n</sub>(F) ≤ N′<sub>δ</sub>(F); and a set of diameter at most δ lies in at most 3ⁿ mesh cubes of side δ, so N′<sub>δ</sub>(F) ≤ 3ⁿ N<sub>δ</sub>(F). For (ii): a ball of radius δ has diameter 2δ, and a set of diameter δ lies in a ball of radius δ. For (iii): let B(x₁, δ), …, B(x<sub>k</sub>, δ) be a maximal disjoint family with centres in F. By maximality every point of F lies within 2δ of some x<sub>i</sub>, so the balls B(x<sub>i</sub>, 2δ), of diameter 4δ, cover F and N<sub>4δ</sub>(F) ≤ k. Conversely, the centres are more than 2δ apart, so a set of diameter at most δ contains at most one of them; since each centre lies in some set of a minimal δ-cover, k ≤ N<sub>δ</sub>(F). ∎</p>
+<p>A further simplification: it suffices to let δ → 0 through a geometric sequence δ<sub>k</sub> = c<sup>k</sup> (0 &lt; c &lt; 1). If c<sup>k+1</sup> ≤ δ &lt; c<sup>k</sup>, then N<sub>c<sup>k</sup></sub> ≤ N<sub>δ</sub> ≤ N<sub>c<sup>k+1</sup></sub>, and log N<sub>δ</sub> / (−log δ) is squeezed between log N<sub>c<sup>k</sup></sub> / (−(k+1) log c) and log N<sub>c<sup>k+1</sup></sub> / (−k log c), whose limits coincide.</p>
+<p><strong>Worked example</strong>: the Koch curve. At scale δ = 3<sup>−k</sup>, the curve is covered by its 4<sup>k</sup> level-k pieces, each of diameter 3<sup>−k</sup>, so N<sub>3<sup>−k</sup></sub> ≤ 4<sup>k</sup>. Conversely, the level-k pieces satisfy the open set condition, and a volume argument (Lemma 8.1 below) shows that a set of diameter 3<sup>−k</sup> meets at most a bounded number M of them; hence N<sub>3<sup>−k</sup></sub> ≥ 4<sup>k</sup> / M. Therefore</p>
+<pre class="math">dim<sub>B</sub> K = lim log 4<sup>k</sup> / log 3<sup>k</sup> = log 4 / log 3 ≈ 1.2619</pre>
+<h3>Minkowski content and parallel bodies</h3>
+<p>A second classical formulation uses the volume of the δ-parallel body F<sub>δ</sub> = {x : d(x, F) ≤ δ}. One shows</p>
+<pre class="math">dim<sub>B</sub>̄ F = n − lim inf<sub>δ→0</sub> log Lⁿ(F<sub>δ</sub>) / log δ
+dim<sub>B</sub>̲ F = n − lim sup<sub>δ→0</sub> log Lⁿ(F<sub>δ</sub>) / log δ</pre>
+<p>where Lⁿ is Lebesgue measure. The idea: F<sub>δ</sub> is covered by the N<sub>δ</sub>(F) sets of diameter δ, each fattened to diameter 3δ, so Lⁿ(F<sub>δ</sub>) ≤ c N<sub>δ</sub>(F) δⁿ; and F<sub>δ</sub> contains the disjoint balls of (iii), so Lⁿ(F<sub>δ</sub>) ≥ c′ N′′<sub>δ</sub>(F) δⁿ with N′′ the packing count. When Lⁿ(F<sub>δ</sub>) ~ M δ<sup>n−d</sup> with 0 &lt; M &lt; ∞, the constant M is (up to normalisation) the d-dimensional Minkowski content of F. For the middle-third Cantor set the ratio L¹(C<sub>δ</sub>)/δ<sup>1−d</sup> oscillates and does not converge, a phenomenon called lacunarity; for self-similar subsets of ℝ the Minkowski content exists precisely when the logarithms of the ratios r<sub>i</sub> do not all lie in a common lattice aℤ (Lapidus and van Frankenhuijsen; Falconer 1995).</p>
+<h3>The sequence {1/k}</h3>
+<p><strong>Proposition 5.2</strong>. Let F = {0} ∪ {1/k : k ∈ ℕ}. Then dim<sub>B</sub> F = 1/2.</p>
+<p><strong>Proof</strong>. The gap between 1/k and 1/(k + 1) is 1/(k(k + 1)), which decreases in k. Fix a small δ &gt; 0 and let K be the largest integer with K(K + 1) &lt; 1/δ; then K ~ δ<sup>−1/2</sup>.</p>
+<p>Lower bound: the gaps between consecutive points among 1, 1/2, …, 1/(K + 1) are all at least 1/(K(K + 1)) &gt; δ, so these K + 1 points are pairwise more than δ apart, and a set of diameter at most δ contains at most one of them. Hence N<sub>δ</sub>(F) ≥ K + 1.</p>
+<p>Upper bound: by maximality of K, (K + 1)(K + 2) ≥ 1/δ. Cover the K points 1, …, 1/K by K singletons, and the rest of F, which lies in [0, 1/(K + 1)], by at most 1/((K + 1)δ) + 1 ≤ K + 3 intervals of length δ. Hence N<sub>δ</sub>(F) ≤ 2K + 3.</p>
+<p>Since K + 1 ≤ N<sub>δ</sub>(F) ≤ 2K + 3 and K ~ δ<sup>−1/2</sup>, log N<sub>δ</sub>(F)/(−log δ) → 1/2. ∎</p>
+<p>The same argument shows that {0} ∪ {k<sup>−p</sup> : k ∈ ℕ} has box dimension 1/(1 + p) for every p &gt; 0: the gap after k<sup>−p</sup> is about p k<sup>−p−1</sup>, so the points are δ-separated for k ≲ δ<sup>−1/(p+1)</sup>, and the remaining interval [0, k<sup>−p</sup>] has length about δ<sup>p/(p+1)</sup>, which needs about δ<sup>−1/(p+1)</sup> intervals of length δ.</p>
+<h3>Properties and defects</h3>
+<p><strong>Proposition 5.3</strong>. (a) dim<sub>B</sub>̲ and dim<sub>B</sub>̄ are monotone, and dim<sub>B</sub>̄ is finitely stable: dim<sub>B</sub>̄(E ∪ F) = max{dim<sub>B</sub>̄ E, dim<sub>B</sub>̄ F}. (b) If f is Lipschitz then dim<sub>B</sub>̄ f(F) ≤ dim<sub>B</sub>̄ F, and bi-Lipschitz maps preserve both box dimensions. (c) dim<sub>B</sub>̲ F̄ = dim<sub>B</sub>̲ F and dim<sub>B</sub>̄ F̄ = dim<sub>B</sub>̄ F, where F̄ is the closure of F.</p>
+<p><strong>Proof</strong>. (a) N<sub>δ</sub>(E ∪ F) ≤ N<sub>δ</sub>(E) + N<sub>δ</sub>(F) ≤ 2 max{N<sub>δ</sub>(E), N<sub>δ</sub>(F)}. (b) If f is L-Lipschitz, the images of a δ-cover form an Lδ-cover. (c) The closure of a set of diameter δ has diameter δ, so a finite cover of F by closed sets of diameter at most δ also covers F̄. ∎</p>
+<p>Property (c) is the decisive defect. The rationals in [0, 1] form a countable set with closure [0, 1], so their box dimension is 1; but a countable set should be &quot;zero-dimensional&quot;. Box dimension is not countably stable: ℚ ∩ [0, 1] is a countable union of points of dimension 0, yet has dimension 1. The set {1/k} shows the same defect more subtly. Box dimension is nevertheless indispensable: it is computable, it is what experimentalists estimate from log–log plots, and for most well-behaved self-similar sets it coincides with the Hausdorff dimension defined next.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the box dimension of the Sierpinski triangle by counting at scales 2<sup>−k</sup>.</div></li><li><span class="mk">(b)</span><div>Find dim<sub>B</sub> of {0} ∪ {k<sup>−2</sup> : k ∈ ℕ}, and of {0} ∪ {2<sup>−k</sup> : k ∈ ℕ}.</div></li><li><span class="mk">(c)</span><div>Give a compact set whose lower and upper box dimensions differ.</div></li><li><span class="mk">(d)</span><div>Show that if dim<sub>B</sub>̲ F &lt; n then F has Lebesgue measure zero.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) At level k the triangle is covered by its 3<sup>k</sup> level-k pieces, each of diameter 2<sup>−k</sup> times the side, and by the open set condition a set of diameter 2<sup>−k</sup> meets boundedly many of them, so N ≍ 3<sup>k</sup> at scale 2<sup>−k</sup>, and dim<sub>B</sub> = log 3 / log 2 ≈ 1.585. (b) 1/(1 + 2) = 1/3 for k<sup>−2</sup>. For 2<sup>−k</sup>: at scale δ the points 2<sup>−k</sup> &gt; 2δ are δ-separated, and there are about log₂(1/δ) of them, while [0, 2δ] needs 2 more intervals; so N<sub>δ</sub> ~ log₂(1/δ), and dim<sub>B</sub> = 0. (c) Let F ⊂ [0, 1] be the set of x whose decimal digit in position k is 0 whenever (2j)! &lt; k ≤ (2j + 1)! for some j, with the other digits arbitrary. At δ = 10<sup>−k</sup> we have N<sub>δ</sub>(F) ≍ 10<sup>a(k)</sup>, where a(k) is the number of free positions up to k. At k = (2j + 1)!, a(k) ≤ (2j)! = o(k); at k = (2j + 2)!, a(k) ≥ k − (2j + 1)! = k(1 − o(1)). Hence dim<sub>B</sub>̲ F = 0 and dim<sub>B</sub>̄ F = 1. (d) Lⁿ(F) ≤ Lⁿ(F<sub>δ</sub>) ≤ c N<sub>δ</sub>(F) δⁿ. If dim<sub>B</sub>̲ F &lt; s &lt; n, then N<sub>δ</sub>(F) ≤ δ<sup>−s</sup> along a sequence δ → 0, so Lⁿ(F) ≤ c δ<sup>n−s</sup> → 0 along that sequence.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

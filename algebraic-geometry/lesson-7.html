@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#06b6d4">
+<body id="top" class="mode-kid" style="--topic:#06b6d4">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry" class="active">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/algebraic-geometry/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Two Number Lines, One Map">1</a><a href="lesson-2.html" title="Lesson 2: Plotting Points, Quadrants, and Mirror Tricks">2</a><a href="lesson-3.html" title="Lesson 3: Rules That Draw Shapes">3</a><a href="lesson-4.html" title="Lesson 4: The Membership Test — Forwards and Backwards">4</a><a href="lesson-5.html" title="Lesson 5: Slope — Measuring the Tilt">5</a><a href="lesson-6.html" title="Lesson 6: From Rule to Line — y = mx + b, Parallels, Perpendiculars">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Where Lines Meet — Two Methods, Three Possibilities">7</a><a href="lesson-8.html" title="Lesson 8: Distance, Midpoints, and the Circle's Equation">8</a><a href="lesson-9.html" title="Lesson 9: Parabolas, Transformations, and Where Lines Meet Curves">9</a><a href="lesson-10.html" title="Lesson 10: Watch Out! Common Mistakes">10</a><a href="lesson-11.html" title="Lesson 11: Review — The Big Picture">11</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A meeting point must obey BOTH rules at once.
 Method 1: set the rules equal. Method 2: add the equations.
@@ -83,7 +84,7 @@ divide by 2:    x = 3/2</pre>
 <p>Then y = 3/2 + 4 = 3/2 + 8/2 = 11/2. Meeting point: (3/2, 11/2). Check in the other rule: 3 × (3/2) + 1 = 9/2 + 2/2 = 11/2 ✅. Fractions obey the same rules — they just need one extra careful step.</p>
 <h3>The three-way handshake</h3>
 <p>One last wonder. The lines y = x + 1 and y = 2x − 2 meet where? Set equal: x + 1 = 2x − 2 → add 2: x + 3 = 2x → subtract x: 3 = x → y = 3 + 1 = 4. Point (3, 4). Now a third line crashes the party: y = 4x − 8. Does it pass through the same spot? Don't re-solve — just run the membership test: 4 × 3 − 8 = 4 ✅. YES! Three or more lines through one point are called CONCURRENT, and the strategy scales: to solve THREE rules at once, solve any two of them, then test the third.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find where y = x + 6 meets y = 2x + 1 — set them equal. (b) Solve 2x + y = 10 and x − y = 2 by elimination. (c) Strategy! For each system, which method would you pick — and why? (i) y = 5x + 1 and y = 2x + 7.</div></li><li><span class="mk">(ii)</span><div>3x + y = 10 and 3x − y = 2.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) x + 6 = 2x + 1 → subtract x: 6 = x + 1 → subtract 1: x = 5; y = 5 + 6 = 11. Point (5, 11). Check: 2 × 5 + 1 = 11 ✅. (b) Add the equations: 3x = 12 → x = 4; then 2 × 4 + y = 10 → y = 2. Point (4, 2). Check: 4 − 2 = 2 ✅. (c) (i) Set equal — both already say &quot;y =&quot;: 5x + 1 = 2x + 7 → 3x = 6 → x = 2, y = 11. (ii) Elimination — the y's are lined up to cancel: adding gives 6x = 12 → x = 2; then 6 + y = 10 → y = 4. Check: 6 − 4 = 2 ✅.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find where y = x + 6 meets y = 2x + 1 — set them equal.</div></li><li><span class="mk">(b)</span><div>Solve 2x + y = 10 and x − y = 2 by elimination.</div></li><li><span class="mk">(c)</span><div>Strategy! For each system, which method would you pick — and why? (i) y = 5x + 1 and y = 2x + 7.</div></li><li><span class="mk">(ii)</span><div>3x + y = 10 and 3x − y = 2.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) x + 6 = 2x + 1 → subtract x: 6 = x + 1 → subtract 1: x = 5; y = 5 + 6 = 11. Point (5, 11). Check: 2 × 5 + 1 = 11 ✅. (b) Add the equations: 3x = 12 → x = 4; then 2 × 4 + y = 10 → y = 2. Point (4, 2). Check: 4 − 2 = 2 ✅. (c) (i) Set equal — both already say &quot;y =&quot;: 5x + 1 = 2x + 7 → 3x = 6 → x = 2, y = 11. (ii) Elimination — the y's are lined up to cancel: adding gives 6x = 12 → x = 2; then 6 + y = 10 → y = 4. Check: 6 − 4 = 2 ✅.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">⬅️ Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 ➡️</a></nav>
 </main>
 
@@ -93,7 +94,7 @@ divide by 2:    x = 3/2</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

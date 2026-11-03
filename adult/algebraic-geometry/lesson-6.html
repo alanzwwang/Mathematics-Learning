@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Conics, Rational Parametrization and Pythagorean Triples — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 6</p>
+    <h1>Conics, Rational Parametrization and Pythagorean Triples</h1>
+    <p class="kicker">Lesson 6 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">x = (1 − t²)/(1 + t²),  y = 2t/(1 + t²):   ℚ-points of x² + y² = 1  ↔  t ∈ ℚ ∪ {∞}</pre></div>
+<h3>Conics and their classification</h3>
+<p>A conic is a plane curve of degree 2, the zero set of a polynomial of the form:</p>
+<pre class="math">Q(x, y) = Ax² + Bxy + Cy² + Dx + Ey + F</pre>
+<p>with (A, B, C) ≠ (0, 0, 0). Homogenizing (Lesson 8) gives a ternary quadratic form Q(X, Y, Z) = AX² + BXY + CY² + DXZ + EYZ + FZ², with symmetric matrix (in characteristic ≠ 2)</p>
+<pre class="math">M = ⎡ A    B/2  D/2 ⎤
+    ⎢ B/2  C    E/2 ⎥
+    ⎣ D/2  E/2  F   ⎦</pre>
+<p>The conic is nondegenerate (irreducible over k̄, hence smooth) exactly when det M ≠ 0; if det M = 0 the conic is a pair of lines or a double line over k̄. Over an algebraically closed field of characteristic ≠ 2, every nondegenerate quadratic form in three variables can be diagonalized to X² + Y² + Z², so all smooth projective conics are projectively equivalent. Over ℝ, Sylvester's law of inertia leaves two classes of nondegenerate forms up to sign: signature (3, 0), whose conic X² + Y² + Z² = 0 has no real points, and signature (2, 1), whose conic X² + Y² = Z² is the real projective circle. In the affine plane, a real nondegenerate conic with real points is an ellipse, a parabola or a hyperbola according as its intersection with the line at infinity Z = 0, namely AX² + BXY + CY² = 0, has no real points (B² − 4AC &lt; 0), one double point (B² − 4AC = 0) or two real points (B² − 4AC &gt; 0). In projective terms, the three affine types are one and the same curve placed differently relative to the line at infinity.</p>
+<h3>Rational parametrization</h3>
+<p><strong>Theorem</strong>. Let C ⊂ 𝔸² be an irreducible conic over a field k of characteristic ≠ 2 and let P ∈ C(k) be a k-rational point. Then projection from P defines a birational map C ⇢ 𝔸¹, and its inverse parametrizes all but finitely many k-points of C by rational functions with coefficients in k.</p>
+<p><strong>Proof</strong>. Translate so that P = (0, 0); then F = 0 and Q = q₂ + q₁ with q₂(x, y) = Ax² + Bxy + Cy² and q₁ = Dx + Ey. Irreducibility forces q₁ ≠ 0 (otherwise Q = q₂ would be a product of two lines over k̄). The lines through P are y = tx together with the vertical line x = 0. Substituting y = tx gives x²q₂(1, t) + x q₁(1, t) = 0, so apart from x = 0 the second intersection point is</p>
+<pre class="math">x(t) = −q₁(1, t)/q₂(1, t),   y(t) = t·x(t)</pre>
+<p>which are rational functions of t with coefficients in k. Conversely, every point (x, y) ∈ C(k) with x ≠ 0 determines t = y/x ∈ k. Thus t ↦ (x(t), y(t)) and (x, y) ↦ y/x are mutually inverse rational maps. ∎</p>
+<p>The unit circle. Take C: x² + y² = 1 and P = (−1, 0). The line y = t(x + 1) meets C where x² + t²(x + 1)² = 1, that is, (x + 1)[(x − 1) + t²(x + 1)] = 0. The second root is</p>
+<pre class="math">x = (1 − t²)/(1 + t²),   y = t(x + 1) = 2t/(1 + t²)</pre>
+<p>and the inverse map is t = y/(x + 1). Over ℚ, every rational point other than P arises from exactly one t ∈ ℚ; the point P itself corresponds to t = ∞ (the vertical tangent line at P). Over ℝ, t = tan(θ/2) recovers the classical Weierstrass substitution for x = cos θ, y = sin θ, used to integrate rational functions of sine and cosine.</p>
+<p><strong>Example</strong>. t = 2/3 gives x = (1 − 4/9)/(1 + 4/9) = 5/13 and y = (4/3)/(13/9) = 12/13. Indeed 25/169 + 144/169 = 1.</p>
+<h3>Pythagorean triples</h3>
+<p><strong>Theorem</strong>. Every primitive Pythagorean triple (a, b, c), meaning positive integers with a² + b² = c² and gcd(a, b, c) = 1, is, after possibly swapping a and b, of the form</p>
+<pre class="math">a = m² − n²,  b = 2mn,  c = m² + n²</pre>
+<p>for coprime integers m &gt; n ≥ 1 of opposite parity; and every such pair (m, n) gives a primitive triple.</p>
+<p><strong>Proof</strong>. Given a primitive triple, (a/c, b/c) is a rational point on the unit circle with both coordinates positive, so it equals ((1 − t²)/(1 + t²), 2t/(1 + t²)) for t = (b/c)/(a/c + 1) = b/(a + c), and 0 &lt; t &lt; 1. Write t = n/m in lowest terms with m &gt; n ≥ 1. Then</p>
+<pre class="math">a/c = (m² − n²)/(m² + n²),   b/c = 2mn/(m² + n²)</pre>
+<p>If m and n have opposite parity, then g = gcd(m² − n², 2mn, m² + n²) = 1: the number m² + n² is odd, and an odd prime dividing m² + n² and 2mn divides m or n and hence both, which is impossible. Since (a, b, c) and (m² − n², 2mn, m² + n²) are primitive positive triples with the same ratios, they coincide. If m and n are both odd, then g = 2 (each of the three numbers is even, and (m² + n²)/2 is odd because m² + n² ≡ 2 mod 4), so (a, b, c) = ((m² − n²)/2, mn, (m² + n²)/2). Now put m′ = (m + n)/2 and n′ = (m − n)/2. These are coprime (any common divisor divides m′ + n′ = m and m′ − n′ = n), of opposite parity (m′ + n′ = m is odd), with m′ &gt; n′ ≥ 1, and m′² − n′² = mn, 2m′n′ = (m² − n²)/2, m′² + n′² = (m² + n²)/2. So after swapping a and b the triple has the stated form for (m′, n′). The converse is the identity (m² − n²)² + (2mn)² = (m² + n²)² together with the coprimality argument above. ∎</p>
+<p>For example m = 2, n = 1 gives (3, 4, 5); m = 3, n = 2 gives (5, 12, 13); m = 4, n = 1 gives (15, 8, 17); m = 5, n = 2 gives (21, 20, 29).</p>
+<h3>Conics without rational points</h3>
+<p>A conic over ℚ need not have any rational point. The conic x² + y² = 3 has none. Suppose x = X/Z, y = Y/Z with integers X, Y, Z, Z ≠ 0 and gcd(X, Y, Z) = 1, so that X² + Y² = 3Z². Squares are 0 or 1 modulo 3, so X² + Y² ≡ 0 mod 3 forces X ≡ Y ≡ 0 mod 3. Then 9 divides 3Z², so 3 divides Z, contradicting gcd(X, Y, Z) = 1. The dichotomy is sharp: by the theorem above, a smooth conic over ℚ has either no rational points or infinitely many, parametrized by ℙ¹(ℚ). Legendre's theorem (1785) decides which case occurs for ax² + by² = cz², and its generalization, the Hasse–Minkowski theorem, states that a quadratic form over ℚ represents zero nontrivially if and only if it does so over ℝ and over every p-adic field ℚ<sub>p</sub>. This local-global principle fails for curves of higher genus (Selmer's cubic 3x³ + 4y³ + 5z³ = 0 has points over ℝ and every ℚ<sub>p</sub> but none over ℚ), which is one source of the depth of arithmetic geometry.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the rational point on x² + y² = 1 with parameter t = 1/4, and the corresponding Pythagorean triple.</div></li><li><span class="mk">(b)</span><div>Parametrize the conic x² − 2y² = 1 by lines through (1, 0), and find the point with t = 1.</div></li><li><span class="mk">(c)</span><div>Which primitive triple corresponds to t = 3/5?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) x = (1 − 1/16)/(1 + 1/16) = 15/17 and y = (1/2)/(17/16) = 8/17, giving (15, 8, 17). (b) Substituting y = t(x − 1) gives (x − 1)(x + 1) − 2t²(x − 1)² = 0, so x + 1 = 2t²(x − 1), x = (2t² + 1)/(2t² − 1) and y = t(x − 1) = 2t/(2t² − 1). At t = 1 this is (3, 2), and indeed 9 − 8 = 1; the integer points are the solutions of Pell's equation. (c) m = 5, n = 3 are both odd, so (m² − n², 2mn, m² + n²) = (16, 30, 34) must be divided by 2, giving (8, 15, 17).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

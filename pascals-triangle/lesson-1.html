@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#ec4899">
+<body id="top" class="mode-kid" style="--topic:#ec4899">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/pascals-triangle/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Every entry is the SUM of the two entries above it (Pascal's rule).
 Edge entries have only one parent, so they are always 1.
@@ -68,9 +69,8 @@ Then mirror the first half: 210, 120, 45, 10, 1   (every row is symmetric — Le
 <pre class="math">Row 10:  1   10   45   120   210   252   210   120   45   10   1</pre>
 <p>Count them: 11 entries for row 10 — the indexing rule (n + 1 entries) holds. ✅</p>
 <h3>A word from history</h3>
-<p>Blaise Pascal wrote a famous treatise on this triangle in France in 1653 — and used it to settle questions about gambling and probability, basically inventing probability theory with it. But he was late to the party! In China, Yang Hui published the triangle in 1261, crediting Jia Xian (around the year 1000). Persian mathematicians like al-Karaji knew it earlier still, and in India, scholars used it over 2,000 years ago to count the rhythms of poetry (how many ways can you mix long and short beats?). In China it is still called Yang Hui's triangle. Pascal got the fame — but the triangle belongs to the whole world.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Build row 11 from row 10. Use the mirror to save yourself half the work, and write out every sum.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: Start with the edge 1. Then 1 + 10 = 11, 10 + 45 = 55, 45 + 120 = 165, 120 + 210 = 330, 210 + 252 = 462. That's the halfway point, so mirror it: 462, 330, 165, 55, 11, 1.</p><pre class="math">Row 11:  1   11   55   165   330   462   462   330   165   55   11   1 ✅</pre></div></details></div>
-<p>(12 entries for row 11 — and notice the second entry is 11, exactly as promised.)</p></article>
+<p>Blaise Pascal wrote a famous treatise on this triangle in France in 1653 — and used it to settle questions about gambling and probability, basically inventing probability theory with it. But he was late to the party! In China, Yang Hui published the triangle in 1261, crediting Jia Xian (around the year 1050). Persian mathematicians like al-Karaji knew it earlier still, and in India, scholars used it over 2,000 years ago to count the rhythms of poetry (how many ways can you mix long and short beats?). In China it is still called Yang Hui's triangle. Pascal got the fame — but the triangle belongs to the whole world.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Build row 11 from row 10. Use the mirror to save yourself half the work, and write out every sum.</p><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answer</strong>: Start with the edge 1. Then 1 + 10 = 11, 10 + 45 = 55, 45 + 120 = 165, 120 + 210 = 330, 210 + 252 = 462. That's the halfway point, so mirror it: 462, 330, 165, 55, 11, 1.</p><pre class="math">Row 11:  1   11   55   165   330   462   462   330   165   55   11   1 ✅</pre><p>(12 entries for row 11 — and notice the second entry is 11, exactly as promised.)</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">⬅️ Start here</a><a class="btn" href="lesson-2.html">Lesson 2 ➡️</a></nav>
 </main>
 
@@ -80,7 +80,7 @@ Then mirror the first half: 210, 120, 45, 10, 1   (every row is symmetric — Le
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

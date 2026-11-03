@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Linear Versus Affine Maps — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 1</p>
+    <h1>Linear Versus Affine Maps</h1>
+    <p class="kicker">Lesson 1 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">T is linear      ⇔  T(x + y) = T(x) + T(y)  and  T(λx) = λT(x)
+f is affine      ⇔  f(x) = Ax + b  for a matrix A and a vector b
+On ℝ:  x ↦ mx is linear;  x ↦ mx + b is affine, and linear only if b = 0</pre></div>
+<h3>Definitions</h3>
+<p>Let V and W be vector spaces over a field F. A map T : V → W is linear if T(x + y) = T(x) + T(y) and T(λx) = λT(x) for all x, y ∈ V and λ ∈ F. Equivalently, T preserves every linear combination: T(λ₁x₁ + ⋯ + λₖxₖ) = λ₁T(x₁) + ⋯ + λₖT(xₖ). Setting λ = 0 shows that every linear map satisfies T(0) = 0.</p>
+<p>A map f : V → W is affine if it preserves affine combinations, that is, combinations whose coefficients sum to 1. Concretely, we require f(λx + (1 − λ)y) = λf(x) + (1 − λ)f(y) for all x, y ∈ V and all λ ∈ F. Geometrically, f maps the line through x and y onto the line through f(x) and f(y), and it does so in a way that preserves ratios along the line.</p>
+<h3>Theorem 1.1 (Structure of affine maps)</h3>
+<p>A map f : V → W is affine if and only if there is a linear map L : V → W and a vector b ∈ W with f(x) = L(x) + b for every x. The pair (L, b) is unique: b = f(0) and L(x) = f(x) − f(0).</p>
+<p><strong>Proof</strong>. If f = L + b with L linear, then f(λx + (1 − λ)y) = λL(x) + (1 − λ)L(y) + b = λ(L(x) + b) + (1 − λ)(L(y) + b), so f is affine. Conversely, suppose f is affine and put L(x) = f(x) − f(0). Then L(0) = 0 and L is again affine (subtracting a constant preserves the defining identity because the coefficients sum to 1). For homogeneity, L(λx) = L(λx + (1 − λ)0) = λL(x) + (1 − λ)L(0) = λL(x). For additivity (assuming the characteristic of F is not 2, as for ℝ), L(x + y) = 2L(½x + ½y) = 2(½L(x) + ½L(y)) = L(x) + L(y). Hence L is linear and f = L + f(0). Uniqueness follows by evaluating at 0. ∎</p>
+<h3>The case V = ℝⁿ, W = ℝᵐ</h3>
+<p>Every vector x ∈ ℝⁿ is x = x₁e₁ + ⋯ + xₙeₙ, so a linear map satisfies T(x) = x₁T(e₁) + ⋯ + xₙT(eₙ). If A is the m × n matrix whose j-th column is T(eⱼ), this says exactly that T(x) = Ax. Thus linear maps ℝⁿ → ℝᵐ are in bijection with m × n matrices, and by Theorem 1.1 affine maps are exactly the maps x ↦ Ax + b. The school formula is the case m = n = 1, where A = (m) is the slope and b is the intercept.</p>
+<p><strong>Worked example</strong>. Consider f(x, y) = (2x − y + 3, x + 4y − 1). Here b = f(0, 0) = (3, −1) and the linear part has columns f(e₁) − b = (2, 1) and f(e₂) − b = (−1, 4), so</p>
+<pre class="math">f(x) = Ax + b,   A = [ 2  −1 ]    b = [  3 ]
+                     [ 1   4 ]        [ −1 ]</pre>
+<p>For instance f(1, 2) = (2 − 2 + 3, 1 + 8 − 1) = (3, 8). The map is affine but not linear, since f(0) ≠ 0.</p>
+<h3>Cauchy's functional equation</h3>
+<p>On ℝ, which additive functions f(x + y) = f(x) + f(y) are linear? Additivity alone gives f(0) = 0, f(−x) = −f(x), f(nx) = nf(x) for integers n, and then f(p/q) = (p/q)f(1) for rationals, because q·f(p/q) = f(p) = p·f(1). So an additive function is ℚ-linear: f(qx) = qf(x) for q ∈ ℚ. If, in addition, f is continuous at a single point, then f(x) = cx with c = f(1), because both sides are continuous and agree on the dense set ℚ. The same conclusion follows from much weaker hypotheses: monotonicity on an interval, boundedness on a set of positive measure, or Lebesgue measurability (a theorem of Fréchet, Banach and Sierpiński from around 1920).</p>
+<p>Without any regularity hypothesis the conclusion is false. Regard ℝ as a vector space over ℚ. By the axiom of choice it has a basis H (a Hamel basis, after Georg Hamel, 1905). Any function H → ℝ extends uniquely to a ℚ-linear map ℝ → ℝ; choosing f(h₀) = 1 and f(h₁) = 0 for two basis elements already produces an additive function that is not of the form cx. Such functions are wildly discontinuous: their graphs are dense in the plane (Problem 47). The moral is that &quot;linear&quot; depends on the field of scalars. Over ℚ there are vastly more linear maps ℝ → ℝ than over ℝ.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find A and b for the affine map f : ℝ² → ℝ² with f(0, 0) = (1, 2), f(1, 0) = (4, 2) and f(0, 1) = (0, 7).</div></li><li><span class="mk">(b)</span><div>An additive function f : ℝ → ℝ satisfies f(1) = 3. Compute f(5/2), and explain why f(√2) cannot be determined without further hypotheses.</div></li><li><span class="mk">(c)</span><div>Show that the map x ↦ x² is not affine on ℝ by testing the defining identity with x = 0, y = 2, λ = ½.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) b = (1, 2); the columns of A are f(e₁) − b = (3, 0) and f(e₂) − b = (−1, 5), so A has rows (3, −1) and (0, 5). (b) f(5/2) = (5/2)·3 = 15/2. Since √2 is irrational, ℚ-linearity says nothing about f(√2): in a Hamel basis containing 1 and √2 we may assign f(√2) any value. (c) The left side is f(1) = 1, the right side is ½·0 + ½·4 = 2; they differ.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

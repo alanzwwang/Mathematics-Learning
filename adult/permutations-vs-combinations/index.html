@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Permutations vs Combinations — Mathematics Learning (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Permutations vs Combinations</span></p>
+    <h1>Permutations vs Combinations</h1>
+    <p class="kicker">Advanced · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><p>The elementary distinction between permutations and combinations is a distinction between ordered and unordered selections: P(n, k) = n!/(n − k)! counts arrangements of k objects chosen from n, and C(n, k) = n!/(k!(n − k)!) counts the underlying sets. That distinction, once made precise, turns out to be the doorway to a large part of modern algebra and combinatorics. A permutation is not merely an arrangement; it is a bijection of a finite set onto itself, and the collection of all such bijections forms the symmetric group, the first and most fundamental example of a non-abelian group. A combination is not merely an unordered list; it is an orbit of ordered lists under the action of a symmetric group, and the division by k! that the elementary course presents as &quot;removing the orderings&quot; is an instance of the orbit–stabiliser theorem.</p>
+<p>This course develops both sides of the subject at the level of a graduate course in algebraic and enumerative combinatorics. On the permutation side we study the structure of Sₙ: the cycle decomposition and its uniqueness, the sign homomorphism and a complete proof that it is well defined, conjugacy classes and their sizes, and the statistics of cycles, fixed points and inversions, with their generating functions (Stirling numbers of the first kind, derangement numbers, the Mahonian distribution). On the combination side we study subsets and multisets, binomial and multinomial coefficients, combinations with repetition and the twelvefold way. We then turn to algorithmic questions — how to list, rank and unrank permutations and combinations, and how to list them so that consecutive objects differ minimally (Gray codes) — and close with group actions, Cayley's theorem, Burnside's lemma, and the probabilistic theory of random permutations, where the expected number of cycles grows like ln n.</p>
+<p>Throughout, [n] denotes the set {1, 2, …, n}, |X| the cardinality of a finite set X, and (x)ₖ = x(x − 1)⋯(x − k + 1) the falling factorial, with (x)₀ = 1. We write x⁽ᵏ⁾ = x(x + 1)⋯(x + k − 1) for the rising factorial. Permutations are composed as functions, right to left: (στ)(i) = σ(τ(i)). Every computation in this course follows that convention, and the reader should be aware that some texts (notably in computational group theory) compose left to right, which reverses the order of every product.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Treat permutations as bijections and k-permutations as injections, and organise counting by the symmetric group Sₙ</div></li><li><span class="mk">2.</span><div>Prove the cycle decomposition theorem and compute orders, powers and inverses from cycle type</div></li><li><span class="mk">3.</span><div>Prove that the sign of a permutation is well defined in three independent ways, and meet the alternating group</div></li><li><span class="mk">4.</span><div>Classify conjugacy classes of Sₙ by partitions and compute their sizes n!/z<sub>λ</sub></div></li><li><span class="mk">5.</span><div>Count permutations by their number of cycles (Stirling numbers of the first kind) and by fixed points (derangements)</div></li><li><span class="mk">6.</span><div>Develop binomial and multinomial coefficients, multisets and combinations with repetition, and the twelvefold way</div></li><li><span class="mk">7.</span><div>Study inversions and the q-analogues of n! and C(n, k), including their interpretation over finite fields</div></li><li><span class="mk">8.</span><div>Rank and unrank permutations and combinations, and construct Gray codes for subsets, permutations and combinations</div></li><li><span class="mk">9.</span><div>Prove Cayley's theorem and the orbit–stabiliser theorem, and use Burnside's lemma to count up to symmetry</div></li><li><span class="mk">10.</span><div>Analyse random permutations: cycle counts, the harmonic numbers, Poisson limits and the longest cycle</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/permutations-vs-combinations-1.jpg" alt="Title page of the 1713 second edition of Montmort's Essay d'analyse sur les jeux de hazard, printed in Paris by Jacque Quillau" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Title page of the second edition (Paris, 1713) of Pierre Rémond de Montmort's Essay d'analyse sur les jeux de hazard. The book, first published in 1708, contains the problème des rencontres, the counting of derangements. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/permutations-vs-combinations-2.png" alt="Line drawing of the permutohedron of order 4, a truncated octahedron whose 24 vertices are labelled with the permutations of 1, 2, 3, 4" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> The permutohedron of order 4: its 24 vertices are the permutations of (1, 2, 3, 4), joined by an edge when they differ by exchanging two entries with consecutive values. Its edge graph is a Cayley graph of S₄ generated by adjacent transpositions. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>Permutations as Bijections and the Symmetric Group</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>The Cycle Decomposition</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Transpositions and the Sign of a Permutation</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Conjugacy Classes of the Symmetric Group</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Counting Permutations by Cycles — Stirling Numbers of the First Kind</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Fixed Points, Derangements and Restricted Cycle Structure</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Subsets, Binomial Coefficients and Multinomial Coefficients</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Multisets, Combinations with Repetition and the Twelvefold Way</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>Inversions and q-Analogues of Permutations and Combinations</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Ranking and Unranking Permutations and Combinations</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Gray Codes for Subsets, Permutations and Combinations</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Group Actions, Cayley's Theorem and Counting up to Symmetry</strong></span></a>
+    <a class="lesson-card" href="lesson-13.html"><span><span class="lc-num">Lesson 13</span><br><strong>Random Permutations</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Montmort - Essay d'analyse sur les jeux de hazard, 1713 - 276. By Pierre Rémond de Montmort. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Montmort_-_Essay_d%27analyse_sur_les_jeux_de_hazard,_1713_-_276.tif">https://commons.wikimedia.org/wiki/File:Montmort_-_Essay_d'analyse_sur_les_jeux_de_hazard,_1713_-_276.tif</a></li><li><strong>Figure 2</strong> · Permutohedron. By David Eppstein. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Permutohedron.svg">https://commons.wikimedia.org/wiki/File:Permutohedron.svg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

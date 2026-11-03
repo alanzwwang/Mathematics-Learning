@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#eab308">
+<body id="top" class="mode-kid" style="--topic:#eab308">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,18 +22,19 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/logic/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
 <section class="hero topic-hero">
   <div class="container">
-    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <a href="index.html">🧠 Logic</a></p>
+    <p class="crumbs"><a href="../index.html">🏠 Home</a> › <span aria-current="page">🧠 Logic</span></p>
     <h1>🧠 Logic</h1>
     <p class="kicker">🧱 Foundations · A Complete Lesson (Honors Edition)</p>
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <div class="welcome"><pre class="math">The flip of &quot;x &gt; 5&quot; is NOT &quot;x &lt; 5&quot; — it's x ≤ 5. One single number (5 itself) is the whole difference.
 &quot;x² = 25, so x = 5&quot; sounds airtight — until x = −5 walks into the room.
@@ -50,7 +51,7 @@ A knight always tells the truth. A knave always lies. One if-then sentence can e
       <figcaption><span class="photo-badge">📷 Picture 1</span><br>A marble bust of Aristotle (384–322 BC), the ancient Greek thinker who wrote down some of the very first rules of logic. <a href="#sources">See source ↓</a></figcaption>
     </figure>
     <figure class="picture">
-      <img src="../img/logic-2.jpg" alt="A black-and-white portrait photo of a man in a jacket" loading="lazy">
+      <img src="../img/logic-2.jpg" alt="A hand-coloured engraving of a man in a dark jacket and bow tie" loading="lazy">
       <figcaption><span class="photo-badge">📷 Picture 2</span><br>George Boole (1815–1864) turned logic into algebra with just TRUE and FALSE. Every computer today runs on his &quot;Boolean logic&quot;! <a href="#sources">See source ↓</a></figcaption>
     </figure></div><h2>🗺️ Your lesson map</h2><div class="lesson-list">
     <a class="lesson-card" href="lesson-1.html"><span class="lc-emoji">🚀</span><span><span class="lc-num">Lesson 1</span><br><strong>Statements and Open Sentences — The Raw Material of Logic</strong></span></a>
@@ -64,7 +65,7 @@ A knight always tells the truth. A knave always lies. One if-then sentence can e
     <a class="lesson-card" href="lesson-9.html"><span class="lc-emoji">⚠️</span><span><span class="lc-num">Lesson 9</span><br><strong>Watch Out! Common Mistakes</strong></span></a>
     <a class="lesson-card" href="lesson-10.html"><span class="lc-emoji">🧠</span><span><span class="lc-num">Lesson 10</span><br><strong>Review — The Big Picture</strong></span></a>
     <a class="lesson-card" href="practice.html"><span class="lc-emoji">🏋️</span><span><span class="lc-num">Practice Problems</span><br><strong>100 problems to try</strong></span></a>
-    <a class="lesson-card" href="quiz.html"><span class="lc-emoji">🏆</span><span><span class="lc-num">Quiz</span><br><strong>Test yourself: new questions every time!</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Aristotle Altemps Inv8575. By After Lysippos. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg">https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg</a></li><li><strong>Picture 2</strong> · George Boole color. By Unknown photographer. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg">https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg</a></li></ol></section>
+    <a class="lesson-card" href="quiz.html"><span class="lc-emoji">🏆</span><span><span class="lc-num">Quiz</span><br><strong>Test yourself: new questions every time!</strong></span></a></div><section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol><li><strong>Picture 1</strong> · Aristotle Altemps Inv8575. By After Lysippos. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg">https://commons.wikimedia.org/wiki/File:Aristotle_Altemps_Inv8575.jpg</a></li><li><strong>Picture 2</strong> · George Boole color. By Unknown artist. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg">https://commons.wikimedia.org/wiki/File:George_Boole_color.jpg</a></li></ol></section>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">🏠 All topics</a><a class="btn" href="lesson-1.html">Lesson 1 ➡️</a></nav>
 </main>
 
@@ -74,7 +75,7 @@ A knight always tells the truth. A knave always lies. One if-then sentence can e
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

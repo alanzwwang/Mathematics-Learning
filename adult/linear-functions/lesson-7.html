@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: The Derivative as the Best Linear Approximation — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 7</p>
+    <h1>The Derivative as the Best Linear Approximation</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">f(a + h) = f(a) + Df(a)h + o(‖h‖)      as h → 0
+Df(a) is linear, represented by the Jacobian matrix [∂fᵢ/∂xⱼ(a)]
+Chain rule:  D(g∘f)(a) = Dg(f(a)) ∘ Df(a)</pre></div>
+<h3>The Fréchet derivative</h3>
+<p>The school lesson computes the slope of a line. Calculus computes the slope of a curve by approximating the curve by a line. In several variables the correct generalisation of &quot;slope&quot; is not a number but a linear map. Let U ⊆ ℝⁿ be open and f : U → ℝᵐ. We say f is differentiable at a ∈ U if there is a linear map L : ℝⁿ → ℝᵐ such that</p>
+<pre class="math">lim<sub>h→0</sub>  ‖f(a + h) − f(a) − Lh‖ / ‖h‖ = 0.</pre>
+<p>The map L is then unique and is called the derivative Df(a). The affine map h ↦ f(a) + Df(a)h is the best affine approximation to f near a: it is the only affine map whose error vanishes faster than ‖h‖.</p>
+<p><strong>Proof of uniqueness</strong>. If L and L′ both work, then ‖(L − L′)h‖/‖h‖ → 0 as h → 0, by the triangle inequality. Put h = tv for a fixed unit vector v and t → 0⁺; by linearity ‖(L − L′)(tv)‖/‖tv‖ = ‖(L − L′)v‖, which is constant in t and therefore 0. So Lv = L′v for every unit vector v, hence L = L′. ∎</p>
+<p>Taking h = teⱼ shows that if f is differentiable then all partial derivatives exist and the matrix of Df(a) is the Jacobian matrix J<sub>f</sub>(a) with entries ∂fᵢ/∂xⱼ(a). The converse fails: f(x, y) = xy/(x² + y²), f(0, 0) = 0, has both partial derivatives equal to 0 at the origin, yet it is not even continuous there, since f(t, t) = 1/2 for all t ≠ 0 (Problem 34). A useful sufficient condition is that all partial derivatives exist near a and are continuous at a.</p>
+<h3>Theorem 7.1 (Chain rule)</h3>
+<p>If f is differentiable at a and g is differentiable at f(a), then g∘f is differentiable at a and D(g∘f)(a) = Dg(f(a))∘Df(a). In matrices, J<sub>g∘f</sub>(a) = J<sub>g</sub>(f(a))·J<sub>f</sub>(a).</p>
+<p>The proof is an estimate: write f(a + h) = f(a) + Df(a)h + r(h) and g(f(a) + k) = g(f(a)) + Dg(f(a))k + s(k), with r(h) = o(‖h‖) and s(k) = o(‖k‖); substitute k = Df(a)h + r(h), note that ‖k‖ ≤ C‖h‖ for small h, and collect the error terms. The conceptual content is the slogan &quot;the linearisation of a composition is the composition of the linearisations&quot;. For affine functions on ℝ this is the school fact that the slope of f∘g is the product of the slopes.</p>
+<p><strong>Worked example</strong>. Let f(x, y) = (x²y, x + y³) and a = (1, 2). Then</p>
+<pre class="math">J<sub>f</sub>(x, y) = [ 2xy   x²  ]       J<sub>f</sub>(1, 2) = [ 4   1 ]
+            [ 1     3y² ]                   [ 1  12 ]</pre>
+<p>Also f(1, 2) = (2, 9). To approximate f(1.1, 1.9), take h = (0.1, −0.1): J<sub>f</sub>(1, 2)h = (0.4 − 0.1, 0.1 − 1.2) = (0.3, −1.1), so f(1.1, 1.9) ≈ (2.3, 7.9). The exact value is (1.21·1.9, 1.1 + 6.859) = (2.299, 7.959). The errors 0.001 and 0.059 are of second order in h, as the theory predicts.</p>
+<h3>The inverse and implicit function theorems</h3>
+<p>A linear map is invertible if and only if its determinant is nonzero. The inverse function theorem says that this linear criterion controls the nonlinear map locally: if f is C¹ near a and det J<sub>f</sub>(a) ≠ 0, then f restricts to a C¹ bijection from a neighbourhood of a onto a neighbourhood of f(a), and D(f⁻¹)(f(a)) = Df(a)⁻¹. In the example above det J<sub>f</sub>(1, 2) = 48 − 1 = 47 ≠ 0, so f is locally invertible near (1, 2). The implicit function theorem is the analogous statement for solving F(x, y) = 0 for y in terms of x, under the hypothesis that the partial Jacobian ∂F/∂y is invertible; it is the nonlinear version of solving a linear system by rank–nullity.</p>
+<h3>Newton's method</h3>
+<p>To solve F(x) = 0, replace F by its linearisation at the current guess and solve the linear problem exactly:</p>
+<pre class="math">xₖ₊₁ = xₖ − J<sub>F</sub>(xₖ)⁻¹ F(xₖ).</pre>
+<p>In one variable this is xₖ₊₁ = xₖ − F(xₖ)/F′(xₖ), the x-intercept of the tangent line. If F is C² near a root x* with J<sub>F</sub>(x*) invertible, Newton's method converges quadratically from any starting point close enough to x*: ‖xₖ₊₁ − x*‖ ≤ C‖xₖ − x*‖², so the number of correct digits roughly doubles at each step (Problem 51). For F(x) = x² − 2 the iteration is xₖ₊₁ = (xₖ + 2/xₖ)/2, the Babylonian method; from x₀ = 1 it gives 1.5, 1.41666…, 1.41421568…, compared with √2 = 1.41421356…. Kantorovich's theorem (1948) gives verifiable conditions at the starting point that guarantee convergence.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the Jacobian determinant of the polar-coordinate map (r, θ) ↦ (r cos θ, r sin θ).</div></li><li><span class="mk">(b)</span><div>Find the linearisation of f(x, y) = x eʸ at (2, 0) and use it to estimate f(2.1, 0.05).</div></li><li><span class="mk">(c)</span><div>Perform one Newton step for x³ − 2 = 0 from x₀ = 1.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The Jacobian has rows (cos θ, −r sin θ) and (sin θ, r cos θ), with determinant r cos² θ + r sin² θ = r. (b) f(2, 0) = 2, fₓ = eʸ = 1 and f<sub>y</sub> = x eʸ = 2 at (2, 0), so L(x, y) = 2 + (x − 2) + 2y; L(2.1, 0.05) = 2 + 0.1 + 0.1 = 2.2, compared with the exact 2.1·exp(0.05) ≈ 2.2077. (c) x₁ = 1 − (1 − 2)/(3·1²) = 1 + 1/3 = 4/3.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

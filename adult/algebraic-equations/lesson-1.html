@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: Linear Systems, Gaussian Elimination and Rank — Algebraic Equations (Advanced)</title>
+<meta name="description" content="Theory of equations: elimination, polynomial rings, Cardano and Ferrari, resultants, Galois theory and Newton's method.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#8b5cf6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-equations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Equations</a> › Lesson 1</p>
+    <h1>Linear Systems, Gaussian Elimination and Rank</h1>
+    <p class="kicker">Lesson 1 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Linear Systems, Gaussian Elimination and Rank">1</a><a href="lesson-2.html" title="Lesson 2: Polynomial Rings over a Field">2</a><a href="lesson-3.html" title="Lesson 3: Factorization over ℤ and ℚ">3</a><a href="lesson-4.html" title="Lesson 4: Quadratic Equations over Arbitrary Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Cubic — Cardano's Formula and the Casus Irreducibilis">5</a><a href="lesson-6.html" title="Lesson 6: The Quartic — Ferrari's Method and the Resolvent Cubic">6</a><a href="lesson-7.html" title="Lesson 7: Symmetric Polynomials and Vieta's Formulas">7</a><a href="lesson-8.html" title="Lesson 8: Resultants, Discriminants and Elimination">8</a><a href="lesson-9.html" title="Lesson 9: The Fundamental Theorem of Algebra">9</a><a href="lesson-10.html" title="Lesson 10: Field Extensions and Splitting Fields">10</a><a href="lesson-11.html" title="Lesson 11: Galois Theory — The Fundamental Correspondence">11</a><a href="lesson-12.html" title="Lesson 12: Solvability by Radicals and the Abel–Ruffini Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Numerical Solution — Newton's Method and Its Convergence">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Ax = b is solvable  ⟺  rank A = rank [A | b]
+If solvable, the solution set is x₀ + ker A, of dimension n − rank A</pre></div>
+<p>A system of m linear equations in n unknowns over a field K is written Ax = b, where A is an m × n matrix with entries in K, x ∈ Kⁿ is the column of unknowns and b ∈ Kᵐ. The augmented matrix [A | b] records all the data. Every question about the system is a question about these two matrices.</p>
+<h3>Elementary row operations</h3>
+<p>There are three elementary row operations: interchange two rows, multiply a row by a nonzero scalar, and add a multiple of one row to another. Each is invertible and is achieved by left multiplication by an invertible elementary matrix E. Since EAx = Eb holds if and only if Ax = b (multiply by E⁻¹ to go back), row operations on [A | b] never change the solution set. This is the precise content of &quot;doing the same thing to both sides&quot;.</p>
+<p>Gaussian elimination applies row operations to bring [A | b] to row echelon form: each nonzero row begins with a pivot (a nonzero entry) strictly to the right of the pivot in the row above, and zero rows are at the bottom. Continuing (Gauss–Jordan) one reaches the reduced row echelon form, in which every pivot equals 1 and is the only nonzero entry of its column. The reduced form is unique: it depends only on the row space of the matrix, not on the sequence of operations used.</p>
+<p>Worked example A. Solve the system</p>
+<pre class="math">x +  y +  z = 6
+2x −  y + 3z = 9
+x + 4y −  z = 6</pre>
+<p>Subtract 2 × (row 1) from row 2 and row 1 from row 3:</p>
+<pre class="math">x +  y +  z = 6
+    −3y +  z = −3
+     3y − 2z = 0</pre>
+<p>Add row 2 to row 3, giving −z = −3, so z = 3. Back-substitution gives −3y + 3 = −3, so y = 2, and then x = 6 − 2 − 3 = 1. The unique solution is (x, y, z) = (1, 2, 3). There are three pivots in three columns, so there are no free variables.</p>
+<h3>Rank and the Rouché–Capelli theorem</h3>
+<p>The rank of A is the dimension of its column space, which equals the dimension of its row space and equals the number of pivots in any echelon form. Row operations preserve the row space, hence the rank, of both A and [A | b].</p>
+<p><strong>Theorem 1.1 (Rouché–Capelli)</strong>. The system Ax = b has a solution if and only if rank A = rank [A | b]. In that case, if x₀ is any one solution, the set of all solutions is x₀ + ker A = {x₀ + v : Av = 0}, an affine subspace of dimension n − rank A.</p>
+<p><strong>Proof</strong>. The product Ax is the linear combination x₁a₁ + ⋯ + xₙaₙ of the columns aⱼ of A. Hence Ax = b is solvable if and only if b lies in the column space of A, which happens if and only if adjoining b as an extra column does not increase the dimension of the column space, that is, rank [A | b] = rank A. If Ax₀ = b, then Ax = b ⟺ A(x − x₀) = 0 ⟺ x − x₀ ∈ ker A. Finally, the rank–nullity theorem gives dim ker A = n − rank A. ∎</p>
+<p>In echelon form the theorem becomes visible: the system is inconsistent exactly when some row reads 0 = c with c ≠ 0, which is a pivot in the last column of [A | b]. Otherwise the n − r non-pivot columns correspond to free variables, which may be chosen arbitrarily, and the r pivot variables are then determined.</p>
+<p>Worked example B. For which c is the following system consistent?</p>
+<pre class="math">x + 2y +  3z = 1
+2x + 4y +  7z = 3
+3x + 6y + 10z = c</pre>
+<p>Row 2 − 2 × row 1 gives z = 1; row 3 − 3 × row 1 gives z = c − 3. Subtracting these, the last row of the echelon form reads 0 = c − 4. So rank A = 2 always, while rank [A | b] = 2 when c = 4 and 3 otherwise. For c = 4 the solutions are z = 1, y = t free, x = 1 − 3 − 2t = −2 − 2t: a line in K³, of dimension 3 − 2 = 1, as the theorem predicts.</p>
+<h3>Square systems, determinants and Cramer's rule</h3>
+<p>When m = n, the following are equivalent: A is invertible; det A ≠ 0; rank A = n; ker A = 0; Ax = b has exactly one solution for every b. In that case Cramer's rule expresses the solution as xᵢ = det Aᵢ / det A, where Aᵢ is A with column i replaced by b. Cramer's rule is valuable theoretically (it shows the solution is a rational function of the data, a fact used in Lesson 8), but it is a poor algorithm: computing n + 1 determinants by cofactor expansion costs on the order of n · n! operations, while Gaussian elimination costs about 2n³/3.</p>
+<h3>Cost, stability and pivoting</h3>
+<p>Over ℚ, elimination is exact but the entries can grow; fraction-free variants (Bareiss) keep all intermediate entries integral and polynomially bounded. Over ℝ in floating point, one chooses at each step the entry of largest absolute value in the current column as pivot (partial pivoting). Without pivoting, a tiny pivot can amplify rounding errors catastrophically; with partial pivoting, Gaussian elimination is backward stable for all practical purposes, although Wilkinson constructed matrices for which the element growth factor reaches 2ⁿ⁻¹. These considerations are the origin of numerical linear algebra as a discipline.</p>
+<p>The linear case is the template for everything that follows. The solution set of a linear system is always empty or a translate of a subspace, and its existence is decided by an invariant (rank) computed by a finite algorithm. For nonlinear polynomial equations the solution sets are algebraic varieties, the role of Gaussian elimination is played by resultants and Gröbner bases, and the existence question in one variable is settled by the fundamental theorem of algebra.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Solve x + y + z = 2, x − y + 2z = 9, 2x + y − z = −3.</div></li><li><span class="mk">(b)</span><div>For which values of a does the system x + ay = 1, ax + y = 1 have no solution?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Eliminating x: −2y + z = 7 and −y − 3z = −7. From the first, z = 7 + 2y; substituting, −y − 21 − 6y = −7, so y = −2, z = 3, x = 1. The solution is (1, −2, 3). (b) det = 1 − a². For a ≠ ±1 there is a unique solution x = y = 1/(1 + a). For a = 1 both equations are x + y = 1, with infinitely many solutions. For a = −1 the equations are x − y = 1 and −x + y = 1; adding gives 0 = 2, so there is no solution exactly when a = −1.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

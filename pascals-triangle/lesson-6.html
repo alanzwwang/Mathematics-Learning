@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#ec4899">
+<body id="top" class="mode-kid" style="--topic:#ec4899">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/pascals-triangle/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">(a + b)ⁿ = C(n,0)aⁿ + C(n,1)aⁿ⁻¹b + C(n,2)aⁿ⁻²b² + ... + C(n,n)bⁿ
 The coefficients of the expansion are exactly row n.
@@ -82,13 +83,13 @@ We need x³, so 6 − k = 3, meaning k = 3.
 The term is C(6, 3) · x³ · 3³ = 20 · 27 · x³ = 540x³.
 Answer: 540.  (Notice BOTH parts contributed: the 20 from row 6 AND the 27 = 3³.)</pre>
 <h3>The mystery of 11ⁿ — finally solved for real</h3>
-<p>Remember how rows of the triangle read as digits of 11ⁿ (1, 11, 121, 1331, 14641), with carrying when entries hit two digits? The Binomial Theorem explains everything in one line: 11 = 10 + 1, so</p>
+<p>Here's a fun trick: the first rows of the triangle spell out the powers of 11 — 1, 11, 121, 1331, 14641! From row 5 on, the entries have two digits, so you have to carry. Why does this work? The Binomial Theorem explains everything in one line: 11 = 10 + 1, so</p>
 <pre class="math">11ⁿ = (10 + 1)ⁿ = C(n,0)10ⁿ + C(n,1)10ⁿ⁻¹ + C(n,2)10ⁿ⁻² + ... + C(n,n)</pre>
 <p>Each entry of row n sits in its own place-value column (powers of 10!), with the biggest place first. While entries stay single-digit, the columns never collide and the digits just spell the row. Row 5 has 10s, so the columns overlap and carrying happens:</p>
 <pre class="math">11⁵ = 1·10⁵ + 5·10⁴ + 10·10³ + 10·10² + 5·10 + 1
     = 100000 + 50000 + 10000 + 1000 + 50 + 1
     = 161051 ✅</pre>
-<p>The old &quot;carrying surprise&quot; was just place values overlapping. No mystery survives algebra.</p>
+<p>So the carrying was just place values overlapping. No mystery survives algebra.</p>
 <h3>Two debts repaid</h3>
 <pre class="math">Debt 1 — alternating sums (Lesson 4): set a = 1, b = −1 in the theorem:
 (1 + (−1))ⁿ = C(n,0) − C(n,1) + C(n,2) − ... ± C(n,n)
@@ -114,7 +115,7 @@ Check x = 2: (2 − 1)⁴ = 1, and 16 − 32 + 24 − 8 + 1 = 1. ✅</pre></div>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

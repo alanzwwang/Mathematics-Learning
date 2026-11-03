@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Burnside's Lemma and Pólya Enumeration — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 10</p>
+    <h1>Burnside's Lemma and Pólya Enumeration</h1>
+    <p class="kicker">Lesson 10 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">number of orbits = (1/|G|) ∑ over g ∈ G of |Fix(g)|
+colourings of X with k colours: |Fix(g)| = k<sup>c(g)</sup>,  c(g) = number of cycles of g on X</pre></div>
+<h3>Group actions</h3>
+<p>A group G acts on a finite set X if each g ∈ G gives a permutation x ↦ gx with ex = x and g(hx) = (gh)x. The orbit of x is Gx = {gx : g ∈ G}, its stabilizer is Gₓ = {g : gx = x}, and the orbit–stabilizer theorem states |Gx| · |Gₓ| = |G|, because gx = hx if and only if h⁻¹g ∈ Gₓ, so the points of the orbit correspond to cosets of Gₓ. Counting objects &quot;up to symmetry&quot; means counting orbits.</p>
+<p><strong>Theorem 10.1 (Cauchy–Frobenius–Burnside)</strong>. The number of orbits is (1/|G|) ∑ over g of |Fix(g)|, where Fix(g) = {x : gx = x}.</p>
+<p><strong>Proof</strong>. Count pairs (g, x) with gx = x. Summing over g gives ∑ |Fix(g)|. Summing over x gives ∑ₓ |Gₓ| = ∑ₓ |G|/|Gx|, and each orbit O contributes ∑ over x ∈ O of |G|/|O| = |G|. ∎ The lemma is often attributed to Burnside (1897), but it appears in Frobenius (1887) and in essence in Cauchy (1845).</p>
+<h3>Colourings</h3>
+<p>Let G act on a set X of positions (beads, faces, vertices), and let it act on the colourings c : X → [k] by (gc)(x) = c(g⁻¹x). A colouring is fixed by g if and only if it is constant on every cycle of g acting on X, so |Fix(g)| = k<sup>c(g)</sup>, where c(g) is the number of cycles of g.</p>
+<p><strong>Theorem 10.2 (Necklaces)</strong>. The number of k-colourings of n beads on a circle, up to rotation, is N(n, k) = (1/n) ∑ over d | n of φ(d) k<sup>n/d</sup>.</p>
+<p><strong>Proof</strong>. The rotation by j positions decomposes the n beads into gcd(j, n) cycles, each of length n/gcd(j, n). For each divisor e of n, exactly φ(n/e) values of j in {0, …, n − 1} have gcd(j, n) = e. Apply Burnside and substitute d = n/e. ∎</p>
+<p>Under the full dihedral group of order 2n (bracelets, which may also be turned over), one adds the reflections. For odd n each of the n reflections fixes one bead and pairs the rest, contributing n k<sup>(n+1)/2</sup>; for even n, n/2 reflections pass through two beads and n/2 through no beads, contributing (n/2)(k<sup>n/2 + 1</sup> + k<sup>n/2</sup>). Dividing the total by 2n gives the number of bracelets. For example N(6, 2) = (2⁶ + 2³ + 2·2² + 2·2)/6 = 84/6 = 14 binary necklaces of length 6, and 13 binary bracelets.</p>
+<h3>The cube</h3>
+<p>The rotation group of the cube has order 24 and acts on the six faces with cycle types as follows: the identity (1 element, 6 cycles); rotations by ±90° about face axes (6 elements, 3 cycles each); rotations by 180° about face axes (3 elements, 4 cycles); rotations by ±120° about vertex diagonals (8 elements, 2 cycles); and rotations by 180° about axes through midpoints of opposite edges (6 elements, 3 cycles). Hence the number of face colourings with k colours is</p>
+<pre class="math">(k⁶ + 3k⁴ + 12k³ + 8k²)/24,</pre>
+<p>which is 10 for k = 2, 57 for k = 3 and 240 for k = 4. On the eight vertices the same classes have 8, 2, 4, 4 and 4 cycles respectively, giving (k⁸ + 17k⁴ + 6k²)/24, which is 23 for k = 2.</p>
+<h3>The cycle index and Pólya's theorem</h3>
+<p>To count colourings with a prescribed number of each colour, record the cycle structure. If g has jᵢ(g) cycles of length i, the cycle index of the action is the polynomial Z(G; s₁, s₂, …) = (1/|G|) ∑ over g of s₁<sup>j₁(g)</sup> s₂<sup>j₂(g)</sup> ⋯.</p>
+<p><strong>Theorem 10.3 (Redfield 1927, Pólya 1937)</strong>. Give each colour r a weight wᵣ. The sum over orbits of colourings of the product of the weights of the colours used is Z(G; s₁, s₂, …) with sᵢ replaced by w₁ⁱ + w₂ⁱ + ⋯ + wₖⁱ.</p>
+<p><strong>Proof</strong>. Apply Burnside's lemma separately to the set of colourings with each fixed weight, which is G-invariant. A colouring fixed by g is constant on cycles, and a cycle of length i coloured r contributes wᵣⁱ; summing over the colour of each cycle gives ∏ᵢ (w₁ⁱ + ⋯ + wₖⁱ)<sup>jᵢ(g)</sup>. ∎</p>
+<p><strong>Example 10.4 (graphs on four vertices)</strong>. Isomorphism classes of graphs on 4 vertices are the orbits of S₄ acting on 2-colourings (edge or non-edge) of the 6 pairs. The cycle types of S₄ on pairs are: identity, s₁⁶; the 6 transpositions and the 3 double transpositions, s₁²s₂²; the 8 three-cycles, s₃²; and the 6 four-cycles, s₂s₄. Thus</p>
+<pre class="math">Z = (s₁⁶ + 9 s₁²s₂² + 8 s₃² + 6 s₂s₄)/24.</pre>
+<p>Setting every sᵢ = 2 gives (64 + 144 + 32 + 24)/24 = 11 graphs. Setting sᵢ = 1 + yⁱ and extracting the coefficient of y³ gives (20 + 9·4 + 8·2 + 0)/24 = 3 graphs with three edges: the triangle with an isolated vertex, the path P₄, and the star K₁,₃.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many binary necklaces of length 8 are there up to rotation?</div></li><li><span class="mk">(b)</span><div>How many necklaces of 6 beads with exactly 2 black and 4 white beads are there up to rotation?</div></li><li><span class="mk">(c)</span><div>How many ways are there to colour the faces of a cube with 2 colours, up to rotation?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (2⁸ + 2⁴ + 2·2² + 4·2)/8 = 288/8 = 36. (b) Only the identity (15 colourings) and the half-turn (3 colourings, with the black beads opposite) fix any, so (15 + 3)/6 = 3. (c) (64 + 48 + 96 + 32)/24 = 10.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

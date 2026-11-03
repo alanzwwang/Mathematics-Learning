@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#eab308">
+<body id="top" class="mode-kid" style="--topic:#eab308">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/logic/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Statements and Open Sentences — The Raw Material of Logic">1</a><a href="lesson-2.html" title="Lesson 2: NOT — The Art of Flipping Anything">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: AND, OR — Compound Inequalities, Absolute Value, De Morgan, and Systems">3</a><a href="lesson-4.html" title="Lesson 4: IF–THEN — The Promise Machine (with Counterexample Hunting)">4</a><a href="lesson-5.html" title="Lesson 5: The Family of Four — Converse, Inverse, Contrapositive, and the Two-Way Promise">5</a><a href="lesson-6.html" title="Lesson 6: ALL, SOME, NONE — Circle Logic, and Proving &quot;For ALL x&quot; with Letters">6</a><a href="lesson-7.html" title="Lesson 7: Arguments — Two Moves That Work, Two Fakes, and the Danger of One-Way Steps">7</a><a href="lesson-8.html" title="Lesson 8: Knights and Knaves — When the Statements Use AND, OR, and IF–THEN">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">AND is strict: BOTH parts must be true. AND shrinks a truth set to the overlap.
 OR is generous: AT LEAST ONE part must be true — both is fine! OR glues truth sets together.
@@ -118,7 +119,7 @@ x = 4 + 2 = 6           substitute y = 4 back into x = y + 2</pre>
 <pre class="math">CHECK BOTH:  2(6) + 3(4) = 12 + 12 = 24 ✓.  6 = 4 + 2 ✓.
 Truth set: the single pair (6, 4).</pre>
 <p>(If you ever graph these: each equation's truth set is a line, and the AND-overlap is exactly where the lines cross.)</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the truth set: 3x − 2 ≤ 13 AND x &gt; 2.   (b) Rewrite |x| ≥ 2 without absolute value.   (c) Rewrite NOT (x ≥ 4 AND x &lt; 12) without the leading NOT.   (d) Solve |x + 2| ≤ 3.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 3x ≤ 15 → x ≤ 5; overlap with x &gt; 2 gives 2 &lt; x ≤ 5. (b) x ≥ 2 OR x ≤ −2 (greater-than splits into two far rays). (c) De Morgan: x &lt; 4 OR x ≥ 12 — the flip covers everything outside the original chain ✓. (d) −3 ≤ x + 2 ≤ 3 → subtract 2 from all three parts → −5 ≤ x ≤ 1. CHECK x = −5: |−5 + 2| = |−3| = 3 ≤ 3 ✓. CHECK x = 2: |2 + 2| = 4 &gt; 3 — out ✓.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the truth set: 3x − 2 ≤ 13 AND x &gt; 2.</div></li><li><span class="mk">(b)</span><div>Rewrite |x| ≥ 2 without absolute value.</div></li><li><span class="mk">(c)</span><div>Rewrite NOT (x ≥ 4 AND x &lt; 12) without the leading NOT.</div></li><li><span class="mk">(d)</span><div>Solve |x + 2| ≤ 3.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 3x ≤ 15 → x ≤ 5; overlap with x &gt; 2 gives 2 &lt; x ≤ 5. (b) x ≥ 2 OR x ≤ −2 (greater-than splits into two far rays). (c) De Morgan: x &lt; 4 OR x ≥ 12 — the flip covers everything outside the original chain ✓. (d) −3 ≤ x + 2 ≤ 3 → subtract 2 from all three parts → −5 ≤ x ≤ 1. CHECK x = −5: |−5 + 2| = |−3| = 3 ≤ 3 ✓. CHECK x = 2: |2 + 2| = 4 &gt; 3 — out ✓.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
 </main>
 
@@ -128,7 +129,7 @@ Truth set: the single pair (6, 4).</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

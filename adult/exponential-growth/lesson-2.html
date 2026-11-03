@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 2: The Number e — Compound Interest and Continuous Compounding — Exponential Growth (Advanced)</title>
+<meta name="description" content="Exponential laws from y′ = ky to matrix exponentials, logistic and epidemic models, branching and growth of groups.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#d946ef">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../exponential-growth/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Exponential Growth</a> › Lesson 2</p>
+    <h1>The Number e — Compound Interest and Continuous Compounding</h1>
+    <p class="kicker">Lesson 2 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Equation y′ = ky — Existence, Uniqueness and Characterization">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Number e — Compound Interest and Continuous Compounding">2</a><a href="lesson-3.html" title="Lesson 3: Half-Life, Radioactive Decay and the Exponential Distribution">3</a><a href="lesson-4.html" title="Lesson 4: Exponential versus Polynomial — A Hierarchy of Growth Rates">4</a><a href="lesson-5.html" title="Lesson 5: Inhomogeneous Linear Equations and Grönwall's Inequality">5</a><a href="lesson-6.html" title="Lesson 6: The Logistic Equation — Saturation, Equilibria and Stability">6</a><a href="lesson-7.html" title="Lesson 7: Linear Systems and the Matrix Exponential">7</a><a href="lesson-8.html" title="Lesson 8: Discrete Models — Malthus, Linear Recurrences and the Leslie Matrix">8</a><a href="lesson-9.html" title="Lesson 9: Branching Processes — Exponential Growth or Extinction">9</a><a href="lesson-10.html" title="Lesson 10: Epidemics — the SIR Model, R₀ and the Final Size">10</a><a href="lesson-11.html" title="Lesson 11: Exponential and Subexponential Complexity">11</a><a href="lesson-12.html" title="Lesson 12: Growth Rates in General — Fekete's Lemma, Groups and Entropy">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">(1 + x/n)ⁿ  increases to  eˣ  as n → ∞   (x &gt; 0),   and   1 + x ≤ eˣ  for all real x</pre></div>
+<p>Jacob Bernoulli, studying compound interest in 1683, asked what happens to one unit of capital lent at 100% annual interest if the interest is credited n times per year. After one year the balance is (1 + 1/n)ⁿ. Bernoulli showed that this sequence is bounded between 2 and 3; Euler later identified its limit with the base of the natural logarithm and named it e.</p>
+<pre class="math">n = 1:      2
+n = 2:      2.25
+n = 12:     2.6130352902…
+n = 365:    2.7145674820…
+n → ∞:      e = 2.7182818284…</pre>
+<h3>Monotonicity and the limit</h3>
+<p><strong>Theorem 2.1</strong>. For each x &gt; 0 the sequence aₙ = (1 + x/n)ⁿ is strictly increasing and converges to eˣ.</p>
+<p><strong>Proof</strong>. Monotonicity follows from the inequality of arithmetic and geometric means applied to the n + 1 numbers 1, 1 + x/n, …, 1 + x/n (n copies): their arithmetic mean is (1 + n + x)/(n + 1) = 1 + x/(n + 1), and the means are unequal because not all numbers are equal, so (1 + x/n)<sup>n/(n+1)</sup> &lt; 1 + x/(n + 1), which is aₙ &lt; aₙ₊₁. For the limit, n ln(1 + x/n) = x · [ln(1 + h)/h] with h = x/n → 0, and ln(1 + h)/h → 1 because it is the difference quotient of ln at 1. By continuity of exp, aₙ = exp(n ln(1 + x/n)) → eˣ. ∎</p>
+<p>The fundamental inequality 1 + x ≤ eˣ, valid for all real x with equality only at x = 0, follows from convexity: the tangent line to eˣ at 0 is 1 + x, and a convex function lies above its tangent lines. Replacing x by x/n and raising to the n-th power gives (1 + x/n)ⁿ ≤ eˣ whenever 1 + x/n ≥ 0, an independent proof of the upper bound. A matching lower bound comes from the elementary inequality ln(1 + h) ≥ h − h²/2 for h ≥ 0 (both sides vanish at 0, and the derivative of the difference is 1/(1 + h) − 1 + h = h²/(1 + h) ≥ 0). Taking h = x/n and multiplying by n gives n ln(1 + x/n) ≥ x − x²/(2n), hence</p>
+<pre class="math">eˣ e<sup>−x²/(2n)</sup>  ≤  (1 + x/n)ⁿ  ≤  eˣ        (x ≥ 0)</pre>
+<p>so the relative error of the n-fold compounding approximation is at most 1 − e<sup>−x²/(2n)</sup> ≤ x²/(2n). For x = 1 and n = 1000, the true error e − (1 + 1/1000)<sup>1000</sup> ≈ 0.0013579 is very close to the first-order estimate e/(2n) ≈ 0.0013591; indeed a finer expansion gives (1 + 1/n)ⁿ = e(1 − 1/(2n) + 11/(24n²) − …).</p>
+<h3>Nominal rates, effective rates and the force of interest</h3>
+<p>A nominal annual rate r compounded n times per year produces the effective annual rate i = (1 + r/n)ⁿ − 1. Continuous compounding at nominal rate δ (the force of interest in actuarial notation) produces A(t) = A₀ e<sup>δt</sup>, the solution of A′ = δA, with effective rate e<sup>δ</sup> − 1. Conversion is via δ = ln(1 + i). For example, with r = 5%:</p>
+<pre class="math">monthly compounding:     (1 + 0.05/12)¹² − 1 ≈ 0.051162   (5.1162%)
+continuous compounding:  e<sup>0</sup>.05 − 1 ≈ 0.051271              (5.1271%)</pre>
+<p>The present value of a payment C due at time t is C e<sup>−δt</sup>; the present value of a continuous income stream of rate c(t) over [0, T] is ∫₀ᵀ c(t) e<sup>−δt</sup> dt, and for a constant perpetual stream it is c/δ. These are Laplace transforms, which is one reason the Laplace transform appears so naturally in economics and actuarial science.</p>
+<h3>Doubling times and the rule of 72</h3>
+<p>At effective rate i per period, capital doubles after T = ln 2/ln(1 + i) periods. Since ln(1 + i) ≈ i − i²/2, we get T ≈ (ln 2)/i · (1 + i/2), and the folk rule &quot;T ≈ 72/(100 i)&quot; uses 72 instead of 69.3 = 100 ln 2 to absorb the correction term near i = 8% (the exact value of 100 i · T at i = 8% is 72.05) and because 72 has many divisors. At 7% the exact doubling time is ln 2/ln 1.07 ≈ 10.245 years against the rule's 72/7 ≈ 10.286; under continuous compounding at δ = 0.07 it is ln 2/0.07 ≈ 9.902 years.</p>
+<h3>Irrationality of e</h3>
+<p><strong>Theorem 2.2</strong>. e is irrational.</p>
+<p><strong>Proof</strong>. Suppose e = p/q with positive integers p, q. Then x = q!(e − ∑<sub>j=0</sub><sup>q</sup> 1/j!) is an integer, since q! e = (q − 1)! p and q!/j! is an integer for j ≤ q. But x = ∑<sub>j&gt;q</sub> q!/j! = 1/(q+1) + 1/((q+1)(q+2)) + … lies strictly between 0 and ∑<sub>m≥1</sub> (q+1)<sup>−m</sup> = 1/q ≤ 1, a contradiction. ∎</p>
+<p>Hermite proved in 1873 that e is transcendental, the first number proved transcendental that was not constructed for the purpose; Lindemann adapted the method to π in 1882.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the balance after 10 years on 1000 invested at a nominal 6% compounded annually, monthly and continuously.</div></li><li><span class="mk">(b)</span><div>Which effective annual rate corresponds to a force of interest δ = 0.04? Give 5 decimal places.</div></li><li><span class="mk">(c)</span><div>Prove that (1 − 1/n)ⁿ → 1/e.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Annually 1000 · 1.06¹⁰ ≈ 1790.85; monthly 1000 · 1.005¹²⁰ ≈ 1819.40; continuously 1000 e<sup>0</sup>.6 ≈ 1822.12. (b) e<sup>0</sup>.04 − 1 ≈ 0.04081. (c) n ln(1 − 1/n) = −[ln(1 − h)/(−h)] with h = 1/n, and the bracket tends to 1, so the limit of the logarithm is −1 and the sequence tends to e⁻¹.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">← Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

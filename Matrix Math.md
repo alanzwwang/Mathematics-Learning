@@ -350,7 +350,7 @@ Turn letters into numbers (A = 1, B = 2, ..., Z = 26) and stack them in a column
         "HI" = [ 8 ]        [ 1  1 ] × [ 8 ] = [ 17 ]
                [ 9 ]        [ 0  1 ]   [ 9 ]   [  9 ]
 
-The coded message is 17, 9 — nobody can read it... unless they know the trick: subtract the second number from the first (17 − 9 = 8) and keep the second (9). Back comes 8, 9 = "HI"! The scrambler leaned on the row × column machine, and decoding is the undo idea from Lesson 6 in action. Real computers protect messages with giant versions of this exact trick.
+The coded message is 17, 9 — nobody can read it... unless they know the trick: subtract the second number from the first (17 − 9 = 8) and keep the second (9). Back comes 8, 9 = "HI"! The scrambler leaned on the row × column machine, and decoding is the undo idea from Lesson 6 in action. A real code called the Hill cipher (invented in 1929) used this exact trick! Today's computers protect messages with even trickier math — but grids like this were a big step along the way.
 
 Flips: the swapper grid
 

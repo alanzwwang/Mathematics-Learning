@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 8: Least Squares and Orthogonal Projection — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 8</p>
+    <h1>Least Squares and Orthogonal Projection</h1>
+    <p class="kicker">Lesson 8 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">minimise ‖Ax − b‖²   ⇔   AᵀA x̂ = Aᵀb      (normal equations)
+A x̂ = Pb is the orthogonal projection of b onto the column space of A
+If A has full column rank:  x̂ = (AᵀA)⁻¹Aᵀb,   P = A(AᵀA)⁻¹Aᵀ</pre></div>
+<h3>Overdetermined systems</h3>
+<p>A system Ax = b with A of size m × n and m &gt; n typically has no solution: there are more equations than unknowns, and the column space of A is a proper subspace of ℝᵐ that b usually misses. This is the normal situation when fitting a model to data. If we measure points (xᵢ, yᵢ), i = 1, …, m, and seek a line y = c + mx through all of them, we obtain m equations in the two unknowns c, m, and the data are almost never exactly collinear. The method of least squares, published by Adrien-Marie Legendre in 1805 and justified probabilistically by Carl Friedrich Gauss in 1809 (who claimed to have used it since 1795, notably to predict the return of the asteroid Ceres in 1801), replaces the unsolvable system by the problem of minimising the sum of squared residuals ‖Ax − b‖².</p>
+<h3>Theorem 8.1 (Normal equations)</h3>
+<p>A vector x̂ minimises ‖Ax − b‖² over ℝⁿ if and only if AᵀAx̂ = Aᵀb. Such an x̂ always exists. It is unique if and only if the columns of A are linearly independent, in which case x̂ = (AᵀA)⁻¹Aᵀb.</p>
+<p><strong>Proof</strong>. Suppose AᵀAx̂ = Aᵀb, so the residual r = b − Ax̂ satisfies Aᵀr = 0, meaning r is orthogonal to every column of A and hence to the column space. For any x, the vector A(x̂ − x) lies in the column space, so by Pythagoras</p>
+<pre class="math">‖Ax − b‖² = ‖A(x − x̂) − r‖² = ‖A(x − x̂)‖² + ‖r‖² ≥ ‖r‖² = ‖Ax̂ − b‖²,</pre>
+<p>with equality exactly when A(x − x̂) = 0. So x̂ is a minimiser, and the minimisers are precisely x̂ + ker A, which all satisfy the normal equations. Existence: the column space of AᵀA equals the column space of Aᵀ (Problem 37 shows rank AᵀA = rank A, and im AᵀA ⊆ im Aᵀ always), so Aᵀb lies in the image of AᵀA. Finally, ker AᵀA = ker A: if AᵀAx = 0 then ‖Ax‖² = xᵀAᵀAx = 0. Hence AᵀA is invertible exactly when ker A = {0}. ∎</p>
+<h3>The projection interpretation</h3>
+<p>Geometrically, Ax̂ is the point of the column space closest to b, and b − Ax̂ is perpendicular to that subspace. When A has full column rank the map b ↦ Ax̂ is the linear map P = A(AᵀA)⁻¹Aᵀ, which statisticians call the hat matrix because it &quot;puts the hat on y&quot;. It satisfies P² = P and Pᵀ = P, and conversely every symmetric idempotent matrix is the orthogonal projection onto its image (Problem 39). Its trace equals its rank, n. The residual map I − P projects onto the orthogonal complement of the column space.</p>
+<h3>Simple linear regression</h3>
+<p>For the model y ≈ c + mx with data (x₁, y₁), …, (x<sub>N</sub>, y<sub>N</sub>), the columns of A are (1, …, 1) and (x₁, …, x<sub>N</sub>), and the normal equations are</p>
+<pre class="math">N c   + (Σxᵢ) m  = Σyᵢ
+(Σxᵢ) c + (Σxᵢ²) m = Σxᵢyᵢ</pre>
+<p>Eliminating c gives the familiar formulas m = S<sub>xy</sub>/S<sub>xx</sub> and c = ȳ − m x̄, where x̄, ȳ are the means, S<sub>xx</sub> = Σ(xᵢ − x̄)² and S<sub>xy</sub> = Σ(xᵢ − x̄)(yᵢ − ȳ). The first normal equation says the residuals sum to zero, so the fitted line passes through the centroid (x̄, ȳ) of the data (Problem 40).</p>
+<p><strong>Worked example</strong>. Fit a line to (1, 6), (2, 5), (3, 7), (4, 10), the data shown in the picture accompanying this course. Here x̄ = 2.5, ȳ = 7, S<sub>xx</sub> = 2.25 + 0.25 + 0.25 + 2.25 = 5 and S<sub>xy</sub> = (−1.5)(−1) + (−0.5)(−2) + (0.5)(0) + (1.5)(3) = 1.5 + 1 + 0 + 4.5 = 7. So m = 7/5 = 1.4 and c = 7 − 1.4·2.5 = 3.5: the least-squares line is y = 3.5 + 1.4x. As a check against the normal equations: Σxᵢ = 10, Σxᵢ² = 30, Σyᵢ = 28, Σxᵢyᵢ = 6 + 10 + 21 + 40 = 77, and indeed 4(3.5) + 10(1.4) = 28 and 10(3.5) + 30(1.4) = 77. The residuals are 1.1, −1.3, −0.7, 0.9; they sum to 0, their x-weighted sum 1.1 − 2.6 − 2.1 + 3.6 is 0, and the residual sum of squares is 1.21 + 1.69 + 0.49 + 0.81 = 4.2.</p>
+<h3>Numerical practice</h3>
+<p>Forming AᵀA squares the condition number of the problem: if A has singular values σ₁ ≥ ⋯ ≥ σₙ &gt; 0, then κ(AᵀA) = (σ₁/σₙ)² = κ(A)². Numerically stable algorithms therefore avoid the normal equations. With a QR factorisation A = QR (Q with orthonormal columns, R upper triangular and invertible), the normal equations become Rx̂ = Qᵀb, solved by back substitution. With the singular value decomposition A = UΣVᵀ, the minimum-norm least-squares solution, valid even when A is rank-deficient, is x̂ = A⁺b, where A⁺ = VΣ⁺Uᵀ is the Moore–Penrose pseudoinverse and Σ⁺ inverts the nonzero singular values.</p>
+<p>Least squares is the special case p = 2 of fitting in the ℓᵖ norm. The ℓ¹ problem (least absolute deviations) and the ℓ∞ problem (Chebyshev or minimax fitting) are not solved by linear equations but are linear programmes (Lesson 10 and Problem 56); for a constant model, ℓ² fitting gives the mean and ℓ¹ fitting gives a median.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Fit the line y = mx through the origin to (1, 2), (2, 3), (3, 7).</div></li><li><span class="mk">(b)</span><div>Project b = (1, 2, 3) orthogonally onto the line spanned by (1, 1, 1).</div></li><li><span class="mk">(c)</span><div>Find the least-squares line for (0, 0), (1, 1), (2, 3).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Here A is the single column (1, 2, 3), so m = Σxᵢyᵢ/Σxᵢ² = (2 + 6 + 21)/14 = 29/14. (b) The projection onto span{u} is (uᵀb/uᵀu)u = (6/3)(1, 1, 1) = (2, 2, 2). (c) x̄ = 1, ȳ = 4/3, S<sub>xx</sub> = 2, S<sub>xy</sub> = (−1)(−4/3) + 0 + (1)(5/3) = 3, so m = 3/2 and c = 4/3 − 3/2 = −1/6: y = −1/6 + (3/2)x.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-7.html">← Lesson 7</a><a class="btn" href="lesson-9.html">Lesson 9 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

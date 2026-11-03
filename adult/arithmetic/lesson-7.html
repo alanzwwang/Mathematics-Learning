@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 7</p>
+    <h1>Modular Arithmetic and the Ring ℤ/nℤ</h1>
+    <p class="kicker">Lesson 7 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">a ≡ b (mod n)  ⟺  n | a − b.   ℤ/nℤ = ℤ/(n) is a commutative ring.
+(ℤ/nℤ)<sup>×</sup> = {[a] : gcd(a, n) = 1} has φ(n) elements, and a<sup>φ(n)</sup> ≡ 1 when gcd(a, n) = 1.
+If gcd(m, n) = 1 then ℤ/mnℤ ≅ ℤ/mℤ × ℤ/nℤ (Chinese remainder theorem).</pre></div>
+<h3>The quotient ring</h3>
+<p>Congruence modulo n ≥ 1 was introduced by Gauss in the Disquisitiones (1801), along with the notation ≡. It is the equivalence relation on ℤ whose classes are the cosets a + nℤ of the ideal nℤ; the set of classes is the quotient ring ℤ/nℤ. Operations on classes are well defined because nℤ is an ideal: if a ≡ a′ and b ≡ b′ then a + b ≡ a′ + b′ and</p>
+<pre class="math">ab − a′b′ = a(b − b′) + b′(a − a′) ≡ 0 (mod n).</pre>
+<p>By the division algorithm each class contains exactly one of 0, 1, …, n − 1, so ℤ/nℤ has n elements. The quotient map ℤ → ℤ/nℤ is the unique ring homomorphism of Theorem 3.4, and its kernel is nℤ.</p>
+<h3>Units, zero divisors and fields</h3>
+<p><strong>Theorem 7.1</strong>. In ℤ/nℤ the class [a] is a unit if and only if gcd(a, n) = 1. Every nonzero class is either a unit or a zero divisor. Consequently ℤ/nℤ is a field if and only if n is prime.</p>
+<p><strong>Proof</strong>. If gcd(a, n) = 1, Bézout gives ax + ny = 1, so [a][x] = [1]. If d = gcd(a, n) &gt; 1 and [a] ≠ 0, then [a] · [n/d] = [a/d] · [n] = 0 with [n/d] ≠ 0, so [a] is a zero divisor, and zero divisors are never units. If n = p is prime, every a with p ∤ a satisfies gcd(a, p) = 1. If n = rs with 1 &lt; r, s &lt; n, then [r][s] = 0 exhibits zero divisors. ∎</p>
+<p><strong>Worked Example 7.2</strong> — the inverse of 17 modulo 43. The Euclidean algorithm gives 43 = 2·17 + 9, 17 = 1·9 + 8, 9 = 1·8 + 1. Back-substituting,</p>
+<pre class="math">1 = 9 − 8 = 9 − (17 − 9) = 2·9 − 17 = 2(43 − 2·17) − 17 = 2·43 − 5·17</pre>
+<p>so 17⁻¹ ≡ −5 ≡ 38 (mod 43). Check: 17 · 38 = 646 = 15 · 43 + 1.</p>
+<h3>Euler's theorem</h3>
+<p>The unit group (ℤ/nℤ)<sup>×</sup> has order φ(n), Euler's totient: the number of 1 ≤ a ≤ n with gcd(a, n) = 1.</p>
+<p><strong>Theorem 7.3 (Euler, 1763; Fermat, 1640)</strong>. If gcd(a, n) = 1 then a<sup>φ(n)</sup> ≡ 1 (mod n). In particular, for p prime and p ∤ a, a<sup>p−1</sup> ≡ 1 (mod p), and a<sup>p</sup> ≡ a (mod p) for every a.</p>
+<p><strong>Proof</strong>. By Lagrange's theorem the order of [a] in the finite group (ℤ/nℤ)<sup>×</sup> divides the order φ(n) of the group. ∎</p>
+<p>A direct proof avoiding group theory: multiplication by [a] permutes the φ(n) units, so the product of all units equals a<sup>φ(n)</sup> times itself, and cancelling the (invertible) product gives the result. The multiplicative order ordₙ(a) is the least k ≥ 1 with aᵏ ≡ 1; it divides φ(n), and a is a primitive root modulo n when ordₙ(a) = φ(n). Primitive roots exist exactly for n = 1, 2, 4, pᵏ and 2pᵏ with p an odd prime (Gauss); in particular (ℤ/pℤ)<sup>×</sup> is cyclic.</p>
+<p><strong>Theorem 7.4 (Chinese remainder theorem)</strong>. If m and n are coprime, the map ℤ/mnℤ → ℤ/mℤ × ℤ/nℤ, [x] ↦ ([x]ₘ, [x]ₙ), is a ring isomorphism.</p>
+<p><strong>Proof</strong>. The map is a well-defined homomorphism. If x ≡ 0 modulo both m and n then mn | x since gcd(m, n) = 1, so the map is injective, and both sides have mn elements. Explicitly, with mu + nv = 1, the solution of x ≡ a (mod m), x ≡ b (mod n) is x = a·nv + b·mu. ∎</p>
+<p>The isomorphism restricts to the unit groups, giving the multiplicativity φ(mn) = φ(m)φ(n) for coprime m, n, and hence</p>
+<pre class="math">φ(n) = n · ∏ (p | n) (1 − 1/p).</pre>
+<p>For instance φ(1000) = 1000 · (1/2) · (4/5) = 400 and φ(360) = 360 · (1/2)(2/3)(4/5) = 96. The theorem is named after a problem in the Sunzi Suanjing (c. 3rd–5th century AD): a number leaves remainders 2, 3, 2 on division by 3, 5, 7; the least such number is 23.</p>
+<h3>Fast exponentiation</h3>
+<p>To compute aᵉ mod n, write e in binary and square repeatedly; this uses at most 2⌊log₂ e⌋ multiplications modulo n. For 5¹¹⁷ mod 23, with 117 = 1110101₂ = 64 + 32 + 16 + 4 + 1:</p>
+<pre class="math">5¹ ≡ 5,  5² ≡ 2,  5⁴ ≡ 4,  5⁸ ≡ 16,  5¹⁶ ≡ 3,  5³² ≡ 9,  5⁶⁴ ≡ 12   (mod 23)
+5¹¹⁷ ≡ 12 · 9 · 3 · 4 · 5 ≡ 16 · 3 · 4 · 5 ≡ 2 · 4 · 5 ≡ 40 ≡ 17   (mod 23)</pre>
+<p>Fermat's theorem gives a check: 117 ≡ 7 (mod 22), and 5⁷ = 5⁴ · 5² · 5 ≡ 4 · 2 · 5 = 40 ≡ 17.</p>
+<p>Fast exponentiation and Euler's theorem together make the RSA cryptosystem (Rivest, Shamir and Adleman, 1977) work. Choose primes p, q, let n = pq, and choose e coprime to φ(n) with inverse d modulo φ(n). Then (mᵉ)ᵈ ≡ m (mod n) for every m. In the textbook example p = 61, q = 53, n = 3233, φ(n) = 3120, e = 17 and d = 2753 (since 17 · 2753 = 46801 = 15 · 3120 + 1); the message m = 65 encrypts to 65¹⁷ mod 3233 = 2790, and 2790²⁷⁵³ mod 3233 = 65.</p>
+<p><strong>Theorem 7.5 (Wilson)</strong>. An integer p ≥ 2 is prime if and only if (p − 1)! ≡ −1 (mod p).</p>
+<p><strong>Proof</strong>. If p is prime, in the field ℤ/pℤ each element of {1, …, p − 1} pairs with its inverse; only ±1 are self-inverse (x² = 1 means (x − 1)(x + 1) = 0), so the product is 1 · (−1) = −1. If p = ab is composite with 1 &lt; a &lt; p, then a divides (p − 1)!, so (p − 1)! ≡ 0 ≢ −1 (mod a), and hence (p − 1)! ≢ −1 (mod p). ∎</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the inverse of 11 modulo 60.</div></li><li><span class="mk">(b)</span><div>Solve x ≡ 2 (mod 3), x ≡ 3 (mod 5), x ≡ 2 (mod 7).</div></li><li><span class="mk">(c)</span><div>Compute 3¹⁰⁰ mod 7 and 2¹⁰⁰⁰ mod 13.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 60 = 5·11 + 5, 11 = 2·5 + 1, so 1 = 11 − 2·5 = 11 − 2(60 − 5·11) = 11·11 − 2·60. Hence 11⁻¹ ≡ 11 (mod 60); check 121 = 2·60 + 1. (b) x ≡ 2 (mod 21), since 2 satisfies both the conditions modulo 3 and 7, so x ∈ {2, 23, 44, …}; 23 ≡ 3 (mod 5). The solution is x ≡ 23 (mod 105). (c) 3⁶ ≡ 1 (mod 7) and 100 = 16·6 + 4, so 3¹⁰⁰ ≡ 3⁴ = 81 ≡ 4. 2¹² ≡ 1 (mod 13) and 1000 = 83·12 + 4, so 2¹⁰⁰⁰ ≡ 2⁴ = 16 ≡ 3.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

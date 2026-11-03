@@ -89,7 +89,7 @@ Count them: 11 entries for row 10 — the indexing rule (n + 1 entries) holds. �
 
 A word from history
 
-Blaise Pascal wrote a famous treatise on this triangle in France in 1653 — and used it to settle questions about gambling and probability, basically inventing probability theory with it. But he was late to the party! In China, Yang Hui published the triangle in 1261, crediting Jia Xian (around the year 1000). Persian mathematicians like al-Karaji knew it earlier still, and in India, scholars used it over 2,000 years ago to count the rhythms of poetry (how many ways can you mix long and short beats?). In China it is still called Yang Hui's triangle. Pascal got the fame — but the triangle belongs to the whole world.
+Blaise Pascal wrote a famous treatise on this triangle in France in 1653 — and used it to settle questions about gambling and probability, basically inventing probability theory with it. But he was late to the party! In China, Yang Hui published the triangle in 1261, crediting Jia Xian (around the year 1050). Persian mathematicians like al-Karaji knew it earlier still, and in India, scholars used it over 2,000 years ago to count the rhythms of poetry (how many ways can you mix long and short beats?). In China it is still called Yang Hui's triangle. Pascal got the fame — but the triangle belongs to the whole world.
 
 ✏️ Your Turn
 
@@ -287,9 +287,9 @@ Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum
         Consequence: even-position entries and odd-position entries
         each add up to exactly 2ⁿ⁻¹ — every row splits in half.
 
-The doubling pattern, one more time
+The doubling pattern
 
-Add up the rows: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048 — row n sums to 2ⁿ. You believed it before because it kept working. Now let's prove it MUST work. Two proofs, because they're so different.
+Add up the rows: 1, 2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048 — row n sums to 2ⁿ. Every row doubles the one before it, and it keeps working for every row you check. Now let's prove it MUST work. Two proofs, because they're so different.
 
 Proof A — the doubling mechanism (look at how rows are built)
 
@@ -489,7 +489,7 @@ You rarely need the whole expansion. Question: what's the coefficient of x³ in 
 
 The mystery of 11ⁿ — finally solved for real
 
-Remember how rows of the triangle read as digits of 11ⁿ (1, 11, 121, 1331, 14641), with carrying when entries hit two digits? The Binomial Theorem explains everything in one line: 11 = 10 + 1, so
+Here's a fun trick: the first rows of the triangle spell out the powers of 11 — 1, 11, 121, 1331, 14641! From row 5 on, the entries have two digits, so you have to carry. Why does this work? The Binomial Theorem explains everything in one line: 11 = 10 + 1, so
 
         11ⁿ = (10 + 1)ⁿ = C(n,0)10ⁿ + C(n,1)10ⁿ⁻¹ + C(n,2)10ⁿ⁻² + ... + C(n,n)
 
@@ -499,7 +499,7 @@ Each entry of row n sits in its own place-value column (powers of 10!), with the
             = 100000 + 50000 + 10000 + 1000 + 50 + 1
             = 161051 ✅
 
-The old "carrying surprise" was just place values overlapping. No mystery survives algebra.
+So the carrying was just place values overlapping. No mystery survives algebra.
 
 Two debts repaid
 
@@ -551,7 +551,7 @@ A city grid, m blocks wide and n blocks tall. You walk only RIGHT (R) or DOWN (D
         Example — 3 wide, 2 tall: C(5, 2) = 10 paths.
         (Equivalently C(5, 3) = 10 — choosing which steps are Right. Same answer by symmetry!)
 
-This is why the triangle appeared on the grid map all along: paths to a corner = paths from above + paths from the left (you must arrive from one of those two), which is Pascal's rule. Same rule, same start (1s on the edges) — same numbers.
+Write the number of paths at every corner of the grid and Pascal's triangle appears! Here's why: paths to a corner = paths from above + paths from the left (you must arrive from one of those two), which is Pascal's rule. Same rule, same start (1s on the edges) — same numbers.
 
 Paths through a marked corner — multiply
 
@@ -665,7 +665,7 @@ Theorem: if p is prime and 0 < k < p, then p divides C(p, k).
         you why: 6 = 2 × 3 can be built from smaller factors, so the denominator
         CAN cancel pieces of it. The hypothesis "p is prime" was load-bearing!
 
-Fibonacci encore — now with the reason
+Fibonacci hiding in the triangle — and the reason why
 
 The shallow diagonals (slicing up-right) sum to 1, 1, 2, 3, 5, 8, 13, 21 — the Fibonacci sequence, where each number is the sum of the two before it. Why must that continue? Watch the diagonal summing to 13 get built from its parents:
 
@@ -755,14 +755,14 @@ Lesson 10: Review — The Big Picture
 
         Build: each entry = sum of the two above; edges are 1; number from 0
         Choose: C(n, k) = n! / (k!(n − k)!) = entry k of row n
-        Identities: C(n,k) = C(n,n−k) · C(n,k) = C(n−1,k−1) + C(n−1,k)
+        Identities: C(n,k) = C(n,n−k);  C(n,k) = C(n−1,k−1) + C(n−1,k)
         Sums: row n totals 2ⁿ; alternating signs give 0; halves are 2ⁿ⁻¹
-        Diagonals: C(n,1) = n · T_n = C(n+1,2) = n(n+1)/2 · C(n+2,3) tetrahedral
+        Diagonals: C(n,1) = n;  T_n = C(n+1,2) = n(n+1)/2;  tetrahedral = C(n+2,3)
         Hockey stick: C(r,r) + ... + C(n,r) = C(n+1, r+1)
         Binomial: (a + b)ⁿ = Σ C(n,k) aⁿ⁻ᵏbᵏ — mind inside coefficients and signs
         Paths: C(m+n, n); through a corner multiply; around a block subtract
         Vandermonde: C(m+n, k) = Σ C(m,i)C(n,k−i) → row squares sum to C(2n, n)
-        Patterns: P(k heads) = C(n,k)/2ⁿ · odds = 2^(binary 1s) · prime rows ÷ p
+        Patterns: P(k heads) = C(n,k)/2ⁿ;  odd entries = 2^(binary 1s);  prime rows ÷ p
 
 The recap list
 

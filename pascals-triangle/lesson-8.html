@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#ec4899">
+<body id="top" class="mode-kid" style="--topic:#ec4899">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/pascals-triangle/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" class="here" aria-current="page" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">P(exactly k heads in n flips) = C(n, k) / 2ⁿ.
 &quot;At least one&quot; problems: count the complement.
@@ -53,7 +54,7 @@ If p is PRIME, every interior entry of row p is divisible by p — proved below.
 Odds:   1   2   2   4   2   4   4   8</pre>
 <p>All powers of 2! And the exponent has a secret source: the binary form of the row number. Row 6 in binary is 110, which has two 1s → 2² = 4 odd entries ✅. Row 7 is 111, three 1s → 2³ = 8 — every entry of row 7 is odd! The all-odd rows are exactly 0, 1, 3, 7, 15, ... = 2ᵐ − 1, whose binary forms are all 1s. (The full proof is a college-level gem called Lucas's theorem; here we collect the evidence and conjecture like real mathematicians.) Color the odd entries black on a huge triangle and the Sierpinski fractal appears — the same pattern, at every scale, forever.</p>
 <h3>The prime row theorem — with proof</h3>
-<p>Theorem: if p is prime and 0 &lt; k &lt; p, then p divides C(p, k).</p>
+<p><strong>Theorem</strong>: if p is prime and 0 &lt; k &lt; p, then p divides C(p, k).</p>
 <pre class="math">Proof: C(p, k) = p! / (k!(p − k)!) is a whole number — it counts committees,
 and committee counts are integers.
 The top p! = p × (p − 1) × ... × 1 contains the factor p.
@@ -67,7 +68,7 @@ Verify row 11: 11, 55, 165, 330, 462 = 11×1, 11×5, 11×15, 11×30, 11×42. ✅
 <pre class="math">Composite rows FAIL: row 6's entry 15 is not divisible by 6. The proof tells
 you why: 6 = 2 × 3 can be built from smaller factors, so the denominator
 CAN cancel pieces of it. The hypothesis &quot;p is prime&quot; was load-bearing!</pre>
-<h3>Fibonacci encore — now with the reason</h3>
+<h3>Fibonacci hiding in the triangle — and the reason why</h3>
 <p>The shallow diagonals (slicing up-right) sum to 1, 1, 2, 3, 5, 8, 13, 21 — the Fibonacci sequence, where each number is the sum of the two before it. Why must that continue? Watch the diagonal summing to 13 get built from its parents:</p>
 <pre class="math">13-diagonal:  C(6,0) + C(5,1) + C(4,2) + C(3,3) = 1 + 5 + 6 + 1
 Parents:      C(6,0) matches C(5,0) of the 8-diagonal (edge);
@@ -87,7 +88,7 @@ Every entry of the 8-diagonal and the 5-diagonal is used exactly once, so
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

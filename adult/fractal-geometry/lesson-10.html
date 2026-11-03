@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: The Mandelbrot Set — Fractal Geometry (Advanced)</title>
+<meta name="description" content="Hausdorff measure and dimension, iterated function systems, Julia and Mandelbrot sets, chaos and multifractals.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#10b981">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../fractal-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Fractal Geometry</a> › Lesson 10</p>
+    <h1>The Mandelbrot Set</h1>
+    <p class="kicker">Lesson 10 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Metric Spaces and the Hausdorff Metric">1</a><a href="lesson-2.html" title="Lesson 2: Contractions and Iterated Function Systems">2</a><a href="lesson-3.html" title="Lesson 3: Coding, Addresses and the Chaos Game">3</a><a href="lesson-4.html" title="Lesson 4: Similarity Dimension, the Moran Equation and the Open Set Condition">4</a><a href="lesson-5.html" title="Lesson 5: Box-Counting Dimension">5</a><a href="lesson-6.html" title="Lesson 6: Hausdorff Measure and Hausdorff Dimension">6</a><a href="lesson-7.html" title="Lesson 7: Computing Hausdorff Dimension — The Cantor Set and the Mass Distribution Principle">7</a><a href="lesson-8.html" title="Lesson 8: The Moran–Hutchinson Theorem, Overlaps and Self-Affine Sets">8</a><a href="lesson-9.html" title="Lesson 9: Julia Sets of Quadratic Polynomials">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: The Mandelbrot Set">10</a><a href="lesson-11.html" title="Lesson 11: The Logistic Map, Period Doubling and Feigenbaum Universality">11</a><a href="lesson-12.html" title="Lesson 12: Brownian Motion and Random Fractals">12</a><a href="lesson-13.html" title="Lesson 13: Multifractal Measures">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">M = { c ∈ ℂ : (f<sub>cⁿ</sub>(0)) is bounded } = { c : K<sub>c</sub> is connected }
+M ⊂ { |c| ≤ 2 },   c ∈ M  ⇔  |f<sub>cⁿ</sub>(0)| ≤ 2 for all n,   M ∩ ℝ = [−2, 1/4]</pre></div>
+<p>By the dichotomy of Theorem 9.5, the parameter plane splits into the parameters for which K<sub>c</sub> is connected and those for which it is a Cantor set. The first set is the Mandelbrot set M, the connectedness locus of the quadratic family. It was first drawn by Brooks and Matelski (1978) and made famous by Mandelbrot (1980); its systematic theory was created by Douady and Hubbard in the Orsay notes (1984–1985).</p>
+<h3>The radius-2 criterion</h3>
+<p><strong>Theorem 10.1</strong>. If |c| &gt; 2 then c ∉ M. If |c| ≤ 2, then c ∈ M if and only if |f<sub>cⁿ</sub>(0)| ≤ 2 for every n. Consequently M is a compact subset of the closed disc of radius 2.</p>
+<p><strong>Proof</strong>. Write zₙ = f<sub>cⁿ</sub>(0), so z₁ = c and z₂ = c² + c. Suppose |c| &gt; 2. Then |z₂| ≥ |c|² − |c| = |c|(|c| − 1) &gt; |c| &gt; 2, so z₂ satisfies |z₂| &gt; max{2, |c|}, and the orbit escapes by Lemma 9.1. Now suppose |c| ≤ 2. If |zₙ| &gt; 2 for some n, then |zₙ| &gt; 2 = max{2, |c|}, and the orbit escapes. Conversely if c ∈ M then all |zₙ| ≤ 2, since otherwise the orbit would escape. Finally M = ⋂ₙ {c : |f<sub>cⁿ</sub>(0)| ≤ 2}, an intersection of closed sets (each f<sub>cⁿ</sub>(0) is a polynomial in c), contained in the closed disc of radius 2. ∎</p>
+<h3>The real slice</h3>
+<p><strong>Theorem 10.2</strong>. M ∩ ℝ = [−2, 1/4].</p>
+<p><strong>Proof</strong>. If c &gt; 1/4, then z² − z + c &gt; 0 for all real z, since the discriminant 1 − 4c is negative. So the real orbit of 0 is strictly increasing; a bounded increasing sequence would converge to a fixed point of f<sub>c</sub>, of which there are none on ℝ. So the orbit is unbounded. If c &lt; −2, then z₁ = c and z₂ = c² + c = |c|(|c| − 1) &gt; |c| &gt; 2, so the orbit escapes.</p>
+<p>Now let −2 ≤ c ≤ 1/4 and β = (1 + √(1 − 4c))/2, the larger fixed point; β ≥ 1/2. We claim f<sub>c</sub> maps I = [−β, β] into itself. On I, f<sub>c</sub>(z) = z² + c ranges over [c, β² + c] = [c, β], so it suffices to show c ≥ −β, i.e. √(1 − 4c) ≥ −2c − 1. If c ≥ −1/2 the right side is at most 0, and the inequality holds. If −2 ≤ c &lt; −1/2, both sides are non-negative and squaring gives 1 − 4c ≥ 4c² + 4c + 1, i.e. 0 ≥ 4c(c + 2), which holds for −2 ≤ c ≤ 0. Since 0 ∈ I, the orbit of 0 stays in I and is bounded. ∎</p>
+<h3>Hyperbolic components</h3>
+<p>A parameter c is hyperbolic if f<sub>c</sub> has an attracting cycle. The set of hyperbolic parameters in M is open, and its connected components are the hyperbolic components; each has a well-defined period p, and the multiplier map λ : W → 𝔻, sending c to the multiplier of its attracting p-cycle, is a conformal isomorphism onto the unit disc (Douady–Hubbard). The parameter λ⁻¹(0) is the centre of W, where 0 itself is periodic.</p>
+<p>The main cardioid. f<sub>c</sub> has an attracting fixed point z with multiplier μ = 2z, |μ| &lt; 1, exactly when c = z − z² with z = μ/2:</p>
+<pre class="math">c = μ/2 − μ²/4,   |μ| &lt; 1</pre>
+<p>The boundary, traced by μ = e<sup>iθ</sup>, is a cardioid with cusp at c = 1/4 (μ = 1) and leftmost point c = −3/4 (μ = −1). Its centre is c = 0.</p>
+<p>The period-2 disc. The 2-cycles of f<sub>c</sub> are the roots of f<sub>c²</sub>(z) − z divided by the fixed-point factor:</p>
+<pre class="math">f<sub>c²</sub>(z) − z = (z² − z + c)(z² + z + c + 1)</pre>
+<p>The roots z₁, z₂ of z² + z + c + 1 satisfy z₁ + z₂ = −1 and z₁z₂ = c + 1, so the multiplier of the 2-cycle is (f<sub>c²</sub>)′ = f<sub>c</sub>′(z₁) f<sub>c</sub>′(z₂) = 4z₁z₂ = 4(c + 1). The cycle is attracting exactly when |c + 1| &lt; 1/4: the hyperbolic component of period 2 is the open disc of radius 1/4 centred at −1, tangent to the cardioid at c = −3/4.</p>
+<p>Bulbs. At each point c(θ) = e<sup>iθ</sup>/2 − e<sup>2iθ</sup>/4 of the cardioid with θ = 2πp/q (p/q in lowest terms), a fixed point becomes parabolic with multiplier a primitive q-th root of unity, and a hyperbolic component of period q is attached there, the p/q-bulb. For example, the 1/3-bulb is attached at</p>
+<pre class="math">c = e<sup>2πi/3</sup>/2 − e<sup>4πi/3</sup>/4 = −1/8 + (3√3/8) i ≈ −0.125 + 0.6495 i</pre>
+<h3>Connectedness and the Böttcher map</h3>
+<p><strong>Theorem 10.3 (Douady–Hubbard, 1982)</strong>. M is connected. More precisely, the map Φ(c) = φ<sub>c</sub>(c), where φ<sub>c</sub> is the Böttcher coordinate of f<sub>c</sub> near ∞ (the conformal map with φ<sub>c</sub>(f<sub>c</sub>(z)) = φ<sub>c</sub>(z)² and φ<sub>c</sub>(z) ~ z), extends to a conformal isomorphism Φ : ℂ \ M → ℂ \ D̄, with Φ(c) ~ c at ∞.</p>
+<p>Since ℂ \ M is conformally a punctured disc around ∞, M is connected and full (its complement is connected), and its logarithmic capacity equals 1. The external rays Φ⁻¹({re<sup>2πiθ</sup> : r &gt; 1}) organise the combinatorics of M; rays with rational angles land: those with odd denominator at roots of hyperbolic components, those with even denominator at Misiurewicz points (parameters whose critical orbit is strictly preperiodic, like c = i).</p>
+<h3>Geometry and open problems</h3>
+<p>Shishikura (1998) proved that ∂M has Hausdorff dimension 2, the largest possible, as does J<sub>c</sub> for generic c ∈ ∂M. Whether ∂M has positive area is unknown. The area of M is known only numerically, approximately 1.5066. The central open problem is the MLC conjecture: M is locally connected. Douady and Hubbard showed that MLC would imply the density of hyperbolicity (every component of the interior of M is hyperbolic), and Yoccoz proved local connectivity of M at all parameters that are not infinitely renormalisable. The small copies of M visible everywhere along its boundary — at the tips of the antennae, along the real axis near −1.75 — are explained by renormalisation: certain iterates f<sub>cᵖ</sub>, restricted to small discs, behave like quadratic polynomials, giving homeomorphic copies of M inside M (Douady–Hubbard tuning).</p>
+<p>The real slice of M is precisely the logistic family of Lesson 11 in disguise, and the period-doubling cascade of the logistic map is the sequence of hyperbolic components of periods 1, 2, 4, 8, … strung along the real axis between c = 1/4 and the Feigenbaum point c ≈ −1.4012.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find c on the main cardioid's interior with attracting fixed-point multiplier μ = 1/2, and the fixed point itself.</div></li><li><span class="mk">(b)</span><div>For c = −1.1, find the multiplier of the 2-cycle and decide whether it is attracting.</div></li><li><span class="mk">(c)</span><div>Decide whether c = 1 + i is in M.</div></li><li><span class="mk">(d)</span><div>Show that the period-2 disc and the main cardioid are tangent at c = −3/4 by computing the fixed-point and 2-cycle multipliers there.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) c = μ/2 − μ²/4 = 1/4 − 1/16 = 3/16, with fixed point z = μ/2 = 1/4. Check: (1/4)² + 3/16 = 1/16 + 3/16 = 1/4. (b) 4(c + 1) = 4(−0.1) = −0.4; |−0.4| &lt; 1, so the 2-cycle is attracting and c lies in the period-2 component. (c) z₁ = 1 + i, z₂ = (1 + i)² + 1 + i = 1 + 3i with |z₂| = √10 &gt; 2, so c ∉ M by Theorem 10.1. (d) At c = −3/4 the fixed point z = −1/2 has multiplier −1 (boundary of the cardioid, μ = −1), and the 2-cycle multiplier 4(c + 1) = 1 (boundary of the disc |c + 1| &lt; 1/4). At this point the two fixed points of f<sub>c²</sub> that form the 2-cycle collide with the fixed point z = −1/2: z² + z + 1/4 = (z + 1/2)².</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

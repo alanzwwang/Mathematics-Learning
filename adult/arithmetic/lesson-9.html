@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: The Real Numbers — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 9</p>
+    <h1>The Real Numbers</h1>
+    <p class="kicker">Lesson 9 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">A complete ordered field is an ordered field in which every nonempty set
+that is bounded above has a least upper bound.
+It exists (Dedekind cuts, or Cauchy sequences of rationals modulo null sequences)
+and is unique up to a unique isomorphism. That field is ℝ.</pre></div>
+<h3>The problem</h3>
+<p>Lesson 4 ended with a bounded set of rationals that has no rational supremum. The arithmetic of ℚ is therefore insufficient for analysis: the intermediate value theorem fails for x ↦ x² − 2 on [1, 2] if only rational values are allowed. In 1872 three constructions of the real numbers appeared independently: Dedekind's cuts (Stetigkeit und irrationale Zahlen), Cantor's fundamental sequences, and Heine's account of Cantor's approach; Charles Méray had published a Cauchy-sequence construction in 1869. Weierstrass had lectured on a related approach in Berlin in the 1860s.</p>
+<h3>Dedekind cuts</h3>
+<p><strong>Definition 9.1</strong>. A cut is a subset A ⊂ ℚ such that A ≠ ∅, A ≠ ℚ, A is downward closed (if a ∈ A and q &lt; a then q ∈ A), and A has no greatest element. ℝ is the set of all cuts, ordered by inclusion.</p>
+<p>Each rational q determines the cut q* = {r ∈ ℚ : r &lt; q}. The cut √2* = {q ∈ ℚ : q &lt; 0 or q² &lt; 2} is not of this form, and represents √2. That it has no greatest element follows from the identity below: for positive rational a with a² &lt; 2, the rational a′ = (2a + 2)/(a + 2) satisfies</p>
+<pre class="math">a′ − a = (2 − a²)/(a + 2) &gt; 0,        a′² − 2 = 2(a² − 2)/(a + 2)² &lt; 0</pre>
+<p>so a′ is a larger element of the cut.</p>
+<p><strong>Theorem 9.2 (Least upper bound property)</strong>. Every nonempty set 𝒮 of cuts that is bounded above (by a cut M) has a least upper bound, namely the union U of the members of 𝒮.</p>
+<p><strong>Proof</strong>. U is nonempty, and U ⊆ M ≠ ℚ. It is downward closed, since each member is, and it has no greatest element, since any u ∈ U lies in some A ∈ 𝒮 which contains a larger element. So U is a cut. It contains every A ∈ 𝒮, so it is an upper bound; and any upper bound B contains every A ∈ 𝒮, hence contains U. ∎</p>
+<p>Addition is A + B = {a + b : a ∈ A, b ∈ B}, with zero 0* and negative −A = {p ∈ ℚ : there is r &gt; 0 with −p − r ∉ A}. Multiplication is defined first for positive cuts by A · B = {q ∈ ℚ : q ≤ 0} ∪ {ab : a ∈ A, b ∈ B, a &gt; 0, b &gt; 0} and extended by the rule of signs. Verifying the field axioms is lengthy but elementary; the delicate one is the existence of additive inverses, where one needs that for every rational ε &gt; 0 there are a ∈ A and b ∉ A with b − a = ε, a consequence of the Archimedean property of ℚ. The full verification is carried out in Rudin's Principles of Mathematical Analysis (Appendix to Chapter 1) and in Landau's Grundlagen.</p>
+<h3>Cauchy sequences</h3>
+<p><strong>Definition 9.3</strong>. A sequence (aₙ) of rationals is Cauchy if for every rational ε &gt; 0 there is N with |aₘ − aₙ| &lt; ε for all m, n ≥ N, and null if aₙ → 0. Let C be the set of Cauchy sequences and N₀ ⊂ C the set of null sequences.</p>
+<p>With termwise operations, C is a commutative ring (Cauchy sequences are bounded, which gives closure under multiplication: |aₘbₘ − aₙbₙ| ≤ |aₘ||bₘ − bₙ| + |bₙ||aₘ − aₙ|), and N₀ is an ideal. Define ℝ = C/N₀.</p>
+<p><strong>Lemma 9.4</strong>. If (aₙ) is Cauchy and not null, there are a rational ε &gt; 0 and an index N such that either aₙ ≥ ε for all n ≥ N or aₙ ≤ −ε for all n ≥ N.</p>
+<p><strong>Proof</strong>. Since (aₙ) is not null there is a rational 2ε &gt; 0 with |aₙ| ≥ 2ε for infinitely many n. Choose N with |aₘ − aₙ| &lt; ε for m, n ≥ N, and pick k ≥ N with |aₖ| ≥ 2ε, say aₖ ≥ 2ε. Then for n ≥ N, aₙ &gt; aₖ − ε ≥ ε. The case aₖ ≤ −2ε is symmetric. ∎</p>
+<p>Consequently N₀ is a maximal ideal and ℝ is a field: a non-null class has a representative with no zero terms (change finitely many), and (1/aₙ) is again Cauchy because |1/aₘ − 1/aₙ| = |aₙ − aₘ|/|aₘaₙ| ≤ |aₙ − aₘ|/ε². The lemma also defines the order: a class is positive when its representatives are eventually ≥ some positive rational. One then proves that every Cauchy sequence of reals converges in ℝ (by a diagonal argument choosing rationals close to each term), and that ℝ has the least upper bound property.</p>
+<p>The same construction applied to the p-adic absolute value |·|ₚ of Lesson 6 instead of the usual one produces the field ℚₚ of p-adic numbers. Ostrowski's theorem (1916) says that, up to equivalence, these are the only completions of ℚ: every nontrivial absolute value on ℚ is equivalent to the usual one or to some |·|ₚ.</p>
+<h3>Uniqueness</h3>
+<p><strong>Theorem 9.5</strong>. If F and F′ are complete ordered fields, there is exactly one bijection F → F′ preserving addition and multiplication, and it also preserves the order.</p>
+<p><strong>Proof</strong>. First, a complete ordered field is Archimedean: if ℕ were bounded above in F it would have a least upper bound s, but then s − 1 is not an upper bound, so some n &gt; s − 1, and n + 1 &gt; s, a contradiction. Both fields contain ℚ (Theorem 4.2), and by Theorem 4.5 ℚ is dense in each. Define φ(x) = sup{q ∈ ℚ : q &lt; x}, the supremum taken in F′. One checks that φ is an order-preserving bijection respecting + and ·, using density at every step. For uniqueness, a field isomorphism ψ fixes ℚ and maps squares to squares; as the nonnegative elements of a complete ordered field are exactly the squares (every positive element has a square root, by completeness), ψ preserves order, and an order-preserving map fixing a dense subfield is determined. ∎</p>
+<p><strong>Corollary 9.6</strong>. The only ring homomorphism ℝ → ℝ sending 1 to 1 is the identity. This is in sharp contrast with ℂ, which has uncountably many field automorphisms (assuming the axiom of choice), although only two continuous ones.</p>
+<h3>Equivalent forms of completeness</h3>
+<p>For an ordered field F the following are equivalent: (i) the least upper bound property; (ii) every bounded monotone sequence converges; (iii) F is Archimedean and every Cauchy sequence converges; (iv) F is Archimedean and every nested sequence of closed bounded intervals has nonempty intersection; (v) every bounded sequence has a convergent subsequence (Bolzano–Weierstrass). The Archimedean hypothesis in (iii) and (iv) cannot be dropped: there are non-Archimedean ordered fields in which every Cauchy sequence converges.</p>
+<h3>Size</h3>
+<p><strong>Theorem 9.7 (Cantor, 1874; diagonal proof 1891)</strong>. ℝ is uncountable.</p>
+<p><strong>Proof</strong>. Suppose x₁, x₂, … lists all reals in (0, 1), each by a decimal expansion not ending in repeated 9s. Define y with n-th digit 5 if the n-th digit of xₙ is not 5, and 4 otherwise. Then y ∈ (0, 1), its expansion contains no 9s so it is the unique expansion of y, and y differs from each xₙ in the n-th digit. ∎</p>
+<p>Since there are only countably many algorithms, almost all real numbers are not computable in Turing's sense (1936): no program outputs their digits. Every number that arithmetic can actually produce is computable; the computable reals form a real-closed field.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that the cut A + 0* equals A, where 0* = {q ∈ ℚ : q &lt; 0}.</div></li><li><span class="mk">(b)</span><div>Show that the sequence aₙ = (−1)ⁿ is not Cauchy, while aₙ = Σ (k = 1 to n) 1/k² is Cauchy.</div></li><li><span class="mk">(c)</span><div>Starting from a = 1, apply the map a ↦ (2a + 2)/(a + 2) three times and compare the squares of the results with 2.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) If a ∈ A and q &lt; 0 then a + q &lt; a, so a + q ∈ A; hence A + 0* ⊆ A. Conversely, for a ∈ A choose a larger a′ ∈ A (A has no maximum); then a = a′ + (a − a′) with a − a′ &lt; 0. (b) |aₙ₊₁ − aₙ| = 2 for all n, so ε = 1 fails. For the second, if m &gt; n then aₘ − aₙ = Σ (k = n+1 to m) 1/k² &lt; Σ (k = n+1 to m) (1/(k − 1) − 1/k) &lt; 1/n. (c) The values are 4/3, 7/5 and 24/17, with squares 16/9 ≈ 1.7778, 49/25 = 1.96 and 576/289 ≈ 1.99308, all below 2 and increasing toward it, as the two identities above predict.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

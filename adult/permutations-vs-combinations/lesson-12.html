@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 12</p>
+    <h1>Group Actions, Cayley's Theorem and Counting up to Symmetry</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">An action of G on X is a homomorphism G → Sym(X).
+Orbit–stabiliser: |G·x| = [G : G<sub>x</sub>] = |G|/|G<sub>x</sub>|.
+Burnside: #orbits = (1/|G|) ∑<sub>g∈G</sub> |Fix(g)|.</pre></div>
+<h3>Group actions</h3>
+<p><strong>Definition 12.1</strong>. An action of a group G on a set X is a map G × X → X, (g, x) ↦ g·x, such that e·x = x and g·(h·x) = (gh)·x for all g, h ∈ G and x ∈ X. The orbit of x is G·x = {g·x : g ∈ G}; the stabiliser of x is G<sub>x</sub> = {g : g·x = x}, a subgroup of G.</p>
+<p>For each g the map x ↦ g·x is a bijection of X, with inverse x ↦ g⁻¹·x, and the axioms say exactly that g ↦ (x ↦ g·x) is a homomorphism G → Sym(X). Conversely every homomorphism G → Sym(X) defines an action. Thus a group action is nothing other than a representation of a group by permutations, and the symmetric groups are the universal recipients of such representations. The orbits partition X, because &quot;y lies in the orbit of x&quot; is an equivalence relation.</p>
+<h3>Cayley's theorem</h3>
+<p><strong>Theorem 12.2 (Cayley, 1854)</strong>. Every group G is isomorphic to a subgroup of Sym(G). In particular every group of order n is isomorphic to a subgroup of Sₙ.</p>
+<p><strong>Proof</strong>. Let G act on itself by left multiplication, g·x = gx. This is an action, so it gives a homomorphism λ : G → Sym(G), λ(g)(x) = gx. If λ(g) is the identity, then g = g·e = e, so λ is injective, and G ≅ λ(G). Choosing a bijection G → [n] identifies Sym(G) with Sₙ. ∎</p>
+<p>For the cyclic group ℤ/4ℤ, the left regular representation sends the generator 1 to the 4-cycle x ↦ x + 1, so ℤ/4ℤ ≅ ⟨(1 2 3 4)⟩ ≤ S₄. Cayley's embedding is usually far from economical: S₃ embeds in S₆ by its regular representation, although it already acts faithfully on 3 points; on the other hand the quaternion group of order 8, which has no faithful action on fewer than 8 points, shows that the regular representation cannot always be improved. The theorem is nonetheless the reason that permutation groups are as general as groups: every question about finite groups can, in principle, be asked inside a symmetric group.</p>
+<h3>The orbit–stabiliser theorem</h3>
+<p><strong>Theorem 12.3</strong>. Let G act on X and x ∈ X. The map gG<sub>x</sub> ↦ g·x is a well-defined bijection from the set of left cosets of G<sub>x</sub> onto G·x. In particular, if G is finite, |G·x| · |G<sub>x</sub>| = |G|.</p>
+<p><strong>Proof</strong>. If gG<sub>x</sub> = hG<sub>x</sub> then h⁻¹g ∈ G<sub>x</sub>, so h⁻¹g·x = x and g·x = h·x; this proves the map is well defined, and reversing the argument proves injectivity. It is surjective by the definition of the orbit. Lagrange's theorem gives the counting statement. ∎</p>
+<h3>Combinations are orbits</h3>
+<p>We can now state precisely the relationship that the elementary course describes as &quot;divide the permutations by k!&quot;. Let X be the set of injections f : [k] → [n] (the k-permutations of [n]), and let S<sub>k</sub> act on X by f ↦ f ∘ π⁻¹, that is, by rearranging the positions of the list. Two injections lie in the same orbit if and only if they have the same image, so the orbits are in bijection with the k-subsets of [n]. The action is free (every stabiliser is trivial), because if f ∘ π⁻¹ = f with f injective then π = 1. By the orbit–stabiliser theorem every orbit has exactly k! elements, so</p>
+<pre class="math">C(n, k) = |X / S<sub>k</sub>| = (n)ₖ / k!.</pre>
+<p>Alternatively, let Sₙ act on the set of k-subsets of [n]. The action is transitive, and the stabiliser of {1, …, k} is the Young subgroup S<sub>k</sub> × S<sub>n−k</sub>, which permutes {1, …, k} and {k + 1, …, n} separately. Orbit–stabiliser gives C(n, k) = n!/(k!(n − k)!). In the same way, Sₙ acts transitively on the words with aᵢ copies of the letter i, with stabiliser S<sub>a₁</sub> × ⋯ × S<sub>a<sub>r</sub></sub>, which recovers the multinomial coefficient of Theorem 7.2. Applied to the conjugation action of Sₙ on itself, orbit–stabiliser shows that the conjugacy class of σ has size n!/|C(σ)|, where C(σ) is the centraliser, and so completes the proof of Theorem 4.3.</p>
+<h3>Burnside's lemma</h3>
+<p><strong>Theorem 12.4 (Cauchy–Frobenius–Burnside)</strong>. If a finite group G acts on a finite set X, the number of orbits is (1/|G|) ∑<sub>g∈G</sub> |Fix(g)|, where Fix(g) = {x : g·x = x}.</p>
+<p><strong>Proof</strong>. Count the pairs (g, x) with g·x = x. Summing over g gives ∑<sub>g</sub> |Fix(g)|; summing over x gives ∑<sub>x</sub> |G<sub>x</sub>| = ∑<sub>x</sub> |G|/|G·x|. Group the last sum by orbits: each orbit O contributes |O| · |G|/|O| = |G|. Hence ∑<sub>g</sub> |Fix(g)| = |G| × (number of orbits). ∎</p>
+<p>Although named after Burnside, who stated it in his 1897 textbook, the lemma was known to Cauchy (1845) and to Frobenius (1887).</p>
+<p><strong>Example 12.5 (Necklaces)</strong>. Colour the n beads of a circular necklace with q colours, and regard two colourings as equivalent if they differ by a rotation. The cyclic group Cₙ acts, and the rotation by j places has gcd(n, j) cycles on the beads; a colouring is fixed by it if and only if it is constant on each cycle, so |Fix| = q<sup>gcd(n, j)</sup>. Grouping the rotations by d = n/gcd(n, j), of which there are φ(d) for each divisor d of n, Burnside's lemma gives</p>
+<pre class="math">N(n, q) = (1/n) ∑<sub>d | n</sub> φ(d) q<sup>n/d</sup>.</pre>
+<p>For n = 6 and q = 2 the divisors d = 1, 2, 3, 6 have φ(d) = 1, 1, 2, 2, giving (2⁶ + 2³ + 2 · 2² + 2 · 2¹)/6 = (64 + 8 + 8 + 4)/6 = 14. If reflections are also allowed (bracelets), the dihedral group of order 12 acts, and the count drops to 13. For a prime number p of beads, N(p, q) = (q<sup>p</sup> + (p − 1)q)/p, and the integrality of this number is a combinatorial proof of Fermat's little theorem: p divides q<sup>p</sup> − q.</p>
+<p><strong>Example 12.6 (Colouring the faces of a cube)</strong>. The rotation group of the cube has order 24: the identity; 6 rotations by ±90° about face axes (3 cycles on faces each); 3 rotations by 180° about face axes (4 cycles); 8 rotations by ±120° about vertex axes (2 cycles); and 6 rotations by 180° about edge axes (3 cycles). With 2 colours, the number of distinct colourings is (2⁶ + 6 · 2³ + 3 · 2⁴ + 8 · 2² + 6 · 2³)/24 = (64 + 48 + 48 + 32 + 48)/24 = 240/24 = 10.</p>
+<h3>Pólya's refinement</h3>
+<p>In both examples |Fix(g)| depended only on the cycle type of g as a permutation of the positions being coloured: a colouring with q colours is fixed by g exactly when it is constant on the cycles of g, so |Fix(g)| = q<sup>κ(g)</sup>. Pólya (1937) packaged this in the cycle index Z(G) = (1/|G|) ∑<sub>g</sub> ∏ᵢ xᵢ<sup>mᵢ(g)</sup>, where mᵢ(g) is the number of i-cycles of g; the number of q-colourings up to symmetry is Z(G) evaluated at xᵢ = q for all i, and substituting xᵢ = y₁ⁱ + y₂ⁱ + ⋯ counts colourings by their content. For the full symmetric group, Theorem 4.3 gives Z(Sₙ) = ∑<sub>λ⊢n</sub> (1/z<sub>λ</sub>) ∏ᵢ xᵢ<sup>mᵢ(λ)</sup>, and evaluating at xᵢ = q yields the number of multisets of size n from q types, ((q n)) — combinations with repetition reappear as orbits of functions [n] → [q] under Sₙ.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many 2-colour necklaces with 6 beads are there up to rotation? Re-derive 14 by listing the fixed-point counts of the six rotations.</div></li><li><span class="mk">(b)</span><div>How many 3-colour necklaces with 5 beads are there up to rotation?</div></li><li><span class="mk">(c)</span><div>Let S₇ act on the 3-element subsets of [7]. What is the order of the stabiliser of {1, 2, 3}, and what is the orbit size?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Rotations by 0, 1, 2, 3, 4, 5 places have gcd(6, j) = 6, 1, 2, 3, 2, 1 cycles, fixing 64, 2, 4, 8, 4, 2 colourings; the total 84 divided by 6 is 14. (b) (3⁵ + 4 · 3)/5 = (243 + 12)/5 = 51. (c) The stabiliser is S₃ × S₄, of order 6 · 24 = 144, and the orbit has 5040/144 = 35 = C(7, 3) elements.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

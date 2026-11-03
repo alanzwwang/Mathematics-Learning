@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Rounding Error, Cancellation and Stability — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 11</p>
+    <h1>Rounding Error, Cancellation and Stability</h1>
+    <p class="kicker">Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">The relative condition number of subtraction at (a, b) is (|a| + |b|)/|a − b|.
+Subtracting nearly equal numbers is itself exact (Sterbenz), but it magnifies
+the errors already present in the operands: catastrophic cancellation.
+Forward error ≲ condition number × backward error.</pre></div>
+<h3>Conditioning</h3>
+<p>Let f be a differentiable function and x ≠ 0 with f(x) ≠ 0. If x is perturbed to x(1 + δ), then f changes by approximately f′(x) x δ, a relative change of κ(x) δ where</p>
+<pre class="math">κ(x) = |x f′(x) / f(x)|</pre>
+<p>is the relative condition number. It is a property of the problem, not of any algorithm. For f(x) = √x, κ = 1/2 everywhere: square roots are perfectly conditioned. For f(x) = ln x, κ = 1/|ln x|, which is large near x = 1. For the function of two variables (a, b) ↦ a − b, if a and b carry relative errors at most η then</p>
+<pre class="math">|(â − b̂) − (a − b)| / |a − b| ≤ η (|a| + |b|) / |a − b|</pre>
+<p>since |â − a| + |b̂ − b| ≤ η(|a| + |b|). The factor (|a| + |b|)/|a − b| is unbounded as a → b: this is cancellation.</p>
+<p><strong>Theorem 11.1 (Sterbenz lemma, 1974)</strong>. If x and y are floating-point numbers with y/2 ≤ x ≤ 2y, then x − y is exactly representable, so x ⊖ y = x − y.</p>
+<p><strong>Proof</strong>. The hypothesis forces y ≥ 0 and x ≥ 0, and if y = 0 then x = 0; so assume y &gt; 0. The hypothesis is symmetric in x and y (it is equivalent to x/2 ≤ y ≤ 2x), so we may also assume y ≤ x ≤ 2y. Let 2ᵉ ≤ y &lt; 2ᵉ⁺¹ in the normal range. Both x and y are integer multiples of the quantum 2<sup>e−p+1</sup>, since x ≥ y lies in the same or a higher binade, where the spacing is a multiple of that of y's binade. Hence x − y is an integer multiple of 2<sup>e−p+1</sup>, and 0 ≤ x − y ≤ y &lt; 2ᵉ⁺¹, so x − y = k · 2<sup>e−p+1</sup> with 0 ≤ k &lt; 2ᵖ, which is representable (as a normal or, if small, subnormal number). If y is subnormal the same argument works with the fixed subnormal quantum. ∎</p>
+<p>The lesson of the lemma is subtle: the subtraction introduces no error at all. Cancellation is catastrophic when the operands are themselves the result of earlier rounding, because the subtraction strips away the leading digits that agree and exposes the inaccurate trailing ones. Cancellation of exact data is benign.</p>
+<h3>Three case studies</h3>
+<p><strong>Example 11.2</strong> — (1 − cos x)/x². The true value tends to 1/2 as x → 0. In binary64 at x = 10⁻⁸, cos x = 1 − 5 × 10⁻¹⁷ + ⋯, which is closer to 1 than to the next binary64 number below 1, namely 1 − 2⁻⁵³ ≈ 1 − 1.11 × 10⁻¹⁶. So the computed cosine is exactly 1, and the formula returns 0, with relative error 100 percent. The identity 1 − cos x = 2 sin²(x/2) removes the subtraction; evaluating 2 sin²(x/2)/x² in binary64 gives 0.5000000000000001, correct to rounding.</p>
+<p><strong>Example 11.3</strong> — the quadratic formula. The roots of x² − 10⁸x + 1 = 0 are x = (10⁸ ± √(10¹⁶ − 4))/2, approximately 10⁸ and 10⁻⁸ (more precisely, the small root is 10⁻⁸ + 10⁻²⁴ + ⋯). In binary64, √(10¹⁶ − 4) ≈ 10⁸ − 2 × 10⁻⁸ is rounded to the nearest number in a binade where the spacing is 2⁻²⁶ ≈ 1.49 × 10⁻⁸, namely 10⁸ − 2⁻²⁶. The naive formula then returns 2⁻²⁶/2 = 2⁻²⁷ ≈ 7.4506 × 10⁻⁹ for the small root, which is wrong by about 25 percent. The stable method, writing the equation as x² − bx + c = 0 with b &gt; 0, computes the large root x₁ = (b + √(b² − 4c))/2, where no cancellation occurs, and then the small root from Vieta's relation x₁x₂ = c, giving x₂ = 1/x₁ = 1.0000000000000000 × 10⁻⁸, correct to full precision.</p>
+<p><strong>Example 11.4</strong> — √(x + 1) − √x for large x. At x = 10¹⁵ the naive difference in binary64 is 1.862645149230957 × 10⁻⁸, while the algebraically equivalent 1/(√(x + 1) + √x) gives 1.5811388300841893 × 10⁻⁸, the correctly rounded value. The naive result is off by about 18 percent: the two square roots agree in their first eight digits, and the subtraction leaves only the rounding errors of the square roots.</p>
+<h3>Summation</h3>
+<p><strong>Theorem 11.5</strong>. Let Ŝ be the result of summing x₁, …, xₙ left to right in floating-point arithmetic with unit roundoff u, and let γₖ = ku/(1 − ku) for ku &lt; 1. Then</p>
+<pre class="math">|Ŝ − Σ xᵢ| ≤ γₙ₋₁ Σ |xᵢ|.</pre>
+<p><strong>Proof</strong>. By the standard model, the computed partial sums satisfy Ŝₖ = (Ŝₖ₋₁ + xₖ)(1 + δₖ) with |δₖ| ≤ u. Unrolling, Ŝ = Σ xᵢ ∏ (k = max(i, 2) to n) (1 + δₖ), each product having at most n − 1 factors. A product of j factors (1 + δ) with |δ| ≤ u lies within γⱼ of 1 (an elementary induction), and the bound follows. ∎</p>
+<p>The bound, roughly (n − 1)u Σ|xᵢ|, is a worst case; with random rounding errors the typical error grows like √n u. The ordering matters: summing positive terms in increasing order reduces the error. William Kahan's compensated summation (1965) carries a running correction term c:</p>
+<pre class="math">s = 0, c = 0
+for each x:  y = x − c;   t = s + y;   c = (t − s) − y;   s = t</pre>
+<p>The quantity (t − s) − y recovers, exactly in many cases, the low-order part of y that was lost in forming t. The error bound becomes (2u + O(nu²)) Σ|xᵢ|, essentially independent of n. Adding 0.1 ten times in binary64 gives 0.9999999999999999 by naive summation and exactly 1 with Kahan's algorithm.</p>
+<h3>Backward stability</h3>
+<p>James Wilkinson's backward error analysis, developed in the 1950s and 1960s for matrix computations, changed the way numerical analysts think. Instead of asking how far the computed answer is from the true one, ask for which nearby data the computed answer is exact. An algorithm is backward stable if its output is the exact result for data perturbed by a relative amount of order u. Recursive summation is backward stable: the result above is the exact sum of the perturbed numbers xᵢ(1 + θᵢ) with |θᵢ| ≤ γₙ₋₁. Combining backward error with conditioning gives the rule of thumb</p>
+<pre class="math">relative forward error ≲ κ × relative backward error</pre>
+<p>so a backward-stable algorithm applied to a well-conditioned problem gives an accurate answer, and no algorithm can be expected to do better than κu on an ill-conditioned one. The naive quadratic formula in Example 11.3 is not backward stable for the small root; the Vieta-based method is. The fused multiply-add, which computes xy + z with a single rounding, is a further tool: it allows the exact computation of the rounding error of a product, since xy − fl(xy) is a floating-point number that FMA returns exactly.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the relative condition number of f(x) = eˣ and of f(x) = x − 1, and say where each is ill-conditioned.</div></li><li><span class="mk">(b)</span><div>Give an expression for ln(1 + x) − x, for small |x|, that avoids cancellation, to within a relative error O(x).</div></li><li><span class="mk">(c)</span><div>For x = 1.5 and y = 1 in binary64, decide whether the Sterbenz lemma applies and compute x ⊖ y.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) For eˣ, κ = |x · eˣ/eˣ| = |x|, ill-conditioned only for large |x|. For x − 1, κ = |x/(x − 1)|, ill-conditioned near x = 1. (b) From the Taylor series ln(1 + x) − x = −x²/2 + x³/3 − ⋯, the truncation −x²/2 + x³/3 has relative error O(x²) and −x²/2 alone has relative error O(x); in practice one uses the library function log1p(x) and subtracts x only when x is not small. (c) y/2 = 0.5 ≤ 1.5 ≤ 2 = 2y, so the lemma applies and x ⊖ y = 0.5 exactly.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

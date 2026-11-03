@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: The Poisson Process — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 12</p>
+    <h1>The Poisson Process</h1>
+    <p class="kicker">Lesson 12 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">N(t) counts arrivals; independent stationary increments with N(t) − N(s) ~ Poisson(λ(t − s))
+⇔ i.i.d. Exponential(λ) inter-arrival times;  given N(t) = n, the arrival times are i.i.d. uniform order statistics.</pre></div>
+<h3>Three equivalent definitions</h3>
+<p>A counting process N = (N(t))<sub>t≥0</sub> has N(0) = 0, integer values, and non-decreasing right-continuous paths that increase by jumps of size 1.</p>
+<p><strong>Theorem 12.1</strong>. For a counting process and λ &gt; 0, the following are equivalent.</p>
+<ul class="steps"><li><span class="mk">(i)</span><div>N has independent increments, and N(t) − N(s) ~ Poisson(λ(t − s)) for s &lt; t.</div></li><li><span class="mk">(ii)</span><div>N has independent and stationary increments, P(N(h) = 1) = λh + o(h) and P(N(h) ≥ 2) = o(h) as h ↓ 0.</div></li><li><span class="mk">(iii)</span><div>The inter-arrival times E₁, E₂, … between successive jumps are i.i.d. Exponential(λ).</div></li></ul>
+<p>Such an N is a Poisson process of rate λ.</p>
+<p><strong>Proof of (ii) ⇒ (i)</strong>. Let pₙ(t) = P(N(t) = n). Independent stationary increments and the infinitesimal hypotheses give p₀(t + h) = p₀(t)(1 − λh + o(h)) and pₙ(t + h) = pₙ(t)(1 − λh) + pₙ₋₁(t)λh + o(h). Hence p₀′ = −λp₀ and pₙ′ = −λpₙ + λpₙ₋₁, with p₀(0) = 1. Solving successively (multiply by e<sup>λt</sup>) gives pₙ(t) = e<sup>−λt</sup>(λt)ⁿ/n!. For (i) ⇒ (iii), P(E₁ &gt; t) = P(N(t) = 0) = e<sup>−λt</sup>, and the strong Markov property of the process at the arrival times shows that the later gaps are independent copies. For (iii) ⇒ (i), the arrival time Sₙ = E₁ + ⋯ + Eₙ has the Gamma(n, λ) density λⁿ tⁿ⁻¹ e<sup>−λt</sup>/(n − 1)!, and P(N(t) = n) = P(Sₙ ≤ t &lt; Sₙ₊₁) can be computed by integrating against the tail of Eₙ₊₁. ∎</p>
+<h3>Memorylessness</h3>
+<p>The exponential law is memoryless: P(E &gt; s + t | E &gt; s) = e<sup>−λ(s+t)</sup>/e<sup>−λs</sup> = P(E &gt; t). Among laws on (0, ∞) it is the only one. Indeed g(t) = P(E &gt; t) then satisfies g(s + t) = g(s)g(t) with g monotone, whose only solutions with g(0) = 1 and g → 0 are g(t) = e<sup>−λt</sup>. This explains the inspection paradox: if buses arrive as a Poisson process of rate λ, a passenger arriving at a fixed time waits on average 1/λ, and the gap containing the arrival time has mean length nearly 2/λ for large times, twice the typical gap, because long gaps are more likely to be sampled.</p>
+<h3>Conditional uniformity</h3>
+<p><strong>Theorem 12.2</strong>. Given N(t) = n, the arrival times (S₁, …, Sₙ) have the law of the order statistics of n i.i.d. Uniform(0, t) variables.</p>
+<p><strong>Proof</strong>. For 0 &lt; s₁ &lt; ⋯ &lt; sₙ &lt; t, the joint density of (S₁, …, Sₙ, and no arrival in (sₙ, t]) is λe<sup>−λs₁</sup> · λe<sup>−λ(s₂−s₁)</sup> ⋯ λe<sup>−λ(sₙ−sₙ₋₁)</sup> · e<sup>−λ(t−sₙ)</sup> = λⁿ e<sup>−λt</sup>. Dividing by P(N(t) = n) = e<sup>−λt</sup>(λt)ⁿ/n! gives the constant density n!/tⁿ on the simplex, which is the order-statistic density. ∎</p>
+<h3>Superposition, thinning and marking</h3>
+<p>If N₁ and N₂ are independent Poisson processes of rates λ₁ and λ₂, then N₁ + N₂ is a Poisson process of rate λ₁ + λ₂, and each arrival of the sum comes from N₁ with probability λ₁/(λ₁ + λ₂), independently. Conversely, if each arrival of a rate-λ process is independently kept with probability p, the kept and discarded arrivals form independent Poisson processes of rates λp and λ(1 − p). The independence in thinning is surprising and important: knowing how many arrivals were discarded tells us nothing about how many were kept. Both facts follow from the identity</p>
+<pre class="math">P(N₁ = j, N₂ = k) = e<sup>−λt</sup>(λt)<sup>j+k</sup>/(j + k)! · C(j + k, j) pʲ(1 − p)ᵏ = [e<sup>−λpt</sup>(λpt)ʲ/j!] · [e<sup>−λ(1−p)t</sup>(λ(1 − p)t)ᵏ/k!]</pre>
+<p>If each arrival carries an independent mark Yᵢ, the compound Poisson process X(t) = ∑<sub>i≤N(t)</sub> Yᵢ satisfies E X(t) = λt E Y and Var X(t) = λt E Y², by conditioning on N(t). Compound Poisson processes model total insurance claims, and the Cramér–Lundberg theory of ruin is built on them.</p>
+<h3>The law of rare events</h3>
+<p><strong>Theorem 12.3 (Poisson limit; Le Cam's inequality)</strong>. Let Sₙ be a sum of independent Bernoulli(pᵢ) variables, i = 1, …, n, and let λ = ∑ pᵢ. Then</p>
+<pre class="math">∑<sub>k≥0</sub> | P(Sₙ = k) − e<sup>−λ</sup>λᵏ/k! | ≤ 2 ∑ᵢ pᵢ²</pre>
+<p>In particular, Binomial(n, λ/n) ⇒ Poisson(λ) as n → ∞, with total variation error O(1/n). The proof couples each Bernoulli(pᵢ) with a Poisson(pᵢ) variable so that they differ with probability at most pᵢ², and uses the fact that independent Poissons add. Counts of rare independent events, such as decays of radioactive atoms, misprints on a page, or the classical Prussian cavalry horse-kick data analysed by Bortkiewicz (1898), are therefore approximately Poisson.</p>
+<h3>Generalisations</h3>
+<p>A non-homogeneous Poisson process with intensity λ(t) has N(t) − N(s) ~ Poisson(∫ₛᵗ λ(u) du) with independent increments; it is obtained from a homogeneous one by a deterministic time change. More generally, a Poisson random measure on a space E with intensity measure μ assigns to disjoint sets independent Poisson counts with means μ(A). These are the building blocks of Lévy processes and of the theory of point processes, and together with Brownian motion and a linear drift they generate, through the Lévy–Itô decomposition, every stochastically continuous process with independent stationary increments (every Lévy process).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Calls arrive as a Poisson process of rate 3 per hour. Find the probability of no calls in a 20-minute interval, and of exactly 4 calls in 2 hours.</div></li><li><span class="mk">(b)</span><div>In the same process, given that exactly 5 calls arrived in the first hour, what is the expected time of the first call?</div></li><li><span class="mk">(c)</span><div>Customers arrive at rate 10 per hour and each independently buys something with probability 0.3. Given that 4 customers who bought nothing arrived in an hour, what is the expected number of purchasing customers in that hour?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) N(1/3) ~ Poisson(1), so P(no calls) = e<sup>−1</sup> ≈ 0.3679; N(2) ~ Poisson(6), so P(N(2) = 4) = e<sup>−6</sup> 6⁴/4! = 54e<sup>−6</sup> ≈ 0.1339. (b) The first of 5 i.i.d. Uniform(0, 1) order statistics has mean 1/6 hour, that is, 10 minutes. (c) By the independence of thinned processes, the number of purchasing customers is Poisson(3) regardless, so the expectation is 3.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

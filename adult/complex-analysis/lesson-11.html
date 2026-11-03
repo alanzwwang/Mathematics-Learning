@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: The Argument Principle and Rouché's Theorem — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 11</p>
+    <h1>The Argument Principle and Rouché's Theorem</h1>
+    <p class="kicker">Lesson 11 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">f meromorphic near the closed disc D̄, with no zeros or poles on ∂D:
+      (1/2πi) ∮ over ∂D of f′(z)/f(z) dz = Z − P   (counted with multiplicity).
+Rouché: if |g| &lt; |f| on ∂D, then f and f + g have the same number of zeros in D.</pre></div>
+<h3>The argument principle</h3>
+<p><strong>Theorem 11.1</strong>. Let f be meromorphic on an open set containing a closed disc D̄, with no zeros or poles on the boundary circle C. Then (1/2πi) ∮<sub>C</sub> f′/f dz = Z − P, where Z and P are the numbers of zeros and poles of f inside, counted with multiplicity.</p>
+<p><strong>Proof</strong>. If f has a zero of order m at a, write f = (z − a)ᵐ g with g(a) ≠ 0; then f′/f = m/(z − a) + g′/g, and g′/g is holomorphic near a, so Res(f′/f, a) = m. At a pole of order m the same computation with −m gives residue −m. Elsewhere f′/f is holomorphic. The residue theorem finishes the proof.</p>
+<p>The name comes from the interpretation of the left side: since (log f)′ = f′/f locally, the integral measures the total change of arg f(z) as z goes once around C, divided by 2π. In other words Z − P = n(f ∘ C, 0), the number of times the image curve f(C) winds around the origin. The same statement holds, with the same proof, for any closed path with winding numbers 0 or 1, and for a holomorphic function h one obtains the useful generalisation (1/2πi) ∮ h f′/f dz = ∑ h(zeros) − ∑ h(poles).</p>
+<h3>Rouché's theorem</h3>
+<p><strong>Theorem 11.2 (Rouché, 1862)</strong>. Let f, g be holomorphic on an open set containing the closed disc D̄, and suppose |g(z)| &lt; |f(z)| for every z on the boundary circle C. Then f and f + g have the same number of zeros inside C.</p>
+<p><strong>Proof</strong>. For 0 ≤ t ≤ 1, the function f<sub>t</sub> = f + tg satisfies |f<sub>t</sub>| ≥ |f| − |g| &gt; 0 on C, so it has no zeros on C. The number of zeros N(t) = (1/2πi) ∮ f<sub>t</sub>′/f<sub>t</sub> dz is an integer by the argument principle and depends continuously on t, since the integrand is jointly continuous in (t, z). Hence N is constant, and N(0) = N(1).</p>
+<p>A symmetric version (Estermann, Glicksberg) requires only |f + g| &lt; |f| + |g| on C. The informal content is the dog-walking principle: if a dog's leash is always shorter than the walker's distance to a lamppost, dog and walker circle the lamppost equally often.</p>
+<p>Examples. In each case the inequality on the circle is strict, so there are no zeros on it.</p>
+<ul class="steps"><li><span class="mk">1.</span><div>z⁵ + 3z + 1 on |z| = 1: |3z| = 3 &gt; 2 ≥ |z⁵ + 1|, so exactly one zero in |z| &lt; 1. On |z| = 2: |z⁵| = 32 &gt; 7 ≥ |3z + 1|, so all five zeros lie in |z| &lt; 2, and four lie in the annulus 1 &lt; |z| &lt; 2.</div></li><li><span class="mk">2.</span><div>z⁴ − 6z + 3: on |z| = 1, |−6z| = 6 &gt; 4 ≥ |z⁴ + 3|, giving one zero in the unit disc; on |z| = 2, |z⁴| = 16 &gt; 15 ≥ |−6z + 3|, so three zeros lie in 1 &lt; |z| &lt; 2.</div></li><li><span class="mk">3.</span><div>e<sup>z</sup> = 3z has exactly one solution in |z| &lt; 1: on |z| = 1, |3z| = 3 &gt; e ≥ |e<sup>z</sup>|, and 3z has one zero.</div></li></ul>
+<p>Rouché also reproves the fundamental theorem of algebra: for p(z) = zⁿ + aₙ₋₁z<sup>n−1</sup> + … + a₀, on a large circle |zⁿ| dominates the rest, so p has n zeros.</p>
+<h3>Local mapping, open mapping and Hurwitz</h3>
+<p><strong>Theorem 11.3 (local mapping)</strong>. If f is holomorphic near z₀ and f − f(z₀) has a zero of order m ≥ 1 at z₀, then there are ε, δ &gt; 0 such that every w with 0 &lt; |w − f(z₀)| &lt; δ has exactly m preimages in D(z₀, ε), all simple.</p>
+<p><strong>Proof</strong>. Choose ε so that f − f(z₀) and f′ have no zeros in 0 &lt; |z − z₀| ≤ ε (zeros are isolated), and let δ be the minimum of |f − f(z₀)| on |z − z₀| = ε. For |w − f(z₀)| &lt; δ, Rouché applied to f − f(z₀) and the constant perturbation f(z₀) − w shows that f − w has m zeros in the disc; they are simple because f′ ≠ 0 there away from z₀.</p>
+<p>Corollaries. A nonconstant holomorphic function on a domain is an open map (open mapping theorem), which gives another proof of the maximum modulus principle; a holomorphic function is locally injective near z₀ if and only if f′(z₀) ≠ 0, and an injective holomorphic function has nonvanishing derivative and a holomorphic inverse. The last statement is false for real functions: x³ is injective with derivative 0 at the origin.</p>
+<p><strong>Theorem 11.4 (Hurwitz)</strong>. If fₙ → f uniformly on compact subsets of a domain U, each fₙ is nowhere zero, and f is not identically zero, then f is nowhere zero. If each fₙ is injective, then f is injective or constant.</p>
+<p><strong>Proof</strong>. If f(a) = 0, choose a small circle around a on which f does not vanish. By uniform convergence fₙ′/fₙ → f′/f uniformly on the circle, so the zero counts converge; but those of fₙ are 0 and that of f is at least 1. For the second statement apply the first to fₙ − fₙ(b) on U \ {b}.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many zeros does z⁷ − 5z³ + 1 have in |z| &lt; 1?</div></li><li><span class="mk">(b)</span><div>How many zeros does 2z⁵ − 6z² + z + 1 have in |z| &lt; 1?</div></li><li><span class="mk">(c)</span><div>Let |a| &gt; e and n ≥ 1. How many solutions does e<sup>z</sup> = a zⁿ have in |z| &lt; 1?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) On |z| = 1, |−5z³| = 5 &gt; 2 ≥ |z⁷ + 1|, so there are 3 zeros, as many as 5z³ has. (b) On |z| = 1, |−6z²| = 6 &gt; 4 ≥ |2z⁵ + z + 1|, so there are 2 zeros. (c) On |z| = 1, |a zⁿ| = |a| &gt; e ≥ |e<sup>z</sup>|, so a zⁿ − e<sup>z</sup> has n zeros in the disc, as many as a zⁿ.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

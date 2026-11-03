@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#0891b2">
+<body id="top" class="mode-kid" style="--topic:#0891b2">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/number-theory/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">GCF(big, small) = GCF(small, remainder). Repeat until the remainder is 0.
 Then run the steps BACKWARDS to write the GCF as a combination of the two numbers.</pre></div>
@@ -64,7 +65,7 @@ Then run the steps BACKWARDS to write the GCF as a combination of the two number
 <pre class="math">Check: 2 × 48 − 84 = 96 − 84 = 12 ✅</pre>
 <p>So 12 = 2×48 + (−1)×84 — the GCF is written as an integer COMBINATION of the two original numbers (negative coefficients allowed!). This fact is called Bézout's identity: GCF(a, b) can always be written as m×a + n×b for some integers m and n. It looks like a party trick, but it's the beating heart of internet security: the codes that protect messages start by finding exactly these combinations, with Euclid's algorithm, on gigantic numbers.</p>
 <h3>A word from history</h3>
-<p>This procedure appeared in Euclid's book Elements around 300 BC — over 2,300 years ago — making it possibly the oldest algorithm still in daily use. Every secure connection your computer makes today re-runs it thousands of times. Not bad for a geometry teacher from ancient Alexandria.</p>
+<p>This procedure appeared in Euclid's book Elements around 300 BC — over 2,300 years ago — making it possibly the oldest algorithm still in daily use. Secure connections on the internet run versions of it every single day. Not bad for a geometry teacher from ancient Alexandria.</p>
 <div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">1.</span><div>Use Euclid's algorithm to find GCF(90, 126). Show every line.</div></li><li><span class="mk">2.</span><div>Now reverse it: write your answer as a combination m × 90 + n × 126.</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>:</p><ul class="steps"><li><span class="mk">1.</span><div>126 = 90 × 1 + 36;  90 = 36 × 2 + 18;  36 = 18 × 2 + 0  →  GCF = 18.</div></li><li><span class="mk">2.</span><div>From the middle line: 18 = 90 − 36 × 2. From the top line: 36 = 126 − 90 × 1. <br>Substitute: 18 = 90 − (126 − 90) × 2 = 90 − 2×126 + 2×90 = 3×90 − 2×126. <br><strong>Check</strong>: 3×90 − 2×126 = 270 − 252 = 18 ✅ <br>(Fingerprint confirmation: 90 = 2 × 3² × 5 and 126 = 2 × 3² × 7 → shared 2 × 3² = 18.)</div></li></ul></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">⬅️ Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 ➡️</a></nav>
 </main>
@@ -75,7 +76,7 @@ Then run the steps BACKWARDS to write the GCF as a combination of the two number
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

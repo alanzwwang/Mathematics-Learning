@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Rationals and Ordered Fields — Arithmetic (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Arithmetic</a> › Lesson 4</p>
+    <h1>The Rationals and Ordered Fields</h1>
+    <p class="kicker">Lesson 4 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ℚ = (ℤ × (ℤ ∖ {0}))/∼,   where (a, b) ∼ (c, d)  ⟺  ad = bc
+An ordered field is a field with a set P of positives closed under + and ·
+such that each x is exactly one of: x ∈ P, x = 0, −x ∈ P.
+Every ordered field contains a unique copy of ℚ.</pre></div>
+<h3>The field of fractions</h3>
+<p>The construction of ℚ from ℤ follows the pattern of Lesson 3 with multiplication in place of addition. A pair (a, b) with b ≠ 0 is a formal name for a/b, and a/b = c/d is encoded by ad = bc. Transitivity of ∼ now uses the absence of zero divisors: if ad = bc and cf = de then adf = bcf = bde, so d(af − be) = 0, and since d ≠ 0 we get af = be.</p>
+<p>Operations are defined by the familiar formulas:</p>
+<pre class="math">a/b + c/d = (ad + bc)/(bd),        (a/b)(c/d) = (ac)/(bd)</pre>
+<p>and well-definedness is a direct verification (bd ≠ 0 again uses the absence of zero divisors). Every nonzero a/b has inverse b/a. The construction works verbatim for any integral domain D, producing its field of fractions Frac(D); applied to k[x] it yields the field k(x) of rational functions. Its universal property: every injective ring homomorphism from D to a field K extends uniquely to a homomorphism Frac(D) → K.</p>
+<h3>Ordered fields</h3>
+<p><strong>Definition 4.1</strong>. An ordered field is a field F together with a subset P ⊆ F (the positive elements) such that P is closed under addition and multiplication, and for each x ∈ F exactly one of x ∈ P, x = 0, −x ∈ P holds. One writes x &lt; y for y − x ∈ P.</p>
+<p><strong>Theorem 4.2</strong>. In any ordered field:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>x² &gt; 0 for every x ≠ 0; in particular 1 = 1² &gt; 0.</div></li><li><span class="mk">2.</span><div>The characteristic is 0, and the map ℚ → F is an order-preserving embedding.</div></li><li><span class="mk">3.</span><div>If 0 &lt; a &lt; b then 0 &lt; 1/b &lt; 1/a.</div></li><li><span class="mk">4.</span><div>|x + y| ≤ |x| + |y|, where |x| = max(x, −x).</div></li></ul>
+<p><strong>Proof</strong>. (1) If x ∈ P then x² ∈ P; if −x ∈ P then x² = (−x)² ∈ P. (2) The sum 1 + 1 + ⋯ + 1 of n ones lies in P and so is nonzero; hence ℤ → F is injective and extends to ℚ → F. If m/n &gt; 0 with n &gt; 0 then m &gt; 0, so m · 1<sub>F</sub> and n · 1<sub>F</sub> are positive, as is the inverse of the latter by (3). (3) If a &gt; 0 then 1/a &gt; 0, since otherwise a · (1/a) = 1 would be ≤ 0. Then 1/a − 1/b = (b − a)/(ab) &gt; 0. (4) Each of x + y and −(x + y) is ≤ |x| + |y|. ∎</p>
+<p><strong>Corollary 4.3</strong>. The field ℂ admits no ordering, since i² = −1 would have to be positive while −1 = −(1²) is negative. More generally, a field can be ordered if and only if −1 is not a sum of squares (the Artin–Schreier theorem, 1927).</p>
+<p>The rational numbers carry exactly one ordering: positivity of m/n with n &gt; 0 is forced to mean m &gt; 0 by Theorem 4.2. The same is true of ℝ, where the positive elements must be precisely the nonzero squares; but a field such as ℚ(√2) has two orderings, one with √2 &gt; 0 and the other, obtained by the automorphism √2 ↦ −√2, with √2 &lt; 0.</p>
+<h3>Archimedean and non-Archimedean fields</h3>
+<p><strong>Definition 4.4</strong>. An ordered field F is Archimedean if for every x ∈ F there is n ∈ ℕ with n &gt; x.</p>
+<p>The field ℚ is Archimedean: if x = a/b with b &gt; 0, take n = |a| + 1; since b ≥ 1 we have n &gt; |a| ≥ |a|/b ≥ a/b. The field ℚ(t) of rational functions, ordered by declaring a nonzero f/g positive when the leading coefficients of f and g have the same sign, is non-Archimedean: t − n has positive leading coefficient for every n, so t &gt; n for all n ∈ ℕ, and 1/t is a positive &quot;infinitesimal&quot; smaller than every 1/n. Fields of this kind underlie non-standard analysis and the Levi-Civita and Hahn series fields.</p>
+<h3>Density and the gaps in ℚ</h3>
+<p><strong>Theorem 4.5</strong>. In an Archimedean ordered field, between any two elements x &lt; y there is a rational number.</p>
+<p><strong>Proof</strong>. Choose n ∈ ℕ with n &gt; 1/(y − x), so ny − nx &gt; 1. Let m be the least integer with m &gt; nx (it exists by the Archimedean property and well ordering). Then m − 1 ≤ nx, so m ≤ nx + 1 &lt; ny, and nx &lt; m &lt; ny gives x &lt; m/n &lt; y. ∎</p>
+<p>Density does not mean completeness. The set {q ∈ ℚ : q &lt; 0 or q² &lt; 2} is nonempty and bounded above, but has no least upper bound in ℚ: if s were one, then s² = 2 is impossible (√2 is irrational, Lesson 6), s² &lt; 2 allows s to be increased slightly, and s² &gt; 2 allows s to be decreased. Repairing this defect is the purpose of Lesson 9.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that the formula (a, b) ↦ (a + b)/b gives a well-defined function on ℚ, and identify it.</div></li><li><span class="mk">(b)</span><div>Find the two orderings of ℚ(√2) in which √2 − 1 is positive, or show that there is only one.</div></li><li><span class="mk">(c)</span><div>In ℚ(t) with the ordering above, decide the sign of (t² − 1000t)/(5 − t).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) If ad = bc then (a + b)d = ad + bd = bc + bd = b(c + d), so (a + b)/b = (c + d)/d; the map is x ↦ x + 1. (b) There is only one: under the ordering with √2 &lt; 0, the element √2 − 1 is a sum of two negatives and is negative, while under the usual ordering √2 − 1 &gt; 0 because 2 &gt; 1 implies √2 &gt; 1. (c) The numerator has leading coefficient +1 and the denominator −1, so the quotient is negative (it behaves like −t for large t).</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

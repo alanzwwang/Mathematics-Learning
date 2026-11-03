@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 5: Coordinate Rings, Morphisms and Rational Maps — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 5</p>
+    <h1>Coordinate Rings, Morphisms and Rational Maps</h1>
+    <p class="kicker">Lesson 5 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" class="here" aria-current="page" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">X ↦ k[X] = k[x₁, …, xₙ]/I(X) is an anti-equivalence between affine algebraic sets and reduced finitely generated k-algebras</pre></div>
+<h3>The coordinate ring</h3>
+<p>Let X ⊆ 𝔸ⁿ be an algebraic set over k algebraically closed. Two polynomials define the same function on X exactly when their difference lies in I(X), so the ring of polynomial functions on X is the coordinate ring</p>
+<pre class="math">k[X] = k[x₁, …, xₙ] / I(X)</pre>
+<p>It is a finitely generated k-algebra, and it is reduced (has no nonzero nilpotents) because I(X) is radical. It is an integral domain exactly when X is irreducible. By the Nullstellensatz, the points of X correspond to the maximal ideals of k[X]: the point a corresponds to 𝔪<sub>a</sub>/I(X), the kernel of evaluation at a. Closed subsets of X correspond to radical ideals of k[X], and irreducible closed subsets to prime ideals.</p>
+<h3>Morphisms</h3>
+<p>A morphism (or polynomial map) φ: X → Y between algebraic sets X ⊆ 𝔸ⁿ and Y ⊆ 𝔸ᵐ is a map of the form φ(a) = (φ₁(a), …, φ<sub>m</sub>(a)) with φⱼ ∈ k[X]. Every morphism induces a k-algebra homomorphism in the opposite direction, the pullback</p>
+<pre class="math">φ*: k[Y] → k[X],   g ↦ g ∘ φ</pre>
+<p>which is well defined because g ∈ I(Y) implies that g ∘ φ vanishes on X. Conversely, any k-algebra homomorphism ψ: k[Y] → k[X] equals φ* for a unique morphism φ, namely φⱼ = ψ(yⱼ) where the yⱼ are the coordinate functions on Y; φ maps X into Y because g(φ(a)) = ψ(g)(a) = 0 for g ∈ I(Y). This gives a bijection Mor(X, Y) ≅ Hom<sub>k-alg</sub>(k[Y], k[X]), compatible with composition. Moreover, every finitely generated reduced k-algebra A arises as some k[X]: choose generators to write A = k[x₁, …, xₙ]/J; then J is radical because A is reduced, so A = k[V(J)] by the Nullstellensatz. In the language of categories, X ↦ k[X] is an equivalence between the category of affine algebraic sets over k and the opposite of the category of finitely generated reduced k-algebras.</p>
+<p>In particular X ≅ Y as algebraic sets if and only if k[X] ≅ k[Y] as k-algebras. This turns geometric questions into algebraic ones.</p>
+<h3>Examples of isomorphisms and non-isomorphisms</h3>
+<p>The parabola. The map 𝔸¹ → V(y − x²), t ↦ (t, t²), has inverse (x, y) ↦ x, and both are morphisms. Algebraically k[x, y]/⟨y − x²⟩ ≅ k[t] via x ↦ t, y ↦ t². More generally the graph of any polynomial map is isomorphic to its domain.</p>
+<p>The hyperbola. The coordinate ring of H = V(xy − 1) is k[x, y]/⟨xy − 1⟩ ≅ k[x, x⁻¹], the ring of Laurent polynomials. This ring has the unit x, which is not a constant, while the units of k[t] are only the nonzero constants. Hence H ≇ 𝔸¹. Geometrically, H is isomorphic to the open subset 𝔸¹ ∖ {0} via (x, y) ↦ x, which shows that an open subset of an affine variety can itself be affine. On the other hand 𝔸² ∖ {(0, 0)} is not isomorphic to any affine algebraic set (Problem 46).</p>
+<p>The cuspidal cubic. Let C = V(y² − x³). The morphism φ: 𝔸¹ → C, t ↦ (t², t³), is a bijection (the inverse is (x, y) ↦ y/x for x ≠ 0 and (0, 0) ↦ 0) and a homeomorphism in the Zariski topology. But it is not an isomorphism: φ* maps k[C] = k[x, y]/⟨y² − x³⟩ isomorphically onto the subring k[t², t³] ⊊ k[t], and the function t is not a polynomial in t² and t³ (no element of the subring has a nonzero coefficient of t¹). So φ⁻¹ is not a morphism. A deeper reason is that C has a singular point at the origin (Lesson 7), while 𝔸¹ is smooth, and isomorphisms preserve singularities. Another algebraic witness: k[t², t³] is not integrally closed in its fraction field k(t), since t = t³/t² satisfies T² − t² = 0.</p>
+<h3>Rational functions and rational maps</h3>
+<p>Let X be an affine variety (irreducible). Its function field k(X) is the fraction field of the domain k[X]. A rational function f ∈ k(X) is regular at the point a ∈ X if it can be written as g/h with g, h ∈ k[X] and h(a) ≠ 0; the set of points where f is regular is a dense open subset of X. A function regular at every point of X lies in k[X]: the ideal of denominators D = { h ∈ k[X] : hf ∈ k[X] } contains, for each point a, an element not vanishing at a, so V(D) = ∅; then D = k[X] by the Nullstellensatz, and 1 ∈ D means f ∈ k[X]. Thus regular functions and polynomial functions agree on affine varieties.</p>
+<p>A rational map φ: X ⇢ Y is given by rational functions defined on a dense open subset; it is dominant if its image is dense. Dominant rational maps X ⇢ Y correspond contravariantly to k-embeddings of function fields k(Y) → k(X), and X and Y are birational if k(X) ≅ k(Y). For example 𝔸¹ and the cuspidal cubic C are birational, since t = y/x identifies k(C) with k(t), although they are not isomorphic. Curves birational to 𝔸¹ are called rational curves; the next lesson shows that every irreducible conic is rational.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that V(y − x³) ≅ 𝔸¹.</div></li><li><span class="mk">(b)</span><div>For φ: 𝔸¹ → C = V(y² − x³), t ↦ (t², t³), compute φ*(x + y) and φ*(y² − x³).</div></li><li><span class="mk">(c)</span><div>Show that the complex circle V(x² + y² − 1) ⊂ 𝔸²(ℂ) is isomorphic to the hyperbola V(uv − 1).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) t ↦ (t, t³) and (x, y) ↦ x are mutually inverse morphisms; equivalently k[x, y]/⟨y − x³⟩ ≅ k[t]. (b) φ*(x + y) = t² + t³, and φ*(y² − x³) = t⁶ − t⁶ = 0, as it must be since y² − x³ is zero in k[C]. (c) Over ℂ, x² + y² = (x + iy)(x − iy). The linear change of coordinates u = x + iy, v = x − iy is invertible (x = (u + v)/2, y = (u − v)/(2i)) and carries x² + y² − 1 to uv − 1. So the complex circle is isomorphic to 𝔸¹ ∖ {0}; in particular it is not isomorphic to 𝔸¹.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-4.html">← Lesson 4</a><a class="btn" href="lesson-6.html">Lesson 6 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

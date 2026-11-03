@@ -1,0 +1,13 @@
+{
+  "blurb": "Euclidean geometry: axioms, isometries, triangle centres, inversion, projective ideas, polytopes, constructibility.",
+  "pics": [
+    { "img": "img/adult/geometry-1.jpg", "alt": "Black-and-white photograph of David Hilbert wearing a white hat and round glasses",
+      "caption": "David Hilbert (1862–1943). His Grundlagen der Geometrie (1899) gave Euclidean geometry a complete modern system of axioms.",
+      "title": "Hilbert.jpg", "page": "https://commons.wikimedia.org/wiki/File:Hilbert.jpg",
+      "license": "Public domain", "artist": "Unknown author" },
+    { "img": "img/adult/geometry-2.png", "alt": "Engraving of nested spheres and polyhedra on an ornate stand",
+      "caption": "Johannes Kepler's model of the solar system from Mysterium Cosmographicum (1596), which nests the five Platonic solids between the spheres of the six known planets.",
+      "title": "Kepler-solar-system-1.png", "page": "https://commons.wikimedia.org/wiki/File:Kepler-solar-system-1.png",
+      "license": "Public domain", "artist": "Johannes Kepler" }
+  ]
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: The Gauss–Bonnet Theorem — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 12</p>
+    <h1>The Gauss–Bonnet Theorem</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Local:   ∫∫<sub>R</sub> K dA + ∫_∂R k<sub>g</sub> ds + Σ (π − interior angles) = 2π
+Triangle: ∫∫<sub>Δ</sub> K dA = α + β + γ − π
+Global:  ∫∫<sub>M</sub> K dA = 2π χ(M)</pre></div>
+<h3>Geodesic curvature</h3>
+<p>For a unit-speed curve c(s) on an oriented surface, the geodesic curvature is k<sub>g</sub> = ⟨c″, N × c′⟩, the component of acceleration in the surface perpendicular to the curve. Geodesics are exactly the curves with k<sub>g</sub> = 0. A key lemma is Liouville's formula: in orthogonal coordinates with E = 1, if ψ(s) is the angle from ∂_r to c′(s), then</p>
+<pre class="math">k<sub>g</sub> = dψ/ds + (√G)<sub>r</sub> dθ/ds.</pre>
+<p><strong>Theorem 12.1 (local Gauss–Bonnet for a geodesic triangle)</strong>. If Δ is a geodesic triangle with angles α, β, γ lying in a normal coordinate neighbourhood, then ∫∫<sub>Δ</sub> K dA = α + β + γ − π.</p>
+<p><strong>Proof</strong>. Use geodesic polar coordinates centred at the vertex A, with the side AB along θ = 0 and the side AC along θ = α. Write the side BC as r = ρ(θ), 0 ≤ θ ≤ α. With dA = √G dr dθ and K√G = −(√G)<sub>rr</sub>,</p>
+<pre class="math">∫∫<sub>Δ</sub> K dA = ∫₀<sup>α</sup> ∫₀<sup>ρ(θ)</sup> −(√G)<sub>rr</sub> dr dθ = ∫₀<sup>α</sup> [ 1 − (√G)<sub>r</sub>(ρ(θ), θ) ] dθ,</pre>
+<p>using (√G)<sub>r</sub> → 1 as r → 0. Along the geodesic BC Liouville's formula gives dψ = −(√G)<sub>r</sub> dθ, so the integral equals α + ψ(C) − ψ(B). At B the angle between the outward radial direction and BC is ψ(B) = π − β; at C the angle between ∂_r and the direction of travel equals the interior angle, ψ(C) = γ. Hence ∫∫ K dA = α + γ − (π − β). ∎</p>
+<p>For K ≡ 1 this is Girard's theorem, for K ≡ −1 it is Theorem 9.1, and for K ≡ 0 it is Euclid I.32. The general local theorem, for a simply connected region R with piecewise smooth boundary and exterior angles εᵢ at the corners, reads ∫∫<sub>R</sub> K dA + ∫_∂R k<sub>g</sub> ds + Σ εᵢ = 2π; its proof combines Green's theorem with Hopf's Umlaufsatz (the tangent of a simple closed curve turns by exactly 2π).</p>
+<h3>The global theorem</h3>
+<p><strong>Theorem 12.2 (Gauss–Bonnet)</strong>. For a compact oriented Riemannian surface M without boundary, ∫∫<sub>M</sub> K dA = 2πχ(M) = 2π(2 − 2g).</p>
+<p><strong>Proof</strong>. Triangulate M by small geodesic triangles, with V vertices, E edges and F faces. Summing Theorem 12.1 over the faces, ∫∫<sub>M</sub> K dA = (sum of all angles) − πF. The angles around each vertex add to 2π, so the sum of all angles is 2πV. Each face has three edges and each edge lies on two faces, so 3F = 2E and πF = 2πE − 2πF. Therefore ∫∫<sub>M</sub> K dA = 2πV − 2πE + 2πF = 2πχ(M). ∎</p>
+<p>The left-hand side is defined by the metric, the right-hand side by topology alone. If M has boundary, ∫∫<sub>M</sub> K dA + ∫_∂M k<sub>g</sub> ds = 2πχ(M).</p>
+<h3>Consequences</h3>
+<ul class="steps"><li><span class="mk">1.</span><div>A metric on S² must have positive curvature somewhere; a metric on the torus with K ≥ 0 is flat; a surface of genus g ≥ 2 must have negative curvature somewhere.</div></li><li><span class="mk">2.</span><div>A closed surface of constant curvature K = −1 and genus g has area 4π(g − 1); constant curvature +1 forces the sphere (area 4π) or ℝP² (area 2π).</div></li><li><span class="mk">3.</span><div>Two geodesics on a surface with K ≤ 0 cannot bound a simply connected digon (it would have ∫∫ K ≤ 0 but angle term positive), so on a simply connected complete surface with K ≤ 0 geodesics are unique between points (a two-dimensional case of the Cartan–Hadamard theorem).</div></li><li><span class="mk">4.</span><div>Holonomy: parallel transport of a vector around the boundary of a simply connected region R rotates it by ∫∫<sub>R</sub> K dA. Around the latitude circle at latitude φ on the unit sphere the enclosed cap has area 2π(1 − sin φ), so a transported vector rotates by 2π(1 − sin φ), i.e. by −2π sin φ modulo 2π. This is the Foucault pendulum, whose plane of swing turns through 2π sin φ per sidereal day; at Paris (φ ≈ 48.85°) that is about 271° per day, roughly 11.3° per hour.</div></li><li><span class="mk">5.</span><div>Poincaré–Hopf: the indices of a vector field with isolated zeros sum to χ(M); in particular every vector field on S² vanishes somewhere (the hairy ball theorem).</div></li></ul>
+<h3>Uniformisation and the trichotomy</h3>
+<p><strong>Theorem 12.3 (Uniformisation; Poincaré and Koebe, 1907)</strong>. Every simply connected Riemann surface is biholomorphic to the Riemann sphere, ℂ, or the disk D. Consequently every closed orientable surface carries a metric of constant curvature +1, 0 or −1 in each conformal class, and the sign is that of χ(M).</p>
+<p>Thus the three geometries of this course are not three curiosities but the three possible model geometries for surfaces: the sphere for g = 0, the Euclidean plane for g = 1, and the hyperbolic plane for every g ≥ 2 — &quot;most&quot; surfaces are hyperbolic. Thurston's geometrisation programme, completed by Perelman (2003), extends this picture to three dimensions with eight model geometries, of which hyperbolic geometry H³ is again the richest.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A torus of revolution has K &gt; 0 on its outer half and K &lt; 0 on its inner half. What is ∫∫ K dA over the whole torus?</div></li><li><span class="mk">(b)</span><div>A geodesic quadrilateral on a surface has angles 100°, 95°, 85° and 90°. What is ∫∫ K dA over it?</div></li><li><span class="mk">(c)</span><div>Find the total curvature of a hyperbolic surface of genus 3 and its area if K ≡ −1/4.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 0, since χ(torus) = 0. (b) Splitting along a diagonal into two geodesic triangles, ∫∫ K dA = (sum of angles) − 2π = 370° − 360° = 10° = π/18 ≈ 0.1745. (c) ∫∫ K dA = 2π(2 − 6) = −8π. With K = −1/4, area = −8π/(−1/4) = 32π.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

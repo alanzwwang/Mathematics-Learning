@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arithmetic — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Arithmetic from the Peano axioms to ℤ, ℚ, ℝ, ℤ/nℤ, IEEE 754 floating point and O(n log n) multiplication.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f97316">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../arithmetic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Arithmetic</span></p>
+    <h1>Arithmetic</h1>
+    <p class="kicker">Foundations · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Peano Axioms and Definition by Recursion">1</a><a href="lesson-2.html" title="Lesson 2: The Laws of Arithmetic by Induction">2</a><a href="lesson-3.html" title="Lesson 3: Constructing the Integers">3</a><a href="lesson-4.html" title="Lesson 4: The Rationals and Ordered Fields">4</a><a href="lesson-5.html" title="Lesson 5: The Division Algorithm and Euclidean Domains">5</a><a href="lesson-6.html" title="Lesson 6: The Fundamental Theorem of Arithmetic">6</a><a href="lesson-7.html" title="Lesson 7: Modular Arithmetic and the Ring ℤ/nℤ">7</a><a href="lesson-8.html" title="Lesson 8: Positional Numeral Systems">8</a><a href="lesson-9.html" title="Lesson 9: The Real Numbers">9</a><a href="lesson-10.html" title="Lesson 10: Floating-Point Arithmetic and IEEE 754">10</a><a href="lesson-11.html" title="Lesson 11: Rounding Error, Cancellation and Stability">11</a><a href="lesson-12.html" title="Lesson 12: The Computational Complexity of Arithmetic">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><pre class="math">a + 0 = a,          a + S(b) = S(a + b)
+a · 0 = 0,          a · S(b) = a · b + a
+fl(x ∘ y) = (x ∘ y)(1 + δ),   |δ| ≤ u = 2⁻⁵³</pre>
+<p>The first two lines are the entire definition of addition and multiplication of natural numbers; everything a schoolchild learns about carrying, borrowing and multiplication tables is a consequence of them together with the principle of induction. The third line is the fundamental model of arithmetic as it is actually performed by every computer on Earth: each operation is exact up to a relative error no larger than a fixed unit roundoff. Between these two poles lies the subject of this course.</p>
+<p>Arithmetic is usually treated as the part of mathematics that is finished before mathematics begins. That view is mistaken in two directions. Looking down, the familiar laws (commutativity, associativity, distributivity, the rules of signs, the uniqueness of prime factorisation) are theorems, not conventions, and making their proofs precise was one of the great achievements of nineteenth-century foundations, through the work of Grassmann, Dedekind, Peano, Cantor and Weierstrass. Looking up, arithmetic becomes algebra (rings, ideals, Euclidean domains, quotient rings), analysis (the completion of ℚ to ℝ), numerical analysis (floating-point error and stability) and computational complexity (how fast two n-digit numbers can be multiplied, a question whose best known upper bound, O(n log n), was found only in 2019).</p>
+<p>The course assumes familiarity with sets, functions, equivalence relations, proof by induction and the elementary language of groups and rings. All the material of the school course (order of operations, signed numbers, exponent laws, long division) is taken as known and is here re-derived from first principles.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Define the natural numbers by the Peano axioms and justify definitions by recursion</div></li><li><span class="mk">2.</span><div>Prove the commutative, associative and distributive laws by induction</div></li><li><span class="mk">3.</span><div>Construct ℤ and ℚ as sets of equivalence classes and verify the ordered-field axioms</div></li><li><span class="mk">4.</span><div>Prove the division algorithm and study Euclidean domains, ℤ[i] and k[x]</div></li><li><span class="mk">5.</span><div>Prove the fundamental theorem of arithmetic and see where unique factorisation fails</div></li><li><span class="mk">6.</span><div>Develop modular arithmetic as the arithmetic of the quotient ring ℤ/nℤ</div></li><li><span class="mk">7.</span><div>Prove the existence and uniqueness of positional representations in any base</div></li><li><span class="mk">8.</span><div>Construct ℝ by Dedekind cuts and by Cauchy sequences and characterise it uniquely</div></li><li><span class="mk">9.</span><div>Analyse IEEE 754 floating-point arithmetic, rounding error and catastrophic cancellation</div></li><li><span class="mk">10.</span><div>Study the computational complexity of arithmetic, from Karatsuba to O(n log n) multiplication</div></li></ul>
+<p>Each lesson states its definitions and theorems precisely and proves them. Each lesson ends with short exercises, whose solutions can be revealed on the page; the sixty practice problems at the end range from routine verification to results found in research-level texts and are left for the reader to work.</p></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/arithmetic-1.jpg" alt="Black-and-white photographic portrait of Giuseppe Peano, a bearded man in a dark jacket" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Giuseppe Peano (1858–1932), whose Arithmetices principia (1889) set out the axioms for the natural numbers that bear his name. Together with Dedekind's work of 1888, it made arithmetic a deductive theory. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/arithmetic-2.png" alt="Diagram of the 64 bits of an IEEE 754 double: 1 sign bit, 11 exponent bits and 52 fraction bits, numbered 63 down to 0" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> The IEEE 754 binary64 (double-precision) format: bit 63 is the sign, bits 62–52 the biased exponent and bits 51–0 the fraction. With the hidden leading bit, the significand has 53 bits of precision. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>The Peano Axioms and Definition by Recursion</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>The Laws of Arithmetic by Induction</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>Constructing the Integers</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>The Rationals and Ordered Fields</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>The Division Algorithm and Euclidean Domains</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>The Fundamental Theorem of Arithmetic</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Modular Arithmetic and the Ring ℤ/nℤ</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Positional Numeral Systems</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>The Real Numbers</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Floating-Point Arithmetic and IEEE 754</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Rounding Error, Cancellation and Stability</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>The Computational Complexity of Arithmetic</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Giuseppe Peano. By Unknown author. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Giuseppe_Peano.jpg">https://commons.wikimedia.org/wiki/File:Giuseppe_Peano.jpg</a></li><li><strong>Figure 2</strong> · IEEE 754 Double Floating Point Format. By Codekaizen. CC BY-SA 4.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:IEEE_754_Double_Floating_Point_Format.svg">https://commons.wikimedia.org/wiki/File:IEEE_754_Double_Floating_Point_Format.svg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

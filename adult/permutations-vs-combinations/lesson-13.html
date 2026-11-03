@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Random Permutations — Permutations vs Combinations (Advanced)</title>
+<meta name="description" content="The symmetric group, sign, cycle structure, derangements, multisets, Gray codes, group actions and random permutations.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#e11d48">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../permutations-vs-combinations/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Permutations vs Combinations</a> › Lesson 13</p>
+    <h1>Random Permutations</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Permutations as Bijections and the Symmetric Group">1</a><a href="lesson-2.html" title="Lesson 2: The Cycle Decomposition">2</a><a href="lesson-3.html" title="Lesson 3: Transpositions and the Sign of a Permutation">3</a><a href="lesson-4.html" title="Lesson 4: Conjugacy Classes of the Symmetric Group">4</a><a href="lesson-5.html" title="Lesson 5: Counting Permutations by Cycles — Stirling Numbers of the First Kind">5</a><a href="lesson-6.html" title="Lesson 6: Fixed Points, Derangements and Restricted Cycle Structure">6</a><a href="lesson-7.html" title="Lesson 7: Subsets, Binomial Coefficients and Multinomial Coefficients">7</a><a href="lesson-8.html" title="Lesson 8: Multisets, Combinations with Repetition and the Twelvefold Way">8</a><a href="lesson-9.html" title="Lesson 9: Inversions and q-Analogues of Permutations and Combinations">9</a><a href="lesson-10.html" title="Lesson 10: Ranking and Unranking Permutations and Combinations">10</a><a href="lesson-11.html" title="Lesson 11: Gray Codes for Subsets, Permutations and Combinations">11</a><a href="lesson-12.html" title="Lesson 12: Group Actions, Cayley's Theorem and Counting up to Symmetry">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Random Permutations">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">For uniform σ ∈ Sₙ, the number of cycles Kₙ is a sum of independent Bernoulli(1/i), i = 1, …, n.
+E[Kₙ] = Hₙ = ln n + γ + o(1),   Var(Kₙ) = Hₙ − Hₙ⁽²⁾ ∼ ln n.
+The number of j-cycles has mean exactly 1/j and converges to Poisson(1/j).</pre></div>
+<h3>The cycle count as a sum of independent indicators</h3>
+<p>Let σ be uniformly distributed on Sₙ, and let Kₙ = κ(σ). By Theorem 5.3 the probability generating function of Kₙ is</p>
+<pre class="math">E[x<sup>Kₙ</sup>] = x(x + 1)⋯(x + n − 1)/n! = ∏ᵢ₌₁ⁿ ( (1 − 1/i) + x/i ).</pre>
+<p>The i-th factor is the generating function of a Bernoulli random variable Bᵢ with P(Bᵢ = 1) = 1/i. Since the generating function of a sum of independent variables is the product of their generating functions, Kₙ has the same distribution as B₁ + B₂ + ⋯ + Bₙ with the Bᵢ independent.</p>
+<p>The Feller coupling makes this concrete. Build σ by determining its values along its cycles: start with x = 1, and at each step choose σ(x) uniformly among the values not yet used as images, then move to x = σ(x); whenever the chosen value is the first element of the current cycle, the cycle closes, and the next step starts from the least symbol not yet placed. At step i (i = 1, …, n), i − 1 values have been used, so there are n − i + 1 equally likely choices, exactly one of which closes the current cycle. Different sequences of choices give different permutations, and there are n(n − 1)⋯1 = n! sequences, so σ is uniform. The cycle count is the number of closures, a sum of independent Bernoulli variables with parameters 1/n, 1/(n − 1), …, 1/1. Consequently</p>
+<pre class="math">E[Kₙ] = ∑ᵢ₌₁ⁿ 1/i = Hₙ,        Var(Kₙ) = ∑ᵢ₌₁ⁿ (1/i)(1 − 1/i) = Hₙ − Hₙ⁽²⁾,</pre>
+<p>with Hₙ⁽²⁾ = ∑ 1/i² → π²/6. Since Hₙ = ln n + γ + 1/(2n) + O(1/n²), where γ ≈ 0.5772 is the Euler–Mascheroni constant, a random permutation has about ln n cycles. A well-shuffled deck of 52 cards, regarded as a permutation, has on average H₅₂ ≈ 4.54 cycles. Because Kₙ is a sum of independent bounded variables whose variance tends to infinity, the Lindeberg central limit theorem gives Goncharov's theorem (1940s): (Kₙ − ln n)/√(ln n) converges in distribution to the standard normal law.</p>
+<h3>Counts of cycles of each length</h3>
+<p>Let C<sub>j</sub>(σ) be the number of j-cycles of σ. There are C(n, j)(j − 1)! possible j-cycles, and each appears in (n − j)! permutations, so</p>
+<pre class="math">E[C<sub>j</sub>] = C(n, j)(j − 1)!(n − j)!/n! = 1/j   for 1 ≤ j ≤ n.</pre>
+<p>Summing over j recovers E[Kₙ] = Hₙ; the case j = 1 recovers E[F] = 1 from Lesson 6. By Theorem 4.3 and the formula ∑ 1/z<sub>λ</sub> = 1, the joint distribution of (C₁, …, Cₙ) is</p>
+<pre class="math">P(C₁ = m₁, …, Cₙ = mₙ) = ∏ⱼ (1/j)<sup>mⱼ</sup> / mⱼ!    whenever ∑ j·mⱼ = n.</pre>
+<p>Up to the conditioning on ∑ j·mⱼ = n, this is the joint law of independent Poisson variables with means 1/j. Goncharov and, in sharper form, Arratia and Tavaré (1992) proved that for each fixed b the vector (C₁, …, C<sub>b</sub>) converges in distribution to independent Poisson variables Z₁, …, Z<sub>b</sub> with E[Zⱼ] = 1/j, and the total variation distance tends to zero super-exponentially fast in n/b.</p>
+<h3>The cycle containing a given point</h3>
+<p><strong>Proposition 13.1</strong>. The length of the cycle containing 1 is uniformly distributed on {1, …, n}.</p>
+<p><strong>Proof</strong>. The number of permutations in which 1 lies in a cycle of length ℓ is C(n − 1, ℓ − 1)(ℓ − 1)!(n − ℓ)!: choose the other ℓ − 1 members of the cycle, arrange them in a cycle with 1, and permute the rest. This equals (n − 1)! for every ℓ, so each length has probability (n − 1)!/n! = 1/n. ∎</p>
+<p>In particular the probability that σ is an n-cycle is 1/n. A cycle of length j &gt; n/2 can occur at most once, so the events &quot;σ has a j-cycle&quot; for j &gt; n/2 are disjoint, each with probability E[C<sub>j</sub>] = 1/j. Hence</p>
+<pre class="math">P(σ has a cycle longer than n/2) = ∑<sub>n/2 &lt; j ≤ n</sub> 1/j → ln 2.</pre>
+<h3>The hundred prisoners</h3>
+<p>This computation solves a celebrated puzzle of Gál and Miltersen (2003). One hundred prisoners, numbered 1 to 100, are each allowed to open 50 of 100 boxes, which contain their numbers in a uniformly random arrangement; all are freed if every prisoner finds his own number, and they may agree on a strategy beforehand but not communicate afterwards. If each prisoner opens boxes independently at random, the probability of success is 2⁻¹⁰⁰. If instead prisoner i opens box i, then the box whose label is the number found there, and so on, he follows the cycle of the permutation containing i and succeeds exactly when that cycle has length at most 50. All succeed if and only if σ has no cycle longer than 50, which happens with probability</p>
+<pre class="math">1 − ∑ⱼ₌₅₁¹⁰⁰ 1/j = 1 − (H₁₀₀ − H₅₀) ≈ 0.3118,</pre>
+<p>and as n → ∞ the corresponding probability decreases to 1 − ln 2 ≈ 0.3069. The strategy is optimal (Curtin and Warshauer, 2006).</p>
+<h3>The longest cycle and the order</h3>
+<p>Let Lₙ be the length of the longest cycle. Shepp and Lloyd (1966) proved that E[Lₙ]/n → λ ≈ 0.62433, the Golomb–Dickman constant, which also governs the largest prime factor of a random integer; the distribution of Lₙ/n converges to a limit described by the Dickman function. More generally the sorted cycle lengths divided by n converge to the Poisson–Dirichlet distribution PD(1). The order of a random permutation is much larger than its number of cycles but much smaller than Landau's g(n): Erdős and Turán (1967) proved that ln ord(σ) is asymptotically normal with mean (ln n)²/2 and variance (ln n)³/3.</p>
+<h3>The Ewens distribution</h3>
+<p>The uniform measure is the member θ = 1 of the Ewens family P<sub>θ</sub>(σ) = θ<sup>κ(σ)</sup>/θ⁽ⁿ⁾, θ &gt; 0, which arises in population genetics as the distribution of allelic partitions under neutral mutation, and in the Chinese restaurant process, where customer i joins an existing table at the right of a seated customer with probability 1/(θ + i − 1) each, or starts a new table with probability θ/(θ + i − 1). Under P<sub>θ</sub> the number of cycles is a sum of independent Bernoulli(θ/(θ + i − 1)) variables, with mean ≈ θ ln n, and the cycle counts converge to independent Poisson(θ/j) variables.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute E[K₁₀] exactly and to four decimal places.</div></li><li><span class="mk">(b)</span><div>Compute the exact variance of K₄, both from the formula Hₙ − Hₙ⁽²⁾ and from the row 6, 11, 6, 1 of Stirling numbers.</div></li><li><span class="mk">(c)</span><div>Ten prisoners each open 5 of 10 boxes using the cycle strategy. What is the exact probability that all succeed?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) H₁₀ = 7381/2520 ≈ 2.9290. (b) H₄ = 25/12 and H₄⁽²⁾ = 205/144, so Var = 300/144 − 205/144 = 95/144. Directly, E[K₄] = (6 + 22 + 18 + 4)/24 = 25/12 and E[K₄²] = (6 + 44 + 54 + 16)/24 = 5, so Var = 5 − 625/144 = 95/144. (c) 1 − (1/6 + 1/7 + 1/8 + 1/9 + 1/10) = 1 − 1627/2520 = 893/2520 ≈ 0.3544.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: Hilbert's Nullstellensatz — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 4</p>
+    <h1>Hilbert's Nullstellensatz</h1>
+    <p class="kicker">Lesson 4 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">k = k̄:   I(V(J)) = √J   for every ideal J ⊆ k[x₁, …, xₙ]</pre></div>
+<h3>Two versions of one theorem</h3>
+<p>The Nullstellensatz (&quot;theorem of the zeros&quot;) of Hilbert (1893) answers the question left open in Lesson 1: which ideals are of the form I(X)? Over a field that is not algebraically closed the answer is messy: in ℝ[x], the ideal ⟨x² + 1⟩ is maximal (hence radical) but V(x² + 1) = ∅, so I(V(x² + 1)) = ℝ[x] ≠ ⟨x² + 1⟩. Over an algebraically closed field the answer is as clean as possible.</p>
+<p><strong>Theorem (weak Nullstellensatz)</strong>. Let k be algebraically closed. If J ⊊ k[x₁, …, xₙ] is a proper ideal, then V(J) ≠ ∅. Equivalently, every maximal ideal of k[x₁, …, xₙ] has the form 𝔪<sub>a</sub> = ⟨x₁ − a₁, …, xₙ − aₙ⟩ for a unique point a ∈ kⁿ.</p>
+<p>The two formulations are equivalent: a proper ideal lies in some maximal ideal 𝔪 (Zorn, or simply the Noetherian property), and if 𝔪 = 𝔪<sub>a</sub> then a ∈ V(J); conversely if V(𝔪) contains a point a, then 𝔪 ⊆ 𝔪<sub>a</sub> and maximality forces equality. (𝔪<sub>a</sub> is maximal because k[x]/𝔪<sub>a</sub> ≅ k via evaluation at a.)</p>
+<p>The heart of the matter is the following algebraic statement.</p>
+<p>Zariski's lemma. If K is a field that is finitely generated as an algebra over a field k, then K is a finite extension of k.</p>
+<p>Given Zariski's lemma, the weak Nullstellensatz follows at once: if 𝔪 is maximal, K = k[x]/𝔪 is a field finitely generated as a k-algebra, so K is finite (in particular algebraic) over k; as k is algebraically closed, the inclusion k → K is an isomorphism. Let aᵢ ∈ k be the element corresponding to the image of xᵢ. Then xᵢ − aᵢ ∈ 𝔪 for each i, so 𝔪<sub>a</sub> ⊆ 𝔪, and equality holds by maximality of 𝔪<sub>a</sub>.</p>
+<h3>A complete proof for uncountable fields</h3>
+<p>We prove Zariski's lemma, and hence the weak Nullstellensatz, in the important case where k is uncountable, such as k = ℂ. (The general case is usually proved via Noether normalization or by the Artin–Tate lemma; see Atiyah–Macdonald, Chapter 7.)</p>
+<p><strong>Proof</strong>. Let K = k[x₁, …, xₙ]/𝔪 be a field. As a k-vector space, K is spanned by the images of the countably many monomials, so dim<sub>k</sub> K is at most countable. Suppose some t ∈ K is transcendental over k. Then the elements 1/(t − c), for c ∈ k, are linearly independent over k: a relation ∑ λᵢ/(t − cᵢ) = 0 with distinct cᵢ, after multiplying by ∏(t − cᵢ), becomes a polynomial identity in t, which must be the zero polynomial because t is transcendental; evaluating that polynomial at t = cⱼ shows λⱼ ∏<sub>i≠j</sub>(cⱼ − cᵢ) = 0, so λⱼ = 0. This gives uncountably many linearly independent elements in a space of countable dimension, a contradiction. Hence K is algebraic over k, and being finitely generated, it is a finite extension. ∎</p>
+<h3>The strong Nullstellensatz</h3>
+<p><strong>Theorem (strong Nullstellensatz)</strong>. Let k be algebraically closed and J ⊆ k[x₁, …, xₙ] an ideal. If f vanishes at every point of V(J), then fᴺ ∈ J for some N ≥ 1. That is, I(V(J)) = √J.</p>
+<p><strong>Proof (the Rabinowitsch trick, 1929)</strong>. By the basis theorem J = ⟨f₁, …, f<sub>r</sub>⟩. We may assume f ≠ 0. Introduce a new variable t and consider the ideal J′ = ⟨f₁, …, f<sub>r</sub>, 1 − t f⟩ ⊆ k[x₁, …, xₙ, t]. A common zero (a, b) of J′ would satisfy fᵢ(a) = 0 for all i, hence f(a) = 0, and then 1 − b f(a) = 1 ≠ 0. So V(J′) = ∅, and by the weak Nullstellensatz J′ is the unit ideal:</p>
+<pre class="math">1 = ∑ gᵢ(x, t) fᵢ(x) + h(x, t)(1 − t f(x))</pre>
+<p>This is an identity in k[x, t]; map it into the field of rational functions k(x) by t ↦ 1/f. The last term vanishes, and we get 1 = ∑ gᵢ(x, 1/f) fᵢ(x). Multiply by fᴺ, where N is at least the largest t-degree of the gᵢ, to clear denominators: fᴺ = ∑ Gᵢ(x) fᵢ(x) with Gᵢ = fᴺ gᵢ(x, 1/f) ∈ k[x]. Hence fᴺ ∈ J. ∎</p>
+<h3>The dictionary</h3>
+<p>Combining the Nullstellensatz with Lessons 1–3, we obtain an inclusion-reversing bijection, for k algebraically closed:</p>
+<pre class="math">{ radical ideals of k[x₁, …, xₙ] }  ⟷  { algebraic subsets of 𝔸ⁿ }
+{ prime ideals }                    ⟷  { irreducible algebraic subsets }
+{ maximal ideals }                  ⟷  { points of 𝔸ⁿ }</pre>
+<p>given by J ↦ V(J) and X ↦ I(X). Intersections of algebraic sets correspond to radicals of sums of ideals: X ∩ Y ↔ √(I(X) + I(Y)). The radical is genuinely needed: the parabola y = x² and its tangent line y = 0 meet only at the origin, and I(X) + I(Y) = ⟨y − x², y⟩ = ⟨x², y⟩, whose radical is ⟨x, y⟩. The non-radical ideal ⟨x², y⟩ records the tangency, a theme we take up in Lesson 9.</p>
+<h3>Certificates of infeasibility</h3>
+<p>The weak Nullstellensatz has a computational reading: a system f₁ = ⋯ = f<sub>r</sub> = 0 has no solution over k̄ if and only if there are polynomials gᵢ with ∑ gᵢ fᵢ = 1. Such a relation is a certificate of infeasibility. For example, the system x² = 0, 1 + xy = 0 has no solutions, and indeed</p>
+<pre class="math">(1 − xy)(1 + xy) + y² · x² = 1 − x²y² + x²y² = 1</pre>
+<p>Similarly the two concentric circles x² + y² = 1 and x² + y² = 4 never meet, and (1/3)(x² + y² − 1) − (1/3)(x² + y² − 4) = 1. The degrees of the gᵢ needed in general can be large; Kollár (1988) proved the sharp effective bound deg(gᵢfᵢ) ≤ max(3, d)ⁿ, where d bounds the degrees of the fᵢ (for d ≥ 3 this is dⁿ).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Over ℂ, compute I(V(x² − 2xy + y²)) and I(V(x³, y − 1)).</div></li><li><span class="mk">(b)</span><div>Find an explicit certificate showing that x = 0 and xy − 1 = 0 have no common zero.</div></li><li><span class="mk">(c)</span><div>Show that over ℝ the ideal ⟨x² + y²⟩ is radical, but I(V(x² + y²)) ≠ ⟨x² + y²⟩.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) x² − 2xy + y² = (x − y)², so I(V) = √⟨(x − y)²⟩ = ⟨x − y⟩. Next, √⟨x³, y − 1⟩ = ⟨x, y − 1⟩, which is maximal, so I(V(x³, y − 1)) = ⟨x, y − 1⟩, the ideal of the point (0, 1). (b) y · x − (xy − 1) = 1. (c) x² + y² is irreducible over ℝ (a factorization would be into two real linear forms, but x² + y² has no real zero other than the origin, while a real line through the origin has infinitely many), so ⟨x² + y²⟩ is prime, hence radical. But V<sub>ℝ</sub>(x² + y²) = {(0, 0)}, whose ideal is ⟨x, y⟩ ≠ ⟨x² + y²⟩.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

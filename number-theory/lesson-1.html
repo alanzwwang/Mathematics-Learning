@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#0891b2">
+<body id="top" class="mode-kid" style="--topic:#0891b2">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced" class="active">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/number-theory/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">A number is a SUM of digit × place value:  253 = 2×100 + 5×10 + 3.
 Rewrite that sum with distribution, and the divisibility rules prove themselves.</pre></div>
@@ -41,7 +42,7 @@ Rewrite that sum with distribution, and the divisibility rules prove themselves.
 <p>Now the honors upgrade. In this course we never just USE a rule — we prove it. The master key to every divisibility proof is writing a number as a sum of its digits times place values:</p>
 <pre class="math">253 = 2×100 + 5×10 + 3</pre>
 <h3>The rule for 9, proven</h3>
-<p>Claim: a number is divisible by 9 exactly when its digit sum is divisible by 9. Watch 231 split apart:</p>
+<p><strong>Claim</strong>: a number is divisible by 9 exactly when its digit sum is divisible by 9. Watch 231 split apart:</p>
 <pre class="math">231 = 2×100 + 3×10 + 1                place-value expansion
     = 2×(99 + 1) + 3×(9 + 1) + 1      because 100 = 99 + 1 and 10 = 9 + 1
     = 2×99 + 2 + 3×9 + 3 + 1          distribute: a×(b + c) = a×b + a×c
@@ -94,7 +95,7 @@ d + 6 = 15  →  d = 9</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

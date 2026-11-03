@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#d946ef">
+<body id="top" class="mode-kid" style="--topic:#d946ef">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/exponential-growth/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Exponent Power-Ups — Zero, Negatives, and the Three Laws">1</a><a href="lesson-2.html" class="here" aria-current="page" title="Lesson 2: The Doubling Machine Gets a Name — f(x) = a × 2^x">2</a><a href="lesson-3.html" title="Lesson 3: Three Families — Linear, Exponential, and (Peek!) Quadratic">3</a><a href="lesson-4.html" title="Lesson 4: The Growth Factor — and the Percent Connection">4</a><a href="lesson-5.html" title="Lesson 5: The Formula f(x) = a × b^x — Predict, Then SOLVE">5</a><a href="lesson-6.html" title="Lesson 6: Time Travel — Dividing Backwards, and Why f(−2) Makes Sense">6</a><a href="lesson-7.html" title="Lesson 7: The Halving Machine — Exponential Decay with Honest Fractions">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Six Classic Mistakes (Honors Edition)">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">f(x) = 3 × 2^x   means   &quot;start at 3, then double x times&quot;
 f(x + 1) = 2 × f(x):  each new step doubles the WHOLE pile</pre></div>
@@ -68,8 +69,8 @@ f(6) = 3 × 2⁶ = 3 × 64 = 192   ✅</pre>
 1 + 2 + 4 + 8 + 16 = 31 = 32 − 1</pre>
 <p>In general:  1 + 2 + 4 + ... + 2ⁿ = 2^(n + 1) − 1.  Keep this in your pocket — challenge problem 89 makes you PROVE it, and problems 83 and 90 will use it.</p>
 <h3>A word from history</h3>
-<p>Legend says the inventor of chess asked a king for rice: 1 grain on square 1, 2 on square 2, 4 on square 3, doubling across all 64 squares. The king laughed — until his treasurers computed. Square n holds 2^(n − 1) grains, so square 64 alone wants 2⁶³ grains. How huge is that? With a clever estimate from Lesson 1's laws (problem 86), you'll show it's about 8 × 10¹⁸ grains — more rice than any kingdom could ever grow. Doubling starts like a joke and ends like a flood.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Let f(x) = 5 × 2^x.</p><ul class="steps"><li><span class="mk">(a)</span><div>Find f(0).   (b) Find f(3).   (c) Compute f(4) and f(5), and check that f(5) = 2 × f(4).</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) f(0) = 5 × 2⁰ = 5 × 1 = 5. (b) f(3) = 5 × 2³ = 5 × 8 = 40.</p><ul class="steps"><li><span class="mk">(c)</span><div>f(4) = 5 × 16 = 80 and f(5) = 5 × 32 = 160 — and indeed 160 = 2 × 80 ✅.</div></li></ul></div></details></div></article>
+<p>Legend says the inventor of chess asked a king for rice: 1 grain on square 1, 2 on square 2, 4 on square 3, doubling across all 64 squares. The king laughed — until his treasurers computed. Square n holds 2^(n − 1) grains, so square 64 alone wants 2⁶³ grains. How huge is that? With a clever estimate from Lesson 1's laws (problem 86), you'll show it's at least 8 × 10¹⁸ grains (the exact number is about 9.2 × 10¹⁸ — our estimate comes out a bit low because 1,024 is a bit more than 1,000) — more rice than any kingdom could ever grow. Doubling starts like a joke and ends like a flood.</p>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><p>Let f(x) = 5 × 2^x.</p><ul class="steps"><li><span class="mk">(a)</span><div>Find f(0).</div></li><li><span class="mk">(b)</span><div>Find f(3).</div></li><li><span class="mk">(c)</span><div>Compute f(4) and f(5), and check that f(5) = 2 × f(4).</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) f(0) = 5 × 2⁰ = 5 × 1 = 5. (b) f(3) = 5 × 2³ = 5 × 8 = 40.</p><ul class="steps"><li><span class="mk">(c)</span><div>f(4) = 5 × 16 = 80 and f(5) = 5 × 32 = 160 — and indeed 160 = 2 × 80 ✅.</div></li></ul></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-1.html">⬅️ Lesson 1</a><a class="btn" href="lesson-3.html">Lesson 3 ➡️</a></nav>
 </main>
 
@@ -79,7 +80,7 @@ f(6) = 3 × 2⁶ = 3 × 64 = 192   ✅</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 13</p>
+    <h1>Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Unrestricted comprehension {x : φ(x)} is inconsistent (Russell 1901).
+ZFC: sets are built in stages; Separation, Power Set, Replacement, Choice.
+Cantor: |P(X)| &gt; |X|. CH is independent of ZFC (Gödel 1938, Cohen 1963).</pre></div>
+<h3>Russell's paradox</h3>
+<p>Frege's Grundgesetze (1893, 1903) contained a principle equivalent to unrestricted comprehension: for every property φ(x) there is a set {x : φ(x)}. Russell observed in 1901, and wrote to Frege in 1902, that the property x ∉ x then yields R = {x : x ∉ x}, with R ∈ R iff R ∉ R. The theory is inconsistent. The paradox is a diagonal argument of exactly the same shape as Cantor's theorem, the halting problem and the Gödel sentence.</p>
+<h3>The axioms of ZFC</h3>
+<p>Zermelo (1908) proposed an axiomatisation, completed by Fraenkel and Skolem (1922) with Replacement and by von Neumann with Foundation. In the language {∈}:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Extensionality: sets with the same elements are equal.</div></li><li><span class="mk">2.</span><div>Empty set: there is a set with no elements.</div></li><li><span class="mk">3.</span><div>Pairing: for all a, b there is {a, b}.</div></li><li><span class="mk">4.</span><div>Union: for every set a there is ⋃a, the set of members of members of a.</div></li><li><span class="mk">5.</span><div>Power Set: for every a there is P(a) = {x : x ⊆ a}.</div></li><li><span class="mk">6.</span><div>Separation (a scheme): for every set a and formula φ, {x ∈ a : φ(x)} exists.</div></li><li><span class="mk">7.</span><div>Replacement (a scheme): if φ(x, y) defines a function on a set a, its image {y : ∃x ∈ a φ(x, y)} is a set.</div></li><li><span class="mk">8.</span><div>Infinity: there is a set containing ∅ and closed under x ↦ x ∪ {x}.</div></li><li><span class="mk">9.</span><div>Foundation: every nonempty set has an ∈-minimal element.</div></li><li><span class="mk">10.</span><div>Choice: every set of nonempty sets has a choice function.</div></li></ul>
+<p>Separation only carves subsets out of existing sets, which blocks Russell's argument: applied to a set a it shows that {x ∈ a : x ∉ x} is not a member of a. Consequently there is no set of all sets. The intended picture is the cumulative hierarchy V(0) = ∅, V(α + 1) = P(V(α)), and V(λ) = the union of the V(α) for α &lt; λ when λ is a limit; Foundation says that every set appears at some stage.</p>
+<h3>Ordinals</h3>
+<p>A set is transitive if every element of it is a subset of it. An ordinal is a transitive set well-ordered by ∈. Von Neumann's ordinals are 0 = ∅, 1 = {0}, 2 = {0, 1}, …, ω = {0, 1, 2, …}, ω + 1 = ω ∪ {ω}, and so on. Every well-ordered set is isomorphic to a unique ordinal, and the ordinals are themselves well-ordered by ∈; the collection of all ordinals is not a set (the Burali-Forti paradox, 1897). Transfinite induction and recursion over ordinals generalise induction and recursion over ℕ. Ordinal arithmetic is not commutative: 1 + ω = ω ≠ ω + 1, and 2 · ω = ω ≠ ω · 2 = ω + ω.</p>
+<h3>Cardinals</h3>
+<p>|X| = |Y| means there is a bijection, |X| ≤ |Y| an injection. The Cantor–Schröder–Bernstein theorem (provable without Choice) says |X| ≤ |Y| and |Y| ≤ |X| imply |X| = |Y|. With Choice every set is well-orderable (Zermelo 1904), so every set has a cardinality |X|, the least ordinal in bijection with X. The infinite cardinals are ℵ₀ = ω, ℵ₁, ℵ₂, …, ℵ<sub>ω</sub>, ….</p>
+<p><strong>Theorem 13.1 (Cantor 1891)</strong>. For every set X, |X| &lt; |P(X)|.</p>
+<p><strong>Proof</strong>. x ↦ {x} is an injection X → P(X). Suppose f : X → P(X) were surjective, and let D = {x ∈ X : x ∉ f(x)}, a set by Separation. Then D = f(d) for some d, and d ∈ D iff d ∉ f(d) = D. ∎</p>
+<p>In particular |ℝ| = |P(ℕ)| = 2<sup>ℵ₀</sup> &gt; ℵ₀. Cardinal arithmetic of infinite cardinals is simple for sums and products — κ + λ = κ · λ = max(κ, λ) if one of them is infinite and neither is 0 — but exponentiation is deep.</p>
+<h3>The continuum hypothesis</h3>
+<p>CH asserts 2<sup>ℵ₀</sup> = ℵ₁: every infinite set of reals is either countable or in bijection with ℝ. It was the first of Hilbert's 23 problems (1900). Gödel (1938) showed that if ZF is consistent, then so is ZFC + CH, by constructing the inner model L of constructible sets, in which both Choice and the generalised continuum hypothesis hold. Cohen (1963) invented forcing to show that if ZF is consistent, so is ZFC + ¬CH; indeed 2<sup>ℵ₀</sup> can consistently be ℵ₂, or any ℵ<sub>α</sub> with cofinality greater than ω (König's theorem forbids cofinality ω, so 2<sup>ℵ₀</sup> ≠ ℵ<sub>ω</sub>). Cohen also showed that Choice is independent of ZF. By the second incompleteness theorem, ZFC cannot prove its own consistency, so these are relative consistency results: Con(ZF) → Con(ZFC + CH), and similarly for ¬CH.</p>
+<h3>Foundations</h3>
+<p>ZFC serves as the standard foundation of mathematics: essentially every theorem of ordinary mathematics can be formalised and proved in it, and the formal proofs can in principle be checked mechanically — a programme now realised in proof assistants such as Lean, Coq, Isabelle and Mizar. Gödel's theorems show that no such foundation can be complete or prove its own consistency; large cardinal axioms, such as the existence of inaccessible or measurable cardinals, form a hierarchy of ever stronger extensions of ZFC, linearly ordered by consistency strength in all known cases.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that there is no set of all sets, using only Separation.</div></li><li><span class="mk">(b)</span><div>List the elements of the von Neumann ordinal 3, written in terms of ∅.</div></li><li><span class="mk">(c)</span><div>Compute ω + 3 and 3 + ω as ordinals, and say whether they are equal.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) If V were a set, Separation gives R = {x ∈ V : x ∉ x}, and R ∈ V since V contains all sets, so R ∈ R iff R ∉ R. (b) 3 = {0, 1, 2} = {∅, {∅}, {∅, {∅}}}. (c) 3 + ω is the order type of three points followed by a copy of ω, which is again ω. ω + 3 is ω followed by three points, which has a largest element, so ω + 3 ≠ ω = 3 + ω.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

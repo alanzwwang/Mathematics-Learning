@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Multiple Integrals and Change of Variables — Calculus (Advanced)</title>
+<meta name="description" content="Real analysis from the completeness of ℝ to the Lebesgue integral, with multivariable calculus and full proofs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#3b82f6">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../calculus/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Calculus</a> › Lesson 13</p>
+    <h1>Multiple Integrals and Change of Variables</h1>
+    <p class="kicker">Lesson 13 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Real Numbers and Completeness">1</a><a href="lesson-2.html" title="Lesson 2: Sequences, Cauchy Sequences and lim sup">2</a><a href="lesson-3.html" title="Lesson 3: Infinite Series and Convergence Tests">3</a><a href="lesson-4.html" title="Lesson 4: Limits, Continuity and Uniform Continuity">4</a><a href="lesson-5.html" title="Lesson 5: Differentiation and the Mean Value Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Taylor's Theorem and the Remainder">6</a><a href="lesson-7.html" title="Lesson 7: The Riemann Integral via Darboux Sums">7</a><a href="lesson-8.html" title="Lesson 8: The Fundamental Theorem of Calculus">8</a><a href="lesson-9.html" title="Lesson 9: Improper Integrals">9</a><a href="lesson-10.html" title="Lesson 10: Uniform Convergence and the Interchange of Limits">10</a><a href="lesson-11.html" title="Lesson 11: Power Series">11</a><a href="lesson-12.html" title="Lesson 12: Differentiation in Several Variables">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Multiple Integrals and Change of Variables">13</a><a href="lesson-14.html" title="Lesson 14: The Lebesgue Integral — An Overview">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">∫ over φ(U) of f(x) dx  =  ∫ over U of f(φ(u)) |det Dφ(u)| du
+Polar coordinates: dx dy = r dr dθ</pre></div>
+<h3>Integrals over rectangles and Fubini's theorem</h3>
+<p>The Riemann integral over a rectangle Q = [a₁, b₁] × ... × [aₙ, bₙ] is defined exactly as in one variable, with partitions into subrectangles and volumes in place of lengths. Lebesgue's criterion carries over: a bounded f is integrable iff its discontinuities form a set of n-dimensional measure zero. A bounded set S is Jordan measurable if its boundary has measure zero; then ∫ over S of f is defined as the integral over a rectangle of f times the indicator of S.</p>
+<p><strong>Theorem 13.1 (Fubini, for Riemann integrals)</strong>. If f is continuous on Q = [a, b] × [c, d], then</p>
+<pre class="math">∫∫ over Q of f = ∫ₐᵇ (∫ from c to d of f(x, y) dy) dx = ∫ from c to d of (∫ₐᵇ f(x, y) dx) dy.</pre>
+<p>More generally, if f is integrable on Q and each inner integral exists, the iterated integral equals the double integral. The hypotheses matter. Consider f(x, y) = (x² − y²)/(x² + y²)² on (0, 1]². Since ∂/∂y (y/(x² + y²)) = (x² − y²)/(x² + y²)²,</p>
+<pre class="math">∫₀¹ (x² − y²)/(x² + y²)² dy = 1/(1 + x²),   so   ∫₀¹ ∫₀¹ f dy dx = ∫₀¹ dx/(1 + x²) = π/4,</pre>
+<p>and by the antisymmetry f(y, x) = −f(x, y), the other order gives −π/4. The function is unbounded near the origin and ∫∫|f| = ∞, so neither the Riemann nor the Lebesgue version of Fubini's theorem applies. (Fubini proved the Lebesgue version in 1907; Tonelli's theorem covers nonnegative functions without any integrability assumption.)</p>
+<h3>The change of variables theorem</h3>
+<p><strong>Theorem 13.2</strong>. Let U ⊆ ℝⁿ be open, φ: U → ℝⁿ a C¹ injective map with det Dφ(u) ≠ 0 on U, and f integrable on φ(U). Then</p>
+<pre class="math">∫ over φ(U) of f(x) dx = ∫ over U of f(φ(u)) |det Dφ(u)| du.</pre>
+<p>The factor |det Dφ| is the local volume scaling: a linear map T multiplies volumes by |det T|, and near u the map φ is approximately the linear map Dφ(u). The proof approximates U by small cubes, uses the linear case on each, and controls the error with uniform continuity of Dφ; alternatively, one reduces to the case where φ changes one coordinate at a time.</p>
+<p>The standard coordinate systems:</p>
+<pre class="math">polar:        x = r cos θ, y = r sin θ,                 |det Dφ| = r
+cylindrical:  x = r cos θ, y = r sin θ, z = z,          |det Dφ| = r
+spherical:    x = ρ sin φ cos θ, y = ρ sin φ sin θ, z = ρ cos φ,   |det Dφ| = ρ² sin φ</pre>
+<h3><strong>Worked example</strong>: the Gaussian integral</h3>
+<p>Let I = ∫ from −∞ to ∞ of e<sup>−x²</sup> dx. Then, using Tonelli's theorem to write the square as a double integral, and polar coordinates,</p>
+<pre class="math">I² = ∫∫ over ℝ² of e<sup>−(x² + y²)</sup> dx dy = ∫₀<sup>2π</sup> ∫₀<sup>∞</sup> e<sup>−r²</sup> r dr dθ = 2π · (1/2) = π,</pre>
+<p>so I = √π. (A fully Riemann-integral proof compares the squares [−R, R]² with the discs of radii R and R√2; see Problem 53.) This integral is the normalising constant of the normal distribution, and it gives Γ(1/2) = √π.</p>
+<h3>Volumes of balls</h3>
+<p>Integrating e<sup>−|x|²</sup> over ℝⁿ in two ways (as a product, πⁿ/², and in spherical shells) shows that the volume of the n-dimensional ball of radius r is</p>
+<pre class="math">Vₙ(r) = πⁿ/² rⁿ / Γ(n/2 + 1).</pre>
+<p><strong>Check</strong>: V₂ = πr², V₃ = π<sup>3/2</sup> r³/((3/4)√π) = (4/3)πr³, and V₄ = (π²/2) r⁴. For the unit ball, Vₙ increases up to n = 5 (V₅ = 8π²/15 ≈ 5.264) and then decreases to 0, since the Gamma function grows faster than any exponential. In high dimension almost all of the volume of a ball lies near its surface, a fact of real importance in statistics and data science.</p>
+<h3>Toward Stokes' theorem</h3>
+<p>The fundamental theorem of calculus has higher-dimensional generalisations: Green's theorem in the plane, the divergence theorem and Stokes' theorem in ℝ³. All are special cases of the general Stokes theorem for differential forms on oriented manifolds with boundary,</p>
+<pre class="math">∫ over ∂M of ω = ∫ over M of dω,</pre>
+<p>which says that integrating a derivative over a region equals integrating the original object over its boundary. FTC II is the case where M = [a, b] is a 1-manifold with boundary {a, b} and ω = F is a function.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the integral of e<sup>−(x² + y²)</sup> over the disc x² + y² ≤ 4, to four decimal places.</div></li><li><span class="mk">(b)</span><div>Use u = x + y, v = x − y to compute ∫∫ over R of (x + y)² dA, where R is the square |x + y| ≤ 1, |x − y| ≤ 1.</div></li><li><span class="mk">(c)</span><div>Compute ∫∫ over the unit disc of (x² + y²) dA.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) ∫₀<sup>2π</sup> ∫₀² e<sup>−r²</sup> r dr dθ = π(1 − e⁻⁴) ≈ 3.0841. (b) The Jacobian of (u, v) ↦ (x, y) has absolute determinant 1/2, so the integral is (1/2)∫₋₁¹∫₋₁¹ u² du dv = (1/2)(2/3)(2) = 2/3. (c) ∫₀<sup>2π</sup> ∫₀¹ r² · r dr dθ = 2π/4 = π/2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="lesson-14.html">Lesson 14 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

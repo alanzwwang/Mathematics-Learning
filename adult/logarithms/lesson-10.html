@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: The Prime Number Theorem — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 10</p>
+    <h1>The Prime Number Theorem</h1>
+    <p class="kicker">Lesson 10 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">π(x) ~ x / ln x   and, more precisely,   π(x) = li(x) + O(x e<sup>−c√(ln x)</sup>)
+Equivalent forms:   θ(x) = ∑<sub>p≤x</sub> ln p ~ x,   ψ(x) = ∑<sub>pᵏ≤x</sub> ln p ~ x,   pₙ ~ n ln n</pre></div>
+<h3>History</h3>
+<p>Let π(x) denote the number of primes not exceeding x. Around 1792, at the age of fifteen, Gauss examined tables of primes and conjectured that their density near x is 1/ln x, so that π(x) ≈ ∫₂ˣ dt/ln t; he described this in an 1849 letter to Encke. Legendre (1798, 1808) proposed π(x) ≈ x/(ln x − 1.08366). Chebyshev (1848–1852) proved that π(x) is of exact order x/ln x and that if π(x) ln x / x has a limit it must equal 1; he also proved Bertrand's postulate that there is always a prime between n and 2n. Riemann's 1859 memoir connected π(x) with the zeros of ζ(s), and in 1896 Hadamard and de la Vallée Poussin independently proved the theorem by showing that ζ(s) has no zeros on the line Re s = 1. Elementary proofs, avoiding complex analysis, were found by Selberg and Erdős in 1948–1949, and D. J. Newman (1980) found a short analytic proof based on a Tauberian theorem.</p>
+<p><strong>Theorem 10.1 (Prime number theorem)</strong>. lim<sub>x→∞</sub> π(x) ln x / x = 1.</p>
+<h3>The data</h3>
+<pre class="math">x        π(x)          x/ln x           li(x)
+10³      168           144.8            177.6
+10⁴      1 229         1 085.7          1 246.1
+10⁶      78 498        72 382.4         78 627.5
+10⁹      50 847 534    48 254 942.4     50 849 235.0
+10¹⁰     455 052 511   434 294 481.9    455 055 614.6</pre>
+<p>The ratio π(x)/(x/ln x) is 1.161 at 10³ and 1.048 at 10¹⁰, approaching 1 slowly, while li(x) is accurate to within a relative error of about 7·10⁻⁶ at 10¹⁰. Figure 1 shows both ratios on a logarithmic axis.</p>
+<h3>Why li(x) is better</h3>
+<p>By integration by parts, li(x) = x/ln x + x/(ln x)² + O(x/(ln x)³). So the statements π(x) ~ x/ln x and π(x) ~ li(x) are equivalent, but x/ln x has relative error of order 1/ln x, whereas the error π(x) − li(x) is, by de la Vallée Poussin (1899), O(x e<sup>−c√(ln x)</sup>) for some c &gt; 0, smaller than x/(ln x)ᴬ for every A. The best known error term, due to Korobov and Vinogradov (1958), is O(x exp(−c(ln x)<sup>3/5</sup>(ln ln x)<sup>−1/5</sup>)). Von Koch (1901) proved that the Riemann hypothesis is equivalent to π(x) = li(x) + O(√x ln x), and Schoenfeld (1976) made this explicit: under RH, |π(x) − li(x)| &lt; √x ln x / (8π) for x ≥ 2657.</p>
+<p>Legendre's constant 1.08366 is an artefact of his tables: since li(x) = x/ln x · (1 + 1/ln x + 2/(ln x)² + …) and x/(ln x − A) = x/ln x · (1 + A/ln x + A²/(ln x)² + …), the best constant in the limit is A = 1.</p>
+<p>In every computed case li(x) &gt; π(x). Littlewood proved in 1914 that π(x) − li(x) changes sign infinitely often; Skewes (1933) gave the first explicit upper bound for the first sign change, assuming RH, of about 10<sup>10<sup>10³⁴</sup></sup>. Modern work places the first crossing below 1.4 × 10³¹⁶.</p>
+<h3>Chebyshev functions and partial summation</h3>
+<p>It is technically simpler to count primes with the weight ln p. Define θ(x) = ∑<sub>p≤x</sub> ln p and ψ(x) = ∑<sub>pᵏ≤x</sub> ln p = ∑<sub>n≤x</sub> Λ(n), where the von Mangoldt function Λ(n) equals ln p if n = pᵏ and 0 otherwise. Then ln lcm(1, 2, …, n) = ψ(n), and ψ(x) − θ(x) = θ(x<sup>1/2</sup>) + θ(x<sup>1/3</sup>) + … = O(√x ln x).</p>
+<p><strong>Proposition 10.2</strong>. For x ≥ 2, π(x) = θ(x)/ln x + ∫₂ˣ θ(t)/(t (ln t)²) dt. Consequently π(x) ~ x/ln x if and only if θ(x) ~ x.</p>
+<p><strong>Proof</strong>. Write π(x) = ∑<sub>p≤x</sub> (ln p)·(1/ln p) and apply Abel summation with the weights ln p and the smooth function 1/ln t, whose derivative is −1/(t (ln t)²). If θ(t) ≤ Ct, the integral is at most C∫₂ˣ dt/(ln t)² = O(x/(ln x)²), as one sees by splitting at √x. Hence π(x) ln x / x and θ(x)/x have the same limiting behaviour. ∎</p>
+<h3>Chebyshev's bounds</h3>
+<p><strong>Theorem 10.3</strong>. For all sufficiently large x, (ln 2/2)·x/ln x &lt; π(x) &lt; 3x/ln x. In particular π(x) is of exact order x/ln x.</p>
+<p><strong>Proof</strong>. Lower bound. Let N = C(2n, n). By Legendre's formula, the exponent of a prime p in N is ∑<sub>k≥1</sub> (⌊2n/pᵏ⌋ − 2⌊n/pᵏ⌋). Each summand is 0 or 1 and vanishes when pᵏ &gt; 2n, so pᵛ ≤ 2n for the exact power pᵛ dividing N, and only primes p ≤ 2n occur. Hence N ≤ (2n)<sup>π(2n)</sup>. On the other hand N is the largest of the 2n + 1 binomial coefficients C(2n, k), whose sum is 4ⁿ, so N ≥ 4ⁿ/(2n + 1). Therefore</p>
+<pre class="math">π(2n) ≥ (n ln 4 − ln(2n + 1)) / ln(2n),</pre>
+<p>which is asymptotic to (ln 2)·(2n)/ln(2n). For x between 2n and 2n + 2 the same bound holds up to a factor tending to 1, and since ln 2 &gt; ln 2/2, the lower bound follows for large x.</p>
+<p>Upper bound. Every prime p with n &lt; p ≤ 2n divides (2n)! but not (n!)², hence divides N, and so ∏<sub>n&lt;p≤2n</sub> p ≤ N ≤ 4ⁿ. Taking logarithms, θ(2n) − θ(n) ≤ n ln 4. Summing over n = 2ʲ⁻¹ for j = 1, …, k gives θ(2ᵏ) &lt; 2ᵏ ln 4, and for 2ᵏ⁻¹ ≤ x &lt; 2ᵏ we obtain θ(x) ≤ θ(2ᵏ) &lt; 2x ln 4. Now ln p &gt; ½ ln x for √x &lt; p ≤ x, so (π(x) − π(√x))·½ ln x &lt; θ(x) &lt; 2x ln 4, whence π(x) &lt; √x + 4 ln 4 · x/ln x. This proves π(x) = O(x/ln x); a sharper version of the same argument (Erdős, using C(2m + 1, m) to get θ(x) &lt; x ln 4) yields the constant 3 once x is large. ∎</p>
+<p>For instance with n = 50 the lower bound gives π(100) ≥ (50 ln 4 − ln 101)/ln 100 ≈ 14.05, so π(100) ≥ 15; the true value is 25.</p>
+<h3>The n-th prime</h3>
+<p>Inverting π(x) ~ x/ln x gives pₙ ~ n ln n. Indeed, if x = pₙ then n = π(x) ~ x/ln x, so ln n = ln x − ln ln x + o(1) ~ ln x, and x ~ n ln x ~ n ln n. A sharper statement is pₙ = n(ln n + ln ln n − 1 + o(1)). For n = 10⁶, n ln n ≈ 13 815 511, while p₁₀₀₀₀₀₀ = 15 485 863; including the correction gives n(ln n + ln ln n − 1) ≈ 15 441 302, within 0.3%.</p>
+<h3>The probabilistic model</h3>
+<p>The prime number theorem suggests modelling the primes as a random set in which n is &quot;prime&quot; with probability 1/ln n, independently (Cramér, 1936). The model predicts that the largest gap between consecutive primes below x is about (ln x)², a conjecture consistent with all data, though Granville has argued the true constant is larger than the model predicts. It also predicts the Riemann-hypothesis-sized error √x ln x for π(x) − li(x). The logarithm is therefore not merely a convenient approximating function: 1/ln x is the natural density of the primes.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that ψ(n) = ln lcm(1, 2, …, n), and deduce from the prime number theorem that lcm(1, …, n) = e<sup>n(1 + o(1))</sup>.</div></li><li><span class="mk">(b)</span><div>Using pₙ ~ n ln n, show that ∑ 1/pₙ diverges, in agreement with Theorem 9.2.</div></li><li><span class="mk">(c)</span><div>Compute π(10⁹)/(10⁹/ln 10⁹) to three decimals.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The exponent of a prime p in lcm(1, …, n) is the largest k with pᵏ ≤ n, so ln lcm(1, …, n) = ∑<sub>p≤n</sub> k<sub>p</sub> ln p = ∑<sub>pᵏ≤n</sub> ln p = ψ(n). The prime number theorem in the form ψ(x) ~ x gives ln lcm(1, …, n) = n(1 + o(1)). (b) 1/pₙ ≥ c/(n ln n) for large n and some c &gt; 0, and ∑ 1/(n ln n) diverges by the integral test (Lesson 8). (c) 10⁹/ln 10⁹ = 10⁹/20.7233 ≈ 48 254 942, and 50 847 534/48 254 942 ≈ 1.054.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

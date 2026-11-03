@@ -25,3 +25,4 @@ exclude:
   - "README.md"
   - "Trigonometry.md"
   - tools
+  - adult-lessons

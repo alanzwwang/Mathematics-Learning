@@ -285,16 +285,16 @@ The earthquake scale
 
 Scientists measure earthquakes on a magnitude scale where each whole step up means 10 times the shaking. A magnitude 5 quake shakes 10 times harder than a magnitude 4. Magnitude 6 versus magnitude 4? Two steps: 10 × 10 = 100 times the shaking.
 
-        steps apart = log(how many times stronger)
+        steps apart = log(how many times the shaking)
 
-A quake 1,000 times stronger than another is 3 steps up, because log(1,000) = 3. The scale squishes enormous differences into friendly numbers — and that is exactly what logs are FOR. (Sound volume in decibels and acidity in pH work the same way: every step multiplies by 10, so the scale is a log in disguise.)
+A quake that shakes 1,000 times harder than another is 3 steps up, because log(1,000) = 3. The scale squishes enormous differences into friendly numbers — and that is exactly what logs are FOR. (Acidity in pH works the same way: every step multiplies by 10. Sound in decibels does too, just in bigger steps: every 10 decibels multiplies the sound's power by 10. Both are logs in disguise!)
 
 ✏️ Your Turn
 
 a) A rumor doubles in reach every day. How many days until it reaches 32 times as many people?
-b) How many times stronger is a magnitude 7 quake than a magnitude 5?
+b) How many times harder does a magnitude 7 quake shake than a magnitude 5?
 
-Answers: a) log₂(32) = 5 days. b) Two steps: 10 × 10 = 100 times stronger.
+Answers: a) log₂(32) = 5 days. b) Two steps: 10 × 10 = 100 times the shaking.
 
 
 ─────────────────────────────────────────────
@@ -517,7 +517,7 @@ Problems 88–90 — Logs in the wild! (Lesson 6)
 
   88. A bacteria colony doubles every hour. After how many hours is it 64 times
       as big?
-  89. How many times stronger is a magnitude 5 earthquake than a magnitude 3?
+  89. How many times harder does a magnitude 5 earthquake shake than a magnitude 3?
   90. A ball bounces to half its previous height each bounce. After how many
       bounces is it at 1/16 of its starting height?
 
@@ -537,8 +537,8 @@ Problems 88–90 — Logs in the wild! (Lesson 6)
       doublings does it take to pass 100?
   96. A different Petri dish starts with 3 blobs and doubles every hour. After how
       many WHOLE hours is it past 50 blobs? (List the blobs hour by hour: 6, 12, ...)
-  97. Earthquake deluxe! a) How many times stronger is a magnitude 6 quake than a
-      magnitude 4? b) And magnitude 6 versus magnitude 2? Write part b as a power
+  97. Earthquake deluxe! a) How many times harder does a magnitude 6 quake shake
+      than a magnitude 4? b) And magnitude 6 versus magnitude 2? Write part b as a power
       of 10.
   98. Sandwich plus rule! a) Between which two whole numbers does log₂(12) sit?
       b) Fill in the blank with a whole number: log₂(12) = 2 + log₂(___).
@@ -603,7 +603,7 @@ Intermediate
   87. 40 = 8 × 5, so log₂(40) = log₂(8) + log₂(5) = 3 + log₂(5). The blank is 3.
 
   88. "How many doublings make 64?" = log₂(64) = 6 hours ✅
-  89. Two steps up: 10 × 10 = 100 times stronger ✅
+  89. Two steps up: 10 × 10 = 100 times the shaking ✅
   90. Halvings: 1/2, 1/4, 1/8, 1/16 — that's 4 bounces (16 = 2⁴) ✅
 
 Challenge
@@ -622,9 +622,9 @@ Challenge
       log₂(100) would say it exactly — it sits between 6 and 7!
   96. Hour by hour: 6, 12, 24, 48, 96. After 4 hours: 48 (not past 50).
       After 5 hours: 96 (past it!) → 5 hours ✅
-  97. a) Two steps: 100 times stronger.
-      b) Four steps: 10 × 10 × 10 × 10 = 10⁴ = 10,000 times stronger.
-      The steps apart come from SUBTRACTING, while the strengths MULTIPLY —
+  97. a) Two steps: 100 times the shaking.
+      b) Four steps: 10 × 10 × 10 × 10 = 10⁴ = 10,000 times the shaking.
+      The steps apart come from SUBTRACTING, while the shakings MULTIPLY —
       that's the whole log idea in the wild!
   98. a) Between 3 and 4, because 8 < 12 < 16.
       b) log₂(12) = 2 + log₂(3), because 12 = 4 × 3 and log₂(4) = 2.

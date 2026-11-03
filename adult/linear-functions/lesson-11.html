@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 11: Duality, Farkas' Lemma and Complementary Slackness — Linear Functions (Advanced)</title>
+<meta name="description" content="Linear and affine maps from rank–nullity and duality to least squares, Gauss–Markov, linear programming and ReLUs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#6366f1">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../linear-functions/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Linear Functions</a> › Lesson 11</p>
+    <h1>Duality, Farkas' Lemma and Complementary Slackness</h1>
+    <p class="kicker">Lesson 11 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Linear Versus Affine Maps">1</a><a href="lesson-2.html" title="Lesson 2: Vector Spaces, Bases and Dimension">2</a><a href="lesson-3.html" title="Lesson 3: Kernel, Image and the Rank–Nullity Theorem">3</a><a href="lesson-4.html" title="Lesson 4: Matrices, Change of Basis and Similarity">4</a><a href="lesson-5.html" title="Lesson 5: Dual Spaces and Linear Functionals">5</a><a href="lesson-6.html" title="Lesson 6: Affine Geometry">6</a><a href="lesson-7.html" title="Lesson 7: The Derivative as the Best Linear Approximation">7</a><a href="lesson-8.html" title="Lesson 8: Least Squares and Orthogonal Projection">8</a><a href="lesson-9.html" title="Lesson 9: The Gauss–Markov Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Linear Programming and the Simplex Method">10</a><a href="lesson-11.html" class="here" aria-current="page" title="Lesson 11: Duality, Farkas' Lemma and Complementary Slackness">11</a><a href="lesson-12.html" title="Lesson 12: Lipschitz and Piecewise-Linear Functions">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Primal:  max cᵀx   s.t.  Ax ≤ b, x ≥ 0
+Dual:    min bᵀy   s.t.  Aᵀy ≥ c, y ≥ 0
+Weak duality cᵀx ≤ bᵀy;  strong duality: the optimal values are equal</pre></div>
+<h3>The dual programme</h3>
+<p>Every LP comes with a partner. To the primal problem max {cᵀx : Ax ≤ b, x ≥ 0} associate the dual problem min {bᵀy : Aᵀy ≥ c, y ≥ 0}. The dual variables yᵢ are multipliers for the primal constraints: if we multiply the i-th constraint by yᵢ ≥ 0 and add, we obtain yᵀAx ≤ yᵀb, and when Aᵀy ≥ c the left side dominates cᵀx for every x ≥ 0. The dual asks for the best upper bound obtainable this way. The dual of the dual is the primal.</p>
+<h3>Theorem 11.1 (Weak duality)</h3>
+<p>If x is primal feasible and y is dual feasible, then cᵀx ≤ bᵀy.</p>
+<p><strong>Proof</strong>. cᵀx ≤ (Aᵀy)ᵀx = yᵀ(Ax) ≤ yᵀb. The first inequality uses Aᵀy ≥ c and x ≥ 0; the second uses Ax ≤ b and y ≥ 0. ∎</p>
+<p>Consequently, if feasible x and y have equal objective values, both are optimal; if the primal is unbounded, the dual is infeasible; and if the dual is unbounded below, the primal is infeasible.</p>
+<h3>Theorem 11.2 (Farkas' lemma, 1902)</h3>
+<p>For a matrix A and a vector b, exactly one of the following holds: (i) there is x ≥ 0 with Ax = b; (ii) there is y with Aᵀy ≥ 0 and bᵀy &lt; 0.</p>
+<p><strong>Proof</strong>. Both cannot hold, since then 0 &gt; bᵀy = (Ax)ᵀy = xᵀ(Aᵀy) ≥ 0. Suppose (i) fails, so b lies outside the cone K = {Ax : x ≥ 0}. This cone is convex and closed (a finitely generated cone is closed; this is the one nontrivial technical point, proved via Carathéodory's theorem). By the separating hyperplane theorem there is y with yᵀb &lt; yᵀz for all z ∈ K. Taking z = 0 gives yᵀb &lt; 0. If yᵀz &lt; 0 for some z ∈ K, then scaling z by a large positive factor would make yᵀ(tz) smaller than yᵀb, a contradiction; so yᵀz ≥ 0 for all z ∈ K, and in particular for the columns of A, which says Aᵀy ≥ 0. ∎</p>
+<p>The vector y in (ii) is a certificate of infeasibility: a combination of the equations that produces an obviously contradictory consequence. Farkas' lemma is the linear-inequality analogue of the Fredholm alternative &quot;Ax = b is solvable if and only if b is orthogonal to every solution of Aᵀy = 0&quot;.</p>
+<h3>Theorem 11.3 (Strong duality)</h3>
+<p>If the primal has a finite optimal value, then so does the dual, and the two optimal values are equal. If either problem is infeasible, the other is either infeasible or unbounded.</p>
+<p><strong>Idea of proof</strong>. Let z* be the primal optimum. For every ε &gt; 0 the system Ax ≤ b, cᵀx ≥ z* + ε, x ≥ 0 is infeasible; after adding slack variables, Farkas' lemma produces a nonnegative combination of the constraints certifying this, and normalising that combination gives a dual feasible y with bᵀy &lt; z* + ε. Combined with weak duality and the fact that the dual optimum is attained (it is an LP with finite value, so Theorem 10.1 applies), this yields equality. A constructive proof comes from the simplex method itself: at an optimal tableau the negatives of the slack coefficients in the objective row form an optimal dual solution, exactly as observed in Lesson 10.</p>
+<h3>Complementary slackness</h3>
+<p>From the proof of weak duality, equality cᵀx = bᵀy holds if and only if both inequalities in the chain are equalities, which unpacks to the following conditions (Problem 54).</p>
+<pre class="math">yᵢ &gt; 0   ⇒   the i-th primal constraint is tight:   (Ax)ᵢ = bᵢ
+xⱼ &gt; 0   ⇒   the j-th dual constraint is tight:     (Aᵀy)ⱼ = cⱼ</pre>
+<p><strong>Worked example</strong>. The dual of the Lesson 10 problem is: minimise 4y₁ + 7y₂ + 3y₃ subject to y₁ + y₂ + y₃ ≥ 3, y₁ + 3y₂ ≥ 2, y ≥ 0. At the primal optimum (3, 1), the constraint x + 3y ≤ 7 is slack, so y₂ = 0; and x, y &gt; 0 force both dual constraints to be tight: y₁ + y₃ = 3 and y₁ = 2. Hence y = (2, 0, 1), which is feasible with dual value 4·2 + 0 + 3·1 = 11, equal to the primal value. Both solutions are thereby proved optimal.</p>
+<h3>Economic and combinatorial meaning</h3>
+<p>If bᵢ is the available amount of resource i and cⱼ the profit per unit of product j, then the optimal dual variable yᵢ is the shadow price of resource i: the rate at which the optimal profit increases per additional unit of bᵢ (for small changes that do not alter the optimal basis). In the example, an extra unit of the first resource is worth 2, an extra unit of the third is worth 1, and the second resource, not fully used, is worth nothing. Duality also unifies classical min–max theorems of combinatorics and game theory: the max-flow min-cut theorem, König's theorem on bipartite matchings, and von Neumann's minimax theorem for two-person zero-sum games are all instances of LP duality.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Write the dual of: maximise x₁ + x₂ subject to x₁ + 2x₂ ≤ 4, 3x₁ + x₂ ≤ 6, x ≥ 0. Solve both problems and confirm that the values agree.</div></li><li><span class="mk">(b)</span><div>Find a Farkas certificate showing that x₁ + x₂ = 1, x₁ − x₂ = 3, x₁, x₂ ≥ 0 has no solution.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Dual: minimise 4y₁ + 6y₂ subject to y₁ + 3y₂ ≥ 1, 2y₁ + y₂ ≥ 1, y ≥ 0. Primal: the vertices (0, 0), (2, 0), (8/5, 6/5), (0, 2) give 0, 2, 14/5, 2, so the optimum is 14/5 at (8/5, 6/5). Both xⱼ are positive, so both dual constraints are tight: y₁ + 3y₂ = 1 and 2y₁ + y₂ = 1 give y = (2/5, 1/5), which is feasible with value 8/5 + 6/5 = 14/5. (b) Take y = (1, −1): Aᵀy = (1 − 1, 1 + 1) = (0, 2) ≥ 0 and bᵀy = 1 − 3 = −2 &lt; 0. In words: subtracting the second equation from the first gives 2x₂ = −2, impossible for x₂ ≥ 0.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-10.html">← Lesson 10</a><a class="btn" href="lesson-12.html">Lesson 12 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

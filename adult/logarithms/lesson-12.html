@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: Benford's Law — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 12</p>
+    <h1>Benford's Law</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P(first significant digit = d) = log₁₀(1 + 1/d),   d = 1, …, 9
+X is Benford  ⟺  log₁₀ X mod 1 is uniformly distributed on [0, 1)</pre></div>
+<h3>The phenomenon</h3>
+<p>In 1881 the astronomer Simon Newcomb noticed that the early pages of logarithm tables were far more worn than the later ones: people looked up numbers beginning with 1 more often than numbers beginning with 9. The physicist Frank Benford rediscovered the effect in 1938 and tested it on over 20 000 numbers from river areas, populations, physical constants and street addresses. The law states that the leading digit D satisfies</p>
+<pre class="math">d        1       2       3       4       5       6       7       8       9
+P(D=d)   0.3010  0.1761  0.1249  0.0969  0.0792  0.0669  0.0580  0.0512  0.0458</pre>
+<h3>The mantissa formulation</h3>
+<p>Every x &gt; 0 can be written uniquely as x = 10ᵏ·s with k ∈ ℤ and significand s ∈ [1, 10). Then log₁₀ x = k + log₁₀ s, so log₁₀ s = {log₁₀ x} is the fractional part. The leading digit is d if and only if d ≤ s &lt; d + 1, that is, if and only if {log₁₀ x} ∈ [log₁₀ d, log₁₀(d + 1)).</p>
+<p><strong>Proposition 12.1</strong>. If {log₁₀ X} is uniformly distributed on [0, 1), then P(D = d) = log₁₀(d + 1) − log₁₀ d = log₁₀(1 + 1/d). More generally, P(s ≤ t) = log₁₀ t for 1 ≤ t &lt; 10.</p>
+<p>This formulation also gives the joint distribution of all digits. The second digit, for example, satisfies P(D₂ = d) = ∑ₖ₌₁⁹ log₁₀(1 + 1/(10k + d)), which is 0.1197 for d = 0 and 0.0850 for d = 9; the higher digits rapidly become uniform.</p>
+<h3>Scale invariance</h3>
+<p>Why should real data have uniformly distributed log-mantissas? One answer is invariance under change of units. If a distribution of significands is the same whether a quantity is measured in metres or feet, then the distribution of {log₁₀ X} on the circle ℝ/ℤ must be invariant under every rotation u ↦ u + log₁₀ c. Theorem (Hill, 1995): the only probability distribution on significands that is invariant under all such scalings is Benford's. The proof is the uniqueness of Haar measure on the circle group, a close relative of the Haar measure dt/t of Lesson 3. Hill also proved a limit theorem: if one samples from randomly chosen distributions in an unbiased way, the combined data converge to Benford. In addition, products of many independent positive factors tend to Benford, because the sum of many independent random variables reduced mod 1 tends to the uniform distribution.</p>
+<h3>Powers of 2</h3>
+<p><strong>Theorem 12.2</strong>. The leading digits of 2ⁿ, n = 1, 2, 3, …, follow Benford's law in the sense of asymptotic density.</p>
+<p><strong>Proof</strong>. {log₁₀ 2ⁿ} = {nα} with α = log₁₀ 2. The number α is irrational, since α = p/q would give 2<sup>q</sup> = 10<sup>p</sup>, impossible for positive integers because 5 divides the right side but not the left. By Weyl's equidistribution theorem, {nα} is equidistributed in [0, 1) for irrational α: for every interval [a, b) ⊂ [0, 1) the proportion of n ≤ N with {nα} ∈ [a, b) tends to b − a. By Proposition 12.1 the leading digit of 2ⁿ is d exactly when {nα} lies in an interval of length log₁₀(1 + 1/d). ∎</p>
+<p><strong>Proof of Weyl's theorem (sketch)</strong>. By Weyl's criterion it suffices to show (1/N) ∑ₙ₌₁<sup>N</sup> e<sup>2πikn α</sup> → 0 for every nonzero integer k. This is a geometric sum equal to (1/N) e<sup>2πikα</sup>(e<sup>2πikNα</sup> − 1)/(e<sup>2πikα</sup> − 1), whose numerator is bounded by 2 and whose denominator is a fixed nonzero number, because kα ∉ ℤ. Approximating the indicator of [a, b) above and below by trigonometric polynomials completes the argument.</p>
+<p>Among 2¹, …, 2¹⁰⁰⁰ the leading digits 1 through 9 occur 301, 176, 125, 97, 79, 69, 56, 52 and 45 times, against Benford expectations of 301.0, 176.1, 124.9, 96.9, 79.2, 66.9, 58.0, 51.2 and 45.8. The same theorem applies to aⁿ whenever log₁₀ a is irrational, to n!, and to the Fibonacci numbers, since Fₙ ≈ φⁿ/√5 with log₁₀ φ irrational.</p>
+<h3>Applications and cautions</h3>
+<p>Benford's law is used to screen accounting and election data for fabrication (Nigrini's work since the 1990s), since invented numbers tend to have too uniform leading digits. It also guides the design of floating-point systems: Hamming showed that, for data whose significands are Benford, relative rounding error is distributed non-uniformly. Caution is needed: data confined to a narrow range (human heights, prices set to end in 99, assigned identifiers) are not Benford, and a deviation from Benford is evidence of nothing unless the data would be expected to span several orders of magnitude.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the probability, under Benford's law, that the leading digit is at least 5.</div></li><li><span class="mk">(b)</span><div>Prove that two consecutive powers of 2 never have the same leading digit.</div></li><li><span class="mk">(c)</span><div>Find the leading digit of 2¹⁰⁰ using log₁₀ 2 ≈ 0.30103.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) P(D ≥ 5) = log₁₀(10/5) = log₁₀ 2 ≈ 0.3010. (b) Let 2ⁿ have significand s ∈ [1, 10). If s &lt; 5, then 2ⁿ⁺¹ has significand 2s, and ⌊2s⌋ ≥ ⌊s + 1⌋ = ⌊s⌋ + 1 because s ≥ 1, so the leading digit increases. If s ≥ 5, then 2ⁿ⁺¹ has significand 2s/10 ∈ [1, 2), with leading digit 1, while 2ⁿ has leading digit at least 5. (c) 100 log₁₀ 2 ≈ 30.103, so 2¹⁰⁰ = 10³⁰·10<sup>0.103</sup> ≈ 1.27 × 10³⁰, leading digit 1. (Indeed 2¹⁰⁰ = 1.2676506… × 10³⁰.)</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

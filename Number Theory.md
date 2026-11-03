@@ -439,7 +439,7 @@ So 12 = 2×48 + (−1)×84 — the GCF is written as an integer COMBINATION of t
 
 A word from history
 
-This procedure appeared in Euclid's book Elements around 300 BC — over 2,300 years ago — making it possibly the oldest algorithm still in daily use. Every secure connection your computer makes today re-runs it thousands of times. Not bad for a geometry teacher from ancient Alexandria.
+This procedure appeared in Euclid's book Elements around 300 BC — over 2,300 years ago — making it possibly the oldest algorithm still in daily use. Secure connections on the internet run versions of it every single day. Not bad for a geometry teacher from ancient Alexandria.
 
 ✏️ Your Turn
 

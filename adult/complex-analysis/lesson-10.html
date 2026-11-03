@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 10: Evaluating Real Integrals and Infinite Sums — Complex Analysis (Advanced)</title>
+<meta name="description" content="Holomorphic functions, Cauchy's theorem, residues, conformal maps and the analytic continuation of ζ(s).">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#7c3aed">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../complex-analysis/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Complex Analysis</a> › Lesson 10</p>
+    <h1>Evaluating Real Integrals and Infinite Sums</h1>
+    <p class="kicker">Lesson 10 of 14</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Complex Field and Its Topology">1</a><a href="lesson-2.html" title="Lesson 2: Polar Form, Euler's Formula and Roots of Unity">2</a><a href="lesson-3.html" title="Lesson 3: Complex Differentiability and the Cauchy–Riemann Equations">3</a><a href="lesson-4.html" title="Lesson 4: Power Series and Analytic Functions">4</a><a href="lesson-5.html" title="Lesson 5: Contour Integrals">5</a><a href="lesson-6.html" title="Lesson 6: Cauchy's Theorem">6</a><a href="lesson-7.html" title="Lesson 7: Cauchy's Integral Formula and Its Consequences">7</a><a href="lesson-8.html" title="Lesson 8: Laurent Series and Isolated Singularities">8</a><a href="lesson-9.html" title="Lesson 9: The Residue Theorem">9</a><a href="lesson-10.html" class="here" aria-current="page" title="Lesson 10: Evaluating Real Integrals and Infinite Sums">10</a><a href="lesson-11.html" title="Lesson 11: The Argument Principle and Rouché's Theorem">11</a><a href="lesson-12.html" title="Lesson 12: Conformal Maps, Möbius Transformations and the Riemann Mapping Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Analytic Continuation, the Gamma Function and the Riemann Zeta Function">13</a><a href="lesson-14.html" title="Lesson 14: Synthesis and Common Pitfalls">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Trigonometric integrals: put z = e<sup>iθ</sup>, cos θ = (z + z⁻¹)/2, dθ = dz/(iz).
+Integrals over ℝ: close the contour with a large semicircle; Jordan's lemma for e<sup>ikx</sup>.
+Many-valued integrands: keyhole contours around a branch cut.
+Sums: ∑ f(n) = −(sum of residues of π cot(πz) f(z) at the poles of f).</pre></div>
+<h3>Type 1: rational functions of cos θ and sin θ</h3>
+<p>Substituting z = e<sup>iθ</sup> turns ∫₀<sup>2π</sup> R(cos θ, sin θ) dθ into the integral of a rational function over the unit circle. The classical example, for a &gt; |b| &gt; 0, is</p>
+<pre class="math">∫₀<sup>2π</sup> dθ/(a + b cos θ) = 2π/√(a² − b²).</pre>
+<p>Derivation. Since a + b(z + 1/z)/2 = (bz² + 2az + b)/(2z) and dθ = dz/(iz), the integral is (2/i) ∮ dz/(bz² + 2az + b) over |z| = 1. The roots of the quadratic are z± = (−a ± √(a² − b²))/b, with product 1; the root z₊ lies inside the circle and z₋ outside. The residue at z₊ is 1/(b(z₊ − z₋)) = 1/(2√(a² − b²)), so the integral is (2/i) · 2πi/(2√(a² − b²)) = 2π/√(a² − b²). For instance ∫₀<sup>2π</sup> dθ/(5 + 3 cos θ) = 2π/4 = π/2. The same method handles cos(nθ) in the numerator, by taking the real part of zⁿ.</p>
+<h3>Type 2: rational functions on the real line</h3>
+<p><strong>Theorem 10.1</strong>. If P and Q are polynomials with deg Q ≥ deg P + 2 and Q has no real zeros, then ∫ from −∞ to ∞ of P(x)/Q(x) dx = 2πi ∑ Res(P/Q, a) over the zeros a of Q in the upper half-plane.</p>
+<p><strong>Proof</strong>. Integrate over the boundary of the half-disc of radius R. On the semicircle |P/Q| ≤ C/R² for large R, so its contribution is at most πR · C/R² → 0 by the ML-inequality.</p>
+<p><strong>Example</strong>. ∫ dx/(x⁴ + 1) over ℝ. The poles in the upper half-plane are e<sup>iπ/4</sup> and e<sup>3iπ/4</sup>. At a pole a, the residue is 1/(4a³) = a/(4a⁴) = −a/4. Their sum is −(e<sup>iπ/4</sup> + e<sup>3iπ/4</sup>)/4 = −i√2/4, and 2πi · (−i√2/4) = π/√2.</p>
+<p><strong>Example</strong>. For a, b &gt; 0 with a ≠ b, ∫ dx/((x² + a²)(x² + b²)) over ℝ = π/(ab(a + b)). The residues at ia and ib are 1/(2ia(b² − a²)) and 1/(2ib(a² − b²)); their sum simplifies to 1/(2i ab(a + b)), and multiplying by 2πi gives the result. The formula remains valid for a = b by continuity, giving π/(2a³).</p>
+<h3>Type 3: Fourier integrals and Jordan's lemma</h3>
+<p><strong>Lemma 10.2 (Jordan)</strong>. For R &gt; 0, ∫₀<sup>π</sup> e<sup>−R sin θ</sup> dθ &lt; π/R. Consequently, if g(z) → 0 uniformly as |z| → ∞ in the closed upper half-plane and k &gt; 0, then the integral of g(z) e<sup>ikz</sup> over the upper semicircle of radius R tends to 0.</p>
+<p><strong>Proof</strong>. On [0, π/2], sin θ ≥ 2θ/π (concavity), so ∫₀<sup>π/2</sup> e<sup>−R sin θ</sup> dθ ≤ ∫₀<sup>π/2</sup> e<sup>−2Rθ/π</sup> dθ &lt; π/(2R); the other half is symmetric. On the semicircle |e<sup>ikz</sup>| = e<sup>−kR sin θ</sup>, so the integral is at most max|g| · R · π/(kR) → 0.</p>
+<p><strong>Example</strong>. For k &gt; 0 and a &gt; 0, ∫ cos(kx)/(x² + a²) dx over ℝ = (π/a) e<sup>−ka</sup>. Integrate e<sup>ikz</sup>/(z² + a²); its residue at ia is e<sup>−ka</sup>/(2ia), and 2πi times this is π e<sup>−ka</sup>/a, which is real, so it is the integral of the cosine (the sine part vanishes by oddness).</p>
+<p>Indented contours. When the integrand has a simple pole on the real axis, one avoids it with a small semicircle of radius ε. As ε → 0 the integral over a small semicircle around a simple pole c, traversed clockwise above c, tends to −πi Res(f, c): half a turn picks up half of 2πi. Applied to e<sup>iz</sup>/z with a big semicircle (Jordan) and a small one at 0, this gives PV ∫ e<sup>ix</sup>/x dx = πi, and taking imaginary parts,</p>
+<pre class="math">∫₀<sup>∞</sup> (sin x)/x dx = π/2,</pre>
+<p>the Dirichlet integral, which is an improper Riemann integral but not a Lebesgue integral.</p>
+<h3>Type 4: branch cuts and keyhole contours</h3>
+<p>Let 0 &lt; a &lt; 1 and use the branch of z<sup>a−1</sup> on ℂ \ [0, ∞) with 0 &lt; arg z &lt; 2π. Integrate z<sup>a−1</sup>/(1 + z) around the keyhole contour: a large circle |z| = R, a small circle |z| = ε, and the two edges of the cut along [ε, R]. The circles contribute nothing in the limit (the integrand is O(R<sup>a−2</sup>) on the large circle and O(ε<sup>a−1</sup>) on the small one), while the lower edge carries the factor e<sup>2πi(a−1)</sup> relative to the upper edge. Hence, with I the desired integral,</p>
+<pre class="math">(1 − e<sup>2πi(a−1)</sup>) I = 2πi Res at −1 = 2πi e<sup>iπ(a−1)</sup>,</pre>
+<pre class="math">I = ∫₀<sup>∞</sup> x<sup>a−1</sup>/(1 + x) dx = 2πi/(e<sup>−iπ(a−1)</sup> − e<sup>iπ(a−1)</sup>) = π/sin(πa).</pre>
+<p>For a = 1/2 this gives ∫₀<sup>∞</sup> dx/(√x (1 + x)) = π, which can be checked with the substitution x = t². The identity is the reflection formula Γ(a)Γ(1 − a) = π/sin(πa) in disguise (Lesson 13).</p>
+<h3>Summing series</h3>
+<p>Let f be rational with deg(denominator) ≥ deg(numerator) + 2 and no poles at integers. Integrate π cot(πz) f(z) over the boundary of the square C<sub>N</sub> with vertices (N + 1/2)(±1 ± i). One checks that |cot(πz)| is bounded on all these squares independently of N, so the integrals tend to 0, and the residue theorem gives</p>
+<pre class="math">∑ over n ∈ ℤ of f(n) = −∑ Res(π cot(πz) f(z)) over the poles of f.</pre>
+<p><strong>Example (the Basel problem)</strong>. Use f(z) = 1/z², with the double pole at 0 now coinciding with a pole of cot. Since π cot(πz) = 1/z − π²z/3 − π⁴z³/45 − …, the residue of π cot(πz)/z² at 0 is −π²/3. The residues at n ≠ 0 are 1/n², so ∑ over n ≠ 0 of 1/n² − π²/3 = 0, that is ∑ 1/n² = π²/6 (n ≥ 1). The next coefficient gives ∑ 1/n⁴ = π⁴/90.</p>
+<p><strong>Example</strong>. For a &gt; 0, ∑ over n ∈ ℤ of 1/(n² + a²) = (π/a) coth(πa). Using π/sin(πz) instead of π cot(πz) gives alternating sums, such as ∑ over n ∈ ℤ of (−1)ⁿ/(n² + a²) = π/(a sinh(πa)).</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Evaluate ∫₀<sup>2π</sup> dθ/(2 + sin θ).</div></li><li><span class="mk">(b)</span><div>Evaluate ∫ dx/(x² + 1)² over ℝ.</div></li><li><span class="mk">(c)</span><div>Evaluate ∫ cos x/(x² + 4) dx over ℝ.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) The substitution θ ↦ θ + π/2 does not change the integral over a full period and turns sin θ into cos θ, so the value is 2π/√(4 − 1) = 2π/√3 ≈ 3.6276. (b) The residue at the double pole i is −i/4 (Lesson 9), so the integral is 2πi(−i/4) = π/2. (c) With k = 1 and a = 2, the value is (π/2) e<sup>−2</sup> ≈ 0.2126.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-9.html">← Lesson 9</a><a class="btn" href="lesson-11.html">Lesson 11 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

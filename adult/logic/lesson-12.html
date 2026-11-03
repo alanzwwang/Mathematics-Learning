@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 12: SAT, NP and the Cook–Levin Theorem — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 12</p>
+    <h1>SAT, NP and the Cook–Levin Theorem</h1>
+    <p class="kicker">Lesson 12 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" class="here" aria-current="page" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P: decidable in polynomial time. NP: membership has polynomial-size certificates checkable in polynomial time.
+Cook–Levin: SAT is NP-complete; every NP problem reduces to SAT in polynomial time.
+Fagin: NP is exactly the class of properties definable in existential second-order logic.</pre></div>
+<h3>Time complexity</h3>
+<p>Computability asks what can be computed at all; complexity theory asks what can be computed efficiently. A deterministic Turing machine runs in time t(n) if it halts within t(n) steps on every input of length n. The class P consists of languages (sets of binary strings) decided in time O(nᵏ) for some k. The class NP consists of languages L for which there is a polynomial p and a polynomial-time relation V with x ∈ L iff ∃y (|y| ≤ p(|x|) ∧ V(x, y)); equivalently, languages decided by nondeterministic machines in polynomial time. The certificate y is a &quot;witness&quot;: a satisfying assignment for SAT, a Hamiltonian cycle for HAM, a factor for COMPOSITE. Clearly P ⊆ NP. Whether P = NP is the central open problem of theoretical computer science and one of the seven Clay Millennium Prize problems.</p>
+<h3>Reductions and completeness</h3>
+<p>A polynomial-time reduction from A to B is a polynomial-time computable f with x ∈ A iff f(x) ∈ B; write A ≤ₚ B. B is NP-hard if every A ∈ NP satisfies A ≤ₚ B, and NP-complete if moreover B ∈ NP. If any NP-complete problem is in P, then P = NP.</p>
+<p><strong>Theorem 12.1 (Cook 1971, Levin 1973)</strong>. SAT is NP-complete.</p>
+<p><strong>Proof sketch</strong>. SAT ∈ NP, with the satisfying assignment as certificate. Let L ∈ NP be decided by a nondeterministic machine M in time p(n). For an input x of length n, the computation is a tableau of (p(n) + 1) rows (time steps) and p(n) + 1 columns (tape cells), each cell holding a tape symbol and possibly the state of the head. Introduce Boolean variables X(i, j, s), true iff cell j at time i holds symbol s (s ranges over the finite set Γ ∪ (Q × Γ)). Write clauses expressing: (1) each cell holds exactly one symbol; (2) row 0 is the start configuration on x; (3) every 2 × 3 window of consecutive cells in consecutive rows is consistent with a transition of M — a local condition, because a Turing machine changes the tape only next to the head; (4) some cell at some time holds the accepting state. The number of variables and clauses is O(p(n)²), with constants depending only on M, and the formula can be produced in polynomial time. It is satisfiable iff some computation of M accepts x. ∎</p>
+<p><strong>Theorem 12.2</strong>. 3-SAT, the restriction of SAT to clauses with exactly three literals, is NP-complete.</p>
+<p><strong>Proof</strong>. Reduce SAT (in CNF) to 3-SAT. Replace a clause (ℓ₁ ∨ … ∨ ℓₖ) with k &gt; 3 by (ℓ₁ ∨ ℓ₂ ∨ y₁) ∧ (¬y₁ ∨ ℓ₃ ∨ y₂) ∧ … ∧ (¬y(k−3) ∨ ℓ(k−1) ∨ ℓₖ), with k − 3 new variables and k − 2 clauses; short clauses are padded using new variables (for example (ℓ) becomes four clauses (ℓ ∨ a ∨ b), (ℓ ∨ a ∨ ¬b), (ℓ ∨ ¬a ∨ b), (ℓ ∨ ¬a ∨ ¬b)). Each replacement is satisfiable together with the rest exactly when the original clause is. ∎</p>
+<p>From 3-SAT, Karp (1972) derived NP-completeness of 21 problems, including CLIQUE, VERTEX COVER, HAMILTONIAN CYCLE, SUBSET SUM, and CHROMATIC NUMBER. For CLIQUE: given a 3-CNF with m clauses, build a graph with a vertex for each occurrence of a literal (3m vertices) and join two vertices when they lie in different clauses and are not complementary; the graph has an m-clique iff the formula is satisfiable.</p>
+<h3>Beyond NP</h3>
+<p>coNP is the class of complements of NP languages; TAUT, the set of propositional tautologies, is coNP-complete, since φ is a tautology iff ¬φ is unsatisfiable. NP = coNP would mean that every tautology has a short proof in some proof system. PSPACE, the class of languages decidable in polynomial space, contains NP and coNP; its canonical complete problem is TQBF, the truth of fully quantified Boolean formulas ∀x₁ ∃x₂ … φ (Stockmeyer and Meyer 1973). The time hierarchy theorem gives P ≠ EXP, but none of the inclusions P ⊆ NP ⊆ PSPACE ⊆ EXP is known to be strict individually.</p>
+<h3>Descriptive complexity</h3>
+<p><strong>Theorem 12.3 (Fagin 1974)</strong>. A class of finite structures is in NP iff it is definable by an existential second-order sentence ∃R₁ … ∃Rₖ φ, with φ first-order.</p>
+<p>For example 3-colourability of graphs is defined by ∃R ∃G ∃B (∀x (R(x) ∨ G(x) ∨ B(x)) ∧ ∀x ∀y (E(x, y) → ¬(R(x) ∧ R(y)) ∧ ¬(G(x) ∧ G(y)) ∧ ¬(B(x) ∧ B(y)))). Immerman and Vardi (1982) showed that on ordered finite structures P is captured by first-order logic with a least fixed-point operator. Thus P = NP becomes a question about the expressive power of logics on finite structures.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Convert the clause (a ∨ b ∨ c ∨ d ∨ e) into an equisatisfiable 3-CNF. How many new variables and clauses?</div></li><li><span class="mk">(b)</span><div>In the CLIQUE reduction, how many vertices does the graph have for a 3-CNF with 7 clauses, and what clique size is sought?</div></li><li><span class="mk">(c)</span><div>Explain why 2-SAT ∈ P does not contradict the NP-completeness of 3-SAT.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) (a ∨ b ∨ y₁) ∧ (¬y₁ ∨ c ∨ y₂) ∧ (¬y₂ ∨ d ∨ e): 2 new variables and 3 clauses, matching k − 3 = 2 and k − 2 = 3 for k = 5. (b) 21 vertices, clique of size 7. (c) No polynomial reduction from 3-SAT to 2-SAT is known; the splitting trick that reduces long clauses to length 3 does not reduce them to length 2, since a clause of length 3 is split into pieces that still need three literals each. If such a reduction existed, P = NP would follow.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-11.html">← Lesson 11</a><a class="btn" href="lesson-13.html">Lesson 13 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

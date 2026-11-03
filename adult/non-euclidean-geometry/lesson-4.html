@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 4: The Hyperboloid Model — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 4</p>
+    <h1>The Hyperboloid Model</h1>
+    <p class="kicker">Lesson 4 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">⟨x, y⟩ = x₁y₁ + x₂y₂ − x₃y₃
+H² = { x : ⟨x, x⟩ = −1, x₃ &gt; 0 },   cosh d(x, y) = −⟨x, y⟩
+Isom(H²) = O⁺(2,1);   geodesics = H² ∩ (planes through 0)</pre></div>
+<h3>Minkowski space</h3>
+<p>Equip ℝ³ with the symmetric bilinear form ⟨x, y⟩ = x₁y₁ + x₂y₂ − x₃y₃ of signature (2,1); this is three-dimensional Minkowski space ℝ²˒¹. A vector x is spacelike, lightlike or timelike according as ⟨x, x⟩ &gt; 0, = 0 or &lt; 0. The set ⟨x, x⟩ = −1 is a hyperboloid of two sheets; its upper sheet</p>
+<pre class="math">H² = { x ∈ ℝ³ : x₁² + x₂² − x₃² = −1,  x₃ &gt; 0 }</pre>
+<p>is the hyperboloid model of the hyperbolic plane. Its formal analogy with the sphere x₁² + x₂² + x₃² = 1 is the precise version of Lambert's &quot;sphere of imaginary radius&quot;.</p>
+<h3>The metric</h3>
+<p>The tangent space at p ∈ H² is T<sub>pH²</sub> = { v : ⟨p, v⟩ = 0 } (differentiate ⟨x, x⟩ = −1). Lemma 4.1: if p is timelike, then ⟨·,·⟩ is positive definite on p<sup>⊥</sup>. Proof: write v = (w, v₃) and p = (q, p₃) with w, q ∈ ℝ². The condition ⟨v, p⟩ = 0 says w · q = v₃p₃, so v₃ = (w · q)/p₃. For p ∈ H² we have |q|² = p₃² − 1 &lt; p₃², so if w ≠ 0 then v₃² ≤ |w|²|q|²/p₃² &lt; |w|² and ⟨v, v⟩ = |w|² − v₃² &gt; 0; if w = 0 then v₃ = 0 and v = 0. ∎</p>
+<p>Hence the restriction of ⟨·,·⟩ to the tangent planes is a Riemannian metric on H². In the parametrisation x = (sinh r cos θ, sinh r sin θ, cosh r) it becomes</p>
+<pre class="math">ds² = dr² + sinh²r dθ²,</pre>
+<p>the hyperbolic analogue of the spherical metric dφ² + sin²φ dλ² in polar coordinates.</p>
+<h3>The isometry group</h3>
+<p>Let O(2,1) be the group of linear maps preserving ⟨·,·⟩, and O⁺(2,1) the subgroup of index 2 preserving the upper sheet. These act on H² by isometries. The stabiliser of p₀ = (0, 0, 1) contains O(2) acting on the first two coordinates, and the action is transitive: the boost</p>
+<pre class="math">B<sub>t</sub> = [ cosh t   0   sinh t ]
+      [   0      1     0    ]
+      [ sinh t   0   cosh t ]</pre>
+<p>maps p₀ to (sinh t, 0, cosh t), and composing with rotations reaches every point. Theorem 4.2: Isom(H²) = O⁺(2,1). (An isometry fixing p₀ is determined by its derivative at p₀, an element of O(2), because isometries map geodesics to geodesics; combining with transitivity, every isometry is the restriction of a linear map.) The identity component SO⁺(2,1) consists of the orientation-preserving isometries; it is isomorphic to PSL(2,ℝ), as Lesson 5 makes explicit.</p>
+<h3>Geodesics and distance</h3>
+<p>For p ∈ H² and a unit tangent vector v ∈ T<sub>pH²</sub>, the curve γ(t) = cosh t · p + sinh t · v satisfies ⟨γ, γ⟩ = −cosh²t + sinh²t = −1 and ⟨γ′, γ′⟩ = −sinh²t + cosh²t = 1, so it is a unit-speed curve in H². It is the intersection of H² with the plane spanned by p and v, and it is the fixed set of the Lorentzian reflection in that plane, which belongs to O⁺(2,1). The fixed-point set of an isometric reflection is a union of geodesics, and through every point in every direction there is exactly one such curve. Hence:</p>
+<p><strong>Theorem 4.3</strong>. The geodesics of H² are exactly the nonempty intersections of H² with planes through the origin. The hyperbolic distance satisfies cosh d(x, y) = −⟨x, y⟩.</p>
+<p><strong>Proof of the distance formula</strong>. Both sides are invariant under O⁺(2,1), so we may take x = p₀ and y = (sinh t, 0, cosh t). Then −⟨x, y⟩ = cosh t. That the geodesic arc of length t is length-minimising follows from the polar metric: any curve from p₀ to a point at radius t has length ∫ √(r′² + sinh²r θ′²) ≥ ∫ |r′| ≥ t. ∎</p>
+<p>A plane through 0 meets H² if and only if it has the form n<sup>⊥</sup> for a spacelike vector n (orthogonality with respect to ⟨·,·⟩). Thus lines of H² correspond to spacelike unit vectors n up to sign — the hyperbolic analogue of the poles of great circles. Two lines n₁<sup>⊥</sup>, n₂<sup>⊥</sup> intersect, are asymptotically parallel (meet on the light cone) or are ultraparallel according as |⟨n₁, n₂⟩| &lt; 1, = 1, or &gt; 1; in the first case the angle θ between them satisfies cos θ = |⟨n₁, n₂⟩|, and in the last case their common perpendicular has length ℓ with cosh ℓ = |⟨n₁, n₂⟩|.</p>
+<h3>Failure of the parallel postulate</h3>
+<p>Take the line ℓ = H² ∩ {x₁ = 0} (normal n = e₁) and the point p = (sinh t, 0, cosh t) at distance t &gt; 0 from it. The lines through p correspond to unit spacelike normals n with ⟨n, p⟩ = 0; those with |⟨n, e₁⟩| ≥ 1 do not meet ℓ. There are infinitely many of them, bounded by two asymptotic parallels. Playfair's axiom fails, while all axioms of neutral geometry hold (they can be verified using the transitivity of O⁺(2,1) on points, on unit tangent vectors and on flags).</p>
+<h3>The connection with special relativity</h3>
+<p>In special relativity with c = 1, the four-velocities of particles are the future unit timelike vectors of Minkowski space ℝ³˒¹, which form the hyperboloid model of H³. The hyperbolic distance between two four-velocities is their relative rapidity: if u, w have relative speed v, then −⟨u, w⟩ = γ(v) = 1/√(1 − v²) = cosh φ with v = tanh φ. Collinear velocities combine by adding rapidities, which is the relativistic velocity-addition law tanh(φ₁ + φ₂) = (v₁ + v₂)/(1 + v₁v₂). The hyperbolic geometry of velocity space was recognised by Sommerfeld (1909) and Varićak (1910). It also underlies the Thomas–Wigner rotation: composing boosts around a closed loop in velocity space produces a spatial rotation whose angle is the angle defect of the corresponding hyperbolic triangle.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Verify that x = (2, 2, 3) lies on H², and compute its distance from p₀ = (0, 0, 1).</div></li><li><span class="mk">(b)</span><div>Compute d(x, y) numerically for x = (2, 2, 3) and y = (sinh 1, 0, cosh 1).</div></li><li><span class="mk">(c)</span><div>Two particles move in opposite directions, each at speed 0.6 relative to the laboratory. Using rapidities, find their relative speed.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 4 + 4 − 9 = −1 and x₃ &gt; 0. cosh d = −⟨x, p₀⟩ = 3, so d = arccosh 3 = ln(3 + 2√2) ≈ 1.7627. (b) −⟨x, y⟩ = 3 cosh 1 − 2 sinh 1 ≈ 4.62924 − 2.35040 = 2.27884, so d ≈ arccosh(2.27884) ≈ 1.4648. (c) Each rapidity is artanh 0.6 = ½ ln 4 = ln 2; the relative rapidity is 2 ln 2 = ln 4, so the relative speed is tanh(ln 4) = (16 − 1)/(16 + 1) = 15/17 ≈ 0.882, agreeing with (0.6 + 0.6)/(1 + 0.36) = 1.2/1.36 = 15/17.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-3.html">← Lesson 3</a><a class="btn" href="lesson-5.html">Lesson 5 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

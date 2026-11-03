@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 7: The Complex Logarithm — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 7</p>
+    <h1>The Complex Logarithm</h1>
+    <p class="kicker">Lesson 7 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" class="here" aria-current="page" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">log z = ln |z| + i arg z   (a set: one value for each choice of arg z)
+Log z = ln |z| + i Arg z,   Arg z ∈ (−π, π]   (principal value)
+Log is holomorphic on ℂ ∖ (−∞, 0] with Log′(z) = 1/z</pre></div>
+<h3>The exponential map on ℂ</h3>
+<p>Define eᶻ = ∑ zᵏ/k! for z ∈ ℂ. The Cauchy product of absolutely convergent series gives eᶻ⁺ʷ = eᶻe<sup>w</sup>, and Euler's formula eⁱʸ = cos y + i sin y follows by comparing series. Hence eˣ⁺ⁱʸ = eˣ(cos y + i sin y), so |eᶻ| = e<sup>Re z</sup> and arg eᶻ = Im z (mod 2π). Consequently exp: ℂ → ℂ∖{0} is surjective and eᶻ = e<sup>w</sup> if and only if z − w ∈ 2πiℤ. In group-theoretic terms, exp is a surjective homomorphism (ℂ, +) → (ℂ*, ×) with kernel 2πiℤ, and</p>
+<pre class="math">ℂ / 2πiℤ ≅ ℂ*.</pre>
+<p>Unlike the real case, exp is not injective, so it has no global inverse. A logarithm of w ≠ 0 is any z with eᶻ = w, and the set of all logarithms is</p>
+<pre class="math">log w = { ln |w| + i(θ + 2πk) : k ∈ ℤ },   where θ is any argument of w.</pre>
+<h3>Branches</h3>
+<p><strong>Definition 7.1</strong>. Let D ⊆ ℂ∖{0} be open. A branch of the logarithm on D is a continuous function L: D → ℂ with e<sup>L(z)</sup> = z for all z ∈ D.</p>
+<p>Any branch is automatically holomorphic with L′(z) = 1/z: from e<sup>L(z)</sup> = z and continuity of L, the difference quotient (L(z + h) − L(z))/h equals (L(z + h) − L(z))/(e<sup>L(z+h)</sup> − e<sup>L(z)</sup>), which tends to 1/e<sup>L(z)</sup> = 1/z. Two branches on a connected set differ by a constant 2πik, since their difference is continuous with values in 2πiℤ.</p>
+<p><strong>Definition 7.2</strong>. The principal branch is Log z = ln |z| + i Arg z, where Arg z ∈ (−π, π] is the principal argument.</p>
+<p>Log is defined on all of ℂ∖{0} but is continuous only on the slit plane ℂ∖(−∞, 0]. Across the negative real axis Arg jumps by 2π: for r &gt; 0, Arg(−r + iε) → π and Arg(−r − iε) → −π as ε → 0⁺. The ray (−∞, 0] is the branch cut. The choice of cut is conventional; any simple curve from 0 to ∞ would do. Some examples:</p>
+<pre class="math">Log(−1) = iπ,   Log(i) = iπ/2,   Log(1 + i) = ½ ln 2 + iπ/4,
+Log(−1 − i) = ½ ln 2 − 3iπ/4,   Log(−e) = 1 + iπ.</pre>
+<h3>No logarithm on a circle</h3>
+<p><strong>Theorem 7.3</strong>. There is no branch of the logarithm on any set containing a circle |z| = r.</p>
+<p><strong>Proof</strong>. Suppose L is a branch on |z| = r and set g(θ) = (L(re<sup>iθ</sup>) − ln r − iθ)/(2πi) for θ ∈ [0, 2π]. Since e<sup>L(re<sup>iθ</sup>)</sup> = re<sup>iθ</sup>, g takes integer values, and g is continuous, so it is constant. But re<sup>i·2π</sup> = re<sup>i·0</sup>, so g(2π) = g(0) − 1, a contradiction. ∎</p>
+<h3>Existence on simply connected domains</h3>
+<p><strong>Theorem 7.4</strong>. Let D ⊆ ℂ∖{0} be a simply connected domain and z₀ ∈ D. Choose w₀ with e<sup>w₀</sup> = z₀. Then L(z) = w₀ + ∫<sub>z₀</sub>ᶻ dζ/ζ, the integral along any path in D, defines a branch of the logarithm on D.</p>
+<p><strong>Proof</strong>. 1/ζ is holomorphic on D, so by Cauchy's theorem for simply connected domains the integral is independent of the path, and L is holomorphic with L′ = 1/z. Then (z e<sup>−L(z)</sup>)′ = e<sup>−L</sup> − z(1/z)e<sup>−L</sup> = 0, so z e<sup>−L(z)</sup> is constant, equal to z₀e<sup>−w₀</sup> = 1 at z₀. ∎</p>
+<p>The obstruction in Theorem 7.3 is measured exactly by the integral (1/2πi) ∮ dz/z = 1 over a positively oriented circle around 0. More generally the winding number of a closed curve γ around a point a is n(γ, a) = (1/2πi) ∮<sub>γ</sub> dz/(z − a), the net number of times the continuous argument increases by 2π. Applied to f′/f, the logarithmic derivative, this gives the argument principle: for f meromorphic inside a simple closed contour with no zeros or poles on it, (1/2πi) ∮ f′/f dz = Z − P, the number of zeros minus the number of poles, counted with multiplicity. Rouché's theorem and many proofs of the fundamental theorem of algebra follow.</p>
+<h3>The Riemann surface</h3>
+<p>The multi-valuedness can be removed by enlarging the domain. The Riemann surface of log is the set S = {(z, w) ∈ ℂ* × ℂ : eʷ = z}, which is biholomorphic to ℂ via (z, w) ↦ w, and on which log is the single-valued function (z, w) ↦ w. Projected to z, it looks like an infinite spiral staircase (Figure 2): walking once around the origin moves you up one storey, adding 2πi to the logarithm. In topological language, exp: ℂ → ℂ* is the universal covering map of the punctured plane, with deck transformation group 2πiℤ ≅ ℤ = π₁(ℂ*).</p>
+<h3>Laws that fail</h3>
+<p>Log(zw) = Log z + Log w holds if and only if Arg z + Arg w ∈ (−π, π]. In general</p>
+<pre class="math">Log(zw) = Log z + Log w + 2πik,   k ∈ {−1, 0, 1}.</pre>
+<p>For example Log((−1)(−1)) = Log 1 = 0, whereas Log(−1) + Log(−1) = 2πi, so here k = −1. Similarly Log(zⁿ) ≠ n Log z in general. The set-valued identity log(zw) = log z + log w (as sets of complex numbers) is, however, always true.</p>
+<h3>Complex powers</h3>
+<p><strong>Definition 7.5</strong>. For z ≠ 0 and w ∈ ℂ, the values of zʷ are exp(w log z); the principal value is exp(w Log z).</p>
+<p>If w = n is an integer all values coincide and agree with the algebraic power. If w = p/q in lowest terms there are exactly q values, the q-th roots of zᵖ. If w is irrational or non-real there are infinitely many values. A famous example:</p>
+<pre class="math">iⁱ = exp(i log i) = exp(i · i(π/2 + 2πk)) = e<sup>−π/2 − 2πk</sup>,   k ∈ ℤ,</pre>
+<p>so every value of iⁱ is real and positive, and the principal value is e<sup>−π/2</sup> = 0.2078795763… . By Gelfond–Schneider (1934), e<sup>π</sup> = (−1)⁻ⁱ is transcendental, as is 2<sup>√2</sup>.</p>
+<h3>The series in the complex disc</h3>
+<p>For |z| &lt; 1 the series Log(1 + z) = ∑<sub>k≥1</sub> (−1)ᵏ⁺¹ zᵏ/k holds, since both sides are holomorphic on the disc and agree on the real segment (−1, 1) (identity theorem); note that 1 + z lies in the right half-plane, so the principal branch is continuous there. On the boundary circle the series converges for every z ≠ −1 (Dirichlet's test), and at z = e<sup>iθ</sup> with −π &lt; θ &lt; π it gives</p>
+<pre class="math">∑<sub>k≥1</sub> (−1)ᵏ⁺¹ e<sup>ikθ</sup>/k = ln(2 cos(θ/2)) + iθ/2.</pre>
+<p>Taking imaginary parts with θ replaced by π − φ yields the Fourier series ∑ sin(kφ)/k = (π − φ)/2 for 0 &lt; φ &lt; 2π.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Compute the principal values Log(−3i) and (−1)ⁱ.</div></li><li><span class="mk">(b)</span><div>Find all solutions of eᶻ = 1 + i√3.</div></li><li><span class="mk">(c)</span><div>For which z ∈ ℂ∖{0} does Log(z²) = 2 Log z hold?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Log(−3i) = ln 3 − iπ/2. (−1)ⁱ = exp(i Log(−1)) = exp(i · iπ) = e<sup>−π</sup> ≈ 0.04321. (b) |1 + i√3| = 2 and an argument is π/3, so z = ln 2 + i(π/3 + 2πk), k ∈ ℤ. (c) Exactly when 2 Arg z ∈ (−π, π], that is, when Arg z ∈ (−π/2, π/2], the open right half-plane together with the positive imaginary axis.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-6.html">← Lesson 6</a><a class="btn" href="lesson-8.html">Lesson 8 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

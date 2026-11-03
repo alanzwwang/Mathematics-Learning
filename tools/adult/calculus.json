@@ -1,0 +1,23 @@
+{
+  "blurb": "Real analysis from the completeness of ℝ to the Lebesgue integral, with multivariable calculus and full proofs.",
+  "pics": [
+    {
+      "img": "img/adult/calculus-1.png",
+      "alt": "Graph of a Weierstrass function between x = −2 and x = 2, jagged at every scale, with a circular zoomed inset",
+      "caption": "A Weierstrass function on [−2, 2], with an inset magnifying a small piece of the graph near the red point. Functions of this kind, presented by Weierstrass in 1872, are continuous everywhere but differentiable nowhere.",
+      "title": "WeierstrassFunction.svg",
+      "page": "https://commons.wikimedia.org/wiki/File:WeierstrassFunction.svg",
+      "license": "Public domain",
+      "artist": "Eeyore22"
+    },
+    {
+      "img": "img/adult/calculus-2.jpeg",
+      "alt": "Black-and-white portrait of Bernhard Riemann, bearded and wearing spectacles and a bow tie",
+      "caption": "Bernhard Riemann (1826–1866), in a portrait from 1863. His 1854 Habilitationsschrift on trigonometric series introduced the integral that bears his name.",
+      "title": "Georg Friedrich Bernhard Riemann.jpeg",
+      "page": "https://commons.wikimedia.org/wiki/File:Georg_Friedrich_Bernhard_Riemann.jpeg",
+      "license": "Public domain",
+      "artist": "Unknown author"
+    }
+  ]
+}

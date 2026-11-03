@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pascal's Triangle — Mathematics Learning (Advanced)</title>
+<meta name="description" content="Binomial coefficients at graduate level: identities, Newton's series, Lucas, Kummer, q-analogues, Catalan, asymptotics.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#ec4899">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../pascals-triangle/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <span aria-current="page">Pascal's Triangle</span></p>
+    <h1>Pascal's Triangle</h1>
+    <p class="kicker">Algebra · An Advanced Course</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" class="here" aria-current="page" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Binomial Coefficients with Arbitrary Upper Index">1</a><a href="lesson-2.html" title="Lesson 2: Four Proof Techniques for Binomial Identities">2</a><a href="lesson-3.html" title="Lesson 3: The Chu–Vandermonde Identity">3</a><a href="lesson-4.html" title="Lesson 4: Generating Functions, the Binomial Transform and the Pascal Matrix">4</a><a href="lesson-5.html" title="Lesson 5: Newton's Generalized Binomial Theorem">5</a><a href="lesson-6.html" title="Lesson 6: Finite Differences and Integer-Valued Polynomials">6</a><a href="lesson-7.html" title="Lesson 7: Lucas' Theorem">7</a><a href="lesson-8.html" title="Lesson 8: Legendre, Kummer and the p-adic Valuation">8</a><a href="lesson-9.html" title="Lesson 9: The Sierpinski Pattern and Fractal Structure">9</a><a href="lesson-10.html" title="Lesson 10: Multinomial Coefficients and Pascal's Simplex">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Binomial Coefficients">11</a><a href="lesson-12.html" title="Lesson 12: Catalan Numbers, Reflection and the Ballot Problem">12</a><a href="lesson-13.html" title="Lesson 13: Asymptotics of Binomial Coefficients">13</a><a href="lesson-14.html" title="Lesson 14: Multiplicities and Singmaster's Conjecture">14</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <div class="welcome"><pre class="math">C(n, k) = n! / (k!(n − k)!)          (1 + x)<sup>α</sup> = ∑ₖ C(α, k) xᵏ
+C(n, k) ≡ ∏ᵢ C(nᵢ, kᵢ)  (mod p)      v<sub>p</sub> C(n, k) = #carries in k + (n − k), base p
+C(2n, n) ~ 4ⁿ / √(πn)                 [n k]<sub>q</sub> = #{k-dimensional subspaces of F<sub>qⁿ</sub>}</pre>
+<p>The arithmetic triangle is one of the oldest objects in mathematics. It appears in the work of Pingala and his commentator Halāyudha in India, in al-Karajī and al-Samaw'al in the Islamic world, in Yang Hui (1261) and Zhu Shijie (1303) in China, and in Tartaglia, Stifel and Cardano in Renaissance Europe, long before Blaise Pascal's Traité du triangle arithmétique (written 1654, published 1665). Pascal's contribution was not the triangle itself but a systematic treatment of it, including one of the earliest explicit uses of mathematical induction. This course takes the elementary facts as known — the factorial formula, Pascal's rule, row sums, the hockey stick, the binomial theorem for natural exponents, lattice paths and Vandermonde's identity — and develops the theory as it appears in graduate combinatorics, number theory and analysis.</p>
+<p>The guiding observation is that the binomial coefficient lives simultaneously in several worlds. Combinatorially, C(n, k) counts k-subsets of an n-set. Algebraically, C(x, k) = x(x − 1)⋯(x − k + 1)/k! is a polynomial, and the identities of the triangle are polynomial identities valid for arbitrary complex upper index. Analytically, C(α, k) are the Taylor coefficients of (1 + x)<sup>α</sup>, and C(n, k) has precise asymptotics governed by Stirling's formula and the normal distribution. Arithmetically, the residues of C(n, k) modulo a prime p are controlled by the base-p digits of n and k, which is why the triangle reduced modulo 2 is a discrete Sierpinski gasket. Finally, the triangle admits deformations — multinomial coefficients, which form Pascal's simplex, and Gaussian coefficients, which count subspaces of vector spaces over finite fields — and it contains the Catalan numbers, which govern the ballot problem. The course closes with an open problem: Singmaster's conjecture on how often an integer can occur in the triangle.</p>
+<p><strong>Notation</strong>. Throughout, ℕ = {0, 1, 2, …}, C(α, k) denotes the binomial coefficient with upper index α and lower index k, x<sup>k</sup> = x(x − 1)⋯(x − k + 1) denotes the falling factorial (with x<sup>0</sup> = 1), s<sub>p</sub>(n) denotes the sum of the base-p digits of n, v<sub>p</sub>(m) denotes the exponent of the prime p in the nonzero rational m, and [xⁿ]F(x) denotes the coefficient of xⁿ in a power series F. Proofs are given in full unless a result is explicitly labelled as cited.</p>
+<p>In this course, you will:</p>
+<ul class="steps"><li><span class="mk">1.</span><div>Define C(α, k) for arbitrary α and prove the basic identities as polynomial identities</div></li><li><span class="mk">2.</span><div>Master the four proof techniques: double counting, bijection, sign-reversing involution and the polynomial method</div></li><li><span class="mk">3.</span><div>Prove the Chu–Vandermonde identity in full generality and read it as a binomial-type property of falling factorials</div></li><li><span class="mk">4.</span><div>Use ordinary and exponential generating functions, the binomial transform and the Pascal matrix</div></li><li><span class="mk">5.</span><div>Prove Newton's generalized binomial theorem and determine its behaviour on the boundary circle</div></li><li><span class="mk">6.</span><div>Use finite differences and Newton interpolation to classify integer-valued polynomials</div></li><li><span class="mk">7.</span><div>Prove the theorems of Lucas, Legendre and Kummer, and apply them to Babbage, Wolstenholme and Bertrand</div></li><li><span class="mk">8.</span><div>Explain the Sierpinski pattern modulo 2 and compute the fractal dimension of the triangle modulo p</div></li><li><span class="mk">9.</span><div>Study multinomial coefficients, Pascal's simplex and their p-adic valuations</div></li><li><span class="mk">10.</span><div>Develop Gaussian binomial coefficients, the q-binomial theorem and their linear-algebraic meaning</div></li><li><span class="mk">11.</span><div>Derive the Catalan numbers by reflection and by the cycle lemma, and solve the ballot problem</div></li><li><span class="mk">12.</span><div>Obtain sharp asymptotics for central and non-central coefficients, and survey Singmaster's conjecture</div></li></ul></div><h2>Figures</h2><div class="picture-row">
+    <figure class="picture">
+      <img src="../../img/adult/pascals-triangle-1.png" alt="The first 32 rows of Pascal's triangle, with odd entries shaded black and even entries white, forming a Sierpinski triangle pattern" loading="lazy">
+      <figcaption><strong>Figure 1.</strong> Rows 0 to 31 of Pascal's triangle with the odd coefficients shaded black: by Lucas' theorem the odd entries form a discrete approximation of the Sierpinski triangle. The colour of each numeral records the coefficient modulo 4: black for 0, white for 1, red for 2 and yellow for 3. <a href="#sources">Source</a></figcaption>
+    </figure>
+    <figure class="picture">
+      <img src="../../img/adult/pascals-triangle-2.jpg" alt="Black-and-white photographic portrait of the German mathematician Ernst Eduard Kummer" loading="lazy">
+      <figcaption><strong>Figure 2.</strong> Ernst Eduard Kummer (1810–1893), whose 1852 theorem states that the power of a prime p dividing C(n, k) equals the number of carries when k and n − k are added in base p. <a href="#sources">Source</a></figcaption>
+    </figure></div><h2>Contents</h2><div class="lesson-list">
+    <a class="lesson-card" href="lesson-1.html"><span><span class="lc-num">Lesson 1</span><br><strong>Binomial Coefficients with Arbitrary Upper Index</strong></span></a>
+    <a class="lesson-card" href="lesson-2.html"><span><span class="lc-num">Lesson 2</span><br><strong>Four Proof Techniques for Binomial Identities</strong></span></a>
+    <a class="lesson-card" href="lesson-3.html"><span><span class="lc-num">Lesson 3</span><br><strong>The Chu–Vandermonde Identity</strong></span></a>
+    <a class="lesson-card" href="lesson-4.html"><span><span class="lc-num">Lesson 4</span><br><strong>Generating Functions, the Binomial Transform and the Pascal Matrix</strong></span></a>
+    <a class="lesson-card" href="lesson-5.html"><span><span class="lc-num">Lesson 5</span><br><strong>Newton's Generalized Binomial Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-6.html"><span><span class="lc-num">Lesson 6</span><br><strong>Finite Differences and Integer-Valued Polynomials</strong></span></a>
+    <a class="lesson-card" href="lesson-7.html"><span><span class="lc-num">Lesson 7</span><br><strong>Lucas' Theorem</strong></span></a>
+    <a class="lesson-card" href="lesson-8.html"><span><span class="lc-num">Lesson 8</span><br><strong>Legendre, Kummer and the p-adic Valuation</strong></span></a>
+    <a class="lesson-card" href="lesson-9.html"><span><span class="lc-num">Lesson 9</span><br><strong>The Sierpinski Pattern and Fractal Structure</strong></span></a>
+    <a class="lesson-card" href="lesson-10.html"><span><span class="lc-num">Lesson 10</span><br><strong>Multinomial Coefficients and Pascal's Simplex</strong></span></a>
+    <a class="lesson-card" href="lesson-11.html"><span><span class="lc-num">Lesson 11</span><br><strong>Gaussian Binomial Coefficients</strong></span></a>
+    <a class="lesson-card" href="lesson-12.html"><span><span class="lc-num">Lesson 12</span><br><strong>Catalan Numbers, Reflection and the Ballot Problem</strong></span></a>
+    <a class="lesson-card" href="lesson-13.html"><span><span class="lc-num">Lesson 13</span><br><strong>Asymptotics of Binomial Coefficients</strong></span></a>
+    <a class="lesson-card" href="lesson-14.html"><span><span class="lc-num">Lesson 14</span><br><strong>Multiplicities and Singmaster's Conjecture</strong></span></a>
+    <a class="lesson-card" href="practice.html"><span><span class="lc-num">Problem Set</span><br><strong>60 problems</strong></span></a>
+    <a class="lesson-card" href="quiz.html"><span><span class="lc-num">Assessment</span><br><strong>Randomly generated questions</strong></span></a></div><section class="sources" id="sources"><h2>Image sources</h2><ol><li><strong>Figure 1</strong> · Sierpinski Pascal triangle. By Cmglee. CC BY-SA 4.0. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Sierpinski_Pascal_triangle.svg">https://commons.wikimedia.org/wiki/File:Sierpinski_Pascal_triangle.svg</a></li><li><strong>Figure 2</strong> · Ernst Eduard Kummer. By Unknown photographer. Public domain. From Wikimedia Commons: <a href="https://commons.wikimedia.org/wiki/File:Ernst_Eduard_Kummer.jpg">https://commons.wikimedia.org/wiki/File:Ernst_Eduard_Kummer.jpg</a></li></ol></section>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="../index.html">All fields</a><a class="btn" href="lesson-1.html">Lesson 1 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

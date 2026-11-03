@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 13: Riemannian Geometry and General Relativity — Non-Euclidean Geometry (Advanced)</title>
+<meta name="description" content="Neutral, spherical and hyperbolic geometry: models, PSL(2,ℝ), trigonometry, Fuchsian groups and Gauss–Bonnet.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#0ea5e9">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../non-euclidean-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Non-Euclidean Geometry</a> › Lesson 13</p>
+    <h1>Riemannian Geometry and General Relativity</h1>
+    <p class="kicker">Lesson 13 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Neutral Geometry and the Parallel Postulate">1</a><a href="lesson-2.html" title="Lesson 2: Spherical and Elliptic Geometry">2</a><a href="lesson-3.html" title="Lesson 3: Spherical Trigonometry">3</a><a href="lesson-4.html" title="Lesson 4: The Hyperboloid Model">4</a><a href="lesson-5.html" title="Lesson 5: The Upper Half-Plane">5</a><a href="lesson-6.html" title="Lesson 6: Möbius Transformations and the Classification of Isometries">6</a><a href="lesson-7.html" title="Lesson 7: The Poincaré Disk and the Beltrami–Klein Model">7</a><a href="lesson-8.html" title="Lesson 8: Hyperbolic Trigonometry">8</a><a href="lesson-9.html" title="Lesson 9: Area and Angle Defect">9</a><a href="lesson-10.html" title="Lesson 10: Fuchsian Groups, Triangle Groups and Tilings">10</a><a href="lesson-11.html" title="Lesson 11: Gaussian Curvature and the Theorema Egregium">11</a><a href="lesson-12.html" title="Lesson 12: The Gauss–Bonnet Theorem">12</a><a href="lesson-13.html" class="here" aria-current="page" title="Lesson 13: Riemannian Geometry and General Relativity">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">ds² = g<sub>ij</sub> dxⁱ dxʲ;      geodesics: ẍᵏ + Γᵏᵢⱼ ẋⁱ ẋʲ = 0
+Jacobi equation:  J″ + K J = 0  (geodesics converge if K &gt; 0, diverge if K &lt; 0)
+Einstein:  R<sub>μν</sub> − ½ R g<sub>μν</sub> + Λ g<sub>μν</sub> = (8πG/c⁴) T<sub>μν</sub></pre></div>
+<h3>Riemann's lecture</h3>
+<p>On 10 June 1854, Bernhard Riemann gave his Habilitation lecture &quot;Über die Hypothesen, welche der Geometrie zu Grunde liegen&quot; (published in 1868). He proposed that a space is an n-dimensional manifold whose infinitesimal distance is given by a positive definite quadratic form ds² = Σ g<sub>ij</sub>(x) dxⁱ dxʲ, that curvature should be measured in each two-dimensional direction, and that the geometry of physical space is an empirical question to be settled by physics — anticipating the separation, decisive for relativity, between mathematical geometry and physical space.</p>
+<h3>Riemannian manifolds</h3>
+<p>A Riemannian manifold (M, g) is a smooth manifold with a smoothly varying inner product on each tangent space. There is a unique torsion-free connection ∇ compatible with g (the Levi-Civita connection), with Christoffel symbols</p>
+<pre class="math">Γᵏᵢⱼ = ½ gᵏˡ ( ∂ᵢ g<sub>jl</sub> + ∂ⱼ g<sub>il</sub> − ∂ₗ g<sub>ij</sub> ).</pre>
+<p>Geodesics are the curves with ∇_ẋ ẋ = 0, i.e. ẍᵏ + Γᵏᵢⱼ ẋⁱ ẋʲ = 0; they are the critical points of the energy functional and locally minimise length. For a conformal metric e<sup>2φ</sup>δ<sub>ij</sub> one finds Γᵏᵢⱼ = δᵢₖ ∂ⱼφ + δⱼₖ ∂ᵢφ − δᵢⱼ ∂ₖφ; with φ = −ln y this reproduces the Christoffel symbols of Lesson 5. The Riemann curvature tensor R(X, Y)Z = ∇_X∇_Y Z − ∇_Y∇_X Z − ∇<sub>[X,Y]</sub>Z measures the failure of second covariant derivatives to commute, and the sectional curvature of a 2-plane spanned by X, Y is</p>
+<pre class="math">sec(X, Y) = ⟨R(X, Y)Y, X⟩ / (|X|²|Y|² − ⟨X, Y⟩²),</pre>
+<p>which on a surface is the Gaussian curvature. Contractions give the Ricci tensor R<sub>ij</sub> and the scalar curvature R; on a surface R = 2K.</p>
+<h3>Space forms</h3>
+<p><strong>Theorem 13.1 (Killing–Hopf)</strong>. A complete, simply connected Riemannian n-manifold of constant sectional curvature κ is isometric to the round sphere Sⁿ of radius 1/√κ (κ &gt; 0), to Euclidean space ℝⁿ (κ = 0), or to hyperbolic space Hⁿ scaled to curvature κ (κ &lt; 0). Every complete manifold of constant curvature is a quotient of one of these by a discrete group of isometries acting freely.</p>
+<p>Hyperbolic n-space has the same models as H²: the hyperboloid in ℝⁿ˒¹ with isometry group O⁺(n,1), the upper half-space with metric (dx₁² + ⋯ + dxₙ²)/xₙ², and the Poincaré and Klein balls. For n = 3 the orientation-preserving isometries of the upper half-space are the Möbius maps of the Riemann sphere, PSL(2,ℂ), acting on its boundary; discrete subgroups are Kleinian groups. Mostow rigidity (1968) asserts that for n ≥ 3 a closed hyperbolic manifold is determined up to isometry by its fundamental group — in sharp contrast with the 6g − 6 dimensional Teichmüller spaces of surfaces.</p>
+<h3>Geodesic deviation</h3>
+<p>Let γ<sub>s</sub>(t) be a family of unit-speed geodesics and J = ∂γ/∂s the variation field (a Jacobi field), orthogonal to the geodesics. On a surface of constant curvature K, its length satisfies the Jacobi equation J″ + K J = 0, so with J(0) = 0, J′(0) = 1:</p>
+<pre class="math">J(t) = sin(√K t)/√K   (K &gt; 0),      J(t) = t   (K = 0),      J(t) = sinh(√−K t)/√−K   (K &lt; 0).</pre>
+<p>Nearby geodesics refocus on the sphere (conjugate points at distance π/√K), separate linearly in the plane, and diverge exponentially in the hyperbolic plane. Exponential divergence is the source of the chaotic (Anosov, mixing, ergodic) behaviour of the geodesic flow on compact hyperbolic surfaces, proved by Hopf (1939) and Anosov (1967) — the mathematical prototype of deterministic chaos.</p>
+<h3>General relativity</h3>
+<p>In Einstein's general theory of relativity (1915), spacetime is a four-dimensional Lorentzian manifold with metric of signature (−, +, +, +); freely falling bodies follow timelike geodesics and light follows null geodesics. Gravitation is not a force but curvature, and tidal acceleration is literally the geodesic deviation equation D²J/dt² = −R(J, u)u. The metric is determined by the matter content through the Einstein field equations</p>
+<pre class="math">R<sub>μν</sub> − ½ R g<sub>μν</sub> + Λ g<sub>μν</sub> = (8πG/c⁴) T<sub>μν</sub>.</pre>
+<p>Outside a spherical mass M the solution is the Schwarzschild metric:</p>
+<pre class="math">ds² = −(1 − r<sub>s</sub>/r) c²dt² + dr²/(1 − r<sub>s</sub>/r) + r²(dθ² + sin²θ dφ²),     r<sub>s</sub> = 2GM/c².</pre>
+<p>Its predictions include the deflection of light passing a mass at impact parameter b by the angle 4GM/(c²b), which for a ray grazing the Sun is about 1.75 arcseconds (confirmed, within the large uncertainties of the time, by the eclipse expeditions of 1919), the anomalous perihelion precession of Mercury of about 43 arcseconds per century, and the gravitational time dilation that must be corrected for in satellite navigation systems (about 38 microseconds per day for GPS clocks, the net of +45 μs from weaker gravity and −7 μs from orbital speed).</p>
+<h3>The geometry of the universe</h3>
+<p>The Friedmann–Lemaître–Robertson–Walker metrics, describing a homogeneous isotropic universe, have the form ds² = −c²dt² + a(t)² dΣ², where dΣ² is a metric of constant curvature k = +1, 0 or −1 on three-dimensional space: spherical, Euclidean or hyperbolic. The three geometries of this course are thus the three candidate geometries for space at cosmological scales. Measurements of the cosmic microwave background (Planck collaboration, 2018), combined with baryon acoustic oscillation data, give a spatial curvature density parameter Ω<sub>K</sub> = 0.001 ± 0.002, consistent with flat space; a hyperbolic or spherical universe with a radius of curvature much larger than the observable universe cannot be excluded. The question Gauss is said to have tested by triangulating three mountain peaks, and which Lobachevsky proposed to test with stellar parallaxes, is still an empirical one.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Two geodesics on the unit sphere leave a point at angle 0.01 rad. How far apart are they (approximately) after travelling π/2? After π?</div></li><li><span class="mk">(b)</span><div>Repeat (a) in the hyperbolic plane for a travelled distance of 10.</div></li><li><span class="mk">(c)</span><div>Compute the Schwarzschild radius of the Sun (M = 1.989 × 10³⁰ kg, G = 6.674 × 10⁻¹¹ m³ kg⁻¹ s⁻², c = 2.998 × 10⁸ m/s).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Separation ≈ 0.01 · sin t: after π/2 it is 0.01, after π it is 0 (the antipodal point is conjugate). (b) 0.01 · sinh 10 ≈ 0.01 · 11013.2 ≈ 110.1 — by then the linear approximation is meaningless; the point is that the separation grows like e<sup>t</sup>. (c) r<sub>s</sub> = 2GM/c² = 2 · 6.674 × 10⁻¹¹ · 1.989 × 10³⁰ / (2.998 × 10⁸)² ≈ 2.655 × 10²⁰ / 8.988 × 10¹⁶ ≈ 2954 m, about 2.95 km.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-12.html">← Lesson 12</a><a class="btn" href="practice.html">Problem Set →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

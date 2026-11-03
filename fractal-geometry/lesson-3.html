@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#10b981">
+<body id="top" class="mode-kid" style="--topic:#10b981">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry" class="active">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/fractal-geometry/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,7 +34,7 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: What Is a Fractal? — The Zoom Test">1</a><a href="lesson-2.html" title="Lesson 2: The Recipe — One Rule, Repeated (and the Formula That Captures It)">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: The Koch Snowflake — The Edge That Never Stops (and the Area That Does)">3</a><a href="lesson-4.html" title="Lesson 4: The Sierpinski Triangle — The Great Disappearing Act (With Infinite Perimeter!)">4</a><a href="lesson-5.html" title="Lesson 5: The Dimension Secret — Now With Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Fractals All Over Nature — And Why (Plus: the Coastline Formula)">6</a><a href="lesson-7.html" title="Lesson 7: The Big Paradoxes — Now Proven">7</a><a href="lesson-8.html" title="Lesson 8: Watch Out! Common Mistakes">8</a><a href="lesson-9.html" title="Lesson 9: Review — The Big Picture">9</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">Koch rule: every segment becomes 4 segments, each 1/3 as long.
 Every iteration multiplies the PERIMETER by 4/3 — forever.
@@ -57,13 +58,13 @@ P(4) = 3·(4/3)⁴                       (substitute n = 4)
      = 768/81 = 256/27 ≈ 9.48 cm      (simplify: divide by 3)</pre>
 <p>Same answer — it had better be! Method B wins when n is large (imagine computing stage 40 recursively), while Method A is safer when you're unsure of the formula. Strong solvers pick the method to fit the problem — and use the other as a check.</p>
 <p>Since 4/3 &gt; 1, the powers (4/3)ⁿ grow past every number: the perimeter DIVERGES to infinity. (Feel it: (4/3)¹⁰ ≈ 17.8, (4/3)²⁰ ≈ 315.) Yet the snowflake never grows beyond its original circle on the page. So what happens to the area? Time for the theorem the old lesson could only state — now we can prove it.</p>
-<p>Theorem: the Koch snowflake's total area is exactly 8/5 of the original triangle's area.</p>
+<p><strong>Theorem</strong>: the Koch snowflake's total area is exactly 8/5 of the original triangle's area.</p>
 <p>Setup — the area of an equilateral triangle with side s is A₀ = (√3/4)·s². Where does that come from? Split the triangle down the middle and use the Pythagorean theorem on the right triangle with hypotenuse s and base s/2:</p>
 <pre class="math">h² + (s/2)² = s²                      (Pythagorean theorem)
 h² = s² − s²/4 = 3s²/4                (subtract (s/2)² = s²/4 from both sides)
 h = (√3/2)·s                          (take the positive square root)
 A₀ = ½ · base · height = ½ · s · (√3/2)s = (√3/4)s²   (area formula)</pre>
-<p>Proof — add up the bumps, stage by stage.</p>
+<p><strong>Proof</strong> — add up the bumps, stage by stage.</p>
 <pre class="math">Step 1: At stage n (for n ≥ 1), one new bump is planted on EVERY segment
 that existed at stage n − 1. Segments at stage n − 1: 3·4ⁿ⁻¹.   (count formula)
 Step 2: Each stage-n bump has side s/3ⁿ.                          (length formula)
@@ -86,7 +87,7 @@ Stage 3 adds:  12 · 4/9 = 16/3 ≈ 5.33
 All additions: 27/(1 − 4/9) = 27 · 9/5 = 243/5 = 48.6
 Total: 81 + 48.6 = 129.6 = (8/5)·81 ✓</pre>
 <p>Why does the edge explode while the area naps? Two different races with two different ratios. The perimeter race pits count (×4) against length (×1/3): net ×4/3 &gt; 1 — growth wins. The area race pits bump count (×4) against bump area (×1/9): net ×4/9 &lt; 1 — shrinkage wins, and the additions form a convergent series. One shape, two races, two opposite outcomes. That's the whole paradox, resolved by a single inequality each way.</p>
-<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Start with a triangle of perimeter 9 cm. What is the perimeter after 1 iteration? After 2? (b) How many pieces does the snowflake have after 2 iterations — use the explicit formula. (c) If the starting triangle has area A₀ = 36, how much area is ADDED at stage 1?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 9 × 4/3 = 12 cm; then 12 × 4/3 = 16 cm (or 9·(4/3)² = 9·16/9 = 16 ✓). (b) count(2) = 3·4² = 48. (c) added(1) = A₀/3 = 12 — three bumps, each of area 36/9 = 4, and 3·4 = 12 ✓.</p></div></details></div></article>
+<div class="box turn"><p class="box-title">✏️ Your Turn!</p><ul class="steps"><li><span class="mk">(a)</span><div>Start with a triangle of perimeter 9 cm. What is the perimeter after 1 iteration? After 2?</div></li><li><span class="mk">(b)</span><div>How many pieces does the snowflake have after 2 iterations — use the explicit formula.</div></li><li><span class="mk">(c)</span><div>If the starting triangle has area A₀ = 36, how much area is ADDED at stage 1?</div></li></ul><details><summary>👀 Show the answers</summary><div class="answers"><p><strong>Answers</strong>: (a) 9 × 4/3 = 12 cm; then 12 × 4/3 = 16 cm (or 9·(4/3)² = 9·16/9 = 16 ✓). (b) count(2) = 3·4² = 48. (c) added(1) = A₀/3 = 12 — three bumps, each of area 36/9 = 4, and 3·4 = 12 ✓.</p></div></details></div></article>
   <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">⬅️ Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 ➡️</a></nav>
 </main>
 
@@ -96,7 +97,7 @@ Total: 81 + 48.6 = 129.6 = (8/5)·81 ✓</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

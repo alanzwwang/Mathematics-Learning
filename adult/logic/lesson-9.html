@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Compactness and the Löwenheim–Skolem Theorems — Logic (Advanced)</title>
+<meta name="description" content="Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#eab308">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations" class="active">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logic/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logic</a> › Lesson 9</p>
+    <h1>Compactness and the Löwenheim–Skolem Theorems</h1>
+    <p class="kicker">Lesson 9 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Propositional Logic — Syntax and Semantics">1</a><a href="lesson-2.html" title="Lesson 2: Truth Functions, Functional Completeness and Normal Forms">2</a><a href="lesson-3.html" title="Lesson 3: Natural Deduction and Soundness">3</a><a href="lesson-4.html" title="Lesson 4: Completeness and Compactness for Propositional Logic">4</a><a href="lesson-5.html" title="Lesson 5: Resolution, Horn Formulas and the Satisfiability Problem">5</a><a href="lesson-6.html" title="Lesson 6: First-Order Languages, Structures and Satisfaction">6</a><a href="lesson-7.html" title="Lesson 7: Definability, Normal Forms and the Proof Calculus for First-Order Logic">7</a><a href="lesson-8.html" title="Lesson 8: Gödel's Completeness Theorem">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Compactness and the Löwenheim–Skolem Theorems">9</a><a href="lesson-10.html" title="Lesson 10: Computability — Turing Machines and the Halting Problem">10</a><a href="lesson-11.html" title="Lesson 11: Gödel's Incompleteness Theorems">11</a><a href="lesson-12.html" title="Lesson 12: SAT, NP and the Cook–Levin Theorem">12</a><a href="lesson-13.html" title="Lesson 13: Set Theory — Russell's Paradox, ZFC, Ordinals and Cardinals">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Compactness: a set of first-order sentences with arbitrarily large finite models has an infinite model.
+Downward LS: a countable theory with an infinite model has a countable model.
+Upward LS: a theory with an infinite model has models of every infinite cardinality κ ≥ |L|.</pre></div>
+<h3>Compactness and its first consequences</h3>
+<p><strong>Theorem 9.1 (Compactness)</strong>. A set Σ of first-order sentences has a model iff every finite subset of Σ has a model.</p>
+<p>The first application shows that finiteness is not first-order. Let λₙ be the sentence ∃x₁ … ∃xₙ ⋀ xᵢ ≠ xⱼ (the conjunction over all i &lt; j) saying that there are at least n elements.</p>
+<p><strong>Corollary 9.2</strong>. If Σ has arbitrarily large finite models, it has an infinite model. Consequently the class of finite structures, and the class of finite groups, are not axiomatisable by any set of first-order sentences.</p>
+<p><strong>Proof</strong>. Every finite subset of Σ ∪ {λₙ : n ≥ 1} mentions only finitely many λₙ and is satisfied by a sufficiently large finite model of Σ. A model of the whole set is infinite. If a set Φ axiomatised the finite structures, Φ would have arbitrarily large finite models and hence an infinite one. ∎</p>
+<p>Similarly, connectedness of graphs, being a torsion group, and being a well-order are not first-order axiomatisable. For well-orders: if Φ axiomatised them, add constants c₀, c₁, … and the sentences cₙ₊₁ &lt; cₙ; every finite subset is satisfied in ℕ by interpreting finitely many cₙ as a decreasing finite sequence, and a model of everything is a linear order with an infinite descending sequence.</p>
+<h3>Nonstandard models of arithmetic</h3>
+<p>Let Th(𝔑) be the set of sentences true in the standard model 𝔑 = (ℕ, 0, S, +, ·, &lt;). Add a constant c and consider Th(𝔑) ∪ {c &gt; S(S(…S(0)…)) : n ∈ ℕ}, where the n-th sentence has n copies of S. Every finite subset is satisfied in 𝔑 by interpreting c as a large number. So there is a model 𝔐 of Th(𝔑) containing an element greater than every numeral: a nonstandard model of true arithmetic. Skolem constructed one explicitly in 1934.</p>
+<p>Such a model looks like this: an initial copy of ℕ, followed by densely ordered copies of ℤ with neither a first nor a last copy. Indeed, if a is nonstandard then so is ⌊a/2⌋ (smaller copy) and 2a (larger copy), and between a and b in different copies lies ⌊(a + b)/2⌋, in a third copy. Since the order type of the copies is a dense linear order without endpoints, a countable nonstandard model has order type ω + ζ·η, where ω is ℕ, ζ is ℤ and η is ℚ. Tennenbaum's theorem (1959) adds that in no countable nonstandard model of Peano arithmetic is either + or · computable.</p>
+<h3>Nonstandard analysis</h3>
+<p>The same method applied to Th(ℝ, +, ·, &lt;, every function and relation on ℝ) produces an elementary extension *ℝ containing a positive element ε smaller than every 1/n. Abraham Robinson (1961) showed that the infinitesimal calculus of Leibniz can be developed rigorously inside *ℝ: f is continuous at a iff f(x) − f(a) is infinitesimal whenever x − a is.</p>
+<h3>The Löwenheim–Skolem theorems</h3>
+<p>Let 𝔄 ⊆ 𝔅 be L-structures with 𝔄 a substructure of 𝔅. 𝔄 is an elementary substructure, 𝔄 ≼ 𝔅, if for every formula φ(x⃗) and tuple a⃗ from A, 𝔄 ⊨ φ[a⃗] iff 𝔅 ⊨ φ[a⃗].</p>
+<p><strong>Lemma 9.3 (Tarski–Vaught test)</strong>. A substructure 𝔄 ⊆ 𝔅 is elementary iff for every formula φ(x⃗, y) and every a⃗ from A: if 𝔅 ⊨ ∃y φ[a⃗, y], then 𝔅 ⊨ φ[a⃗, b] for some b ∈ A.</p>
+<p><strong>Proof</strong>. Necessity is clear. For sufficiency, prove 𝔄 ⊨ φ[a⃗] iff 𝔅 ⊨ φ[a⃗] by induction on φ; only the ∃ step needs the hypothesis, which supplies a witness inside A. ∎</p>
+<p><strong>Theorem 9.4 (Downward Löwenheim–Skolem; Löwenheim 1915, Skolem 1920)</strong>. Let 𝔅 be an L-structure and X ⊆ B. Then there is 𝔄 ≼ 𝔅 with X ⊆ A and |A| ≤ |X| + |L| + ℵ₀.</p>
+<p><strong>Proof</strong>. Choose Skolem functions: for each formula φ(x⃗, y), a function f<sub>φ</sub> on B that picks a witness b with 𝔅 ⊨ φ[a⃗, b] whenever one exists. Let A be the closure of X under all f<sub>φ</sub> (and the interpretations of the function symbols). A is a union of countably many stages, each of size at most |X| + |L| + ℵ₀, it is a substructure, and it passes the Tarski–Vaught test by construction. ∎</p>
+<p><strong>Theorem 9.5 (Upward Löwenheim–Skolem, Tarski–Vaught)</strong>. If Σ has an infinite model, then for every cardinal κ ≥ |L| + ℵ₀, Σ has a model of cardinality exactly κ.</p>
+<p><strong>Proof</strong>. Add κ new constants c<sub>α</sub> and the sentences c<sub>α</sub> ≠ c<sub>β</sub> for α ≠ β. Every finite subset is satisfied in the given infinite model, so by compactness (in the form for languages of size κ) there is a model of size at least κ. Apply Theorem 9.4 with X the set of interpretations of the c<sub>α</sub> to obtain a model of size exactly κ. ∎</p>
+<h3>Skolem's paradox</h3>
+<p>ZFC proves that there are uncountable sets. If ZFC is consistent, then by Theorem 9.4 it has a countable model M. Inside M there is an element r that M believes is the set of real numbers, and M ⊨ &quot;r is uncountable&quot;; yet externally r has only countably many members in M. There is no contradiction: &quot;uncountable&quot; means that no bijection with ω exists, and the bijections that exist externally are simply not elements of M. Uncountability is relative to the model.</p>
+<h3>Categoricity</h3>
+<p>A theory T is κ-categorical if it has, up to isomorphism, exactly one model of cardinality κ. By the Löwenheim–Skolem theorems no first-order theory with an infinite model is categorical outright. Examples: the theory DLO of dense linear orders without endpoints is ℵ₀-categorical by Cantor's back-and-forth argument but not 2<sup>ℵ₀</sup>-categorical; the theory of algebraically closed fields of a fixed characteristic is κ-categorical for every uncountable κ, since such a field is determined by its transcendence degree, but not ℵ₀-categorical.</p>
+<p><strong>Theorem 9.6 (Łoś–Vaught test)</strong>. If T has no finite models and is κ-categorical for some κ ≥ |L| + ℵ₀, then T is complete.</p>
+<p><strong>Proof</strong>. If T ⊬ σ and T ⊬ ¬σ, then T ∪ {¬σ} and T ∪ {σ} both have models, necessarily infinite, and by Löwenheim–Skolem both have models of size κ. These are isomorphic by categoricity, yet one satisfies σ and the other ¬σ. ∎</p>
+<p>So DLO is complete, which gives (ℚ, &lt;) ≡ (ℝ, &lt;); and ACF₀ is complete, which yields the Lefschetz principle: a first-order sentence in the language of rings is true in ℂ iff it is true in all algebraically closed fields of characteristic 0, iff it is true in algebraically closed fields of characteristic p for all sufficiently large primes p. A celebrated application is Ax's theorem (1968) that every injective polynomial map ℂⁿ → ℂⁿ is surjective, proved by checking it over the algebraic closures of the finite fields 𝔽ₚ, which are unions of finite fields, where injective maps of finite sets are surjective. Morley's categoricity theorem (1965) states that a countable theory categorical in one uncountable cardinal is categorical in all of them; it founded modern model theory.</p>
+<p>Lindström's theorem (1969) characterises first-order logic as the strongest logic satisfying both compactness and the downward Löwenheim–Skolem property for countable sentences, which explains the central position of first-order logic.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Show that there is no first-order sentence in the language of graphs true exactly in the connected graphs.</div></li><li><span class="mk">(b)</span><div>In a nonstandard model of Th(𝔑), let a be nonstandard. Show that a − 1 exists and is nonstandard.</div></li><li><span class="mk">(c)</span><div>Why does the Łoś–Vaught test require &quot;no finite models&quot;?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Suppose Φ axiomatises connectedness. Add constants c, d and the sentences δₙ saying that there is no path of length ≤ n from c to d. Each finite subset of Φ ∪ {δₙ} is satisfied by a long path graph with c and d at its ends; a model of all of them is a connected graph in which c and d are joined by no finite path, a contradiction. (b) Th(𝔑) contains ∀x (x ≠ 0 → ∃y S(y) = x), and a ≠ 0, so a = S(b) for some b. If b were a standard number n, then a would be n + 1, also standard. (c) Without it, T could have a finite model and an infinite one; for example the empty theory in the empty language with equality is κ-categorical for every infinite κ, but it is not complete: it neither proves nor refutes &quot;there are at least two elements&quot;.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

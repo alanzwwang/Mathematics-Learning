@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9: Harmonic Numbers, Euler's Constant and the Primes — Logarithms (Advanced)</title>
+<meta name="description" content="The logarithm from ∫dt/t to the complex plane: rigorous foundations, series, entropy, primes and discrete logs.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#a855f7">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra" class="active">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../logarithms/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Logarithms</a> › Lesson 9</p>
+    <h1>Harmonic Numbers, Euler's Constant and the Primes</h1>
+    <p class="kicker">Lesson 9 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: The Natural Logarithm as an Integral">1</a><a href="lesson-2.html" title="Lesson 2: The Exponential Function, e, and Real Powers">2</a><a href="lesson-3.html" title="Lesson 3: The Logarithm as a Group Isomorphism">3</a><a href="lesson-4.html" title="Lesson 4: Inequalities, Growth Rates and Stirling's Estimate">4</a><a href="lesson-5.html" title="Lesson 5: The Series for ln(1 + x) and the Computation of Logarithms">5</a><a href="lesson-6.html" title="Lesson 6: Logarithmic Differentiation and the Logarithmic Derivative">6</a><a href="lesson-7.html" title="Lesson 7: The Complex Logarithm">7</a><a href="lesson-8.html" title="Lesson 8: Logarithms in Integration">8</a><a href="lesson-9.html" class="here" aria-current="page" title="Lesson 9: Harmonic Numbers, Euler's Constant and the Primes">9</a><a href="lesson-10.html" title="Lesson 10: The Prime Number Theorem">10</a><a href="lesson-11.html" title="Lesson 11: Information, Entropy and Logarithmic Scales">11</a><a href="lesson-12.html" title="Lesson 12: Benford's Law">12</a><a href="lesson-13.html" title="Lesson 13: Discrete Logarithms and Cryptography">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Hₙ = 1 + 1/2 + … + 1/n = ln n + γ + 1/(2n) − 1/(12n²) + O(1/n⁴)
+γ = 0.5772156649…   (Euler–Mascheroni constant)
+∑<sub>p ≤ x</sub> 1/p = ln ln x + M + o(1),   M = 0.2614972128…</pre></div>
+<h3>The constant γ</h3>
+<p>The harmonic numbers Hₙ are Riemann sums for ∫ dt/t, so Hₙ ≈ ln n. The error converges.</p>
+<p><strong>Theorem 9.1</strong>. The sequence aₙ = Hₙ − ln n is strictly decreasing, the sequence bₙ = Hₙ − ln(n + 1) is strictly increasing, and both converge to a common limit γ with 1 − ln 2 &lt; γ &lt; 1.</p>
+<p><strong>Proof</strong>. By Proposition 1.6, 1/(n + 1) &lt; ln(1 + 1/n) &lt; 1/n. Hence aₙ − aₙ₊₁ = ln(1 + 1/n) − 1/(n + 1) &gt; 0 and bₙ₊₁ − bₙ = 1/(n + 1) − ln(1 + 1/(n + 1)) &gt; 0. Since bₙ &lt; aₙ, we have b₁ &lt; bₙ &lt; aₙ &lt; a₁, so both monotone sequences are bounded and converge. Their difference aₙ − bₙ = ln(1 + 1/n) tends to 0. The bounds b₁ = 1 − ln 2 ≈ 0.3069 and a₁ = 1 give the stated inequalities. ∎</p>
+<p>Euler computed γ to 16 decimal places in 1781 using the Euler–Maclaurin formula; Mascheroni's 1790 computation contained errors in later digits. Today γ = 0.57721566490153286… is known to hundreds of billions of digits, yet it is not known whether γ is irrational. Continued-fraction computations show that if γ = p/q in lowest terms, then q &gt; 10²⁴⁰⁰⁰⁰.</p>
+<h3>Refinement</h3>
+<p>The Euler–Maclaurin summation formula applied to f(t) = 1/t gives the full asymptotic expansion</p>
+<pre class="math">Hₙ = ln n + γ + 1/(2n) − ∑<sub>k≥1</sub> B₂ₖ/(2k n²ᵏ) = ln n + γ + 1/(2n) − 1/(12n²) + 1/(120n⁴) − … ,</pre>
+<p>where B₂ = 1/6, B₄ = −1/30, … are Bernoulli numbers. The series diverges, but truncation is extremely accurate. For n = 10, H₁₀ = 7381/2520 = 2.9289683, while ln 10 + γ + 1/20 − 1/1200 = 2.9289674; the difference, 8.3·10⁻⁷, is the next term 1/(120·10⁴). A simple consequence is the bracket 1/(2n + 2) &lt; Hₙ − ln n − γ &lt; 1/(2n), which for n = 10 reads 0.04545 &lt; 0.04917 &lt; 0.05.</p>
+<h3>Integral representations</h3>
+<p>Writing Hₙ − ln n = ∑<sub>k≤n</sub> 1/k − ∫₁ⁿ dt/t and letting n → ∞ gives:</p>
+<pre class="math">γ = ∫₁<sup>∞</sup> (1/⌊t⌋ − 1/t) dt = 1 − ∫₁<sup>∞</sup> {t}/t² dt,</pre>
+<p>where {t} = t − ⌊t⌋ is the fractional part. Through the digamma function of Lesson 6, γ = −ψ(1) = −Γ′(1), and differentiating Γ(s) = ∫₀<sup>∞</sup> tˢ⁻¹e⁻ᵗ dt at s = 1 gives γ = −∫₀<sup>∞</sup> e⁻ᵗ ln t dt. Mertens' third theorem, below, shows that γ also controls the density of integers free of small prime factors.</p>
+<h3>Euler's proof that ∑ 1/p diverges</h3>
+<p><strong>Theorem 9.2 (Euler, 1737)</strong>. ∑<sub>p prime</sub> 1/p diverges. More precisely ∑<sub>p ≤ N</sub> 1/p &gt; ln ln(N + 1) − 1/2 for N ≥ 2.</p>
+<p><strong>Proof</strong>. Every integer n ≤ N is a product of primes p ≤ N. Expanding each factor of the finite product ∏<sub>p≤N</sub> (1 − 1/p)⁻¹ = ∏<sub>p≤N</sub> (1 + 1/p + 1/p² + …) and using unique factorisation, every 1/n with n ≤ N appears in the expansion, so</p>
+<pre class="math">∏<sub>p≤N</sub> (1 − 1/p)⁻¹ ≥ ∑<sub>n≤N</sub> 1/n ≥ ln(N + 1),</pre>
+<p>by Exercise (a) of Lesson 4. Taking logarithms, ∑<sub>p≤N</sub> −ln(1 − 1/p) ≥ ln ln(N + 1). For 0 ≤ x ≤ 1/2, −ln(1 − x) = x + x²/2 + x³/3 + … ≤ x + (x²/2)(1 + x + x² + …) = x + x²/(2(1 − x)) ≤ x + x². Therefore ∑<sub>p≤N</sub> 1/p ≥ ln ln(N + 1) − ∑<sub>p</sub> 1/p². Finally ∑<sub>p</sub> 1/p² ≤ 1/4 + ∑<sub>odd m≥3</sub> 1/m² = 1/4 + (π²/8 − 1) &lt; 0.49 &lt; 1/2. ∎</p>
+<p>The divergence of ∑ 1/p is a quantitative form of Euclid's theorem: there are not only infinitely many primes, but enough of them that their reciprocals diverge, unlike the squares, whose reciprocals sum to π²/6.</p>
+<h3>Mertens' theorems</h3>
+<p><strong>Theorem 9.3 (Mertens, 1874)</strong>. As x → ∞,</p>
+<pre class="math">∑<sub>p≤x</sub> (ln p)/p = ln x + O(1),
+∑<sub>p≤x</sub> 1/p = ln ln x + M + O(1/ln x),
+∏<sub>p≤x</sub> (1 − 1/p) = e⁻ᵞ/ln x · (1 + O(1/ln x)).</pre>
+<p>The first follows from Legendre's formula for the power of p dividing n!, combined with Stirling's estimate ln n! = n ln n + O(n) and Chebyshev's upper bound θ(x) = O(x) from Lesson 10; the second follows from the first by partial summation, and the third, whose constant e⁻ᵞ ≈ 0.561459 is surprisingly hard to identify, from the second together with an analysis of the Euler product of ζ(s) near s = 1. Numerically, for x = 10⁶, ∑<sub>p≤x</sub> 1/p = 2.887328, while ln ln 10⁶ + M = 2.887289, and ln(10⁶)·∏<sub>p≤10⁶</sub>(1 − 1/p) = 0.561438.</p>
+<h3>Dirichlet's divisor problem</h3>
+<p>Logarithms and γ appear together again in the average order of the divisor function d(n), the number of divisors of n. Counting lattice points under the hyperbola xy = x₀ by Dirichlet's hyperbola method gives</p>
+<pre class="math">∑<sub>n≤x</sub> d(n) = x ln x + (2γ − 1)x + O(√x).</pre>
+<p>So a typical integer up to x has about ln x divisors, although the maximal order of d(n) is much larger, exp((ln 2 + o(1)) ln n / ln ln n) (Wigert). The optimal exponent θ in the error term O(x<sup>θ</sup>) is unknown; it is at least 1/4 (Hardy, 1916) and at most 131/416 ≈ 0.3149 (Huxley, 2003), with small later improvements.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Using Hₙ ≈ ln n + γ + 1/(2n), estimate the least n with Hₙ &gt; 10.</div></li><li><span class="mk">(b)</span><div>Prove that ∑<sub>n≥1</sub> (1/n − ln(1 + 1/n)) = γ.</div></li><li><span class="mk">(c)</span><div>Show that ∏<sub>p≤x</sub> (1 − 1/p)⁻¹ → ∞ and use Mertens' third theorem to estimate it at x = 10⁶.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) Ignoring 1/(2n), we need ln n &gt; 10 − γ = 9.4227843, so n &gt; e<sup>9.4227843</sup> ≈ 12366.97. Including 1/(2n) ≈ 4.0·10⁻⁵ lowers the threshold for ln n by that amount, giving n &gt; 12366.97·e<sup>−0.00004</sup> ≈ 12366.47. The least such n is 12367 (indeed H₁₂₃₆₆ ≈ 9.99997 and H₁₂₃₆₇ ≈ 10.00004). (b) The N-th partial sum is H<sub>N</sub> − ∑<sub>n≤N</sub> ln((n + 1)/n) = H<sub>N</sub> − ln(N + 1) = b<sub>N</sub> → γ. (c) By Euler's argument it is at least ln(x + 1) → ∞. Mertens gives about eᵞ ln 10⁶ = 1.781072 × 13.815511 ≈ 24.61.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-8.html">← Lesson 8</a><a class="btn" href="lesson-10.html">Lesson 10 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

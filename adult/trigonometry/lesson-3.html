@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: Euler's Formula and the Algebra of Identities — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 3</p>
+    <h1>Euler's Formula and the Algebra of Identities</h1>
+    <p class="kicker">Lesson 3 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">e<sup>iθ</sup> = cos θ + i sin θ,        (cos θ + i sin θ)ⁿ = cos nθ + i sin nθ
+Every polynomial identity in sin and cos is an identity of Laurent polynomials in w = e<sup>iθ</sup>.</pre></div>
+<h3>De Moivre's theorem and multiple angles</h3>
+<p>Since e<sup>inθ</sup> = (e<sup>iθ</sup>)ⁿ, we have de Moivre's formula (cos θ + i sin θ)ⁿ = cos nθ + i sin nθ for every n ∈ ℤ. Expanding by the binomial theorem and separating real and imaginary parts:</p>
+<pre class="math">cos nθ = ∑ₖ (−1)ᵏ C(n, 2k) cosⁿ⁻²ᵏθ sin²ᵏθ
+sin nθ = ∑ₖ (−1)ᵏ C(n, 2k+1) cosⁿ⁻²ᵏ⁻¹θ sin²ᵏ⁺¹θ</pre>
+<p>For n = 2 and n = 3 this gives the familiar formulas:</p>
+<pre class="math">cos 2θ = cos²θ − sin²θ = 2cos²θ − 1 = 1 − 2sin²θ,     sin 2θ = 2 sin θ cos θ,
+cos 3θ = 4cos³θ − 3cos θ,                             sin 3θ = 3 sin θ − 4 sin³θ.</pre>
+<p>Dividing the two expansions by cosⁿθ gives a formula for the tangent of a multiple angle in terms of t = tan θ:</p>
+<pre class="math">tan nθ = Im (1 + it)ⁿ / Re (1 + it)ⁿ,        e.g.  tan 3θ = (3t − t³)/(1 − 3t²).</pre>
+<h3>Linearisation: powers to multiple angles</h3>
+<p>Conversely, powers of sine and cosine can be written as linear combinations of cos kθ and sin kθ by writing cos θ = (w + w⁻¹)/2 with w = e<sup>iθ</sup>:</p>
+<pre class="math">cos⁴θ = (w + w⁻¹)⁴/16 = (w⁴ + w⁻⁴ + 4(w² + w⁻²) + 6)/16 = 3/8 + (1/2)cos 2θ + (1/8)cos 4θ.</pre>
+<p>In general, for n ≥ 1,</p>
+<pre class="math">cos²ⁿθ = 2⁻²ⁿ [ C(2n, n) + 2 ∑ₖ₌₁ⁿ C(2n, n−k) cos 2kθ ].</pre>
+<p>These formulas are the reason integrals such as ∫₀<sup>2π</sup> cos²ⁿθ dθ = 2π C(2n, n)/4ⁿ are elementary: every term except the constant integrates to zero.</p>
+<h3>Products and sums</h3>
+<p>Adding and subtracting the addition formulas gives the product-to-sum identities:</p>
+<pre class="math">2 cos α cos β = cos(α − β) + cos(α + β)
+2 sin α sin β = cos(α − β) − cos(α + β)
+2 sin α cos β = sin(α + β) + sin(α − β)</pre>
+<p>and, substituting α = (x + y)/2, β = (x − y)/2, the sum-to-product identities:</p>
+<pre class="math">sin x + sin y = 2 sin((x+y)/2) cos((x−y)/2)
+cos x + cos y = 2 cos((x+y)/2) cos((x−y)/2)
+cos x − cos y = −2 sin((x+y)/2) sin((x−y)/2).</pre>
+<p>In signal processing, the sum-to-product formula for cos x + cos y explains amplitude modulation and beats: the superposition of tones at nearby frequencies ω₁ and ω₂ is a tone at the mean frequency whose amplitude varies at half the difference frequency.</p>
+<h3>The tangent addition formula and the Weierstrass substitution</h3>
+<p>Dividing the addition formulas,</p>
+<pre class="math">tan(α + β) = (tan α + tan β)/(1 − tan α tan β),</pre>
+<p>valid whenever all three tangents are defined. With t = tan(θ/2) the double-angle formulas give the rational parametrisation</p>
+<pre class="math">sin θ = 2t/(1 + t²),     cos θ = (1 − t²)/(1 + t²),     dθ = 2 dt/(1 + t²).</pre>
+<p>This is the Weierstrass substitution: it converts any integral of a rational function of sin θ and cos θ into an integral of a rational function of t. Geometrically, it is the stereographic projection of the unit circle from the point (−1, 0), and it shows that the rational points of the circle are exactly ((1 − t²)/(1 + t²), 2t/(1 + t²)) for t ∈ ℚ, together with (−1, 0). Clearing denominators with t = n/m recovers the classical parametrisation of Pythagorean triples (m² − n², 2mn, m² + n²).</p>
+<h3>A useful amplitude–phase identity</h3>
+<p>For real a, b not both zero, a cos θ + b sin θ = R cos(θ − φ) with R = √(a² + b²) and (cos φ, sin φ) = (a/R, b/R). Indeed, a cos θ + b sin θ = Re((a − ib) e<sup>iθ</sup>) and a − ib = R e<sup>−iφ</sup>. In particular the maximum of a cos θ + b sin θ is √(a² + b²), an instance of the Cauchy–Schwarz inequality.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Prove that tan θ tan(π/3 − θ) tan(π/3 + θ) = tan 3θ wherever both sides are defined.</div></li><li><span class="mk">(b)</span><div>Linearise sin⁵θ.</div></li><li><span class="mk">(c)</span><div>Use the Weierstrass substitution to evaluate ∫₀<sup>2π</sup> dθ/(2 + cos θ).</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) With t = tan θ and s = tan(π/3) = √3, tan(π/3 − θ) tan(π/3 + θ) = (s² − t²)/(1 − s²t²) = (3 − t²)/(1 − 3t²); multiplying by t gives (3t − t³)/(1 − 3t²) = tan 3θ. (b) sin⁵θ = (10 sin θ − 5 sin 3θ + sin 5θ)/16. (c) 2π/√3. On (−π, π) the substitution gives ∫₋∞^∞ 2 dt/(3 + t²) = 2π/√3, and the integrand is 2π-periodic.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

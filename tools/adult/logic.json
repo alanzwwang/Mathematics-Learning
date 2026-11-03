@@ -1,0 +1,13 @@
+{
+  "blurb": "Graduate mathematical logic: completeness, compactness, computability, incompleteness, NP-completeness and ZFC.",
+  "pics": [
+    { "img": "img/adult/logic-1.jpg", "alt": "Black-and-white portrait of the young Kurt Gödel in round glasses, suit and tie",
+      "caption": "Kurt Gödel as a student in Vienna, 1925. His 1929 dissertation proved the completeness theorem for first-order logic, and in 1931 he published the incompleteness theorems.",
+      "title": "Young Kurt Gödel as a student in 1925.jpg", "page": "https://commons.wikimedia.org/wiki/File:Young_Kurt_G%C3%B6del_as_a_student_in_1925.jpg",
+      "license": "Public domain", "artist": "Unknown author" },
+    { "img": "img/adult/logic-2.png", "alt": "Printed page of symbolic logic showing proposition 54.43 of Principia Mathematica and its proof",
+      "caption": "Proposition ∗54.43 of Whitehead and Russell's Principia Mathematica (volume I, 1910): the union of two disjoint unit classes has two members. The authors remark that 1 + 1 = 2 will follow from it once arithmetical addition has been defined.",
+      "title": "Principia Mathematica 54-43.png", "page": "https://commons.wikimedia.org/wiki/File:Principia_Mathematica_54-43.png",
+      "license": "Public domain", "artist": "Alfred North Whitehead and Bertrand Russell" }
+  ]
+}

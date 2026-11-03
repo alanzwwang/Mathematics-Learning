@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 1: The Twelvefold Way — Combinatorics (Advanced)</title>
+<meta name="description" content="Enumeration: generating functions, Stirling, partition and Catalan numbers, symmetry, Ramsey theory.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#db2777">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../combinatorics/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Combinatorics</a> › Lesson 1</p>
+    <h1>The Twelvefold Way</h1>
+    <p class="kicker">Lesson 1 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" class="here" aria-current="page" title="Lesson 1: The Twelvefold Way">1</a><a href="lesson-2.html" title="Lesson 2: Binomial and Multinomial Coefficients">2</a><a href="lesson-3.html" title="Lesson 3: Inclusion–Exclusion and Möbius Inversion">3</a><a href="lesson-4.html" title="Lesson 4: Linear Recurrence Relations">4</a><a href="lesson-5.html" title="Lesson 5: Ordinary Generating Functions">5</a><a href="lesson-6.html" title="Lesson 6: Exponential Generating Functions and the Exponential Formula">6</a><a href="lesson-7.html" title="Lesson 7: Stirling Numbers and Bell Numbers">7</a><a href="lesson-8.html" title="Lesson 8: Integer Partitions">8</a><a href="lesson-9.html" title="Lesson 9: Catalan Numbers and Lattice Paths">9</a><a href="lesson-10.html" title="Lesson 10: Burnside's Lemma and Pólya Enumeration">10</a><a href="lesson-11.html" title="Lesson 11: The Pigeonhole Principle and Ramsey Theory">11</a><a href="lesson-12.html" title="Lesson 12: Graph Theory Essentials">12</a><a href="lesson-13.html" title="Lesson 13: The Probabilistic Method">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Count functions f : N → K with |N| = n, |K| = k,
+up to permutations of N and/or K, with f arbitrary, injective, or surjective.</pre></div>
+<h3>Distributions as functions</h3>
+<p>A huge class of counting problems has the form &quot;place n balls into k boxes.&quot; Formally, a placement is a function f : N → K from a set N of n balls to a set K of k boxes. Two further choices determine the problem. First, we may regard the balls as distinguishable or indistinguishable, and likewise the boxes; indistinguishability means that we count functions only up to the action of the symmetric group on N, on K, or on both. Second, we may impose no condition on f, require f to be injective (at most one ball per box), or require f to be surjective (no empty box). Three restrictions times four symmetry types give twelve problems. Gian-Carlo Rota organized them in this way in lectures in the 1960s; the name &quot;twelvefold way&quot; is due to Joel Spencer, and the table was popularized by Richard Stanley's Enumerative Combinatorics.</p>
+<h3>Stars and bars</h3>
+<p><strong>Theorem 1.1</strong>. The number of solutions of x₁ + x₂ + ⋯ + xₖ = n in nonnegative integers (weak compositions of n into k parts) is C(n + k − 1, k − 1). The number of solutions in positive integers (compositions of n into k parts) is C(n − 1, k − 1).</p>
+<p><strong>Proof</strong>. A weak composition corresponds bijectively to a word consisting of n stars and k − 1 bars: x₁ is the number of stars before the first bar, xᵢ the number between bar i − 1 and bar i, and xₖ the number after the last bar. Such a word is determined by the positions of the bars among n + k − 1 slots, giving C(n + k − 1, k − 1). For positive solutions, substitute yᵢ = xᵢ − 1 ≥ 0, which gives a weak composition of n − k into k parts, counted by C(n − 1, k − 1). Alternatively, a composition of n is determined by choosing k − 1 of the n − 1 gaps between n stars in a row. ∎</p>
+<p>The same substitution handles arbitrary lower bounds: if xᵢ ≥ bᵢ, put yᵢ = xᵢ − bᵢ and count weak compositions of n − ∑bᵢ. Upper bounds are harder and require inclusion–exclusion (Lesson 3).</p>
+<h3>The table</h3>
+<p>Write S(n, k) for the Stirling number of the second kind (the number of partitions of an n-set into k nonempty blocks) and pₖ(n) for the number of partitions of the integer n into exactly k positive parts. Write [P] for 1 if the statement P is true and 0 otherwise.</p>
+<pre class="math">balls / boxes          any f                    injective f      surjective f
+distinct / distinct    kⁿ                       (k)ₙ             k!·S(n, k)
+identical / distinct   C(n + k − 1, n)          C(k, n)          C(n − 1, k − 1)
+distinct / identical   S(n,1) + ⋯ + S(n,k)      [n ≤ k]          S(n, k)
+identical / identical  p₁(n) + ⋯ + pₖ(n)        [n ≤ k]          pₖ(n)</pre>
+<h3>Proofs of the entries</h3>
+<p>Row one: an arbitrary function assigns each of n balls one of k boxes, giving kⁿ; an injective function is an arrangement of n distinct images, giving (k)ₙ = k!/(k − n)!. A surjection [n] → [k] is the same as an ordered partition of [n] into k nonempty blocks (block i is the preimage of box i); forgetting the order of the blocks loses exactly a factor of k!, so there are k!·S(n, k) surjections.</p>
+<p>Row two: a function from indistinguishable balls is determined by the occupancy numbers (x₁, …, xₖ), which form a weak composition of n; injectivity means each xᵢ ∈ {0, 1}, which amounts to choosing n occupied boxes out of k; surjectivity means a composition. Row three: if the boxes are indistinguishable, a function is determined by its set of nonempty preimages, which is a set partition of N into at most k blocks; surjectivity forces exactly k blocks. An injective placement exists if and only if n ≤ k, and then all injective placements are equivalent. Row four: forgetting the labels on both sides leaves only the multiset of occupancy numbers, that is, an integer partition of n into at most k parts.</p>
+<p><strong>Worked example 1.2</strong>. Ten identical coins are distributed among four people so that each person receives at least one coin. This is a surjection from identical balls to distinct boxes: C(9, 3) = 84. If instead the ten coins are distinct, the count is 4!·S(10, 4) = 24 · 34105 = 818,520.</p>
+<p><strong>Remark</strong>. The table makes clear why the Stirling numbers and the partition numbers are fundamental: they are the irreducible quantities that remain after symmetry has been divided out. Neither has a closed product formula, and much of this course is devoted to understanding them.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>How many weak compositions of 12 into 5 parts are there?</div></li><li><span class="mk">(b)</span><div>In how many ways can 6 distinct balls be put into 3 identical boxes if empty boxes are allowed?</div></li><li><span class="mk">(c)</span><div>In how many ways can 8 identical balls be put into 3 identical boxes with no box empty?</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) C(16, 4) = 1820. (b) S(6, 1) + S(6, 2) + S(6, 3) = 1 + 31 + 90 = 122. (c) p₃(8) = 5, namely 6+1+1, 5+2+1, 4+3+1, 4+2+2, 3+3+2.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="index.html">← Overview</a><a class="btn" href="lesson-2.html">Lesson 2 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

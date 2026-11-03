@@ -1,0 +1,13 @@
+{
+  "blurb": "Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.",
+  "pics": [
+    { "img": "img/adult/algebraic-geometry-1.png", "alt": "Four panels showing the chord-and-tangent group law on a real elliptic curve",
+      "caption": "The group law on an elliptic curve: three collinear points P, Q, R sum to the identity 0, the point at infinity. The other panels show the tangent case, a vertical line through P and −P, and a point of order 2 with a vertical tangent.",
+      "title": "ECClines.svg", "page": "https://commons.wikimedia.org/wiki/File:ECClines.svg",
+      "license": "CC BY-SA 3.0", "artist": "SuperManu" },
+    { "img": "img/adult/algebraic-geometry-2.jpg", "alt": "Black-and-white studio portrait of Emmy Noether as a young woman",
+      "caption": "Emmy Noether (1882–1935), photographed around 1900. Her 1921 theory of ideals in rings satisfying the ascending chain condition, now called Noetherian rings, is the algebraic foundation of modern algebraic geometry.",
+      "title": "Noether.jpg", "page": "https://commons.wikimedia.org/wiki/File:Noether.jpg",
+      "license": "Public domain", "artist": "Unknown author" }
+  ]
+}

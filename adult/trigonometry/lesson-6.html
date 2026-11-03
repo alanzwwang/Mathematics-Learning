@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: Spherical Trigonometry — Trigonometry (Advanced)</title>
+<meta name="description" content="Sine and cosine built from power series: π, inverse branches, spherical trigonometry, Chebyshev, Fourier and Niven.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#059669">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../trigonometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Trigonometry</a> › Lesson 6</p>
+    <h1>Spherical Trigonometry</h1>
+    <p class="kicker">Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Sine and Cosine from First Principles">1</a><a href="lesson-2.html" title="Lesson 2: The Definition of π and Periodicity">2</a><a href="lesson-3.html" title="Lesson 3: Euler's Formula and the Algebra of Identities">3</a><a href="lesson-4.html" title="Lesson 4: Inverse Trigonometric Functions and Principal Branches">4</a><a href="lesson-5.html" title="Lesson 5: Plane Triangles: the Laws of Sines, Cosines and Tangents">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: Spherical Trigonometry">6</a><a href="lesson-7.html" title="Lesson 7: Chebyshev Polynomials and Multiple Angles">7</a><a href="lesson-8.html" title="Lesson 8: Finite Sums, Products, and the Product Formula for Sine">8</a><a href="lesson-9.html" title="Lesson 9: Fourier Series and Pointwise Convergence">9</a><a href="lesson-10.html" title="Lesson 10: Parseval's Identity and the Gibbs Phenomenon">10</a><a href="lesson-11.html" title="Lesson 11: Hyperbolic Functions">11</a><a href="lesson-12.html" title="Lesson 12: Exact Values: Radicals, Constructibility and Niven's Theorem">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">cos c = cos a cos b + sin a sin b cos C        (sides as arcs on the unit sphere)
+sin A/sin a = sin B/sin b = sin C/sin c,       Area = (A + B + C − π) R²</pre></div>
+<h3>Spherical triangles</h3>
+<p>On the unit sphere S² ⊂ ℝ³, the great circles (intersections with planes through the origin) play the role of lines: the shortest path between two non-antipodal points is the shorter great-circle arc, and its length equals the angle between the position vectors. A spherical triangle has vertices given by unit vectors A, B, C (linearly independent), sides the great-circle arcs between them, of lengths a = ∠(B, C), b = ∠(C, A), c = ∠(A, B) in (0, π), and angles A, B, C equal to the dihedral angles between the planes of the sides. On a sphere of radius R, lengths scale by R and angles are unchanged.</p>
+<h3>The spherical law of cosines</h3>
+<p><strong>Theorem 6.1</strong>. cos c = cos a cos b + sin a sin b cos C.</p>
+<p><strong>Proof</strong>. The angle C is the angle between the normals C × A and C × B of the two planes through C, so (C × A)·(C × B) = |C × A| |C × B| cos C = sin b sin a cos C. By the Binet–Cauchy identity (u × v)·(w × x) = (u·w)(v·x) − (u·x)(v·w), the left side is (C·C)(A·B) − (C·B)(A·C) = cos c − cos a cos b. ∎</p>
+<p>For small triangles, cos x = 1 − x²/2 + O(x⁴) and sin x = x + O(x³) turn the spherical law into c² = a² + b² − 2ab cos C + O(|x|⁴): plane trigonometry is the infinitesimal limit of spherical trigonometry. When C = π/2 we get the spherical Pythagorean theorem cos c = cos a cos b.</p>
+<h3>The law of sines and the polar triangle</h3>
+<p><strong>Theorem 6.2</strong>. sin A/sin a = sin B/sin b = sin C/sin c.</p>
+<p><strong>Proof</strong>. From Theorem 6.1, sin²C = 1 − cos²C = (sin²a sin²b − (cos c − cos a cos b)²)/(sin²a sin²b). The numerator equals 1 − cos²a − cos²b − cos²c + 2 cos a cos b cos c = det G, where G is the Gram matrix of A, B, C. Hence sin²C/sin²c = det G/(sin²a sin²b sin²c), which is symmetric in the three vertices. ∎</p>
+<p>The polar triangle A′B′C′ has vertices A′ = B × C/|B × C| and so on (chosen on the same side as A). Its sides are π − A, π − B, π − C and its angles are π − a, π − b, π − c. Applying Theorem 6.1 to the polar triangle gives the dual law of cosines for angles:</p>
+<pre class="math">cos C = −cos A cos B + sin A sin B cos c.</pre>
+<p>In particular, a spherical triangle is determined up to congruence by its three angles: there are no similar but non-congruent spherical triangles.</p>
+<h3>Girard's theorem</h3>
+<p><strong>Theorem 6.3 (Girard, 1629; Harriot, 1603)</strong>. The area of a spherical triangle on the unit sphere is A + B + C − π.</p>
+<p><strong>Proof</strong>. A lune of angle θ (the region between two great semicircles meeting at angle θ) has area 2θ, since the whole sphere, of area 4π, is a lune of angle 2π and area is additive. The three great circles through the sides of the triangle produce three pairs of lunes, of angles A, B and C, each pair consisting of a lune and its antipodal image. These six lunes cover the sphere, covering the triangle T and its antipode −T three times each and every other point exactly once. Hence 2(2A + 2B + 2C) = 4π + 4·area(T), and area(T) = A + B + C − π. ∎</p>
+<p>The quantity A + B + C − π is the spherical excess. Girard's theorem is the simplest case of the Gauss–Bonnet theorem: for a geodesic triangle on a surface, the angle sum minus π equals the integral of the Gaussian curvature over the triangle. On the sphere of radius R the curvature is 1/R², giving area (A + B + C − π)R².</p>
+<h3>Navigation and the haversine formula</h3>
+<p>Using latitude φ and longitude λ, the north pole N and points P₁, P₂ form a spherical triangle with sides π/2 − φ₁, π/2 − φ₂ and angle Δλ at N. Theorem 6.1 gives the central angle σ between P₁ and P₂:</p>
+<pre class="math">cos σ = sin φ₁ sin φ₂ + cos φ₁ cos φ₂ cos Δλ.</pre>
+<p>For small σ this is numerically unstable, because cos σ ≈ 1 loses digits. Writing hav θ = sin²(θ/2) = (1 − cos θ)/2, the same identity becomes</p>
+<pre class="math">hav σ = hav(φ₂ − φ₁) + cos φ₁ cos φ₂ hav(Δλ),</pre>
+<p>which is well conditioned for small distances and was the standard formula of celestial navigation, with printed tables of haversines.</p>
+<p><strong>Worked example</strong>. Two points at latitude 40° N with longitudes differing by 90° have cos σ = sin²40° ≈ 0.41318, so σ ≈ 65.60°. Following the parallel of latitude instead costs 90° · cos 40° ≈ 68.94° of great-circle measure: the great circle is shorter, which is why transatlantic flights curve towards the pole on a flat map.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A spherical right triangle on the unit sphere has legs a = b = 60°. Find the hypotenuse c and the area.</div></li><li><span class="mk">(b)</span><div>Find the angles and the area of an equilateral spherical triangle with sides 60° on the unit sphere.</div></li><li><span class="mk">(c)</span><div>Two points on the equator differ in longitude by 120°. Find their great-circle distance on a sphere of radius 6371 km.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) cos c = cos²60° = 1/4, so c = arccos(1/4) ≈ 75.52°. By the law of sines, sin A = sin a sin C/sin c = (√3/2)/(√15/4) = 2/√5, and A is acute (cos A = (cos a − cos b cos c)/(sin b sin c) = (1/2 − 1/8)/((√3/2)(√15/4)) = 1/√5 &gt; 0), so A = B = arctan 2 ≈ 63.43°. Area = 2 arctan 2 + π/2 − π = 2 arctan 2 − π/2 ≈ 0.6435. (b) By Theorem 6.1 with all sides equal, cos A = (cos a − cos²a)/sin²a = cos a/(1 + cos a) = 1/3, so each angle is arccos(1/3) ≈ 70.53° and the area is 3 arccos(1/3) − π ≈ 0.5513. (c) σ = 120° = 2π/3, so the distance is 6371 · 2π/3 ≈ 13 343.4 km.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

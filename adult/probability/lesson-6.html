@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 6: The Fundamental Inequalities — Probability (Advanced)</title>
+<meta name="description" content="Measure-theoretic probability: limit theorems, martingales, Markov chains and Poisson processes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#f59e0b">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry">Geometry</a>
+      <a href="../index.html#advanced" class="active">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../probability/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Probability</a> › Lesson 6</p>
+    <h1>The Fundamental Inequalities</h1>
+    <p class="kicker">Lesson 6 of 12</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Probability Spaces and the Kolmogorov Axioms">1</a><a href="lesson-2.html" title="Lesson 2: Conditioning, Bayes' Theorem and Independence">2</a><a href="lesson-3.html" title="Lesson 3: Random Variables and Their Distributions">3</a><a href="lesson-4.html" title="Lesson 4: Expectation as a Lebesgue Integral">4</a><a href="lesson-5.html" title="Lesson 5: Generating Functions and Characteristic Functions">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: The Fundamental Inequalities">6</a><a href="lesson-7.html" title="Lesson 7: Modes of Convergence">7</a><a href="lesson-8.html" title="Lesson 8: The Laws of Large Numbers">8</a><a href="lesson-9.html" title="Lesson 9: The Central Limit Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Conditional Expectation and Martingales">10</a><a href="lesson-11.html" title="Lesson 11: Markov Chains">11</a><a href="lesson-12.html" title="Lesson 12: The Poisson Process">12</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">P(X ≥ a) ≤ E X / a  (X ≥ 0),     P(|X − μ| ≥ a) ≤ σ²/a²,     φ(E X) ≤ E φ(X)  (φ convex)
+P(X ≥ a) ≤ inf<sub>t&gt;0</sub> e<sup>−ta</sup> E e<sup>tX</sup></pre></div>
+<h3>Markov and Chebyshev</h3>
+<p><strong>Theorem 6.1 (Markov's inequality)</strong>. If X ≥ 0 and a &gt; 0, then P(X ≥ a) ≤ E X / a.</p>
+<p><strong>Proof</strong>. Pointwise, a · 1{X ≥ a} ≤ X. Take expectations. ∎</p>
+<p>Applied to an increasing function ψ ≥ 0 of |X|, it gives P(|X| ≥ a) ≤ E ψ(|X|)/ψ(a). With ψ(x) = x² and X replaced by X − μ, this is Chebyshev's inequality:</p>
+<pre class="math">P(|X − μ| ≥ a) ≤ Var X / a²</pre>
+<p>Both inequalities are sharp in the sense that equality is attained by suitable two- or three-point laws: X taking the value a with probability p and 0 otherwise gives equality in Markov's inequality. Their value lies in generality, not precision. A one-sided refinement is Cantelli's inequality, P(X − μ ≥ a) ≤ σ²/(σ² + a²) for a &gt; 0.</p>
+<h3>Jensen, Hölder and the Lᵖ spaces</h3>
+<p><strong>Theorem 6.2 (Jensen's inequality)</strong>. If φ is convex on an interval containing the values of X, and X and φ(X) are integrable, then φ(E X) ≤ E φ(X).</p>
+<p><strong>Proof</strong>. A convex function lies above each of its supporting lines: for c = E X there is a slope m with φ(x) ≥ φ(c) + m(x − c) for all x. Put x = X and take expectations; the linear term has mean zero. ∎</p>
+<p>Consequences include (E X)² ≤ E X², e<sup>E X</sup> ≤ E e<sup>X</sup>, and the AM–GM inequality (apply Jensen to −log with X uniform on a finite list). For 1 ≤ p &lt; q, applying Jensen to the convex function x ↦ x<sup>q/p</sup> and the variable |X|ᵖ gives Lyapunov's inequality</p>
+<pre class="math">‖X‖<sub>p</sub> = (E|X|ᵖ)<sup>1/p</sup> ≤ (E|X|<sup>q</sup>)<sup>1/q</sup> = ‖X‖<sub>q</sub></pre>
+<p>so on a probability space L<sup>q</sup> ⊆ Lᵖ. (This fails on infinite measure spaces such as ℝ with Lebesgue measure.) Hölder's inequality, E|XY| ≤ ‖X‖<sub>p</sub> ‖Y‖<sub>q</sub> for 1/p + 1/q = 1, has the Cauchy–Schwarz inequality E|XY| ≤ √(E X² · E Y²) as its case p = q = 2; and Minkowski's inequality ‖X + Y‖<sub>p</sub> ≤ ‖X‖<sub>p</sub> + ‖Y‖<sub>p</sub> makes Lᵖ a normed space (after identifying a.s. equal variables), which is complete for every p ≥ 1.</p>
+<h3>Exponential bounds: the Chernoff method</h3>
+<p>Markov's inequality applied to e<sup>tX</sup> gives, for every t &gt; 0, P(X ≥ a) ≤ e<sup>−ta</sup> M(t). Optimising over t is the Chernoff method. For a sum Sₙ of n i.i.d. copies of X, the bound becomes exp(−n sup<sub>t</sub> [ta − log M(t)]), and the exponent</p>
+<pre class="math">I(a) = sup<sub>t∈ℝ</sub> [ta − log M(t)]</pre>
+<p>is the Legendre transform of the cumulant generating function. Cramér's theorem (1938) states that this is the exact exponential rate: (1/n) log P(Sₙ ≥ na) → −I(a) for a &gt; E X, provided M is finite near 0. This is the first theorem of large deviations theory. For Bernoulli(p) summands, I(a) = a log(a/p) + (1 − a) log((1 − a)/(1 − p)), the relative entropy of Bernoulli(a) with respect to Bernoulli(p).</p>
+<p><strong>Theorem 6.3 (Hoeffding's inequality)</strong>. If X₁, …, Xₙ are independent with aᵢ ≤ Xᵢ ≤ bᵢ and Sₙ = ∑ Xᵢ, then for t &gt; 0</p>
+<pre class="math">P(Sₙ − E Sₙ ≥ t) ≤ exp(−2t² / ∑ᵢ (bᵢ − aᵢ)²)</pre>
+<p>The proof bounds each factor by Hoeffding's lemma, E e<sup>s(X − E X)</sup> ≤ exp(s²(b − a)²/8), which follows from convexity of x ↦ e<sup>sx</sup> on [a, b] together with a second-order Taylor estimate of the resulting logarithm; then optimise s.</p>
+<p><strong>Worked example 6.4 (comparing the bounds)</strong>. Let S be the number of heads in 100 fair tosses, so E S = 50 and Var S = 25. Consider P(S ≥ 75).</p>
+<pre class="math">Markov:     P(S ≥ 75) ≤ 50/75 ≈ 0.667
+Chebyshev:  P(S ≥ 75) ≤ P(|S − 50| ≥ 25) ≤ 25/625 = 0.04
+Hoeffding:  P(S ≥ 75) ≤ exp(−2 · 25²/100) = e<sup>−12.5</sup> ≈ 3.73 × 10⁻⁶
+Chernoff:   P(S ≥ 75) ≤ exp(−100 · I(0.75)) ≈ e<sup>−13.08</sup> ≈ 2.08 × 10⁻⁶
+Exact:      P(S ≥ 75) ≈ 2.82 × 10⁻⁷</pre>
+<p>Here I(0.75) = 0.75 log 1.5 + 0.25 log 0.5 ≈ 0.1308. The polynomial bounds are useless for small tail probabilities; the exponential bounds have essentially the right exponent and miss only a sub-exponential factor of order 1/√n.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>A nonnegative random variable has mean 4. What is the largest possible value of P(X ≥ 10)? Give a law attaining it.</div></li><li><span class="mk">(b)</span><div>Show that E[1/X] ≥ 1/E X for a positive random variable X.</div></li><li><span class="mk">(c)</span><div>For Sₙ ~ Binomial(n, 1/2), use Hoeffding's inequality to find n large enough that P(|Sₙ/n − 1/2| ≥ 0.05) ≤ 0.01.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) 0.4, by Markov; attained by X = 10 with probability 0.4 and X = 0 otherwise. (b) x ↦ 1/x is convex on (0, ∞), so Jensen gives 1/E X ≤ E[1/X]. (c) The two-sided bound is 2 exp(−2n(0.05)²) = 2e<sup>−n/200</sup>; this is at most 0.01 when n ≥ 200 log 200 ≈ 1059.7, so n = 1060 suffices.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-5.html">← Lesson 5</a><a class="btn" href="lesson-7.html">Lesson 7 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

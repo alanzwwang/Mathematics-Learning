@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 3: The Zariski Topology and Irreducible Components — Algebraic Geometry (Advanced)</title>
+<meta name="description" content="Varieties, ideals and the Nullstellensatz, projective curves, Bézout's theorem, elliptic curves, genus and schemes.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>∑</text></svg>">
+
+<link rel="stylesheet" href="../adult.css">
+</head>
+<body id="top" class="mode-adult" style="--topic:#06b6d4">
+
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="logo" href="../index.html">Mathematics Learning · Advanced</a>
+    <nav class="site-nav" aria-label="Topic groups">
+      <a href="../index.html">Home</a>
+      <a href="../index.html#foundations">Foundations</a>
+      <a href="../index.html#algebra">Algebra</a>
+      <a href="../index.html#geometry" class="active">Geometry</a>
+      <a href="../index.html#advanced">Advanced</a>
+    </nav>
+    <a class="mode-switch" href="../../algebraic-geometry/index.html">Switch to kid mode</a>
+  </div>
+</header>
+
+<section class="hero topic-hero">
+  <div class="container">
+    <p class="crumbs"><a href="../index.html">Home</a> › <a href="index.html">Algebraic Geometry</a> › Lesson 3</p>
+    <h1>The Zariski Topology and Irreducible Components</h1>
+    <p class="kicker">Lesson 3 of 13</p>
+  </div>
+</section>
+
+<main class="container">
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Overview">Overview</a><a href="lesson-1.html" title="Lesson 1: Affine Algebraic Sets">1</a><a href="lesson-2.html" title="Lesson 2: Ideals, Noetherian Rings and Hilbert's Basis Theorem">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: The Zariski Topology and Irreducible Components">3</a><a href="lesson-4.html" title="Lesson 4: Hilbert's Nullstellensatz">4</a><a href="lesson-5.html" title="Lesson 5: Coordinate Rings, Morphisms and Rational Maps">5</a><a href="lesson-6.html" title="Lesson 6: Conics, Rational Parametrization and Pythagorean Triples">6</a><a href="lesson-7.html" title="Lesson 7: Singular Points, Tangent Cones and Multiplicity">7</a><a href="lesson-8.html" title="Lesson 8: Projective Space and Projective Closure">8</a><a href="lesson-9.html" title="Lesson 9: Intersection Multiplicity and Bézout's Theorem">9</a><a href="lesson-10.html" title="Lesson 10: Plane Cubics and the Weierstrass Form">10</a><a href="lesson-11.html" title="Lesson 11: The Group Law on an Elliptic Curve">11</a><a href="lesson-12.html" title="Lesson 12: Genus and the Degree–Genus Formula">12</a><a href="lesson-13.html" title="Lesson 13: A Glimpse of Schemes">13</a><a href="practice.html" title="Problem Set">Problems</a><a href="quiz.html" title="Assessment">Assessment</a></nav>
+  <article class="lesson"><div class="box key"><p class="box-title">Key idea of this section</p><pre class="math">Closed sets = algebraic sets;   X irreducible ⟺ I(X) prime</pre></div>
+<h3>The Zariski topology</h3>
+<p>By Lesson 1, the algebraic subsets of 𝔸ⁿ contain ∅ and 𝔸ⁿ and are closed under finite unions and arbitrary intersections. Hence they are the closed sets of a topology on 𝔸ⁿ, the Zariski topology, introduced by Oscar Zariski in the 1940s in his programme to put Italian algebraic geometry on rigorous foundations. Any subset X ⊆ 𝔸ⁿ carries the induced topology. The basic open sets are the principal open sets D(f) = 𝔸ⁿ ∖ V(f), and every open set is a finite union of them by the basis theorem.</p>
+<p>The Zariski topology is very coarse. On 𝔸¹ over an infinite field the closed sets are the finite sets and 𝔸¹, so this is the cofinite topology: any two nonempty open sets intersect, and the space is not Hausdorff. Polynomial maps are continuous, since the preimage of V(g₁, …, g<sub>s</sub>) under a polynomial map φ is V(g₁ ∘ φ, …, g<sub>s</sub> ∘ φ). The Zariski topology on 𝔸² is not the product topology of 𝔸¹ × 𝔸¹: the diagonal Δ = V(x − y) is Zariski closed, but in the product of two cofinite topologies the proper closed sets are finite unions of points, horizontal lines and vertical lines, and when k is infinite Δ is not of that form, since it is infinite yet contains no horizontal or vertical line.</p>
+<p>The Zariski closure of a set X is V(I(X)), the smallest algebraic set containing it. Closures are often surprisingly large.</p>
+<p><strong>Example</strong>. The Zariski closure of ℤ ⊂ 𝔸¹(ℂ) is 𝔸¹, since ℤ is infinite. The closure of { (n, n²) : n ∈ ℤ } ⊂ 𝔸²(ℂ) is the parabola V(y − x²). Proof: the parabola is closed and contains the set. Conversely, let f vanish at all (n, n²). Divide f by y − x², viewed as a monic polynomial in y over k[x]: f = q·(y − x²) + r(x). Then r(n) = 0 for all n ∈ ℤ, so r = 0 and f ∈ ⟨y − x²⟩. Thus I = ⟨y − x²⟩ and the closure is V(y − x²).</p>
+<h3>Irreducibility</h3>
+<p>A nonempty topological space X is irreducible if it is not the union of two proper closed subsets; equivalently, any two nonempty open subsets of X intersect, or every nonempty open subset is dense. Irreducible spaces are wildly non-Hausdorff, which is why the notion is useless in classical topology and fundamental here. An irreducible affine algebraic set is called an affine variety (some authors use &quot;variety&quot; for any algebraic set).</p>
+<p><strong>Proposition</strong>. An algebraic set X ⊆ 𝔸ⁿ is irreducible if and only if I(X) is a prime ideal.</p>
+<p><strong>Proof</strong>. Suppose X is irreducible and fg ∈ I(X). Then X = (X ∩ V(f)) ∪ (X ∩ V(g)), a union of two closed subsets, so one of them is X; that is, f ∈ I(X) or g ∈ I(X). Also I(X) ≠ k[x] since X ≠ ∅. So I(X) is prime. Conversely, suppose I(X) is prime and X = X₁ ∪ X₂ with Xᵢ closed and proper. Then I(Xᵢ) ⊋ I(X) (strict because Xᵢ = V(I(Xᵢ)) ≠ X), so choose fᵢ ∈ I(Xᵢ) ∖ I(X). Then f₁f₂ vanishes on X₁ ∪ X₂ = X, so f₁f₂ ∈ I(X) with neither factor in I(X), contradicting primality. ∎</p>
+<p>So 𝔸ⁿ is irreducible over an infinite field (I(𝔸ⁿ) = 0 is prime), and V(f) is irreducible whenever f is irreducible (over k = k̄, I(V(f)) = ⟨f⟩ by the Nullstellensatz, and ⟨f⟩ is prime in the UFD k[x]). The nodal cubic V(y² − x²(x + 1)) is irreducible: the polynomial y² − x³ − x² is irreducible, since a factorization would have to be (y − a(x))(y + a(x)) with a(x)² = x³ + x², impossible by degree parity.</p>
+<p><strong>Theorem (decomposition into irreducible components)</strong>. Every nonempty algebraic set X ⊆ 𝔸ⁿ can be written as X = X₁ ∪ ⋯ ∪ X<sub>r</sub> with each Xᵢ irreducible and Xᵢ ⊄ Xⱼ for i ≠ j. The Xᵢ are uniquely determined (up to order) and are called the irreducible components of X.</p>
+<p><strong>Proof</strong>. Existence by Noetherian induction: let Σ be the set of nonempty algebraic sets that are not finite unions of irreducible algebraic sets. If Σ ≠ ∅, it has a minimal element Y by Corollary 2 of Lesson 2 (a descending chain condition gives minimal elements). Y is not irreducible, so Y = Y₁ ∪ Y₂ with Yᵢ proper closed subsets. By minimality each Yᵢ ∉ Σ, so each is a finite union of irreducibles, and hence so is Y, a contradiction. Discard any Xᵢ contained in another to obtain an irredundant decomposition. For uniqueness, suppose X = X₁ ∪ ⋯ ∪ X<sub>r</sub> = X′₁ ∪ ⋯ ∪ X′<sub>s</sub> are two irredundant decompositions. Then X′₁ = ⋃ᵢ (X′₁ ∩ Xᵢ), and irreducibility of X′₁ forces X′₁ ⊆ Xᵢ for some i. Symmetrically Xᵢ ⊆ X′ⱼ for some j, so X′₁ ⊆ X′ⱼ, irredundancy gives j = 1 and X′₁ = Xᵢ. Remove both and induct. ∎</p>
+<p>Algebraically, the components correspond to the minimal prime ideals over I(X); equivalently, √I = 𝔭₁ ∩ ⋯ ∩ 𝔭<sub>r</sub> is the decomposition of a radical ideal in a Noetherian ring as an irredundant intersection of primes.</p>
+<h3>Dimension</h3>
+<p>The dimension of an irreducible algebraic set X is the supremum of the lengths n of chains X₀ ⊊ X₁ ⊊ ⋯ ⊊ Xₙ = X of irreducible closed subsets. Algebraically this is the Krull dimension of the coordinate ring k[X] (Lesson 5), and a fundamental theorem (proved via Noether normalization) states that it equals the transcendence degree of the function field k(X) over k. In particular dim 𝔸ⁿ = n, irreducible plane curves have dimension 1, and Krull's principal ideal theorem gives that every irreducible component of a hypersurface V(f) ⊂ 𝔸ⁿ has dimension n − 1.</p>
+<div class="box turn"><p class="box-title">Exercise</p><ul class="steps"><li><span class="mk">(a)</span><div>Find the irreducible components of V(xy, xz) ⊂ 𝔸³.</div></li><li><span class="mk">(b)</span><div>Find the Zariski closure of { (t, t³) : t ∈ ℤ } in 𝔸²(ℂ).</div></li><li><span class="mk">(c)</span><div>Show that every nonempty open subset of an irreducible space is itself irreducible.</div></li></ul><details><summary>Show solution</summary><div class="answers"><p><strong>Answers</strong>: (a) xy = xz = 0 means x = 0 or y = z = 0, so V(xy, xz) = V(x) ∪ V(y, z): the plane x = 0 (dimension 2) and the x-axis (dimension 1); both are irreducible since ⟨x⟩ and ⟨y, z⟩ are prime, and neither contains the other. (b) V(y − x³): dividing f by the polynomial y − x³ (monic in y) leaves a remainder r(x) with r(t) = 0 for all t ∈ ℤ, so r = 0. (c) Let U ⊆ X be open and nonempty. If U = A ∪ B with A, B closed in U, then X = Ā ∪ B̄ ∪ (X ∖ U), so X equals Ā or B̄ (it cannot equal X ∖ U since U ≠ ∅); if X = Ā then U = Ā ∩ U = A (A is closed in U). So U is irreducible.</p></div></details></div></article>
+  <nav class="pager" aria-label="Next and previous"><a class="btn ghost" href="lesson-2.html">← Lesson 2</a><a class="btn" href="lesson-4.html">Lesson 4 →</a></nav>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>Mathematics Learning · Advanced Edition · 20 fields of mathematics</p>
+    <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top</a></p>
+  </div>
+</footer>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
+<!-- WHATS-NEW:START -->
+<script src="../../whats-new.js" defer></script>
+<!-- WHATS-NEW:END -->
+</body>
+</html>

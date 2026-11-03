@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap">
 <link rel="stylesheet" href="../style.css">
 </head>
-<body style="--topic:#ec4899">
+<body id="top" class="mode-kid" style="--topic:#ec4899">
 
 <header class="site-header">
   <div class="container nav-wrap">
@@ -22,6 +22,7 @@
       <a href="../index.html#geometry">📐 Geometry</a>
       <a href="../index.html#advanced">🚀 Advanced</a>
     </nav>
+    <a class="mode-switch" href="../adult/pascals-triangle/index.html">🎓 Switch to adult mode</a>
   </div>
 </header>
 
@@ -33,14 +34,14 @@
   </div>
 </section>
 
-<main class="container" id="top">
+<main class="container">
   <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Meet the Triangle — and Its Secret Indexing System">1</a><a href="lesson-2.html" title="Lesson 2: The Choose Function — Deriving C(n, k) = n! / (k!(n − k)!)">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Pascal's Rule — One Identity, Two Proofs">3</a><a href="lesson-4.html" title="Lesson 4: Row Sums — 2ⁿ, Proved Twice, and the Alternating Sum">4</a><a href="lesson-5.html" title="Lesson 5: Diagonals — Triangular Numbers, Tetrahedral Numbers, and the Hockey Stick">5</a><a href="lesson-6.html" title="Lesson 6: The Binomial Theorem — the Triangle in Algebraic Clothes">6</a><a href="lesson-7.html" title="Lesson 7: Grid Paths and Vandermonde — the Triangle as a Map">7</a><a href="lesson-8.html" title="Lesson 8: Probability, Parity, and Primes — Patterns Worth Proving">8</a><a href="lesson-9.html" title="Lesson 9: Watch Out! Common Mistakes (Honors Edition)">9</a><a href="lesson-10.html" title="Lesson 10: Review — The Big Picture">10</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">C(n, k) = C(n − 1, k − 1) + C(n − 1, k)
 This IS the build rule in symbols — and we'll prove it twice:
 once with a story, once with pure algebra.</pre></div>
 <h3>Why this lesson exists</h3>
 <p>So far we've noticed that the triangle's entries match the choose numbers (56 = C(8, 3), 126 = C(9, 4)). But &quot;it worked every time we checked&quot; is not a proof. The real claim is: the choose numbers obey the add-the-two-parents rule. If we prove THAT, then since both machines start with 1s on the edges and follow the same rule, they must agree everywhere — and reading C(n, k) off row n is justified forever.</p>
-<h3>Proof 1 — the committee story (casework)</h3>
+<h3><strong>Proof 1</strong> — the committee story (casework)</h3>
 <p>Question: how many ways to choose a committee of k students from a class of n students? One student, Maya, is special. Every possible committee is exactly one of two types:</p>
 <pre class="math">Type 1 — Maya is ON the committee.
 Then the other k − 1 members come from the remaining n − 1 students:
@@ -51,7 +52,7 @@ C(n − 1, k) committees.</pre>
 <p>Every committee is Type 1 or Type 2, and no committee is both — the cases cover everything without overlap, so the counts add:</p>
 <pre class="math">C(n, k) = C(n − 1, k − 1) + C(n − 1, k)  ∎</pre>
 <p>That's the whole proof — no computation at all. Counting one thing two ways (total vs. cases) is one of the most powerful moves in mathematics.</p>
-<h3>Proof 2 — factorial algebra (every step has a reason)</h3>
+<h3><strong>Proof 2</strong> — factorial algebra (every step has a reason)</h3>
 <pre class="math">Start with the right side and grind it into the left side.</pre>
 <pre class="math">C(n − 1, k − 1) = (n − 1)! / ((k − 1)! · (n − k)!)
         (the formula; note (n − 1) − (k − 1) = n − k)
@@ -82,7 +83,7 @@ Why it works: (n − k) · (n − k − 1)! = (n − k)!.
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.1</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->
