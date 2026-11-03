@@ -34,7 +34,7 @@
 </section>
 
 <main class="container" id="top">
-  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" class="here" aria-current="page" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key idea of this section</p><pre class="math">GCF = shared primes, with the SMALLER supply of each.
 Variables are just new &quot;primes&quot;: GCF(12x²y, 18xy²) = 6xy.</pre></div>
 <p>The greatest common factor of two numbers is the biggest number that divides both exactly. (Its other name is the GCD — greatest common divisor. Same thing, two costumes.) The fingerprint recipe: write both numbers as primes, collect only the primes they SHARE, taking the smaller supply of each:</p>
@@ -42,17 +42,12 @@ Variables are just new &quot;primes&quot;: GCF(12x²y, 18xy²) = 6xy.</pre></div
 GCF(36, 60) = 2² × 3 = 12 ✅</pre>
 <p>(The 5 belongs to 60 alone — not shared, so it stays out.) Three numbers at once? &quot;Shared&quot; just has to mean shared by ALL THREE:</p>
 <pre class="math">24 = 2³ × 3         36 = 2² × 3²        60 = 2² × 3 × 5</pre>
-<p>· The prime 2: supplies are 2³, 2², 2² → smallest is 2²</p>
-<p>· The prime 3: supplies are 3¹, 3², 3¹ → smallest is 3¹</p>
-<p>· The prime 5: missing from 24 and 36 → out!</p>
+<ul class="steps"><li><span class="mk">·</span><div>The prime 2: supplies are 2³, 2², 2² → smallest is 2²</div></li><li><span class="mk">·</span><div>The prime 3: supplies are 3¹, 3², 3¹ → smallest is 3¹</div></li><li><span class="mk">·</span><div>The prime 5: missing from 24 and 36 → out!</div></li></ul>
 <pre class="math">GCF(24, 36, 60) = 2² × 3 = 12 ✅</pre>
 <h3>Variables join the party</h3>
 <p>Here's the honors leap: a variable power like x² is just x × x, and x behaves exactly like an unknown prime. Fingerprints work the same way — smallest supply wins:</p>
 <pre class="math">12x²y = 2² × 3 × x² × y         18xy² = 2 × 3² × x × y²</pre>
-<p>· Prime 2: supplies 2² and 2¹ → take 2¹</p>
-<p>· Prime 3: supplies 3¹ and 3² → take 3¹</p>
-<p>· Prime x: supplies x² and x¹ → take x¹</p>
-<p>· Prime y: supplies y¹ and y² → take y¹</p>
+<ul class="steps"><li><span class="mk">·</span><div>Prime 2: supplies 2² and 2¹ → take 2¹</div></li><li><span class="mk">·</span><div>Prime 3: supplies 3¹ and 3² → take 3¹</div></li><li><span class="mk">·</span><div>Prime x: supplies x² and x¹ → take x¹</div></li><li><span class="mk">·</span><div>Prime y: supplies y¹ and y² → take y¹</div></li></ul>
 <pre class="math">GCF(12x²y, 18xy²) = 2 × 3 × x × y = 6xy ✅</pre>
 <h3>Job 1: factoring out the GCF (distribution in reverse)</h3>
 <p>Distribution says a(b + c) = ab + ac. Read it right-to-left and it becomes FACTORING: pull the shared piece out front. This is one of the most-used moves in all of algebra, and the GCF is the tool that finds the piece.</p>
@@ -82,7 +77,7 @@ divide each term by 6x: 12x² ÷ 6x = 2x    18x ÷ 6x = 3</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

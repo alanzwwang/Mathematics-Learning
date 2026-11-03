@@ -34,7 +34,7 @@
 </section>
 
 <main class="container" id="top">
-  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" class="here" aria-current="page" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">Every number breaks into primes in EXACTLY ONE way.   84 = 2² × 3 × 7
 f(n) = the number of factors of n = (exponent + 1)s multiplied.  f(84) = 12</pre></div>
 <h3>The fingerprint, refreshed</h3>
@@ -46,19 +46,12 @@ f(n) = the number of factors of n = (exponent + 1)s multiplied.  f(84) = 12</pre
 <p>Count the divisions: two 2s, one 3, one 7. So 84 = 2² × 3 × 7. This prime fingerprint is unique — the Fundamental Theorem of Arithmetic guarantees that no other number has the same one, and 84 has no other. (This is why 1 is not allowed to be prime: if it were, 6 = 2 × 3 and 6 = 1⁵ × 2 × 3 would be &quot;different&quot; fingerprints, and the theorem would break.)</p>
 <h3>Exponent laws: the three rules fingerprints run on</h3>
 <p>Since fingerprints are made of powers, let's make the power rules official. Each one is just counting:</p>
-<p>· Multiplying same-base powers — add exponents:  aᵐ × aⁿ = aᵐ⁺ⁿ</p>
-<pre class="math">      2³ × 2² = (2×2×2) × (2×2) = 2⁵   (three 2s, then two more: 3 + 2 = 5)
-· A power of a power — multiply exponents:  (aᵐ)ⁿ = aᵐⁿ
-      (2²)³ = 2² × 2² × 2² = 4 × 4 × 4 = 64 = 2⁶   (three groups of two 2s)
-· Dividing same-base powers — subtract exponents:  aᵐ ÷ aⁿ = aᵐ⁻ⁿ
-      2⁵ ÷ 2² = 32 ÷ 4 = 8 = 2³   (five 2s on top, two cancel below: 5 − 2 = 3)</pre>
+<ul class="steps"><li><span class="mk">·</span><div>Multiplying same-base powers — add exponents:  aᵐ × aⁿ = aᵐ⁺ⁿ <pre class="math">2³ × 2² = (2×2×2) × (2×2) = 2⁵   (three 2s, then two more: 3 + 2 = 5)</pre></div></li><li><span class="mk">·</span><div>A power of a power — multiply exponents:  (aᵐ)ⁿ = aᵐⁿ <pre class="math">(2²)³ = 2² × 2² × 2² = 4 × 4 × 4 = 64 = 2⁶   (three groups of two 2s)</pre></div></li><li><span class="mk">·</span><div>Dividing same-base powers — subtract exponents:  aᵐ ÷ aⁿ = aᵐ⁻ⁿ <pre class="math">2⁵ ÷ 2² = 32 ÷ 4 = 8 = 2³   (five 2s on top, two cancel below: 5 − 2 = 3)</pre></div></li></ul>
 <h3>The factor-counting machine, now with function notation</h3>
 <p>Here is a definition we'll use all lesson long:</p>
 <pre class="math">f(n) = the number of factors of n.   Example: f(7) = 2, because 7 has 1 and 7.</pre>
 <p>This is a FUNCTION: you feed it a number n, and it hands you back one answer. (Function notation f(n) just names the machine f and the input n.) Now, how does the machine compute f(84) without listing anything? Every factor of 84 is built from 84's own primes — that's the only inventory. To build a factor, you make three choices:</p>
-<p>· How many 2s?  0, 1, or 2   → 3 choices</p>
-<p>· How many 3s?  0 or 1       → 2 choices</p>
-<p>· How many 7s?  0 or 1       → 2 choices</p>
+<ul class="steps"><li><span class="mk">·</span><div>How many 2s?  0, 1, or 2   → 3 choices</div></li><li><span class="mk">·</span><div>How many 3s?  0 or 1       → 2 choices</div></li><li><span class="mk">·</span><div>How many 7s?  0 or 1       → 2 choices</div></li></ul>
 <p>Choosing &quot;one 2, no 3s, one 7&quot; builds 2 × 7 = 14 — a factor of 84. Every choice builds a factor, and every factor comes from a choice, so the counts multiply:</p>
 <pre class="math">f(84) = 3 × 2 × 2 = 12</pre>
 <p>Verify by listing: 1, 2, 3, 4, 6, 7, 12, 14, 21, 28, 42, 84. Count them: 12! ✅ The rule in one line: add 1 to each exponent, then multiply. The +1 is the &quot;choose none&quot; option — easy to forget, fatal to skip.</p>
@@ -73,8 +66,7 @@ p² × q:  2² × 3 = 12</pre>
 <p>32 loses, 12 wins. Answer: 12 — check by listing: 1, 2, 3, 4, 6, 12. Six factors ✅. The two-step strategy (factor the COUNT first, then race the shapes) solves every backwards problem in this lesson.</p>
 <h3>Perfect squares: the odd-factor-count theorem</h3>
 <p>When is f(n) ODD? Only when every (exponent + 1) is odd — which means every exponent is even — which means n is a perfect square! Here's the &quot;why&quot; with algebra. Factors come in pairs: whenever d is a factor of n, so is its partner n ÷ d, and the pair multiplies to n. Two cases:</p>
-<p>· n is NOT a square: then d ≠ n ÷ d always (equality would mean d × d = n), so every factor has a DIFFERENT partner → the factors pair up cleanly → f(n) is even.</p>
-<p>· n IS a square, say n = k²: the factor k is its own partner (k × k = n), so one factor sits unpaired while the rest pair off → f(n) is odd.</p>
+<ul class="steps"><li><span class="mk">·</span><div>n is NOT a square: then d ≠ n ÷ d always (equality would mean d × d = n), so every factor has a DIFFERENT partner → the factors pair up cleanly → f(n) is even.</div></li><li><span class="mk">·</span><div>n IS a square, say n = k²: the factor k is its own partner (k × k = n), so one factor sits unpaired while the rest pair off → f(n) is odd.</div></li></ul>
 <p>Example: 36 = 6² has f(36) = (2+1)(2+1) = 9 factors, and 6 pairs with itself. Keep this in your pocket — a certain locker mystery in the challenge problems depends on it.</p>
 <p>One more square trick. Problem: find the smallest k that makes 72 × k a perfect square.</p>
 <pre class="math">72 = 2³ × 3²             fingerprint first
@@ -102,7 +94,7 @@ so supply one more 2:  k = 2</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

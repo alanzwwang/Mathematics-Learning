@@ -18,20 +18,31 @@
   "name": "Mathematics Learning",
   "emoji": "📐",
   "accent": "#4fd1a5",
-  "version": "V.2.9",
-  "previous": "V.2.8",
+  "version": "V.3.0",
+  "previous": "V.2.9",
   "date": "2 November 2026",
-  "lead": "Your math library is now a whole new website!",
+  "lead": "Big update: every topic now has a quiz!",
   "changes": [
-    "NEW!!! A brand-new Mathematics website: all 20 topics are now colourful, kid-friendly web pages",
-    "A new home page with every topic in four groups: Foundations, Algebra, Geometry and Advanced",
-    "Every lesson has its own page, with lesson buttons and Next / Back buttons",
-    "✏️ Your Turn answers now hide behind a 👀 button, so no accidental peeking!",
-    "2 pictures for every topic (40 in all), with their sources",
-    "100 practice problems and an answer key for every topic",
-    "Works on phones and tablets too"
+    "NEW!!! A 🏆 Quiz for every topic: 10 questions each time",
+    "Every quiz is brand-new: the computer makes up fresh questions with new numbers, so there is nothing to memorise",
+    "You only see your score and the right answers AFTER you submit the whole quiz",
+    "Each answer comes with an explanation of how to get it",
+    "Your best score for each topic is saved on your device",
+    "The answer keys are gone from the website, so no more peeking!"
   ],
   "earlier": [
+    {
+      "version": "V.2.9",
+      "items": [
+        "NEW!!! A brand-new Mathematics website: all 20 topics are now colourful, kid-friendly web pages",
+        "A new home page with every topic in four groups: Foundations, Algebra, Geometry and Advanced",
+        "Every lesson has its own page, with lesson buttons and Next / Back buttons",
+        "✏️ Your Turn answers now hide behind a 👀 button, so no accidental peeking!",
+        "2 pictures for every topic (40 in all), with their sources",
+        "100 practice problems for every topic",
+        "Works on phones and tablets too"
+      ]
+    },
     {
       "version": "V.2.8",
       "items": [
@@ -48,13 +59,13 @@
     }
   ],
   "fun": [
-    "195 lessons and 2,000 practice problems in total",
-    "The pictures go from a 20,000-year-old counting bone to the Mandelbrot set",
-    "A \"combination\" lock should really be called a permutation lock. Find out why in Permutations vs Combinations!"
+    "There are 20 quizzes with more than 130 kinds of questions",
+    "Fractions can be typed like 3/4 and negatives like -5",
+    "Get 10 out of 10 for a PERFECT SCORE celebration!"
   ],
   "funTitle": "Fun facts",
-  "tip": "Try every ✏️ Your Turn box with a pencil first, then tap 👀 to check your answers.",
-  "button": "Start learning! ▶"
+  "tip": "Read the lessons and try the practice problems first, then take the quiz. Got some wrong? Read the explanations and try a brand-new quiz!",
+  "button": "Take a quiz! 🏆"
 };
   try {
     var KEY = "whatsNew." + C.id;

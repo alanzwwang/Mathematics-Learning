@@ -34,7 +34,7 @@
 </section>
 
 <main class="container" id="top">
-  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="answers.html" title="Answer Key">✅ Answers</a></nav>
+  <nav class="part-nav" aria-label="Lessons in this topic"><a href="index.html" title="Start here">👋 Start</a><a href="lesson-1.html" title="Lesson 1: Place-Value Algebra + Proving the Divisibility Rules">1</a><a href="lesson-2.html" title="Lesson 2: Prime Hunting — The Square-Root Proof">2</a><a href="lesson-3.html" title="Lesson 3: Fingerprints, Exponent Laws, and the Factor Function f(n)">3</a><a href="lesson-4.html" title="Lesson 4: GCF — Numbers, Variables, and Factoring Polynomials">4</a><a href="lesson-5.html" title="Lesson 5: Euclid's Algorithm — Proven, and Run in Reverse">5</a><a href="lesson-6.html" class="here" aria-current="page" title="Lesson 6: LCM — Variables, Fraction-Clearing, and the Multiplication Trick">6</a><a href="lesson-7.html" title="Lesson 7: Watch Out! Common Mistakes — Honors Edition">7</a><a href="lesson-8.html" title="Lesson 8: Review — The Big Picture">8</a><a href="practice.html" title="Practice Problems">🏋️ Practice</a><a href="quiz.html" title="Quiz">🏆 Quiz</a></nav>
   <article class="lesson"><div class="box key"><p class="box-title">📌 Key ideas of this section</p><pre class="math">LCM = ALL primes, with the BIGGER supply of each.   LCM(12, 18) = 2² × 3² = 36
 The trick: GCF(a, b) × LCM(a, b) = a × b  —  and we can PROVE it.</pre></div>
 <p>The least common multiple of two numbers is the smallest number both divide into. The fingerprint recipe is the opposite of the GCF one: take every prime that appears in EITHER number, with the bigger supply:</p>
@@ -58,10 +58,7 @@ add the tops:             4/(24x) + 3/(24x) = 7/(24x) ✅</pre>
 <p>Take 12 and 18: GCF = 6, LCM = 36. Now:</p>
 <pre class="math">GCF × LCM = 6 × 36 = 216         12 × 18 = 216</pre>
 <p>Equal! And here's WHY it always works, prime by prime. Suppose the prime 2 appears in a with exponent m and in b with exponent n. Then:</p>
-<p>· in the GCF, prime 2 gets exponent min(m, n)  — the smaller supply</p>
-<p>· in the LCM, prime 2 gets exponent max(m, n)  — the bigger supply</p>
-<p>· in the product GCF × LCM, prime 2 gets exponent min(m, n) + max(m, n)  — by the exponent-addition law</p>
-<p>· in the product a × b, prime 2 gets exponent m + n  — same law</p>
+<ul class="steps"><li><span class="mk">·</span><div>in the GCF, prime 2 gets exponent min(m, n)  — the smaller supply</div></li><li><span class="mk">·</span><div>in the LCM, prime 2 gets exponent max(m, n)  — the bigger supply</div></li><li><span class="mk">·</span><div>in the product GCF × LCM, prime 2 gets exponent min(m, n) + max(m, n)  — by the exponent-addition law</div></li><li><span class="mk">·</span><div>in the product a × b, prime 2 gets exponent m + n  — same law</div></li></ul>
 <p>And min(m, n) + max(m, n) = m + n, because the smaller one plus the bigger one is just both of them added. Every prime in sight gets the same exponent on both sides, so:</p>
 <pre class="math">GCF(a, b) × LCM(a, b) = a × b   ∎</pre>
 <p>So if you know any three of GCF, LCM, a, b, you can find the fourth with one multiplication and one division. Warning, though: this trick is for TWO numbers only — Lesson 7 shows it exploding on three.</p>
@@ -111,7 +108,7 @@ LCM(8, 12) = 24, so n − 3 = 24 × k for some whole number k</pre>
     <p><a href="#top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">⬆️ Back to the top</a></p>
   </div>
 </footer>
-<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.2.9</div>
+<div id="page-version" aria-label="Page version" style="position:fixed;left:8px;bottom:6px;z-index:2147483647;pointer-events:none;font:700 11px/1 system-ui,sans-serif;letter-spacing:.5px;color:#fff;background:rgba(0,0,0,.45);padding:3px 7px;border-radius:6px;opacity:.8">V.3.0</div>
 <!-- WHATS-NEW:START -->
 <script src="../whats-new.js" defer></script>
 <!-- WHATS-NEW:END -->

@@ -12,7 +12,7 @@
 const fs = require("fs"), path = require("path");
 
 const SITE = {};
-SITE.VERSION = 'V.2.9'; // tools/whats-new in the alanwang.info repo updates this line
+SITE.VERSION = 'V.3.0'; // tools/whats-new in the alanwang.info repo updates this line
 
 const ROOT = path.resolve(__dirname, "..");
 const T = JSON.parse(fs.readFileSync(path.join(__dirname, "topics.json"), "utf8"));
@@ -22,7 +22,7 @@ const HAS_POPUP = fs.existsSync(path.join(ROOT, "whats-new.js"));
 // ---------- little helpers ----------
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const DECOR = /^\s*[─═━]{3,}\s*$/;
-const LIST = /^(\s{0,3})(\d{1,3}[.)]|\([a-z0-9]{1,3}\)|[a-h]\)|[•●▪◦✓✔☐→*]|[-–])\s+/;
+const LIST = /^(\s{0,3})(\d{1,3}[.)]|\([a-z0-9]{1,3}\)|[a-h]\)|[•●▪◦·✓✔☐→*]|[-–])\s+/;
 const LESSON_EMOJI = ["🚀", "🧩", "🎯", "🔍", "⚡", "🌟", "🛠️", "🎨", "🏗️", "🧪", "🪄", "🎢", "🦉", "🧭"];
 
 function inline(s) {
@@ -63,7 +63,7 @@ function readLesson(file) {
 }
 
 // ---------- turn a section's lines into HTML ----------
-function blocksOf(lines) {
+function blocksOf(lines, wrapped) {
   const out = [];
   let b = [];
   for (const l of lines) {
@@ -71,7 +71,7 @@ function blocksOf(lines) {
     // "Answers:", "✏️ Your Turn" and "📌" always start their own block, even without a blank line before them
     if (b.length && /^(Answers?\b|✏|📌)/.test(l)) { out.push(b); b = []; }
     // a list that starts straight after a normal line becomes its own block
-    if (b.length && LIST.test(l) && !LIST.test(b[0]) && !/^\s{4,}/.test(b[b.length - 1])) { out.push(b); b = []; }
+    if (!wrapped && b.length && LIST.test(l) && !LIST.test(b[0]) && !/^\s{4,}/.test(b[b.length - 1])) { out.push(b); b = []; }
     b.push(l);
   }
   if (b.length) out.push(b);
@@ -92,16 +92,16 @@ function isHeading(text) {
 // Each item: {k:'h'|'p'|'pre'|'list', ...}
 function parseItems(lines, wrapped) {
   const items = [];
-  for (const block of blocksOf(lines)) {
+  for (const block of blocksOf(lines, wrapped)) {
     if (LIST.test(block[0])) {
       const lis = [];
       for (const l of block) {
         const m = l.match(LIST);
-        if (m) lis.push({ marker: m[2], parts: [{ t: "text", s: l.slice(m[0].length).trim() }] });
+        if (m) lis.push({ ci: m[0].length, marker: m[2], parts: [{ t: "text", s: l.slice(m[0].length).trim() }] });
         else {
           const li = lis[lis.length - 1], ind = l.match(/^\s*/)[0].length;
           const last = li.parts[li.parts.length - 1];
-          if (ind >= 8) {
+          if (ind >= 8 && (last.t === "pre" || /\S {2,}\S/.test(l.trim()) || ind >= li.ci + 6)) {
             if (last.t === "pre") last.lines.push(l); else li.parts.push({ t: "pre", lines: [l] });
           } else if (last.t === "text" && wrapped && !/^\s*\(?[a-z0-9]\)/.test(l)) last.s += " " + l.trim();
           else li.parts.push({ t: "text", s: l.trim(), br: true });
@@ -225,12 +225,22 @@ ${HAS_POPUP ? `<!-- WHATS-NEW:START -->\n<script src="${up}whats-new.js" defer><
 `;
 }
 
+// the answer key isn't on the website, so take out the sentences that point to it
+function noAnswerKey(html) {
+  const W = (t) => new RegExp("(?:\\s|<br>)*" + esc(t).replace(/[.*+?^${}()|[\]\\]/g, "\\$&").replace(/ /g, "(?:\\s|<br>)+"));
+  for (const t of ["Don't peek at the answer key until you've tried!",
+    "(A full model solution appears in the answer key — your numbers will differ, and that is the point.)",
+    "(A worked sample is in the answer key — but yours can be completely different!)"]) html = html.replace(W(t), "");
+  if (/answer key/i.test(html)) throw new Error("practice page still mentions the answer key");
+  return html;
+}
+
 // ---------- build one topic ----------
 function partInfo(sec, n) {
   const t = sec.title;
   if (/^Welcome/.test(t)) return { file: "index.html", emoji: "👋", chip: "👋 Start", short: "Start here", kind: "start" };
   if (/^Practice/.test(t)) return { file: "practice.html", emoji: "🏋️", chip: "🏋️ Practice", short: "Practice Problems", kind: "practice" };
-  if (/Answer Key/.test(t)) return { file: "answers.html", emoji: "✅", chip: "✅ Answers", short: "Answer Key", kind: "answers" };
+  if (/Answer Key/.test(t)) return { file: "quiz.html", emoji: "🏆", chip: "🏆 Quiz", short: "Quiz", kind: "quiz" };
   const m = t.match(/^Lesson (\d+):\s*(.*)$/);
   const num = m ? +m[1] : n;
   const name = m ? m[2] : t;
@@ -244,6 +254,10 @@ function buildTopic(topic) {
   const lessons = parts.filter((p) => p.kind === "lesson");
   const dir = path.join(ROOT, topic.slug);
   fs.mkdirSync(dir, { recursive: true });
+  for (const old of fs.readdirSync(dir)) if (old.endsWith(".html")) fs.unlinkSync(path.join(dir, old)); // no leftover pages (like the old answers.html)
+  // The answer key is NOT published (no cheating!). Only its closing 🎉 cheer is kept, at the end of the practice page.
+  const quizPart = parts.find((p) => p.kind === "quiz");
+  const cheer = quizPart ? quizPart.sec.lines.filter((l) => /^🎉/.test(l)) : [];
   const subtitle = (L.title.split(/\s+—\s+/)[1] || "A Complete Lesson").trim();
   const group = T.groups.find((g) => g.id === topic.group);
   const pics = (PICS[topic.slug] || []).map((p, i) => ({ ...p, ...(topic.pics[i] || {}), artist: T.artists[p.img] || p.artist }));
@@ -254,21 +268,29 @@ function buildTopic(topic) {
   parts.forEach((p, idx) => {
     const prev = parts[idx - 1], next = parts[idx + 1];
     const heading = p.kind === "lesson" ? `${p.emoji} ${p.name}` : p.kind === "start" ? `${topic.emoji} ${topic.name}` : `${p.emoji} ${p.short}`;
-    const kicker = p.kind === "lesson" ? `📖 Lesson ${p.num} of ${lessons.length}` : p.kind === "start" ? `${group.emoji} ${group.name} · ${esc(subtitle)}` : p.kind === "practice" ? "💪 100 problems to try" : "🏁 The finish line!";
+    const kicker = p.kind === "lesson" ? `📖 Lesson ${p.num} of ${lessons.length}` : p.kind === "start" ? `${group.emoji} ${group.name} · ${esc(subtitle)}` : p.kind === "practice" ? "💪 100 problems to try" : "🎲 10 brand-new questions every time!";
     let main = "";
     if (p.kind === "start") {
-      main += `<div class="welcome">${sectionHTML(p.sec.lines, L.wrapped)}</div>`;
+      main += `<div class="welcome">${sectionHTML(p.sec.lines, L.wrapped).replace(/,?\s*(?:—\s*)?with a (?:full step-by-step|fully worked) answer key/g, ", then take the 🏆 Quiz")}</div>`;
       main += '<h2>📸 Pictures</h2><div class="picture-row">' + pics.map((pic, i) => `
     <figure class="picture">
       <img src="../${pic.img}" alt="${esc(pic.alt || "")}" loading="lazy">
       <figcaption><span class="photo-badge">📷 Picture ${i + 1}</span><br>${esc(pic.caption || "")} <a href="#sources">See source ↓</a></figcaption>
     </figure>`).join("") + "</div>";
       main += '<h2>🗺️ Your lesson map</h2><div class="lesson-list">' + parts.slice(1).map((q) => `
-    <a class="lesson-card" href="${q.file}"><span class="lc-emoji">${q.emoji}</span><span><span class="lc-num">${esc(q.short)}</span><br><strong>${esc(q.kind === "lesson" ? q.name : q.kind === "practice" ? "100 problems to try" : "Check your work")}</strong></span></a>`).join("") + "</div>";
+    <a class="lesson-card" href="${q.file}"><span class="lc-emoji">${q.emoji}</span><span><span class="lc-num">${esc(q.short)}</span><br><strong>${esc(q.kind === "lesson" ? q.name : q.kind === "practice" ? "100 problems to try" : "Test yourself: new questions every time!")}</strong></span></a>`).join("") + "</div>";
       main += '<section class="sources" id="sources"><h2>📚 Picture Sources</h2><ol>' + pics.map((pic, i) =>
         `<li><strong>Picture ${i + 1}</strong> · ${esc(pic.title.replace(/\.[a-z]+$/i, ""))}. By ${esc(pic.artist || "unknown")}. ${esc(/public domain/i.test(pic.license) ? "Public domain" : pic.license)}. From Wikimedia Commons: <a href="${esc(pic.page)}">${esc(decodeURI(pic.page))}</a></li>`).join("") + "</ol></section>";
+    } else if (p.kind === "quiz") {
+      main += `<div class="quiz-intro"><p>🏆 Ready to test yourself? This quiz has <strong>10 questions</strong> about ${esc(topic.name)}.</p>
+    <p>🎲 Every quiz is made up fresh by the computer, with new numbers each time, so there's nothing to memorise. You just have to know the math!</p>
+    <p>📝 Answer every question, then press <strong>Submit</strong> at the bottom. You'll see your score and the right answers only <em>after</em> you submit.</p></div>
+  <div id="quiz" data-topic="${topic.slug}"><noscript><p>The quiz needs JavaScript turned on.</p></noscript></div>
+  <script src="../quiz.js" defer></script>`;
     } else {
-      main += `<article class="lesson">${sectionHTML(p.sec.lines, L.wrapped)}</article>`;
+      let html = sectionHTML(p.kind === "practice" ? p.sec.lines.concat([""], cheer) : p.sec.lines, L.wrapped);
+      if (p.kind === "practice") html = noAnswerKey(html);
+      main += `<article class="lesson">${html}</article>`;
     }
     const pager = `<nav class="pager" aria-label="Next and previous">${prev ? `<a class="btn ghost" href="${prev.file}">⬅️ ${esc(prev.short)}</a>` : `<a class="btn ghost" href="../index.html">🏠 All topics</a>`}${next ? `<a class="btn" href="${next.file}">${esc(next.kind === "lesson" ? next.short : next.short)} ➡️</a>` : `<a class="btn" href="../index.html">🎉 Pick a new topic!</a>`}</nav>`;
     const body = `<section class="hero topic-hero">
@@ -299,7 +321,7 @@ function buildHome(built) {
         <span class="tc-body">
           <span class="tc-title">${t.emoji} ${esc(t.name)}</span>
           <span class="tc-blurb">${esc(t.blurb)}</span>
-          <span class="tc-meta">📖 ${t.lessons} lessons · 🏋️ 100 problems</span>
+          <span class="tc-meta">📖 ${t.lessons} lessons · 🏋️ 100 problems · 🏆 quiz</span>
         </span>
       </a>`).join("");
     return `
@@ -315,7 +337,7 @@ function buildHome(built) {
   <div class="container">
     <p class="float-emoji" aria-hidden="true">➕ 🍕 📐 🎲 ♾️ 🔺 🌀 📈</p>
     <h1>📐 Mathematics Learning 🧮</h1>
-    <p>From counting on an abacus to spinning numbers with <em>i</em>: explore ${built.length} math topics, ${total} lessons and ${built.length * 100} practice problems!</p>
+    <p>From counting on an abacus to spinning numbers with <em>i</em>: explore ${built.length} math topics, ${total} lessons, ${built.length * 100} practice problems and never-ending quizzes!</p>
     <a class="btn big" href="#foundations">🚀 Start exploring</a>
   </div>
 </section>
@@ -327,7 +349,7 @@ function buildHome(built) {
     <div class="how-step"><span>1️⃣</span><p><strong>Pick a topic</strong> below. Each one has its own pages, just like a book.</p></div>
     <div class="how-step"><span>2️⃣</span><p><strong>Read the lessons</strong> in order. Grab a pencil and paper for every example!</p></div>
     <div class="how-step"><span>3️⃣</span><p><strong>Try the ✏️ Your Turn</strong> boxes, then tap 👀 to check your answers.</p></div>
-    <div class="how-step"><span>4️⃣</span><p><strong>Finish with 🏋️ 100 practice problems</strong> and the ✅ answer key.</p></div>
+    <div class="how-step"><span>4️⃣</span><p><strong>Practise with 🏋️ 100 problems</strong>, then take the 🏆 Quiz. It has new questions every time!</p></div>
   </div>
 ${groups}
 </main>`;

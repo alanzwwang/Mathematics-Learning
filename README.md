@@ -1,20 +1,20 @@
 # 📐 Mathematics Learning
 
-**Version:** V.2.9
+**Version:** V.3.0
 
 <!-- WHATS-NEW:README:START -->
-## 🆕 What's New in V.2.9
+## 🆕 What's New in V.3.0
 
-- NEW!!! A brand-new Mathematics website: all 20 topics are now colourful, kid-friendly web pages
-- A new home page with every topic in four groups: Foundations, Algebra, Geometry and Advanced
-- Every lesson has its own page, with lesson buttons and Next / Back buttons
-- ✏️ Your Turn answers now hide behind a 👀 button, so no accidental peeking!
-- 2 pictures for every topic (40 in all), with their sources
-- 100 practice problems and an answer key for every topic
-- Works on phones and tablets too
+- NEW!!! A 🏆 Quiz for every topic: 10 questions each time
+- Every quiz is brand-new: the computer makes up fresh questions with new numbers, so there is nothing to memorise
+- You only see your score and the right answers AFTER you submit the whole quiz
+- Each answer comes with an explanation of how to get it
+- Your best score for each topic is saved on your device
+- The answer keys are gone from the website, so no more peeking!
 
 ### Earlier updates
 
+- **V.2.9:** NEW!!! A brand-new Mathematics website: all 20 topics are now colourful, kid-friendly web pages, A new home page with every topic in four groups: Foundations, Algebra, Geometry and Advanced, Every lesson has its own page, with lesson buttons and Next / Back buttons, ✏️ Your Turn answers now hide behind a 👀 button, so no accidental peeking!, 2 pictures for every topic (40 in all), with their sources, 100 practice problems for every topic, Works on phones and tablets too
 - **V.2.8:** NEW!!! This What's New pop-up: every update now tells you what changed
 - **V.2.7:** All 20 lessons proofread: math slips, wording and references fixed, Version number shown on the home page, New README
 

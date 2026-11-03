@@ -184,3 +184,33 @@ details[open] summary { background: var(--mint); }
   .float-emoji { animation: none; }
   .topic-card, .btn, .picture img { transition: none; }
 }
+
+/* ---------- 🏆 quiz ---------- */
+.quiz-intro { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow); padding: 14px 24px; margin-bottom: 18px; }
+.quiz-intro p { margin: 8px 0; }
+.qz-tip, .qz-best { background: #e6f4ff; border-radius: 12px; padding: 10px 14px; margin: 0 0 12px; font-size: 16px; }
+.qz-best { background: #fff4cc; }
+.qz-list { list-style: none; padding: 0; margin: 0; }
+.qz-q { background: var(--card); border: 3px solid var(--line); border-radius: var(--radius); padding: 14px 20px; margin: 0 0 14px; }
+.qz-num { font: 700 14px/1 var(--head); color: color-mix(in srgb, var(--topic) 80%, #000); margin: 0 0 8px; }
+.qz-text { font-size: 18px; margin-bottom: 10px; }
+.qz-label { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-weight: 700; }
+.qz-in { font: 600 18px/1.2 var(--body); padding: 9px 12px; border: 2px solid var(--line); border-radius: 10px; width: min(260px, 100%); }
+.qz-in:focus { outline: 3px solid color-mix(in srgb, var(--topic) 40%, #fff); border-color: var(--topic); }
+.qz-opts { display: grid; gap: 8px; }
+.qz-opt { display: flex; gap: 10px; align-items: center; padding: 9px 12px; border: 2px solid var(--line); border-radius: 12px; cursor: pointer; }
+.qz-opt:hover { border-color: var(--topic); }
+.qz-opt input { width: 18px; height: 18px; accent-color: var(--topic); }
+.qz-mat, .qz-mats pre { font: 16px/1.5 var(--mono); background: #f6f3ff; border-radius: 10px; padding: 8px 12px; display: inline-block; margin: 6px 12px 6px 4px; }
+.qz-mats { display: flex; flex-wrap: wrap; align-items: center; }
+.qz-warn { background: #fff1e6; border: 2px solid #ffb366; border-radius: 12px; padding: 10px 14px; font-weight: 700; }
+.qz-actions { text-align: center; margin: 18px 0; }
+.qz-submit { font-size: 20px; padding: 15px 26px; }
+.qz-right { border-color: #34c77b; background: #effcf4; }
+.qz-wrong { border-color: #ff8a8a; background: #fff3f3; }
+.qz-correct-opt { border-color: #34c77b; background: #dff7e9; }
+.qz-result p { margin: 8px 0 0; }
+.qz-why { color: var(--soft-ink); }
+.qz-score { text-align: center; background: linear-gradient(90deg, #fff2c2, #ffe1f0); border-radius: var(--radius); padding: 18px; margin: 0 0 18px; }
+.qz-big { font: 700 28px/1.2 var(--head); margin: 0 0 6px; }
+.qz-score { scroll-margin-top: 90px; }
